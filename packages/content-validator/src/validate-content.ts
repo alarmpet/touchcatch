@@ -15,6 +15,7 @@ import {
   canonicalJsonSha256,
   containsDisallowedControl,
   normalizeFinalAnswer,
+  parseContentAssetOrigins,
   privateGameSolutionSchema,
   publicGameContentSchema,
   rightsManifestSetSchema,
@@ -42,13 +43,7 @@ const workspaceRoot = resolve(fileURLToPath(new URL('../../..', import.meta.url)
 function configuredAssetOrigins(): readonly string[] {
   const configured = process.env.CONTENT_ASSET_ORIGINS?.split(',').map((value) => value.trim()).filter(Boolean);
   if (configured?.length) {
-    for (const origin of configured) {
-      const parsed = new URL(origin);
-      if (parsed.protocol !== 'https:' || parsed.origin !== origin || parsed.pathname !== '/' || parsed.port !== '') {
-        throw new Error('CONTENT_ASSET_ORIGINS must contain comma-separated HTTPS origins without paths');
-      }
-    }
-    return configured;
+    return parseContentAssetOrigins(configured.join(','));
   }
   if (process.env.NODE_ENV === 'production') throw new Error('CONTENT_ASSET_ORIGINS is required in production');
   return ['https://cdn.spot-learn.test'];

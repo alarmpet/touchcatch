@@ -29,9 +29,9 @@ const assetSchema = {
   properties: {
     url: { type: 'string', format: 'uri', minLength: 1, maxLength: 2048 },
     sha256: { type: 'string', pattern: sha256Pattern },
-    encodedBytes: { type: 'integer', minimum: 1, maximum: 8388608 },
-    width: { type: 'integer', minimum: 1, maximum: 4096 },
-    height: { type: 'integer', minimum: 1, maximum: 4096 },
+    encodedBytes: { type: 'integer', minimum: 1, maximum: ASSET_PUBLISH_LIMITS_V1.maxEncodedBytes },
+    width: { type: 'integer', minimum: 1, maximum: ASSET_PUBLISH_LIMITS_V1.maxWidth },
+    height: { type: 'integer', minimum: 1, maximum: ASSET_PUBLISH_LIMITS_V1.maxHeight },
     mimeType: { enum: ['image/png', 'image/jpeg', 'image/webp'] },
   },
 } as const;
@@ -323,7 +323,3 @@ export type ContentValidationResult =
 
 // Task 5 owns only the content contract. Future Task 3/4 implementations must import
 // these limits and types instead of declaring a second private or wire shape.
-export const CONTENT_PREREQUISITE_STATUS = {
-  task3MatchContractImplemented: false,
-  task4WireContractImplemented: false,
-} as const;

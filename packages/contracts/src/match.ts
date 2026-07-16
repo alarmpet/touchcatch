@@ -2,6 +2,12 @@ import type { PrivateGameSolutionV1 } from './content.js';
 import type { RulesetV1 } from './rules.js';
 export type MatchPhase='WAITING_FOR_ASSETS'|'COUNTDOWN'|'PLAYING'|'FINAL_RUSH'|'SETTLING'|'TIEBREAK_EVAL'|'SUDDEN_DEATH'|'FINISHED'|'CANCELLED';
 export type MatchEndReason='SCORE_TARGET'|'TIMEOUT_TIEBREAK'|'SUDDEN_DEATH'|'DRAW'|'FORFEIT'|'NO_CONTEST_ASSET_LOAD'|'NO_CONTEST';
+export const MATCH_DB_PROJECTION_V1 = {
+ phases:['WAITING_FOR_ASSETS','COUNTDOWN','PLAYING','FINAL_RUSH','SETTLING','TIEBREAK_EVAL','SUDDEN_DEATH','FINISHED','CANCELLED'],
+ endReasons:['SCORE_TARGET','TIMEOUT_TIEBREAK','SUDDEN_DEATH','DRAW','FORFEIT','NO_CONTEST_ASSET_LOAD','NO_CONTEST'],
+ winnerRequired:['SCORE_TARGET','TIMEOUT_TIEBREAK','SUDDEN_DEATH','FORFEIT'],
+ winnerForbidden:['DRAW','NO_CONTEST_ASSET_LOAD','NO_CONTEST'],
+} as const satisfies {phases:readonly MatchPhase[];endReasons:readonly MatchEndReason[];winnerRequired:readonly MatchEndReason[];winnerForbidden:readonly MatchEndReason[]};
 export type ExpectedMatchAssetV1={side:'A'|'B';url:string;sha256:string;encodedBytes:number;width:number;height:number;mimeType:'image/png'|'image/webp'|'image/jpeg'};
 export type MatchRandomScheduleV1={wordHunts:readonly [{kind:'NORMAL';missionId:string;startsAfterMs:number;endsAfterMs:number},{kind:'NORMAL';missionId:string;startsAfterMs:number;endsAfterMs:number},{kind:'SPECIAL';missionId:string;startsAfterMs:number;endsAfterMs:number}];hintRevealOrder:ReadonlyArray<number>;suddenDeathObjectiveId:string};
 export type PinnedMatchContentManifestV1={contentRevisionId:string;contentLanguage:'ko'|'en'|'ja';publicContentHash:string;privateSolutionHash:string;assetPolicyVersion:'1.0.0';expectedAssets:readonly [ExpectedMatchAssetV1,ExpectedMatchAssetV1]};

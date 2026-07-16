@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 import { Pool, type PoolClient } from 'pg';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { validateFixtureFile } from '../../packages/content-validator/src/validate-content.js';
+import { parseContentAssetOrigins } from '../../packages/contracts/src/integration-evidence.js';
 
 function localDatabaseUrl(): string {
   const explicit = process.env.TEST_DATABASE_URL;
@@ -80,6 +81,7 @@ beforeAll(async () => {
     )).rejects.toThrow();
     await publisher.query('set role deployment_role');
     await expect(publisher.query('select * from private.game_content_solutions')).rejects.toThrow();
+    await expect(publisher.query("insert into public.game_content_revisions(content_revision_id) values (gen_random_uuid())")).rejects.toThrow();
     await publisher.query(
       'select private.publish_content_revision_v1($1,$2,$3,$4,$5,$6,$7)',
       [
@@ -108,6 +110,9 @@ beforeAll(async () => {
     await reader.query('reset role').catch(() => undefined);
     reader.release();
   }
+  const configuredOrigins = parseContentAssetOrigins(process.env.CONTENT_ASSET_ORIGINS ?? 'https://cdn.spot-learn.test');
+  const storedOrigins = await admin.query<{ origin: string }>('select origin from private.content_asset_origins order by origin');
+  expect(storedOrigins.rows.map((row) => row.origin)).toEqual(configuredOrigins);
   await admin.query(
     `insert into public.matches(id,content_revision_id,status,server_version,ruleset_version,ruleset_hash,engine_version,protocol_version,experiment_variant)
      values ($1,$2,'WAITING_FOR_ASSETS','test','1.0.0',repeat('c',64),'1.0.0','1.0.0','CONTROL')`,

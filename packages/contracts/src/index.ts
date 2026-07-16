@@ -12,3 +12,5 @@ export * from './attempt-limiter.js';
 export * from './delivery-policy.js';
 export * from './rest-idempotency.js';
 export * from './projection.js';
+export * from './integration-evidence.js';
+export * from './quarantine.js';
