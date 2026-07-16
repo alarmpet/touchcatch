@@ -1,6 +1,7 @@
 import { Ajv2020, type ErrorObject } from 'ajv/dist/2020.js';
 import schema from '../../../schemas/ruleset.schema.json' with { type: 'json' };
-import { canonicalJsonSha256 } from './canonical-json.js';
+import frozenRuleset from '../../../config/ruleset.v1.json' with { type: 'json' };
+import { canonicalJson, canonicalJsonSha256 } from './canonical-json.js';
 import type { RulesetV1 } from './rules.js';
 
 const validate = new Ajv2020({ strict: true, allErrors: true }).compile(schema);
@@ -28,6 +29,7 @@ export function parseRuleset(value: unknown): RulesetV1 {
   invariant(first.spawnWindowMs[0] >= 0 && first.spawnWindowMs[0] < first.spawnWindowMs[1] && first.spawnWindowMs[1] <= second.spawnWindowMs[0] && second.spawnWindowMs[0] < second.spawnWindowMs[1], 'SCHEDULE_WINDOWS', '/wordHuntSchedule');
   invariant(first.spawnWindowMs[1] + rules.time.wordHuntMs <= second.spawnWindowMs[0] && second.spawnWindowMs[1] + rules.time.wordHuntMs <= special.spawnAtMs, 'SCHEDULE_OVERLAP', '/wordHuntSchedule');
   invariant(special.spawnAtMs === rules.time.finalRushStartsAtMs, 'SPECIAL_SPAWN', '/wordHuntSchedule/2/spawnAtMs');
+  invariant(canonicalJson(rules) === canonicalJson(frozenRuleset), 'FROZEN_VALUE', '/');
   return rules;
 }
 
