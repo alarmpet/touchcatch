@@ -253,8 +253,11 @@ begin
      or (select count(*) from jsonb_array_elements(requested_private_solution->'wordHunts') item where item->>'kind'='SPECIAL') <> 1
      or (select count(distinct item->>'objectiveId') from jsonb_array_elements(requested_private_solution->'differences') item) <> 10
      or (select count(distinct item->>'missionId') from jsonb_array_elements(requested_private_solution->'wordHunts') item) <> 3
+  then
+    raise exception using errcode = '22023', message = 'PRIVATE_CONTENT_VALUE_INVALID';
+  end if;
   -- END GENERATED RULESET CONTENT PREDICATES
-     or not (requested_private_solution->'suddenDeath') ?& array['objectiveId','hitboxes']
+  if not (requested_private_solution->'suddenDeath') ?& array['objectiveId','hitboxes']
      or not (requested_private_solution->'finalChallenge') ?& array['canonicalAnswer','aliases','hintUnits','meaning']
      or jsonb_typeof(requested_private_solution#>'{finalChallenge,meaning,options}') <> 'array'
      or jsonb_array_length(requested_private_solution#>'{finalChallenge,meaning,options}') <> 3

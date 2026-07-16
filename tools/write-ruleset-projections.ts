@@ -23,6 +23,9 @@ export function renderRulesetProjection(): string {
     "     or (select count(*) from jsonb_array_elements(requested_private_solution->'wordHunts') item where item->>'kind'='SPECIAL') <> 1",
     `     or (select count(distinct item->>'objectiveId') from jsonb_array_elements(requested_private_solution->'differences') item) <> ${differences}`,
     `     or (select count(distinct item->>'missionId') from jsonb_array_elements(requested_private_solution->'wordHunts') item) <> ${content.wordHunts}`,
+    '  then',
+    "    raise exception using errcode = '22023', message = 'PRIVATE_CONTENT_VALUE_INVALID';",
+    '  end if;',
     end,
   ].join('\n');
 }
@@ -46,11 +49,26 @@ function assertNoCompetingPredicates(outside: string): void {
   if (patterns.some((pattern) => pattern.test(active))) throw new Error('RULESET_PROJECTION_COMPETING_PREDICATE');
 }
 
+function publishingFunctionRange(migration: string): { start: number; finish: number } {
+  const signature = 'create or replace function private.publish_content_revision_v1(';
+  const start = migration.indexOf(signature);
+  const finish = migration.indexOf('alter function private.publish_content_revision_v1', start);
+  if (start < 0 || finish < 0 || migration.indexOf(signature, start + 1) >= 0) throw new Error('RULESET_PROJECTION_FUNCTION_BOUNDARY');
+  return { start, finish };
+}
+
 export async function checkRulesetProjection(_unused?: string, migrationOverride?: string): Promise<void> {
   const migration = migrationOverride ?? await readFile(migrationPath, 'utf8');
   const { start, finish } = markerRange(migration);
+  const ownedFunction = publishingFunctionRange(migration);
+  if (start < ownedFunction.start || finish > ownedFunction.finish) throw new Error('RULESET_PROJECTION_FUNCTION_BOUNDARY');
   if (migration.slice(start, finish) !== renderRulesetProjection()) throw new Error('RULESET_PROJECTION_BYTE_DRIFT');
-  assertNoCompetingPredicates(migration.slice(0, start) + migration.slice(finish));
+  const before = migration.slice(0, start);
+  const after = migration.slice(finish);
+  if (!/  end if;\r?\n$/.test(before) || !/^\r?\n  if not \(requested_private_solution->'suddenDeath'\)/.test(after)) {
+    throw new Error('RULESET_PROJECTION_ADJACENCY');
+  }
+  assertNoCompetingPredicates(migration.slice(ownedFunction.start, start) + migration.slice(finish, ownedFunction.finish));
 }
 
 async function writeProjection(): Promise<void> {

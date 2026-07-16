@@ -20,6 +20,16 @@ describe('generated ruleset DB projection', () => {
   it('rejects duplicate markers and competing active predicates', async () => {
     const migration = await readFile(new URL('../../supabase/migrations/202607150002_content_security.sql', import.meta.url), 'utf8');
     await expect(checkRulesetProjection(undefined, `${migration}\n  -- BEGIN GENERATED RULESET CONTENT PREDICATES`)).rejects.toThrow('RULESET_PROJECTION_MARKERS');
-    await expect(checkRulesetProjection(undefined, `${migration}\nif jsonb_array_length(requested_private_solution->'differences') <> 10 then null; end if;`)).rejects.toThrow('RULESET_PROJECTION_COMPETING_PREDICATE');
+    const competing = migration.replace(
+      "  if not requested_public_content ?& array",
+      "  if jsonb_array_length(requested_private_solution->'differences') <> 10 then null; end if;\n  if not requested_public_content ?& array",
+    );
+    await expect(checkRulesetProjection(undefined, competing)).rejects.toThrow('RULESET_PROJECTION_COMPETING_PREDICATE');
+  });
+
+  it('rejects Boolean adjacency tampering at either ownership boundary', async () => {
+    const migration = await readFile(new URL('../../supabase/migrations/202607150002_content_security.sql', import.meta.url), 'utf8');
+    await expect(checkRulesetProjection(undefined, migration.replace('  -- BEGIN GENERATED', '  and false\n  -- BEGIN GENERATED'))).rejects.toThrow('RULESET_PROJECTION_ADJACENCY');
+    await expect(checkRulesetProjection(undefined, migration.replace('  -- END GENERATED RULESET CONTENT PREDICATES', '  -- END GENERATED RULESET CONTENT PREDICATES\n  or true'))).rejects.toThrow('RULESET_PROJECTION_ADJACENCY');
   });
 });
