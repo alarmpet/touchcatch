@@ -1,10 +1,10 @@
 import { expect,it } from 'vitest';
-import type { MatchEndReason, MatchStateV1 } from '../../contracts/src/match.js';
-import type { RulesetV1 } from '../../contracts/src/rules.js';
+import type { MatchEndReason } from '../../contracts/src/match.js';
 import { derivePlayerInputState, terminalPhaseForEndReason } from './input-projection.js';
 it('derives rate and reconnect overlays without mutating state',()=>{
- const state={phase:'PLAYING',startedAtMs:1000,players:[{playerId:'p1',tapRateWindow:{windowIndex:1,acceptedCount:8},answerUntilMs:null,finalAnswerStatus:'NOT_SUBMITTED'}],activeMission:null,meaningQuizzes:[],finalChallenge:{unlockedAtMs:1}} as unknown as MatchStateV1;
- const rules={limits:{maxBoardTapsPerSecond:8},time:{wordHuntRevealMs:1200}} as unknown as RulesetV1;
+ const player={playerId:'p1',assetLoadStatus:'READY' as const,assetFailure:null,assetAttestation:null,score:0,wrongFinalAttempts:0,hintCredits:0,revealedHintIndexes:[],publicPattern:null,finalAnswerStatus:'NOT_SUBMITTED' as const,meaningCorrect:null,answerUntilMs:null,tapRateWindow:{windowIndex:1,acceptedCount:8}};
+ const state={phase:'PLAYING' as const,startedAtMs:1000,players:[player,player] as const,activeMission:null,meaningQuizzes:[],finalChallenge:{unlockedAtMs:1,unlockSource:'TIME' as const}};
+ const rules={limits:{maxBoardTapsPerSecond:8},time:{wordHuntRevealMs:1200}};
  expect(derivePlayerInputState(state,'p1',2000,rules,'CONNECTED').board).toBe('RATE_LIMITED');
  expect(derivePlayerInputState(state,'p1',3000,rules,'RECONNECTING').overlay).toBe('RECONNECTING');
 });

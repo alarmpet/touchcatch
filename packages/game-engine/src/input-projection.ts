@@ -3,7 +3,9 @@ import type { RulesetV1 } from '../../contracts/src/rules.js';
 export type PlayerInputState={board:'ENABLED'|'RATE_LIMITED'|'DISABLED';answer:'LOCKED'|'ENABLED'|'COMPLETED';overlay:'NONE'|'WORD_HUNT_REVEAL'|'MEANING_QUIZ'|'RECONNECTING'};
 const TERMINAL_PHASE={SCORE_TARGET:'FINISHED',TIMEOUT_TIEBREAK:'FINISHED',SUDDEN_DEATH:'FINISHED',DRAW:'FINISHED',FORFEIT:'FINISHED',NO_CONTEST_ASSET_LOAD:'CANCELLED',NO_CONTEST:'CANCELLED'} as const satisfies Record<import('../../contracts/src/match.js').MatchEndReason,'FINISHED'|'CANCELLED'>;
 export function terminalPhaseForEndReason(reason:import('../../contracts/src/match.js').MatchEndReason){return TERMINAL_PHASE[reason];}
-export function derivePlayerInputState(state:MatchStateV1,playerId:string,now:number,rules:RulesetV1,connection:'CONNECTED'|'RECONNECTING'):PlayerInputState {
+type ProjectionState=Pick<MatchStateV1,'players'|'meaningQuizzes'|'activeMission'|'startedAtMs'|'phase'|'finalChallenge'>;
+type ProjectionRules={time:Pick<RulesetV1['time'],'wordHuntRevealMs'>;limits:Pick<RulesetV1['limits'],'maxBoardTapsPerSecond'>};
+export function derivePlayerInputState(state:ProjectionState,playerId:string,now:number,rules:ProjectionRules,connection:'CONNECTED'|'RECONNECTING'):PlayerInputState {
  const p=state.players.find(x=>x.playerId===playerId);if(!p)throw Error('not a participant');
  const quiz=state.meaningQuizzes.some(q=>q.playerId===playerId&&!q.submitted&&now<q.endsAtMs);
  const reveal=!!state.activeMission&&now>=state.activeMission.startedAtMs&&now<state.activeMission.startedAtMs+rules.time.wordHuntRevealMs;
