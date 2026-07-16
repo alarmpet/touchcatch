@@ -1,0 +1,3 @@
+export type DeliveryAction='APPLY_EVENT'|'IGNORE_STALE'|'REQUEST_REPLAY'|'REPLACE_SNAPSHOT';
+export function decideDelivery(c:{lastEventSeq:number;stateRevision:number},i:{kind:'EVENT';eventSeq:number;stateRevision:number}|{kind:'REPLAY_UNAVAILABLE'}|{kind:'SNAPSHOT';lastEventSeq:number;stateRevision:number}):DeliveryAction{if(i.kind==='REPLAY_UNAVAILABLE'||i.kind==='SNAPSHOT')return'REPLACE_SNAPSHOT';if(i.eventSeq<=c.lastEventSeq)return'IGNORE_STALE';if(i.eventSeq!==c.lastEventSeq+1||i.stateRevision<c.stateRevision)return'REQUEST_REPLAY';return'APPLY_EVENT'}
+export function decideReconnect(elapsedMs:number):'RESUME'|'FORFEIT'{return elapsedMs<15000?'RESUME':'FORFEIT'}
