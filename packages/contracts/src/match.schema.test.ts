@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseMatchCommandV1 } from './match.schema';
+import { parseMatchCommandV1 } from './match.schema.js';
 
 describe('match command schema', () => {
   it('accepts a namespaced player command and rejects a future revision shape', () => {
