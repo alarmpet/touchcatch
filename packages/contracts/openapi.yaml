@@ -1,10 +1,5 @@
 openapi: 3.1.0
-info:
-  {
-    title: TouchCatch API,
-    version: 1.0.0,
-    license: { name: Proprietary, identifier: LicenseRef-Proprietary },
-  }
+info: { title: TouchCatch API, version: 1.0.0, license: { name: Proprietary, identifier: LicenseRef-Proprietary } }
 servers: [{ url: https://api.example.invalid }]
 security: [{ bearerAuth: [] }]
 paths:
@@ -12,240 +7,147 @@ paths:
     get:
       operationId: getMe
       summary: Get the authenticated profile
-      responses:
-        {
-          "200": { $ref: "#/components/responses/Ok" },
-          "401": { $ref: "#/components/responses/Error" },
-        }
+      responses: { "200": { $ref: "#/components/responses/MeResponse" }, "401": { $ref: "#/components/responses/MeError" } }
   /v1/pets:
     get:
       operationId: listPets
       summary: List owned pets
       parameters:
         - { name: cursor, in: query, schema: { type: string, maxLength: 512 } }
-        - {
-            name: limit,
-            in: query,
-            schema: { type: integer, minimum: 1, maximum: 100, default: 20 },
-          }
-      responses:
-        {
-          "200": { $ref: "#/components/responses/Ok" },
-          "401": { $ref: "#/components/responses/Error" },
-        }
+        - { name: limit, in: query, schema: { type: integer, minimum: 1, maximum: 100, default: 20 } }
+      responses: { "200": { $ref: "#/components/responses/PetsResponse" }, "401": { $ref: "#/components/responses/PetsError" } }
   /v1/pets/{id}/select:
     post:
       operationId: selectPet
       summary: Select an owned pet
-      parameters:
-        [
-          { $ref: "#/components/parameters/Id" },
-          { $ref: "#/components/parameters/IdempotencyKey" },
-        ]
-      responses:
-        {
-          "200": { $ref: "#/components/responses/Ok" },
-          "409": { $ref: "#/components/responses/Error" },
-        }
+      parameters: [{ $ref: "#/components/parameters/Id" }, { $ref: "#/components/parameters/IdempotencyKey" }]
+      requestBody: { $ref: "#/components/requestBodies/SelectPetRequest" }
+      responses: { "200": { $ref: "#/components/responses/SelectPetResponse" }, "400": { $ref: "#/components/responses/SelectPetError" }, "404": { $ref: "#/components/responses/SelectPetError" }, "409": { $ref: "#/components/responses/SelectPetError" } }
   /v1/pets/{id}/lock:
     post:
       operationId: lockPet
       summary: Change an owned pet lock
-      parameters:
-        [
-          { $ref: "#/components/parameters/Id" },
-          { $ref: "#/components/parameters/IdempotencyKey" },
-        ]
-      requestBody:
-        {
-          required: true,
-          content:
-            {
-              application/json:
-                { schema: { $ref: "#/components/schemas/LockBody" } },
-            },
-        }
-      responses:
-        {
-          "200": { $ref: "#/components/responses/Ok" },
-          "400": { $ref: "#/components/responses/Error" },
-        }
+      parameters: [{ $ref: "#/components/parameters/Id" }, { $ref: "#/components/parameters/IdempotencyKey" }]
+      requestBody: { $ref: "#/components/requestBodies/LockPetRequest" }
+      responses: { "200": { $ref: "#/components/responses/LockPetResponse" }, "400": { $ref: "#/components/responses/LockPetError" }, "404": { $ref: "#/components/responses/LockPetError" }, "409": { $ref: "#/components/responses/LockPetError" } }
   /v1/gacha/draw:
     post:
       operationId: drawGacha
-      summary: Draw from gacha
+      summary: Draw a pet
       parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
-      responses:
-        {
-          "200": { $ref: "#/components/responses/Ok" },
-          "400": { $ref: "#/components/responses/Error" },
-        }
+      requestBody: { $ref: "#/components/requestBodies/GachaDrawRequest" }
+      responses: { "200": { $ref: "#/components/responses/GachaDrawResponse" }, "400": { $ref: "#/components/responses/GachaDrawError" }, "409": { $ref: "#/components/responses/GachaDrawError" } }
   /v1/fusion:
     post:
       operationId: fusePets
-      summary: Fuse owned pets
+      summary: Fuse two owned pets
       parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
-      responses:
-        {
-          "200": { $ref: "#/components/responses/Ok" },
-          "400": { $ref: "#/components/responses/Error" },
-        }
+      requestBody: { $ref: "#/components/requestBodies/FusionRequest" }
+      responses: { "200": { $ref: "#/components/responses/FusionResponse" }, "400": { $ref: "#/components/responses/FusionError" }, "404": { $ref: "#/components/responses/FusionError" }, "409": { $ref: "#/components/responses/FusionError" } }
   /v1/matches/queue:
     post:
       operationId: createQueueTicket
-      summary: Create a queue ticket
+      summary: Create a matchmaking ticket
       parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
-      responses:
-        {
-          "202": { $ref: "#/components/responses/Ok" },
-          "409": { $ref: "#/components/responses/Error" },
-        }
+      requestBody: { $ref: "#/components/requestBodies/QueueCreateRequest" }
+      responses: { "202": { $ref: "#/components/responses/QueueTicketResponse" }, "400": { $ref: "#/components/responses/QueueCreateError" }, "409": { $ref: "#/components/responses/QueueCreateError" } }
   /v1/matches/queue/{ticketId}:
     get:
       operationId: getQueueTicket
-      summary: Read a queue ticket
+      summary: Read a matchmaking ticket
       parameters: [{ $ref: "#/components/parameters/TicketId" }]
-      responses:
-        {
-          "200": { $ref: "#/components/responses/Ok" },
-          "404": { $ref: "#/components/responses/Error" },
-        }
+      responses: { "200": { $ref: "#/components/responses/QueueTicketResponse" }, "401": { $ref: "#/components/responses/QueueGetError" }, "404": { $ref: "#/components/responses/QueueGetError" } }
     delete:
       operationId: cancelQueueTicket
-      summary: Cancel a queue ticket
-      parameters:
-        [
-          { $ref: "#/components/parameters/TicketId" },
-          { $ref: "#/components/parameters/IdempotencyKey" },
-        ]
-      responses:
-        {
-          "200": { $ref: "#/components/responses/Ok" },
-          "409": { $ref: "#/components/responses/Error" },
-        }
+      summary: Cancel a matchmaking ticket
+      parameters: [{ $ref: "#/components/parameters/TicketId" }, { $ref: "#/components/parameters/IdempotencyKey" }]
+      responses: { "200": { $ref: "#/components/responses/QueueCancelResponse" }, "404": { $ref: "#/components/responses/QueueCancelError" }, "409": { $ref: "#/components/responses/QueueCancelError" } }
   /v1/matches/friend-room:
     post:
       operationId: createFriendRoom
       summary: Create a friend room
       parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
-      responses:
-        {
-          "201": { $ref: "#/components/responses/Ok" },
-          "409": { $ref: "#/components/responses/Error" },
-        }
+      requestBody: { $ref: "#/components/requestBodies/FriendRoomCreateRequest" }
+      responses: { "201": { $ref: "#/components/responses/FriendRoomResponse" }, "400": { $ref: "#/components/responses/FriendRoomCreateError" }, "409": { $ref: "#/components/responses/FriendRoomCreateError" } }
   /v1/matches/friend-room/{roomCode}/join:
     post:
       operationId: joinFriendRoom
       summary: Join a friend room
-      parameters:
-        [
-          { $ref: "#/components/parameters/RoomCode" },
-          { $ref: "#/components/parameters/IdempotencyKey" },
-        ]
-      responses:
-        {
-          "200": { $ref: "#/components/responses/Ok" },
-          "409": { $ref: "#/components/responses/Error" },
-        }
+      parameters: [{ $ref: "#/components/parameters/RoomCode" }, { $ref: "#/components/parameters/IdempotencyKey" }]
+      requestBody: { $ref: "#/components/requestBodies/FriendRoomJoinRequest" }
+      responses: { "200": { $ref: "#/components/responses/FriendRoomResponse" }, "400": { $ref: "#/components/responses/FriendRoomJoinError" }, "404": { $ref: "#/components/responses/FriendRoomJoinError" }, "409": { $ref: "#/components/responses/FriendRoomJoinError" } }
   /v1/matches/friend-room/{roomCode}/members/me:
     delete:
       operationId: leaveFriendRoom
       summary: Leave a friend room
-      parameters:
-        [
-          { $ref: "#/components/parameters/RoomCode" },
-          { $ref: "#/components/parameters/IdempotencyKey" },
-        ]
-      responses:
-        {
-          "200": { $ref: "#/components/responses/Ok" },
-          "409": { $ref: "#/components/responses/Error" },
-        }
+      parameters: [{ $ref: "#/components/parameters/RoomCode" }, { $ref: "#/components/parameters/IdempotencyKey" }]
+      responses: { "200": { $ref: "#/components/responses/FriendRoomLeaveResponse" }, "404": { $ref: "#/components/responses/FriendRoomLeaveError" }, "409": { $ref: "#/components/responses/FriendRoomLeaveError" } }
 components:
-  securitySchemes:
-    { bearerAuth: { type: http, scheme: bearer, bearerFormat: JWT } }
+  securitySchemes: { bearerAuth: { type: http, scheme: bearer, bearerFormat: JWT } }
   parameters:
-    Id:
-      {
-        name: id,
-        in: path,
-        required: true,
-        schema: { type: string, minLength: 1, maxLength: 128 },
-      }
-    TicketId:
-      {
-        name: ticketId,
-        in: path,
-        required: true,
-        schema: { type: string, minLength: 1, maxLength: 128 },
-      }
-    RoomCode:
-      {
-        name: roomCode,
-        in: path,
-        required: true,
-        schema: { type: string, pattern: "^[A-Z0-9]{6,12}$" },
-      }
-    IdempotencyKey:
-      name: Idempotency-Key
-      in: header
-      required: true
-      schema:
-        {
-          type: string,
-          pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89aAbB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$",
-        }
+    Id: { name: id, in: path, required: true, schema: { type: string, minLength: 1, maxLength: 128 } }
+    TicketId: { name: ticketId, in: path, required: true, schema: { type: string, minLength: 1, maxLength: 128 } }
+    RoomCode: { name: roomCode, in: path, required: true, schema: { type: string, pattern: "^[A-Z0-9]{6,12}$" } }
+    IdempotencyKey: { name: Idempotency-Key, in: header, required: true, schema: { type: string, pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89aAbB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$" } }
+  requestBodies:
+    SelectPetRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/SelectPetRequest" } } } }
+    LockPetRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/LockPetRequest" } } } }
+    GachaDrawRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/GachaDrawRequest" } } } }
+    FusionRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/FusionRequest" } } } }
+    QueueCreateRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/QueueCreateRequest" } } } }
+    FriendRoomCreateRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomCreateRequest" } } } }
+    FriendRoomJoinRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomJoinRequest" } } } }
   schemas:
-    LockBody:
-      {
-        type: object,
-        additionalProperties: false,
-        required: [locked],
-        properties: { locked: { type: boolean } },
-      }
-    SafeResponse:
-      {
-        type: object,
-        additionalProperties: false,
-        properties: { data: { type: object, additionalProperties: true } },
-      }
-    Error:
-      {
-        type: object,
-        additionalProperties: false,
-        required: [code],
-        properties:
-          {
-            code:
-              {
-                type: string,
-                enum:
-                  [
-                    INVALID_REQUEST,
-                    NOT_FOUND,
-                    CONFLICT,
-                    IDEMPOTENCY_CONFLICT,
-                    UPDATE_REQUIRED,
-                  ],
-              },
-          },
-      }
+    SelectPetRequest: { type: object, additionalProperties: false, maxProperties: 0 }
+    LockPetRequest: { type: object, additionalProperties: false, required: [locked], properties: { locked: { type: boolean } } }
+    GachaDrawRequest: { type: object, additionalProperties: false, required: [bannerId], properties: { bannerId: { type: string, minLength: 1, maxLength: 128 } } }
+    FusionRequest: { type: object, additionalProperties: false, required: [petIds], properties: { petIds: { type: array, minItems: 2, maxItems: 2, uniqueItems: true, items: { type: string, minLength: 1, maxLength: 128 } } } }
+    QueueCreateRequest: { type: object, additionalProperties: false, maxProperties: 0 }
+    FriendRoomCreateRequest: { type: object, additionalProperties: false, maxProperties: 0 }
+    FriendRoomJoinRequest: { type: object, additionalProperties: false, maxProperties: 0 }
+    MeResponse: { type: object, additionalProperties: false, required: [profile, points], properties: { profile: { type: object, additionalProperties: false, required: [displayName], properties: { displayName: { type: string } } }, points: { type: integer, minimum: 0 } } }
+    PetsResponse: { type: object, additionalProperties: false, required: [items, nextCursor], properties: { items: { type: array, items: { $ref: "#/components/schemas/Pet" } }, nextCursor: { type: [string, "null"], maxLength: 512 } } }
+    Pet: { type: object, additionalProperties: false, required: [id, catalogId, level, exp, copies, selected, locked], properties: { id: { type: string }, catalogId: { type: string }, level: { type: integer, minimum: 1 }, exp: { type: integer, minimum: 0 }, copies: { type: integer, minimum: 1 }, selected: { type: boolean }, locked: { type: boolean } } }
+    SelectPetResponse: { $ref: "#/components/schemas/Pet" }
+    LockPetResponse: { $ref: "#/components/schemas/Pet" }
+    GachaDrawResponse: { type: object, additionalProperties: false, required: [pet, pointsRemaining], properties: { pet: { $ref: "#/components/schemas/Pet" }, pointsRemaining: { type: integer, minimum: 0 } } }
+    FusionResponse: { type: object, additionalProperties: false, required: [pet], properties: { pet: { $ref: "#/components/schemas/Pet" } } }
+    QueueTicketResponse: { type: object, additionalProperties: false, required: [ticketId, status], properties: { ticketId: { type: string }, status: { type: string, enum: [QUEUED, MATCHED] } } }
+    QueueCancelResponse: { type: object, additionalProperties: false, required: [cancelled], properties: { cancelled: { const: true } } }
+    FriendRoomResponse: { type: object, additionalProperties: false, required: [roomCode, memberCount], properties: { roomCode: { type: string }, memberCount: { type: integer, minimum: 1, maximum: 2 } } }
+    FriendRoomLeaveResponse: { type: object, additionalProperties: false, required: [left], properties: { left: { const: true } } }
+    MeError: &unauthorized { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [UNAUTHORIZED] } } }
+    PetsError: *unauthorized
+    SelectPetError: &selectError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [INVALID_REQUEST, NOT_FOUND, CONFLICT, IDEMPOTENCY_CONFLICT] } } }
+    LockPetError: *selectError
+    GachaDrawError: &drawError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [INVALID_REQUEST, CONFLICT, IDEMPOTENCY_CONFLICT] } } }
+    FusionError: *selectError
+    QueueCreateError: *drawError
+    QueueGetError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [UNAUTHORIZED, NOT_FOUND] } } }
+    QueueCancelError: &cancelError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [NOT_FOUND, CONFLICT, IDEMPOTENCY_CONFLICT] } } }
+    FriendRoomCreateError: *drawError
+    FriendRoomJoinError: *selectError
+    FriendRoomLeaveError: *cancelError
   responses:
-    Ok:
-      {
-        description: Safe response,
-        content:
-          {
-            application/json:
-              { schema: { $ref: "#/components/schemas/SafeResponse" } },
-          },
-      }
-    Error:
-      {
-        description: Typed error,
-        content:
-          {
-            application/json:
-              { schema: { $ref: "#/components/schemas/Error" } },
-          },
-      }
+    MeResponse: &meResponse { description: Profile, content: { application/json: { schema: { $ref: "#/components/schemas/MeResponse" } } } }
+    PetsResponse: { description: Pets, content: { application/json: { schema: { $ref: "#/components/schemas/PetsResponse" } } } }
+    SelectPetResponse: { description: Selected pet, content: { application/json: { schema: { $ref: "#/components/schemas/SelectPetResponse" } } } }
+    LockPetResponse: { description: Locked pet, content: { application/json: { schema: { $ref: "#/components/schemas/LockPetResponse" } } } }
+    GachaDrawResponse: { description: Draw result, content: { application/json: { schema: { $ref: "#/components/schemas/GachaDrawResponse" } } } }
+    FusionResponse: { description: Fusion result, content: { application/json: { schema: { $ref: "#/components/schemas/FusionResponse" } } } }
+    QueueTicketResponse: { description: Queue ticket, content: { application/json: { schema: { $ref: "#/components/schemas/QueueTicketResponse" } } } }
+    QueueCancelResponse: { description: Queue cancellation, content: { application/json: { schema: { $ref: "#/components/schemas/QueueCancelResponse" } } } }
+    FriendRoomResponse: { description: Friend room, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomResponse" } } } }
+    FriendRoomLeaveResponse: { description: Friend-room departure, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomLeaveResponse" } } } }
+    MeError: &meError { description: Unauthorized, content: { application/json: { schema: { $ref: "#/components/schemas/MeError" } } } }
+    PetsError: { description: Unauthorized, content: { application/json: { schema: { $ref: "#/components/schemas/PetsError" } } } }
+    SelectPetError: { description: Select-pet error, content: { application/json: { schema: { $ref: "#/components/schemas/SelectPetError" } } } }
+    LockPetError: { description: Lock-pet error, content: { application/json: { schema: { $ref: "#/components/schemas/LockPetError" } } } }
+    GachaDrawError: { description: Draw error, content: { application/json: { schema: { $ref: "#/components/schemas/GachaDrawError" } } } }
+    FusionError: { description: Fusion error, content: { application/json: { schema: { $ref: "#/components/schemas/FusionError" } } } }
+    QueueCreateError: { description: Queue-create error, content: { application/json: { schema: { $ref: "#/components/schemas/QueueCreateError" } } } }
+    QueueGetError: { description: Queue-read error, content: { application/json: { schema: { $ref: "#/components/schemas/QueueGetError" } } } }
+    QueueCancelError: { description: Queue-cancel error, content: { application/json: { schema: { $ref: "#/components/schemas/QueueCancelError" } } } }
+    FriendRoomCreateError: { description: Room-create error, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomCreateError" } } } }
+    FriendRoomJoinError: { description: Room-join error, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomJoinError" } } } }
+    FriendRoomLeaveError: { description: Room-leave error, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomLeaveError" } } } }

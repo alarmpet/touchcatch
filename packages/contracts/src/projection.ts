@@ -16,7 +16,7 @@ const redacted = (e: MatchEvent) => ({
 });
 export function projectMatchEvent(
   e: MatchEvent,
-  state: MatchStateV1,
+  state: Pick<MatchStateV1, "privateSolution">,
   viewer: string,
 ): ServerEventEnvelope {
   const b = base(e);
@@ -102,7 +102,7 @@ export function projectMatchEvent(
   }
 }
 function assertNever(x: never): never {
-  throw Error(`unprojected event ${(x as MatchEvent).type}`);
+  throw Error(`unprojected event ${String(x)}`);
 }
 export function projectSnapshot(
   s: MatchStateV1,
