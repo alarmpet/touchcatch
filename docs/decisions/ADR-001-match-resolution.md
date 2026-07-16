@@ -8,7 +8,7 @@ Status: Proposed; frozen implementation baseline for RulesetV1
 
 Time windows are half-open. Final rush begins at 60,000 ms, normal match input closes at 75,000 ms, and already-started meaning settlement is capped at 80,000 ms. Final-challenge unlock conditions are OR conditions. Scores never fall below zero. Ties follow the exact ordered chain in the ruleset and end in sudden death rather than a draw.
 
-Content cardinalities are derived from this ruleset. A validated-config generator emits the database verification projection, and its checker enforces byte parity plus the publishing migration's exact cardinality predicates in both aggregate and DB verification paths. The SQL literals are implementation projections, not independent policy.
+Content cardinalities are derived from this ruleset. A validated-config generator writes the uniquely marked executable cardinality predicate region inside the publishing migration applied by Supabase. Its checker enforces that region byte-for-byte, rejects missing or duplicate markers and competing active predicates, and runs in both aggregate and DB verification paths. Generated SQL literals are implementation projections, not independent policy.
 
 ## Consequences
 
