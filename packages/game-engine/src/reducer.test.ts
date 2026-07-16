@@ -4,18 +4,21 @@ import { canonicalJsonSha256 } from '../../contracts/src/canonical-json.js';
 import { parseRuleset } from '../../contracts/src/rules.schema.js';
 import { parseMatchInitialStateV1 } from '../../contracts/src/match.schema.js';
 import type { MatchStateV1 } from '../../contracts/src/match.js';
-import { createMatchInitialState, reduceMatch } from './reducer.js';
+import { createMatchInitialState as engineCreateMatchInitialState, reduceMatch } from './reducer.js';
 import { replayMatch } from './replay.js';
 import { drainDueTimers } from './scheduler.js';
 const frozenRules = parseRuleset(rules);
+const createMatchInitialState=(input:Omit<Parameters<typeof engineCreateMatchInitialState>[0],'contentManifest'>&{contentManifest:Omit<Parameters<typeof engineCreateMatchInitialState>[0]['contentManifest'],'contentLanguage'>},sharedRules:Parameters<typeof engineCreateMatchInitialState>[1])=>engineCreateMatchInitialState({...input,contentManifest:{...input.contentManifest,contentLanguage:'en'}},sharedRules);
 
 const solution = {
   schemaVersion: '1.0.0' as const, contentRevisionId: '00000000-0000-4000-8000-000000000010', privateSolutionHash: 'b'.repeat(64),
   differences: Array.from({length: 10},(_,i)=>({objectiveId:`d${i}`,tier:i<7?'NORMAL' as const:'HARD' as const,hitboxes:{imageA:{cx:.1+i*.05,cy:.2,r:.01},imageB:{cx:.1+i*.05,cy:.2,r:.01}}})),
   wordHunts: [{missionId:'w1',kind:'NORMAL' as const,publicPrompt:'one',hitboxes:{imageA:{cx:.2,cy:.8,r:.02},imageB:{cx:.2,cy:.8,r:.02}}},{missionId:'w2',kind:'NORMAL' as const,publicPrompt:'two',hitboxes:{imageA:{cx:.4,cy:.8,r:.02},imageB:{cx:.4,cy:.8,r:.02}}},{missionId:'w3',kind:'SPECIAL' as const,publicPrompt:'three',hitboxes:{imageA:{cx:.6,cy:.8,r:.02},imageB:{cx:.6,cy:.8,r:.02}}}],
   suddenDeath:{objectiveId:'sd',hitboxes:{imageA:{cx:.9,cy:.9,r:.02},imageB:{cx:.9,cy:.9,r:.02}}},
-  finalChallenge:{canonicalAnswer:'Cat',aliases:['kitty'],hintUnits:['C','a','t'],meaning:{prompt:'meaning',options:[{id:'a',label:'A'},{id:'b',label:'B'},{id:'c',label:'C'}],correctOptionId:'a'}}
+  finalChallenge:{canonicalAnswer:'cat',aliases:['kitty'],hintUnits:['c','a','t'],meaning:{prompt:'meaning',options:[{id:'a',label:'A'},{id:'b',label:'B'},{id:'c',label:'C'}],correctOptionId:'a'}}
 };
+const {privateSolutionHash:_ignoredHash,...hashableSolution}=solution;
+solution.privateSolutionHash=canonicalJsonSha256(hashableSolution);
 
 describe('createMatchInitialState',()=>it('pins immutable inputs and schedules exactly one asset deadline',()=>{
   const matchId='00000000-0000-4000-8000-000000000001';
@@ -26,7 +29,7 @@ describe('createMatchInitialState',()=>it('pins immutable inputs and schedules e
   expect(result.timerIntents).toEqual([{kind:'SCHEDULE',timerId:`${matchId}:timer:ASSET_LOAD_TIMEOUT:asset`,dueAtMs:21000,payload:{type:'ASSET_LOAD_TIMEOUT'}}]);
   expect(()=>parseMatchInitialStateV1({...result.state,players:[{...result.state.players[0],unexpected:true},result.state.players[1]]})).toThrow(/player strict/);
   expect(()=>parseMatchInitialStateV1({...result.state,privateSolution:{...result.state.privateSolution,unexpected:true}})).toThrow(/private solution strict/);
-  const bundle={bundleVersion:1 as const,engineVersion:'1',ruleset:frozenRules,rulesetVersion:'1.0.0' as const,rulesetHash:canonicalJsonSha256(rules),contentRevisionId:solution.contentRevisionId,contentHash:'d'.repeat(64),initialState:result.state,commands:[]};
+  const bundle={bundleVersion:1 as const,engineVersion:'1',ruleset:frozenRules,rulesetVersion:'1.0.0' as const,rulesetHash:canonicalJsonSha256(rules),contentRevisionId:solution.contentRevisionId,contentLanguage:'en' as const,contentHash:'d'.repeat(64),initialState:result.state,commands:[]};
   expect(new Set(Array.from({length:100},()=>canonicalJsonSha256(replayMatch(bundle)))).size).toBe(1);
   const ready={type:'READY' as const,contentRevisionId:solution.contentRevisionId,contentHash:'d'.repeat(64),assetHashes:['a'.repeat(64),'c'.repeat(64)],decodedDimensions:[{assetHash:'a'.repeat(64),width:1,height:1},{assetHash:'c'.repeat(64),width:1,height:1}]};
   const request1='00000000-0000-4000-8000-000000000101',request2='00000000-0000-4000-8000-000000000102';
