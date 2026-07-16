@@ -308,6 +308,15 @@ export const serverEventEnvelopeSchema = z.discriminatedUnion("type", [
       .strict(),
   ),
 ]);
+function isImmutableAssetUrl(value: { url: string; sha256: string; mimeType: "image/png" | "image/webp" | "image/jpeg" }): boolean {
+  const ext = value.mimeType === "image/png" ? "png" : value.mimeType === "image/webp" ? "webp" : "jpg";
+  try {
+    const url = new URL(value.url);
+    return url.search === "" && url.hash === "" && url.pathname === `/assets/${value.sha256}.${ext}`;
+  } catch {
+    return false;
+  }
+}
 const asset = z
   .object({
     side: z.enum(["A", "B"]),
@@ -328,10 +337,7 @@ const asset = z
   })
   .strict()
   .refine((x) => x.width * x.height <= 16_000_000)
-  .refine((x) => {
-    const ext = x.mimeType === "image/png" ? "png" : x.mimeType === "image/webp" ? "webp" : "jpg";
-    try { return new URL(x.url).pathname === `/assets/${x.sha256}.${ext}`; } catch { return false; }
-  }, { message: "asset URL must be immutable and content-addressed" });
+  .refine(isImmutableAssetUrl, { message: "asset URL must be immutable and content-addressed" });
 const playerStatus = z
     .object({ playerId: id, status: z.enum(["PENDING", "READY", "FAILED"]) })
     .strict(),
@@ -436,22 +442,7 @@ export const matchSnapshotV1Schema = z
       .nullable(),
   })
   .strict();
-const immutableAsset = asset.refine(
-  (x) => {
-    const ext =
-      x.mimeType === "image/png"
-        ? "png"
-        : x.mimeType === "image/webp"
-          ? "webp"
-          : "jpg";
-    try {
-      return new URL(x.url).pathname === `/assets/${x.sha256}.${ext}`;
-    } catch {
-      return false;
-    }
-  },
-  { message: "asset URL must be immutable and content-addressed" },
-);
+const immutableAsset = asset;
 export const matchmakingNotificationSchema = z
   .object({
     protocolVersion: z.literal(1),
