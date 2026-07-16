@@ -48,7 +48,12 @@ describe('runtime gate', () => {
       },
     });
 
-    expect(result.status).toBe(1);
-    expect(result.stderr).toContain(`Node ${process.version}; expected v24.18.0`);
+    if (process.version === 'v24.18.0') {
+      expect(result.status).toBe(0);
+      expect(result.stderr).toBe('');
+    } else {
+      expect(result.status).toBe(1);
+      expect(result.stderr).toContain(`Node ${process.version}; expected v24.18.0`);
+    }
   });
 });
