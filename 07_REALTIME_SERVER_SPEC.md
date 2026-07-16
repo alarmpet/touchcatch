@@ -1,5 +1,9 @@
 # 07. 실시간 서버 사양
 
+## Authenticated recovery contract
+
+Resolve the verified token subject through server-owned membership to an opaque participant key. Never serialize the subject or raw JWT. Pin protocol, engine, ruleset hash, content revision, and content hash before receipt reservation. Durable journal replay is authoritative; Redis and memory are bounded caches only. Disconnect epochs are monotonic, with resume below 15,000ms and forfeit at the exact boundary.
+
 ## 스택
 Node.js 22+, NestJS, Socket.IO, Redis, PostgreSQL, BullMQ.
 

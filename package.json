@@ -19,26 +19,28 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run --exclude tests/database/**/*.test.ts",
     "content:validate": "tsx packages/content-validator/src/validate-content.ts content/fixtures/valid",
+    "openapi:lint": "redocly lint packages/contracts/openapi.yaml",
     "db:start": "supabase start",
     "test:db:concurrency": "vitest run --config vitest.db.config.ts --sequence.concurrent=false",
     "check:db": "corepack pnpm ruleset:projections:check && supabase db reset --local && supabase db lint --local --fail-on error && supabase test db --local && corepack pnpm test:db:concurrency",
-    "check": "corepack pnpm check:runtime && corepack pnpm ruleset:projections:check && corepack pnpm content:schemas:check && corepack pnpm lint && corepack pnpm typecheck && corepack pnpm test && corepack pnpm content:validate && corepack pnpm secret:scan",
+    "check": "corepack pnpm check:runtime && corepack pnpm ruleset:projections:check && corepack pnpm content:schemas:check && corepack pnpm lint && corepack pnpm typecheck && corepack pnpm test && corepack pnpm openapi:lint && corepack pnpm content:validate && corepack pnpm secret:scan",
     "verify": "pnpm check && pnpm check:db"
   },
   "devDependencies": {
-    "@types/node": "^24.10.0",
     "@eslint/js": "^9.39.2",
+    "@redocly/cli": "2.39.0",
     "@secretlint/secretlint-rule-preset-recommend": "^11.2.4",
+    "@types/node": "^24.10.0",
     "@types/pg": "^8.15.6",
-    "pg": "^8.16.3",
     "eslint": "^9.39.2",
     "globals": "^16.5.0",
+    "pg": "^8.16.3",
     "secretlint": "^11.2.4",
     "smol-toml": "^1.6.0",
     "supabase": "^2.67.1",
     "tsx": "^4.20.6",
-    "typescript-eslint": "^8.52.0",
     "typescript": "^5.9.3",
+    "typescript-eslint": "^8.52.0",
     "vitest": "^4.0.16"
   }
 }

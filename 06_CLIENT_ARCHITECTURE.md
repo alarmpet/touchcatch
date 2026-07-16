@@ -1,5 +1,9 @@
 # 06. 클라이언트 아키텍처
 
+## Authenticated delivery contract
+
+The client declares supported protocol, engine, and ruleset versions while authenticating with a Supabase access token. It never sends the auth UUID as a player identity. `UPDATE_REQUIRED` closes admission before command ingress. Persist `lastEventSeq`, request exact journal replay on gaps, and replace with a viewer-safe snapshot when replay is unavailable or inconsistent. Retries reuse the UUIDv4 `requestId`.
+
 ## 스택
 Expo, React Native, TypeScript strict, expo-router, Zustand, TanStack Query, Socket.IO Client, Reanimated, Gesture Handler, Sentry.
 

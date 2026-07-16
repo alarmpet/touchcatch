@@ -12,6 +12,9 @@ importers:
       '@eslint/js':
         specifier: ^9.39.2
         version: 9.39.5
+      '@redocly/cli':
+        specifier: 2.39.0
+        version: 2.39.0
       '@secretlint/secretlint-rule-preset-recommend':
         specifier: ^11.2.4
         version: 11.7.1
@@ -86,9 +89,6 @@ importers:
       yaml:
         specifier: ^2.9.0
         version: 2.9.0
-      zod:
-        specifier: ^4.4.3
-        version: 4.4.3
 
   packages/game-engine:
     dependencies:
@@ -539,6 +539,11 @@ packages:
 
   '@oxc-project/types@0.139.0':
     resolution: {integrity: sha512-r9gHphtCs+1M7J0pw6Sn/hh/Wpa/iQrOOkrNAlVLF/gHq+/CJmHIWKKUUhdWjcD6CIa8idarspCsASiXCXvFUw==}
+
+  '@redocly/cli@2.39.0':
+    resolution: {integrity: sha512-xA0Z9YMEhlzbpn/BVErlE2UzuKfahp9llBwEnVtAYuhWdF8UCIm+cgYX8f/gHQIJ/TKwB93awAewTOgEsbZFZw==}
+    engines: {node: '>=22.12.0 || >=20.19.0 <21.0.0', npm: '>=10'}
+    hasBin: true
 
   '@rolldown/binding-android-arm64@1.1.5':
     resolution: {integrity: sha512-lZg8fqIv2v7FF237bwMgzGZEJvGL79/s5knJ/i6FmsGF4XXlzccZ4jb+TrFIxtSSxFtIpdsgrPZeMk1I9AFcyQ==}
@@ -1822,9 +1827,6 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  zod@4.4.3:
-    resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
-
 snapshots:
 
   '@azu/format-text@1.0.2': {}
@@ -2137,6 +2139,8 @@ snapshots:
 
   '@oxc-project/types@0.139.0': {}
 
+  '@redocly/cli@2.39.0': {}
+
   '@rolldown/binding-android-arm64@1.1.5':
     optional: true
 
@@ -2261,6 +2265,7 @@ snapshots:
       ajv: 8.20.0
       ajv-formats: 3.0.1(ajv@8.20.0)
       json-schema-to-ts: 3.1.1
+      yaml: 2.9.0
 
   '@standard-schema/spec@1.1.0': {}
 
@@ -3385,5 +3390,3 @@ snapshots:
   yaml@2.9.0: {}
 
   yocto-queue@0.1.0: {}
-
-  zod@4.4.3: {}
