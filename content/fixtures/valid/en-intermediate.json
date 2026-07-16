@@ -1,0 +1,378 @@
+{
+  "fixtureVersion": "1.0.0",
+  "validatorVersion": "1.0.0",
+  "publicContent": {
+    "contentId": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+    "version": 1,
+    "contentRevisionId": "22222222-2222-4222-8222-222222222222",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "fixture-theme-2",
+    "language": "en",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/59ab13e90d337af02e94c8c9dbfd8aff8dbd54b203acfe768a3641e0b70ab189.png",
+      "sha256": "59ab13e90d337af02e94c8c9dbfd8aff8dbd54b203acfe768a3641e0b70ab189",
+      "encodedBytes": 1731713,
+      "width": 941,
+      "height": 1672,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/90fce90a3fd50fb9ea665634fc3d5651452ec44369e5375c7e2197c2c5211b18.png",
+      "sha256": "90fce90a3fd50fb9ea665634fc3d5651452ec44369e5375c7e2197c2c5211b18",
+      "encodedBytes": 1518243,
+      "width": 941,
+      "height": 1672,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "22222222-2222-4222-8222-222222222222",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.1,
+            "cy": 0.1,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.1,
+            "cy": 0.1,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.30000000000000004,
+            "cy": 0.1,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.30000000000000004,
+            "cy": 0.1,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5,
+            "cy": 0.1,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.5,
+            "cy": 0.1,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7000000000000001,
+            "cy": 0.1,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.7000000000000001,
+            "cy": 0.1,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9,
+            "cy": 0.1,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.9,
+            "cy": 0.1,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.1,
+            "cy": 0.38,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.1,
+            "cy": 0.38,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.30000000000000004,
+            "cy": 0.38,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.30000000000000004,
+            "cy": 0.38,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5,
+            "cy": 0.38,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.5,
+            "cy": 0.38,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7000000000000001,
+            "cy": 0.38,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.7000000000000001,
+            "cy": 0.38,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9,
+            "cy": 0.38,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.9,
+            "cy": 0.38,
+            "r": 0.03
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "word prompt 1",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.1,
+            "cy": 0.66,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.1,
+            "cy": 0.66,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "word prompt 2",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.30000000000000004,
+            "cy": 0.66,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.30000000000000004,
+            "cy": 0.66,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "word prompt 3",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5,
+            "cy": 0.66,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.5,
+            "cy": 0.66,
+            "r": 0.03
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_death_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.7000000000000001,
+          "cy": 0.66,
+          "r": 0.03
+        },
+        "imageB": {
+          "cx": 0.7000000000000001,
+          "cy": 0.66,
+          "r": 0.03
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "cat",
+      "aliases": [
+        "feline"
+      ],
+      "hintUnits": [
+        "c",
+        "a",
+        "t"
+      ],
+      "meaning": {
+        "prompt": "What does cat mean?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "animal"
+          },
+          {
+            "id": "option_2",
+            "label": "plant"
+          },
+          {
+            "id": "option_3",
+            "label": "place"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "0ecb579e6db8cde1d7ea91b83c8c029300d59e1af60663136796aad65eca14ae"
+  },
+  "rightsManifest": {
+    "schemaVersion": "1.0.0",
+    "manifestSetId": "rights_set_2",
+    "entries": [
+      {
+        "rightsRecordId": "rights_3",
+        "assetSha256": "59ab13e90d337af02e94c8c9dbfd8aff8dbd54b203acfe768a3641e0b70ab189",
+        "source": {
+          "kind": "OWNED",
+          "sourceRecordId": "source_3",
+          "sourceUri": "https://rights.spot-learn.test/source/3"
+        },
+        "generator": {
+          "provider": "UNKNOWN",
+          "model": "UNKNOWN",
+          "modelVersion": "UNKNOWN",
+          "termsVersion": "UNKNOWN",
+          "generatedAt": "2026-07-16T00:00:00.000Z"
+        },
+        "prompt": {
+          "available": false,
+          "sha256": null,
+          "unavailabilityReason": "NOT_AVAILABLE"
+        },
+        "rights": {
+          "status": "APPROVED",
+          "licenseOrPermission": "Internal test fixture",
+          "approverId": "test-rights-reviewer",
+          "approvedAt": "2026-07-16T00:00:00.000Z"
+        },
+        "education": {
+          "status": "APPROVED",
+          "reviewerId": "test-education-reviewer",
+          "reviewedAt": "2026-07-16T00:00:00.000Z"
+        },
+        "takedown": {
+          "ownerId": "content-ops",
+          "contact": "content-ops@spot-learn.test",
+          "runbookVersion": "1.0.0"
+        }
+      },
+      {
+        "rightsRecordId": "rights_4",
+        "assetSha256": "90fce90a3fd50fb9ea665634fc3d5651452ec44369e5375c7e2197c2c5211b18",
+        "source": {
+          "kind": "OWNED",
+          "sourceRecordId": "source_4",
+          "sourceUri": "https://rights.spot-learn.test/source/4"
+        },
+        "generator": {
+          "provider": "UNKNOWN",
+          "model": "UNKNOWN",
+          "modelVersion": "UNKNOWN",
+          "termsVersion": "UNKNOWN",
+          "generatedAt": "2026-07-16T00:00:00.000Z"
+        },
+        "prompt": {
+          "available": false,
+          "sha256": null,
+          "unavailabilityReason": "NOT_AVAILABLE"
+        },
+        "rights": {
+          "status": "APPROVED",
+          "licenseOrPermission": "Internal test fixture",
+          "approverId": "test-rights-reviewer",
+          "approvedAt": "2026-07-16T00:00:00.000Z"
+        },
+        "education": {
+          "status": "APPROVED",
+          "reviewerId": "test-education-reviewer",
+          "reviewedAt": "2026-07-16T00:00:00.000Z"
+        },
+        "takedown": {
+          "ownerId": "content-ops",
+          "contact": "content-ops@spot-learn.test",
+          "runbookVersion": "1.0.0"
+        }
+      }
+    ]
+  },
+  "assetFiles": {
+    "59ab13e90d337af02e94c8c9dbfd8aff8dbd54b203acfe768a3641e0b70ab189": "59ab13e90d337af02e94c8c9dbfd8aff8dbd54b203acfe768a3641e0b70ab189.png",
+    "90fce90a3fd50fb9ea665634fc3d5651452ec44369e5375c7e2197c2c5211b18": "90fce90a3fd50fb9ea665634fc3d5651452ec44369e5375c7e2197c2c5211b18.png"
+  }
+}

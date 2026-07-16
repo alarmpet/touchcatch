@@ -63,9 +63,9 @@ REST/Socket runtime schema, subject mapping, idempotency, reconnect/replay, view
 
 ### D. 콘텐츠·DB 통합 폐쇄
 
-Task 5–6 기존 구현을 기준으로 실제 8 MiB, 4096 dimension, 16,000,000 pixel boundary fixture를 추가한다. Task 3 phase/end-reason과 DB enum의 생성 기반 parity를 만들고, 계획 A에서 도입한 ruleset canonical hash와 콘텐츠 validator·DB constraint/function의 parity도 함께 증명한다. validator 전용 production principal과 CDN origin migration을 검증한다.
+Task 5–6 기존 구현을 기준으로 actual/declared encoded byte의 8 MiB 전후, width/height의 4096 전후, decoded pixel의 16,000,000 전후를 서로 독립된 실제 container fixture로 검증한다. 초과 파일은 전체 read/hash/decode 전에 중단하고, 열린 file handle에서 최대 limit+1만 읽어 path swap과 메모리 고갈을 방어한다. Task 3 phase/end-reason과 DB enum의 생성 기반 parity를 만들고, 계획 A에서 도입한 ruleset canonical hash와 콘텐츠 validator·DB constraint/function의 parity도 함께 증명한다. prerequisite boolean은 증거가 아니며 공용 runtime tuple/schema, terminal mapping, wire normalization/limit의 생성 산출물과 drift test가 통과할 때만 파생한다. validator 전용 production principal은 로컬에서도 별도 non-superuser LOGIN 연결로 `SET ROLE` 전 실패·후 성공과 direct DML 거절을 검증한다. 배포 gate는 validator의 `CONTENT_ASSET_ORIGINS`와 DB allow-list가 exact equality인지 확인하고, 기존 revision/match가 참조하는 origin은 보존·이관 증거 없이 제거하지 않는다.
 
-legacy quarantine은 먼저 필드별 개인정보 분류, 법적 근거, 최대 보관기간, account-deletion subject mapping, 접근 감사 책임자를 승인된 표로 고정한다. 그 정책을 입력으로 하는 idempotent deletion/redaction job은 dry-run, 대상 건수·해시 증거, 재실행 안전성, 삭제 후 비재식별화 테스트를 제공해야 한다. 무조건적인 DB delete trigger는 법적 보존 의무와 충돌할 수 있어 기본 설계로 채택하지 않고, crypto-shredding은 subject별 암호화·키 폐기 구조가 별도로 승인된 경우에만 선택한다. 정책과 job의 production 증거가 없으면 외부 베타 gate는 닫힌 상태다.
+legacy quarantine은 먼저 필드별 개인정보 분류, 법적 근거, 최대 보관기간, account-deletion subject mapping, 접근 감사 책임자를 승인된 표로 고정한다. 이 표에는 backup/WAL/PITR/replica/export/log 보관 범위, legal hold 우선순위, restore 후 tombstone 재적용, 다중 참가자 row의 delete-vs-redact 규칙도 포함한다. 그 정책을 입력으로 하는 idempotent deletion/redaction job은 전용 privacy-operator 역할과 좁은 dry-run/apply surface만 사용하고, raw PII나 안정적 원문 hash를 audit log에 남기지 않는다. dry-run, aggregate 증거, 재실행·crash/restart 안전성, nested PII recursive scan, backup restore 후 재삭제를 검증해야 한다. 무조건적인 DB delete trigger는 법적 보존 의무와 충돌할 수 있어 기본 설계로 채택하지 않고, crypto-shredding은 subject별 암호화·키 폐기 구조가 별도로 승인된 경우에만 선택한다. 정책과 job의 production 증거가 없으면 외부 베타 gate는 닫힌 상태다.
 
 ### E. 경제와 effect-once
 

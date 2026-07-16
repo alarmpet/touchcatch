@@ -1,0 +1,13 @@
+{
+  "name": "@spot-learn/contracts",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./content": "./src/content.ts"
+  },
+  "dependencies": {
+    "json-schema-to-ts": "^3.1.1"
+  }
+}

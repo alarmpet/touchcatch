@@ -1,0 +1,246 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.spot-learn.test/rights-manifest.v1.schema.json",
+  "title": "RightsManifestSetV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "manifestSetId",
+    "entries"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "manifestSetId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]{0,127}$"
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rightsRecordId",
+          "assetSha256",
+          "source",
+          "generator",
+          "prompt",
+          "rights",
+          "education",
+          "takedown"
+        ],
+        "properties": {
+          "rightsRecordId": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]{0,127}$"
+          },
+          "assetSha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "sourceRecordId",
+              "sourceUri"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "AI_GENERATED",
+                  "LICENSED",
+                  "OWNED",
+                  "UNKNOWN"
+                ]
+              },
+              "sourceRecordId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "sourceUri": {
+                "type": "string",
+                "format": "uri",
+                "minLength": 1,
+                "maxLength": 2048
+              }
+            }
+          },
+          "generator": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "provider",
+              "model",
+              "modelVersion",
+              "termsVersion",
+              "generatedAt"
+            ],
+            "properties": {
+              "provider": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "model": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "modelVersion": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "termsVersion": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "generatedAt": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          "prompt": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "available",
+              "sha256",
+              "unavailabilityReason"
+            ],
+            "properties": {
+              "available": {
+                "type": "boolean"
+              },
+              "sha256": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "unavailabilityReason": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "minLength": 1,
+                "maxLength": 2048
+              }
+            }
+          },
+          "rights": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "licenseOrPermission",
+              "approverId",
+              "approvedAt"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "REVIEW_REQUIRED",
+                  "APPROVED",
+                  "REJECTED"
+                ]
+              },
+              "licenseOrPermission": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "approverId": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "approvedAt": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              }
+            }
+          },
+          "education": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "reviewerId",
+              "reviewedAt"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "REVIEW_REQUIRED",
+                  "APPROVED",
+                  "REJECTED"
+                ]
+              },
+              "reviewerId": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "minLength": 1,
+                "maxLength": 2048
+              },
+              "reviewedAt": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              }
+            }
+          },
+          "takedown": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "ownerId",
+              "contact",
+              "runbookVersion"
+            ],
+            "properties": {
+              "ownerId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "contact": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 256
+              },
+              "runbookVersion": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

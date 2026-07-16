@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "DEPRECATED: use game-content.public.schema.json, game-content.private.schema.json, and rights-manifest.schema.json. This combined schema must not be used for new publishing.",
+  "title": "DEPRECATED SpotLearnContent",
+  "type": "object",
+  "required": [
+    "id",
+    "theme",
+    "language",
+    "difficulty",
+    "images",
+    "finalAnswer",
+    "differences",
+    "wordHunts",
+    "meaningQuestion"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "theme": {
+      "type": "string"
+    },
+    "language": {
+      "enum": [
+        "ko",
+        "en",
+        "ja"
+      ]
+    },
+    "difficulty": {
+      "enum": [
+        "BEGINNER",
+        "INTERMEDIATE",
+        "ADVANCED"
+      ]
+    },
+    "differences": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10
+    },
+    "wordHunts": {
+      "type": "array",
+      "minItems": 3
+    }
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "fixtureVersion": "1.0.0",
+  "validatorVersion": "1.0.0",
+  "publicContent": {
+    "contentId": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+    "version": 1,
+    "contentRevisionId": "11111111-1111-4111-8111-111111111111",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "fixture-theme-1",
+    "language": "ko",
+    "difficulty": "BEGINNER",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/80141f74c0f7353bba31d9952bdbeb4d715716065b6cff2e591f94fa3763129e.png",
+      "sha256": "80141f74c0f7353bba31d9952bdbeb4d715716065b6cff2e591f94fa3763129e",
+      "encodedBytes": 1408662,
+      "width": 941,
+      "height": 1672,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/59ab13e90d337af02e94c8c9dbfd8aff8dbd54b203acfe768a3641e0b70ab189.png",
+      "sha256": "59ab13e90d337af02e94c8c9dbfd8aff8dbd54b203acfe768a3641e0b70ab189",
+      "encodedBytes": 1731713,
+      "width": 940,
+      "height": 1672,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "11111111-1111-4111-8111-111111111111",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.1,
+            "cy": 0.1,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.1,
+            "cy": 0.1,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.30000000000000004,
+            "cy": 0.1,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.30000000000000004,
+            "cy": 0.1,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5,
+            "cy": 0.1,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.5,
+            "cy": 0.1,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7000000000000001,
+            "cy": 0.1,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.7000000000000001,
+            "cy": 0.1,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9,
+            "cy": 0.1,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.9,
+            "cy": 0.1,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.1,
+            "cy": 0.38,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.1,
+            "cy": 0.38,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.30000000000000004,
+            "cy": 0.38,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.30000000000000004,
+            "cy": 0.38,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5,
+            "cy": 0.38,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.5,
+            "cy": 0.38,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7000000000000001,
+            "cy": 0.38,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.7000000000000001,
+            "cy": 0.38,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9,
+            "cy": 0.38,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.9,
+            "cy": 0.38,
+            "r": 0.03
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "word prompt 1",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.1,
+            "cy": 0.66,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.1,
+            "cy": 0.66,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "word prompt 2",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.30000000000000004,
+            "cy": 0.66,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.30000000000000004,
+            "cy": 0.66,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "word prompt 3",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5,
+            "cy": 0.66,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.5,
+            "cy": 0.66,
+            "r": 0.03
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_death_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.7000000000000001,
+          "cy": 0.66,
+          "r": 0.03
+        },
+        "imageB": {
+          "cx": 0.7000000000000001,
+          "cy": 0.66,
+          "r": 0.03
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "고양이",
+      "aliases": [
+        "냥이"
+      ],
+      "hintUnits": [
+        "고",
+        "양",
+        "이"
+      ],
+      "meaning": {
+        "prompt": "고양이의 뜻은?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "동물"
+          },
+          {
+            "id": "option_2",
+            "label": "식물"
+          },
+          {
+            "id": "option_3",
+            "label": "장소"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "8845769863ce0cc4d1a7d2406feead4c9352e0de7e5986bfdeee7eccf2a18e1f"
+  },
+  "rightsManifest": {
+    "schemaVersion": "1.0.0",
+    "manifestSetId": "rights_set_1",
+    "entries": [
+      {
+        "rightsRecordId": "rights_1",
+        "assetSha256": "80141f74c0f7353bba31d9952bdbeb4d715716065b6cff2e591f94fa3763129e",
+        "source": {
+          "kind": "OWNED",
+          "sourceRecordId": "source_1",
+          "sourceUri": "https://rights.spot-learn.test/source/1"
+        },
+        "generator": {
+          "provider": "UNKNOWN",
+          "model": "UNKNOWN",
+          "modelVersion": "UNKNOWN",
+          "termsVersion": "UNKNOWN",
+          "generatedAt": "2026-07-16T00:00:00.000Z"
+        },
+        "prompt": {
+          "available": false,
+          "sha256": null,
+          "unavailabilityReason": "NOT_AVAILABLE"
+        },
+        "rights": {
+          "status": "APPROVED",
+          "licenseOrPermission": "Internal test fixture",
+          "approverId": "test-rights-reviewer",
+          "approvedAt": "2026-07-16T00:00:00.000Z"
+        },
+        "education": {
+          "status": "APPROVED",
+          "reviewerId": "test-education-reviewer",
+          "reviewedAt": "2026-07-16T00:00:00.000Z"
+        },
+        "takedown": {
+          "ownerId": "content-ops",
+          "contact": "content-ops@spot-learn.test",
+          "runbookVersion": "1.0.0"
+        }
+      },
+      {
+        "rightsRecordId": "rights_2",
+        "assetSha256": "59ab13e90d337af02e94c8c9dbfd8aff8dbd54b203acfe768a3641e0b70ab189",
+        "source": {
+          "kind": "OWNED",
+          "sourceRecordId": "source_2",
+          "sourceUri": "https://rights.spot-learn.test/source/2"
+        },
+        "generator": {
+          "provider": "UNKNOWN",
+          "model": "UNKNOWN",
+          "modelVersion": "UNKNOWN",
+          "termsVersion": "UNKNOWN",
+          "generatedAt": "2026-07-16T00:00:00.000Z"
+        },
+        "prompt": {
+          "available": false,
+          "sha256": null,
+          "unavailabilityReason": "NOT_AVAILABLE"
+        },
+        "rights": {
+          "status": "APPROVED",
+          "licenseOrPermission": "Internal test fixture",
+          "approverId": "test-rights-reviewer",
+          "approvedAt": "2026-07-16T00:00:00.000Z"
+        },
+        "education": {
+          "status": "APPROVED",
+          "reviewerId": "test-education-reviewer",
+          "reviewedAt": "2026-07-16T00:00:00.000Z"
+        },
+        "takedown": {
+          "ownerId": "content-ops",
+          "contact": "content-ops@spot-learn.test",
+          "runbookVersion": "1.0.0"
+        }
+      }
+    ]
+  },
+  "assetFiles": {
+    "80141f74c0f7353bba31d9952bdbeb4d715716065b6cff2e591f94fa3763129e": "80141f74c0f7353bba31d9952bdbeb4d715716065b6cff2e591f94fa3763129e.png",
+    "59ab13e90d337af02e94c8c9dbfd8aff8dbd54b203acfe768a3641e0b70ab189": "59ab13e90d337af02e94c8c9dbfd8aff8dbd54b203acfe768a3641e0b70ab189.png"
+  }
+}
