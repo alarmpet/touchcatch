@@ -16,7 +16,10 @@ export function checkRuntime({ nodeVersion, userAgent }) {
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   try {
-    checkRuntime({ nodeVersion: process.version, userAgent: process.env.npm_config_user_agent });
+    const testInput = process.env.NODE_ENV === 'test' && process.env.TOUCHCATCH_RUNTIME_TEST_INPUT
+      ? JSON.parse(process.env.TOUCHCATCH_RUNTIME_TEST_INPUT)
+      : undefined;
+    checkRuntime(testInput ?? { nodeVersion: process.version, userAgent: process.env.npm_config_user_agent });
   } catch (error) {
     console.error(error instanceof Error ? error.message : String(error));
     process.exitCode = 1;

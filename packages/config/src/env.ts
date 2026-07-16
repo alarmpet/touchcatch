@@ -38,7 +38,9 @@ function rejectProductionLoopback(values: RawEnv, environment: Environment, urlK
     } catch {
       throw new Error(`${key} must be a valid URL`);
     }
-    if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '0.0.0.0' || hostname === '::1') {
+    const unbracketedHostname = hostname.replace(/^\[|\]$/gu, '');
+    const mappedIpv4Loopback = /^::ffff:7f[0-9a-f]{2}:/u.test(unbracketedHostname);
+    if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '0.0.0.0' || unbracketedHostname === '::1' || mappedIpv4Loopback) {
       throw new Error(`${key} must not use a loopback URL in production`);
     }
   }

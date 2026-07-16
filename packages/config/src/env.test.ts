@@ -34,15 +34,27 @@ describe('application environment boundaries', () => {
   it('rejects unknown keys and public secret keys', () => {
     expect(() => parseServerEnv({ ...server, EXTRA: 'value' })).toThrow(/unknown.*EXTRA/i);
     expect(() => parseMobileEnv({ ...mobile, SUPABASE_SECRET_KEY: 'leak' })).toThrow(/unknown|secret/i);
+    expect(() => parseAdminServerEnv({ ...admin, REDIS_URL: 'redis://cache.example.test' })).toThrow(/unknown.*REDIS_URL/i);
   });
 
   it('rejects empty required values', () => {
     expect(() => parseMobileEnv({ ...mobile, EXPO_PUBLIC_API_ORIGIN: '' })).toThrow(/EXPO_PUBLIC_API_ORIGIN.*empty/i);
+    expect(() => parseServerEnv({ ...server, DATABASE_URL: '' })).toThrow(/DATABASE_URL.*empty/i);
+    expect(() => parseAdminServerEnv({ ...admin, SUPABASE_SECRET_KEY: '' })).toThrow(/SUPABASE_SECRET_KEY.*empty/i);
   });
 
   it('rejects loopback service URLs in production', () => {
     expect(() => parseMobileEnv({ ...mobile, EXPO_PUBLIC_API_ORIGIN: 'http://localhost:3000' }, 'production')).toThrow(/loopback/i);
     expect(() => parseServerEnv({ ...server, REDIS_URL: 'redis://127.0.0.1:6379' }, 'production')).toThrow(/loopback/i);
+    expect(() => parseAdminServerEnv({ ...admin, NEXT_PUBLIC_SUPABASE_URL: 'http://0.0.0.0:54321' }, 'production')).toThrow(/loopback/i);
+  });
+
+  it.each([
+    'http://[::ffff:127.0.0.1]:3000',
+    'http://[::ffff:7f00:1]:3000',
+    'http://[::ffff:7f12:3456]:3000',
+  ])('rejects IPv4-mapped IPv6 loopback URL %s', (origin) => {
+    expect(() => parseMobileEnv({ ...mobile, EXPO_PUBLIC_API_ORIGIN: origin }, 'production')).toThrow(/loopback/i);
   });
 
   it('projects only the admin public allow-list', () => {
@@ -52,5 +64,10 @@ describe('application environment boundaries', () => {
       NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: admin.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
     });
     expect(projected).not.toHaveProperty('SUPABASE_SECRET_KEY');
+  });
+
+  it('does not permit server secrets in either public environment', () => {
+    expect(() => parseMobileEnv({ ...mobile, DATABASE_URL: server.DATABASE_URL })).toThrow(/unknown.*DATABASE_URL/i);
+    expect(projectAdminPublicEnv(parseAdminServerEnv(admin))).not.toHaveProperty('SUPABASE_SECRET_KEY');
   });
 });
