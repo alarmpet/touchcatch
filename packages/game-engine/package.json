@@ -1,0 +1,1 @@
+{"name":"@spot-learn/game-engine","version":"0.0.0","private":true,"type":"module","exports":{".":"./src/index.ts"},"dependencies":{"@spot-learn/contracts":"workspace:*"}}
