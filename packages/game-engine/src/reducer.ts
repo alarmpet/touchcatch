@@ -1,5 +1,6 @@
 import { canonicalJsonSha256 } from '../../contracts/src/canonical-json.js';
 import { normalizeFinalAnswer } from '../../contracts/src/answer-normalization.js';
+import { parseMatchCommandV1, parseMatchStateV1 } from '../../contracts/src/match.schema.js';
 import type { CreateMatchInitialStateInput, MatchCommand, MatchEvent, MatchInitialStateV1, MatchStateV1, ReduceResult, TimerIntent } from '../../contracts/src/match.js';
 import type { RulesetV1 } from '../../contracts/src/rules.js';
 
@@ -20,6 +21,7 @@ export function createMatchInitialState(input:CreateMatchInitialStateInput,rules
 }
 
 export function reduceMatch(state:MatchStateV1,command:MatchCommand,rules:RulesetV1):ReduceResult {
+ parseMatchStateV1(state);parseMatchCommandV1(command);
  if(command.matchId!==state.matchId)throw Error('match mismatch');
  if(state.phase==='FINISHED'||state.phase==='CANCELLED')return rejected(state,'MATCH_INPUT_CLOSED');
  if(command.source!=='PLAYER'||command.payload.type!=='READY')return reduceOther(state,command,rules);
