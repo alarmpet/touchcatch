@@ -4,6 +4,7 @@ import { canonicalJsonSha256 } from '../../contracts/src/canonical-json.js';
 import { parseRuleset } from '../../contracts/src/rules.schema.js';
 import type { MatchStateV1 } from '../../contracts/src/match.js';
 import { createMatchInitialState, reduceMatch } from './reducer.js';
+import { replayMatch } from './replay.js';
 const frozenRules = parseRuleset(rules);
 
 const solution = {
@@ -17,17 +18,22 @@ const solution = {
 describe('createMatchInitialState',()=>it('pins immutable inputs and schedules exactly one asset deadline',()=>{
   const matchId='00000000-0000-4000-8000-000000000001';
   const asset=(side:'A'|'B')=>({side,url:`https://cdn.test/${side}.png`,sha256:(side==='A'?'a':'c').repeat(64),encodedBytes:1,width:1,height:1,mimeType:'image/png' as const});
-  const result=createMatchInitialState({matchId,createdAtMs:1000,engineVersion:'1',rulesetHash:canonicalJsonSha256(rules),playerIds:['p1','p2'],contentManifest:{contentRevisionId:solution.contentRevisionId,publicContentHash:'d'.repeat(64),privateSolutionHash:solution.privateSolutionHash,assetPolicyVersion:'1.0.0',expectedAssets:[asset('A'),asset('B')]},privateSolution:solution,randomSchedule:{wordHunts:[{kind:'NORMAL',missionId:'w1',startsAfterMs:5000,endsAfterMs:10000},{kind:'NORMAL',missionId:'w2',startsAfterMs:30000,endsAfterMs:35000},{kind:'SPECIAL',missionId:'w3',startsAfterMs:60000,endsAfterMs:65000}],hintRevealOrder:[2,0,1],suddenDeathObjectiveId:'sd'}},frozenRules);
+  const result=createMatchInitialState({matchId,createdAtMs:1000,engineVersion:'1',rulesetHash:canonicalJsonSha256(rules),playerIds:['p1','p2'],contentManifest:{contentRevisionId:solution.contentRevisionId,publicContentHash:'d'.repeat(64),privateSolutionHash:solution.privateSolutionHash,assetPolicyVersion:'1.0.0',expectedAssets:[asset('A'),asset('B')]},privateSolution:solution,randomSchedule:{wordHunts:[{kind:'NORMAL',missionId:'w1',startsAfterMs:16000,endsAfterMs:21000},{kind:'NORMAL',missionId:'w2',startsAfterMs:34000,endsAfterMs:39000},{kind:'SPECIAL',missionId:'w3',startsAfterMs:60000,endsAfterMs:65000}],hintRevealOrder:[2,0,1],suddenDeathObjectiveId:'sd'}},frozenRules);
   expect(result.state.stateRevision).toBe(0);
   expect(result.state.nextEventSeq).toBe(1);
   expect(result.timerIntents).toEqual([{kind:'SCHEDULE',timerId:`${matchId}:timer:ASSET_LOAD_TIMEOUT:asset`,dueAtMs:21000,payload:{type:'ASSET_LOAD_TIMEOUT'}}]);
+  const bundle={bundleVersion:1 as const,engineVersion:'1',ruleset:frozenRules,rulesetVersion:'1.0.0' as const,rulesetHash:canonicalJsonSha256(rules),contentRevisionId:solution.contentRevisionId,contentHash:'d'.repeat(64),initialState:result.state,commands:[]};
+  expect(new Set(Array.from({length:100},()=>canonicalJsonSha256(replayMatch(bundle)))).size).toBe(1);
 }));
 
 it('applies both READY commands from revision zero and starts a deterministic countdown',()=>{
   const matchId='00000000-0000-4000-8000-000000000001'; const asset=(side:'A'|'B')=>({side,url:`https://cdn.test/${side}.png`,sha256:(side==='A'?'a':'c').repeat(64),encodedBytes:1,width:1,height:1,mimeType:'image/png' as const});
-  let state:MatchStateV1=createMatchInitialState({matchId,createdAtMs:0,engineVersion:'1',rulesetHash:canonicalJsonSha256(rules),playerIds:['p1','p2'],contentManifest:{contentRevisionId:solution.contentRevisionId,publicContentHash:'d'.repeat(64),privateSolutionHash:solution.privateSolutionHash,assetPolicyVersion:'1.0.0',expectedAssets:[asset('A'),asset('B')]},privateSolution:solution,randomSchedule:{wordHunts:[{kind:'NORMAL',missionId:'w1',startsAfterMs:5000,endsAfterMs:10000},{kind:'NORMAL',missionId:'w2',startsAfterMs:30000,endsAfterMs:35000},{kind:'SPECIAL',missionId:'w3',startsAfterMs:60000,endsAfterMs:65000}],hintRevealOrder:[2,0,1],suddenDeathObjectiveId:'sd'}},frozenRules).state;
+  let state:MatchStateV1=createMatchInitialState({matchId,createdAtMs:0,engineVersion:'1',rulesetHash:canonicalJsonSha256(rules),playerIds:['p1','p2'],contentManifest:{contentRevisionId:solution.contentRevisionId,publicContentHash:'d'.repeat(64),privateSolutionHash:solution.privateSolutionHash,assetPolicyVersion:'1.0.0',expectedAssets:[asset('A'),asset('B')]},privateSolution:solution,randomSchedule:{wordHunts:[{kind:'NORMAL',missionId:'w1',startsAfterMs:16000,endsAfterMs:21000},{kind:'NORMAL',missionId:'w2',startsAfterMs:34000,endsAfterMs:39000},{kind:'SPECIAL',missionId:'w3',startsAfterMs:60000,endsAfterMs:65000}],hintRevealOrder:[2,0,1],suddenDeathObjectiveId:'sd'}},frozenRules).state;
   const payload={type:'READY' as const,contentRevisionId:solution.contentRevisionId,contentHash:'d'.repeat(64),assetHashes:['c'.repeat(64),'a'.repeat(64)],decodedDimensions:[{assetHash:'a'.repeat(64),width:1,height:1},{assetHash:'c'.repeat(64),width:1,height:1}]};
   const cmd=(playerId:string,seq:number)=>({source:'PLAYER' as const,commandId:`${matchId}:player:${playerId}:00000000-0000-4000-8000-00000000000${seq}`,matchId,commandSeq:seq,receivedAtMs:1000,requestId:`00000000-0000-4000-8000-00000000000${seq}`,playerId,expectedRevision:0,payload});
   let r=reduceMatch(state,cmd('p1',1),frozenRules); expect(r.events[0]?.stateRevision).toBe(1); state=r.state;
   r=reduceMatch(state,cmd('p2',2),frozenRules); expect(r.state.phase).toBe('COUNTDOWN');expect(r.decision).toEqual({status:'APPLIED'});expect(r.timerIntents).toContainEqual({kind:'CANCEL',timerId:`${matchId}:timer:ASSET_LOAD_TIMEOUT:asset`});expect(r.events[0]?.eventSeq).toBe(2);
+  state=r.state;const startId=`${matchId}:timer:START_MATCH:countdown`;r=reduceMatch(state,{source:'TIMER',commandId:startId,timerId:startId,matchId,commandSeq:3,receivedAtMs:4000,dueAtMs:4000,payload:{type:'START_MATCH'}},frozenRules);expect(r.state.phase).toBe('PLAYING');expect(r.timerIntents).toHaveLength(9);state=r.state;
+  const tap=(seq:number,time:number)=>({source:'PLAYER' as const,commandId:`${matchId}:player:p1:00000000-0000-4000-8000-${String(seq).padStart(12,'0')}`,matchId,commandSeq:seq,receivedAtMs:time,requestId:`00000000-0000-4000-8000-${String(seq).padStart(12,'0')}`,playerId:'p1',expectedRevision:state.stateRevision,payload:{type:'TAP_IMAGE' as const,imageSide:'A' as const,x:.99,y:.01}});
+  for(let i=0;i<8;i++){r=reduceMatch(state,tap(4+i,4500),frozenRules);expect(r.decision.status).toBe('APPLIED');state=r.state;}r=reduceMatch(state,tap(12,4500),frozenRules);expect(r.decision).toEqual({status:'REJECTED',reason:'RATE_LIMITED'});r=reduceMatch(state,tap(13,5000),frozenRules);expect(r.decision.status).toBe('APPLIED');
 });

@@ -1,6 +1,7 @@
 import type { MatchStateV1 } from '../../contracts/src/match.js';
 import type { RulesetV1 } from '../../contracts/src/rules.js';
 export type PlayerInputState={board:'ENABLED'|'RATE_LIMITED'|'DISABLED';answer:'LOCKED'|'ENABLED'|'COMPLETED';overlay:'NONE'|'WORD_HUNT_REVEAL'|'MEANING_QUIZ'|'RECONNECTING'};
+export function terminalPhaseForEndReason(reason:import('../../contracts/src/match.js').MatchEndReason){return reason==='NO_CONTEST'||reason==='NO_CONTEST_ASSET_LOAD'?'CANCELLED' as const:'FINISHED' as const;}
 export function derivePlayerInputState(state:MatchStateV1,playerId:string,now:number,rules:RulesetV1,connection:'CONNECTED'|'RECONNECTING'):PlayerInputState {
  const p=state.players.find(x=>x.playerId===playerId);if(!p)throw Error('not a participant');
  const quiz=state.meaningQuizzes.some(q=>q.playerId===playerId&&!q.submitted&&now<q.endsAtMs);

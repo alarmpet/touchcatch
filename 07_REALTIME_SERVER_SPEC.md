@@ -17,3 +17,8 @@ Node.js 22+, NestJS, Socket.IO, Redis, PostgreSQL, BullMQ.
 - 5초 이내 재접속
 - 15초 초과 시 기권 또는 무효
 - 서버 장애 시 양쪽 패배 금지
+# Match ordering contract
+
+Ingress drains due timers to a fixed point in `(dueAtMs, timerId)` order before sequencing a PLAYER or SYSTEM command at the same logical time. `commandSeq`, `eventSeq`, and `stateRevision` are separate match-scoped counters. Old client revisions are synchronization watermarks and remain eligible; only future revisions are rejected.
+
+Disconnect epochs are monotonic. Reconnect before the absolute forfeit deadline cancels the epoch timer; at the exact deadline the timer wins and produces `FORFEIT`. Recovery without durable journal/lease continuity produces a single sequenced no-contest cancellation before normal queue processing.

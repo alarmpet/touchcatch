@@ -84,6 +84,12 @@ importers:
         specifier: ^3.1.1
         version: 3.1.1
 
+  packages/game-engine:
+    dependencies:
+      '@spot-learn/contracts':
+        specifier: workspace:*
+        version: file:packages/contracts
+
 packages:
 
   '@azu/format-text@1.0.2':
