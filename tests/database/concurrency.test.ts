@@ -110,9 +110,9 @@ beforeAll(async () => {
     await reader.query('reset role').catch(() => undefined);
     reader.release();
   }
-  const configuredOrigins = parseContentAssetOrigins(process.env.CONTENT_ASSET_ORIGINS ?? 'https://cdn.spot-learn.test');
-  const storedOrigins = await admin.query<{ origin: string }>('select origin from private.content_asset_origins order by origin');
-  expect(storedOrigins.rows.map((row) => row.origin)).toEqual(configuredOrigins);
+  const configuredOrigins = parseContentAssetOrigins(process.env.CONTENT_ASSET_ORIGINS ?? 'https://cdn.spot-learn.test','1.0.0');
+  const storedOrigins = await admin.query<{ assetPolicyVersion:string; origin: string }>('select asset_policy_version as "assetPolicyVersion", origin from private.content_asset_origins order by asset_policy_version, origin');
+  expect(storedOrigins.rows).toEqual(configuredOrigins);
   await admin.query(
     `insert into public.matches(id,content_revision_id,status,server_version,ruleset_version,ruleset_hash,engine_version,protocol_version,experiment_variant)
      values ($1,$2,'WAITING_FOR_ASSETS','test','1.0.0',repeat('c',64),'1.0.0','1.0.0','CONTROL')`,

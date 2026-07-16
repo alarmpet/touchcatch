@@ -3,24 +3,24 @@ import { ASSET_PUBLISH_LIMITS_V1 } from './content.js';
 import { parseMatchStateV1 } from './match.schema.js';
 import { clientCommandEnvelopeSchema } from './socket.schema.js';
 import { normalizeFinalAnswer } from './answer-normalization.js';
+import { MATCH_DB_PROJECTION_V1, type MatchEndReason, type MatchPhase } from './match.js';
 
 const runtimeTuple = Object.freeze({ node: packageManifest.engines.node, pnpm: packageManifest.engines.pnpm });
 
 /** Evidence is derived from executable imports and pinned values, never caller-supplied flags. */
 export const CONTENT_INTEGRATION_EVIDENCE = Object.freeze({
   runtimeTuple,
-  matchContract: typeof parseMatchStateV1 === 'function',
-  terminalMapping: typeof parseMatchStateV1 === 'function',
-  wireNormalizationAndLimits:
-    typeof clientCommandEnvelopeSchema.safeParse === 'function' &&
-    normalizeFinalAnswer('Ａ') === 'a' &&
-    ASSET_PUBLISH_LIMITS_V1.maxEncodedBytes === 8 * 1024 * 1024 &&
-    ASSET_PUBLISH_LIMITS_V1.maxWidth === 4096 &&
-    ASSET_PUBLISH_LIMITS_V1.maxHeight === 4096 &&
-    ASSET_PUBLISH_LIMITS_V1.maxDecodedPixels === 16_000_000,
+  parseState(value:unknown){return parseMatchStateV1(value);},
+  verifyWire(value:unknown){const parsed=clientCommandEnvelopeSchema.parse(value);if(parsed.payload.type!=='SUBMIT_FINAL_ANSWER')throw Error('answer command required');const max='a'.repeat(128);const base={...parsed,payload:{type:'SUBMIT_FINAL_ANSWER' as const,answer:max}};return {normalizedAnswer:normalizeFinalAnswer(parsed.payload.answer),acceptedAtMax:clientCommandEnvelopeSchema.safeParse(base).success,rejectedPastMax:!clientCommandEnvelopeSchema.safeParse({...base,payload:{...base.payload,answer:`${max}a`}}).success};},
+  assetLimits:ASSET_PUBLISH_LIMITS_V1,
+  validateTerminalTuple(tuple:{phase:MatchPhase;endReason:MatchEndReason|null;winnerPlayerId:string|null}){const terminal=tuple.phase==='FINISHED'||tuple.phase==='CANCELLED';if(!terminal)return tuple.endReason===null&&tuple.winnerPlayerId===null;if(tuple.endReason===null)return false;if(tuple.phase==='CANCELLED')return MATCH_DB_PROJECTION_V1.winnerForbidden.includes(tuple.endReason as never)&&tuple.endReason!=='DRAW'&&tuple.winnerPlayerId===null;if(MATCH_DB_PROJECTION_V1.winnerRequired.includes(tuple.endReason as never))return tuple.winnerPlayerId!==null;return tuple.endReason==='DRAW'&&tuple.winnerPlayerId===null;},
 });
 
-export function parseContentAssetOrigins(value: string): readonly string[] {
+export function deriveTerminalConstraintProjection(sql:string){const body=/matches_terminal_shape check \(([\s\S]*?)\n\);/u.exec(sql)?.[1];if(!body)throw Error('terminal constraint missing');const groups=[...body.matchAll(/end_reason in \(([^)]+)\)/gu)].map(m=>(m[1]!.match(/'[^']+'/gu)?.map(v=>v.slice(1,-1))??[]).sort());if(groups.length!==2)throw Error('terminal partition malformed');const result={cancelled:groups[0],finished:groups[1],drawWinnerNull:/end_reason = 'DRAW' and winner_participant_key is null/su.test(body),nonDrawWinnerPresent:/end_reason <> 'DRAW' and winner_participant_key is not null/su.test(body)};const expected={cancelled:[...MATCH_DB_PROJECTION_V1.winnerForbidden.filter(x=>x!=='DRAW')].sort(),finished:[...MATCH_DB_PROJECTION_V1.winnerRequired,'DRAW'].sort(),drawWinnerNull:true,nonDrawWinnerPresent:true};if(JSON.stringify(result)!==JSON.stringify(expected))throw Error('terminal constraint drift');return result;}
+
+export function parseContentAssetOrigins(value: string): readonly string[];
+export function parseContentAssetOrigins(value: string, assetPolicyVersion:string): readonly {assetPolicyVersion:string;origin:string}[];
+export function parseContentAssetOrigins(value: string, assetPolicyVersion?:string): readonly (string|{assetPolicyVersion:string;origin:string})[] {
   const items = value.split(',').map((item) => item.trim()).filter(Boolean);
   if (!items.length) throw new Error('CONTENT_ASSET_ORIGINS requires at least one HTTPS origin');
   const normalized = items.map((origin) => {
@@ -31,5 +31,5 @@ export function parseContentAssetOrigins(value: string): readonly string[] {
     return origin;
   }).sort();
   if (new Set(normalized).size !== normalized.length) throw new Error('CONTENT_ASSET_ORIGINS contains a duplicate origin');
-  return normalized;
+  return assetPolicyVersion===undefined?normalized:normalized.map(origin=>({assetPolicyVersion,origin}));
 }
