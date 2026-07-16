@@ -1,5 +1,5 @@
 openapi: 3.1.0
-info: {title: TouchCatch API, version: 1.0.0, license: {name: Proprietary}}
+info: {title: TouchCatch API, version: 1.0.0, license: {name: Proprietary, identifier: LicenseRef-Proprietary}}
 servers: [{url: https://api.example.invalid}]
 security: [{bearerAuth: []}]
 paths:
@@ -7,7 +7,7 @@ paths:
     get:
       operationId: getMe
       summary: Get the authenticated profile
-      responses: {'200': {$ref: '#/components/responses/Ok'}}
+      responses: {'200': {$ref: '#/components/responses/Ok'}, '401': {$ref: '#/components/responses/Error'}}
   /v1/pets:
     get:
       operationId: listPets
@@ -15,7 +15,7 @@ paths:
       parameters:
         - {name: cursor, in: query, schema: {type: string, maxLength: 512}}
         - {name: limit, in: query, schema: {type: integer, minimum: 1, maximum: 100, default: 20}}
-      responses: {'200': {$ref: '#/components/responses/Ok'}}
+      responses: {'200': {$ref: '#/components/responses/Ok'}, '401': {$ref: '#/components/responses/Error'}}
   /v1/pets/{id}/select:
     post:
       operationId: selectPet
@@ -28,54 +28,54 @@ paths:
       summary: Change an owned pet lock
       parameters: [{$ref: '#/components/parameters/Id'}, {$ref: '#/components/parameters/IdempotencyKey'}]
       requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/LockBody'}}}}
-      responses: {'200': {$ref: '#/components/responses/Ok'}}
+      responses: {'200': {$ref: '#/components/responses/Ok'}, '400': {$ref: '#/components/responses/Error'}}
   /v1/gacha/draw:
     post:
       operationId: drawGacha
       summary: Draw from gacha
       parameters: [{$ref: '#/components/parameters/IdempotencyKey'}]
-      responses: {'200': {$ref: '#/components/responses/Ok'}}
+      responses: {'200': {$ref: '#/components/responses/Ok'}, '400': {$ref: '#/components/responses/Error'}}
   /v1/fusion:
     post:
       operationId: fusePets
       summary: Fuse owned pets
       parameters: [{$ref: '#/components/parameters/IdempotencyKey'}]
-      responses: {'200': {$ref: '#/components/responses/Ok'}}
+      responses: {'200': {$ref: '#/components/responses/Ok'}, '400': {$ref: '#/components/responses/Error'}}
   /v1/matches/queue:
     post:
       operationId: createQueueTicket
       summary: Create a queue ticket
       parameters: [{$ref: '#/components/parameters/IdempotencyKey'}]
-      responses: {'202': {$ref: '#/components/responses/Ok'}}
+      responses: {'202': {$ref: '#/components/responses/Ok'}, '409': {$ref: '#/components/responses/Error'}}
   /v1/matches/queue/{ticketId}:
     get:
       operationId: getQueueTicket
       summary: Read a queue ticket
       parameters: [{$ref: '#/components/parameters/TicketId'}]
-      responses: {'200': {$ref: '#/components/responses/Ok'}}
+      responses: {'200': {$ref: '#/components/responses/Ok'}, '404': {$ref: '#/components/responses/Error'}}
     delete:
       operationId: cancelQueueTicket
       summary: Cancel a queue ticket
       parameters: [{$ref: '#/components/parameters/TicketId'}, {$ref: '#/components/parameters/IdempotencyKey'}]
-      responses: {'200': {$ref: '#/components/responses/Ok'}}
+      responses: {'200': {$ref: '#/components/responses/Ok'}, '409': {$ref: '#/components/responses/Error'}}
   /v1/matches/friend-room:
     post:
       operationId: createFriendRoom
       summary: Create a friend room
       parameters: [{$ref: '#/components/parameters/IdempotencyKey'}]
-      responses: {'201': {$ref: '#/components/responses/Ok'}}
+      responses: {'201': {$ref: '#/components/responses/Ok'}, '409': {$ref: '#/components/responses/Error'}}
   /v1/matches/friend-room/{roomCode}/join:
     post:
       operationId: joinFriendRoom
       summary: Join a friend room
       parameters: [{$ref: '#/components/parameters/RoomCode'}, {$ref: '#/components/parameters/IdempotencyKey'}]
-      responses: {'200': {$ref: '#/components/responses/Ok'}}
+      responses: {'200': {$ref: '#/components/responses/Ok'}, '409': {$ref: '#/components/responses/Error'}}
   /v1/matches/friend-room/{roomCode}/members/me:
     delete:
       operationId: leaveFriendRoom
       summary: Leave a friend room
       parameters: [{$ref: '#/components/parameters/RoomCode'}, {$ref: '#/components/parameters/IdempotencyKey'}]
-      responses: {'200': {$ref: '#/components/responses/Ok'}}
+      responses: {'200': {$ref: '#/components/responses/Ok'}, '409': {$ref: '#/components/responses/Error'}}
 components:
   securitySchemes: {bearerAuth: {type: http, scheme: bearer, bearerFormat: JWT}}
   parameters:
