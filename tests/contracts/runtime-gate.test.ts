@@ -34,7 +34,7 @@ describe('runtime gate', () => {
     );
   });
 
-  it('wires process and environment inputs through the CLI entrypoint', () => {
+  it('uses the real process runtime at the CLI entrypoint and ignores override-like environment values', () => {
     const result = spawnSync(process.execPath, [resolve('tools/check-runtime.mjs')], {
       encoding: 'utf8',
       env: {
@@ -42,12 +42,13 @@ describe('runtime gate', () => {
         NODE_ENV: 'test',
         TOUCHCATCH_RUNTIME_TEST_INPUT: JSON.stringify({
           nodeVersion: 'v24.18.0',
-          userAgent: 'pnpm/11.9.0 npm/? node/v24.18.0 win32 x64',
+          userAgent: 'pnpm/11.13.0 npm/? node/v24.18.0 win32 x64',
         }),
+        npm_config_user_agent: 'pnpm/11.13.0 npm/? node/v24.18.0 win32 x64',
       },
     });
 
     expect(result.status).toBe(1);
-    expect(result.stderr).toContain('pnpm 11.9.0; expected 11.13.0');
+    expect(result.stderr).toContain(`Node ${process.version}; expected v24.18.0`);
   });
 });
