@@ -26,5 +26,5 @@ export function runQuarantineJob(job:QuarantineJobV1,mode:'DRY_RUN'|'APPLY'):{jo
  const complete={...job,status:'COMPLETED' as const,value};return {job:complete,audit:{jobId:job.jobId,action:job.policy.action,affectedFieldCount:count,status:'COMPLETED'},value};
 }
 export function scanNestedPii(value:unknown,forbiddenKeys:readonly string[]=['email','phone','contact','address','token']):readonly string[]{
- const found:string[]=[];const visit=(node:unknown,path:string)=>{if(Array.isArray(node)){node.forEach((v,i)=>visit(v,`${path}[${i}]`));return;}if(!node||typeof node!=='object')return;for(const [key,child] of Object.entries(node as Record<string,unknown>)){const next=path?`${path}.${key}`:key;if(forbiddenKeys.some(k=>key.toLowerCase().includes(k)))found.push(next);visit(child,next);}};visit(value,'');return found.sort();
+ const found:string[]=[];const visit=(node:unknown,path:string)=>{if(Array.isArray(node)){node.forEach((v,i)=>visit(v,`${path}[${i}]`));return;}if(!node||typeof node!=='object')return;for(const [key,child] of Object.entries(node as Record<string,unknown>)){const next=path?`${path}.${key}`:key;if(child!==null&&child!==undefined&&forbiddenKeys.some(k=>key.toLowerCase().includes(k)))found.push(next);visit(child,next);}};visit(value,'');return found.sort();
 }
