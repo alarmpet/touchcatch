@@ -14,7 +14,23 @@ export type PlayerCommandPayload={type:'READY';contentRevisionId:string;contentH
 export type TimerCommandPayload={type:'ASSET_LOAD_TIMEOUT'}|{type:'START_MATCH'}|{type:'START_WORD_HUNT';missionId:string}|{type:'END_WORD_HUNT';missionId:string}|{type:'UNLOCK_FINAL_CHALLENGE'}|{type:'START_FINAL_RUSH'}|{type:'CLOSE_INPUT'}|{type:'ANSWER_LOCK_EXPIRED';playerId:string;wrongAttemptOrdinal:number}|{type:'MEANING_TIMEOUT';playerId:string;quizOrdinal:number}|{type:'DISCONNECT_FORFEIT_TIMEOUT';playerId:string;disconnectEpoch:number}|{type:'SUDDEN_DEATH_TIMEOUT'};
 export type MatchCommand=(Base&{source:'PLAYER';requestId:string;playerId:string;expectedRevision:number;payload:PlayerCommandPayload})|(Base&{source:'TIMER';timerId:string;dueAtMs:number;payload:TimerCommandPayload})|(Base&{source:'SYSTEM';systemCommandId:string;payload:{type:'PLAYER_CONNECTION_CHANGED';playerId:string;disconnectEpoch:number;status:'CONNECTED'|'DISCONNECTED'}|{type:'CANCEL_NO_CONTEST';incidentId:string;reason:'BOTH_DISCONNECTED'|'SERVER_OWNERSHIP_LOST'}});
 export type TimerIntent={kind:'SCHEDULE';timerId:string;dueAtMs:number;payload:TimerCommandPayload}|{kind:'CANCEL';timerId:string};
-export type MatchEvent={eventId:string;matchId:string;eventSeq:number;causedByCommandSeq:number;stateRevision:number;occurredAtMs:number;phase:MatchPhase;type:string;payload:Record<string,unknown>};
+type EventBase={eventId:string;matchId:string;eventSeq:number;causedByCommandSeq:number;stateRevision:number;occurredAtMs:number;phase:MatchPhase};
+export type MatchEvent=EventBase&(
+ |{type:'ASSET_READY_CHANGED';payload:{playerId:string;readyCount:1|2;countdownEndsAtMs:number|null}}
+ |{type:'MATCH_STARTED'|'FINAL_RUSH_STARTED';payload:{startedAtMs:number}}
+ |{type:'FINAL_CHALLENGE_UNLOCKED';payload:{unlockedAtMs:number;source:'TIME'|'DIFFERENCE'|'WORD_HUNT';publicPattern:string}}
+ |{type:'HINT_REVEALED';payload:{playerId:string;hintIndex:number;publicPattern:string}}
+ |{type:'HINT_CREDIT_CHANGED'|'SCORE_CHANGED';payload:{playerId:string;delta:number;absoluteCredits?:number;absoluteScore?:number}}
+ |{type:'ANSWER_LOCK_CHANGED';payload:{playerId:string;answerUntilMs:number|null;reason:'WRONG_ANSWER'|'FINAL_RUSH_WRONG_ANSWER'|'EXPIRED'}}
+ |{type:'TAP_RESOLVED';payload:{playerId:string;requestId:string;hit:boolean;objectiveId:string|null}}
+ |{type:'OBJECTIVE_CLAIMED';payload:{objectiveId:string;ownerPlayerId:string;kind:'DIFFERENCE'}}
+ |{type:'WORD_HUNT_STARTED';payload:{missionId:string;kind:'NORMAL'|'SPECIAL';publicPrompt:string;startedAtMs:number;endsAtMs:number}}
+ |{type:'WORD_HUNT_WON';payload:{missionId:string;playerId:string}}|{type:'WORD_HUNT_ENDED';payload:{missionId:string;reason:'TIMEOUT'}}
+ |{type:'MEANING_QUIZ_STARTED';payload:{playerId:string;quizOrdinal:number;endsAtMs:number}}
+ |{type:'SUDDEN_DEATH_STARTED';payload:{objectiveId:string;endsAtMs:number}}|{type:'INPUT_CLOSED';payload:{closedAtMs:number;settlementCapAtMs:number}}
+ |{type:'PLAYER_CONNECTION_CHANGED';payload:{playerId:string;status:'CONNECTED'|'DISCONNECTED';disconnectEpoch:number;forfeitAtMs:number|null}}
+ |{type:'MATCH_FINISHED';payload:{winnerPlayerId:string|null;endReason:MatchEndReason}}
+)&{payload:{delta?:number}};
 export type DomainDecision={status:'APPLIED'}|{status:'REJECTED';reason:'REVISION_AHEAD'|'ALREADY_READY'|'ALREADY_CLAIMED'|'INPUT_LOCKED'|'NO_HINT_CREDIT'|'RATE_LIMITED'|'OBSOLETE_TIMER'|'OBSOLETE_SYSTEM_COMMAND'|'MATCH_INPUT_CLOSED'|'NOT_A_PARTICIPANT'};
 export type ReduceResult={state:MatchStateV1;events:ReadonlyArray<MatchEvent>;timerIntents:ReadonlyArray<TimerIntent>;decision:DomainDecision};
 export type ReplayBundleV1={bundleVersion:1;engineVersion:string;ruleset:RulesetV1;rulesetVersion:'1.0.0';rulesetHash:string;contentRevisionId:string;contentLanguage:'ko'|'en'|'ja';contentHash:string;initialState:MatchInitialStateV1;commands:ReadonlyArray<MatchCommand>};
