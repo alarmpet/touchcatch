@@ -1,4 +1,5 @@
 # 02. 핵심 규칙과 밸런스
+> RulesetV1 (`1.0.0`) is authoritative. Final rush is `[60,000, 75,000)`, settlement ends by 80,000 ms, unlocks use OR semantics, scores have a zero floor, and ties proceed to sudden death.
 
 ## 승리 조건
 - 100점 선착순

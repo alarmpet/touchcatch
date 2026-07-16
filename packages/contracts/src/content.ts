@@ -1,4 +1,7 @@
 import type { FromSchema } from 'json-schema-to-ts';
+import frozenRuleset from '../../../config/ruleset.v1.json' with { type: 'json' };
+
+export const CONTENT_CARDINALITY_V1 = frozenRuleset.content;
 
 export const CONTENT_CONTRACT_VERSION = '1.0.0' as const;
 export const CONTENT_VALIDATOR_VERSION = '1.0.0' as const;
@@ -104,8 +107,8 @@ export const privateGameSolutionSchema = {
     privateSolutionHash: { type: 'string', pattern: sha256Pattern },
     differences: {
       type: 'array',
-      minItems: 10,
-      maxItems: 10,
+      minItems: CONTENT_CARDINALITY_V1.normalDifferences + CONTENT_CARDINALITY_V1.hardDifferences,
+      maxItems: CONTENT_CARDINALITY_V1.normalDifferences + CONTENT_CARDINALITY_V1.hardDifferences,
       items: {
         type: 'object',
         additionalProperties: false,
@@ -119,8 +122,8 @@ export const privateGameSolutionSchema = {
     },
     wordHunts: {
       type: 'array',
-      minItems: 3,
-      maxItems: 3,
+      minItems: CONTENT_CARDINALITY_V1.wordHunts,
+      maxItems: CONTENT_CARDINALITY_V1.wordHunts,
       items: {
         type: 'object',
         additionalProperties: false,

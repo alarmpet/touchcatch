@@ -8,6 +8,7 @@ import { fileTypeFromBuffer } from 'file-type';
 import sharp from 'sharp';
 import {
   ASSET_PUBLISH_LIMITS_V1,
+  CONTENT_CARDINALITY_V1,
   CONTENT_TEXT_LIMITS_V1,
   CONTENT_VALIDATOR_VERSION,
   canonicalJson,
@@ -372,11 +373,11 @@ export async function validateFixtureObject(value: unknown, options: ValidationO
   const differences = Array.isArray(privateSolution.differences) ? privateSolution.differences : [];
   const normalCount = differences.filter((entry) => isRecord(entry) && entry.tier === 'NORMAL').length;
   const hardCount = differences.filter((entry) => isRecord(entry) && entry.tier === 'HARD').length;
-  if (normalCount !== 7 || hardCount !== 3) addError(errors, '/privateSolution/differences', 'DIFFERENCE_CARDINALITY', 'differences must contain 7 NORMAL and 3 HARD objectives');
+  if (normalCount !== CONTENT_CARDINALITY_V1.normalDifferences || hardCount !== CONTENT_CARDINALITY_V1.hardDifferences) addError(errors, '/privateSolution/differences', 'DIFFERENCE_CARDINALITY', `differences must contain ${CONTENT_CARDINALITY_V1.normalDifferences} NORMAL and ${CONTENT_CARDINALITY_V1.hardDifferences} HARD objectives`);
   const wordHunts = Array.isArray(privateSolution.wordHunts) ? privateSolution.wordHunts : [];
   const normalWords = wordHunts.filter((entry) => isRecord(entry) && entry.kind === 'NORMAL').length;
   const specialWords = wordHunts.filter((entry) => isRecord(entry) && entry.kind === 'SPECIAL').length;
-  if (wordHunts.length !== 3 || normalWords !== 2 || specialWords !== 1) addError(errors, '/privateSolution/wordHunts', 'WORD_HUNT_CARDINALITY', 'word hunts must contain 2 NORMAL and 1 SPECIAL objectives');
+  if (wordHunts.length !== CONTENT_CARDINALITY_V1.wordHunts || normalWords !== CONTENT_CARDINALITY_V1.wordHunts - 1 || specialWords !== 1) addError(errors, '/privateSolution/wordHunts', 'WORD_HUNT_CARDINALITY', `word hunts must contain ${CONTENT_CARDINALITY_V1.wordHunts - 1} NORMAL and 1 SPECIAL objectives`);
 
   const objectives = [...differences, ...wordHunts, ...(isRecord(privateSolution.suddenDeath) ? [privateSolution.suddenDeath] : [])];
   const ids = objectives.map((entry) => isRecord(entry) ? (entry.objectiveId ?? entry.missionId) : undefined).filter((id): id is string => typeof id === 'string');

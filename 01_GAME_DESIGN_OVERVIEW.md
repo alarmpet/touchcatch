@@ -1,4 +1,5 @@
 # 01. 게임 기획 개요
+> RulesetV1 (`1.0.0`) is authoritative for scoring, timing, unlocks, hints, and tie breaking. Prose examples are non-authoritative.
 
 ## 게임 정체성
 - 관찰하여 기본 점수를 쌓는다.

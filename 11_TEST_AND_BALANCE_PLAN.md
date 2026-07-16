@@ -1,4 +1,5 @@
 # 11. 테스트 및 밸런스
+> Balance tests load RulesetV1 (`1.0.0`) and cover 59,999/60,000 ms, 74,999/75,000 ms, settlement through 80,000 ms, the score floor, atomic final scoring, and tie-chain boundaries.
 
 ## 목표 지표
 - 평균 경기 50~70초

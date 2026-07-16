@@ -1,0 +1,12 @@
+{
+  "rulesetVersion": "1.0.0", "targetScore": 100, "scoreFloor": 0,
+  "time": { "assetLoadMs": 20000, "countdownMs": 3000, "playingMs": 75000, "finalRushStartsAtMs": 60000, "wordHuntMs": 5000, "wordHuntRevealMs": 1200, "meaningQuizMs": 5000, "meaningSettlementCapMs": 80000, "suddenDeathMs": 10000, "reconnectForfeitMs": 15000 },
+  "score": { "normalDifference": 6, "hardDifference": 9, "finalRushDifferenceMultiplier": 2, "normalWordHunt": 10, "specialWordHunt": 15, "finalWord": 25, "meaning": 15, "combo": 10, "wrongAnswer": -5, "finalRushWrongAnswer": -10 },
+  "lockMs": { "wrongAnswer": 2000, "finalRushWrongAnswer": 1500 },
+  "wordHuntSchedule": [{ "kind": "NORMAL", "spawnWindowMs": [16000, 22000] }, { "kind": "NORMAL", "spawnWindowMs": [34000, 42000] }, { "kind": "SPECIAL", "spawnAtMs": 60000 }],
+  "limits": { "maxBoardTapsPerSecond": 8 },
+  "hint": { "creditsPerWordHuntWin": 1, "charactersPerUse": 1, "revealOrder": "MATCH_RANDOM_SCHEDULE" },
+  "content": { "normalDifferences": 7, "hardDifferences": 3, "wordHunts": 3 },
+  "finalChallenge": { "unlock": { "atMs": 12000, "onDifferenceClaim": true, "onWordHuntClaim": true }, "maxWrongAttempts": 3, "atomicScoring": true },
+  "tieBreak": ["SCORE", "FINAL_PACKAGE_CORRECT", "HARD_DIFFERENCES", "FEWER_FINAL_ANSWER_ERRORS", "SUDDEN_DEATH"]
+}

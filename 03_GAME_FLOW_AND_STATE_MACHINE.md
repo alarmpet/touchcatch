@@ -1,4 +1,5 @@
 # 03. 게임 흐름과 상태 머신
+> State boundaries follow RulesetV1 (`1.0.0`) half-open windows. At 75,000 ms new match input closes; only already-started meaning settlement may continue through the 80,000 ms cap.
 
 ```mermaid
 stateDiagram-v2
