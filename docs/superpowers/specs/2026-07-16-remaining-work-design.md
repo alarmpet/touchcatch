@@ -7,12 +7,14 @@
 ## 기준선
 
 - Git 원격은 `https://github.com/alarmpet/touchcatch.git`, 기본 로컬 브랜치는 `main`이다.
-- 현재 저장소는 최초 커밋 전 상태이며 기존 파일 대부분은 untracked다. 계획 문서 커밋은 명시된 문서만 stage한다.
+- 현재 저장소의 첫 문서 커밋은 존재하지만 애플리케이션·DB·테스트 파일 대부분은 여전히 untracked다. 이 파일들은 Task 5–6 검증을 통과한 기존 구현이므로 Task 1에서 새로 생성하거나 덮어쓰지 않는다.
 - Task 5–6 standalone 검증 기준은 일반 테스트 56개, 유효 콘텐츠 3개, DB lint 0건, pgTAP 62개, 20-session concurrency 통과다.
 - `CONTENT_PREREQUISITE_STATUS.task3MatchContractImplemented`와 `task4WireContractImplemented`는 현재 `false`다.
 - `pnpm check`와 `pnpm check:db`는 현재 Task 5–6 scoped gate이며 전체 계획의 `verify`를 의미하지 않는다.
 - production publish는 `deployment_role`을 validator 전용 principal에만 부여한다는 신뢰 경계가 필요하다.
 - legacy quarantine의 보관·삭제·법적 근거 승인이 외부 베타 진입 조건이다.
+
+Task 1의 첫 실행 단위는 기존 구현 보존이다. untracked 파일을 기능 영역별로 inventory하고 secret·대용량·생성물 여부를 검사한 뒤, 현재 `pnpm check`와 `pnpm check:db`를 다시 통과시켜 의도적인 baseline 커밋으로 만든다. clean checkout에서 같은 검증을 재현하기 전에는 scaffold 생성, 파일 이동, 일괄 삭제를 시작하지 않는다.
 
 ## 문서 구조
 
@@ -47,7 +49,7 @@ UI 작업을 reducer·wire 계약보다 먼저 시작하지 않는다. 시각 �
 
 ### A. 저장소와 규칙 기반
 
-Node/pnpm/runtime pin, lint·format·secret scan, CI, OpenAPI 기본 gate와 단일 `RulesetV1`을 만든다. 이후 모든 reducer, DB, UI가 규칙 상수를 복제하지 않고 이 계약을 소비하게 한다.
+기존 scaffold와 Task 5–6 구현을 보존한 baseline 커밋을 먼저 만든다. 그 뒤 Node/pnpm/runtime pin, lint·format·secret scan, CI, OpenAPI 기본 gate와 단일 `RulesetV1`을 만든다. `RulesetV1` 도입은 새 파일 추가만으로 끝내지 않고 현재 `content.ts`, 콘텐츠 validator, SQL CHECK/function에 흩어진 규칙 상수를 inventory해 공용 loader 또는 생성 산출물로 치환한다. TypeScript를 SQL이 직접 읽는 구조는 만들지 않으며, canonical hash와 generated parity test가 TS·JSON·DB 표현의 동일성을 증명해야 한다. 이후 모든 reducer, DB, UI가 규칙 상수를 임의로 복제하지 않고 이 계약을 소비하게 한다.
 
 ### B. 결정론 경기 엔진
 
@@ -55,23 +57,27 @@ Node/pnpm/runtime pin, lint·format·secret scan, CI, OpenAPI 기본 gate와 단
 
 ### C. 전송과 인증
 
-REST/Socket runtime schema, subject mapping, idempotency, reconnect/replay, viewer별 projection과 private-data redaction을 구현한다. 어떤 wire payload도 private solution 전체를 직렬화하지 않는다.
+REST/Socket runtime schema, subject mapping, idempotency, reconnect/replay, viewer별 projection과 private-data redaction을 구현한다. handshake에서 서버는 해당 경기의 `protocolVersion`, `engineVersion`, `rulesetVersion`/hash, `contentRevisionId`/hash를 보내고 클라이언트는 자신이 지원하는 protocol·engine·ruleset 범위를 선언한다. 호환되지 않으면 경기 command를 받기 전에 typed fail-closed 응답을 반환하며, UI는 업데이트 필요 상태로 전환한다. content hash는 클라이언트가 규칙의 진위를 판정하는 수단이 아니라 서버가 pin한 immutable match descriptor의 일부다.
+
+재접속 시 클라이언트는 `lastEventSeq`를 보내고 서버는 durable journal을 권위 기준으로 gap을 재생한다. Redis/메모리의 최근-event 저장소는 bounded 성능 캐시로만 허용하며 source of truth로 사용하지 않는다. 요청 구간이 보존 범위를 벗어나거나 cursor/revision 연속성을 증명할 수 없으면 private-safe full snapshot으로 교체한다. stale event 무시, exact gap replay, replay unavailable snapshot fallback을 같은 conformance suite에서 검증한다. 어떤 wire payload도 private solution 전체를 직렬화하지 않는다.
 
 ### D. 콘텐츠·DB 통합 폐쇄
 
-Task 5–6 기존 구현을 기준으로 실제 8 MiB, 4096 dimension, 16,000,000 pixel boundary fixture를 추가한다. Task 3 phase/end-reason과 DB enum의 생성 기반 parity를 만들고, validator 전용 production principal과 CDN origin migration, quarantine retention/deletion gate를 검증한다.
+Task 5–6 기존 구현을 기준으로 실제 8 MiB, 4096 dimension, 16,000,000 pixel boundary fixture를 추가한다. Task 3 phase/end-reason과 DB enum의 생성 기반 parity를 만들고, 계획 A에서 도입한 ruleset canonical hash와 콘텐츠 validator·DB constraint/function의 parity도 함께 증명한다. validator 전용 production principal과 CDN origin migration을 검증한다.
+
+legacy quarantine은 먼저 필드별 개인정보 분류, 법적 근거, 최대 보관기간, account-deletion subject mapping, 접근 감사 책임자를 승인된 표로 고정한다. 그 정책을 입력으로 하는 idempotent deletion/redaction job은 dry-run, 대상 건수·해시 증거, 재실행 안전성, 삭제 후 비재식별화 테스트를 제공해야 한다. 무조건적인 DB delete trigger는 법적 보존 의무와 충돌할 수 있어 기본 설계로 채택하지 않고, crypto-shredding은 subject별 암호화·키 폐기 구조가 별도로 승인된 경우에만 선택한다. 정책과 job의 production 증거가 없으면 외부 베타 gate는 닫힌 상태다.
 
 ### E. 경제와 effect-once
 
-random economy subject, append-only ledger, idempotency, pity, reward/fusion/gacha transaction, outbox consumer를 구현한다. 경기 결과 side effect는 Task 3 event를 입력으로 받고 한 번만 적용한다.
+random economy subject, append-only ledger, idempotency, pity, reward/fusion/gacha transaction, outbox consumer를 구현한다. 모든 balance/inventory mutation은 economy subject serialization row를 먼저 `FOR UPDATE`하고, 필요한 pity row를 잠근 뒤 pet row를 stable ID 오름차순으로 잠근다. 동일 idempotency key의 completed receipt replay는 새 lock·entropy·side effect보다 먼저 처리한다. distinct-key 동시 draw, 동일 재료 fusion, draw/fusion 교차 경쟁을 20-session race로 검증해 stale balance·pity·inventory와 deadlock이 없음을 증명한다. 경기 결과 side effect는 Task 3 event를 입력으로 받고 한 번만 적용한다.
 
 ### F. UI와 운영 도구
 
-승인된 reference 이미지와 design token을 기반으로 Expo UI, zoom/pan/tap/accessibility를 구현하고 Next.js 콘텐츠 운영 도구를 만든다. 운영 도구의 publish 동작은 validator 전용 backend 경로만 호출한다.
+승인된 reference 이미지와 design token을 기반으로 Expo UI, zoom/pan/tap/accessibility를 구현하고 Next.js 콘텐츠 운영 도구를 만든다. 시각 회귀는 플랫폼별 runner/OS·emulator·font·scale·locale·GPU와 seed/time을 pin하고, 동적 영역 mask와 반복 캡처 noise 측정으로 threshold를 보정한다. Docker는 웹 또는 지원되는 Android 경로에서 재현성을 실제로 높이는 경우에만 사용하며 iOS runner를 대체한다고 가정하지 않는다. pixel 비교와 별도로 geometry/token/component 테스트 및 사람이 승인한 iOS·Android golden을 gate로 둔다. 운영 도구의 publish 동작은 validator 전용 backend 경로만 호출한다.
 
 ### G. 검증과 출시 추적성
 
-Sentry/analytics privacy allow-list, load/replay/fault-injection, balance simulation, 최종 `verify`를 구성한다. 문서·ADR·API·DB·코드·테스트 간 추적성 표를 생성하고 출시 gate를 자동화한다.
+Sentry/analytics privacy allow-list, load/replay/fault-injection, balance simulation, 최종 `verify`를 구성한다. 로컬의 빠른 피드백은 DB/Docker 비의존 `pnpm check`로 유지하고, `pnpm check:db`를 포함한 `pnpm verify`는 clean checkout CI merge gate로 실행한다. hook을 도입한다면 pre-commit은 빠른 check만 실행하고 full verify를 개발자 로컬 hook의 필수 조건으로 만들지 않는다. 현재 `package.json`에는 아직 `verify` script가 없으므로 계획 A가 이를 정의하고 계획 G가 전체 범위로 완성한다. 문서·ADR·API·DB·코드·테스트 간 추적성 표를 생성하고 출시 gate를 자동화한다.
 
 ## 공통 실행 원칙
 
@@ -81,6 +87,7 @@ Sentry/analytics privacy allow-list, load/replay/fault-injection, balance simula
 - production credential, secret, 실제 사용자 데이터는 migration·fixture·로그에 기록하지 않는다.
 - local-only `supabase/roles.sql`을 production `--include-roles` 배포에 포함하지 않는다.
 - 기존 Task 5–6 테스트를 삭제하거나 약화하지 않는다.
+- frozen plan과 이미 구현된 파일의 `Create` 표기는 파일이 없을 때만 생성한다는 뜻이다. 파일이 존재하면 먼저 diff·contract·test를 보존한 채 수정하며, 동일 경로를 scaffold로 덮어쓰지 않는다.
 - 전체 계획 완료는 `pnpm verify`와 별도 production readiness checklist가 모두 통과한 경우에만 선언한다.
 
 ## 오류와 중단 처리
@@ -101,6 +108,8 @@ Sentry/analytics privacy allow-list, load/replay/fault-injection, balance simula
 - fault/load/balance: 계획 G의 별도 장시간 suite
 - 최종: Task 1에서 정의하고 Task 10에서 완성하는 `pnpm verify`
 
+`pnpm check`는 현재의 Task 5–6 범위에서 시작해 각 계획이 추가한 lint·type·contract·security gate를 누적한다. `pnpm verify`는 단순 별칭이 아니라 clean checkout에서 runtime pin, 전체 fast check, DB/container gate와 문서·자산 검증을 순서대로 실행하는 CI 계약이다.
+
 ## 완료 기준
 
 마스터 로드맵의 모든 실행 계획이 완료되고 다음 조건을 만족해야 전체 계획 완료로 판정한다.
@@ -112,3 +121,12 @@ Sentry/analytics privacy allow-list, load/replay/fault-injection, balance simula
 5. UI 접근성과 private-data redaction이 자동 및 수동 검증을 통과한다.
 6. `pnpm verify`가 clean checkout에서 통과한다.
 7. 출시 blocker가 없는 추적성·운영 checklist가 남는다.
+
+## 설계 리뷰 판정 기록
+
+`2026-07-16-remaining-work-design-review.md`는 비규범 검토 자료이며 다음과 같이 판정했다.
+
+- 채택: untracked 기존 구현 보존과 baseline 커밋, ruleset 도입 시 기존 validator/DB 상수 migration, client/server version compatibility handshake, quarantine lifecycle, 경제 mutation의 결정적 lock order, 로컬 fast check와 CI full verify 분리.
+- 기존 요구를 명시적으로 강화: `lastEventSeq` 기반 gap replay와 snapshot fallback, 경제 `FOR UPDATE`, 고정된 시각 회귀 환경은 동결 계획에 이미 있었으므로 새 아키텍처로 추가하지 않고 해당 실행 계획의 종료 gate로 드러냈다.
+- 조건부 채택: Redis/메모리 recent-event 저장소는 durable journal 앞의 cache로만 허용한다. quarantine hard delete 또는 crypto-shredding은 승인된 retention·암호화 정책이 있을 때만 사용한다. Docker visual runner는 지원 플랫폼에만 적용한다.
+- 사실관계 수정: 현재 root `package.json`에는 `pnpm verify`가 아직 없다. 따라서 기존 script의 실행 위치를 바꾸는 작업이 아니라 계획 A에서 script를 도입하고 계획 G/CI에서 완성하는 작업으로 정의했다.
