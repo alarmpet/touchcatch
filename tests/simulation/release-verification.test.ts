@@ -35,6 +35,7 @@ describe('release evidence harnesses', () => {
     expect(()=>evaluateLoadSamples([{...sample('r','SUCCESS',1),concurrency:0}],{soakStartMs:0,soakEndMs:1_800_000,expectedConcurrency:100})).toThrow(/concurrency/);
   });
   it('assigns a retry only to its terminal rolling window across a 5m boundary',()=>{const rows=[sample('retry','UNEXPECTED_FAILURE',299999,'ACK_TIMEOUT'),sample('retry','SUCCESS',300001)];const result=evaluateLoadSamples(rows,{soakStartMs:0,soakEndMs:1_800_000,expectedConcurrency:100});expect(result.rolling5m[0]).toMatchObject({denominator:0,numerator:0});expect(result.rolling5m[1]).toMatchObject({denominator:1,numerator:0});});
+  it('uses overlapping rolling 5m windows at one-minute resolution',()=>{const result=evaluateLoadSamples([sample('r','SUCCESS',300001)],{soakStartMs:0,soakEndMs:1_800_000,expectedConcurrency:100});expect(result.rolling5m).toHaveLength(26);expect(result.rolling5m[0]?.denominator).toBe(0);expect(result.rolling5m.slice(1,6).every(x=>x.denominator===1)).toBe(true);});
 
   it('executes lease/fence crash/restart, journal gap snapshot and exactly-once outbox effects', async () => {
     const result=await runDeterministicFaultHarness(20260719);

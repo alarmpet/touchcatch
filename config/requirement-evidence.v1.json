@@ -1,0 +1,2245 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "RULE-001",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-001: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "c4cee72c15315e3e9b54140af3eaa792b16bb340c9a9bf2d25eb2ba31f594d44"
+    },
+    {
+      "id": "RULE-002",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-002: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "8495547df1e3ffc93b96df1232de705d0509d983b2b6274fd3187596b3fd8842"
+    },
+    {
+      "id": "RULE-003",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-003: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "892d9eda05e13f07647c356ca43ddef3f833b62d9ea8c175464442c85885cbf0"
+    },
+    {
+      "id": "RULE-004",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-004: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "ce4c6bcaee8cca6c27ed0eaadfab0b438561f5edbb69b76a5a65a82bd90d02f3"
+    },
+    {
+      "id": "RULE-005",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-005: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "54169aff83afdd13eaf3ec38f9166e347a8c44165b112ddb28c99f83f465afab"
+    },
+    {
+      "id": "RULE-006",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-006: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "3939546881f59bd5b196b1a8132f3a2b99d3dd3ec2627734b5c01c459ed9bb8a"
+    },
+    {
+      "id": "RULE-007",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-007: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "36185053061072d6fa50c72528db1ea4aa340dacd49a4478c407e9946b328048"
+    },
+    {
+      "id": "RULE-008",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-008: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "e1c7882a85e33adfbbef78c552e444d8510d790b0436eb9d579198830697edfb"
+    },
+    {
+      "id": "RULE-009",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-009: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "9922b18eba98a0c9d172fab5e62fd492488f1d0af3f7865b91b81dca59bd3665"
+    },
+    {
+      "id": "RULE-010",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-010: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "8054ade098637f50e3846112989667829a2c95c815f07d028771c152f819c1b3"
+    },
+    {
+      "id": "RULE-011",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-011: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "c91965bdadd062ed5007b56dc0ec0dc92001989e2ab3189ec82996421480c58a"
+    },
+    {
+      "id": "RULE-012",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-012: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "40719aad5bf7fddf6226771d85ec4875dcf69fe0bb3ff695ec6d998f602ba131"
+    },
+    {
+      "id": "RULE-013",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-013: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "285e6bdeb829d7926f22f98d1316b9bba62658ac0789b93b5091ab9a100923f5"
+    },
+    {
+      "id": "RULE-014",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-014: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "4f82a81b7a9ff6037b18d0ed1b5521d49f72196a5c0837540200532e8b22ba8e"
+    },
+    {
+      "id": "RULE-015",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-015: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "7bc8cebbfed7c774d6bcb54ed554895e7f9bfc55d3c6690bf0ad2ba2e2c57947"
+    },
+    {
+      "id": "RULE-016",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-016: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "68e6f6d868c6a776c3ae445c587d368bd98f32acef0faeba23b7f29da9827d88"
+    },
+    {
+      "id": "RULE-017",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-017: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "8973983b53054a8ca041cf787f3e8a7c4d6ee4048f56bfeb545cb01c7572ad0c"
+    },
+    {
+      "id": "RULE-018",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-018: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "c65672535848513daeb7f17ded15f069f4792f91cfe0b0801671e486bb14937a"
+    },
+    {
+      "id": "RULE-019",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-019: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "dacce5c96e5e9ade848de37c62b741ad6638ad9fd3df12d291aec54f0a1c5966"
+    },
+    {
+      "id": "RULE-020",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-020: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "300455724b861d46327266dc15ebf2df7991840c985dfc9ac8eb76ab09d8ec2e"
+    },
+    {
+      "id": "RULE-021",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-021: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "ae8e89503e36d323524187163c111a4272d98d0b047214b20ab705e5cc05edf7"
+    },
+    {
+      "id": "RULE-022",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-022: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "a7f438f3e7e58578594ea67d5342650e4edd58ace666b19d0cbaf739f8ea9326"
+    },
+    {
+      "id": "RULE-023",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-023: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "0bb8f9720a2c8563d013d16a4b9f5ddf84a38e8b998b16dade43688396f0588a"
+    },
+    {
+      "id": "RULE-024",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-024: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "92c0dbc336249edbd3534dba139e743a95a8c959f33da3fb72fdc4312a853dcc"
+    },
+    {
+      "id": "RULE-025",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-025: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "4c42f90a8e80e948e52291bccc45688fb75c35800b48508b8ed8123cf9135b20"
+    },
+    {
+      "id": "RULE-026",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-026: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "2acf722f658eac83c22763870fbe0545c46cf0c1280cd73dbf7f99e102c2344c"
+    },
+    {
+      "id": "RULE-027",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-027: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "c4fbc749887ac0d738912c98b769b5e492bfc7ffff6b18674ff918277eb6110d"
+    },
+    {
+      "id": "RULE-028",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-028: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "8452527759bfbdfa6dedf708c6e410da1963ae0c5ca72bfe6d0a9dfa4932fd62"
+    },
+    {
+      "id": "RULE-029",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-029: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "1e5b5779ed3087dfe8952f5e87e0ccd5c9e355157e345bd9b229b69e07cf1ccd"
+    },
+    {
+      "id": "RULE-030",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-030: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "acd9d60cc93fe28aefd8707da697b4b94c9ac04d974ccf40ae34a33e06650cf5"
+    },
+    {
+      "id": "RULE-031",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-031: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "b916654665405dd964d92adea3016acf0fa07adc64049b836bdcae5950a49643"
+    },
+    {
+      "id": "RULE-032",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-032: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "471959654f1b2a9ea8d552fe2177a31e0188672b41a6d2d654b5fbc6480e22b8"
+    },
+    {
+      "id": "RULE-033",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-033: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "925e51b708ef362ed9903944ff4b15aa846126b6e7e3d9b5d2091534f0ad4361"
+    },
+    {
+      "id": "RULE-034",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-034: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "59b4681434642eb3bbb4804e26d5bf002e53a36cedd39cb4c6b7fddd79b1ebc5"
+    },
+    {
+      "id": "RULE-035",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-035: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "6fbfc3e913ee673125c815b2e8bb901fba33fb0ec7ad5f54123cb446a794f824"
+    },
+    {
+      "id": "RULE-036",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-036: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "a00ff6f079a1f2edf207d7cb40793b10a719665559602767ea52877e97e89ed5"
+    },
+    {
+      "id": "RULE-037",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-037: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "ce2fdf35e631e24cb29437b4c4e4d20f4f6057b23b17d5698fc0eecabe4eef92"
+    },
+    {
+      "id": "RULE-038",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-038: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "2c02314da865baaba859068bd1f5eb337629b6e53c0ebc43e45dfd76e79d6b92"
+    },
+    {
+      "id": "RULE-039",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-039: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "ac213048f93839e8955c46e8832a76ca3564adab7e335d5359296934110e74a3"
+    },
+    {
+      "id": "RULE-040",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-040: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "cc698fbf24b3820c7cc8e302dccfe4e4321c8f8621ebc38d45e8db60e6b80d53"
+    },
+    {
+      "id": "RULE-041",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-041: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "f800322b4c4fc639ebe0245127530c399d39fee551d4630a2eb89810a7381432"
+    },
+    {
+      "id": "RULE-042",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-042: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "e7213468ad15aa118f1fbb2d2e38add09ea2fd3ce0f316b962b3717f81aeb0e0"
+    },
+    {
+      "id": "RULE-043",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-043: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "4ceec045d6a5dc6a371dd99b86196a99da847eae2c2c1b329de40f2989207111"
+    },
+    {
+      "id": "RULE-044",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-044: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "8b5760cc35e4c6e8c7137d7546d136dd83f9c2f48154d1d0eb6ba8df9748886c"
+    },
+    {
+      "id": "RULE-045",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-045: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "a9bdfc4013ed9947877e9dcaf49526845f382285d9cc13d20af8bb7e40165f31"
+    },
+    {
+      "id": "RULE-046",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-046: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "f44f2ba828dcbecc6daddbc864cddc12e720e1f3c4df5ef4443563cb98744db7"
+    },
+    {
+      "id": "RULE-047",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-047: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "b637be867342ac9d01b93ebc3f086c95554433d2cef901a26e56a915f509a73e"
+    },
+    {
+      "id": "RULE-048",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-048: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "0b5c6cf63898e54683a18a3ef3ca28e1b942050f657719748189f97b410e35bf"
+    },
+    {
+      "id": "RULE-049",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-049: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "4b62bad5a16f065b7da52e123ec1cb88097e90f3c2bd857b9713ce3763ba44b5"
+    },
+    {
+      "id": "RULE-050",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-050: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "8a32a256961241144f6bae747ac158519aedbeaad0b303e0fe61e9de0aed7405"
+    },
+    {
+      "id": "RULE-051",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "RULE-051: exact source fingerprint and packages/contracts/src/rules.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "d4f78606f3e94e1181ec8bfe45a721c9e4dc08e1fb7f6edbe99b917f0a89d828"
+    },
+    {
+      "id": "STATE-001",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "STATE-001: exact source fingerprint and packages/contracts/src/match.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "bf64dbf5c9d7433a5f3cefd32620d4f19a468be5661d85c9f9cc5492082ab24a"
+    },
+    {
+      "id": "STATE-002",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "STATE-002: exact source fingerprint and packages/contracts/src/match.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "f806d73fdef2421d0278ec84c99d8f880ce9ab183515cf3de6872ea24120c9cf"
+    },
+    {
+      "id": "STATE-003",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "STATE-003: exact source fingerprint and packages/contracts/src/match.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "20cdc69648e2d8662b60f29e1b77282e970776aae2ba4355693a381d8b330b3f"
+    },
+    {
+      "id": "STATE-004",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "STATE-004: exact source fingerprint and packages/contracts/src/match.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "ebeea1a6369a17c613908d5203fc10b17820af062319070d6a5b83356a861d1b"
+    },
+    {
+      "id": "STATE-005",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "STATE-005: exact source fingerprint and packages/contracts/src/match.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "2e4ff8f3a35d77675a754bf080af204753b6d486cf2161a2a3d72be5eef7e578"
+    },
+    {
+      "id": "STATE-006",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "STATE-006: exact source fingerprint and packages/contracts/src/match.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "21c2706991139074565004b8b09284553a79e6f1cae5f3f67e922a1e6fde32a2"
+    },
+    {
+      "id": "STATE-007",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "STATE-007: exact source fingerprint and packages/contracts/src/match.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "0f312276b382586a52340283b64ccfa07a6726e9dadf63ad1fca52b3c742fa08"
+    },
+    {
+      "id": "STATE-008",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "STATE-008: exact source fingerprint and packages/contracts/src/match.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "14756bc7addf390677e0facf1f6c7e3eeae5de0138c266becdc9b28c2c26e8c4"
+    },
+    {
+      "id": "STATE-009",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "STATE-009: exact source fingerprint and packages/contracts/src/match.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "656754bf81cf2c7201c46176f78b932d6869d7abdf91e256199f48f2ef6e8aaf"
+    },
+    {
+      "id": "STATE-010",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "STATE-010: exact source fingerprint and packages/contracts/src/match.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "6ba423919804d903be9ce102cc59326883a4bd43cd2da3937219e7d21ca2c016"
+    },
+    {
+      "id": "UX-001",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-001: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "d83751cf2290a1930697b071c6517dba1ed916c5810f63f8ec5c84f122141841"
+    },
+    {
+      "id": "UX-002",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-002: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "2a7cbcd009a3be9d3dcb6f91ee199d81bf75c89e1c3a3c20a83b6795bc9ddc27"
+    },
+    {
+      "id": "UX-003",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-003: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "1deb149db5526922d96eec1c2be9d98b21bac6e3facd28a6725f033d7817e9f0"
+    },
+    {
+      "id": "UX-004",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-004: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "61d0ca78aa28e60f21b7277fb2c97d58366d8467015e384aafd8b5c231ade0d5"
+    },
+    {
+      "id": "UX-005",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-005: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "bcd6ae129454cc3faaf6313ec40dab998698f839c8f668b0adfa6072a819cd62"
+    },
+    {
+      "id": "UX-006",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-006: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "25edc9d900da16a4c4029806c388cde2af293f3c4ece04fb76c864374c046e7a"
+    },
+    {
+      "id": "UX-007",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-007: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "e73a0b4bdbfdc8606334644ea937212b8a95bb38c486bc83e421934787a22eae"
+    },
+    {
+      "id": "UX-008",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-008: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "f9a8cee324a8914129d84985740a1312619a8fb605300689a664cde944c197a8"
+    },
+    {
+      "id": "UX-009",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-009: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "f64fecf2d723adf0a9adad75f33747d26977590f65b23af5cb888207c4f6b78b"
+    },
+    {
+      "id": "UX-010",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-010: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "8144638ea0164beb95dc4697e669f450514e7fb6c74735c0b9a412e608b229b8"
+    },
+    {
+      "id": "UX-011",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-011: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "c72e8fc38b09381c778e77a0c787b8ac5040ae033dd82aa23925b7e84d0f30a3"
+    },
+    {
+      "id": "UX-012",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-012: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "31ca3f6671137a8b9a2a0a5add3a588514dfd6c91a64567e2539048b154df4cc"
+    },
+    {
+      "id": "UX-013",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-013: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "cf59400a0a5c539805ad8895f99f2ed06d272d1406c6948f97d2044da2f78fb5"
+    },
+    {
+      "id": "UX-014",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-014: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "4e54c85efd811431c5bad1e31a254de3db3bded51f23f567451bb46e201099fc"
+    },
+    {
+      "id": "UX-015",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-015: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "54ceb0c80e833859014a27c4e6ee1c646b55b524cadbd8f1daebecba2de96ee3"
+    },
+    {
+      "id": "UX-016",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-016: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "136dde283c06a69000b4663b6e583f1699b654989b7371b386da64a0c7ed29ef"
+    },
+    {
+      "id": "UX-017",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-017: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "818dcbf7ee8e2444b8526fc78a6b41bcde337d240559e615ab08a651e44c00ad"
+    },
+    {
+      "id": "UX-018",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-018: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "bd20578f971e105df32171c380de7a6e761bd8cd90f28e4efd5ec3db52c744c4"
+    },
+    {
+      "id": "UX-019",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "UX-019: exact source fingerprint and packages/contracts/src/ui.ts projection exist",
+      "metric": null,
+      "linkageProof": "f1369a5fac11892dffe92da6329f96b11b0047a52a8d0862012a34e85d04dbd5"
+    },
+    {
+      "id": "ECON-001",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-001: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "31886d2f9d32b168a84bf21b37aa703ac876fe911b954f0349883028d23d8023"
+    },
+    {
+      "id": "ECON-002",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-002: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "2b6c0f3033899c2caddf0241fdf91e29c036f3b8e6a164c034396598675bfd71"
+    },
+    {
+      "id": "ECON-003",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-003: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "da2ab203fa5e96b7a909e649e69d1644a691c7b11bd655cb917af7a636561420"
+    },
+    {
+      "id": "ECON-004",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-004: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "a8fd95a479cfb2f92be0ba185a469dc328a1505fc0cdb740b14605184c84b636"
+    },
+    {
+      "id": "ECON-005",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-005: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "b2fb5a69a3f95f8cce05e3a9f3ee5a945877c14b75fdb677a8d07da13d25fb66"
+    },
+    {
+      "id": "ECON-006",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-006: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "11495b3c1c0e36d3bc4b789c5b49a4b855ecd45555009e4060da37765f3b8b58"
+    },
+    {
+      "id": "ECON-007",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-007: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "b3d51aa8e71a2a6f099ad786f54b625dfda175384903c8cb7dfcc3690fb9021e"
+    },
+    {
+      "id": "ECON-008",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-008: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "83aa726f4d05667144f6fcfa5edc8e17e6a9a1086c6c193976dd8e4ee4043afe"
+    },
+    {
+      "id": "ECON-009",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-009: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "4434709c085c83579f8663ed9bfdacfa61c689ee2da33559d0f8b95508b8731b"
+    },
+    {
+      "id": "ECON-010",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-010: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "27f9b5d58dbf3a76c291e9c06d123a6b387294ed916d43ba9dfa7636f13c37cc"
+    },
+    {
+      "id": "ECON-011",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-011: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "043f4f606ad47c2c12d791a369dbed34f052b1582db9443925af44ffc9039f6d"
+    },
+    {
+      "id": "ECON-012",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-012: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "f2e006e2a6899a6feda78ab4055a3fa89df50743e6dcb4b6a1f94368d09b1f76"
+    },
+    {
+      "id": "ECON-013",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-013: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "38951cc3ce0616c74f1479c969646457607b1e5bdde2aea61d3ae972e3c3f741"
+    },
+    {
+      "id": "ECON-014",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-014: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "bc24c05173dd9c3b235b56f7b9e0c99f80477b7ee9d7269e14dfebe9a51eb6cd"
+    },
+    {
+      "id": "ECON-015",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-015: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "a925fada31020ee926d33e8c82dd47a4bf6ecee654f9b753e59c544c6d707d5d"
+    },
+    {
+      "id": "ECON-016",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-016: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "3ad7a6b603f9bfc7de47bfb741ae9e9a5b56a0d1e88afaf294a31fd158778e59"
+    },
+    {
+      "id": "ECON-017",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-017: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "888f9a1b957477f3b2a3f21b4c8df78747b6c3910da01beec302740b0b6b1603"
+    },
+    {
+      "id": "ECON-018",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-018: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "086bcfda332f75b466751bdd89def898b3d44fd918b2a925f2fcc672f2893459"
+    },
+    {
+      "id": "ECON-019",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-019: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "d18e07cb499aab9ec6facc2409db319c5f5c233e9be0a72c7f4c083c7568d6ae"
+    },
+    {
+      "id": "ECON-020",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-020: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "e9474b7837fe2de4afafaa7f683dbdb2a802e52e70af02cc4038369c3d76c8dd"
+    },
+    {
+      "id": "ECON-021",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-021: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "28c11a6a5674186691067ed8bab34d7f9241d2f3596c9c3b0432bace643df34d"
+    },
+    {
+      "id": "ECON-022",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-022: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "8503626ddb19b1d33513fdc2ae1ae2b02ef2e2891943d194605c31e4ed698263"
+    },
+    {
+      "id": "ECON-023",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-023: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "9d1777ee38936a7cb61ccc24da12c62b19d914984bd7d514a0079e7e20462e6b"
+    },
+    {
+      "id": "ECON-024",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ECON-024: exact source fingerprint and packages/contracts/src/economy.schema.ts projection exist",
+      "metric": null,
+      "linkageProof": "b09a97e7ecbc1ec785c333aaa8033107260f2da1740866ecd08e7c8e4810cb03"
+    },
+    {
+      "id": "SEC-001",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "SEC-001: exact source fingerprint and packages/contracts/src/quarantine.ts projection exist",
+      "metric": null,
+      "linkageProof": "acd5986d624cc328951a690c8943ddc3e16d0c852f83ac768e0a4fb1eb66123c"
+    },
+    {
+      "id": "SEC-002",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "SEC-002: exact source fingerprint and packages/contracts/src/quarantine.ts projection exist",
+      "metric": null,
+      "linkageProof": "cab83b94fe2e56b019fbe6a2191e517e6abcad69cc6c3c8c0a8e2280e3dfdddb"
+    },
+    {
+      "id": "SEC-003",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "SEC-003: exact source fingerprint and packages/contracts/src/quarantine.ts projection exist",
+      "metric": null,
+      "linkageProof": "adac79f9cc12f45b956b4b0ffa05bcc049e84d9635160cf8493fc08bbccb1b15"
+    },
+    {
+      "id": "SEC-004",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "SEC-004: exact source fingerprint and packages/contracts/src/quarantine.ts projection exist",
+      "metric": null,
+      "linkageProof": "b15ba99fd45e06c490450d1d8d63fe6174cc2e6c18ecaf9db3acf2f47be6f453"
+    },
+    {
+      "id": "SEC-005",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "SEC-005: exact source fingerprint and packages/contracts/src/quarantine.ts projection exist",
+      "metric": null,
+      "linkageProof": "181b666f3e04eafc13e2215b560cfd185ef42508f75713c0596c1c1d70f3da2c"
+    },
+    {
+      "id": "SEC-006",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "SEC-006: exact source fingerprint and packages/contracts/src/quarantine.ts projection exist",
+      "metric": null,
+      "linkageProof": "c89df8b8e660ed3cc86ad061f0fb48aa9713d958682977fb723c489522991249"
+    },
+    {
+      "id": "SEC-007",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "SEC-007: exact source fingerprint and packages/contracts/src/quarantine.ts projection exist",
+      "metric": null,
+      "linkageProof": "56353ba0cd7e361611324dc4a0a76b72fef4b148cc7a166164c58bce14bd8d6d"
+    },
+    {
+      "id": "OBS-001",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "OBS-001: exact source fingerprint and packages/contracts/src/analytics.ts projection exist",
+      "metric": null,
+      "linkageProof": "c60516afd2105e0f12b58fe2ec4807db791c65beb7457fd9c2595c62bb60cb07"
+    },
+    {
+      "id": "OBS-002",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "OBS-002: exact source fingerprint and packages/contracts/src/analytics.ts projection exist",
+      "metric": null,
+      "linkageProof": "aee73d71cbe2cf0d894879f0b6f182a420583d8efc825ccc3588d1de6868472f"
+    },
+    {
+      "id": "OBS-003",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "OBS-003: exact source fingerprint and packages/contracts/src/analytics.ts projection exist",
+      "metric": null,
+      "linkageProof": "ba2e858dcb1b5272af99ebb123a73b798075fc4b8ee3fe7d40ac67447068610d"
+    },
+    {
+      "id": "OBS-004",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "OBS-004: exact source fingerprint and packages/contracts/src/analytics.ts projection exist",
+      "metric": null,
+      "linkageProof": "c53c0ff488620fba99afe9a6d1e404de09f8506e204090677e22626b2412dedf"
+    },
+    {
+      "id": "OBS-005",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "OBS-005: exact source fingerprint and packages/contracts/src/analytics.ts projection exist",
+      "metric": null,
+      "linkageProof": "a80bc3579691a06b5d263e3859a560b223c1394d6fc5ffa73848c400a1c6874e"
+    },
+    {
+      "id": "OBS-006",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "OBS-006: exact source fingerprint and packages/contracts/src/analytics.ts projection exist",
+      "metric": null,
+      "linkageProof": "bf5e4f0afaa400642de7a7ff6cbca683454fd6c790fbe401cd635792dd913b87"
+    },
+    {
+      "id": "OBS-007",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "OBS-007: exact source fingerprint and packages/contracts/src/analytics.ts projection exist",
+      "metric": null,
+      "linkageProof": "11830c1b9a2bc3d2357304b28d42884ae9cbff21c232d6464170c11f3c3dd72b"
+    },
+    {
+      "id": "OBS-008",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "OBS-008: exact source fingerprint and packages/contracts/src/analytics.ts projection exist",
+      "metric": null,
+      "linkageProof": "18b4f3c5ad56d38336061d4004bd4736ac77e16492cc6a552ff6a1ce3e6a651e"
+    },
+    {
+      "id": "OBS-009",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "OBS-009: exact source fingerprint and packages/contracts/src/analytics.ts projection exist",
+      "metric": null,
+      "linkageProof": "08f9b08a48265700c0215c250955db3d74d2d0a5d5d3966822460ec320bef630"
+    },
+    {
+      "id": "OBS-010",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "OBS-010: exact source fingerprint and packages/contracts/src/analytics.ts projection exist",
+      "metric": null,
+      "linkageProof": "f1077bc2a2077d9b88e865f9e172e9f1a0af3d2ff2a05f8b134df0da6cc22be2"
+    },
+    {
+      "id": "OBS-011",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "OBS-011: exact source fingerprint and packages/contracts/src/analytics.ts projection exist",
+      "metric": null,
+      "linkageProof": "b9b0d1cdee1076c99b25067c86ded0968273692f4727253c4625caa2f5b19933"
+    },
+    {
+      "id": "OBS-012",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "OBS-012: exact source fingerprint and packages/contracts/src/analytics.ts projection exist",
+      "metric": null,
+      "linkageProof": "fcc62e86c3dc13799576415fd0568ab843808d3d8174bbf88fab009df1637be0"
+    },
+    {
+      "id": "OBS-013",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "OBS-013: exact source fingerprint and packages/contracts/src/analytics.ts projection exist",
+      "metric": null,
+      "linkageProof": "0b031e86abbe69614db5afe1fa4e9d40ca203d612b887112bef7e78fabfd5a7b"
+    },
+    {
+      "id": "OBS-014",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "OBS-014: exact source fingerprint and packages/contracts/src/analytics.ts projection exist",
+      "metric": null,
+      "linkageProof": "dea974a6792d11c45246d129d01a986e065306035ecfb29ed2363629ad4765bb"
+    },
+    {
+      "id": "OBS-015",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "OBS-015: exact source fingerprint and packages/contracts/src/analytics.ts projection exist",
+      "metric": null,
+      "linkageProof": "4b86d220dbe99b185c06032931422c809fe46454305c5037d7a0b4781ead03cd"
+    },
+    {
+      "id": "DATA-001",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-001: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "8813283d658f02b796fb298e288ce9d0ccd81a5bfa456353e20657e50a74ebc8"
+    },
+    {
+      "id": "DATA-002",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-002: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "b101b0ad206a52ade7742b646d88866f32c83e26358e5438d660cd1b91d31923"
+    },
+    {
+      "id": "DATA-003",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-003: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "d945491e08937b9d17c2b39c30a07a9e4b433a1b6093756fddbaaf6c3c69454c"
+    },
+    {
+      "id": "DATA-004",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-004: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "92b7cbdbcb0afac792be93bb9e2b6135dd81838f54e66c5e129daa8b77a4d241"
+    },
+    {
+      "id": "DATA-005",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-005: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "72eff8584f618a7369b9330028ddf4fc622d060124ea9608dc73f46e21e2a315"
+    },
+    {
+      "id": "DATA-006",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-006: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "b139544281ec3e80133d385f4a35bf06d3dd876fa9e7034f50dde12262938343"
+    },
+    {
+      "id": "DATA-007",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-007: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "3462a5c65dc3789df38af90971472e6199020dba2478b0232ca97a9e24d14ca5"
+    },
+    {
+      "id": "DATA-008",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-008: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "769c7e893ed1a75159569f11738d6f1b9d7f86e70e5c7b4488a9998644f5f427"
+    },
+    {
+      "id": "DATA-009",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-009: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "34e0cdc6bd856939f1b96830384e4dd93af7d644e390af53b80c7ea052838184"
+    },
+    {
+      "id": "DATA-010",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-010: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "7d29a31f0289b9163b2a579e2762aa474b8ca741911b988a2d3aeff92faac120"
+    },
+    {
+      "id": "DATA-011",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-011: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "927ba9ae1a85f5f209d4353635dea6add937853fc681f473ed25ed7e3be9a152"
+    },
+    {
+      "id": "DATA-012",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-012: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "b5780738777affc075a8d975b358fa6e90e0d7d13ac9be9a76b032b2c54907c0"
+    },
+    {
+      "id": "DATA-013",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-013: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "9b3212977ba725fdb54aa9d9d3f575710c13377cee6bdf2f0be32d7794b88055"
+    },
+    {
+      "id": "DATA-014",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-014: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "5bee69b22b14be3672c1bfbb792f658bef3970675e85e0844846aa77d4021913"
+    },
+    {
+      "id": "DATA-015",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-015: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "55aaaddc8c059746e29f58615d0f83a938f3712e89aad85a2d17c1c4edfe7db8"
+    },
+    {
+      "id": "DATA-016",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-016: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "55d58ede1c5a688a07b0d272ee8ba2df614f3a8322cba316483c03f1224d2357"
+    },
+    {
+      "id": "DATA-017",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-017: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "6d916b0247ea1f78e421ae8f4a912bf45483398740afd1a2597774645525db4f"
+    },
+    {
+      "id": "DATA-018",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-018: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "c4c441a46bcec918bc2bcb866103831ea9b8b537b1117228d8073adbecfd1859"
+    },
+    {
+      "id": "DATA-019",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-019: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "139a08435d0fe808b2a533c5ee2c3e9fb5d5960d65aa0225240149e94fecae76"
+    },
+    {
+      "id": "DATA-020",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-020: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "b108bed548a906130d1b8e8aec92ac43827da1cc39f0c4518d9c33938ba1e1c8"
+    },
+    {
+      "id": "DATA-021",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-021: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "5a4e9249444b51c5450e856c6ebd5bbc3d931dae57f38616f75e6a4cabc1fa9c"
+    },
+    {
+      "id": "DATA-022",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-022: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "5c46f06aa8e696cbe6dacc828444b7f0d4c81b47d0994914e94ee3ff620abc09"
+    },
+    {
+      "id": "DATA-023",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-023: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "55daf4b784620e5aaddd870ab13d4b7fcfb00f2304eb9d5a586a770b10ddc5a9"
+    },
+    {
+      "id": "DATA-024",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-024: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "977355db375d5aeee5ffd0df275a77b629acdf7a9d8d52742fb7f274b0105e9e"
+    },
+    {
+      "id": "DATA-025",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-025: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "f03dee7924a1bcc229e5eeab14545dc042f58fa9648b6b2b53804aba1e3a2d88"
+    },
+    {
+      "id": "DATA-026",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-026: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "21daaf844de46f75f0caeaa97e3e0092fd27d39f23444ca5e579e6cdcea1cc16"
+    },
+    {
+      "id": "DATA-027",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-027: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "9e6d526542ae23ce7fbfd0f8d0c105e1c05eafcd1aadb21dba0344234a68bdd2"
+    },
+    {
+      "id": "DATA-028",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-028: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "2356a37736fe385d9b74df615d75ea823ce305db082f94a6470ecafa8e0c9db1"
+    },
+    {
+      "id": "DATA-029",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DATA-029: exact source fingerprint and supabase/migrations/202607150001_initial_schema.sql projection exist",
+      "metric": null,
+      "linkageProof": "f551c4af3007d0eeb726e47dd8af2ab034c70cd8c34f673f3093f973af80f35f"
+    },
+    {
+      "id": "API-005",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-005: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "aa83a86e1d69ad37d59b3f9e95d2737929e9e9d55685af41efaef9232703609f"
+    },
+    {
+      "id": "API-001",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-001: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "27c81e685451806023c929d0f92e7a7cd18095e6f3027d0eedf772eba38aeafa"
+    },
+    {
+      "id": "API-002",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-002: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "aa6ae38dbdd4d93766684eec5c1f9f7cc9b8227be5720a599f13af88a4ab9c2e"
+    },
+    {
+      "id": "API-003",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-003: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "ec17c456ce4116dd178347b1d87b6c880a56f23cc89d4df81c4ac7adc74ec3c0"
+    },
+    {
+      "id": "API-004",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-004: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "1bd2143001dfbe064d571cf55c0d8248211586e4cdbe5d6f7bdae2324af9869e"
+    },
+    {
+      "id": "API-006",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-006: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "9d2021709ad0162cc0144eac05a84e43f2f5a62d44b3bab33d8c39f40e788d90"
+    },
+    {
+      "id": "API-007",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-007: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "e0e050443cd280461323d3382054a874e18f13459869670ce6055ec7645748c0"
+    },
+    {
+      "id": "API-008",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-008: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "a7c9e998d01b8839d893371a12c8b2553098bc3a367542af2119cec6e59c86e8"
+    },
+    {
+      "id": "API-009",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-009: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "469d20ffe2b655305fb553919ce6abbe35ab21bdda8a0ee1c87d1c2937d54d2c"
+    },
+    {
+      "id": "API-010",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-010: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "354a7962379d043ac4323a2408d01ee8166ae39894ce8ff3937759f66ae39eed"
+    },
+    {
+      "id": "API-011",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-011: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "f2460ef6dd2a2fe177e8e1ce3c7ee4cb1169d9c277de22609a7cd1b0b157b07b"
+    },
+    {
+      "id": "API-012",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-012: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "80351f3c588432ff05430512b6f62419c3692141edf152aae7bb6cb738946044"
+    },
+    {
+      "id": "API-013",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-013: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "250ec0fb3474ca3c73a02ff5c5c026e2c2f15245748a815239ab0b0502c593a5"
+    },
+    {
+      "id": "API-014",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-014: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "bf020ff93a957a1ec158b0070bc3367b7d66d5752eb4945624d5163697a9df76"
+    },
+    {
+      "id": "API-015",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-015: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "ffa526bd7fcd3de1d788bd46b01e2335634eb67e4e1a67c51da7e276784231ba"
+    },
+    {
+      "id": "API-016",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-016: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "3c197ec1e758df9d4230b509463211b796a23666c01a0b8a773793afa831f95c"
+    },
+    {
+      "id": "API-017",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-017: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "cea172130b74b2a80c2a6e56b25d949ec566fc6ba3285b9d7f39697af8021f19"
+    },
+    {
+      "id": "API-018",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-018: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "278c5aefd47ec37498b7ff865d433c321754719bb1837acc7124fbc4d8740ef5"
+    },
+    {
+      "id": "API-019",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-019: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "f5898523100307cb99a3cda57e9a7a256ee350c491683ed527ff0596b395c3e9"
+    },
+    {
+      "id": "API-020",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-020: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "c646de7051407a2b4b5642f7a5d745eee32b0e588d7fc400168d5eef39db6352"
+    },
+    {
+      "id": "API-021",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-021: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "cc048267e945eade1306259f495133556f00254c21e5446e8274dcf34a775497"
+    },
+    {
+      "id": "API-022",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-022: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "6a4d6f60e2fe6767b41b27147632bc43b1ed9d4e0dc81545b47c3db61c6fd302"
+    },
+    {
+      "id": "API-023",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-023: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "bd6901ce343908ffb1435fa0e8be1c644d1c4e0849edbdae167e5dd69ae0c60d"
+    },
+    {
+      "id": "API-024",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "API-024: exact source fingerprint and packages/contracts/openapi.yaml projection exist",
+      "metric": null,
+      "linkageProof": "28cdc05ae05272994a2fe51f0ee7f12491327ba9f10db38ff797fc8790e8f124"
+    },
+    {
+      "id": "CONTENT-001",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-001: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "ddea3d74b9d403cece8607d4413c1312d69a3370119a14a60ab448e840340952"
+    },
+    {
+      "id": "CONTENT-002",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-002: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "d8f08063838662198732ee7fee5ffcc5cba7c8acd433cfc6c3212afd7d37b61a"
+    },
+    {
+      "id": "CONTENT-003",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-003: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "7586f29b46c3a9d3495cff0d3f9c8e2b3c37f2ede81f3f749c5c59d53a0232eb"
+    },
+    {
+      "id": "CONTENT-004",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-004: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "5cddc18b61cd8083ab591c905e9d8d7b7b128c6dc7614ee07c0891f133cdae3b"
+    },
+    {
+      "id": "CONTENT-005",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-005: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "4a8d40eb36ebaa9f66e67c99f13f12de9ab4086a8d59bb7372e1bd2ff223f17f"
+    },
+    {
+      "id": "CONTENT-006",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-006: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "f2abb90c17a4c193dd2b10ee0ce16fbb478b795559b6333219ef0acd78e4ea6e"
+    },
+    {
+      "id": "CONTENT-007",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-007: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "fc75c7a4549e53665768fba6b28c9d21427de4633c8090ef0b44cd03e72a5935"
+    },
+    {
+      "id": "CONTENT-008",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-008: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "23fa0b89d432905d216a99826cfa0c4e04d393311b2b58181431acb64434ee48"
+    },
+    {
+      "id": "CONTENT-009",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-009: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "601b353b5d0649f62f40a454d7d467798484c7edff596949648cb08b53524046"
+    },
+    {
+      "id": "CONTENT-010",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-010: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "f7ea06952dede1a71146ff06aeb98d7c90a9944dd2cc7fab5694ed8e668eb179"
+    },
+    {
+      "id": "CONTENT-011",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-011: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "c5bc34be165319c47ebebe2025065b3221b3432902408dc6cbfbea533cef5ab6"
+    },
+    {
+      "id": "CONTENT-012",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-012: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "2eb006568c3737b91616162aca12442eafc5dce2ec5be81948c22168323281e7"
+    },
+    {
+      "id": "CONTENT-013",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-013: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "8a60d3b954898818c70be9d73162cae4836e8675787f0de70294689eee04418c"
+    },
+    {
+      "id": "CONTENT-014",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-014: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "8aa2345c6eb57480bf089852ca0227a3aaaec798d2efb40d2f2ab344c02dce86"
+    },
+    {
+      "id": "CONTENT-015",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-015: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "32451cff99fee6161e61b1d82b27a195927c42a5535c2589fcf2442c98b32780"
+    },
+    {
+      "id": "CONTENT-016",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-016: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "7b4911eaed48feaf1f661fb51463c950611b1aa75834da5d04887a3c6516a06c"
+    },
+    {
+      "id": "CONTENT-017",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-017: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "bd5da618ea204d5db650eafd0dcacf8d042948afc6d7af4214cc3f6c395e580e"
+    },
+    {
+      "id": "CONTENT-018",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-018: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "290ebee5724aa5aae74cc97af4065018ceae44620bd3fa4e6970b67132d097e8"
+    },
+    {
+      "id": "CONTENT-019",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-019: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "e5f12969fb953c79fad1b7ae2c365a0ed239c6ddad3e9b2ba193fb230565f9f7"
+    },
+    {
+      "id": "CONTENT-020",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-020: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "73f1d862669a0a73201eb6cad1bf9807dfe867081e5fdd701e385b5a70a0e5d3"
+    },
+    {
+      "id": "CONTENT-021",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-021: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "3c2035898d23b927a05803e3239beaf1447394c7432098b9c31612b77e9628d8"
+    },
+    {
+      "id": "CONTENT-022",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-022: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "1c23a8c3498f38cbe2ef09e54e1e49186a72345ad96e10021d25cc0e7613c616"
+    },
+    {
+      "id": "CONTENT-023",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-023: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "c3f8b99e0fbaaaf84d24805e4cb010285df61aef84f8eb792cb56c790286507b"
+    },
+    {
+      "id": "CONTENT-024",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-024: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "36a41b735584326dc0431fd5506cb0e6692f40a3f457fa9553056c846158cf33"
+    },
+    {
+      "id": "CONTENT-025",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-025: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "d1ece03bbf404f9be096864528e194f6df30427bca2b3128136ab7cf95f21113"
+    },
+    {
+      "id": "CONTENT-026",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-026: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "0aee813b49b8a2abcdf2399ccf9e7689f61adceea79da24c4e100dd84f5486b9"
+    },
+    {
+      "id": "CONTENT-027",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "CONTENT-027: exact source fingerprint and packages/contracts/src/content.ts projection exist",
+      "metric": null,
+      "linkageProof": "ef8229481e2410fba755d72127732806f5d198ba5ff1a14a87392a2d6ed3f509"
+    },
+    {
+      "id": "QA-001",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "QA-001: exact source fingerprint and tools/release-evidence.ts projection exist",
+      "metric": null,
+      "linkageProof": "70e5c9876e7ed7345c76cf8ab81658cb2260d4bde7193e8b626cc4365617fd3f"
+    },
+    {
+      "id": "QA-002",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "QA-002: exact source fingerprint and tools/release-evidence.ts projection exist",
+      "metric": null,
+      "linkageProof": "ad53879e69943e196d7825449f0c199d52368261fec0458c1934f132ae72d391"
+    },
+    {
+      "id": "QA-003",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "QA-003: exact source fingerprint and tools/release-evidence.ts projection exist",
+      "metric": null,
+      "linkageProof": "a0dcd8113740d3ffee3a205db26041c5f22f4fb24c3b328bb34b6282ffb26178"
+    },
+    {
+      "id": "QA-004",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "QA-004: exact source fingerprint and tools/release-evidence.ts projection exist",
+      "metric": null,
+      "linkageProof": "5f4504c641dcb9d9cfca5b41782bd96f3b24326624d236891fe59be076e0e49c"
+    },
+    {
+      "id": "QA-005",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "QA-005: exact source fingerprint and tools/release-evidence.ts projection exist",
+      "metric": null,
+      "linkageProof": "b0bb39a358d5a010cfb442994168139133e7f89f6f4097e1024148876fc4c473"
+    },
+    {
+      "id": "QA-006",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "QA-006: exact source fingerprint and tools/release-evidence.ts projection exist",
+      "metric": null,
+      "linkageProof": "abafdd0d37b2bd0f205d2399bae2c5c7208de74533bcc396641e5c4cc1d83724"
+    },
+    {
+      "id": "QA-007",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "QA-007: exact source fingerprint and tools/release-evidence.ts projection exist",
+      "metric": null,
+      "linkageProof": "e4435d3e511233c09f35be448d865700fb896617547e05a2356c588afaf7a117"
+    },
+    {
+      "id": "QA-008",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "QA-008: exact source fingerprint and tools/release-evidence.ts projection exist",
+      "metric": null,
+      "linkageProof": "e0bf1165367cf1e9faae749457ed03b9d6a707ba0e3e526997f7c8401c12e715"
+    },
+    {
+      "id": "QA-009",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "QA-009: exact source fingerprint and tools/release-evidence.ts projection exist",
+      "metric": null,
+      "linkageProof": "819ed91789bd4a8c98dfb7c4806b02df5224cc24f34e662a31346928c91b6235"
+    },
+    {
+      "id": "QA-010",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "QA-010: exact source fingerprint and tools/release-evidence.ts projection exist",
+      "metric": null,
+      "linkageProof": "80dcfc18e623f0e98c6ae00454afda77d321d84561c0e220f22cce50dc687516"
+    },
+    {
+      "id": "QA-011",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "QA-011: exact source fingerprint and tools/release-evidence.ts projection exist",
+      "metric": null,
+      "linkageProof": "4d1257c815c0fcb1f4c22e1c6bacc15e82ee0ec292a8ec4184c2d44e2a8ad5d3"
+    },
+    {
+      "id": "QA-012",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "QA-012: exact source fingerprint and tools/release-evidence.ts projection exist",
+      "metric": null,
+      "linkageProof": "1eb91e585154a2ea43ea31e0a764365c6a3e3caea78046a117e1f6371504cec4"
+    },
+    {
+      "id": "QA-013",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "QA-013: exact source fingerprint and tools/release-evidence.ts projection exist",
+      "metric": null,
+      "linkageProof": "b4ad39aed2e522735007750a124970fd6232212e0e7ca27dc88e0d901b94bba1"
+    },
+    {
+      "id": "QA-014",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "QA-014: exact source fingerprint and tools/release-evidence.ts projection exist",
+      "metric": null,
+      "linkageProof": "5bdba35f30b699c056b682eaeb31164770b8f5f7dea475bb3e1c860af8180273"
+    },
+    {
+      "id": "QA-015",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "QA-015: exact source fingerprint and tools/release-evidence.ts projection exist",
+      "metric": null,
+      "linkageProof": "a3aa8df175a58c465ef2c9f7db8b5ecb796934b976dc1bd58bba5e196b7454b5"
+    },
+    {
+      "id": "ENV-001",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ENV-001: exact source fingerprint and tools/check-runtime.mjs projection exist",
+      "metric": null,
+      "linkageProof": "f052f5cdad10ebc025f315e17933bb22c10e4af838d18dde9a151100ece36c2b"
+    },
+    {
+      "id": "ENV-002",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ENV-002: exact source fingerprint and tools/check-runtime.mjs projection exist",
+      "metric": null,
+      "linkageProof": "62f782bb7006b713f3736286de912cc61a013053632f6f56119d68f3a3e1960e"
+    },
+    {
+      "id": "ENV-003",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ENV-003: exact source fingerprint and tools/check-runtime.mjs projection exist",
+      "metric": null,
+      "linkageProof": "3ce95916f95d2dcf6f9bd2e6d90969f523c496bcd52ea55a00f5e68a1da1f027"
+    },
+    {
+      "id": "ENV-004",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ENV-004: exact source fingerprint and tools/check-runtime.mjs projection exist",
+      "metric": null,
+      "linkageProof": "7ec93663fc0d7b398a05ce70cf01d9edf9d1e8d8353eff2c04e4c6f68ed0286b"
+    },
+    {
+      "id": "ENV-005",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ENV-005: exact source fingerprint and tools/check-runtime.mjs projection exist",
+      "metric": null,
+      "linkageProof": "98b0f952170e28d9a7bf072b9335a99750ec7a56d838d334c73a5469a111560c"
+    },
+    {
+      "id": "ENV-006",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ENV-006: exact source fingerprint and tools/check-runtime.mjs projection exist",
+      "metric": null,
+      "linkageProof": "ac5ff080f6f16c3e033e13015151858939753b424748418b0da0a2d996847b4c"
+    },
+    {
+      "id": "ENV-007",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ENV-007: exact source fingerprint and tools/check-runtime.mjs projection exist",
+      "metric": null,
+      "linkageProof": "56ed20b5dcd94765f3f7b15b6086860d2c72460650385adf13fcc889922114e8"
+    },
+    {
+      "id": "ENV-008",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ENV-008: exact source fingerprint and tools/check-runtime.mjs projection exist",
+      "metric": null,
+      "linkageProof": "74d9791310905dcc914d28dc385f6d1976548aee6e7ba50c37a68b80e13800d5"
+    },
+    {
+      "id": "ENV-009",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ENV-009: exact source fingerprint and tools/check-runtime.mjs projection exist",
+      "metric": null,
+      "linkageProof": "6a47debf7603f0ccc8800f7ef2e1dd1a9a9af271213e1ec382f8a11d42886ee0"
+    },
+    {
+      "id": "ENV-010",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ENV-010: exact source fingerprint and tools/check-runtime.mjs projection exist",
+      "metric": null,
+      "linkageProof": "6032e0870be12b90e8f7a7358ee5e7b8bd05ec1a1faa2411436d20afdff306a7"
+    },
+    {
+      "id": "ENV-011",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "ENV-011: exact source fingerprint and tools/check-runtime.mjs projection exist",
+      "metric": null,
+      "linkageProof": "67bcdbbad224ccfa7d663a5ea98b13407681bbed1f4f4dd540ef57d798c5520c"
+    },
+    {
+      "id": "DOC-001",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-001: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "943073162d8a9f54b17c8c3ddf026c08b20842fb5c0c11c2bd21bcf0ecf9a484"
+    },
+    {
+      "id": "DOC-002",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-002: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "9f903a5ba75f5110e785d6d42389386e7031ca0704f3811550a0e84cb1dc045e"
+    },
+    {
+      "id": "DOC-003",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-003: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "5405c6cc7e6473e511fa08fec51be01e0a94ca6f3fc4319c7ee5dff3baece253"
+    },
+    {
+      "id": "DOC-004",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-004: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "b0ead3f0f24ee73e2cd4900e08527d5a25498ada20d7c2158b094b650a6cc481"
+    },
+    {
+      "id": "DOC-005",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-005: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "df4788f930c3031d2843b6adee78a12e3af7fc9c384ff03756a6082bc6f5d937"
+    },
+    {
+      "id": "DOC-006",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-006: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "308c805717b5d691c18e65881e5324ae7deff86a1aa9544c4757be5a936bf49a"
+    },
+    {
+      "id": "DOC-007",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-007: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "3ca6edc5b78b4b286a9bdbcc47e5eb0aea0cfb013e7d27c6c06c6298d3d03e15"
+    },
+    {
+      "id": "DOC-008",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-008: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "907c2bc5ffd5fb150701b6bbbce046026138809c6246cf9df49f396cd0e5b6ad"
+    },
+    {
+      "id": "DOC-009",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-009: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "5e8164fb32ae41b4a90b516f32eb47854e8c80d6d8cfa2119992f4de4118a46c"
+    },
+    {
+      "id": "DOC-010",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-010: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "ccd4a93effd7179ff3ad41612bcd23d2bd4f73ad82abdb4ca774b9fd8d7aa648"
+    },
+    {
+      "id": "DOC-011",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-011: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "ad3683e53db5858ac6efe96a7a27f4335b434df756891ada02d1d547bc5c737b"
+    },
+    {
+      "id": "DOC-012",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-012: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "6f053629a0dda6a5280e578d1ecf1c08822b156a3bd0b471fcea9c4c3eb36f20"
+    },
+    {
+      "id": "DOC-013",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-013: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "606780e6f2a9a3e099f8d0dd41e74d9e181c2b5f0b1ada8b836a99e3c48bb11b"
+    },
+    {
+      "id": "DOC-014",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-014: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "0d8be150b5b687ff99085a93e730b8ffbfd73d745bc3ca2f9617954836d42645"
+    },
+    {
+      "id": "DOC-015",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-015: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "868eaa709978731c14be44b5c8f8e662666e12c5a7393e863f4471dc94e79b3e"
+    },
+    {
+      "id": "DOC-016",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-016: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "8c1e5563c8a49cfbef95cf0a689807218bcf74706e4d4ab6cfd728143938d565"
+    },
+    {
+      "id": "DOC-017",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-017: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "ce367285030e00de79a8ef62c5ecd15aa514d1f3d2437d76bdfb75496529b430"
+    },
+    {
+      "id": "DOC-018",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-018: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "5bb1103f8bbe8db2f4658d5870576a1d15ed3dc9b62c89f60a22cea02d5029fe"
+    },
+    {
+      "id": "DOC-019",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-019: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "4451ce12f26ef33b36d2bcef2823b7119972fe19061893d6a7d3f985c3276201"
+    },
+    {
+      "id": "DOC-020",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-020: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "c867f4552bbc0e4e894723be5f13a04090046506f952daa232ec4f0b69cb600b"
+    },
+    {
+      "id": "DOC-021",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-021: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "b8e6e1a6af742dd3faee8a5041fc3dab5fd1388ca8c35e0a442d6d8c45d28c13"
+    },
+    {
+      "id": "DOC-022",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-022: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "d6558571bc7fddb5bcd9d6f4b40837d1bca12bbc835210fc46b198f02e9790b0"
+    },
+    {
+      "id": "DOC-023",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-023: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "4dac89bc5279af9c3aa951be1a5f584f6a7b3df1411f5aedab70d14bb2bcd4f1"
+    },
+    {
+      "id": "DOC-024",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-024: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "a4ebff69a7e6dc913e02fe2af3a209e5d89c5c233554b851c1c166d71b8851a5"
+    },
+    {
+      "id": "DOC-025",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-025: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "2f349fd2ef554307c6f24b5ad0241f2e82cacaa460983523a237397b22e4e081"
+    },
+    {
+      "id": "DOC-026",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-026: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "d5a292374767737c595af5531f91a06d23eb0c5c3d25bc58a8a76937f2e70668"
+    },
+    {
+      "id": "DOC-027",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-027: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "98bf6184cf2df9f2e48f82d26096330dcf675c75a0b1cbb4829a74ccd38ae154"
+    },
+    {
+      "id": "DOC-028",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-028: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "400efecf5951cf3fa3684e114dd01a91245f0385ccc97928a58ca655a0401568"
+    },
+    {
+      "id": "DOC-029",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-029: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "33adbb9ffb37e58289bcc44ef72596094c75769a7cc5e00749c484f3b96b0fbe"
+    },
+    {
+      "id": "DOC-030",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-030: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "570f825f2edc8cc487b0bc8c99cf61359c946bad1f38bdde2dfd57aae6142906"
+    },
+    {
+      "id": "DOC-031",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-031: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "031747d15eac332970305b6f59807fb4ed9d91eb74f1613e1f85d6beb1441dc1"
+    },
+    {
+      "id": "DOC-032",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-032: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "0ace0314c05fab76c2f939ef4060a105ae1b9a482740f460ef91bc8c86329d21"
+    },
+    {
+      "id": "DOC-033",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-033: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "17dfc9288f075f6566cf10efd91b4b3c8d1b80e0bcdaabc1af7382836fcb68c7"
+    },
+    {
+      "id": "DOC-034",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-034: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "6507ca6f7daca11d1a78f5185b06a20df6dda733e7299ab9d36183a96569425a"
+    },
+    {
+      "id": "DOC-035",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-035: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "0b810d2ed1a1bef77a09e66337df620e383bd3ec150c74928de9e7e2a440915a"
+    },
+    {
+      "id": "DOC-036",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-036: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "3d7d3c140b27d667329774daafa79099d00a25dc4ec7462f95ec43e364dc4f81"
+    },
+    {
+      "id": "DOC-037",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-037: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "56e400a890ea60c215352f58fc4218f843ef199da4d9c3ef93b3a3e86eb387f8"
+    },
+    {
+      "id": "DOC-038",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-038: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "76fb1e56ba0add85ee12074da5642bdbb9369a6735ead44c24239f2cd7e8f96d"
+    },
+    {
+      "id": "DOC-039",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-039: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "0c9d1d05f06a4225bd0c2bb11d6d5e80c1f44f9baf3f182e56c42e4235b2cf5e"
+    },
+    {
+      "id": "DOC-040",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-040: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "e1fca8ca6132b0081d4c7c3979186a47484f24158a93c26bc6860b7cd9389662"
+    },
+    {
+      "id": "DOC-041",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-041: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "a90ea91708e26d3db81fcac73df043bd85f15e3cfe24e7b09fbadb497e18cfac"
+    },
+    {
+      "id": "DOC-042",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-042: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "964894c0f107062c24b31024b7d46d754d3978d122680a331386bfffe06bd0a6"
+    },
+    {
+      "id": "DOC-043",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-043: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "db4289457941bce166699306f3f64eb7e59d01f31543193f71cdf70cf32ba1ce"
+    },
+    {
+      "id": "DOC-044",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-044: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "c99f77f67915fbf0ea6d5a2f7843f43d1f7bf78eb1742efb6af1d9144f84663d"
+    },
+    {
+      "id": "DOC-045",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-045: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "0e908c378ccddb03108526ec0da35c4b29f3bc7ea89145cd0d9a54fa5d0e3b46"
+    },
+    {
+      "id": "DOC-046",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-046: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "6e2fc4990d9a4e1428f287b0700216c528ebe32660deb4b165d8c0911a1f5a84"
+    },
+    {
+      "id": "DOC-047",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-047: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "27397f4692f630b4a2dbe5eaec6697109d624140cbe1a136dfe9c0aa5d9ca687"
+    },
+    {
+      "id": "DOC-048",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-048: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "385d428d48e4e9d06d6b50bed88914534dfe11b6fa5b718032407ef76e3f55cb"
+    },
+    {
+      "id": "DOC-049",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-049: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "f2a429d19f3d2b886acccde79ef77f999c49035253802773bf184bc1ad1d6d57"
+    },
+    {
+      "id": "DOC-050",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-050: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "14d13832219641a6b173737fbc667e3532282fbbbb2d2077a9d8f044a66a34b9"
+    },
+    {
+      "id": "DOC-051",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-051: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "53b96bcf9379c05f24d58d95514f306370f8b1d9981942d5c8fe0dc0b4a2e7f2"
+    },
+    {
+      "id": "DOC-052",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-052: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "33544f6c7db217353ef161eeeb4738f177995711e62c8b2bbc955ac002bace1b"
+    },
+    {
+      "id": "DOC-053",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-053: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "fe6f97510c7c96747610d6516b8d4b05a639edaf541f23cf6348b7ddc3d59234"
+    },
+    {
+      "id": "DOC-054",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-054: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "13b47362e8ef8b0477e3d4612ccebb38dda5e6bc8d3606870c326431f3a19f3a"
+    },
+    {
+      "id": "DOC-055",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-055: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "d029fa17978a1af8c46ee24675e2d3a91bd4f4111dd6377bb10ef989377b65af"
+    },
+    {
+      "id": "DOC-056",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-056: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "951899900d86ccb3e43d0e67842f435c6f05942a34499e7a6611e5c5746753c6"
+    },
+    {
+      "id": "DOC-057",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-057: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "2718ac09a694688afb3fc6337ee23380a15e25d71fdc8be6b044694641e98411"
+    },
+    {
+      "id": "DOC-058",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-058: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "96c55f41b49640f136e7438b6696ba2a785ba52cd1c69476abb37c32fcdc8878"
+    },
+    {
+      "id": "DOC-059",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-059: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "6cf8f1be420b6c673a1e9d0868324385b3021092de1cc1a31754c1d43980f9cc"
+    },
+    {
+      "id": "DOC-060",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-060: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "f5462649064dfc06db2811c0c7a1cf09228b98789042ebfd63d6c6db78337381"
+    },
+    {
+      "id": "DOC-061",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-061: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "86ff8dc2d3c1c9c08a03e2dc94c6d95ba4bb9639013a924d6e2ad1432f37d16e"
+    },
+    {
+      "id": "DOC-062",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-062: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "a1e48850ad07f12ee777fa01544c6afa437cca13204a4200cf14bf388ba9ed3b"
+    },
+    {
+      "id": "DOC-063",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-063: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "1c124c93714a486e54b4337768940ee83e5fc0a0dc767ea5edbd0c66b8d44d56"
+    },
+    {
+      "id": "DOC-064",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-064: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "819b252fa85b3a061b16561ab082a11e870f1d40ff21240bc722f432d6a5a69a"
+    },
+    {
+      "id": "DOC-065",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-065: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "9c73687660500d2613dc8bdeaef4c1713045dd1e44989e273e1f900ef56c5504"
+    },
+    {
+      "id": "DOC-066",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-066: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "a91506d971c30d488ae184c3f8b5e3c134ccda3a0f7c3224f3c81839707ae607"
+    },
+    {
+      "id": "DOC-067",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-067: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "5b841788ff685805dc83df38d7e4a542aa4c97f3b8e99536df58d0e5811c5fc5"
+    },
+    {
+      "id": "DOC-068",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-068: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "3bc3866a682e4da72ee4bcb53b27d212704cb08903046301cf59d5f081fc5d98"
+    },
+    {
+      "id": "DOC-069",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-069: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "ae660d235b1479bfa6c26c93d1f9d4324dc2c49ca87760e8ccb26098f739df09"
+    },
+    {
+      "id": "DOC-070",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-070: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "98938f69e6c03185a6bf127fa6fadd5941b238bfa402c091b60a7814da60638b"
+    },
+    {
+      "id": "DOC-071",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-071: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "64ca5977c9cde2db6ac914a79004b8a1bba794c2b46c37227ad64be50fb67922"
+    },
+    {
+      "id": "DOC-072",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-072: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "1fcd832cc059ccc52a3de4af955c8a28ba7bba9400b100dd9b1673cdc0a8829a"
+    },
+    {
+      "id": "DOC-073",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-073: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "82a968fe167afe9ff3154a8b6b0334702ca70e7ec4162e88b32d3b151080d0fc"
+    },
+    {
+      "id": "DOC-074",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-074: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "701bac98da1c16c0687da02818381ffa80db931835779859e7186d2eaf6c86f8"
+    },
+    {
+      "id": "DOC-075",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-075: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "113b825592c8565157759446d6781077c75dfc018c83f5d4d89759f6ef1d1147"
+    },
+    {
+      "id": "DOC-076",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-076: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "ad6fdf96975f69634cf130bf2cbcf75b256c32e4fb90d376d88538f60a0fb9b5"
+    },
+    {
+      "id": "DOC-077",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-077: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "25f37bad3f7c73aa9f84aaad54b59d8a9f3ffeac69c814552bbfd3f2389f7c48"
+    },
+    {
+      "id": "DOC-078",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-078: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "d674f63a21e9e40472adbe296ff427e8865578a5d9ec6bed7809a6a8652dc465"
+    },
+    {
+      "id": "DOC-079",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-079: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "e6ed2228a036398520c1b3f40d2ebb5f0c9eb73903f4791ffc3401d3df15f5c5"
+    },
+    {
+      "id": "DOC-080",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-080: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "6db2c8cad632db040b2e5f746452949a78d088e7bcd0b836c2bfd127932ced89"
+    },
+    {
+      "id": "DOC-081",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-081: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "dec02f8525534a43e4acb01e9d83440616a0b2dccbdf50525f1e7a283526ba22"
+    },
+    {
+      "id": "DOC-082",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-082: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "52f1ae02fd6d084c70dcd63d885b0eaa1bf1556e6dc6e7dcc5b26fc204ffab7f"
+    },
+    {
+      "id": "DOC-083",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-083: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "a8044143cda591597970cdf60892d075b663f79786a4e5342a9d03a503b7e238"
+    },
+    {
+      "id": "DOC-084",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-084: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "e935a65c66a1deeaf9a54ff2f02815e4b5674ce0d0219e09f8346739c6bae6d9"
+    },
+    {
+      "id": "DOC-085",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-085: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "5a1d1051b236429acdde524b60451771ce6a2009b48e7b27011926b3207346a3"
+    },
+    {
+      "id": "DOC-086",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-086: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "51f3865ea6007c29fba69e9c92e9ccce9d541858f150c3c47fbcb8836eab95a9"
+    },
+    {
+      "id": "DOC-087",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-087: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "2418c83b0a131f5d96730b50340bf8da7ce39565884c1034f564c28078c9dc3a"
+    },
+    {
+      "id": "DOC-088",
+      "evidenceKind": "EXECUTABLE_PROJECTION",
+      "oracle": "DOC-088: exact source fingerprint and tools/check-docs.mjs projection exist",
+      "metric": null,
+      "linkageProof": "1e0502c643bcacb076db72bbc27525722b204ab0a7f7f53ca7967b9e4e76fb91"
+    }
+  ]
+}

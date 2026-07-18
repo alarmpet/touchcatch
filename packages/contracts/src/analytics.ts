@@ -1,5 +1,6 @@
 import {createHash} from 'node:crypto';
 export type MatchStage='queue'|'handshake'|'preload'|'command'|'finish'|'reward';
+export const OPERATIONAL_METRICS_V1=['tap_result_p95','unexpected_command_failure_rate','accepted_duplicate_effect_total','match_finish_loss_total'] as const;
 type RiskData={cellBucket:string;countBucket:string;windowDurationBucket:string}|{durationBucket:string};
 export type AnalyticsEventV1={eventVersion:1;eventSeq:number;stateRevision:number;occurredAt:string;matchId:string;anonymousUserId:string;traceId:string;engineVersion:string;rulesetVersion:string;contentRevisionId:string;experimentVariant:'CONTROL'|'TREATMENT';serverVersion:string;protocolVersion:1;name:'same_coordinate_burst_signal'|'answer_reaction_time_signal'|'match_stage';data:RiskData|{stage:MatchStage}};
 

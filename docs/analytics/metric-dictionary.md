@@ -10,4 +10,6 @@ All metrics use opaque trace IDs and version dimensions. Adapters receive only v
 | accepted duplicate claim/reward | duplicate effects for accepted operations | build/protocol | candidate zero |
 | match finish loss | accepted terminal matches without finish event | build/protocol | candidate zero |
 
+Executable metric identifiers admitted by `OPERATIONAL_METRICS_V1`: `tap_result_p95`, `unexpected_command_failure_rate`, `accepted_duplicate_effect_total`, `match_finish_loss_total`.
+
 Risk signals store only predeclared buckets. They are investigation candidates, never automatic enforcement. Raw retention (30 days) and aggregate retention (180 days) are unapproved policy inputs, not active guarantees.
