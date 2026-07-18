@@ -1,0 +1,2 @@
+import{expect,it}from'vitest';import{evaluateSecurityRequirement}from'../../tools/requirement-oracle.js';
+it('executes exact authenticated delivery, public client, authority and preload predicates',()=>{for(const id of ['SEC-001','SEC-002','SEC-004','SEC-005','SEC-006','SEC-007'])expect(evaluateSecurityRequirement(id)).toBe(true);expect(()=>evaluateSecurityRequirement('SEC-999')).toThrow(/unsupported/);});

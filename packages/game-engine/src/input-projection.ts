@@ -1,6 +1,8 @@
 import type { MatchStateV1 } from '../../contracts/src/match.js';
 import type { RulesetV1 } from '../../contracts/src/rules.js';
 export type PlayerInputState={board:'ENABLED'|'RATE_LIMITED'|'DISABLED';answer:'LOCKED'|'ENABLED'|'COMPLETED';overlay:'NONE'|'WORD_HUNT_REVEAL'|'MEANING_QUIZ'|'RECONNECTING'};
+export const CLIENT_RECONNECT_OVERLAY_MS=5000;
+export function reconnectOverlayForElapsed(elapsedMs:number):'RECONNECTING'|'OFFLINE'{if(!Number.isFinite(elapsedMs)||elapsedMs<0)throw new RangeError('invalid reconnect elapsed time');return elapsedMs<CLIENT_RECONNECT_OVERLAY_MS?'RECONNECTING':'OFFLINE';}
 const TERMINAL_PHASE={SCORE_TARGET:'FINISHED',TIMEOUT_TIEBREAK:'FINISHED',SUDDEN_DEATH:'FINISHED',DRAW:'FINISHED',FORFEIT:'FINISHED',NO_CONTEST_ASSET_LOAD:'CANCELLED',NO_CONTEST:'CANCELLED'} as const satisfies Record<import('../../contracts/src/match.js').MatchEndReason,'FINISHED'|'CANCELLED'>;
 export function terminalPhaseForEndReason(reason:import('../../contracts/src/match.js').MatchEndReason){return TERMINAL_PHASE[reason];}
 type ProjectionState=Pick<MatchStateV1,'players'|'meaningQuizzes'|'activeMission'|'startedAtMs'|'phase'|'finalChallenge'>;
