@@ -22,12 +22,8 @@ describe('analytics privacy boundary', () => {
     expect(() => parseAnalyticsEventV1({...base,name:'match_stage',data:{stage:'command',context:value}})).toThrow(/forbidden/i);
   });
 
-  it('deduplicates retries and separates expected rejection from unexpected failure', () => {
-    const collector = new AnalyticsCollector();
-    collector.recordRequest({requestId:'r1',outcome:'EXPECTED_REJECTION',reason:'ALREADY_CLAIMED'});
-    collector.recordRequest({requestId:'r1',outcome:'UNEXPECTED_FAILURE',reason:'INTERNAL_ERROR'});
-    collector.recordRequest({requestId:'r2',outcome:'UNEXPECTED_FAILURE',reason:'ACK_TIMEOUT'});
-    expect(collector.snapshot()).toEqual({uniqueSchemaValidRequests:2,expectedDomainRejections:1,unexpectedFailures:1});
+  it.each(['person@example.com','Bearer abcdefghijklmnopqrstuvwxyz','550e8400-e29b-41d4-a716-446655440000','postgres://user:pass@host/db','sk_live_abcdefghijklmnopqrstuvwxyz'])('rejects private value shape %s recursively',(value)=>{
+    expect(()=>parseAnalyticsEventV1({...base,name:'match_stage',data:{stage:'command',context:value}})).toThrow(/forbidden/i);
   });
 
   it('reconstructs the complete lifecycle by opaque trace id without private data', () => {

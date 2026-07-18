@@ -14,11 +14,11 @@ stateDiagram-v2
 ```
 
 ## 플레이어 입력 상태
-- ACTIVE
-- ANSWER_LOCKED
-- TAP_LOCKED
-- MEANING_QUIZ
-- FINISHED
+- ACTIVE <!-- REQ: STATE-001 -->
+- ANSWER_LOCKED <!-- REQ: STATE-002 -->
+- TAP_LOCKED <!-- REQ: STATE-003 -->
+- MEANING_QUIZ <!-- REQ: STATE-004 -->
+- FINISHED <!-- REQ: STATE-005 -->
 
 ## 좌표
 모든 hitbox는 원본 이미지 기준 0~1 정규화 좌표로 저장한다.

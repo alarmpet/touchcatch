@@ -4,17 +4,17 @@
 
 콘텐츠 번들은 공개 메타데이터, 비공개 정답, 권리 증빙을 분리한다.
 
-- `PublicGameContentV1`: `contentId`, `version`, `contentRevisionId`, 계약/자산 정책 버전, 테마·언어·난이도, 이미지 A/B의 콘텐츠 주소와 메타데이터만 포함한다. `contentId + version`은 논리 콘텐츠의 리비전 순서를, `contentRevisionId`는 불변 리비전 자체를 식별한다.
-- `PrivateGameSolutionV1`: 차이점·단어 찾기·서든데스 hitbox, 최종 정답·별칭·힌트 단위·정답 option ID를 포함한다. 클라이언트 카탈로그에 노출하지 않는다.
-- `RightsManifestSetV1`: 각 공개 자산과 SHA-256 기준으로 정확히 1:1인 출처, 생성기, prompt 보존 상태, 권리·교육 승인, 삭제 대응 담당 정보를 포함한다.
+- `PublicGameContentV1`: `contentId`, `version`, `contentRevisionId`, 계약/자산 정책 버전, 테마·언어·난이도, 이미지 A/B의 콘텐츠 주소와 메타데이터만 포함한다. `contentId + version`은 논리 콘텐츠의 리비전 순서를, `contentRevisionId`는 불변 리비전 자체를 식별한다. <!-- REQ: CONTENT-001 -->
+- `PrivateGameSolutionV1`: 차이점·단어 찾기·서든데스 hitbox, 최종 정답·별칭·힌트 단위·정답 option ID를 포함한다. 클라이언트 카탈로그에 노출하지 않는다. <!-- REQ: CONTENT-002 -->
+- `RightsManifestSetV1`: 각 공개 자산과 SHA-256 기준으로 정확히 1:1인 출처, 생성기, prompt 보존 상태, 권리·교육 승인, 삭제 대응 담당 정보를 포함한다. <!-- REQ: CONTENT-003 -->
 
 TypeScript 타입은 [packages/contracts/src/content.ts](packages/contracts/src/content.ts)의 schema-first 상수에서 생성한다. JSON Schema는 `corepack pnpm content:schemas`로 기계 생성하며 `content:schemas:check`가 drift를 거부한다.
 
 기존 [schemas/game-content.schema.json](schemas/game-content.schema.json)은 폐기 예정인 결합 계약이다. 신규 게시와 소비 코드에서는 다음 세 계약만 사용한다.
 
-- [schemas/game-content.public.schema.json](schemas/game-content.public.schema.json)
-- [schemas/game-content.private.schema.json](schemas/game-content.private.schema.json)
-- [schemas/rights-manifest.schema.json](schemas/rights-manifest.schema.json)
+- [schemas/game-content.public.schema.json](schemas/game-content.public.schema.json) <!-- REQ: CONTENT-004 -->
+- [schemas/game-content.private.schema.json](schemas/game-content.private.schema.json) <!-- REQ: CONTENT-005 -->
+- [schemas/rights-manifest.schema.json](schemas/rights-manifest.schema.json) <!-- REQ: CONTENT-006 -->
 
 Task 5는 콘텐츠 계약만 소유한다. 아직 구현되지 않은 Task 3/4의 reducer·wire 계층은 이후 이 타입과 `CONTENT_TEXT_LIMITS_V1`을 import해야 하며 별도 정답/hitbox shape를 만들면 안 된다.
 
@@ -38,9 +38,9 @@ Task 5는 콘텐츠 계약만 소유한다. 아직 구현되지 않은 Task 3/4�
 
 ## fixture와 실행
 
-- 유효 fixture: `content/fixtures/valid`의 ko/BEGINNER, en/INTERMEDIATE, ja/ADVANCED 3개
-- 실패 fixture: `content/fixtures/invalid`의 schema, geometry, normalization, provenance, URL/path, container 및 image decode 공격 사례
-- hash-pinned bytes: `content/fixtures/assets`
+- 유효 fixture: `content/fixtures/valid`의 ko/BEGINNER, en/INTERMEDIATE, ja/ADVANCED 3개 <!-- REQ: CONTENT-007 -->
+- 실패 fixture: `content/fixtures/invalid`의 schema, geometry, normalization, provenance, URL/path, container 및 image decode 공격 사례 <!-- REQ: CONTENT-008 -->
+- hash-pinned bytes: `content/fixtures/assets` <!-- REQ: CONTENT-009 -->
 
 <!-- GENERATED:UI_ASSETS:START -->
 `UiRuntimeAssetManifestV1` is an empty strict DRAFT manifest. `ui:assets:check` rejects approval forgery and any unapproved beta asset. Publish verifies immutable bytes and the exact `(rightsRecordId, assetSha256)` pair; rollback selects an earlier approved immutable manifest; takedown blocks the hash at CDN and admission layers. Concept references are never runtime assets or visual goldens.

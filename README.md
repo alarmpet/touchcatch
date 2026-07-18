@@ -5,11 +5,11 @@
 두 플레이어가 틀린그림을 찾는 중 돌발 단어 미션을 선점하고, 최종 단어와 뜻을 맞혀 100점을 먼저 만드는 실시간 학습 PvP 게임.
 
 ## 최종 권장 규칙
-- 목표 점수: 100점
-- 제한시간: 75초
-- 먼저 100점 도달 시 즉시 승리
-- 시간 종료 시 고득점 승리
-- 마지막 15초는 파이널 러시
+- 목표 점수: 100점 <!-- REQ: DOC-040 -->
+- 제한시간: 75초 <!-- REQ: DOC-041 -->
+- 먼저 100점 도달 시 즉시 승리 <!-- REQ: DOC-042 -->
+- 시간 종료 시 고득점 승리 <!-- REQ: DOC-043 -->
+- 마지막 15초는 파이널 러시 <!-- REQ: DOC-044 -->
 
 ## 핵심 수정 사항
 사용자 제안은 방향이 좋다. 다만 파이널 러시에서 오답 잠금을 완전히 제거하면 연타 스팸이 생길 수 있어, **-10점 + 1.5초 잠금**으로 유지한다. 또한 차이점은 일반/어려움으로 나눠 점수 차를 둔다.
@@ -28,13 +28,13 @@
 | 파이널 러시 오답 | -10 + 1.5초 잠금 |
 
 ## MVP 기술 스택
-- Client: React Native + Expo + TypeScript
-- Realtime: NestJS + Socket.IO
-- DB/Auth/Storage: Supabase
-- Cache/Scale: Redis
-- Admin: Next.js
-- Analytics: PostHog 또는 Firebase Analytics
-- Crash: Sentry
+- Client: React Native + Expo + TypeScript <!-- REQ: DOC-045 -->
+- Realtime: NestJS + Socket.IO <!-- REQ: DOC-046 -->
+- DB/Auth/Storage: Supabase <!-- REQ: DOC-047 -->
+- Cache/Scale: Redis <!-- REQ: DOC-048 -->
+- Admin: Next.js <!-- REQ: DOC-049 -->
+- Analytics: PostHog 또는 Firebase Analytics <!-- REQ: DOC-050 -->
+- Crash: Sentry <!-- REQ: DOC-051 -->
 
 ## 문서 순서
 1. [Game design overview](01_GAME_DESIGN_OVERVIEW.md)

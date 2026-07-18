@@ -1,12 +1,9 @@
-import { describe, expect, it } from 'vitest';
-import { checkNormativeNumbers, checkTraceability } from '../../tools/check-docs-lib.js';
+import fs from 'node:fs';import os from 'node:os';import path from 'node:path';import {describe,expect,it}from'vitest';
+import {checkNormativeNumbers,checkRepositoryTraceability,discoverNormativeRequirements,validateGateScripts}from'../../tools/check-docs-lib.js';
 
-describe('normative traceability', () => {
-  it('rejects missing, duplicate and broken mappings', () => {
-    const result=checkTraceability({normativeIds:['OBS-01','QA-01'],rows:[{id:'OBS-01',source:'README.md',schema:'missing.ts',phase:'G',test:'missing.test.ts',metric:'m'},{id:'OBS-01',source:'README.md',schema:'missing.ts',phase:'G',test:'missing.test.ts',metric:'m'}],existingPaths:new Set(['README.md'])});
-    expect(result.missing).toEqual(['QA-01']); expect(result.duplicates).toEqual(['OBS-01']); expect(result.broken.length).toBeGreaterThan(0);
-  });
-  it('detects frozen load and simulation numeric drift',()=>{
-    expect(checkNormativeNumbers({'docs/testing/load-slo.md':'100 matches 200 sockets','docs/testing/simulation-model.md':'50 matches'}).length).toBeGreaterThan(0);
-  });
+describe('normative traceability',()=>{
+ it('discovers every annotated normative bullet with stable source line and section',()=>{const text='# API\n## Mutations\n- Must retry. <!-- REQ: API-02 -->\n- Shall fence. <!-- REQ: API-03 -->';expect(discoverNormativeRequirements('09_API.md',text)).toEqual([{id:'API-02',source:'09_API.md',sourceLine:3,section:'Mutations',text:'Must retry.',fingerprint:expect.stringMatching(/^[a-f0-9]{64}$/)},{id:'API-03',source:'09_API.md',sourceLine:4,section:'Mutations',text:'Shall fence.',fingerprint:expect.stringMatching(/^[a-f0-9]{64}$/)}]);});
+ it('fails unmarked normative bullets and source/fingerprint drift against a copied real registry',()=>{const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'trace-real-'));for(const file of ['README.md','09_API_AND_SOCKET_EVENTS.md'])fs.copyFileSync(path.resolve(file),path.join(tmp,file));fs.mkdirSync(path.join(tmp,'docs'));fs.copyFileSync(path.resolve('docs/requirements-registry.v1.json'),path.join(tmp,'docs/requirements-registry.v1.json'));expect(checkRepositoryTraceability(tmp).unmarked).toEqual([]);fs.appendFileSync(path.join(tmp,'09_API_AND_SOCKET_EVENTS.md'),'\n- The server MUST reject drift.\n');expect(checkRepositoryTraceability(tmp).unmarked.length).toBe(1);});
+ it('detects broad normative numeric drift from SSOT projections',()=>{const files=Object.fromEntries(['07_REALTIME_SERVER_SPEC.md','11_TEST_AND_BALANCE_PLAN.md'].map(f=>[f,fs.readFileSync(f,'utf8')]));expect(checkNormativeNumbers(files)).toEqual([]);expect(checkNormativeNumbers({...files,'07_REALTIME_SERVER_SPEC.md':files['07_REALTIME_SERVER_SPEC.md']!.replace('250ms','251ms')})).toContain('07_REALTIME_SERVER_SPEC.md:250ms');});
+ it('parses exact package gate composition rather than accepting substrings',()=>{const pkg=JSON.parse(fs.readFileSync('package.json','utf8'));expect(validateGateScripts(pkg.scripts)).toEqual([]);expect(validateGateScripts({...pkg.scripts,check:pkg.scripts.check.replace('corepack pnpm docs:check','echo corepack pnpm docs:check')})).toContain('check:docs:check');});
 });
