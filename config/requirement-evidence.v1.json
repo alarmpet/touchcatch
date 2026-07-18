@@ -1,17 +1,13 @@
 {
-  "schemaVersion": 2,
-  "approval": {
-    "version": "task9-v6",
-    "reviewer": "independent-readonly-review",
-    "approvedAt": "2026-07-19"
-  },
+  "schemaVersion": 3,
   "entries": [
     {
       "id": "RULE-001",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-001 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -21,7 +17,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-002 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -31,7 +28,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-003 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -41,7 +39,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-004 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -51,7 +50,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-005 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -61,7 +61,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-006 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -71,7 +72,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-007 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -81,7 +83,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-008 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -91,7 +94,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-009 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -101,7 +105,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-010 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -111,7 +116,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-011 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -121,7 +127,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-012 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -131,7 +138,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-013 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -141,7 +149,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-014 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -151,7 +160,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-015 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -161,7 +171,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-016 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -171,7 +182,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-017 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -181,7 +193,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-018 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -191,7 +204,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-019 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -201,7 +215,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-020 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -211,7 +226,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-021 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -221,7 +237,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-022 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -231,7 +248,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-023 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -241,7 +259,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-024 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -251,7 +270,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-025 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -261,7 +281,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-026 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -271,7 +292,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-027 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -281,7 +303,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-028 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -291,7 +314,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-029 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -301,7 +325,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-030 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -311,7 +336,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-031 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -321,7 +347,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-032 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -331,7 +358,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-033 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -341,7 +369,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-034 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -351,7 +380,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-035 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -361,7 +391,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-036 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -371,7 +402,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-037 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -381,7 +413,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-038 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -391,7 +424,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-039 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -401,7 +435,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-040 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -411,7 +446,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-041 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -421,7 +457,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-042 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -431,7 +468,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-043 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -441,7 +479,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-044 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -451,7 +490,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-045 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -461,7 +501,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-046 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -471,7 +512,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-047 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -481,7 +523,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-048 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -491,7 +534,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-049 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -501,7 +545,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-050 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -511,7 +556,8 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-051 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status"
@@ -521,297 +567,356 @@
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "STATE-001"
       },
       "testCase": "STATE-001 executes STATE_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:STATE_SCHEMA"
     },
     {
       "id": "STATE-002",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "STATE-002"
       },
       "testCase": "STATE-002 executes STATE_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:STATE_SCHEMA"
     },
     {
       "id": "STATE-003",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "STATE-003"
       },
       "testCase": "STATE-003 executes STATE_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:STATE_SCHEMA"
     },
     {
       "id": "STATE-004",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "STATE-004"
       },
       "testCase": "STATE-004 executes STATE_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:STATE_SCHEMA"
     },
     {
       "id": "STATE-005",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "STATE-005"
       },
       "testCase": "STATE-005 executes STATE_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:STATE_SCHEMA"
     },
     {
       "id": "STATE-006",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "STATE-006"
       },
       "testCase": "STATE-006 executes STATE_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:STATE_SCHEMA"
     },
     {
       "id": "STATE-007",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "STATE-007"
       },
       "testCase": "STATE-007 executes STATE_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:STATE_SCHEMA"
     },
     {
       "id": "STATE-008",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "STATE-008"
       },
       "testCase": "STATE-008 executes STATE_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:STATE_SCHEMA"
     },
     {
       "id": "STATE-009",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "STATE-009"
       },
       "testCase": "STATE-009 executes STATE_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:STATE_SCHEMA"
     },
     {
       "id": "STATE-010",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "STATE-010"
       },
       "testCase": "STATE-010 executes STATE_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:STATE_SCHEMA"
     },
     {
       "id": "UX-001",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-001"
       },
       "testCase": "UX-001 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "UX-002",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-002"
       },
       "testCase": "UX-002 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "UX-003",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-003"
       },
       "testCase": "UX-003 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "UX-004",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-004"
       },
       "testCase": "UX-004 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "UX-005",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-005"
       },
       "testCase": "UX-005 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "UX-006",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-006"
       },
       "testCase": "UX-006 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "UX-007",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-007"
       },
       "testCase": "UX-007 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "UX-008",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-008"
       },
       "testCase": "UX-008 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "UX-009",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-009"
       },
       "testCase": "UX-009 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "UX-010",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-010"
       },
       "testCase": "UX-010 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "UX-011",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-011"
       },
       "testCase": "UX-011 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "UX-012",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-012"
       },
       "testCase": "UX-012 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "UX-013",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-013"
       },
       "testCase": "UX-013 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "UX-014",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-014"
       },
       "testCase": "UX-014 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "UX-015",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-015"
       },
       "testCase": "UX-015 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "UX-016",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-016"
       },
       "testCase": "UX-016 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "UX-017",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-017"
       },
       "testCase": "UX-017 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "UX-018",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-018"
       },
       "testCase": "UX-018 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "UX-019",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "UX-019"
       },
       "testCase": "UX-019 executes UI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:UI_PROJECTION"
     },
     {
       "id": "ECON-001",
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-001 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -821,7 +926,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-002 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -831,7 +937,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-003 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -841,7 +948,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-004 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -851,7 +959,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-005 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -861,7 +970,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-006 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -871,7 +981,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-007 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -881,7 +992,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-008 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -891,7 +1003,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-009 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -901,7 +1014,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-010 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -911,7 +1025,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-011 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -921,7 +1036,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-012 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -931,7 +1047,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-013 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -941,7 +1058,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-014 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -951,7 +1069,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-015 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -961,7 +1080,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-016 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -971,7 +1091,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-017 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -981,7 +1102,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-018 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -991,7 +1113,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-019 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -1001,7 +1124,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-020 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -1011,7 +1135,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-021 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -1021,7 +1146,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-022 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -1031,7 +1157,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-023 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -1041,7 +1168,8 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "config/economy.v1.json"
       },
       "testCase": "ECON-024 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status"
@@ -1051,77 +1179,92 @@
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "SEC-001"
       },
       "testCase": "SEC-001 executes PRIVACY_CONTRACT",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:PRIVACY_CONTRACT"
     },
     {
       "id": "SEC-002",
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "SEC-002"
       },
       "testCase": "SEC-002 executes PRIVACY_CONTRACT",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:PRIVACY_CONTRACT"
     },
     {
       "id": "SEC-003",
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "SEC-003"
       },
       "testCase": "SEC-003 executes PRIVACY_CONTRACT",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:PRIVACY_CONTRACT"
     },
     {
       "id": "SEC-004",
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "SEC-004"
       },
       "testCase": "SEC-004 executes PRIVACY_CONTRACT",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:PRIVACY_CONTRACT"
     },
     {
       "id": "SEC-005",
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "SEC-005"
       },
       "testCase": "SEC-005 executes PRIVACY_CONTRACT",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:PRIVACY_CONTRACT"
     },
     {
       "id": "SEC-006",
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "SEC-006"
       },
       "testCase": "SEC-006 executes PRIVACY_CONTRACT",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:PRIVACY_CONTRACT"
     },
     {
       "id": "SEC-007",
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "SEC-007"
       },
       "testCase": "SEC-007 executes PRIVACY_CONTRACT",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:PRIVACY_CONTRACT"
     },
     {
       "id": "OBS-001",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-001 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status"
@@ -1131,7 +1274,8 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-002 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status"
@@ -1141,7 +1285,8 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-003 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status"
@@ -1151,7 +1296,8 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-004 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status"
@@ -1161,7 +1307,8 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-005 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status"
@@ -1171,7 +1318,8 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-006 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status"
@@ -1181,7 +1329,8 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-007 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status"
@@ -1191,7 +1340,8 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-008 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status"
@@ -1201,7 +1351,8 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-009 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status"
@@ -1211,7 +1362,8 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-010 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status"
@@ -1221,7 +1373,8 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-011 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status"
@@ -1231,7 +1384,8 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-012 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status"
@@ -1241,7 +1395,8 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-013 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status"
@@ -1251,7 +1406,8 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-014 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status"
@@ -1261,7 +1417,8 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS"
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-015 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status"
@@ -1271,1940 +1428,2329 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-001"
       },
       "testCase": "DATA-001 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-002",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-002"
       },
       "testCase": "DATA-002 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-003",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-003"
       },
       "testCase": "DATA-003 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-004",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-004"
       },
       "testCase": "DATA-004 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-005",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-005"
       },
       "testCase": "DATA-005 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-006",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-006"
       },
       "testCase": "DATA-006 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-007",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-007"
       },
       "testCase": "DATA-007 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-008",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-008"
       },
       "testCase": "DATA-008 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-009",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-009"
       },
       "testCase": "DATA-009 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-010",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-010"
       },
       "testCase": "DATA-010 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-011",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-011"
       },
       "testCase": "DATA-011 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-012",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-012"
       },
       "testCase": "DATA-012 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-013",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-013"
       },
       "testCase": "DATA-013 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-014",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-014"
       },
       "testCase": "DATA-014 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-015",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-015"
       },
       "testCase": "DATA-015 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-016",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-016"
       },
       "testCase": "DATA-016 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-017",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-017"
       },
       "testCase": "DATA-017 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-018",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-018"
       },
       "testCase": "DATA-018 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-019",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-019"
       },
       "testCase": "DATA-019 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-020",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-020"
       },
       "testCase": "DATA-020 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-021",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-021"
       },
       "testCase": "DATA-021 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-022",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-022"
       },
       "testCase": "DATA-022 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-023",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-023"
       },
       "testCase": "DATA-023 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-024",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-024"
       },
       "testCase": "DATA-024 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-025",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-025"
       },
       "testCase": "DATA-025 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-026",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-026"
       },
       "testCase": "DATA-026 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-027",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-027"
       },
       "testCase": "DATA-027 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-028",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-028"
       },
       "testCase": "DATA-028 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "DATA-029",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DATA-029"
       },
       "testCase": "DATA-029 executes DB_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DB_PROJECTION"
     },
     {
       "id": "API-005",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-005"
       },
       "testCase": "API-005 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-001",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-001"
       },
       "testCase": "API-001 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-002",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-002"
       },
       "testCase": "API-002 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-003",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-003"
       },
       "testCase": "API-003 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-004",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-004"
       },
       "testCase": "API-004 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-006",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-006"
       },
       "testCase": "API-006 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-007",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-007"
       },
       "testCase": "API-007 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-008",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-008"
       },
       "testCase": "API-008 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-009",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-009"
       },
       "testCase": "API-009 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-010",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-010"
       },
       "testCase": "API-010 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-011",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-011"
       },
       "testCase": "API-011 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-012",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-012"
       },
       "testCase": "API-012 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-013",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-013"
       },
       "testCase": "API-013 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-014",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-014"
       },
       "testCase": "API-014 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-015",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-015"
       },
       "testCase": "API-015 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-016",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-016"
       },
       "testCase": "API-016 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-017",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-017"
       },
       "testCase": "API-017 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-018",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-018"
       },
       "testCase": "API-018 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-019",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-019"
       },
       "testCase": "API-019 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-020",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-020"
       },
       "testCase": "API-020 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-021",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-021"
       },
       "testCase": "API-021 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-022",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-022"
       },
       "testCase": "API-022 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-023",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-023"
       },
       "testCase": "API-023 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "API-024",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "API-024"
       },
       "testCase": "API-024 executes OPENAPI_PROJECTION",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:OPENAPI_PROJECTION"
     },
     {
       "id": "CONTENT-001",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-001"
       },
       "testCase": "CONTENT-001 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-002",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-002"
       },
       "testCase": "CONTENT-002 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-003",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-003"
       },
       "testCase": "CONTENT-003 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-004",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-004"
       },
       "testCase": "CONTENT-004 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-005",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-005"
       },
       "testCase": "CONTENT-005 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-006",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-006"
       },
       "testCase": "CONTENT-006 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-007",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-007"
       },
       "testCase": "CONTENT-007 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-008",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-008"
       },
       "testCase": "CONTENT-008 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-009",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-009"
       },
       "testCase": "CONTENT-009 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-010",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-010"
       },
       "testCase": "CONTENT-010 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-011",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-011"
       },
       "testCase": "CONTENT-011 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-012",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-012"
       },
       "testCase": "CONTENT-012 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-013",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-013"
       },
       "testCase": "CONTENT-013 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-014",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-014"
       },
       "testCase": "CONTENT-014 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-015",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-015"
       },
       "testCase": "CONTENT-015 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-016",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-016"
       },
       "testCase": "CONTENT-016 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-017",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-017"
       },
       "testCase": "CONTENT-017 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-018",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-018"
       },
       "testCase": "CONTENT-018 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-019",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-019"
       },
       "testCase": "CONTENT-019 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-020",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-020"
       },
       "testCase": "CONTENT-020 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-021",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-021"
       },
       "testCase": "CONTENT-021 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-022",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-022"
       },
       "testCase": "CONTENT-022 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-023",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-023"
       },
       "testCase": "CONTENT-023 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-024",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-024"
       },
       "testCase": "CONTENT-024 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-025",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-025"
       },
       "testCase": "CONTENT-025 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-026",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-026"
       },
       "testCase": "CONTENT-026 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-027",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "CONTENT-027"
       },
       "testCase": "CONTENT-027 executes CONTENT_SCHEMA",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:CONTENT_SCHEMA"
     },
     {
       "id": "QA-001",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "QA-001"
       },
       "testCase": "QA-001 executes RELEASE_HARNESS",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RELEASE_HARNESS"
     },
     {
       "id": "QA-002",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "QA-002"
       },
       "testCase": "QA-002 executes RELEASE_HARNESS",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RELEASE_HARNESS"
     },
     {
       "id": "QA-003",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "QA-003"
       },
       "testCase": "QA-003 executes RELEASE_HARNESS",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RELEASE_HARNESS"
     },
     {
       "id": "QA-004",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "QA-004"
       },
       "testCase": "QA-004 executes RELEASE_HARNESS",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RELEASE_HARNESS"
     },
     {
       "id": "QA-005",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "QA-005"
       },
       "testCase": "QA-005 executes RELEASE_HARNESS",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RELEASE_HARNESS"
     },
     {
       "id": "QA-006",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "QA-006"
       },
       "testCase": "QA-006 executes RELEASE_HARNESS",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RELEASE_HARNESS"
     },
     {
       "id": "QA-007",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "QA-007"
       },
       "testCase": "QA-007 executes RELEASE_HARNESS",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RELEASE_HARNESS"
     },
     {
       "id": "QA-008",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "QA-008"
       },
       "testCase": "QA-008 executes RELEASE_HARNESS",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RELEASE_HARNESS"
     },
     {
       "id": "QA-009",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "QA-009"
       },
       "testCase": "QA-009 executes RELEASE_HARNESS",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RELEASE_HARNESS"
     },
     {
       "id": "QA-010",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "QA-010"
       },
       "testCase": "QA-010 executes RELEASE_HARNESS",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RELEASE_HARNESS"
     },
     {
       "id": "QA-011",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "QA-011"
       },
       "testCase": "QA-011 executes RELEASE_HARNESS",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RELEASE_HARNESS"
     },
     {
       "id": "QA-012",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "QA-012"
       },
       "testCase": "QA-012 executes RELEASE_HARNESS",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RELEASE_HARNESS"
     },
     {
       "id": "QA-013",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "QA-013"
       },
       "testCase": "QA-013 executes RELEASE_HARNESS",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RELEASE_HARNESS"
     },
     {
       "id": "QA-014",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "QA-014"
       },
       "testCase": "QA-014 executes RELEASE_HARNESS",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RELEASE_HARNESS"
     },
     {
       "id": "QA-015",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "QA-015"
       },
       "testCase": "QA-015 executes RELEASE_HARNESS",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RELEASE_HARNESS"
     },
     {
       "id": "ENV-001",
       "evidenceKind": "RUNTIME_GATE",
       "oracle": {
         "kind": "RUNTIME_GATE",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "ENV-001"
       },
       "testCase": "ENV-001 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RUNTIME_GATE"
     },
     {
       "id": "ENV-002",
       "evidenceKind": "RUNTIME_GATE",
       "oracle": {
         "kind": "RUNTIME_GATE",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "ENV-002"
       },
       "testCase": "ENV-002 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RUNTIME_GATE"
     },
     {
       "id": "ENV-003",
       "evidenceKind": "RUNTIME_GATE",
       "oracle": {
         "kind": "RUNTIME_GATE",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "ENV-003"
       },
       "testCase": "ENV-003 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RUNTIME_GATE"
     },
     {
       "id": "ENV-004",
       "evidenceKind": "RUNTIME_GATE",
       "oracle": {
         "kind": "RUNTIME_GATE",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "ENV-004"
       },
       "testCase": "ENV-004 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RUNTIME_GATE"
     },
     {
       "id": "ENV-005",
       "evidenceKind": "RUNTIME_GATE",
       "oracle": {
         "kind": "RUNTIME_GATE",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "ENV-005"
       },
       "testCase": "ENV-005 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RUNTIME_GATE"
     },
     {
       "id": "ENV-006",
       "evidenceKind": "RUNTIME_GATE",
       "oracle": {
         "kind": "RUNTIME_GATE",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "ENV-006"
       },
       "testCase": "ENV-006 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RUNTIME_GATE"
     },
     {
       "id": "ENV-007",
       "evidenceKind": "RUNTIME_GATE",
       "oracle": {
         "kind": "RUNTIME_GATE",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "ENV-007"
       },
       "testCase": "ENV-007 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RUNTIME_GATE"
     },
     {
       "id": "ENV-008",
       "evidenceKind": "RUNTIME_GATE",
       "oracle": {
         "kind": "RUNTIME_GATE",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "ENV-008"
       },
       "testCase": "ENV-008 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RUNTIME_GATE"
     },
     {
       "id": "ENV-009",
       "evidenceKind": "RUNTIME_GATE",
       "oracle": {
         "kind": "RUNTIME_GATE",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "ENV-009"
       },
       "testCase": "ENV-009 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RUNTIME_GATE"
     },
     {
       "id": "ENV-010",
       "evidenceKind": "RUNTIME_GATE",
       "oracle": {
         "kind": "RUNTIME_GATE",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "ENV-010"
       },
       "testCase": "ENV-010 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RUNTIME_GATE"
     },
     {
       "id": "ENV-011",
       "evidenceKind": "RUNTIME_GATE",
       "oracle": {
         "kind": "RUNTIME_GATE",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "ENV-011"
       },
       "testCase": "ENV-011 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:RUNTIME_GATE"
     },
     {
       "id": "DOC-001",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-001"
       },
       "testCase": "DOC-001 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-002",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-002"
       },
       "testCase": "DOC-002 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-003",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-003"
       },
       "testCase": "DOC-003 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-004",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-004"
       },
       "testCase": "DOC-004 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-005",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-005"
       },
       "testCase": "DOC-005 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-006",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-006"
       },
       "testCase": "DOC-006 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-007",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-007"
       },
       "testCase": "DOC-007 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-008",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-008"
       },
       "testCase": "DOC-008 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-009",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-009"
       },
       "testCase": "DOC-009 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-010",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-010"
       },
       "testCase": "DOC-010 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-011",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-011"
       },
       "testCase": "DOC-011 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-012",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-012"
       },
       "testCase": "DOC-012 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-013",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-013"
       },
       "testCase": "DOC-013 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-014",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-014"
       },
       "testCase": "DOC-014 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-015",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-015"
       },
       "testCase": "DOC-015 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-016",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-016"
       },
       "testCase": "DOC-016 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-017",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-017"
       },
       "testCase": "DOC-017 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-018",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-018"
       },
       "testCase": "DOC-018 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-019",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-019"
       },
       "testCase": "DOC-019 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-020",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-020"
       },
       "testCase": "DOC-020 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-021",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-021"
       },
       "testCase": "DOC-021 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-022",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-022"
       },
       "testCase": "DOC-022 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-023",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-023"
       },
       "testCase": "DOC-023 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-024",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-024"
       },
       "testCase": "DOC-024 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-025",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-025"
       },
       "testCase": "DOC-025 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-026",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-026"
       },
       "testCase": "DOC-026 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-027",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-027"
       },
       "testCase": "DOC-027 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-028",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-028"
       },
       "testCase": "DOC-028 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-029",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-029"
       },
       "testCase": "DOC-029 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-030",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-030"
       },
       "testCase": "DOC-030 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-031",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-031"
       },
       "testCase": "DOC-031 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-032",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-032"
       },
       "testCase": "DOC-032 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-033",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-033"
       },
       "testCase": "DOC-033 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-034",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-034"
       },
       "testCase": "DOC-034 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-035",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-035"
       },
       "testCase": "DOC-035 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-036",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-036"
       },
       "testCase": "DOC-036 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-037",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-037"
       },
       "testCase": "DOC-037 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-038",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-038"
       },
       "testCase": "DOC-038 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-039",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-039"
       },
       "testCase": "DOC-039 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-040",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-040"
       },
       "testCase": "DOC-040 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-041",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-041"
       },
       "testCase": "DOC-041 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-042",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-042"
       },
       "testCase": "DOC-042 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-043",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-043"
       },
       "testCase": "DOC-043 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-044",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-044"
       },
       "testCase": "DOC-044 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-045",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-045"
       },
       "testCase": "DOC-045 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-046",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-046"
       },
       "testCase": "DOC-046 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-047",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-047"
       },
       "testCase": "DOC-047 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-048",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-048"
       },
       "testCase": "DOC-048 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-049",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-049"
       },
       "testCase": "DOC-049 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-050",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-050"
       },
       "testCase": "DOC-050 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-051",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-051"
       },
       "testCase": "DOC-051 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-052",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-052"
       },
       "testCase": "DOC-052 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-053",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-053"
       },
       "testCase": "DOC-053 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-054",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-054"
       },
       "testCase": "DOC-054 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-055",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-055"
       },
       "testCase": "DOC-055 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-056",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-056"
       },
       "testCase": "DOC-056 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-057",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-057"
       },
       "testCase": "DOC-057 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-058",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-058"
       },
       "testCase": "DOC-058 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-059",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-059"
       },
       "testCase": "DOC-059 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-060",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-060"
       },
       "testCase": "DOC-060 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-061",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-061"
       },
       "testCase": "DOC-061 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-062",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-062"
       },
       "testCase": "DOC-062 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-063",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-063"
       },
       "testCase": "DOC-063 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-064",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-064"
       },
       "testCase": "DOC-064 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-065",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-065"
       },
       "testCase": "DOC-065 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-066",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-066"
       },
       "testCase": "DOC-066 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-067",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-067"
       },
       "testCase": "DOC-067 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-068",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-068"
       },
       "testCase": "DOC-068 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-069",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-069"
       },
       "testCase": "DOC-069 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-070",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-070"
       },
       "testCase": "DOC-070 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-071",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-071"
       },
       "testCase": "DOC-071 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-072",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-072"
       },
       "testCase": "DOC-072 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-073",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-073"
       },
       "testCase": "DOC-073 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-074",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-074"
       },
       "testCase": "DOC-074 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-075",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-075"
       },
       "testCase": "DOC-075 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-076",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-076"
       },
       "testCase": "DOC-076 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-077",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-077"
       },
       "testCase": "DOC-077 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-078",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-078"
       },
       "testCase": "DOC-078 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-079",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-079"
       },
       "testCase": "DOC-079 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-080",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-080"
       },
       "testCase": "DOC-080 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-081",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-081"
       },
       "testCase": "DOC-081 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-082",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-082"
       },
       "testCase": "DOC-082 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-083",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-083"
       },
       "testCase": "DOC-083 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-084",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-084"
       },
       "testCase": "DOC-084 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-085",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-085"
       },
       "testCase": "DOC-085 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-086",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-086"
       },
       "testCase": "DOC-086 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-087",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-087"
       },
       "testCase": "DOC-087 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-088",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "PASS"
+        "expected": "BLOCKED",
+        "input": "DOC-088"
       },
       "testCase": "DOC-088 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status"
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "UNVERIFIED_EXTERNAL_BLOCKER:DOCUMENT_INVENTORY"
     }
-  ]
+  ],
+  "provenance": "CURATED_MAPPING_WITHOUT_REVIEW_ATTESTATION"
 }

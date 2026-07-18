@@ -779,8 +779,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "STATE_SCHEMA",
-      "oracle": "STATE-001:STATE_SCHEMA:PASS",
-      "linkageProof": "ca8578d21014d1c731de1006390262ca577c0bb806101225877595ed6a9c4eaf"
+      "oracle": "STATE-001:STATE_SCHEMA:BLOCKED",
+      "linkageProof": "0cb766d725a574980c6d547eca4385c24fbef8b017436724a6ea6c8235e0a695"
     },
     {
       "id": "STATE-002",
@@ -794,8 +794,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "STATE_SCHEMA",
-      "oracle": "STATE-002:STATE_SCHEMA:PASS",
-      "linkageProof": "886647f61592878c05e6f42d8dad0362985b5cb8b92d8131b2d96c3c166d0614"
+      "oracle": "STATE-002:STATE_SCHEMA:BLOCKED",
+      "linkageProof": "78730ae8f997326eba6625a9cae15a2d9f8d588092550fbb76d7f5252aa4a6da"
     },
     {
       "id": "STATE-003",
@@ -809,8 +809,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "STATE_SCHEMA",
-      "oracle": "STATE-003:STATE_SCHEMA:PASS",
-      "linkageProof": "e8711b9ade5c06d5f7eaca82ed52f6d03ddcd65f82b6b6cd05037c704f1ab53c"
+      "oracle": "STATE-003:STATE_SCHEMA:BLOCKED",
+      "linkageProof": "f5de0eee6b3b029e1cfbb9c34451c15807987aa9f95419435eed3b4eb62668f5"
     },
     {
       "id": "STATE-004",
@@ -824,8 +824,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "STATE_SCHEMA",
-      "oracle": "STATE-004:STATE_SCHEMA:PASS",
-      "linkageProof": "25c5becfcd90bc3fd139ca3e75691a6c0f99a77a1e4d7990cec2281c87be64e4"
+      "oracle": "STATE-004:STATE_SCHEMA:BLOCKED",
+      "linkageProof": "f6beb683b1128f808615a3dabee13023fa976619214ec47ca7e2501febc25d38"
     },
     {
       "id": "STATE-005",
@@ -839,8 +839,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "STATE_SCHEMA",
-      "oracle": "STATE-005:STATE_SCHEMA:PASS",
-      "linkageProof": "ebe14843e5bfe6f36ef444ee0164477258f499d975b498ec2fe30caba600332c"
+      "oracle": "STATE-005:STATE_SCHEMA:BLOCKED",
+      "linkageProof": "34d13578d66867da3f144d3c4a6eacec706e83ac27eda414538f2097d36f8860"
     },
     {
       "id": "STATE-006",
@@ -854,8 +854,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "STATE_SCHEMA",
-      "oracle": "STATE-006:STATE_SCHEMA:PASS",
-      "linkageProof": "61d62ca006fb272b88fb80b01e17af0c6aa1c63c1e5272b5595532cfb2af33f5"
+      "oracle": "STATE-006:STATE_SCHEMA:BLOCKED",
+      "linkageProof": "f15c4dc28458685dd78351cc0236016ed2078a4fc58a80baf7e8488b68307114"
     },
     {
       "id": "STATE-007",
@@ -869,8 +869,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "STATE_SCHEMA",
-      "oracle": "STATE-007:STATE_SCHEMA:PASS",
-      "linkageProof": "20be50e929bae376788a4f1092cbfd2278886556b652ec2a31c93d7bbce3a4b3"
+      "oracle": "STATE-007:STATE_SCHEMA:BLOCKED",
+      "linkageProof": "2a998b0821987f804432e43c6a4a01ed7131965835c8e42149911a2b754eac4c"
     },
     {
       "id": "STATE-008",
@@ -884,8 +884,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "STATE_SCHEMA",
-      "oracle": "STATE-008:STATE_SCHEMA:PASS",
-      "linkageProof": "f70af2f3f5fb38b0d23d4b8c5df09a00ffeea522aa97f49eab11d330f26473cb"
+      "oracle": "STATE-008:STATE_SCHEMA:BLOCKED",
+      "linkageProof": "442972d48f80e35d7a5759df29b1f17f29b16fe905071a07c8aeaecb3a3a07fc"
     },
     {
       "id": "STATE-009",
@@ -899,8 +899,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "STATE_SCHEMA",
-      "oracle": "STATE-009:STATE_SCHEMA:PASS",
-      "linkageProof": "34c6bda68efe796d8eec209a601ca17ff11806f980660fb8c065f9f56a9567ff"
+      "oracle": "STATE-009:STATE_SCHEMA:BLOCKED",
+      "linkageProof": "58fdaee644078d29ec8a1388c2dd277619216e35ca546308b73035fbd87970cb"
     },
     {
       "id": "STATE-010",
@@ -914,8 +914,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "STATE_SCHEMA",
-      "oracle": "STATE-010:STATE_SCHEMA:PASS",
-      "linkageProof": "4861045f7587b190a75454b8a39a3c481d4f9d310b1f8e71aa7ae85e50dc54c3"
+      "oracle": "STATE-010:STATE_SCHEMA:BLOCKED",
+      "linkageProof": "491e74d0583f1f81a1103ed3fd308c73d7f7052662e8173c319badcf32f8a2e6"
     },
     {
       "id": "UX-001",
@@ -929,8 +929,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-001:UI_PROJECTION:PASS",
-      "linkageProof": "fdf2d08dc227265b3589810bf969fbc4ef7375bcbcc08a6d21d964ed6f9ddf3e"
+      "oracle": "UX-001:UI_PROJECTION:BLOCKED",
+      "linkageProof": "7ca0fabde19568882913b28abb2e2d96d2dee02f1f311f8ae3af6df7412f5ea6"
     },
     {
       "id": "UX-002",
@@ -944,8 +944,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-002:UI_PROJECTION:PASS",
-      "linkageProof": "669c53504f401687be7339e10ef60e50dcae34cf8be4e963c41bcb20b26ceaf1"
+      "oracle": "UX-002:UI_PROJECTION:BLOCKED",
+      "linkageProof": "084fd10c7e056ae7bc4592065a93f8ba05f3829ce57e6f8576560c929bb78a5f"
     },
     {
       "id": "UX-003",
@@ -959,8 +959,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-003:UI_PROJECTION:PASS",
-      "linkageProof": "722ddcf30189fbbeac31b5338c8aca32c56b0cb72937765bfca34884dcfb0c4b"
+      "oracle": "UX-003:UI_PROJECTION:BLOCKED",
+      "linkageProof": "38340b16fc6f9f4d0ccc465702238f9b3a206804e3d946f5ccdee1264b370226"
     },
     {
       "id": "UX-004",
@@ -974,8 +974,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-004:UI_PROJECTION:PASS",
-      "linkageProof": "d676a1872dfbee130f80e6cd305f7f81aa6269cd1571cf97f94bd8e49b4931a3"
+      "oracle": "UX-004:UI_PROJECTION:BLOCKED",
+      "linkageProof": "178480d41a3934fca7bdeba2ff240d7eeab88cd64c9ff96134154ac03ca1da70"
     },
     {
       "id": "UX-005",
@@ -989,8 +989,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-005:UI_PROJECTION:PASS",
-      "linkageProof": "7d6c51cefc2bd05e0a6960308d68bd68c244c2d5ba3460058678d83fd5c6b1e0"
+      "oracle": "UX-005:UI_PROJECTION:BLOCKED",
+      "linkageProof": "1884849e4ed6e13c111fa215d46402ac80efa4f02d953a036b93cee29782f9c1"
     },
     {
       "id": "UX-006",
@@ -1004,8 +1004,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-006:UI_PROJECTION:PASS",
-      "linkageProof": "82349db1464f4aea8fb5d73ff5350ae3d09ae046b7058a78ab85ba3aa85f7d40"
+      "oracle": "UX-006:UI_PROJECTION:BLOCKED",
+      "linkageProof": "8564b6ec00fd0275f48369967f9ea0bae70123950de78ef4683b5d570a5b9534"
     },
     {
       "id": "UX-007",
@@ -1019,8 +1019,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-007:UI_PROJECTION:PASS",
-      "linkageProof": "5a00accdc4941ce56f9ec12751b692a45a0e36870b6a2846f8ef99863ed06510"
+      "oracle": "UX-007:UI_PROJECTION:BLOCKED",
+      "linkageProof": "530ad92c4fa0f1a3de007b13951290d4c0cd397ae4ce989e090b8aca062b5286"
     },
     {
       "id": "UX-008",
@@ -1034,8 +1034,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-008:UI_PROJECTION:PASS",
-      "linkageProof": "93a35ccdb4c2e8d41759ca5afd89ba535e73257cdbfd7d640be598446e321b76"
+      "oracle": "UX-008:UI_PROJECTION:BLOCKED",
+      "linkageProof": "2f167fb4326df7f1d5bbb65603a1254169c6f2093bfd8078b99c59ed126f30b5"
     },
     {
       "id": "UX-009",
@@ -1049,8 +1049,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-009:UI_PROJECTION:PASS",
-      "linkageProof": "aa76b3581a7d70e9f0527c67aeff8ca26ca2a2961641307b0cc36dc13334285e"
+      "oracle": "UX-009:UI_PROJECTION:BLOCKED",
+      "linkageProof": "77ef3058692a182a6a85cf023710b39cff6c4abb0b0e143a10b66f06ecf02ce8"
     },
     {
       "id": "UX-010",
@@ -1064,8 +1064,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-010:UI_PROJECTION:PASS",
-      "linkageProof": "87a1bd1655578eb3b85bb94a6db36d82fc726a3f68edf17d0c0af423b70dd3e6"
+      "oracle": "UX-010:UI_PROJECTION:BLOCKED",
+      "linkageProof": "9af05f46764c97ba4912b3570c6ce4e0661c58c3b5153f8a4eac923e047808d0"
     },
     {
       "id": "UX-011",
@@ -1079,8 +1079,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-011:UI_PROJECTION:PASS",
-      "linkageProof": "7c7bc09bea7e9d4fc4969a25c2389b72d38b9a1c3a69fc4992388463dd31e4e8"
+      "oracle": "UX-011:UI_PROJECTION:BLOCKED",
+      "linkageProof": "c94b11d3991d5a9f55254aac62c42da35bd6dc4d2cb4ccf9bb56157f2e5e762b"
     },
     {
       "id": "UX-012",
@@ -1094,8 +1094,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-012:UI_PROJECTION:PASS",
-      "linkageProof": "700890ea70578fa7f041ff3dfa011d2463ed5d4ead867dce89b5410f4f9c3938"
+      "oracle": "UX-012:UI_PROJECTION:BLOCKED",
+      "linkageProof": "dbf0aa075db17af182f1d9e6eb877532d10a0840c11aeefc0fa54e37b35e3cc0"
     },
     {
       "id": "UX-013",
@@ -1109,8 +1109,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-013:UI_PROJECTION:PASS",
-      "linkageProof": "d797dd9b383d81a04ba9fa895fbea9e0d48e8cb524ca1a61130e91bb7d99d390"
+      "oracle": "UX-013:UI_PROJECTION:BLOCKED",
+      "linkageProof": "c9d7a1c3ae78fea1dbfe4d6b81298a8e92e0d8ec270e1e44b1aa126c639b3858"
     },
     {
       "id": "UX-014",
@@ -1124,8 +1124,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-014:UI_PROJECTION:PASS",
-      "linkageProof": "59a5e326f16c16356ac8ac79041df66b3aa559511b84125575bfee5b9156cd45"
+      "oracle": "UX-014:UI_PROJECTION:BLOCKED",
+      "linkageProof": "ce0c365595e09d3c9455aa35bf0943649d2f2ce8fa2e181492f6c8a6df0cd20c"
     },
     {
       "id": "UX-015",
@@ -1139,8 +1139,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-015:UI_PROJECTION:PASS",
-      "linkageProof": "3f61b939c3d91c73d64cc9f608e5d82cf070bfb99ee931b2297cc26afbf8d386"
+      "oracle": "UX-015:UI_PROJECTION:BLOCKED",
+      "linkageProof": "07067be3fa86083eaeee98dffcbe2964d0446378ab6204e2a9eeb46ca9740b03"
     },
     {
       "id": "UX-016",
@@ -1154,8 +1154,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-016:UI_PROJECTION:PASS",
-      "linkageProof": "e4c5e418d1a8c2646dbcd9cc39882c300f20b750d21120cffe131f9aecfe7c93"
+      "oracle": "UX-016:UI_PROJECTION:BLOCKED",
+      "linkageProof": "c71595abb3b9f2fe85a6edc737374a84b7dbf0920a4d72b8e698813bd7d7121d"
     },
     {
       "id": "UX-017",
@@ -1169,8 +1169,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-017:UI_PROJECTION:PASS",
-      "linkageProof": "d2839067f52fd17597386d85214095ae2f105da13be8ae819496676a9016dd69"
+      "oracle": "UX-017:UI_PROJECTION:BLOCKED",
+      "linkageProof": "d88e5e9508c649d1a43d7f8aa1417bba339f5d8c75197fd52ec4953a37951a2e"
     },
     {
       "id": "UX-018",
@@ -1184,8 +1184,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-018:UI_PROJECTION:PASS",
-      "linkageProof": "d454b0c01b3ed85af0a60af6003ff54c3111da5a40df291bbd095dfa83f2dbe4"
+      "oracle": "UX-018:UI_PROJECTION:BLOCKED",
+      "linkageProof": "31f418cff56394c2ae494fe62344640835ea8676172ab37445572a8deb9c3579"
     },
     {
       "id": "UX-019",
@@ -1199,8 +1199,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-019:UI_PROJECTION:PASS",
-      "linkageProof": "12addf482907d5a26185a8d364b8422e862fc1fe21822c109a3ec12bb2fc43c1"
+      "oracle": "UX-019:UI_PROJECTION:BLOCKED",
+      "linkageProof": "732a4ade20e29557c0654315bbe5a0f02f06d77d89ed1cbf3db41c011c4a5932"
     },
     {
       "id": "ECON-001",
@@ -1574,8 +1574,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "PRIVACY_CONTRACT",
-      "oracle": "SEC-001:PRIVACY_CONTRACT:PASS",
-      "linkageProof": "494252179a845a1e848d195251a01a363058c1b7b30eca9b27c314e120eb2463"
+      "oracle": "SEC-001:PRIVACY_CONTRACT:BLOCKED",
+      "linkageProof": "6dcaaa8be50d0947808672b7430bb748abf396cf6a3e535508ea7ffc606d8d47"
     },
     {
       "id": "SEC-002",
@@ -1589,8 +1589,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "PRIVACY_CONTRACT",
-      "oracle": "SEC-002:PRIVACY_CONTRACT:PASS",
-      "linkageProof": "9b5e0c07aca7d0c9e082d3de0b4456a0ce83f1aaabc59f5b1cf747f83930eeff"
+      "oracle": "SEC-002:PRIVACY_CONTRACT:BLOCKED",
+      "linkageProof": "d3b603e2c4d3ef220b0a5edf41b21f3ac446441b059ca630ecd24b17b5ad8d7b"
     },
     {
       "id": "SEC-003",
@@ -1604,8 +1604,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "PRIVACY_CONTRACT",
-      "oracle": "SEC-003:PRIVACY_CONTRACT:PASS",
-      "linkageProof": "3e2c67dd700449119e658b7ea9aa2e1bab65b094b5fcb1416fe608d865a12196"
+      "oracle": "SEC-003:PRIVACY_CONTRACT:BLOCKED",
+      "linkageProof": "2009d5daa0388511aa0e34011baa86711296b7c4ae83870a47174067ca221e47"
     },
     {
       "id": "SEC-004",
@@ -1619,8 +1619,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "PRIVACY_CONTRACT",
-      "oracle": "SEC-004:PRIVACY_CONTRACT:PASS",
-      "linkageProof": "6b5a655996090229caeea5dffb7b227c775c53732559702950cd60ce7477cb35"
+      "oracle": "SEC-004:PRIVACY_CONTRACT:BLOCKED",
+      "linkageProof": "e89572a5cbfa0bf844ed261920159b8db363a65574b177d84f7d76a3f8f13d34"
     },
     {
       "id": "SEC-005",
@@ -1634,8 +1634,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "PRIVACY_CONTRACT",
-      "oracle": "SEC-005:PRIVACY_CONTRACT:PASS",
-      "linkageProof": "76a791de9d6cdf5a2ebc6ffbba761c1b0ea09e61776dd96264794fb886960885"
+      "oracle": "SEC-005:PRIVACY_CONTRACT:BLOCKED",
+      "linkageProof": "0075c79fe5b54fe03c7b214f7eccd3fc0af9a8ed3212c07372f32a0a6ede621e"
     },
     {
       "id": "SEC-006",
@@ -1649,8 +1649,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "PRIVACY_CONTRACT",
-      "oracle": "SEC-006:PRIVACY_CONTRACT:PASS",
-      "linkageProof": "eaa86e4de7122b3e65efc614605a9fa349c4762e0148771e0dca02243169616a"
+      "oracle": "SEC-006:PRIVACY_CONTRACT:BLOCKED",
+      "linkageProof": "4b71f94be0d089af7de0bf564286ae9566ccef45386bc887b68d65d6b468457a"
     },
     {
       "id": "SEC-007",
@@ -1664,8 +1664,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "PRIVACY_CONTRACT",
-      "oracle": "SEC-007:PRIVACY_CONTRACT:PASS",
-      "linkageProof": "c26454c2a887132f19ac3de5eb13885422c4d4502429440caafc643c9be8ad0d"
+      "oracle": "SEC-007:PRIVACY_CONTRACT:BLOCKED",
+      "linkageProof": "a4d5a54abb6f0d07c70e02e9d7df94ba4de3346a62e2dda41b2b6a826e3fee08"
     },
     {
       "id": "OBS-001",
@@ -1904,8 +1904,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-001:DB_PROJECTION:PASS",
-      "linkageProof": "e351d4e051ebccca83fe2d68a7b01e9309d8d031f14897a85663a2fcbba00e3d"
+      "oracle": "DATA-001:DB_PROJECTION:BLOCKED",
+      "linkageProof": "38fb5bbdff3f2fd5cf2ff5e42f89fae5fa6aae1b6bae019655d05bf7389bafbb"
     },
     {
       "id": "DATA-002",
@@ -1919,8 +1919,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-002:DB_PROJECTION:PASS",
-      "linkageProof": "8bd48c0c960b9608610a92ee80808570bc7045626ba32bdf35e9311167d66cc4"
+      "oracle": "DATA-002:DB_PROJECTION:BLOCKED",
+      "linkageProof": "f5357ad76cbc075a89041edd165c928aa6f12ebed39fdc020a0cedb55eca3f64"
     },
     {
       "id": "DATA-003",
@@ -1934,8 +1934,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-003:DB_PROJECTION:PASS",
-      "linkageProof": "a13faf81e3143d513b725f17c2045b359822971259c7586db095fe8a21f292ad"
+      "oracle": "DATA-003:DB_PROJECTION:BLOCKED",
+      "linkageProof": "e7014f2cb898a9a2aaf36a05e8878c7cc81169f095c86b551713978346748b25"
     },
     {
       "id": "DATA-004",
@@ -1949,8 +1949,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-004:DB_PROJECTION:PASS",
-      "linkageProof": "0056830ce5ce303ba8de4e6a5cd52f35a1180ba2713d8de1065a25c362e0a303"
+      "oracle": "DATA-004:DB_PROJECTION:BLOCKED",
+      "linkageProof": "c9c6dd37d16430d79f21e35808b03ffa0f0eb7742a9fc85d0e0cf02b728608f3"
     },
     {
       "id": "DATA-005",
@@ -1964,8 +1964,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-005:DB_PROJECTION:PASS",
-      "linkageProof": "df38f646de7538f3834f847574ab21293087dd577d54ea8395ebf610e83a4ec9"
+      "oracle": "DATA-005:DB_PROJECTION:BLOCKED",
+      "linkageProof": "5e7c3e5d62f00ad896881a03aa2da80ab86850073a8c0786e011ef2ebba0a202"
     },
     {
       "id": "DATA-006",
@@ -1979,8 +1979,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-006:DB_PROJECTION:PASS",
-      "linkageProof": "bb26f625cc74a86bfaec6efc19edf38d3169f8d66a4ff0be101fa3d0e81067bf"
+      "oracle": "DATA-006:DB_PROJECTION:BLOCKED",
+      "linkageProof": "d3d27037c0e82ce869e5233de355fb85ffa272974cbdacdba898ccfe0400747e"
     },
     {
       "id": "DATA-007",
@@ -1994,8 +1994,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-007:DB_PROJECTION:PASS",
-      "linkageProof": "0d2e99e9d96eb9fc3c4fd75bd64af9e561bbf98a470588c2eaca5977421e6d6a"
+      "oracle": "DATA-007:DB_PROJECTION:BLOCKED",
+      "linkageProof": "71a4d12282567cdcb7b287ffbdf087d0d43fc64c13038084c25ecc27346187b9"
     },
     {
       "id": "DATA-008",
@@ -2009,8 +2009,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-008:DB_PROJECTION:PASS",
-      "linkageProof": "d9bb0f6c8d54c1a179c9cd290c7c6989ac5a338780666beffefe4ca22571ce11"
+      "oracle": "DATA-008:DB_PROJECTION:BLOCKED",
+      "linkageProof": "42585b5c1c50deec1a32367deb7579c645c1e4e559320a53889f92b05bfbae8b"
     },
     {
       "id": "DATA-009",
@@ -2024,8 +2024,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-009:DB_PROJECTION:PASS",
-      "linkageProof": "9cbfe8b6e008b6309bbd804f9f5ab8fb9329c2dc8c7ffedb68fb039fc066a831"
+      "oracle": "DATA-009:DB_PROJECTION:BLOCKED",
+      "linkageProof": "330d905dfc18a490a4fe563fd2ad6acfd9ee6ed53494be578dd0df7919f1a7bb"
     },
     {
       "id": "DATA-010",
@@ -2039,8 +2039,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-010:DB_PROJECTION:PASS",
-      "linkageProof": "4ff805b974dd35a4864e22b53bc4df6560e8cc7f0cdfadff90974284733a87b0"
+      "oracle": "DATA-010:DB_PROJECTION:BLOCKED",
+      "linkageProof": "ec31c8f72a9e3d10231aaed97f7f37ebcf6fe428529ceb75d7522ec31c63aa07"
     },
     {
       "id": "DATA-011",
@@ -2054,8 +2054,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-011:DB_PROJECTION:PASS",
-      "linkageProof": "37082e0f90b7444f534b49a07bd9e5cc7aebb75d0e210ae91cc0468438408ff7"
+      "oracle": "DATA-011:DB_PROJECTION:BLOCKED",
+      "linkageProof": "1adb987cde9b61422a22fb80bfe3df7905f7282ecb185ac40a50f06ef4e0c3a1"
     },
     {
       "id": "DATA-012",
@@ -2069,8 +2069,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-012:DB_PROJECTION:PASS",
-      "linkageProof": "35255639c98bfeed26332e4f7adbfb033dcee0bb54e6592d642c1361f03da651"
+      "oracle": "DATA-012:DB_PROJECTION:BLOCKED",
+      "linkageProof": "0ae88b0df386a970961b9173bb66e07902c3c7e6207c302d6ddba55725e52549"
     },
     {
       "id": "DATA-013",
@@ -2084,8 +2084,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-013:DB_PROJECTION:PASS",
-      "linkageProof": "2bf4f0498e98cf517e16fceb2c5d73ab8621e3a285e5dfed7186e73666f78776"
+      "oracle": "DATA-013:DB_PROJECTION:BLOCKED",
+      "linkageProof": "8627db29a90a0b5e82e409fad1062bfca8f9fb2d39505a4bfef52cbdff1ea0ca"
     },
     {
       "id": "DATA-014",
@@ -2099,8 +2099,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-014:DB_PROJECTION:PASS",
-      "linkageProof": "9e46bb1ed3b8cb981b25ba7461be8f579808986c06ee6b6cf9c55b5cc27fc3b5"
+      "oracle": "DATA-014:DB_PROJECTION:BLOCKED",
+      "linkageProof": "34b0b322ca9186c299770bfdfbe1594175e43ec8a8e6b14c9ba666512b45e07c"
     },
     {
       "id": "DATA-015",
@@ -2114,8 +2114,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-015:DB_PROJECTION:PASS",
-      "linkageProof": "20a34dbcdada707cb2541d49b20541dbe965fa0b1b8f5dddf8e9ccc0762aa087"
+      "oracle": "DATA-015:DB_PROJECTION:BLOCKED",
+      "linkageProof": "2851178982a408f37efa8d288879f277fa4f1d17ee6c5a15eb0209e31945b06e"
     },
     {
       "id": "DATA-016",
@@ -2129,8 +2129,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-016:DB_PROJECTION:PASS",
-      "linkageProof": "7a78d0d2ecf7bdb595e752753f49dba63d5d2f5d5214a4478ab240eb6566e764"
+      "oracle": "DATA-016:DB_PROJECTION:BLOCKED",
+      "linkageProof": "d49d47905d97fe94d479b7c3e4334a9f495a0281d111294f738f59f1056c1216"
     },
     {
       "id": "DATA-017",
@@ -2144,8 +2144,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-017:DB_PROJECTION:PASS",
-      "linkageProof": "7cc330618eb98b77fc1c8869c70eb24fbe564001f12fbe17b20712dd8b25169c"
+      "oracle": "DATA-017:DB_PROJECTION:BLOCKED",
+      "linkageProof": "78b613e5fa8a6bb1afedbd3b95f18e4c109c07f68723b75bfcba3f637cf93fe0"
     },
     {
       "id": "DATA-018",
@@ -2159,8 +2159,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-018:DB_PROJECTION:PASS",
-      "linkageProof": "be2e7265cbb96f082b20b860f2f411caef0619edb4ce9cd115234aba6a28d5a1"
+      "oracle": "DATA-018:DB_PROJECTION:BLOCKED",
+      "linkageProof": "a9e4c4eca32bfe7ed491c4f16fce2b520b2ca761ec2ecfc8e830bd6a8adecc1b"
     },
     {
       "id": "DATA-019",
@@ -2174,8 +2174,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-019:DB_PROJECTION:PASS",
-      "linkageProof": "3cfdddee7e2889d9ff62e8bdafc9a4bdd575a3cfa691a227ea7af23f4bcc1158"
+      "oracle": "DATA-019:DB_PROJECTION:BLOCKED",
+      "linkageProof": "3238099a6475a576f7aa75412de444b811ae255f5b36fe36de2bdbf4431a7eaa"
     },
     {
       "id": "DATA-020",
@@ -2189,8 +2189,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-020:DB_PROJECTION:PASS",
-      "linkageProof": "c51755df1c1257f4aa3cacc217b2af7e9b8362e805a0a014ed014666a7a20b41"
+      "oracle": "DATA-020:DB_PROJECTION:BLOCKED",
+      "linkageProof": "224ccc041d9a0419fa2b1d09148337509c41f41d44be7efe0c10d6a3687c1f88"
     },
     {
       "id": "DATA-021",
@@ -2204,8 +2204,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-021:DB_PROJECTION:PASS",
-      "linkageProof": "64d0acaaa11e73d290d02dbf9748e0cb7db670f7d4bcdb07737b3749354b8057"
+      "oracle": "DATA-021:DB_PROJECTION:BLOCKED",
+      "linkageProof": "fc20181d6f1d9279832695b66925c20667f2ea961f5a4d4bfcd9b9462e12a091"
     },
     {
       "id": "DATA-022",
@@ -2219,8 +2219,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-022:DB_PROJECTION:PASS",
-      "linkageProof": "f33b79894d71aa0681cb2072442ac4d80db89934b7ea48e03c26ad432754d92d"
+      "oracle": "DATA-022:DB_PROJECTION:BLOCKED",
+      "linkageProof": "095701b97459467aa013c9844987f98e5b8fd2e34e56834185e39bf8606957d9"
     },
     {
       "id": "DATA-023",
@@ -2234,8 +2234,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-023:DB_PROJECTION:PASS",
-      "linkageProof": "d07f3f3c04a3e51476b5ae1b65eced30c9e32deab6f1c93b66634411f44f2146"
+      "oracle": "DATA-023:DB_PROJECTION:BLOCKED",
+      "linkageProof": "4d795b50d6f8edc2af84c88ec95d58727f07fd4bb21652d39635f6e7ff8b50d5"
     },
     {
       "id": "DATA-024",
@@ -2249,8 +2249,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-024:DB_PROJECTION:PASS",
-      "linkageProof": "faa6e7db4146c15a6b760c68fccfcbd0c3bb033438ebe38becbab7a3ca7e0869"
+      "oracle": "DATA-024:DB_PROJECTION:BLOCKED",
+      "linkageProof": "8a6c058ad24cf181d0727fc2961148f3c7bc3189f106970b866880730805a9b7"
     },
     {
       "id": "DATA-025",
@@ -2264,8 +2264,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-025:DB_PROJECTION:PASS",
-      "linkageProof": "1bea8c7a4941d963797cc6af528ab9d1957efdf0ef2a803a3cc78c58c443b59a"
+      "oracle": "DATA-025:DB_PROJECTION:BLOCKED",
+      "linkageProof": "bb36295528029b6cb5e21502192571d2225c04298f8addcc624a2b9af3341e37"
     },
     {
       "id": "DATA-026",
@@ -2279,8 +2279,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-026:DB_PROJECTION:PASS",
-      "linkageProof": "003e9847556f51108d51cf92046ceaf1eb7f3877cab252c79dac5b2743fa76af"
+      "oracle": "DATA-026:DB_PROJECTION:BLOCKED",
+      "linkageProof": "8c2b09412185fd5ce6e69efdc89e7165889257b5c18922b1cbe12ca36678dc57"
     },
     {
       "id": "DATA-027",
@@ -2294,8 +2294,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-027:DB_PROJECTION:PASS",
-      "linkageProof": "994d6181020bdf200f9ac692520f607da36c24f3c058a10124b0e35c598fd356"
+      "oracle": "DATA-027:DB_PROJECTION:BLOCKED",
+      "linkageProof": "478e6bc8cef4afdfea2d228e0bedb7a6a80759c268e26217df6cd2666202e197"
     },
     {
       "id": "DATA-028",
@@ -2309,8 +2309,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-028:DB_PROJECTION:PASS",
-      "linkageProof": "c191fb7f96eb9a5f199f092430641b66a65674675e6c7b9667da957eba58e71d"
+      "oracle": "DATA-028:DB_PROJECTION:BLOCKED",
+      "linkageProof": "61496b5a0e9a7fea8c9db6bde5d4e739d5ddcc9b558d3a9896d6135a81976e94"
     },
     {
       "id": "DATA-029",
@@ -2324,8 +2324,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-029:DB_PROJECTION:PASS",
-      "linkageProof": "e83c961e5825046fd8a8c2dbb3f9621d57d4f7e445eface6312d88836c3d2778"
+      "oracle": "DATA-029:DB_PROJECTION:BLOCKED",
+      "linkageProof": "cdfa68313024500ca2b9974a61f5d76192a6d37dd8f4b909f4a0042b11a0c0a8"
     },
     {
       "id": "API-005",
@@ -2339,8 +2339,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-005:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "2e926a58a74be473d29f27a2bc0243ab98f791a85e4d8a09ee1d1af3a08df422"
+      "oracle": "API-005:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "6a9b962d6399bd6903ef6a7db83f39a121886277faaaf136c9956a905172b890"
     },
     {
       "id": "API-001",
@@ -2354,8 +2354,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-001:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "2355f0ecce703ca13d704c1a2a18bd76739ef37b1950d1b61e498e9731ad0810"
+      "oracle": "API-001:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "55050aec3010eeba8f38668b6fd18e54de9db34bf91b178b06ece57712f5e7ce"
     },
     {
       "id": "API-002",
@@ -2369,8 +2369,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-002:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "2bd188b1816358d7e5929c1a590c9b9f74036f88879a501475aa1c56277801f0"
+      "oracle": "API-002:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "a9756ba3e428e028406228541b5190a01e04a1ab34fa24542aec872fb06e99f5"
     },
     {
       "id": "API-003",
@@ -2384,8 +2384,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-003:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "d58047ebf4919f57ea31066d47f6404bd54425f55e38665fea3588b658e72bc8"
+      "oracle": "API-003:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "37e2ecbb3d1769d0517ee024c1a4f9ccec18ada267b71f417493650eeeb1192b"
     },
     {
       "id": "API-004",
@@ -2399,8 +2399,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-004:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "b027fe36f04c1fc464f57381c2cdfe69b4ed883e00a00db323dc022952b4a8da"
+      "oracle": "API-004:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "8d84ad0bfbe81d65a26505ce40e612260555a8e1a10b51d29739bfd435c9f893"
     },
     {
       "id": "API-006",
@@ -2414,8 +2414,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-006:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "e301085dbeb1b40578177e0e03ec35a871b5df5ccef9948df35499fbcda1ba0d"
+      "oracle": "API-006:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "38bce64ca26678da07ed42a55b704672128a5b6dde6d344d9f25dd7578ea16de"
     },
     {
       "id": "API-007",
@@ -2429,8 +2429,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-007:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "9c878abf49c5ce5dba9684375e58ed0106ca052b7aa86e9e429755f4b61bd817"
+      "oracle": "API-007:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "e618edd32fbba1c0615d7c5a6a34ac99d55001ab05692760270a1613b9982d93"
     },
     {
       "id": "API-008",
@@ -2444,8 +2444,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-008:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "4b69320c28622b9a608190e70810ee8231d99eca6c16ba7c5b423e5a8a07d92d"
+      "oracle": "API-008:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "92203b561f1fbb92cb5c93fe9e105ca1d679199aa52a16411b45000ea30d5ce6"
     },
     {
       "id": "API-009",
@@ -2459,8 +2459,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-009:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "02b806873ab20b5c8b8d70fe403a096a2aba46aeb6f831809eac1e06f79218f9"
+      "oracle": "API-009:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "190719986da7b66ed0beca749309bd00017a9d1c8a368a2b488ff12e71bac9ec"
     },
     {
       "id": "API-010",
@@ -2474,8 +2474,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-010:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "172d71ecf419e0e8a4c6abc46d28c47841f1e08e911afd2f48697cc735a0058f"
+      "oracle": "API-010:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "e10eb8f847a817ddff43a38d80c4d10efdd91f40ce3b01dc6733f1e442be1437"
     },
     {
       "id": "API-011",
@@ -2489,8 +2489,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-011:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "7a420d06acb551cdb10a48653e5e565fc4e4fba29d9910f455ed3e4fb67c44d7"
+      "oracle": "API-011:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "55f88acc7df9d3f483f3e291fdfbb46fe54b65a483a1131a14bab61ed4fea6c8"
     },
     {
       "id": "API-012",
@@ -2504,8 +2504,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-012:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "caee00f0fde781c0f1b201d68563f9d1eb95eebc3483712751131319bf5c9552"
+      "oracle": "API-012:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "304ae0f9d8a5b0e0f0be8366fbbc20cf7357ee77dbb1978cfb04754ab33a3bdf"
     },
     {
       "id": "API-013",
@@ -2519,8 +2519,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-013:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "6ae86be191673b7280bd10471159b0e4d1fceb1b387be0adb37bd75375c0f41f"
+      "oracle": "API-013:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "332705017b1bb4eb2228b830b4e4f2b6f62b55437283c98d2e68d85a069baddc"
     },
     {
       "id": "API-014",
@@ -2534,8 +2534,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-014:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "c20c19b6c2d470d40463122f6a0ccb9d3cc8cfef81da4a864741a34f3a0f0e27"
+      "oracle": "API-014:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "c0669c94651d6732a461a59cd0f67278a12d3948930085fabe576f96862e3843"
     },
     {
       "id": "API-015",
@@ -2549,8 +2549,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-015:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "6b31336f487b6430bdda5e4fe4e0b9da43b5a0b9b72ef671d4f0c7b2c09132ae"
+      "oracle": "API-015:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "7c496fded9c6fef09ce59818f1496cd94b73523f12a53c8152d4157f1b8a208d"
     },
     {
       "id": "API-016",
@@ -2564,8 +2564,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-016:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "af560b46513a9a8ae7c5c3253992f57fdc4f446de2d3fc04c94793a56985c328"
+      "oracle": "API-016:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "1c03816cef1d92b0e341fb59a65bbb9691d11e8661e8833f5c3585a23871e533"
     },
     {
       "id": "API-017",
@@ -2579,8 +2579,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-017:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "1d1f29ef26e59cb9c9946040dc9593743cb837e1d8f2b8fd36473977c0fa6578"
+      "oracle": "API-017:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "b423ce78182167b963976d08a3d6af2365088f7054390e1fa594e62819ddfb70"
     },
     {
       "id": "API-018",
@@ -2594,8 +2594,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-018:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "275c6ee797dfadf0673acb469dfc93adca2d6349c2138f08868e514f51b4325a"
+      "oracle": "API-018:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "7e070e9fba1cb66c6c13199d9efc291f7400576a79d32ee78cf54e1e6738e0aa"
     },
     {
       "id": "API-019",
@@ -2609,8 +2609,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-019:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "4fa23e5cf9c8fe2ac8f6dc4da13851f1c60b1d257cd3745627403c1c4c149856"
+      "oracle": "API-019:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "79d55d39cee851014eddf1576c70f7697f5ec7b50cae0dfd08ef24d2767fcbb2"
     },
     {
       "id": "API-020",
@@ -2624,8 +2624,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-020:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "29fb114a9921210d6b276e6229ae73544000d21664bd1d65cc1773c7f3727047"
+      "oracle": "API-020:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "8de3a5f7ef7a576f8a20bacb1a6d21e135ca6d1fa8045a6d84f72ea7291f6003"
     },
     {
       "id": "API-021",
@@ -2639,8 +2639,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-021:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "4ede726b15364448f4dbbe8b87b5043f215141f33b41a24c2861299aa9d8d9b9"
+      "oracle": "API-021:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "5c7488a536b616bdb0a17202f0dc81f20c92bb8ebcdfb064e3b4a48379cd048a"
     },
     {
       "id": "API-022",
@@ -2654,8 +2654,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-022:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "2d9c3ac7c5f13386297440a0747c23bbfeb56834cb93779b83e65f59bae40589"
+      "oracle": "API-022:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "6231631954416dbf14ca83e76e2d56d6dfe7cad12d97dbdfa07d7e9dcb18be51"
     },
     {
       "id": "API-023",
@@ -2669,8 +2669,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-023:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "9c43669a54881ec683e2ed07181536c125098db32a217889f126f26d0f8be01e"
+      "oracle": "API-023:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "2a3adc771e0eb2e565708e661dc3fff0867bffabbf2e6a726313fd5249dbbfc8"
     },
     {
       "id": "API-024",
@@ -2684,8 +2684,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-024:OPENAPI_PROJECTION:PASS",
-      "linkageProof": "c99802d3fdc7deca4863a83b81899a7d7d1795e32c6614822f0d933f456064be"
+      "oracle": "API-024:OPENAPI_PROJECTION:BLOCKED",
+      "linkageProof": "74d146a33ec24e26aa6d287db1ae8b94d408d6929a4b659c91366b7ee5a3d421"
     },
     {
       "id": "CONTENT-001",
@@ -2699,8 +2699,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-001:CONTENT_SCHEMA:PASS",
-      "linkageProof": "6384c4e6102df28892bea925defe81abe4320a6a4ffe465bf9c6ab82b50ab57e"
+      "oracle": "CONTENT-001:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "edece616966f9e0ad9df02ae512abcc576f703298881d5b65b3d165ae255dd5f"
     },
     {
       "id": "CONTENT-002",
@@ -2714,8 +2714,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-002:CONTENT_SCHEMA:PASS",
-      "linkageProof": "d14a012a91927d2505a2c3c6c8135fa5e560337d30418300a493062e65c6fd3d"
+      "oracle": "CONTENT-002:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "b48f283944ff29f79fae7c79c06295ca777519dd3808f6a14b15f757bfef8ffd"
     },
     {
       "id": "CONTENT-003",
@@ -2729,8 +2729,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-003:CONTENT_SCHEMA:PASS",
-      "linkageProof": "6bc664141398b59992d21100332c0da16225bb82cffbbc92c02340bf370e5121"
+      "oracle": "CONTENT-003:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "c7c4ca8a6120de0f5ca42d82b93f8aa0c6ce5db639fa0f60691d4bd05348236b"
     },
     {
       "id": "CONTENT-004",
@@ -2744,8 +2744,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-004:CONTENT_SCHEMA:PASS",
-      "linkageProof": "e39ef35f73d7cb8526eb4f9378f3944a4cfe1a32c6e033edea56bb8e850e0998"
+      "oracle": "CONTENT-004:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "2ebca027fd338b8e5c030ea72faba96741bcf21b1892fcfa3e815523fb5fb676"
     },
     {
       "id": "CONTENT-005",
@@ -2759,8 +2759,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-005:CONTENT_SCHEMA:PASS",
-      "linkageProof": "975601d3a97553c3d12e3aed1634e843e13e31643db9654c8c984d615d0a0cdb"
+      "oracle": "CONTENT-005:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "740e6fa73600e5370756d78814215d1823d9631d215a62cc5561c31b4e4cb414"
     },
     {
       "id": "CONTENT-006",
@@ -2774,8 +2774,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-006:CONTENT_SCHEMA:PASS",
-      "linkageProof": "c18d92992810a0f3be6f2822d0ffab5dfa695c0aaef19d241d770978ba3d5a0d"
+      "oracle": "CONTENT-006:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "26a41f8461b0fd4b13dcd106f7ce4961d680df569321fa75ee36713b758d3775"
     },
     {
       "id": "CONTENT-007",
@@ -2789,8 +2789,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-007:CONTENT_SCHEMA:PASS",
-      "linkageProof": "6b1e83b2b30a075415aab240e117c45b08bc36a738472608bf7dee504b9ba43e"
+      "oracle": "CONTENT-007:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "35830917e94a81c3a5cd7a7d0b3bb264774b516342af7c8fdd088614de26403b"
     },
     {
       "id": "CONTENT-008",
@@ -2804,8 +2804,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-008:CONTENT_SCHEMA:PASS",
-      "linkageProof": "69e699f1a729f1c09ff0e7c8dee9bdd8db5a2abd81885b5e5d888d6fea674ed6"
+      "oracle": "CONTENT-008:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "93cbb156fd8cb2bf25092d445297206d6ea1f3c466b985a849e8d898dd533eda"
     },
     {
       "id": "CONTENT-009",
@@ -2819,8 +2819,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-009:CONTENT_SCHEMA:PASS",
-      "linkageProof": "a3ed058501d20632fa849bb6fffefe82ce8b3f9bab456bcf375d16d96ce2e93a"
+      "oracle": "CONTENT-009:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "bb47650c1534d53c37042a56d031775db3cae41d2763e8354b552e69c5b722e4"
     },
     {
       "id": "CONTENT-010",
@@ -2834,8 +2834,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-010:CONTENT_SCHEMA:PASS",
-      "linkageProof": "d97e8ae0b6ce540293fdf073c07ac0eda8a62df1c7b080f55a9d90ad46ccd353"
+      "oracle": "CONTENT-010:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "6a28516b34299aa1d00124383f186e9d1c4b8fac5bb66f5603458d3a00b216e0"
     },
     {
       "id": "CONTENT-011",
@@ -2849,8 +2849,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-011:CONTENT_SCHEMA:PASS",
-      "linkageProof": "1aab655a5b902ca249b2d7dceb950c24046846ad04e706cbbbc99a0708b16911"
+      "oracle": "CONTENT-011:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "9531e9cdc0f53be2442bb1bc7007b25adeb5a3191a50532b1260c3f7458a108e"
     },
     {
       "id": "CONTENT-012",
@@ -2864,8 +2864,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-012:CONTENT_SCHEMA:PASS",
-      "linkageProof": "aaba18bb5f7f1adb08a2792f95cb12a0b15eb36fc43fd048ee4bcf6ec5f869f2"
+      "oracle": "CONTENT-012:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "e297cebdff50e9aa7e9fb27a458752bc2f2e651cb5676c9871967876a630dc38"
     },
     {
       "id": "CONTENT-013",
@@ -2879,8 +2879,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-013:CONTENT_SCHEMA:PASS",
-      "linkageProof": "09d145578206bfcbcff83c450a6c1d2c09372379d03b5d3e7bff37f7b8a22f3c"
+      "oracle": "CONTENT-013:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "db7c0c124912c66cbaf14f406a8d77d5d23dc696c888bd0aadacd19fea349fc9"
     },
     {
       "id": "CONTENT-014",
@@ -2894,8 +2894,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-014:CONTENT_SCHEMA:PASS",
-      "linkageProof": "d6d65ffdc0ea82e565e36886376e0b3632fdfe67571c3272f23f2345fda0bf16"
+      "oracle": "CONTENT-014:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "1dbba9600bb77b80cd4e6dff804384c538ea6c5cfceecaa439239382a71c149b"
     },
     {
       "id": "CONTENT-015",
@@ -2909,8 +2909,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-015:CONTENT_SCHEMA:PASS",
-      "linkageProof": "1dda4014223feb780eedafb5caa1552b6a76cbf28350f7f885b57f6ca45e936d"
+      "oracle": "CONTENT-015:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "658e90d7f6e215f840d933332de166ae5935cd7062e36df236ced73d19b2e93e"
     },
     {
       "id": "CONTENT-016",
@@ -2924,8 +2924,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-016:CONTENT_SCHEMA:PASS",
-      "linkageProof": "2f9f151e3dbf84b4b56b05bf55500f71486f015bde8d5027727f61f4bd0828e9"
+      "oracle": "CONTENT-016:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "1277699090c9e5acf1c2efc80d0443ddbf0db5f2fd21a1ed8295f8d31398cca1"
     },
     {
       "id": "CONTENT-017",
@@ -2939,8 +2939,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-017:CONTENT_SCHEMA:PASS",
-      "linkageProof": "2e58c4b5e96985efee544fa4cf28a0f2d8450503bb0d98d52846f6af2425d9c7"
+      "oracle": "CONTENT-017:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "407893e1875a69802786eebbef4d008a3be644e66486100e04518791b96e38b0"
     },
     {
       "id": "CONTENT-018",
@@ -2954,8 +2954,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-018:CONTENT_SCHEMA:PASS",
-      "linkageProof": "f58746d2512cf183a68f6082ba9aa88f01bea7a9610d1c02726c220f0ee3c937"
+      "oracle": "CONTENT-018:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "01d1f9358d1251db4ab250487dcc9c614bab64cdee04d8046326791551abfaf7"
     },
     {
       "id": "CONTENT-019",
@@ -2969,8 +2969,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-019:CONTENT_SCHEMA:PASS",
-      "linkageProof": "c9323f577a3373f85b98e7e6ede1dd9e0209e2e558538a382288fc09a2727dc3"
+      "oracle": "CONTENT-019:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "ace83bcdeae66b70aacc38a03dc4105e2884a1c01057aab6e8e3fe232c3eac95"
     },
     {
       "id": "CONTENT-020",
@@ -2984,8 +2984,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-020:CONTENT_SCHEMA:PASS",
-      "linkageProof": "1f9dcd828d11c5790be34b9aff442b0e45d9bddb357a937f3b9ff13a6b49ec37"
+      "oracle": "CONTENT-020:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "d82f0c2e5d2b2c50bd058eb478597225a1dddcda1c050ff0634786460a88f332"
     },
     {
       "id": "CONTENT-021",
@@ -2999,8 +2999,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-021:CONTENT_SCHEMA:PASS",
-      "linkageProof": "3281d0784fc83a6f00a02eabe61eee89feba2657a13583d58cbfc9c68d8f2159"
+      "oracle": "CONTENT-021:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "9ce09deda89fd3442b376e43f2e1ea5b503cfd2272d16abb748958b159fd9cbf"
     },
     {
       "id": "CONTENT-022",
@@ -3014,8 +3014,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-022:CONTENT_SCHEMA:PASS",
-      "linkageProof": "77de0d97f32d517295183eaab43592ed4a055f542b372957161bc679ea1af0d3"
+      "oracle": "CONTENT-022:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "ddc93575d29cd75b601917022b60d25cfe58e6e89e40cef2bfb7303d77abbf11"
     },
     {
       "id": "CONTENT-023",
@@ -3029,8 +3029,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-023:CONTENT_SCHEMA:PASS",
-      "linkageProof": "8851f6d5a0144eaf38e3ecc0134c79d029e4626ef2edca9ebdc8e1e074d9cd58"
+      "oracle": "CONTENT-023:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "867ae6ce3b1d7c77880ef71ab07749134377098e49168c92ab9e442b3ff40bfa"
     },
     {
       "id": "CONTENT-024",
@@ -3044,8 +3044,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-024:CONTENT_SCHEMA:PASS",
-      "linkageProof": "908166441741d5011ecdad60659547e3d37cdba2691d4fb519abb4664dc6c50b"
+      "oracle": "CONTENT-024:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "c45caabfb6ca18de8cdf40a55172917d37f2d20836b18a66e1ea89658e6fa3e5"
     },
     {
       "id": "CONTENT-025",
@@ -3059,8 +3059,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-025:CONTENT_SCHEMA:PASS",
-      "linkageProof": "72e1ef7648bd94eb699c9524069449bb1c06854d5b4321ab3d6b8071b1d4d84b"
+      "oracle": "CONTENT-025:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "b604792f51ed973c311cc7bc545286ce924583e9864ee1dace65f29fdfad363d"
     },
     {
       "id": "CONTENT-026",
@@ -3074,8 +3074,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-026:CONTENT_SCHEMA:PASS",
-      "linkageProof": "679ec37360bac13553390879784ac3831f6dab1dc5e29001151355ac3f4d9870"
+      "oracle": "CONTENT-026:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "17f22aa719b52e4e9c1e351d0495fc209591846846b3c14afcdfb88fe1693715"
     },
     {
       "id": "CONTENT-027",
@@ -3089,8 +3089,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-027:CONTENT_SCHEMA:PASS",
-      "linkageProof": "acdf4116c06dfe034c6796c88e8fe7b0d8b92ea69b9b2855687f9a774431c6a7"
+      "oracle": "CONTENT-027:CONTENT_SCHEMA:BLOCKED",
+      "linkageProof": "2d123a44fef736a9835cda9ec749d0bb333e8ba879008af6c7aecee2b3e59fed"
     },
     {
       "id": "QA-001",
@@ -3104,8 +3104,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RELEASE_HARNESS",
-      "oracle": "QA-001:RELEASE_HARNESS:PASS",
-      "linkageProof": "f41db7433f8eb860d0fc925be4eed8e00b41fe2669d13c45df0f15ed266d6412"
+      "oracle": "QA-001:RELEASE_HARNESS:BLOCKED",
+      "linkageProof": "a278a8e1f4624530273216dc60ecd8009c814aae8d447de29a001522c9277723"
     },
     {
       "id": "QA-002",
@@ -3119,8 +3119,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RELEASE_HARNESS",
-      "oracle": "QA-002:RELEASE_HARNESS:PASS",
-      "linkageProof": "a404de91d8709e4254a8ef0a84c20e91263a51b3c7466c93432c51689a354491"
+      "oracle": "QA-002:RELEASE_HARNESS:BLOCKED",
+      "linkageProof": "f36d71695e790a5b54c3346c8bc17bcc46f80198b41187696e866c16b6af86d5"
     },
     {
       "id": "QA-003",
@@ -3134,8 +3134,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RELEASE_HARNESS",
-      "oracle": "QA-003:RELEASE_HARNESS:PASS",
-      "linkageProof": "31ce14d27ff71e7825e033644025ddb450b2b9bea14e857cbfb87376eda1970c"
+      "oracle": "QA-003:RELEASE_HARNESS:BLOCKED",
+      "linkageProof": "129faa26bfa1c757d814d8e754d65d99d06843ce09076b0c90799a1684af3dad"
     },
     {
       "id": "QA-004",
@@ -3149,8 +3149,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RELEASE_HARNESS",
-      "oracle": "QA-004:RELEASE_HARNESS:PASS",
-      "linkageProof": "6d04a053629fe9d6471d8734503c8ac08adbb0981f3c736b13e1d54cf1545647"
+      "oracle": "QA-004:RELEASE_HARNESS:BLOCKED",
+      "linkageProof": "131d8cf6d25116998ec58abc58fb3a65e25a985b99b35504c7201bfb5d87af7c"
     },
     {
       "id": "QA-005",
@@ -3164,8 +3164,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RELEASE_HARNESS",
-      "oracle": "QA-005:RELEASE_HARNESS:PASS",
-      "linkageProof": "098d2334ff4521d4d18c28f659501a746132354aac0d6778a1b24b28d5005e68"
+      "oracle": "QA-005:RELEASE_HARNESS:BLOCKED",
+      "linkageProof": "519f2799a65eaa8d831b0befc0ead066064ad31419bdaa784a6a20b0c67608e1"
     },
     {
       "id": "QA-006",
@@ -3179,8 +3179,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RELEASE_HARNESS",
-      "oracle": "QA-006:RELEASE_HARNESS:PASS",
-      "linkageProof": "a08e3de131e080a626ba73258732c5b0600474918554556fb0ccfc8ab16bdcb8"
+      "oracle": "QA-006:RELEASE_HARNESS:BLOCKED",
+      "linkageProof": "917b5b2b74f5831043cb5576e0389316329c6f3e1f24784c1d7b70dd0c6f973d"
     },
     {
       "id": "QA-007",
@@ -3194,8 +3194,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RELEASE_HARNESS",
-      "oracle": "QA-007:RELEASE_HARNESS:PASS",
-      "linkageProof": "7edb88890a895c63fcdf92e368303b71fe9d2addd445ec6fdffa74976432fa41"
+      "oracle": "QA-007:RELEASE_HARNESS:BLOCKED",
+      "linkageProof": "b22a6e768bf188a45b3bae97547615e0d3c7007e7adcd9a420bd41c9d3545f2d"
     },
     {
       "id": "QA-008",
@@ -3209,8 +3209,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RELEASE_HARNESS",
-      "oracle": "QA-008:RELEASE_HARNESS:PASS",
-      "linkageProof": "475b5978603e2653ae533e2a10c1d2b7f660c41783c2ca8b60116ebfe6af830c"
+      "oracle": "QA-008:RELEASE_HARNESS:BLOCKED",
+      "linkageProof": "8d7a0e790f577951df01e61c8ea5c470ed08f81f9da016fbe63698f55006d6f8"
     },
     {
       "id": "QA-009",
@@ -3224,8 +3224,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RELEASE_HARNESS",
-      "oracle": "QA-009:RELEASE_HARNESS:PASS",
-      "linkageProof": "7cb6d31ee8a54a63e570b8159ed0006f010fdbc3c1fa049fbef205cecb85eb1f"
+      "oracle": "QA-009:RELEASE_HARNESS:BLOCKED",
+      "linkageProof": "87294edc6ba340803c22f30ed826a1aac2f2e8b6873139758f720c45eff8fe5c"
     },
     {
       "id": "QA-010",
@@ -3239,8 +3239,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RELEASE_HARNESS",
-      "oracle": "QA-010:RELEASE_HARNESS:PASS",
-      "linkageProof": "b80fceed9bbf450a9b2d9c5ad072950df3c64b97e9a010cb534110cf690ac642"
+      "oracle": "QA-010:RELEASE_HARNESS:BLOCKED",
+      "linkageProof": "a7c3ee1c890a08adb38f57448f87ab66856921543bad87afbaf64af67304802b"
     },
     {
       "id": "QA-011",
@@ -3254,8 +3254,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RELEASE_HARNESS",
-      "oracle": "QA-011:RELEASE_HARNESS:PASS",
-      "linkageProof": "e68d225fef82644017dc9e274f8793eefa7649e8ad965af32dc7c1482f4ec42c"
+      "oracle": "QA-011:RELEASE_HARNESS:BLOCKED",
+      "linkageProof": "9c324d114a61ac9a312e9ef048399b559a2c7b7f6caa6f5607b3d66717b790e8"
     },
     {
       "id": "QA-012",
@@ -3269,8 +3269,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RELEASE_HARNESS",
-      "oracle": "QA-012:RELEASE_HARNESS:PASS",
-      "linkageProof": "ec1fe4c51511c6db78350edd9aa9e5ff5e939b2602329a14ce02e55c6ba0b151"
+      "oracle": "QA-012:RELEASE_HARNESS:BLOCKED",
+      "linkageProof": "90c2413c8d570aef294c33888645bfc038b845e05f85e8fb351f104b2d77cd13"
     },
     {
       "id": "QA-013",
@@ -3284,8 +3284,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RELEASE_HARNESS",
-      "oracle": "QA-013:RELEASE_HARNESS:PASS",
-      "linkageProof": "a75a145bda3504471e91a11986aa80b6f3702bde32b1ace8e8d7a9fd062ed7f5"
+      "oracle": "QA-013:RELEASE_HARNESS:BLOCKED",
+      "linkageProof": "757fbf470a1dac0aa8563f223825069c4baa6b1e8840a13e400c3d12d8ca440f"
     },
     {
       "id": "QA-014",
@@ -3299,8 +3299,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RELEASE_HARNESS",
-      "oracle": "QA-014:RELEASE_HARNESS:PASS",
-      "linkageProof": "494ce3a1e161e3cf29c859942724c9d5ce16185ce0653c0fd8bc4104b76e252d"
+      "oracle": "QA-014:RELEASE_HARNESS:BLOCKED",
+      "linkageProof": "646f579feefe2c737adc14f93fac600c6068f95462801af229b489c67f4e57a1"
     },
     {
       "id": "QA-015",
@@ -3314,8 +3314,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RELEASE_HARNESS",
-      "oracle": "QA-015:RELEASE_HARNESS:PASS",
-      "linkageProof": "aa4edaffa89095043f6f51ff5fa356159c1ce25a56a21a2ec790ebedd2936119"
+      "oracle": "QA-015:RELEASE_HARNESS:BLOCKED",
+      "linkageProof": "505a11bbbc7051e8a65145fa480214259852aa0b21bbf0177e7d9a1d1019c718"
     },
     {
       "id": "ENV-001",
@@ -3329,8 +3329,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RUNTIME_GATE",
-      "oracle": "ENV-001:RUNTIME_GATE:PASS",
-      "linkageProof": "127105e222c7d2cd4b31d6a84fbaf374045945c0a271d3f30b2b21ab20cbe9e0"
+      "oracle": "ENV-001:RUNTIME_GATE:BLOCKED",
+      "linkageProof": "d20b56d5767a504215d5e0fec7e70fb1708e685a112b822c059e47d4709c607e"
     },
     {
       "id": "ENV-002",
@@ -3344,8 +3344,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RUNTIME_GATE",
-      "oracle": "ENV-002:RUNTIME_GATE:PASS",
-      "linkageProof": "a7b8671b25334fe7648f1ccd090e625af14df060e2a24deea901a707475843fd"
+      "oracle": "ENV-002:RUNTIME_GATE:BLOCKED",
+      "linkageProof": "e18f3ea63ec532b32d2021de7360593baa410e0e5d7c0c59b48a9c52bfe989f9"
     },
     {
       "id": "ENV-003",
@@ -3359,8 +3359,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RUNTIME_GATE",
-      "oracle": "ENV-003:RUNTIME_GATE:PASS",
-      "linkageProof": "f00e640248ed852d19701ea56e9f6c7b26830bd7aad5c5ccfe5f94652535f900"
+      "oracle": "ENV-003:RUNTIME_GATE:BLOCKED",
+      "linkageProof": "5214fde91d81d1a328365cda19a322b2cd1460ac03ce0ea78407b3a1a5e8f8d3"
     },
     {
       "id": "ENV-004",
@@ -3374,8 +3374,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RUNTIME_GATE",
-      "oracle": "ENV-004:RUNTIME_GATE:PASS",
-      "linkageProof": "eb920dbd42c41912506b1c23f99cccd9c8963e028e5712d0ae464c1b35c7ccc6"
+      "oracle": "ENV-004:RUNTIME_GATE:BLOCKED",
+      "linkageProof": "f6aae3760ccff1fee54f6d79cd1fd132f614472e1b211b88a6be83573ca837d0"
     },
     {
       "id": "ENV-005",
@@ -3389,8 +3389,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RUNTIME_GATE",
-      "oracle": "ENV-005:RUNTIME_GATE:PASS",
-      "linkageProof": "abcc9afdfdf82ed5f841fdfc144af96005d60fd10a97479c2dcbd3877f36605c"
+      "oracle": "ENV-005:RUNTIME_GATE:BLOCKED",
+      "linkageProof": "d81b7e5bf1d66335ab8b8dd59d699e382caa8413d4494d3b7fed9ccb5756adc3"
     },
     {
       "id": "ENV-006",
@@ -3404,8 +3404,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RUNTIME_GATE",
-      "oracle": "ENV-006:RUNTIME_GATE:PASS",
-      "linkageProof": "6830ff1ef9a49ac705960f365c61487319656fe5439a7b9b3fcef81585c82a58"
+      "oracle": "ENV-006:RUNTIME_GATE:BLOCKED",
+      "linkageProof": "54cbb1b3c872a26effcfb6a759b57e1e9d874ff8316202be5e163b00c344c49e"
     },
     {
       "id": "ENV-007",
@@ -3419,8 +3419,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RUNTIME_GATE",
-      "oracle": "ENV-007:RUNTIME_GATE:PASS",
-      "linkageProof": "85380af3bbef76605bb6402773430668389beb403277eff249d45c24a53ae001"
+      "oracle": "ENV-007:RUNTIME_GATE:BLOCKED",
+      "linkageProof": "13a7f6c08558b52af315a77ad11397399e743f58a58eff43a40ab75c6bbc8e1a"
     },
     {
       "id": "ENV-008",
@@ -3434,8 +3434,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RUNTIME_GATE",
-      "oracle": "ENV-008:RUNTIME_GATE:PASS",
-      "linkageProof": "65b6bb4fd3360837ffaf0915074d7f49d9894057e43e6bb6c6870640a0656841"
+      "oracle": "ENV-008:RUNTIME_GATE:BLOCKED",
+      "linkageProof": "f0269edc678d736125d82dd126b79659e2f4085519312bd84eaaa6a5ae75f110"
     },
     {
       "id": "ENV-009",
@@ -3449,8 +3449,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RUNTIME_GATE",
-      "oracle": "ENV-009:RUNTIME_GATE:PASS",
-      "linkageProof": "d818e3856d7d10992bf4ec89ca4ab67bf510fd7cfae57e2d29d6a742b0de786c"
+      "oracle": "ENV-009:RUNTIME_GATE:BLOCKED",
+      "linkageProof": "0ff8da01980f82007cbb373620c828e47595e0b87973e1c32d902b4da40a0549"
     },
     {
       "id": "ENV-010",
@@ -3464,8 +3464,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RUNTIME_GATE",
-      "oracle": "ENV-010:RUNTIME_GATE:PASS",
-      "linkageProof": "6a69657d08621d439a41ce0feee1b02ef259f9fa0730a7fbd541c13dbe202851"
+      "oracle": "ENV-010:RUNTIME_GATE:BLOCKED",
+      "linkageProof": "a9f083e14e68103890832988beae595256073e174e771bf6288cf850608a8bae"
     },
     {
       "id": "ENV-011",
@@ -3479,8 +3479,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "RUNTIME_GATE",
-      "oracle": "ENV-011:RUNTIME_GATE:PASS",
-      "linkageProof": "bfa505584303bd8a95b9003a887eed2c7da89e43e49c98481674776a4eac50a7"
+      "oracle": "ENV-011:RUNTIME_GATE:BLOCKED",
+      "linkageProof": "11a48f13c6912c53d617acf227fbe6104895fa69ea16ab7c31900cf03fedbd18"
     },
     {
       "id": "DOC-001",
@@ -3494,8 +3494,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-001:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "ea5264d5199e4e7d6dc494f10ddbef90838844b6c74aec6de4400c9387b6c0c9"
+      "oracle": "DOC-001:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "f49db2dd128f232b58cace3b7e70bed770b9febcc37af89fc75594adf4a8e865"
     },
     {
       "id": "DOC-002",
@@ -3509,8 +3509,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-002:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "65171b088832c6da7e9bf5276e25b1b4fc434f7ecd19a980ade3c620ddc73648"
+      "oracle": "DOC-002:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "eff1f5cd3782bfd24f85870c5eba8a1bf0ba289de9d56c62771f403c676f3fb7"
     },
     {
       "id": "DOC-003",
@@ -3524,8 +3524,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-003:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "91ff2654ed975e8d1ba4e8b1b985bf999a4a69d84f974e5b4a836b5df00e81b7"
+      "oracle": "DOC-003:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "0c736ef17c918ac421d3f1540811992f49ddc3b9254e1c4bb0c82624bff2b682"
     },
     {
       "id": "DOC-004",
@@ -3539,8 +3539,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-004:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "1aa418fa341247748c2c200772d563d18a4d4531de0fb766592d90e3bde2d862"
+      "oracle": "DOC-004:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "2a162b99552a501befcaa30af76530b76de0c7b3acfbe5f3faf51084859a457c"
     },
     {
       "id": "DOC-005",
@@ -3554,8 +3554,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-005:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "aeb4a95b0123c768ac1e4a869055124ceda609cbde1d1c0e66d04bd378ec8453"
+      "oracle": "DOC-005:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "1bf87d384246064a828f8cbc2974ef3395f5b20031081b581dccfe501dfd42e5"
     },
     {
       "id": "DOC-006",
@@ -3569,8 +3569,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-006:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "90d5ba084da8bb26b405f64902bf4f07b2b824cbb02e1e8a8b70a5b8574e2d79"
+      "oracle": "DOC-006:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "2960ee91c0466cc8f4c5e4159b02706adb13387652448dc51ca28de06fb1d2e8"
     },
     {
       "id": "DOC-007",
@@ -3584,8 +3584,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-007:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "de3cf0d9d41b83825aac311cdba1e4f101113d2ab6cdd34843872c49941d6f3c"
+      "oracle": "DOC-007:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "99f4d1afb810d026a8cde8aa2437dbda3725b6a2bcc8eb420c6f133cf82ca0b8"
     },
     {
       "id": "DOC-008",
@@ -3599,8 +3599,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-008:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "25c5e41d3ac2dc422d37ef830cf484c7b0c73b89f9c8fc5c9144fbe69355147f"
+      "oracle": "DOC-008:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "6184187ea1cb91c59ad976fa746e7c5227730f2e26108a2dd43a6b02502aa7e3"
     },
     {
       "id": "DOC-009",
@@ -3614,8 +3614,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-009:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "7657647a7cafdc3479841ce3d3ea3545b1a93f852b61cb07ced980568030642b"
+      "oracle": "DOC-009:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "561f8178a9bc0693e048224cf30fa9f82248a8c254166035a34a512ae1b82ea8"
     },
     {
       "id": "DOC-010",
@@ -3629,8 +3629,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-010:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "ddb10bda90d7ac2f33fcd2b7ecafea5dd7657d9584c6ac0e97669b2d571a487d"
+      "oracle": "DOC-010:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "3ccbb0249032cd77a6e13a42c6a5817f3337d0a73ebe37ca1f8908f8d41100bc"
     },
     {
       "id": "DOC-011",
@@ -3644,8 +3644,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-011:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "be0fd280f348273d3f1f6ecb44a98c0438e8a6117c11799cd937319966017a8d"
+      "oracle": "DOC-011:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "89cfab3439a84e9c4e1233455d04421053e174d3d525a9e39f94cfa31d78f354"
     },
     {
       "id": "DOC-012",
@@ -3659,8 +3659,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-012:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "ed93173ca6914fb4af400f4c212ac947bb5a0cbec74e787af6e94c094be6ecf4"
+      "oracle": "DOC-012:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "acbc88aa2115f20db0909f8dbca38b3f86c000835bb15f00a89b1573ad74c101"
     },
     {
       "id": "DOC-013",
@@ -3674,8 +3674,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-013:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "ec8bda04b2319f5fa674b9dcb5c96d2fd04733ba2bec0bbdca552c9497abffec"
+      "oracle": "DOC-013:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "68e29e25b523ea606ccef8e291591bcb1a5f3a31a7e4e87ca490306d43f2e7ad"
     },
     {
       "id": "DOC-014",
@@ -3689,8 +3689,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-014:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "12b2299f7631daa491b324e93505d2d19a0aff1a6548e6f5b3cab92a2b86b5d7"
+      "oracle": "DOC-014:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "95bb999eeebf55edf200a7ef204645b333adfa21cf5c8b8fec2d2b0b908c0707"
     },
     {
       "id": "DOC-015",
@@ -3704,8 +3704,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-015:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "74638b5671608ddba5e56ac90407882760309c6429d5664317dd8dbcf1da1309"
+      "oracle": "DOC-015:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "e8e8cff28bba1e9ee506312975a5860f5bbef9e09b352ce377ba656118fbf940"
     },
     {
       "id": "DOC-016",
@@ -3719,8 +3719,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-016:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "6b6d7c1d572266d61aa14c9952f9ba365ad437a785f125aefdf280639c187cff"
+      "oracle": "DOC-016:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "03e61066bfa7b29f3785fd8dd9d5cb95b4b6dab83b163b24c2cc49eb2f2dae6c"
     },
     {
       "id": "DOC-017",
@@ -3734,8 +3734,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-017:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "8c0bd4598b5aa0f734e36c0ddf3e7720f77c5be40792e8e091f3e00aa0c3462c"
+      "oracle": "DOC-017:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "e674cba90bc14e0eae9c86b6ab099a3aad9f1a190999790034264df3431c9e19"
     },
     {
       "id": "DOC-018",
@@ -3749,8 +3749,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-018:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "8ffc63d64e2a42ab074e80f6caf9f4f955434720eaf3c877043029527e94d061"
+      "oracle": "DOC-018:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "a4d30b571c66dd9e45f59288e510f107b1f549e0a1eb13afba43ecc319af2543"
     },
     {
       "id": "DOC-019",
@@ -3764,8 +3764,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-019:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "7b64ca0d0e1dc799b45326016604453670d8e101b547d959365774e03e44ed12"
+      "oracle": "DOC-019:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "740f2711ca7889cd94dade8a63e09ce8e1195d023206378ef3ac0c486e27d897"
     },
     {
       "id": "DOC-020",
@@ -3779,8 +3779,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-020:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "54ea52fd87184ae29dc060b76061c3d509329ab4795c66e75d2701edfb1e7bf9"
+      "oracle": "DOC-020:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "10fd05874ab713b21cf30dba2b48d95de88abc9af4d0f43b059491a2604e49bc"
     },
     {
       "id": "DOC-021",
@@ -3794,8 +3794,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-021:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "97a1a53f242918f60125c4c98c85ccd9aad73478d57dc93a3af8b3e27e97498a"
+      "oracle": "DOC-021:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "6da34975885d64d4d4aae72f8c544f7b25d349cdf43587883b08300bf57d961e"
     },
     {
       "id": "DOC-022",
@@ -3809,8 +3809,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-022:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "e7fc59be8f73383cba098492ef87b41d88cc4dc79538d2a65db0d224d7759353"
+      "oracle": "DOC-022:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "a3a4b6d1d25de1d04b134c008db2be12f7294e864efa82bf05776d36267d743d"
     },
     {
       "id": "DOC-023",
@@ -3824,8 +3824,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-023:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "c3a88e5d8a53ac31e16085827a7833a04b31447d7f3e466c7b88ef824f72da4c"
+      "oracle": "DOC-023:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "6e1d0b54eeda2711e903737975567270b47f0fe23cdcf6ea45b686d878979d70"
     },
     {
       "id": "DOC-024",
@@ -3839,8 +3839,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-024:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "266e48dcc10758e302b28e5d4cee93716c958f05de97a4a1854f267673159c40"
+      "oracle": "DOC-024:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "97b7e0264869449bd00aaad6fadcd9f62756a6a8804229fe2c8f85978d45873b"
     },
     {
       "id": "DOC-025",
@@ -3854,8 +3854,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-025:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "867d079030ca8460b57dc86f607b1f29f07f07d74b420b7c4f56860fdf45843c"
+      "oracle": "DOC-025:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "69fda98d42d275216796aea123bdab2091e5de215f273d25819bc5fc462e32f8"
     },
     {
       "id": "DOC-026",
@@ -3869,8 +3869,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-026:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "5fa9cb7e6aa84476eb2311f44906eb4b4909d824bddf9a801a317e5d2e804aa8"
+      "oracle": "DOC-026:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "1a8e72f34148ee93b497cd9bb2833ad705399948ac548a988c4604646ff8b33d"
     },
     {
       "id": "DOC-027",
@@ -3884,8 +3884,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-027:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "d97355b15e0f67abca25ef6ab875785b69860b308c2b85113f653cee4f8da54a"
+      "oracle": "DOC-027:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "f5cbd7b48affb9881d9cd89ffd9bcc7b1adf80ded028934b160eedc661e3a3bb"
     },
     {
       "id": "DOC-028",
@@ -3899,8 +3899,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-028:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "5b96b3739241e8d5f72b2b98ac53a6f2743c44375aefb8d237310333c2e9e54d"
+      "oracle": "DOC-028:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "7d6cfb7eed3c62a623ef168687128c2b76635d9597fefa59729e21d2b88549b3"
     },
     {
       "id": "DOC-029",
@@ -3914,8 +3914,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-029:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "3a9dc61507e28770e326df2e03d144ab43ad835de82280690c37b93992604090"
+      "oracle": "DOC-029:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "f38a74cf501246d839d32b86b5903fce146cb5fc71eace06ddc700079450b92e"
     },
     {
       "id": "DOC-030",
@@ -3929,8 +3929,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-030:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "a89831f7f3a88dde7970f2737facd4a6385f5d269a6323a3b37c2a4d3ec8233f"
+      "oracle": "DOC-030:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "b3dab9a3b27c1588c520264d5cc2a91ebd3d481249927b1cf504871cc243aede"
     },
     {
       "id": "DOC-031",
@@ -3944,8 +3944,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-031:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "dfe805500f9814eb7fd908b5ad856d5d14d27906204662451edd0bef055074fd"
+      "oracle": "DOC-031:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "6c6ff902d02e53a545e6ceefb6d8da353fb0e4955b254515daee9c48a1063f79"
     },
     {
       "id": "DOC-032",
@@ -3959,8 +3959,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-032:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "c850fcbff04c0b780cabef469de27d0fa91b101114d7e839178b2c28c54a55cd"
+      "oracle": "DOC-032:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "53d742e64f5d08aef32ef12fdc02a98c33c6933584bb702d866c2775de98c364"
     },
     {
       "id": "DOC-033",
@@ -3974,8 +3974,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-033:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "8c12ad9c78b857a974a2deac4e412c10f8f199dc72296ba78142c7cfc8f7e6f0"
+      "oracle": "DOC-033:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "73da35eb46deb3fb477fcb104f71c177e52d34b5f9cbe1cf12b3eb477348f708"
     },
     {
       "id": "DOC-034",
@@ -3989,8 +3989,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-034:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "d568a736a2c14609c03ccdb84ccd3a99257a6b9c4dd74f064b5a3e9b4cda97af"
+      "oracle": "DOC-034:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "76e73a69482d2d3756bb09f1bdd779dbbc18bef47fed7470dfd417036914cef4"
     },
     {
       "id": "DOC-035",
@@ -4004,8 +4004,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-035:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "f8d0d0bec10884479c4851491b63796692aa1b856d6b1feafcfdc6c89a4ea00c"
+      "oracle": "DOC-035:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "72ec0c32ff207420415ce8bad01e8260397b65067a0a23bc90df143e73dd5035"
     },
     {
       "id": "DOC-036",
@@ -4019,8 +4019,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-036:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "e8b43ce5746bbfe0d86a9f95a0912a00bad099afa55bc24d73aa5b8f797f1da2"
+      "oracle": "DOC-036:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "1a2f34a4c669d7831acff42d30a8072357c0b0287b6e0737790a47fe5c924690"
     },
     {
       "id": "DOC-037",
@@ -4034,8 +4034,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-037:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "7da5fd27e21faec9917af87fa05d2cc6c9ecf450d954262a28f2453366e24091"
+      "oracle": "DOC-037:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "97080c6ca85c554f5a71ad2a16cd897f5661a734f5caced8ddc60689b8c37c84"
     },
     {
       "id": "DOC-038",
@@ -4049,8 +4049,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-038:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "8f1a2283c62d31a60a2e79cc472cc02e9adddc3f131ff39c4d9b88371f208956"
+      "oracle": "DOC-038:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "bd10ff8eade03ef3d8855521ec988d1a763ab1a2825ac4c081fe6403ec384bd0"
     },
     {
       "id": "DOC-039",
@@ -4064,8 +4064,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-039:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "284614af12fa89ee565a5f8793192467a87509d7faaa375eee3a2c293294068d"
+      "oracle": "DOC-039:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "56853457b679bbdb1ddcf574cb89117f3770332f0bdf8bce37ac83216735ccd0"
     },
     {
       "id": "DOC-040",
@@ -4079,8 +4079,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-040:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "ffedd9e517decedffa3e58ccdedf0b1c5139967aca951dae14e6a9456de5ffdb"
+      "oracle": "DOC-040:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "6921c652fd280a0a438183136ef4261f1d6e64b8770fed4087b7e8da20714f30"
     },
     {
       "id": "DOC-041",
@@ -4094,8 +4094,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-041:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "92c5f59485b351e3e8b74202c9e7b1a0aa628ff8af1028671ad6d519900d616c"
+      "oracle": "DOC-041:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "76710efd09dc65e420af1a02e3a9686cdbbad51ead52b348a5e6026bbb2f52f0"
     },
     {
       "id": "DOC-042",
@@ -4109,8 +4109,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-042:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "c57156154c2f3a9ddab1d5f99ce748bb5d246455885e69afb766075347a91f01"
+      "oracle": "DOC-042:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "0bdfdbf611c617dcd56e53f9d988f1d7ffa467b6efab124420571f4709d5c995"
     },
     {
       "id": "DOC-043",
@@ -4124,8 +4124,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-043:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "cea3958be1a6566be6e2f6c91a87d0a4fcd28d2e16f48dcff96fd56c9bdefa14"
+      "oracle": "DOC-043:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "1e7c1bbdc5c9a5b3357fd3c03bad47bf53c6da1e50d8b73d8316b48ec7ce4b29"
     },
     {
       "id": "DOC-044",
@@ -4139,8 +4139,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-044:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "41de7e9cc557da69926cfabef69de6257ba26938146a4661b4314f3201e2281d"
+      "oracle": "DOC-044:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "107b1db9461c54eabf9d3495a75dc0d280a531724965091281f93b144c6a349b"
     },
     {
       "id": "DOC-045",
@@ -4154,8 +4154,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-045:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "faf13432390f42ce163e54b230436fde3cecae68e59c3ffe6b03033cb4f2088f"
+      "oracle": "DOC-045:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "d0827fdaa0fb8871bb6d0604dc761f1b34ccd5a35169363330ec9067f9deb377"
     },
     {
       "id": "DOC-046",
@@ -4169,8 +4169,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-046:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "f9b04728b481429bfa7e6cfe90885a7d139829c0c27fc5b326e8e2050268816a"
+      "oracle": "DOC-046:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "f10009aabe949bf9de3f9d3ae5382efa43baa71de78aba631d3b07f9849d2e45"
     },
     {
       "id": "DOC-047",
@@ -4184,8 +4184,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-047:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "bdefb2453dbdec56085cba6bd86722156e3cb7d797c012da0678518f1008d6a5"
+      "oracle": "DOC-047:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "4d147b815a3a9a0be176ef48a4705cac84df4db4bb35e1311f2409df01897de4"
     },
     {
       "id": "DOC-048",
@@ -4199,8 +4199,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-048:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "69295f89153b09320ce056aebf34fc98d72f1b65df6a13aae2326e1fc4eca66b"
+      "oracle": "DOC-048:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "7a19bbf8846ce8a858166a22f967e6dbc17279871c407252a4a1a3ed7d8cdff4"
     },
     {
       "id": "DOC-049",
@@ -4214,8 +4214,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-049:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "6d7826bd1f48b9b57c873cd1db19fbcb13cb02df8f4176380d89d4db0b00b3f7"
+      "oracle": "DOC-049:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "21beb5329d00ac2a714410fdb302d4a30fdde8aaca45ecc4308159c25bad06b2"
     },
     {
       "id": "DOC-050",
@@ -4229,8 +4229,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-050:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "b22f0bacec1c2b8316ca8d8d9e581759f9b3aafeca6fd914a8b14a3e8bc47aac"
+      "oracle": "DOC-050:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "2561179af1732ef487a5ca178318d83138085987e343ce64d3b3858dffd3e991"
     },
     {
       "id": "DOC-051",
@@ -4244,8 +4244,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-051:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "57d09754b441afe4bc354f65030857e0f24210ab6df8405a6a83059dee957970"
+      "oracle": "DOC-051:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "b75038e82eda1b20e7080964927df391cb853d20ddcb1ab1b5a30c8bc2aa26c2"
     },
     {
       "id": "DOC-052",
@@ -4259,8 +4259,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-052:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "bd080040323f5e97edb8e0df22a4d24a147d10dffcf67276dbe2fcf83852c3b8"
+      "oracle": "DOC-052:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "0a2b718e690aa08a9743f7f25a284536e3d97941786d1d3d60e3e2165f73c50f"
     },
     {
       "id": "DOC-053",
@@ -4274,8 +4274,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-053:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "0a521b2108805e7f27e83aa3ae8eb4a01ebe7d748417f5e56b8436426e19619f"
+      "oracle": "DOC-053:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "3300bb8005aae643de5dbb2abefee548e0d0ab74935d79443a85cd36c9099606"
     },
     {
       "id": "DOC-054",
@@ -4289,8 +4289,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-054:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "dea411be859ca7120ffc41cfd4bf970a609e39fb4112778a8161d050525e9565"
+      "oracle": "DOC-054:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "702a5ac342e39c2ef140d687b8f5775a9c9ae7b771203ec8c207488cd57df933"
     },
     {
       "id": "DOC-055",
@@ -4304,8 +4304,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-055:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "edd9591626c4a1e200d404fbf2fb65621be6a293b9c604acc2badac23c6028f3"
+      "oracle": "DOC-055:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "b7f58cd513c5d77ef462b8e0ddb10e05ec98ab4c62d6070804e8ebb434842128"
     },
     {
       "id": "DOC-056",
@@ -4319,8 +4319,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-056:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "9329c80425ab4344ffa69f6ad4adf0feea8465dc8872d35093fbc85a091dbc14"
+      "oracle": "DOC-056:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "c959473f7107423b628e430a5a4b6afbf10a26327407034680f36a2a6272214a"
     },
     {
       "id": "DOC-057",
@@ -4334,8 +4334,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-057:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "d2da1068aaa6227b6d29282f90e7a8922351ea64bfab984a69fb3d22d8d775b7"
+      "oracle": "DOC-057:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "e768c953fbd142da7fac7866aa6d707508c55131f526d35cbd0ac5e12a4b42e4"
     },
     {
       "id": "DOC-058",
@@ -4349,8 +4349,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-058:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "8ae2b48dba799f63e8c66c907d136474c95f5933868d9284ccae45ed41054ee5"
+      "oracle": "DOC-058:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "79b8284dd3bfacec67258d62bff0fce74ecaeb5dade8827f2779140996a49202"
     },
     {
       "id": "DOC-059",
@@ -4364,8 +4364,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-059:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "7506bb9309ec61e4455e5a863ddc5b1a442e33561059023c09d40c1f087e7a30"
+      "oracle": "DOC-059:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "e6857656b0cdacb4b1001347f1fe5b81c9c7d5d0074f83980a35f28a3cdc83fd"
     },
     {
       "id": "DOC-060",
@@ -4379,8 +4379,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-060:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "3de30e0d8f5466f6feb2499e1efb6fc98ee1ac98e52856830befc074daefc003"
+      "oracle": "DOC-060:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "90b58f8cd4ed567835f67c3c94305ec67e46304213761ab7200d204a7a3dcfb6"
     },
     {
       "id": "DOC-061",
@@ -4394,8 +4394,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-061:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "5ce18001d90267d92c2a603ace36757d1ca02e618dfd8fba8ae5c68764f98679"
+      "oracle": "DOC-061:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "44a452afd2bee4cb1f825d26e80c9dc3fcd832fef1d3340edb72c881643b5e6f"
     },
     {
       "id": "DOC-062",
@@ -4409,8 +4409,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-062:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "f6c7ae6de7de31dacbd1cbb5033a62e4ec65c4743ad8f01e2b59e3038886f73f"
+      "oracle": "DOC-062:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "6a92e92ee50dced06c54d14a031b258d9bb6fe8ac1603c1af09f546198ac8d36"
     },
     {
       "id": "DOC-063",
@@ -4424,8 +4424,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-063:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "d23e41aa4e289d7cb399e7b4dd95ec4e89f57b4be166f23524941311828598ed"
+      "oracle": "DOC-063:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "5c56f23ca81679ecaa740ecc48f46a60568d1d6690e35d6e97066038655278b5"
     },
     {
       "id": "DOC-064",
@@ -4439,8 +4439,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-064:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "98e334e99a5144263a2c7d7adebe5c93345705fca8ef43b0b368b44e0934bda6"
+      "oracle": "DOC-064:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "cac4c33f3fa0047f9b21bac5f443ff979db3cd248abb9c9fee39633be3d8969c"
     },
     {
       "id": "DOC-065",
@@ -4454,8 +4454,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-065:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "7bc5447abc0b321970ab67c0c4ecd8b75dcff2429573550b9be949022e6d0518"
+      "oracle": "DOC-065:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "2f643d5c83248935f4580e0fe71fabe1f6267edf72abe78e9de8d14f5767d16b"
     },
     {
       "id": "DOC-066",
@@ -4469,8 +4469,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-066:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "4abd811d598e50c5cd12a5ef37b2257f999d1c845193f0cb67f08f4b390590d5"
+      "oracle": "DOC-066:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "604f58dde392046544f289a4c1b00b6e13ee9b14a5f49f16a0150ad06bfc1d6f"
     },
     {
       "id": "DOC-067",
@@ -4484,8 +4484,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-067:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "9160dc2e194e390ba00798ecf73ab31171b59c450b8631a2113768ac3f64c1d4"
+      "oracle": "DOC-067:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "deed4863e1972f71535dada312dc96c8ec8cd5231535a388793865a4b5028f90"
     },
     {
       "id": "DOC-068",
@@ -4499,8 +4499,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-068:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "e723c6c8f3cf35b400bc4dabffb15b364d4ce2b5fda951170a2cc2f35f46bede"
+      "oracle": "DOC-068:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "fa07e81a06b8bc4758da2d8088f90376ca29f4234e1019043e0eacb41ab63f53"
     },
     {
       "id": "DOC-069",
@@ -4514,8 +4514,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-069:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "eaac03d001d33e8c606978f55ab8a959157f7d921d38f97e71839e7366a9b37d"
+      "oracle": "DOC-069:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "d20e2a3fc4934cc6b762e6f513ce5d5eba5af8d765d041f73ce4ec9935ebd415"
     },
     {
       "id": "DOC-070",
@@ -4529,8 +4529,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-070:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "451418f71edb3363f1fc85df84add409d304e541b362758de35e6cab6a40e2f3"
+      "oracle": "DOC-070:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "1cb80d6c022b3d977e67b3a674fac276d3c5441b10ff086927836cfefdcae1c8"
     },
     {
       "id": "DOC-071",
@@ -4544,8 +4544,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-071:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "65327fcfbf9105ed735c94dfbb66bf1bda0a5eb9de1b52f0672ea0c432ef3757"
+      "oracle": "DOC-071:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "128d94ab9bd364ef2f16a5942ab8e18b2e516d0166d2157c7fe3d88c4c611573"
     },
     {
       "id": "DOC-072",
@@ -4559,8 +4559,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-072:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "ddf45491cf6d222524abf8557afd38d8d85e0cad78b21349b5b11801c3fcde43"
+      "oracle": "DOC-072:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "84affb467a54376bd024f8b46be5435fe797f518e76f9ceebd3ae9d81f058d34"
     },
     {
       "id": "DOC-073",
@@ -4574,8 +4574,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-073:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "61427914ccd2d342890bd1c279523687a5b4c63e5d62f00a6bf116abb95aab6f"
+      "oracle": "DOC-073:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "fc5d144291d4e377c5f14990dbeb4674cf5a339b9396eea078bef76bbf4a444e"
     },
     {
       "id": "DOC-074",
@@ -4589,8 +4589,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-074:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "b1a684e588dcceefcf61cffe1add06dde90daf39e9a5343f800aec6307c0f1fc"
+      "oracle": "DOC-074:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "d32cf38e73984e9d83662cb50247a0471a00b07f10cb1e3546c21201c7056cc7"
     },
     {
       "id": "DOC-075",
@@ -4604,8 +4604,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-075:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "109bbd6674ec3dbf3fd12c175b5c96d3ad8ef05dcb2fe35d4d7185beb6071188"
+      "oracle": "DOC-075:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "0b06bb779e58697a4c89611b91d838570931a1d707768c9046407c8e3054a314"
     },
     {
       "id": "DOC-076",
@@ -4619,8 +4619,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-076:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "866e0cc40aecda3f2c10f1eb9d9a21b50a678ec69e50794eeaa0d918f43fa96e"
+      "oracle": "DOC-076:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "0e3f29c626e51fb64d0d478685dee26b21a903ed23ae8b189e5bee6f89845d1b"
     },
     {
       "id": "DOC-077",
@@ -4634,8 +4634,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-077:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "89392dbc2dcde3e2a1f9423c21e5034d8fd1e220ab84c631fc4cea8b70cbd75c"
+      "oracle": "DOC-077:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "de44a40f4ab5d59ab730dec0b9038c83574f83a3fef767c312ad77a5d6f611cf"
     },
     {
       "id": "DOC-078",
@@ -4649,8 +4649,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-078:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "9fb9eb22177d8f247997d7847eaf9bc71786c5d4d35c2a1713ada3589ab014ba"
+      "oracle": "DOC-078:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "942eebf30dac81c77ab89c7e0bfc66895b88de0bb7a4636792b12d24d499f404"
     },
     {
       "id": "DOC-079",
@@ -4664,8 +4664,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-079:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "a9dc1d0dc41b00d7976375b8df5d29db73e03d621fde6b8d01a4afab059fcba6"
+      "oracle": "DOC-079:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "4597411f1967072f055b724e902b63910d68c13bbe3a788e0a34119cc7ede30a"
     },
     {
       "id": "DOC-080",
@@ -4679,8 +4679,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-080:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "ef64618a06be9f87506b40a3f7a9bbd0a484ab58f6ec7b80fbe6659a1dca2808"
+      "oracle": "DOC-080:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "90675c9dcc14580b78191cde892184bded8873825b57a696f40ad81e20af375f"
     },
     {
       "id": "DOC-081",
@@ -4694,8 +4694,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-081:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "ab2f09e975d2311567a1021db731c1ea91fde65765490963a4a7a603e64c234c"
+      "oracle": "DOC-081:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "4c49833c1429460aa9142e9ac7743a7b48a2fdb27f9dbdfde3dc21749252d656"
     },
     {
       "id": "DOC-082",
@@ -4709,8 +4709,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-082:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "0e1c2dff3320669d627f1b4ea1322cdb674c5538c3ef881fcf2c00770ceb7917"
+      "oracle": "DOC-082:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "963dead0023899582155043e87aa6f57e0e9cf00118943bafc58e0d85f95893a"
     },
     {
       "id": "DOC-083",
@@ -4724,8 +4724,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-083:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "7a81094749688ebe6d77cae3060da5bf9fb9884d29b728a9a61b8d41fe1ae7d8"
+      "oracle": "DOC-083:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "0258194a1aa8999459e812076ff815d565b27bcc309b8339ecde07b2c8c013ef"
     },
     {
       "id": "DOC-084",
@@ -4739,8 +4739,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-084:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "3a96647191869a837e89df79e5a51f17dee50c2950c4a592a6c12cdfa29d5a34"
+      "oracle": "DOC-084:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "9001474187411d6b9b2de7add7d82cd6290688cf21d2a75925f2525bd3dc8f61"
     },
     {
       "id": "DOC-085",
@@ -4754,8 +4754,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-085:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "e0fa8dc74b6fd19f139d8e3aa6291aa87d4cfd35caabf01dfac85f7cf394e646"
+      "oracle": "DOC-085:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "b61983b32ecd593314803310533c3dbe545f08491775fa116b5fb209dd085fbb"
     },
     {
       "id": "DOC-086",
@@ -4769,8 +4769,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-086:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "9e3536b4b0c1e9e5d36f455ec8aa39f8184410d65eec4b9ab7a92423482e85cc"
+      "oracle": "DOC-086:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "40fec13072a0fe2eda3a7b3df6405969b6313ecd2914c38ee63d81327df75067"
     },
     {
       "id": "DOC-087",
@@ -4784,8 +4784,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-087:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "6024f991e7c91046ede9215ed3c8cc90ac32cc11b6e4b01c266937820242a6c9"
+      "oracle": "DOC-087:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "f01924fd707211fb5b215d21f8625d6d42056cb2897be9f8324ab8ed83458ffe"
     },
     {
       "id": "DOC-088",
@@ -4799,8 +4799,8 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-088:DOCUMENT_INVENTORY:PASS",
-      "linkageProof": "e1a9d613f37bb0bde868cbffffd432d034a63ff8c306a9174549f108fd95ba91"
+      "oracle": "DOC-088:DOCUMENT_INVENTORY:BLOCKED",
+      "linkageProof": "27b02b5efa0f788956b7517439780b5b1546bec51cca1139f0fc35b3b7f2255a"
     }
   ]
 }

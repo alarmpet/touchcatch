@@ -1,21 +1,14 @@
 {
-  "schemaVersion": 2,
-  "approval": {
-    "version": "task9-v6",
-    "reviewer": "independent-readonly-review",
-    "approvedAt": "2026-07-19"
-  },
+  "schemaVersion": 3,
   "entries": [
     {
       "id": "RULE-001",
       "approvedTokens": [
         "1.0.0"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "01_GAME_DESIGN_OVERVIEW.md",
-      "authorityHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
+      "sourceHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6"
     },
     {
       "id": "RULE-006",
@@ -23,66 +16,54 @@
         "1",
         "1"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "01_GAME_DESIGN_OVERVIEW.md",
-      "authorityHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
+      "sourceHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6"
     },
     {
       "id": "RULE-007",
       "approvedTokens": [
         "0~15"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "01_GAME_DESIGN_OVERVIEW.md",
-      "authorityHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
+      "sourceHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6"
     },
     {
       "id": "RULE-008",
       "approvedTokens": [
         "16~22"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "01_GAME_DESIGN_OVERVIEW.md",
-      "authorityHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
+      "sourceHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6"
     },
     {
       "id": "RULE-009",
       "approvedTokens": [
         "23~42"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "01_GAME_DESIGN_OVERVIEW.md",
-      "authorityHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
+      "sourceHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6"
     },
     {
       "id": "RULE-010",
       "approvedTokens": [
         "43~59"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "01_GAME_DESIGN_OVERVIEW.md",
-      "authorityHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
+      "sourceHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6"
     },
     {
       "id": "RULE-011",
       "approvedTokens": [
         "60~75"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "01_GAME_DESIGN_OVERVIEW.md",
-      "authorityHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
+      "sourceHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6"
     },
     {
       "id": "RULE-013",
@@ -90,11 +71,9 @@
         "1",
         "1"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "01_GAME_DESIGN_OVERVIEW.md",
-      "authorityHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
+      "sourceHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6"
     },
     {
       "id": "RULE-015",
@@ -102,11 +81,9 @@
         "2",
         "2"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "01_GAME_DESIGN_OVERVIEW.md",
-      "authorityHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
+      "sourceHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6"
     },
     {
       "id": "RULE-019",
@@ -116,66 +93,54 @@
         "75,000",
         "80,000"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-020",
       "approvedTokens": [
         "100"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-021",
       "approvedTokens": [
         "75"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-022",
       "approvedTokens": [
         "15"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-026",
       "approvedTokens": [
         "10"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-027",
       "approvedTokens": [
         "10"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-028",
@@ -184,11 +149,9 @@
         "6",
         "42"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-029",
@@ -197,22 +160,18 @@
         "9",
         "27"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-030",
       "approvedTokens": [
         "69"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-031",
@@ -220,11 +179,9 @@
         "16~22",
         "1"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-032",
@@ -232,11 +189,9 @@
         "34~42",
         "1"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-033",
@@ -244,11 +199,9 @@
         "60",
         "1"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-034",
@@ -256,66 +209,54 @@
         "10",
         "15"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-035",
       "approvedTokens": [
         "1"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-037",
       "approvedTokens": [
         "1"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-038",
       "approvedTokens": [
         "1"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-039",
       "approvedTokens": [
         "12"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-040",
       "approvedTokens": [
         "25"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-041",
@@ -323,33 +264,27 @@
         "3",
         "5"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-042",
       "approvedTokens": [
         "15"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-043",
       "approvedTokens": [
         "10"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-044",
@@ -357,11 +292,9 @@
         "5",
         "2"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-045",
@@ -369,33 +302,27 @@
         "10",
         "1.5"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-046",
       "approvedTokens": [
         "60~75"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-047",
       "approvedTokens": [
         "2"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "RULE-051",
@@ -410,11 +337,9 @@
         "10",
         "105"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
-      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5"
     },
     {
       "id": "STATE-001",
@@ -423,22 +348,18 @@
         "75,000",
         "80,000"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "03_GAME_FLOW_AND_STATE_MACHINE.md",
-      "authorityHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "03_GAME_FLOW_AND_STATE_MACHINE.md",
+      "sourceHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f"
     },
     {
       "id": "STATE-007",
       "approvedTokens": [
         "0~1"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "03_GAME_FLOW_AND_STATE_MACHINE.md",
-      "authorityHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "03_GAME_FLOW_AND_STATE_MACHINE.md",
+      "sourceHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f"
     },
     {
       "id": "UX-001",
@@ -453,33 +374,27 @@
         "44",
         "48"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "04_UX_SCREEN_SPEC.md",
-      "authorityHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "04_UX_SCREEN_SPEC.md",
+      "sourceHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8"
     },
     {
       "id": "UX-010",
       "approvedTokens": [
         "100"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "04_UX_SCREEN_SPEC.md",
-      "authorityHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "04_UX_SCREEN_SPEC.md",
+      "sourceHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8"
     },
     {
       "id": "UX-012",
       "approvedTokens": [
         "1.2"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "04_UX_SCREEN_SPEC.md",
-      "authorityHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "04_UX_SCREEN_SPEC.md",
+      "sourceHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8"
     },
     {
       "id": "ECON-008",
@@ -487,11 +402,9 @@
         "100",
         "1"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
-      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
+      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca"
     },
     {
       "id": "ECON-009",
@@ -500,33 +413,27 @@
         "18%",
         "2%"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
-      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
+      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca"
     },
     {
       "id": "ECON-010",
       "approvedTokens": [
         "50"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
-      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
+      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca"
     },
     {
       "id": "ECON-011",
       "approvedTokens": [
         "150"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
-      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
+      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca"
     },
     {
       "id": "ECON-013",
@@ -534,11 +441,9 @@
         "5",
         "1"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
-      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
+      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca"
     },
     {
       "id": "ECON-014",
@@ -546,99 +451,81 @@
         "5",
         "1"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
-      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
+      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca"
     },
     {
       "id": "ECON-016",
       "approvedTokens": [
         "30"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
-      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
+      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca"
     },
     {
       "id": "ECON-017",
       "approvedTokens": [
         "15"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
-      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
+      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca"
     },
     {
       "id": "ECON-018",
       "approvedTokens": [
         "5"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
-      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
+      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca"
     },
     {
       "id": "ECON-019",
       "approvedTokens": [
         "50"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
-      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
+      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca"
     },
     {
       "id": "ECON-020",
       "approvedTokens": [
         "100"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
-      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
+      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca"
     },
     {
       "id": "ECON-021",
       "approvedTokens": [
         "60"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
-      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
+      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca"
     },
     {
       "id": "ECON-022",
       "approvedTokens": [
         "40"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
-      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
+      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca"
     },
     {
       "id": "ECON-024",
       "approvedTokens": [
         "004"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
-      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
+      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca"
     },
     {
       "id": "SEC-002",
@@ -647,77 +534,63 @@
         "0.86",
         "4"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "06_CLIENT_ARCHITECTURE.md",
-      "authorityHash": "fa34d46aa891fd03b328139a787b73f2d5c7ec9234f2854517c070ac6d50973c",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "06_CLIENT_ARCHITECTURE.md",
+      "sourceHash": "fa34d46aa891fd03b328139a787b73f2d5c7ec9234f2854517c070ac6d50973c"
     },
     {
       "id": "SEC-006",
       "approvedTokens": [
         "1536"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "06_CLIENT_ARCHITECTURE.md",
-      "authorityHash": "fa34d46aa891fd03b328139a787b73f2d5c7ec9234f2854517c070ac6d50973c",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "06_CLIENT_ARCHITECTURE.md",
+      "sourceHash": "fa34d46aa891fd03b328139a787b73f2d5c7ec9234f2854517c070ac6d50973c"
     },
     {
       "id": "OBS-001",
       "approvedTokens": [
         "15,000"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "07_REALTIME_SERVER_SPEC.md",
-      "authorityHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "07_REALTIME_SERVER_SPEC.md",
+      "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02"
     },
     {
       "id": "OBS-002",
       "approvedTokens": [
         "22"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "07_REALTIME_SERVER_SPEC.md",
-      "authorityHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "07_REALTIME_SERVER_SPEC.md",
+      "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02"
     },
     {
       "id": "OBS-004",
       "approvedTokens": [
         "8"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "07_REALTIME_SERVER_SPEC.md",
-      "authorityHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "07_REALTIME_SERVER_SPEC.md",
+      "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02"
     },
     {
       "id": "OBS-009",
       "approvedTokens": [
         "5"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "07_REALTIME_SERVER_SPEC.md",
-      "authorityHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "07_REALTIME_SERVER_SPEC.md",
+      "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02"
     },
     {
       "id": "OBS-010",
       "approvedTokens": [
         "15"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "07_REALTIME_SERVER_SPEC.md",
-      "authorityHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "07_REALTIME_SERVER_SPEC.md",
+      "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02"
     },
     {
       "id": "OBS-015",
@@ -734,11 +607,9 @@
         "400",
         "30"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "07_REALTIME_SERVER_SPEC.md",
-      "authorityHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "07_REALTIME_SERVER_SPEC.md",
+      "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02"
     },
     {
       "id": "DATA-004",
@@ -746,11 +617,9 @@
         "1",
         "1"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "08_DATABASE_SCHEMA.md",
-      "authorityHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "08_DATABASE_SCHEMA.md",
+      "sourceHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b"
     },
     {
       "id": "DATA-017",
@@ -759,22 +628,18 @@
         "2",
         "20"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "08_DATABASE_SCHEMA.md",
-      "authorityHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "08_DATABASE_SCHEMA.md",
+      "sourceHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b"
     },
     {
       "id": "DATA-027",
       "approvedTokens": [
         "20"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "08_DATABASE_SCHEMA.md",
-      "authorityHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "08_DATABASE_SCHEMA.md",
+      "sourceHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b"
     },
     {
       "id": "DATA-028",
@@ -782,22 +647,18 @@
         "3",
         "3"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "08_DATABASE_SCHEMA.md",
-      "authorityHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "08_DATABASE_SCHEMA.md",
+      "sourceHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b"
     },
     {
       "id": "DATA-029",
       "approvedTokens": [
         "202607150004"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "08_DATABASE_SCHEMA.md",
-      "authorityHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "08_DATABASE_SCHEMA.md",
+      "sourceHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b"
     },
     {
       "id": "CONTENT-004",
@@ -806,11 +667,9 @@
         "1",
         "1"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d"
     },
     {
       "id": "CONTENT-010",
@@ -819,55 +678,45 @@
         "3",
         "4"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d"
     },
     {
       "id": "CONTENT-011",
       "approvedTokens": [
         "2020"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d"
     },
     {
       "id": "CONTENT-013",
       "approvedTokens": [
         "56"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d"
     },
     {
       "id": "CONTENT-014",
       "approvedTokens": [
         "56"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d"
     },
     {
       "id": "CONTENT-015",
       "approvedTokens": [
         "256"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d"
     },
     {
       "id": "CONTENT-018",
@@ -877,22 +726,18 @@
         "2",
         "1"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d"
     },
     {
       "id": "CONTENT-020",
       "approvedTokens": [
         "256"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d"
     },
     {
       "id": "CONTENT-021",
@@ -902,11 +747,9 @@
         "4096",
         "16,000,000"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d"
     },
     {
       "id": "CONTENT-022",
@@ -914,33 +757,27 @@
         "256",
         "256"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d"
     },
     {
       "id": "CONTENT-023",
       "approvedTokens": [
         "3"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d"
     },
     {
       "id": "CONTENT-026",
       "approvedTokens": [
         "56"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d"
     },
     {
       "id": "QA-001",
@@ -952,55 +789,45 @@
         "75,000",
         "80,000"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "11_TEST_AND_BALANCE_PLAN.md",
-      "authorityHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "11_TEST_AND_BALANCE_PLAN.md",
+      "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1"
     },
     {
       "id": "QA-002",
       "approvedTokens": [
         "50~70"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "11_TEST_AND_BALANCE_PLAN.md",
-      "authorityHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "11_TEST_AND_BALANCE_PLAN.md",
+      "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1"
     },
     {
       "id": "QA-003",
       "approvedTokens": [
         "40~65%"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "11_TEST_AND_BALANCE_PLAN.md",
-      "authorityHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "11_TEST_AND_BALANCE_PLAN.md",
+      "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1"
     },
     {
       "id": "QA-004",
       "approvedTokens": [
         "70%"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "11_TEST_AND_BALANCE_PLAN.md",
-      "authorityHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "11_TEST_AND_BALANCE_PLAN.md",
+      "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1"
     },
     {
       "id": "QA-005",
       "approvedTokens": [
         "0.5~1.5"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "11_TEST_AND_BALANCE_PLAN.md",
-      "authorityHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "11_TEST_AND_BALANCE_PLAN.md",
+      "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1"
     },
     {
       "id": "QA-006",
@@ -1009,11 +836,9 @@
         "10,000",
         "100,000"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "11_TEST_AND_BALANCE_PLAN.md",
-      "authorityHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "11_TEST_AND_BALANCE_PLAN.md",
+      "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1"
     },
     {
       "id": "QA-007",
@@ -1022,11 +847,9 @@
         "9",
         "50"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "11_TEST_AND_BALANCE_PLAN.md",
-      "authorityHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "11_TEST_AND_BALANCE_PLAN.md",
+      "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1"
     },
     {
       "id": "QA-008",
@@ -1035,66 +858,54 @@
         "10",
         "40"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "11_TEST_AND_BALANCE_PLAN.md",
-      "authorityHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "11_TEST_AND_BALANCE_PLAN.md",
+      "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1"
     },
     {
       "id": "QA-013",
       "approvedTokens": [
         "75"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "11_TEST_AND_BALANCE_PLAN.md",
-      "authorityHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "11_TEST_AND_BALANCE_PLAN.md",
+      "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1"
     },
     {
       "id": "ENV-001",
       "approvedTokens": [
         "3"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "12_IMPLEMENTATION_ROADMAP.md",
-      "authorityHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64"
     },
     {
       "id": "ENV-002",
       "approvedTokens": [
         "2"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "12_IMPLEMENTATION_ROADMAP.md",
-      "authorityHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64"
     },
     {
       "id": "ENV-004",
       "approvedTokens": [
         "3"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "12_IMPLEMENTATION_ROADMAP.md",
-      "authorityHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64"
     },
     {
       "id": "ENV-009",
       "approvedTokens": [
         "50"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "12_IMPLEMENTATION_ROADMAP.md",
-      "authorityHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64"
     },
     {
       "id": "ENV-010",
@@ -1102,11 +913,9 @@
         "1",
         "6~10"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "12_IMPLEMENTATION_ROADMAP.md",
-      "authorityHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64"
     },
     {
       "id": "ENV-011",
@@ -1114,55 +923,45 @@
         "2",
         "4~7"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "12_IMPLEMENTATION_ROADMAP.md",
-      "authorityHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64"
     },
     {
       "id": "DOC-007",
       "approvedTokens": [
         "10"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
-      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "13_CODING_AGENT_PROMPTS.md",
+      "sourceHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1"
     },
     {
       "id": "DOC-008",
       "approvedTokens": [
         "75"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
-      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "13_CODING_AGENT_PROMPTS.md",
+      "sourceHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1"
     },
     {
       "id": "DOC-009",
       "approvedTokens": [
         "60"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
-      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "13_CODING_AGENT_PROMPTS.md",
+      "sourceHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1"
     },
     {
       "id": "DOC-010",
       "approvedTokens": [
         "100"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
-      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "13_CODING_AGENT_PROMPTS.md",
+      "sourceHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1"
     },
     {
       "id": "DOC-013",
@@ -1171,11 +970,9 @@
         "34~42",
         "60"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
-      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "13_CODING_AGENT_PROMPTS.md",
+      "sourceHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1"
     },
     {
       "id": "DOC-015",
@@ -1183,22 +980,18 @@
         "10",
         "15"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
-      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "13_CODING_AGENT_PROMPTS.md",
+      "sourceHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1"
     },
     {
       "id": "DOC-016",
       "approvedTokens": [
         "4"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
-      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "13_CODING_AGENT_PROMPTS.md",
+      "sourceHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1"
     },
     {
       "id": "DOC-020",
@@ -1207,22 +1000,18 @@
         "15",
         "10"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
-      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "13_CODING_AGENT_PROMPTS.md",
+      "sourceHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1"
     },
     {
       "id": "DOC-022",
       "approvedTokens": [
         "5"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
-      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "13_CODING_AGENT_PROMPTS.md",
+      "sourceHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1"
     },
     {
       "id": "DOC-037",
@@ -1230,11 +1019,9 @@
         "5",
         "1"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
-      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "13_CODING_AGENT_PROMPTS.md",
+      "sourceHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1"
     },
     {
       "id": "DOC-038",
@@ -1242,22 +1029,18 @@
         "5",
         "1"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
-      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "13_CODING_AGENT_PROMPTS.md",
+      "sourceHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1"
     },
     {
       "id": "DOC-047",
       "approvedTokens": [
         "50"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
-      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "13_CODING_AGENT_PROMPTS.md",
+      "sourceHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1"
     },
     {
       "id": "DOC-050",
@@ -1265,66 +1048,54 @@
         "1.0.0",
         "001"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-051",
       "approvedTokens": [
         "100"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-052",
       "approvedTokens": [
         "100"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-053",
       "approvedTokens": [
         "75"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-054",
       "approvedTokens": [
         "100"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-056",
       "approvedTokens": [
         "15"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-057",
@@ -1332,88 +1103,72 @@
         "10",
         "1.5"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-059",
       "approvedTokens": [
         "6"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-060",
       "approvedTokens": [
         "9"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-061",
       "approvedTokens": [
         "10"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-062",
       "approvedTokens": [
         "15"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-063",
       "approvedTokens": [
         "25"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-064",
       "approvedTokens": [
         "15"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-065",
       "approvedTokens": [
         "10"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-066",
@@ -1421,11 +1176,9 @@
         "5",
         "2"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-067",
@@ -1433,154 +1186,127 @@
         "10",
         "1.5"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-075",
       "approvedTokens": [
         "01"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-076",
       "approvedTokens": [
         "02"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-077",
       "approvedTokens": [
         "03"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-078",
       "approvedTokens": [
         "04"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-079",
       "approvedTokens": [
         "05"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-080",
       "approvedTokens": [
         "06"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-081",
       "approvedTokens": [
         "07"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-082",
       "approvedTokens": [
         "08"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-083",
       "approvedTokens": [
         "09"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-084",
       "approvedTokens": [
         "10"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-085",
       "approvedTokens": [
         "11"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-086",
       "approvedTokens": [
         "12"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     },
     {
       "id": "DOC-087",
       "approvedTokens": [
         "13"
       ],
-      "authorityType": "CURATED_SOURCE_DOCUMENT",
-      "authorityPath": "README.md",
-      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "approvalVersion": "task9-v6",
-      "reviewer": "independent-readonly-review"
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "sourcePath": "README.md",
+      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1"
     }
-  ]
+  ],
+  "status": "UNAPPROVED_BASELINES"
 }
