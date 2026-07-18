@@ -1,230 +1,405 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
+  "approval": {
+    "version": "task9-v6",
+    "reviewer": "independent-readonly-review",
+    "approvedAt": "2026-07-19"
+  },
   "entries": [
     {
       "id": "RULE-001",
-      "numbers": [
+      "approvedTokens": [
         "1.0.0"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "01_GAME_DESIGN_OVERVIEW.md",
+      "authorityHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-006",
-      "numbers": [
+      "approvedTokens": [
         "1",
         "1"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "01_GAME_DESIGN_OVERVIEW.md",
+      "authorityHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-007",
-      "numbers": [
+      "approvedTokens": [
         "0~15"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "01_GAME_DESIGN_OVERVIEW.md",
+      "authorityHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-008",
-      "numbers": [
+      "approvedTokens": [
         "16~22"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "01_GAME_DESIGN_OVERVIEW.md",
+      "authorityHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-009",
-      "numbers": [
+      "approvedTokens": [
         "23~42"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "01_GAME_DESIGN_OVERVIEW.md",
+      "authorityHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-010",
-      "numbers": [
+      "approvedTokens": [
         "43~59"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "01_GAME_DESIGN_OVERVIEW.md",
+      "authorityHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-011",
-      "numbers": [
+      "approvedTokens": [
         "60~75"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "01_GAME_DESIGN_OVERVIEW.md",
+      "authorityHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-013",
-      "numbers": [
+      "approvedTokens": [
         "1",
         "1"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "01_GAME_DESIGN_OVERVIEW.md",
+      "authorityHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-015",
-      "numbers": [
+      "approvedTokens": [
         "2",
         "2"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "01_GAME_DESIGN_OVERVIEW.md",
+      "authorityHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-019",
-      "numbers": [
+      "approvedTokens": [
         "1.0.0",
         "60,000",
         "75,000",
         "80,000"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-020",
-      "numbers": [
+      "approvedTokens": [
         "100"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-021",
-      "numbers": [
+      "approvedTokens": [
         "75"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-022",
-      "numbers": [
+      "approvedTokens": [
         "15"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-026",
-      "numbers": [
+      "approvedTokens": [
         "10"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-027",
-      "numbers": [
+      "approvedTokens": [
         "10"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-028",
-      "numbers": [
+      "approvedTokens": [
         "7",
         "6",
         "42"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-029",
-      "numbers": [
+      "approvedTokens": [
         "3",
         "9",
         "27"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-030",
-      "numbers": [
+      "approvedTokens": [
         "69"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-031",
-      "numbers": [
+      "approvedTokens": [
         "16~22",
         "1"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-032",
-      "numbers": [
+      "approvedTokens": [
         "34~42",
         "1"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-033",
-      "numbers": [
+      "approvedTokens": [
         "60",
         "1"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-034",
-      "numbers": [
+      "approvedTokens": [
         "10",
         "15"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-035",
-      "numbers": [
+      "approvedTokens": [
         "1"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-037",
-      "numbers": [
+      "approvedTokens": [
         "1"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-038",
-      "numbers": [
+      "approvedTokens": [
         "1"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-039",
-      "numbers": [
+      "approvedTokens": [
         "12"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-040",
-      "numbers": [
+      "approvedTokens": [
         "25"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-041",
-      "numbers": [
+      "approvedTokens": [
         "3",
         "5"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-042",
-      "numbers": [
+      "approvedTokens": [
         "15"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-043",
-      "numbers": [
+      "approvedTokens": [
         "10"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-044",
-      "numbers": [
+      "approvedTokens": [
         "5",
         "2"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-045",
-      "numbers": [
+      "approvedTokens": [
         "10",
         "1.5"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-046",
-      "numbers": [
+      "approvedTokens": [
         "60~75"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-047",
-      "numbers": [
+      "approvedTokens": [
         "2"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "RULE-051",
-      "numbers": [
+      "approvedTokens": [
         "6",
         "36",
         "1",
@@ -234,25 +409,40 @@
         "15",
         "10",
         "105"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "02_CORE_RULES_AND_BALANCE.md",
+      "authorityHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "STATE-001",
-      "numbers": [
+      "approvedTokens": [
         "1.0.0",
         "75,000",
         "80,000"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "03_GAME_FLOW_AND_STATE_MACHINE.md",
+      "authorityHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "STATE-007",
-      "numbers": [
+      "approvedTokens": [
         "0~1"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "03_GAME_FLOW_AND_STATE_MACHINE.md",
+      "authorityHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "UX-001",
-      "numbers": [
+      "approvedTokens": [
         "320",
         "68",
         "390",
@@ -262,156 +452,276 @@
         "200%",
         "44",
         "48"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "04_UX_SCREEN_SPEC.md",
+      "authorityHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "UX-010",
-      "numbers": [
+      "approvedTokens": [
         "100"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "04_UX_SCREEN_SPEC.md",
+      "authorityHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "UX-012",
-      "numbers": [
+      "approvedTokens": [
         "1.2"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "04_UX_SCREEN_SPEC.md",
+      "authorityHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ECON-008",
-      "numbers": [
+      "approvedTokens": [
         "100",
         "1"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
+      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ECON-009",
-      "numbers": [
+      "approvedTokens": [
         "80%",
         "18%",
         "2%"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
+      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ECON-010",
-      "numbers": [
+      "approvedTokens": [
         "50"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
+      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ECON-011",
-      "numbers": [
+      "approvedTokens": [
         "150"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
+      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ECON-013",
-      "numbers": [
+      "approvedTokens": [
         "5",
         "1"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
+      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ECON-014",
-      "numbers": [
+      "approvedTokens": [
         "5",
         "1"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
+      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ECON-016",
-      "numbers": [
+      "approvedTokens": [
         "30"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
+      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ECON-017",
-      "numbers": [
+      "approvedTokens": [
         "15"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
+      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ECON-018",
-      "numbers": [
+      "approvedTokens": [
         "5"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
+      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ECON-019",
-      "numbers": [
+      "approvedTokens": [
         "50"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
+      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ECON-020",
-      "numbers": [
+      "approvedTokens": [
         "100"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
+      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ECON-021",
-      "numbers": [
+      "approvedTokens": [
         "60"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
+      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ECON-022",
-      "numbers": [
+      "approvedTokens": [
         "40"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
+      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ECON-024",
-      "numbers": [
+      "approvedTokens": [
         "004"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "05_PET_COLLECTION_SYSTEM.md",
+      "authorityHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "SEC-002",
-      "numbers": [
+      "approvedTokens": [
         "57",
         "0.86",
         "4"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "06_CLIENT_ARCHITECTURE.md",
+      "authorityHash": "fa34d46aa891fd03b328139a787b73f2d5c7ec9234f2854517c070ac6d50973c",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "SEC-006",
-      "numbers": [
+      "approvedTokens": [
         "1536"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "06_CLIENT_ARCHITECTURE.md",
+      "authorityHash": "fa34d46aa891fd03b328139a787b73f2d5c7ec9234f2854517c070ac6d50973c",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "OBS-001",
-      "numbers": [
+      "approvedTokens": [
         "15,000"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "07_REALTIME_SERVER_SPEC.md",
+      "authorityHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "OBS-002",
-      "numbers": [
+      "approvedTokens": [
         "22"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "07_REALTIME_SERVER_SPEC.md",
+      "authorityHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "OBS-004",
-      "numbers": [
+      "approvedTokens": [
         "8"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "07_REALTIME_SERVER_SPEC.md",
+      "authorityHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "OBS-009",
-      "numbers": [
+      "approvedTokens": [
         "5"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "07_REALTIME_SERVER_SPEC.md",
+      "authorityHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "OBS-010",
-      "numbers": [
+      "approvedTokens": [
         "15"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "07_REALTIME_SERVER_SPEC.md",
+      "authorityHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "OBS-015",
-      "numbers": [
+      "approvedTokens": [
         "100",
         "200",
         "5",
@@ -423,484 +733,854 @@
         "200",
         "400",
         "30"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "07_REALTIME_SERVER_SPEC.md",
+      "authorityHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DATA-004",
-      "numbers": [
+      "approvedTokens": [
         "1",
         "1"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "08_DATABASE_SCHEMA.md",
+      "authorityHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DATA-017",
-      "numbers": [
+      "approvedTokens": [
         "1",
         "2",
         "20"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "08_DATABASE_SCHEMA.md",
+      "authorityHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DATA-027",
-      "numbers": [
+      "approvedTokens": [
         "20"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "08_DATABASE_SCHEMA.md",
+      "authorityHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DATA-028",
-      "numbers": [
+      "approvedTokens": [
         "3",
         "3"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "08_DATABASE_SCHEMA.md",
+      "authorityHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DATA-029",
-      "numbers": [
+      "approvedTokens": [
         "202607150004"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "08_DATABASE_SCHEMA.md",
+      "authorityHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "CONTENT-004",
-      "numbers": [
+      "approvedTokens": [
         "256",
         "1",
         "1"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "CONTENT-010",
-      "numbers": [
+      "approvedTokens": [
         "5",
         "3",
         "4"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "CONTENT-011",
-      "numbers": [
+      "approvedTokens": [
         "2020"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "CONTENT-013",
-      "numbers": [
+      "approvedTokens": [
         "56"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "CONTENT-014",
-      "numbers": [
+      "approvedTokens": [
         "56"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "CONTENT-015",
-      "numbers": [
+      "approvedTokens": [
         "256"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "CONTENT-018",
-      "numbers": [
+      "approvedTokens": [
         "7",
         "3",
         "2",
         "1"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "CONTENT-020",
-      "numbers": [
+      "approvedTokens": [
         "256"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "CONTENT-021",
-      "numbers": [
+      "approvedTokens": [
         "1.0.0",
         "8",
         "4096",
         "16,000,000"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "CONTENT-022",
-      "numbers": [
+      "approvedTokens": [
         "256",
         "256"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "CONTENT-023",
-      "numbers": [
+      "approvedTokens": [
         "3"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "CONTENT-026",
-      "numbers": [
+      "approvedTokens": [
         "56"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "authorityHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "QA-001",
-      "numbers": [
+      "approvedTokens": [
         "1.0.0",
         "59,999",
         "60,000",
         "74,999",
         "75,000",
         "80,000"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "11_TEST_AND_BALANCE_PLAN.md",
+      "authorityHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "QA-002",
-      "numbers": [
+      "approvedTokens": [
         "50~70"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "11_TEST_AND_BALANCE_PLAN.md",
+      "authorityHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "QA-003",
-      "numbers": [
+      "approvedTokens": [
         "40~65%"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "11_TEST_AND_BALANCE_PLAN.md",
+      "authorityHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "QA-004",
-      "numbers": [
+      "approvedTokens": [
         "70%"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "11_TEST_AND_BALANCE_PLAN.md",
+      "authorityHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "QA-005",
-      "numbers": [
+      "approvedTokens": [
         "0.5~1.5"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "11_TEST_AND_BALANCE_PLAN.md",
+      "authorityHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "QA-006",
-      "numbers": [
+      "approvedTokens": [
         "50",
         "10,000",
         "100,000"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "11_TEST_AND_BALANCE_PLAN.md",
+      "authorityHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "QA-007",
-      "numbers": [
+      "approvedTokens": [
         "6",
         "9",
         "50"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "11_TEST_AND_BALANCE_PLAN.md",
+      "authorityHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "QA-008",
-      "numbers": [
+      "approvedTokens": [
         "7",
         "10",
         "40"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "11_TEST_AND_BALANCE_PLAN.md",
+      "authorityHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "QA-013",
-      "numbers": [
+      "approvedTokens": [
         "75"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "11_TEST_AND_BALANCE_PLAN.md",
+      "authorityHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ENV-001",
-      "numbers": [
+      "approvedTokens": [
         "3"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "12_IMPLEMENTATION_ROADMAP.md",
+      "authorityHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ENV-002",
-      "numbers": [
+      "approvedTokens": [
         "2"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "12_IMPLEMENTATION_ROADMAP.md",
+      "authorityHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ENV-004",
-      "numbers": [
+      "approvedTokens": [
         "3"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "12_IMPLEMENTATION_ROADMAP.md",
+      "authorityHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ENV-009",
-      "numbers": [
+      "approvedTokens": [
         "50"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "12_IMPLEMENTATION_ROADMAP.md",
+      "authorityHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ENV-010",
-      "numbers": [
+      "approvedTokens": [
         "1",
         "6~10"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "12_IMPLEMENTATION_ROADMAP.md",
+      "authorityHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "ENV-011",
-      "numbers": [
+      "approvedTokens": [
         "2",
         "4~7"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "12_IMPLEMENTATION_ROADMAP.md",
+      "authorityHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-007",
-      "numbers": [
+      "approvedTokens": [
         "10"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
+      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-008",
-      "numbers": [
+      "approvedTokens": [
         "75"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
+      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-009",
-      "numbers": [
+      "approvedTokens": [
         "60"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
+      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-010",
-      "numbers": [
+      "approvedTokens": [
         "100"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
+      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-013",
-      "numbers": [
+      "approvedTokens": [
         "16~22",
         "34~42",
         "60"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
+      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-015",
-      "numbers": [
+      "approvedTokens": [
         "10",
         "15"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
+      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-016",
-      "numbers": [
+      "approvedTokens": [
         "4"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
+      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-020",
-      "numbers": [
+      "approvedTokens": [
         "25",
         "15",
         "10"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
+      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-022",
-      "numbers": [
+      "approvedTokens": [
         "5"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
+      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-037",
-      "numbers": [
+      "approvedTokens": [
         "5",
         "1"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
+      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-038",
-      "numbers": [
+      "approvedTokens": [
         "5",
         "1"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
+      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-047",
-      "numbers": [
+      "approvedTokens": [
         "50"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "13_CODING_AGENT_PROMPTS.md",
+      "authorityHash": "bd6a97d8469cf9da107fc28b9f64faa58727ed91121744d639dabb6191c99ee1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-050",
-      "numbers": [
+      "approvedTokens": [
         "1.0.0",
         "001"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-051",
-      "numbers": [
+      "approvedTokens": [
         "100"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-052",
-      "numbers": [
+      "approvedTokens": [
         "100"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-053",
-      "numbers": [
+      "approvedTokens": [
         "75"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-054",
-      "numbers": [
+      "approvedTokens": [
         "100"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-056",
-      "numbers": [
+      "approvedTokens": [
         "15"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-057",
-      "numbers": [
+      "approvedTokens": [
         "10",
         "1.5"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-059",
-      "numbers": [
+      "approvedTokens": [
         "6"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-060",
-      "numbers": [
+      "approvedTokens": [
         "9"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-061",
-      "numbers": [
+      "approvedTokens": [
         "10"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-062",
-      "numbers": [
+      "approvedTokens": [
         "15"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-063",
-      "numbers": [
+      "approvedTokens": [
         "25"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-064",
-      "numbers": [
+      "approvedTokens": [
         "15"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-065",
-      "numbers": [
+      "approvedTokens": [
         "10"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-066",
-      "numbers": [
+      "approvedTokens": [
         "5",
         "2"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-067",
-      "numbers": [
+      "approvedTokens": [
         "10",
         "1.5"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-075",
-      "numbers": [
+      "approvedTokens": [
         "01"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-076",
-      "numbers": [
+      "approvedTokens": [
         "02"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-077",
-      "numbers": [
+      "approvedTokens": [
         "03"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-078",
-      "numbers": [
+      "approvedTokens": [
         "04"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-079",
-      "numbers": [
+      "approvedTokens": [
         "05"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-080",
-      "numbers": [
+      "approvedTokens": [
         "06"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-081",
-      "numbers": [
+      "approvedTokens": [
         "07"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-082",
-      "numbers": [
+      "approvedTokens": [
         "08"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-083",
-      "numbers": [
+      "approvedTokens": [
         "09"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-084",
-      "numbers": [
+      "approvedTokens": [
         "10"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-085",
-      "numbers": [
+      "approvedTokens": [
         "11"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-086",
-      "numbers": [
+      "approvedTokens": [
         "12"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     },
     {
       "id": "DOC-087",
-      "numbers": [
+      "approvedTokens": [
         "13"
-      ]
+      ],
+      "authorityType": "CURATED_SOURCE_DOCUMENT",
+      "authorityPath": "README.md",
+      "authorityHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
+      "approvalVersion": "task9-v6",
+      "reviewer": "independent-readonly-review"
     }
   ]
 }

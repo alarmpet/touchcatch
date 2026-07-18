@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  AnalyticsCollector, parseExperimentContractV1, validateLifecycleTrace,
+  AnalyticsCollector, parseExperimentContractCompositeV1, validateLifecycleTrace,
   assignExperimentVariant, evaluateSampleRatioMismatch,
 } from '../../packages/contracts/src/analytics.js';
 import {
@@ -53,10 +53,10 @@ describe('release evidence harnesses', () => {
   });
 
   it('enforces a strict versioned A/B contract and string cell bucket', () => {
-    const contract=parseExperimentContractV1({schemaVersion:1,experimentId:'battle-v1',assignmentUnit:'anonymousUserId',assignmentSaltVersion:'salt-v1',variants:['CONTROL','TREATMENT'],allocationBasisPoints:[5000,5000],primaryMetric:'final_attempt_rate',mde:0.03,alpha:0.05,power:0.8,minSamplePerVariant:10000,guardrails:['tap_result_p95','unexpected_failure_rate','srm'],stoppingRule:'FIXED_HORIZON',cellBucket:'03:12'});
+    const contract=parseExperimentContractCompositeV1({schemaVersion:1,experimentId:'battle-v1',assignmentUnit:'anonymousUserId',assignmentSaltVersion:'salt-v1',variants:['CONTROL','TREATMENT'],allocationBasisPoints:[5000,5000],primaryMetric:'final_attempt_rate',mde:0.03,alpha:0.05,power:0.8,minSamplePerVariant:10000,guardrails:['tap_result_p95','unexpected_failure_rate','srm'],stoppingRule:'FIXED_HORIZON',cellBucket:'03:12'});
     expect(contract.cellBucket).toBe('03:12');
-    expect(()=>parseExperimentContractV1({...contract,allocationBasisPoints:[6000,3000]})).toThrow(/allocation/);
-    expect(()=>parseExperimentContractV1({...contract,allocationBasisPoints:[10000,0]})).toThrow(/allocation/);
+    expect(()=>parseExperimentContractCompositeV1({...contract,allocationBasisPoints:[6000,3000]})).toThrow(/allocation/);
+    expect(()=>parseExperimentContractCompositeV1({...contract,allocationBasisPoints:[10000,0]})).toThrow(/allocation/);
     expect(assignExperimentVariant('anon-1',contract)).toBe(assignExperimentVariant('anon-1',contract));
     expect(evaluateSampleRatioMismatch({CONTROL:5000,TREATMENT:5000},contract).verdict).toBe('PASS');expect(evaluateSampleRatioMismatch({CONTROL:9000,TREATMENT:1000},contract).verdict).toBe('FAIL');
   });
