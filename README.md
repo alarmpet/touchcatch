@@ -37,16 +37,37 @@
 - Crash: Sentry
 
 ## 문서 순서
-1. 01_GAME_DESIGN_OVERVIEW.md
-2. 02_CORE_RULES_AND_BALANCE.md
-3. 03_GAME_FLOW_AND_STATE_MACHINE.md
-4. 04_UX_SCREEN_SPEC.md
-5. 05_PET_COLLECTION_SYSTEM.md
-6. 06_CLIENT_ARCHITECTURE.md
-7. 07_REALTIME_SERVER_SPEC.md
-8. 08_DATABASE_SCHEMA.md
-9. 09_API_AND_SOCKET_EVENTS.md
-10. 10_CONTENT_AND_IMAGE_PIPELINE.md
-11. 11_TEST_AND_BALANCE_PLAN.md
-12. 12_IMPLEMENTATION_ROADMAP.md
-13. 13_CODING_AGENT_PROMPTS.md
+1. [Game design overview](01_GAME_DESIGN_OVERVIEW.md)
+2. [Core rules and balance](02_CORE_RULES_AND_BALANCE.md)
+3. [Game flow and state machine](03_GAME_FLOW_AND_STATE_MACHINE.md)
+4. [UX screen specification](04_UX_SCREEN_SPEC.md)
+5. [Pet collection system](05_PET_COLLECTION_SYSTEM.md)
+6. [Client architecture](06_CLIENT_ARCHITECTURE.md)
+7. [Realtime server specification](07_REALTIME_SERVER_SPEC.md)
+8. [Database schema](08_DATABASE_SCHEMA.md)
+9. [API and socket events](09_API_AND_SOCKET_EVENTS.md)
+10. [Content and image pipeline](10_CONTENT_AND_IMAGE_PIPELINE.md)
+11. [Test and balance plan](11_TEST_AND_BALANCE_PLAN.md)
+12. [Implementation roadmap](12_IMPLEMENTATION_ROADMAP.md)
+13. [Coding-agent prompts](13_CODING_AGENT_PROMPTS.md)
+
+## Normative requirement registry
+
+<!-- REQUIREMENT: DOC-01 SOURCE: README.md -->
+<!-- REQUIREMENT: RULE-01 SOURCE: 01_GAME_DESIGN_OVERVIEW.md -->
+<!-- REQUIREMENT: RULE-02 SOURCE: 02_CORE_RULES_AND_BALANCE.md -->
+<!-- REQUIREMENT: STATE-01 SOURCE: 03_GAME_FLOW_AND_STATE_MACHINE.md -->
+<!-- REQUIREMENT: UX-01 SOURCE: 04_UX_SCREEN_SPEC.md -->
+<!-- REQUIREMENT: ECON-01 SOURCE: 05_PET_COLLECTION_SYSTEM.md -->
+<!-- REQUIREMENT: SEC-01 SOURCE: 06_CLIENT_ARCHITECTURE.md -->
+<!-- REQUIREMENT: OBS-01 SOURCE: 07_REALTIME_SERVER_SPEC.md -->
+<!-- REQUIREMENT: DATA-01 SOURCE: 08_DATABASE_SCHEMA.md -->
+<!-- REQUIREMENT: API-01 SOURCE: 09_API_AND_SOCKET_EVENTS.md -->
+<!-- REQUIREMENT: CONTENT-01 SOURCE: 10_CONTENT_AND_IMAGE_PIPELINE.md -->
+<!-- REQUIREMENT: QA-01 SOURCE: 11_TEST_AND_BALANCE_PLAN.md -->
+<!-- REQUIREMENT: RISK-01 SOURCE: 11_TEST_AND_BALANCE_PLAN.md -->
+<!-- REQUIREMENT: RISK-02 SOURCE: 11_TEST_AND_BALANCE_PLAN.md -->
+<!-- REQUIREMENT: ENV-01 SOURCE: 12_IMPLEMENTATION_ROADMAP.md -->
+<!-- REQUIREMENT: DOC-02 SOURCE: 13_CODING_AGENT_PROMPTS.md -->
+
+Each marker assigns an ID to its complete normative source document; finer requirements are projections of that source ID until split by an approved ADR. Their unique source-to-code-to-test-to-metric mappings are in [requirements traceability](docs/requirements-traceability.md). Historical plans and review notes are evidence, not normative sources.

@@ -7,6 +7,10 @@
 - 최종 단어 도전 70% 이상
 - 평균 오답 0.5~1.5회
 
+## Versioned evidence classes
+
+PR wiring uses 50 matches, nightly bot sensitivity uses 10,000 matches, and economy modeling uses 100,000 draws. Every simulation pins its seed, ruleset version, report version, and `botModelVersion`; it remains DRAFT/test-only unless separately approved. Bot output is not evidence of human satisfaction, learning, fairness, or production capacity.
+
 ## A/B 테스트
 A: 차이점 6/9, 최종 패키지 50
 B: 차이점 7/10, 최종 패키지 40

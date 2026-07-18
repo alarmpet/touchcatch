@@ -26,3 +26,9 @@ Node.js 22+, NestJS, Socket.IO, Redis, PostgreSQL, BullMQ.
 Ingress drains due timers to a fixed point in `(dueAtMs, timerId)` order before sequencing a PLAYER or SYSTEM command at the same logical time. `commandSeq`, `eventSeq`, and `stateRevision` are separate match-scoped counters. Old client revisions are synchronization watermarks and remain eligible; only future revisions are rejected.
 
 Disconnect epochs are monotonic. Reconnect before the absolute forfeit deadline cancels the epoch timer; at the exact deadline the timer wins and produces `FORFEIT`. Recovery without durable journal/lease continuity produces a single sequenced no-contest cancellation before normal queue processing.
+
+## Observability and candidate service objectives
+
+Telemetry accepts only versioned allow-listed fields before an adapter. Opaque trace IDs must reconstruct queue, handshake, preload, command, finish, and reward without JWT, service keys, auth UUID/PII, private answers/aliases/correct option IDs, undiscovered hitboxes, raw coordinates, or uploads. Expected domain rejections are separate from unexpected failures and retries with the same request ID count once.
+
+The candidate beta profile is 100 concurrent matches/200 sockets with `tap_result` p95 <=250ms, unexpected command failure rate <0.1%, duplicate accepted claim/reward 0, and match finish loss 0. A ratio verdict requires at least 10,000 unique requests. Production approval requires a target-region 200-match/400-socket 30-minute soak; local deterministic evidence cannot satisfy it.

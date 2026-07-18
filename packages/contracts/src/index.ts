@@ -13,6 +13,7 @@ export * from './delivery-policy.js';
 export * from './rest-idempotency.js';
 export * from './projection.js';
 export * from './integration-evidence.js';
+export * from './analytics.js';
 export * from './economy.js';
 export * from './ui.js';
 export * from './economy.schema.js';
