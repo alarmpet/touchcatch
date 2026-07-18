@@ -7,7 +7,7 @@ import {
   InMemoryPublishReceiptStore,
   createPublishWorkflow,
   type DeploymentPublisher,
-} from './server/publish-workflow.js';
+} from './testing/publish-workflow.js';
 
 const fixturePath = resolve('content/fixtures/valid/en-intermediate.json');
 const session = { actorId: 'admin-42', sessionId: 'session-9', roles: ['CONTENT_PUBLISHER'] as const };

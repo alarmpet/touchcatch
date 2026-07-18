@@ -29,7 +29,8 @@ select ok((select proowner = (select oid from pg_roles where rolname='game_secur
 select is((select count(*)::int from pg_proc where prosecdef and pronamespace in ('public'::regnamespace, 'private'::regnamespace) and oid not in (
   'private.join_match_participant_v1(uuid,uuid,uuid)'::regprocedure,
   'private.publish_content_revision_v1(jsonb,jsonb,jsonb,text,text,text,text)'::regprocedure,
-  'private.publish_attested_content_revision_v1(text,text,text,jsonb,jsonb,jsonb,text,text,text,text,text,text)'::regprocedure,
+  'private.publish_attested_content_revision_v1(text,text,text,jsonb,jsonb,jsonb,text,text,text,text,text,text,text)'::regprocedure,
+  'private.write_admin_publish_audit_v1(text,text,text,text,text,text)'::regprocedure,
   'private.lookup_admin_session_v1(text)'::regprocedure,
   'private.create_admin_session_v1(text,text,uuid)'::regprocedure,
   'private.publish_economy_bundle_v1(jsonb,jsonb)'::regprocedure,

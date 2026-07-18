@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { createDeploymentPublisher } from './server/deployment-publisher.js';
+import { createDeploymentPublisher } from './testing/deployment-publisher.js';
 
 describe('deployment-only publisher adapter', () => {
   it('calls only the existing attested publish function with canonical values', async () => {

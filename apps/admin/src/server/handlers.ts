@@ -36,15 +36,18 @@ export function createAdminHandlers(dependencies: Dependencies) {
       } catch (error) { return errorResponse(error); }
     },
     async publish(request: Request): Promise<Response> {
+      let session: VerifiedAdminSession | undefined;
+      let submission: Submission | undefined;
       try {
-        const session = await dependencies.authenticate(request);
-        const submission = await dependencies.intake(await request.formData());
+        session = await dependencies.authenticate(request);
+        submission = await dependencies.intake(await request.formData());
         const attestation = request.headers.get('x-validator-attestation') ?? '';
         const idempotencyKey = request.headers.get('idempotency-key') ?? '';
         try {
           const result = await dependencies.publish({ submission, session, attestation, idempotencyKey });
           return Response.json({ ok: true, result });
         } catch (error) {
+          try { await dependencies.audit({ action: 'PUBLISH_FAILED', session, outcome: 'ZERO_EFFECT', submission }); } catch { /* audit availability never changes publish outcome */ }
           throw error;
         }
       } catch (error) { return errorResponse(error); }

@@ -60,7 +60,7 @@ beforeAll(async () => {
   const publisherUrl = new URL(databaseUrl);
   publisherUrl.username = publisherRole;
   publisherUrl.password = publisherPassword;
-  publisherPool = new Pool({ connectionString: publisherUrl.toString(), max: 4 });
+  publisherPool = new Pool({ connectionString: publisherUrl.toString(), max: 25 });
   const publisher = await publisherPool.connect();
   try {
     const identity = await publisher.query<{ session_user: string; current_user: string; app_server_member: boolean }>(
@@ -171,16 +171,43 @@ describe('join_match_participant_v1 concurrency', () => {
 describe('admin publish durable database boundary', () => {
   it('replays exact stored results and rejects key/hash and attestation reuse across real sessions', async () => {
     const client = await publisherPool.connect(); const restartedClient = await publisherPool.connect();
-    const key = `idem_${randomUUID().replaceAll('-', '')}`; const requestHash = '1'.repeat(64); const attestationHash = '2'.repeat(64);
-    const args = [key,requestHash,attestationHash,adminPublishFixture.publicContent,adminPublishFixture.privateSolution,adminPublishFixture.rightsManifest,adminPublishFixture.publicContentCanonicalJson,adminPublishFixture.privateSolutionCanonicalJson,adminPublishFixture.rightsManifestCanonicalJson,'a'.repeat(43),'b'.repeat(43),`worker_${randomUUID().replaceAll('-','')}`];
+    const key = `idem_${randomUUID().replaceAll('-', '')}`; const requestHash = randomUUID().replaceAll('-', '').repeat(2); const attestationHash = randomUUID().replaceAll('-', '').repeat(2);
+    const args = [key,requestHash,attestationHash,adminPublishFixture.publicContent,adminPublishFixture.privateSolution,adminPublishFixture.rightsManifest,adminPublishFixture.publicContentCanonicalJson,adminPublishFixture.privateSolutionCanonicalJson,adminPublishFixture.rightsManifestCanonicalJson,'a'.repeat(43),'b'.repeat(43),`worker_${randomUUID().replaceAll('-','')}`,`artifact:${'c'.repeat(32)}`];
     try {
       await client.query('set role deployment_role');
       await restartedClient.query('set role deployment_role');
-      const first = await client.query<{ id: string }>('select private.publish_attested_content_revision_v1($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)::text as id', args);
-      const replay = await restartedClient.query<{ id: string }>('select private.publish_attested_content_revision_v1($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)::text as id', args);
+      const first = await client.query<{ id: string }>('select private.publish_attested_content_revision_v1($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)::text as id', args);
+      const replay = await restartedClient.query<{ id: string }>('select private.publish_attested_content_revision_v1($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)::text as id', args);
       expect(replay.rows).toEqual(first.rows);
-      await expect(client.query('select private.publish_attested_content_revision_v1($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)', [key,'3'.repeat(64),...args.slice(2)])).rejects.toThrow('IDEMPOTENCY_CONFLICT');
-      await expect(client.query('select private.publish_attested_content_revision_v1($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)', [`other_${key}`,requestHash,...args.slice(2)])).rejects.toThrow();
+      await expect(client.query('select private.publish_attested_content_revision_v1($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)', [key,randomUUID().replaceAll('-', '').repeat(2),...args.slice(2)])).rejects.toThrow('IDEMPOTENCY_CONFLICT');
+      await expect(client.query('select private.publish_attested_content_revision_v1($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)', [`other_${key}`,requestHash,...args.slice(2)])).rejects.toThrow();
     } finally { await client.query('reset role').catch(() => undefined); await restartedClient.query('reset role').catch(() => undefined); client.release(); restartedClient.release(); }
+  });
+  it('collapses twenty sessions to one durable effect, receipt and success audit', async () => {
+    const key = `idem_${randomUUID().replaceAll('-', '')}`; const requestHash = randomUUID().replaceAll('-', '').repeat(2); const attestationHash = randomUUID().replaceAll('-', '').repeat(2);
+    const args = [key,requestHash,attestationHash,adminPublishFixture.publicContent,adminPublishFixture.privateSolution,adminPublishFixture.rightsManifest,adminPublishFixture.publicContentCanonicalJson,adminPublishFixture.privateSolutionCanonicalJson,adminPublishFixture.rightsManifestCanonicalJson,'d'.repeat(43),'e'.repeat(43),`worker_${randomUUID().replaceAll('-','')}`,`artifact:${'f'.repeat(32)}`];
+    const clients = await Promise.all(Array.from({ length: 20 }, () => publisherPool.connect()));
+    try {
+      await Promise.all(clients.map((client) => client.query('set role deployment_role')));
+      const results = await Promise.all(clients.map((client) => client.query<{ id: string }>('select private.publish_attested_content_revision_v1($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)::text as id', args)));
+      expect(new Set(results.map((result) => result.rows[0]?.id)).size).toBe(1);
+      const receipt = await admin.query<{ count: string }>('select count(*) from private.admin_publish_receipts where idempotency_key=$1 and state=$2', [key, 'COMPLETED']);
+      const audits = await admin.query<{ count: string }>('select count(*) from private.admin_publish_audit where artifact_id=$1 and action=$2', [args[12], 'PUBLISH_SUCCEEDED']);
+      expect(receipt.rows[0]?.count).toBe('1'); expect(audits.rows[0]?.count).toBe('1');
+    } finally { await Promise.all(clients.map(async (client) => { await client.query('reset role').catch(() => undefined); client.release(); })); }
+  });
+  it('rolls back a failed effect before recording a safe failure audit', async () => {
+    const client = await publisherPool.connect(); const key = `idem_${randomUUID().replaceAll('-', '')}`;
+    const artifactRef = `artifact:${'g'.repeat(32)}`; const before = await admin.query<{ count: string }>('select count(*) from public.game_content_revisions');
+    try {
+      await client.query('set role deployment_role');
+      const args = [key,randomUUID().replaceAll('-', '').repeat(2),randomUUID().replaceAll('-', '').repeat(2),{},adminPublishFixture.privateSolution,adminPublishFixture.rightsManifest,'{}',adminPublishFixture.privateSolutionCanonicalJson,adminPublishFixture.rightsManifestCanonicalJson,'h'.repeat(43),'i'.repeat(43),`worker_${randomUUID().replaceAll('-','')}`,artifactRef];
+      await expect(client.query('select private.publish_attested_content_revision_v1($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)', args)).rejects.toThrow();
+      await client.query('select private.write_admin_publish_audit_v1($1,$2,$3,$4,$5,$6)', ['PUBLISH_FAILED','h'.repeat(43),'i'.repeat(43),artifactRef,'revision:unknown','ZERO_EFFECT']);
+      const receipt = await admin.query<{ count: string }>('select count(*) from private.admin_publish_receipts where idempotency_key=$1', [key]);
+      const after = await admin.query<{ count: string }>('select count(*) from public.game_content_revisions');
+      const audit = await admin.query<{ count: string }>('select count(*) from private.admin_publish_audit where artifact_id=$1 and action=$2 and outcome=$3', [artifactRef,'PUBLISH_FAILED','ZERO_EFFECT']);
+      expect(receipt.rows[0]?.count).toBe('0'); expect(after.rows[0]?.count).toBe(before.rows[0]?.count); expect(audit.rows[0]?.count).toBe('1');
+    } finally { await client.query('reset role').catch(() => undefined); client.release(); }
   });
 });

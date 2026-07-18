@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 import { createVerifiedAuthAdapter } from './server/auth.js';
 import { intakeMultipart } from './server/intake.js';
 import { safeAuditEvent } from './server/audit.js';
-import { PostgresPublishReceiptStore } from './server/receipt-store.js';
+import { PostgresPublishReceiptStore } from './testing/receipt-store.js';
 import { createSubmittedArtifactValidator } from './server/submitted-validator.js';
 import { createAdminHandlers } from './server/handlers.js';
 

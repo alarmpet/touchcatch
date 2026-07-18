@@ -54,15 +54,32 @@ returns void language sql security definer set search_path = pg_catalog as $$
   values(p_session_id,p_token_hash,p_actor_id,array['CONTENT_PUBLISHER']::pg_catalog.text[],pg_catalog.clock_timestamp()+interval '1 hour')
 $$;
 
+create or replace function private.write_admin_publish_audit_v1(
+  p_action pg_catalog.text, p_actor_ref pg_catalog.text, p_session_ref pg_catalog.text,
+  p_artifact_ref pg_catalog.text, p_content_revision_ref pg_catalog.text, p_outcome pg_catalog.text
+) returns void language plpgsql security definer set search_path = pg_catalog as $$
+begin
+  if p_action not in ('VALIDATION_FAILED','VALIDATION_SUCCEEDED','PUBLISH_FAILED','PUBLISH_SUCCEEDED')
+     or p_outcome not in ('REJECTED','VALIDATED','ZERO_EFFECT','PUBLISHED')
+     or (p_action,p_outcome) not in (('VALIDATION_FAILED','REJECTED'),('VALIDATION_SUCCEEDED','VALIDATED'),('PUBLISH_FAILED','ZERO_EFFECT'),('PUBLISH_SUCCEEDED','PUBLISHED'))
+     or p_actor_ref !~ '^[A-Za-z0-9_-]{20,64}$' or p_session_ref !~ '^[A-Za-z0-9_-]{20,64}$'
+     or p_artifact_ref !~ '^artifact:[A-Za-z0-9_-]{20,64}$'
+     or p_content_revision_ref !~ '^revision:[A-Za-z0-9_-]{7,64}$' then
+    raise exception 'ADMIN_AUDIT_INPUT_INVALID';
+  end if;
+  insert into private.admin_publish_audit(action,actor_ref,session_ref,artifact_id,content_revision_id,occurred_at,outcome)
+  values(p_action,p_actor_ref,p_session_ref,p_artifact_ref,p_content_revision_ref,pg_catalog.clock_timestamp(),p_outcome);
+end $$;
+
 create or replace function private.publish_attested_content_revision_v1(
   p_idempotency_key pg_catalog.text, p_request_hash pg_catalog.text, p_attestation_hash pg_catalog.text,
   p_public_content pg_catalog.jsonb, p_private_solution pg_catalog.jsonb, p_rights_manifest pg_catalog.jsonb,
   p_public_canonical pg_catalog.text, p_private_canonical pg_catalog.text, p_rights_canonical pg_catalog.text,
-  p_actor_ref pg_catalog.text, p_session_ref pg_catalog.text, p_owner_id pg_catalog.text
+  p_actor_ref pg_catalog.text, p_session_ref pg_catalog.text, p_owner_id pg_catalog.text, p_artifact_ref pg_catalog.text
 ) returns pg_catalog.uuid language plpgsql security definer set search_path = pg_catalog as $$
 declare v_receipt private.admin_publish_receipts%rowtype; v_revision pg_catalog.uuid; v_fence pg_catalog.int8;
 begin
-  if p_idempotency_key !~ '^[A-Za-z0-9_-]{8,128}$' or p_request_hash !~ '^[a-f0-9]{64}$' or p_attestation_hash !~ '^[a-f0-9]{64}$' or p_actor_ref !~ '^[A-Za-z0-9_-]{20,64}$' or p_session_ref !~ '^[A-Za-z0-9_-]{20,64}$' then raise exception 'ADMIN_PUBLISH_INPUT_INVALID'; end if;
+  if p_idempotency_key !~ '^[A-Za-z0-9_-]{8,128}$' or p_request_hash !~ '^[a-f0-9]{64}$' or p_attestation_hash !~ '^[a-f0-9]{64}$' or p_actor_ref !~ '^[A-Za-z0-9_-]{20,64}$' or p_session_ref !~ '^[A-Za-z0-9_-]{20,64}$' or p_artifact_ref !~ '^artifact:[A-Za-z0-9_-]{20,64}$' then raise exception 'ADMIN_PUBLISH_INPUT_INVALID'; end if;
   insert into private.admin_publish_receipts(idempotency_key,request_hash,attestation_hash,owner_id,fence,lease_expires_at,state)
     values(p_idempotency_key,p_request_hash,p_attestation_hash,p_owner_id,1,pg_catalog.clock_timestamp()+interval '30 seconds','PENDING')
     on conflict (idempotency_key) do nothing;
@@ -76,17 +93,20 @@ begin
   v_revision := private.publish_content_revision_v1(p_public_content,p_private_solution,p_rights_manifest,p_public_canonical,p_private_canonical,p_rights_canonical,'1.0.0');
   update private.admin_publish_receipts set state='COMPLETED',content_revision_id=v_revision,result=pg_catalog.jsonb_build_object('contentRevisionId',v_revision) where idempotency_key=p_idempotency_key and request_hash=p_request_hash and owner_id=p_owner_id and fence=v_fence;
   if not found then raise exception 'PUBLISH_FENCE_LOST'; end if;
-  insert into private.admin_publish_audit(action,actor_ref,session_ref,artifact_id,content_revision_id,occurred_at,outcome)
-  values('PUBLISH_SUCCEEDED',p_actor_ref,p_session_ref,'artifact:'||p_request_hash,'revision:'||v_revision::text,pg_catalog.clock_timestamp(),'PUBLISHED');
+  perform private.write_admin_publish_audit_v1('PUBLISH_SUCCEEDED',p_actor_ref,p_session_ref,p_artifact_ref,'revision:'||v_revision::text,'PUBLISHED');
   return v_revision;
 end $$;
 
-revoke all on private.admin_sessions, private.admin_publish_receipts, private.admin_publish_audit from public, anon, authenticated;
-alter function private.publish_attested_content_revision_v1(text,text,text,jsonb,jsonb,jsonb,text,text,text,text,text,text) owner to game_security_owner;
+revoke all on private.admin_sessions, private.admin_publish_receipts from public, anon, authenticated;
+revoke all on private.admin_publish_audit from public, anon, authenticated, service_role, app_server, deployment_role;
+alter function private.publish_attested_content_revision_v1(text,text,text,jsonb,jsonb,jsonb,text,text,text,text,text,text,text) owner to game_security_owner;
+alter function private.write_admin_publish_audit_v1(text,text,text,text,text,text) owner to game_security_owner;
 alter function private.lookup_admin_session_v1(text) owner to game_security_owner;
 alter function private.create_admin_session_v1(text,text,uuid) owner to game_security_owner;
-revoke all on function private.publish_attested_content_revision_v1(text,text,text,jsonb,jsonb,jsonb,text,text,text,text,text,text) from public, anon, authenticated, service_role, app_server;
-grant execute on function private.publish_attested_content_revision_v1(text,text,text,jsonb,jsonb,jsonb,text,text,text,text,text,text) to deployment_role;
+revoke all on function private.publish_attested_content_revision_v1(text,text,text,jsonb,jsonb,jsonb,text,text,text,text,text,text,text) from public, anon, authenticated, service_role, app_server;
+grant execute on function private.publish_attested_content_revision_v1(text,text,text,jsonb,jsonb,jsonb,text,text,text,text,text,text,text) to deployment_role;
+revoke all on function private.write_admin_publish_audit_v1(text,text,text,text,text,text) from public,anon,authenticated,service_role,app_server;
+grant execute on function private.write_admin_publish_audit_v1(text,text,text,text,text,text) to deployment_role;
 revoke all on function private.lookup_admin_session_v1(text), private.create_admin_session_v1(text,text,uuid) from public,anon,authenticated,service_role,app_server;
 grant execute on function private.lookup_admin_session_v1(text), private.create_admin_session_v1(text,text,uuid) to deployment_role;
 do $$begin execute format('revoke game_security_owner from %I',current_user); end$$;
