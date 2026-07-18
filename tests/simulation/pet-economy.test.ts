@@ -22,9 +22,12 @@ describe('pet economy simulation', () => {
       expect(scenario.stream.inventory).toEqual(expect.objectContaining({ COMMON: expect.any(Number), RARE: expect.any(Number), LEGENDARY: expect.any(Number) }));
       expect(scenario.stream.pityTriggers).toEqual(expect.objectContaining({ rare: expect.any(Number), legendary: expect.any(Number) }));
       expect(scenario.cohort).toEqual(expect.objectContaining({ users: 2_000, firstLegendaryMedian: expect.any(Number), firstLegendaryP95: expect.any(Number) }));
-      expect(scenario.checks).toEqual({ representativeExcluded: true, protectedPetsExcluded: true, samePetRuleApplied: expect.any(Boolean) });
+      expect(scenario.stream.fusion).toEqual(expect.objectContaining({ commonOutputs: expect.any(Number), legendaryOutputs: expect.any(Number), consumedCommon: expect.any(Number), consumedRare: expect.any(Number) }));
+      expect(scenario.checks).toEqual({ representativeExcluded: scenario.id.includes('same-pet'), protectedPetsExcluded: scenario.id.includes('same-pet'), samePetRuleApplied: scenario.id.includes('same-pet') });
     }
     expect(first.scenarios[2]!.checks.samePetRuleApplied).toBe(true);
     expect(first.scenarios[3]!.stream.pityTriggers.rare).toBeGreaterThan(first.scenarios[2]!.stream.pityTriggers.rare);
+    expect(first.scenarios[0]!.stream.legendaryEquivalentRate).toBeGreaterThan(first.scenarios[2]!.stream.legendaryEquivalentRate);
+    expect(first.scenarios[1]!.stream.fusion.legendaryOutputs).toBeGreaterThan(first.scenarios[2]!.stream.fusion.legendaryOutputs);
   });
 });
