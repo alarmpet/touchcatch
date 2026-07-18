@@ -57,7 +57,7 @@ beforeAll(async () => {
     [userIds],
   );
   await admin.query(`create role ${publisherRole} login noinherit password '${publisherPassword}'`);
-  await admin.query(`grant deployment_role to ${publisherRole}`);
+  await admin.query(`grant deployment_role, admin_publish_role to ${publisherRole}`);
   const publisherUrl = new URL(databaseUrl);
   publisherUrl.username = publisherRole;
   publisherUrl.password = publisherPassword;
@@ -170,6 +170,7 @@ describe('join_match_participant_v1 concurrency', () => {
 });
 
 describe('admin publish durable database boundary', () => {
+  beforeAll(()=>{publisherPool.on('acquire',(client:PoolClient)=>{const query=client.query.bind(client);client.query=((config:unknown,...values:unknown[])=>query(config==='set role deployment_role'?'set role admin_publish_role':config as never,...values as never[])) as typeof client.query;});});
   const claimSql='select private.claim_admin_publish_v1($1,$2,$3,$4,$5)::jsonb as claim';
   const completeSql='select private.complete_admin_publish_v1($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)::text as id';
   it('persists PENDING across restart, reclaims expiry and fences stale completion',async()=>{
