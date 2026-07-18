@@ -13,4 +13,12 @@ export * from './delivery-policy.js';
 export * from './rest-idempotency.js';
 export * from './projection.js';
 export * from './integration-evidence.js';
-export * from './quarantine.js';
+export {
+  PRIVACY_OPERATOR_ROLE,
+  parseQuarantinePolicy,
+  quarantinePolicyV1Schema,
+  scanNestedPii,
+  type QuarantineAuditV1,
+  type QuarantinePolicyV1,
+  type QuarantineStatus,
+} from './quarantine.js';

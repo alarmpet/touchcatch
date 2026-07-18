@@ -1,9 +1,22 @@
 import { describe, expect, it } from 'vitest';
-import { MemoryQuarantineRepository, MemoryQuarantineStore, PRIVACY_OPERATOR_ROLE, parseQuarantinePolicy, runQuarantineJob, scanNestedPii } from './quarantine.js';
+import * as publicContracts from './index.js';
+import { PRIVACY_OPERATOR_ROLE, parseQuarantinePolicy, scanNestedPii } from './quarantine.js';
+import { MemoryQuarantineRepository, MemoryQuarantineStore, runQuarantineJob } from './quarantine.internal.js';
 
 const redactPolicy=()=>parseQuarantinePolicy({policyVersion:'approved-2026-07',approvalId:'LEGAL-123',action:'REDACT',fields:['profile.email','events[].payload.contact'],legalHoldPrecedence:'BLOCK_ACTION'});
 
 describe('durable policy-neutral quarantine',()=>{
+ it('does not export persistence capabilities through the public contracts barrel',()=>{
+  // @ts-expect-error persistence is deliberately absent from the public type surface
+  expect(publicContracts.MemoryQuarantineStore).toBeUndefined();
+  // @ts-expect-error repository capability is deliberately absent from the public type surface
+  expect(publicContracts.MemoryQuarantineRepository).toBeUndefined();
+  // @ts-expect-error operator execution is deliberately absent from the public type surface
+  expect(publicContracts.runQuarantineJob).toBeUndefined();
+  expect(Object.keys(publicContracts)).not.toContain('MemoryQuarantineStore');
+  expect(Object.keys(publicContracts)).not.toContain('MemoryQuarantineRepository');
+  expect(Object.keys(publicContracts)).not.toContain('runQuarantineJob');
+ });
  it('uses an approved classifier contract for keys and values without key-substring false positives',()=>{
   expect(scanNestedPii({emailPreferences:true,note:'person@example.test',telephone:'010-1234-5678',safe:'hello'})).toEqual(['note','telephone']);
  });
