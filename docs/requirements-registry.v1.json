@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedFrom": "README_AND_01_TO_13_ANNOTATED_NORMATIVE_BULLETS",
+  "generatedFrom": "README_AND_01_TO_13_ALL_NORMATIVE_SEMANTIC_LINES",
   "requirements": [
     {
       "id": "RULE-001",
@@ -53,6 +53,78 @@
     {
       "id": "RULE-005",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
+      "sourceLine": 11,
+      "section": "장르",
+      "text": "실시간 1:1 캐주얼 PvP + 틀린그림찾기 + 돌발 오브젝트 사냥 + 학습 퀴즈 + 펫 수집.",
+      "fingerprint": "7f0f2e577775bea3896cc38a9b061433936930641654e8a04f5ecaa3be9180e6",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "ruleset_projection_drift_total"
+    },
+    {
+      "id": "RULE-006",
+      "source": "01_GAME_DESIGN_OVERVIEW.md",
+      "sourceLine": 14,
+      "section": "한 판 감정 곡선",
+      "text": "0~15초: 쉬운 차이점 선점",
+      "fingerprint": "f301f50ddf9aff858ece5e3142656d446c25ead37ecf0344b4128689c3090edc",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "ruleset_projection_drift_total"
+    },
+    {
+      "id": "RULE-007",
+      "source": "01_GAME_DESIGN_OVERVIEW.md",
+      "sourceLine": 15,
+      "section": "한 판 감정 곡선",
+      "text": "16~22초: 첫 돌발 단어",
+      "fingerprint": "3454abd509108721cbb687170ee11cdf19e4cf7866f144eaa79f7fdfc00cfeaf",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "ruleset_projection_drift_total"
+    },
+    {
+      "id": "RULE-008",
+      "source": "01_GAME_DESIGN_OVERVIEW.md",
+      "sourceLine": 16,
+      "section": "한 판 감정 곡선",
+      "text": "23~42초: 차이점과 단어 사냥 혼합",
+      "fingerprint": "02dc089aeea94f30c785741e2eb7836774594bd90dc3d9810b7fd4bff4609cfc",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "ruleset_projection_drift_total"
+    },
+    {
+      "id": "RULE-009",
+      "source": "01_GAME_DESIGN_OVERVIEW.md",
+      "sourceLine": 17,
+      "section": "한 판 감정 곡선",
+      "text": "43~59초: 최종 단어 추리",
+      "fingerprint": "b9ff33c34405906b6cb924543c4687bfceada03c15d46f4e8817b8dbbc2e7651",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "ruleset_projection_drift_total"
+    },
+    {
+      "id": "RULE-010",
+      "source": "01_GAME_DESIGN_OVERVIEW.md",
+      "sourceLine": 18,
+      "section": "한 판 감정 곡선",
+      "text": "60~75초: 파이널 러시",
+      "fingerprint": "fa68ddcc0883da20dc75b8044cb03c2dce459c86c0eb29c0f6da5a8931ebab9e",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "ruleset_projection_drift_total"
+    },
+    {
+      "id": "RULE-011",
+      "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 21,
       "section": "MVP 모드",
       "text": "AI 연습전",
@@ -63,7 +135,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-006",
+      "id": "RULE-012",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 22,
       "section": "MVP 모드",
@@ -75,7 +147,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-007",
+      "id": "RULE-013",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 23,
       "section": "MVP 모드",
@@ -87,7 +159,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-008",
+      "id": "RULE-014",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 26,
       "section": "출시 후",
@@ -99,7 +171,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-009",
+      "id": "RULE-015",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 27,
       "section": "출시 후",
@@ -111,7 +183,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-010",
+      "id": "RULE-016",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 28,
       "section": "출시 후",
@@ -123,7 +195,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-011",
+      "id": "RULE-017",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 29,
       "section": "출시 후",
@@ -135,7 +207,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-012",
+      "id": "RULE-018",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 5,
       "section": "승리 조건",
@@ -147,7 +219,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-013",
+      "id": "RULE-019",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 6,
       "section": "승리 조건",
@@ -159,7 +231,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-014",
+      "id": "RULE-020",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 7,
       "section": "승리 조건",
@@ -171,7 +243,55 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-015",
+      "id": "RULE-021",
+      "source": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceLine": 10,
+      "section": "동점 판정",
+      "text": "최종 단어+뜻 성공 여부",
+      "fingerprint": "528c106a915cb851722364c2a763a2e2ad31681f2f4311cf0c46f38dc16d0caa",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "ruleset_projection_drift_total"
+    },
+    {
+      "id": "RULE-022",
+      "source": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceLine": 11,
+      "section": "동점 판정",
+      "text": "어려운 차이점 수",
+      "fingerprint": "72a9114b1696e400b348f1eeb812e2b93065363e6a7bf2a673428fa702d10213",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "ruleset_projection_drift_total"
+    },
+    {
+      "id": "RULE-023",
+      "source": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceLine": 12,
+      "section": "동점 판정",
+      "text": "오답 수가 적은 사람",
+      "fingerprint": "b7db2903f0ecc539132c8e654d9150a498877afbb720f84878f27b9357e4f85e",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "ruleset_projection_drift_total"
+    },
+    {
+      "id": "RULE-024",
+      "source": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceLine": 13,
+      "section": "동점 판정",
+      "text": "10초 서든데스",
+      "fingerprint": "e06797f7a1f73edfefe1a92d29d77cc965f853568985b6707971d859863b0172",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "ruleset_projection_drift_total"
+    },
+    {
+      "id": "RULE-025",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 16,
       "section": "차이점 구성",
@@ -183,7 +303,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-016",
+      "id": "RULE-026",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 17,
       "section": "차이점 구성",
@@ -195,7 +315,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-017",
+      "id": "RULE-027",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 18,
       "section": "차이점 구성",
@@ -207,7 +327,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-018",
+      "id": "RULE-028",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 19,
       "section": "차이점 구성",
@@ -219,7 +339,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-019",
+      "id": "RULE-029",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 22,
       "section": "돌발 단어",
@@ -231,7 +351,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-020",
+      "id": "RULE-030",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 23,
       "section": "돌발 단어",
@@ -243,7 +363,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-021",
+      "id": "RULE-031",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 24,
       "section": "돌발 단어",
@@ -255,7 +375,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-022",
+      "id": "RULE-032",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 25,
       "section": "돌발 단어",
@@ -267,7 +387,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-023",
+      "id": "RULE-033",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 26,
       "section": "돌발 단어",
@@ -279,7 +399,19 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-024",
+      "id": "RULE-034",
+      "source": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceLine": 29,
+      "section": "최종 단어 도전",
+      "text": "다음 중 하나 충족 시 활성화:",
+      "fingerprint": "01e8e12fc8d450368fc45586b59e7b17ea9dfab2b608b9393c3a99ecdcf363ea",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "ruleset_projection_drift_total"
+    },
+    {
+      "id": "RULE-035",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 30,
       "section": "최종 단어 도전",
@@ -291,7 +423,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-025",
+      "id": "RULE-036",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 31,
       "section": "최종 단어 도전",
@@ -303,7 +435,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-026",
+      "id": "RULE-037",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 32,
       "section": "최종 단어 도전",
@@ -315,7 +447,79 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-027",
+      "id": "RULE-038",
+      "source": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceLine": 35,
+      "section": "최종 단어·뜻",
+      "text": "최종 단어 정답 +25",
+      "fingerprint": "1dffc05685138153ce740a1063a3248cee109beb1473847b4c9514926474371b",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "ruleset_projection_drift_total"
+    },
+    {
+      "id": "RULE-039",
+      "source": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceLine": 36,
+      "section": "최종 단어·뜻",
+      "text": "이어서 뜻 3지선다 5초",
+      "fingerprint": "a938f8b459d80572cb98c3df4774510ad52573ae6170ab061ab640f41a291fe2",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "ruleset_projection_drift_total"
+    },
+    {
+      "id": "RULE-040",
+      "source": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceLine": 37,
+      "section": "최종 단어·뜻",
+      "text": "뜻 정답 +15",
+      "fingerprint": "861a38680a8c2883dbfffc2e83c401307fc7964df27e7f69dbddefad5966908e",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "ruleset_projection_drift_total"
+    },
+    {
+      "id": "RULE-041",
+      "source": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceLine": 38,
+      "section": "최종 단어·뜻",
+      "text": "둘 다 성공 +10",
+      "fingerprint": "e245f6530d17e93731ba4f33a39a6b32f140e8fd90f238d40706790ee486d5f2",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "ruleset_projection_drift_total"
+    },
+    {
+      "id": "RULE-042",
+      "source": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceLine": 39,
+      "section": "최종 단어·뜻",
+      "text": "최종 단어 오답 -5 + 2초 잠금",
+      "fingerprint": "0962f505a8e9063fb34f9bfafe6874c2a81d45e8ffcec90a612408e3edff5e0a",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "ruleset_projection_drift_total"
+    },
+    {
+      "id": "RULE-043",
+      "source": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceLine": 40,
+      "section": "최종 단어·뜻",
+      "text": "파이널 러시 오답 -10 + 1.5초 잠금",
+      "fingerprint": "b3c4734397914daa49d4abd40a24ff00e0ee856a81a1f948c99cb356bf2dfb06",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "ruleset_projection_drift_total"
+    },
+    {
+      "id": "RULE-044",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 43,
       "section": "파이널 러시",
@@ -327,7 +531,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-028",
+      "id": "RULE-045",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 44,
       "section": "파이널 러시",
@@ -339,7 +543,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-029",
+      "id": "RULE-046",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 45,
       "section": "파이널 러시",
@@ -351,7 +555,7 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-030",
+      "id": "RULE-047",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 46,
       "section": "파이널 러시",
@@ -363,12 +567,24 @@
       "metric": "ruleset_projection_drift_total"
     },
     {
-      "id": "RULE-031",
+      "id": "RULE-048",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 47,
       "section": "파이널 러시",
       "text": "입력 잠금은 유지해 스팸 방지",
       "fingerprint": "47e0968cd8bce739856677a3caebee3084823e1a494e98d773cc9bd57d4fb1e1",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "ruleset_projection_drift_total"
+    },
+    {
+      "id": "RULE-049",
+      "source": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceLine": 50,
+      "section": "예시",
+      "text": "A: 일반 차이 6개 36 + 어려움 1개 9 + 돌발 10 + 최종 25 + 뜻 15 + 연속 10 = 105점 승리.",
+      "fingerprint": "410e1bc3ab7537c5796d5852ac90b8d09a50582d3df315f5967dfe457e32f499",
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
@@ -435,7 +651,67 @@
       "metric": "replay_hash_mismatch_total"
     },
     {
+      "id": "STATE-006",
+      "source": "03_GAME_FLOW_AND_STATE_MACHINE.md",
+      "sourceLine": 24,
+      "section": "좌표",
+      "text": "모든 hitbox는 원본 이미지 기준 0~1 정규화 좌표로 저장한다.",
+      "fingerprint": "ff144414c706b457f71ea051e682b105e03c7f51e4e808a2c2a9a3e1862da574",
+      "schema": "packages/contracts/src/match.schema.ts",
+      "phase": "B",
+      "test": "packages/game-engine/src/replay.test.ts",
+      "metric": "replay_hash_mismatch_total"
+    },
+    {
+      "id": "STATE-007",
+      "source": "03_GAME_FLOW_AND_STATE_MACHINE.md",
+      "sourceLine": 31,
+      "section": "줌/팬",
+      "text": "클라이언트는 transform을 역변환해 원본 정규화 좌표를 서버에 전송한다. 서버가 최종 판정한다.",
+      "fingerprint": "f6c39846ffe5728a25af70a85e98fc1ac857c5393497dba33b05776fceda62c4",
+      "schema": "packages/contracts/src/match.schema.ts",
+      "phase": "B",
+      "test": "packages/game-engine/src/replay.test.ts",
+      "metric": "replay_hash_mismatch_total"
+    },
+    {
+      "id": "STATE-008",
+      "source": "03_GAME_FLOW_AND_STATE_MACHINE.md",
+      "sourceLine": 34,
+      "section": "Deterministic persisted phases",
+      "text": "The authoritative match phases are `WAITING_FOR_ASSETS → COUNTDOWN → PLAYING → FINAL_RUSH → SETTLING → TIEBREAK_EVAL → SUDDEN_DEATH → FINISHED`, with `CANCELLED` as the no-contest terminal phase. `SETTLING` accepts only meaning answers whose quiz began before gameplay close and whose personal deadline is before the settlement cap.",
+      "fingerprint": "4d2ca78e2e2dba5434c8f424a0f2a66d230dbdfb7c5e3eef96f84592e9e444be",
+      "schema": "packages/contracts/src/match.schema.ts",
+      "phase": "B",
+      "test": "packages/game-engine/src/replay.test.ts",
+      "metric": "replay_hash_mismatch_total"
+    },
+    {
+      "id": "STATE-009",
+      "source": "03_GAME_FLOW_AND_STATE_MACHINE.md",
+      "sourceLine": 36,
+      "section": "Deterministic persisted phases",
+      "text": "Transport reconnect is not a persisted match phase. It is a derived client overlay which blocks local input while the authoritative connection epoch remains in the snapshot. Navigation state is likewise separate from persisted match phase.",
+      "fingerprint": "9a8a78c2ea46f8467960a59a856d8f109efb51f19c7833aff06f19e858095ee5",
+      "schema": "packages/contracts/src/match.schema.ts",
+      "phase": "B",
+      "test": "packages/game-engine/src/replay.test.ts",
+      "metric": "replay_hash_mismatch_total"
+    },
+    {
       "id": "UX-001",
+      "source": "04_UX_SCREEN_SPEC.md",
+      "sourceLine": 6,
+      "section": "UI acceptance matrix (generated contract projection)",
+      "text": "Every `320x568`, `390x844`, and `412x915` viewport is checked on iOS and Android for default, disabled, pending, offline, reconnecting, modal, 200% text, reduced-motion, and high-contrast states. Safe-area containment, logical focus order, 44pt/48dp targets, modal focus trap, blocked backdrop/system-back dismissal, live-region announcements, and private-answer non-disclosure are required. Actual device captures and approved goldens remain `BLOCKED_MANUAL_DEVICE_EVIDENCE`.",
+      "fingerprint": "502bebb4c698ffcdc578d444cfdda0a275297f51bae1f335e8230fea41b7d305",
+      "schema": "packages/contracts/src/ui.ts",
+      "phase": "F",
+      "test": "tests/contracts/ui-final-acceptance.test.ts",
+      "metric": "ui_acceptance_failure_total"
+    },
+    {
+      "id": "UX-002",
       "source": "04_UX_SCREEN_SPEC.md",
       "sourceLine": 10,
       "section": "원칙",
@@ -447,7 +723,7 @@
       "metric": "ui_acceptance_failure_total"
     },
     {
-      "id": "UX-002",
+      "id": "UX-003",
       "source": "04_UX_SCREEN_SPEC.md",
       "sourceLine": 11,
       "section": "원칙",
@@ -459,7 +735,7 @@
       "metric": "ui_acceptance_failure_total"
     },
     {
-      "id": "UX-003",
+      "id": "UX-004",
       "source": "04_UX_SCREEN_SPEC.md",
       "sourceLine": 12,
       "section": "원칙",
@@ -471,7 +747,7 @@
       "metric": "ui_acceptance_failure_total"
     },
     {
-      "id": "UX-004",
+      "id": "UX-005",
       "source": "04_UX_SCREEN_SPEC.md",
       "sourceLine": 15,
       "section": "홈",
@@ -483,7 +759,7 @@
       "metric": "ui_acceptance_failure_total"
     },
     {
-      "id": "UX-005",
+      "id": "UX-006",
       "source": "04_UX_SCREEN_SPEC.md",
       "sourceLine": 16,
       "section": "홈",
@@ -495,7 +771,7 @@
       "metric": "ui_acceptance_failure_total"
     },
     {
-      "id": "UX-006",
+      "id": "UX-007",
       "source": "04_UX_SCREEN_SPEC.md",
       "sourceLine": 17,
       "section": "홈",
@@ -507,7 +783,7 @@
       "metric": "ui_acceptance_failure_total"
     },
     {
-      "id": "UX-007",
+      "id": "UX-008",
       "source": "04_UX_SCREEN_SPEC.md",
       "sourceLine": 18,
       "section": "홈",
@@ -519,7 +795,7 @@
       "metric": "ui_acceptance_failure_total"
     },
     {
-      "id": "UX-008",
+      "id": "UX-009",
       "source": "04_UX_SCREEN_SPEC.md",
       "sourceLine": 19,
       "section": "홈",
@@ -531,7 +807,55 @@
       "metric": "ui_acceptance_failure_total"
     },
     {
-      "id": "UX-009",
+      "id": "UX-010",
+      "source": "04_UX_SCREEN_SPEC.md",
+      "sourceLine": 23,
+      "section": "상단",
+      "text": "내 점수 / 타이머 / 상대 점수 / 목표 100점",
+      "fingerprint": "65839ef22f4ff85c6989def4d366c7f67e0ea61e5a88a3f054991839058ef8f1",
+      "schema": "packages/contracts/src/ui.ts",
+      "phase": "F",
+      "test": "tests/contracts/ui-final-acceptance.test.ts",
+      "metric": "ui_acceptance_failure_total"
+    },
+    {
+      "id": "UX-011",
+      "source": "04_UX_SCREEN_SPEC.md",
+      "sourceLine": 26,
+      "section": "중앙",
+      "text": "두 장의 이미지. 발견된 차이점에 플레이어 색 원 표시.",
+      "fingerprint": "d01fdbef0363825022ec1925043063b03fdd9f9f688011852d22875a032d2167",
+      "schema": "packages/contracts/src/ui.ts",
+      "phase": "F",
+      "test": "tests/contracts/ui-final-acceptance.test.ts",
+      "metric": "ui_acceptance_failure_total"
+    },
+    {
+      "id": "UX-012",
+      "source": "04_UX_SCREEN_SPEC.md",
+      "sourceLine": 29,
+      "section": "돌발 미션",
+      "text": "단어를 1.2초 크게 띄운 뒤 상단 미션바로 축소.",
+      "fingerprint": "f4dcd9cddfff2819c1f3ae3bdebc08764a21a32d1d571f95a7f6723fe9226938",
+      "schema": "packages/contracts/src/ui.ts",
+      "phase": "F",
+      "test": "tests/contracts/ui-final-acceptance.test.ts",
+      "metric": "ui_acceptance_failure_total"
+    },
+    {
+      "id": "UX-013",
+      "source": "04_UX_SCREEN_SPEC.md",
+      "sourceLine": 32,
+      "section": "하단",
+      "text": "정답 도전 / 힌트 / 최종 단어 빈칸",
+      "fingerprint": "cf02d98979171b6a33f4b528a89a1eeaac37853bb04e3db21c5de1c227ef19c4",
+      "schema": "packages/contracts/src/ui.ts",
+      "phase": "F",
+      "test": "tests/contracts/ui-final-acceptance.test.ts",
+      "metric": "ui_acceptance_failure_total"
+    },
+    {
+      "id": "UX-014",
       "source": "04_UX_SCREEN_SPEC.md",
       "sourceLine": 35,
       "section": "결과",
@@ -543,7 +867,7 @@
       "metric": "ui_acceptance_failure_total"
     },
     {
-      "id": "UX-010",
+      "id": "UX-015",
       "source": "04_UX_SCREEN_SPEC.md",
       "sourceLine": 36,
       "section": "결과",
@@ -555,7 +879,7 @@
       "metric": "ui_acceptance_failure_total"
     },
     {
-      "id": "UX-011",
+      "id": "UX-016",
       "source": "04_UX_SCREEN_SPEC.md",
       "sourceLine": 37,
       "section": "결과",
@@ -567,7 +891,7 @@
       "metric": "ui_acceptance_failure_total"
     },
     {
-      "id": "UX-012",
+      "id": "UX-017",
       "source": "04_UX_SCREEN_SPEC.md",
       "sourceLine": 38,
       "section": "결과",
@@ -579,7 +903,7 @@
       "metric": "ui_acceptance_failure_total"
     },
     {
-      "id": "UX-013",
+      "id": "UX-018",
       "source": "04_UX_SCREEN_SPEC.md",
       "sourceLine": 39,
       "section": "결과",
@@ -591,7 +915,7 @@
       "metric": "ui_acceptance_failure_total"
     },
     {
-      "id": "UX-014",
+      "id": "UX-019",
       "source": "04_UX_SCREEN_SPEC.md",
       "sourceLine": 40,
       "section": "결과",
@@ -879,7 +1203,67 @@
       "metric": "economy_duplicate_effect_total"
     },
     {
+      "id": "ECON-024",
+      "source": "05_PET_COLLECTION_SYSTEM.md",
+      "sourceLine": 39,
+      "section": "Implementation baseline note (2026-07-15)",
+      "text": "The executable economy baseline is documented in `docs/decisions/ADR-004-pet-economy.md`. Repository configs are DRAFT and must not be admitted by production startup until product approval metadata and exact immutable DB revisions exist.",
+      "fingerprint": "16b1b97135a1dea42664ce6373facda6828da3b536547105a91cc746c253a0a8",
+      "schema": "packages/contracts/src/economy.schema.ts",
+      "phase": "E",
+      "test": "tests/simulation/pet-economy.test.ts",
+      "metric": "economy_duplicate_effect_total"
+    },
+    {
       "id": "SEC-001",
+      "source": "06_CLIENT_ARCHITECTURE.md",
+      "sourceLine": 5,
+      "section": "Authenticated delivery contract",
+      "text": "The client declares supported protocol, engine, and ruleset versions while authenticating with a Supabase access token. It never sends the auth UUID as a player identity. `UPDATE_REQUIRED` closes admission before command ingress. Persist `lastEventSeq`, request exact journal replay on gaps, and replace with a viewer-safe snapshot when replay is unavailable or inconsistent. Retries reuse the UUIDv4 `requestId`.",
+      "fingerprint": "e8ae50ffff3df9b323e46e892b8a7737571a5900913ad52dfaee7f9ee2a89caf",
+      "schema": "packages/contracts/src/quarantine.ts",
+      "phase": "D",
+      "test": "packages/contracts/src/quarantine.test.ts",
+      "metric": "quarantine_failure_total"
+    },
+    {
+      "id": "SEC-002",
+      "source": "06_CLIENT_ARCHITECTURE.md",
+      "sourceLine": 8,
+      "section": "Authenticated delivery contract",
+      "text": "The Expo SDK 57 / React Native 0.86 shell consumes `MatchSnapshotV1` from the public Task 4 projection. It renders a safe-area native tree and emits only normalized `TAP_IMAGE` intents. Input fails closed outside playable phases, while offline/reconnecting, while an intent is pending, or when `viewerInput.enabled` is false. It never derives score, correctness, ownership, rewards, or private hitboxes.",
+      "fingerprint": "551c945217838a4c767893de5f71d92da7f5c64bf10d358b3e5a7cc634a40d3a",
+      "schema": "packages/contracts/src/quarantine.ts",
+      "phase": "D",
+      "test": "packages/contracts/src/quarantine.test.ts",
+      "metric": "quarantine_failure_total"
+    },
+    {
+      "id": "SEC-003",
+      "source": "06_CLIENT_ARCHITECTURE.md",
+      "sourceLine": 12,
+      "section": "스택",
+      "text": "Expo, React Native, TypeScript strict, expo-router, Zustand, TanStack Query, Socket.IO Client, Reanimated, Gesture Handler, Sentry.",
+      "fingerprint": "d16fecd120dc28acb071b9f8fedb6837266ae1b50fa79d36f95e8a230d2ad6fb",
+      "schema": "packages/contracts/src/quarantine.ts",
+      "phase": "D",
+      "test": "packages/contracts/src/quarantine.test.ts",
+      "metric": "quarantine_failure_total"
+    },
+    {
+      "id": "SEC-004",
+      "source": "06_CLIENT_ARCHITECTURE.md",
+      "sourceLine": 27,
+      "section": "서버 권위",
+      "text": "클라이언트는 점수를 직접 증가시키지 않는다. 터치 이펙트만 즉시 보여주고 점수는 서버 응답 후 반영한다.",
+      "fingerprint": "8ea9c29644af4ed0f930a1ed358235a698b19e86eeb3ab57f6700cc6ceda3ced",
+      "schema": "packages/contracts/src/quarantine.ts",
+      "phase": "D",
+      "test": "packages/contracts/src/quarantine.test.ts",
+      "metric": "quarantine_failure_total"
+    },
+    {
+      "id": "SEC-005",
       "source": "06_CLIENT_ARCHITECTURE.md",
       "sourceLine": 30,
       "section": "이미지",
@@ -891,7 +1275,7 @@
       "metric": "quarantine_failure_total"
     },
     {
-      "id": "SEC-002",
+      "id": "SEC-006",
       "source": "06_CLIENT_ARCHITECTURE.md",
       "sourceLine": 31,
       "section": "이미지",
@@ -903,7 +1287,7 @@
       "metric": "quarantine_failure_total"
     },
     {
-      "id": "SEC-003",
+      "id": "SEC-007",
       "source": "06_CLIENT_ARCHITECTURE.md",
       "sourceLine": 32,
       "section": "이미지",
@@ -917,6 +1301,42 @@
     {
       "id": "OBS-001",
       "source": "07_REALTIME_SERVER_SPEC.md",
+      "sourceLine": 5,
+      "section": "Authenticated recovery contract",
+      "text": "Resolve the verified token subject through server-owned membership to an opaque participant key. Never serialize the subject or raw JWT. Pin protocol, engine, ruleset hash, content revision, and content hash before receipt reservation. Durable journal replay is authoritative; Redis and memory are bounded caches only. Disconnect epochs are monotonic, with resume below 15,000ms and forfeit at the exact boundary.",
+      "fingerprint": "276feecfe38a83faf0e9ef4326976bb06c40952464316cdf694238af5509c200",
+      "schema": "packages/contracts/src/analytics.ts",
+      "phase": "G",
+      "test": "tests/contracts/analytics-event.test.ts",
+      "metric": "trace_stage_missing_total"
+    },
+    {
+      "id": "OBS-002",
+      "source": "07_REALTIME_SERVER_SPEC.md",
+      "sourceLine": 8,
+      "section": "스택",
+      "text": "Node.js 22+, NestJS, Socket.IO, Redis, PostgreSQL, BullMQ.",
+      "fingerprint": "b60b447e611f30744186e7886e1d5b450f9146e21aa34099eb1a1358dea2610d",
+      "schema": "packages/contracts/src/analytics.ts",
+      "phase": "G",
+      "test": "tests/contracts/analytics-event.test.ts",
+      "metric": "trace_stage_missing_total"
+    },
+    {
+      "id": "OBS-003",
+      "source": "07_REALTIME_SERVER_SPEC.md",
+      "sourceLine": 11,
+      "section": "서버가 결정하는 것",
+      "text": "점수, 정답, 시간, 승패, 돌발 미션, 버프, 잠금.",
+      "fingerprint": "c528b0fab0dbf26f8fe29a1f8561ab4a017a893cc5fcc1051e1f915a8a3ba569",
+      "schema": "packages/contracts/src/analytics.ts",
+      "phase": "G",
+      "test": "tests/contracts/analytics-event.test.ts",
+      "metric": "trace_stage_missing_total"
+    },
+    {
+      "id": "OBS-004",
+      "source": "07_REALTIME_SERVER_SPEC.md",
       "sourceLine": 14,
       "section": "치팅 방지",
       "text": "초당 터치 최대 8회",
@@ -927,7 +1347,7 @@
       "metric": "trace_stage_missing_total"
     },
     {
-      "id": "OBS-002",
+      "id": "OBS-005",
       "source": "07_REALTIME_SERVER_SPEC.md",
       "sourceLine": 15,
       "section": "치팅 방지",
@@ -939,7 +1359,7 @@
       "metric": "trace_stage_missing_total"
     },
     {
-      "id": "OBS-003",
+      "id": "OBS-006",
       "source": "07_REALTIME_SERVER_SPEC.md",
       "sourceLine": 16,
       "section": "치팅 방지",
@@ -951,7 +1371,7 @@
       "metric": "trace_stage_missing_total"
     },
     {
-      "id": "OBS-004",
+      "id": "OBS-007",
       "source": "07_REALTIME_SERVER_SPEC.md",
       "sourceLine": 17,
       "section": "치팅 방지",
@@ -963,7 +1383,7 @@
       "metric": "trace_stage_missing_total"
     },
     {
-      "id": "OBS-005",
+      "id": "OBS-008",
       "source": "07_REALTIME_SERVER_SPEC.md",
       "sourceLine": 18,
       "section": "치팅 방지",
@@ -975,7 +1395,7 @@
       "metric": "trace_stage_missing_total"
     },
     {
-      "id": "OBS-006",
+      "id": "OBS-009",
       "source": "07_REALTIME_SERVER_SPEC.md",
       "sourceLine": 21,
       "section": "연결 끊김",
@@ -987,7 +1407,7 @@
       "metric": "trace_stage_missing_total"
     },
     {
-      "id": "OBS-007",
+      "id": "OBS-010",
       "source": "07_REALTIME_SERVER_SPEC.md",
       "sourceLine": 22,
       "section": "연결 끊김",
@@ -999,7 +1419,7 @@
       "metric": "trace_stage_missing_total"
     },
     {
-      "id": "OBS-008",
+      "id": "OBS-011",
       "source": "07_REALTIME_SERVER_SPEC.md",
       "sourceLine": 23,
       "section": "연결 끊김",
@@ -1011,7 +1431,79 @@
       "metric": "trace_stage_missing_total"
     },
     {
+      "id": "OBS-012",
+      "source": "07_REALTIME_SERVER_SPEC.md",
+      "sourceLine": 26,
+      "section": "Match ordering contract",
+      "text": "Ingress drains due timers to a fixed point in `(dueAtMs, timerId)` order before sequencing a PLAYER or SYSTEM command at the same logical time. `commandSeq`, `eventSeq`, and `stateRevision` are separate match-scoped counters. Old client revisions are synchronization watermarks and remain eligible; only future revisions are rejected.",
+      "fingerprint": "1f0485ac865dbc6990f18d9fcbd710e655446fb477ee0bddb00fc15fd6341459",
+      "schema": "packages/contracts/src/analytics.ts",
+      "phase": "G",
+      "test": "tests/contracts/analytics-event.test.ts",
+      "metric": "trace_stage_missing_total"
+    },
+    {
+      "id": "OBS-013",
+      "source": "07_REALTIME_SERVER_SPEC.md",
+      "sourceLine": 28,
+      "section": "Match ordering contract",
+      "text": "Disconnect epochs are monotonic. Reconnect before the absolute forfeit deadline cancels the epoch timer; at the exact deadline the timer wins and produces `FORFEIT`. Recovery without durable journal/lease continuity produces a single sequenced no-contest cancellation before normal queue processing.",
+      "fingerprint": "4417a7bff7455ccfcd4fdbadd33c25732283bfc1e5c9bed953026761db971c88",
+      "schema": "packages/contracts/src/analytics.ts",
+      "phase": "G",
+      "test": "tests/contracts/analytics-event.test.ts",
+      "metric": "trace_stage_missing_total"
+    },
+    {
+      "id": "OBS-014",
+      "source": "07_REALTIME_SERVER_SPEC.md",
+      "sourceLine": 32,
+      "section": "Observability and candidate service objectives",
+      "text": "Telemetry accepts only versioned allow-listed fields before an adapter. Opaque trace IDs must reconstruct queue, handshake, preload, command, finish, and reward without JWT, service keys, auth UUID/PII, private answers/aliases/correct option IDs, undiscovered hitboxes, raw coordinates, or uploads. Expected domain rejections are separate from unexpected failures and retries with the same request ID count once.",
+      "fingerprint": "a7ee1dc6ccdd5a75eefa0e756f7dcb6fd3adec6ea323ca2d74afa68a985a7373",
+      "schema": "packages/contracts/src/analytics.ts",
+      "phase": "G",
+      "test": "tests/contracts/analytics-event.test.ts",
+      "metric": "trace_stage_missing_total"
+    },
+    {
+      "id": "OBS-015",
+      "source": "07_REALTIME_SERVER_SPEC.md",
+      "sourceLine": 34,
+      "section": "Observability and candidate service objectives",
+      "text": "The candidate beta profile is 100 concurrent matches/200 sockets with `tap_result` p95 <=250ms, unexpected command failure rate <0.1%, duplicate accepted claim/reward 0, and match finish loss 0. A ratio verdict requires at least 10,000 unique requests. Production approval requires a target-region 200-match/400-socket 30-minute soak; local deterministic evidence cannot satisfy it.",
+      "fingerprint": "41f511546507231d88b59e100eb13c6d433159c99908f741f78d5c54326f5f0e",
+      "schema": "packages/contracts/src/analytics.ts",
+      "phase": "G",
+      "test": "tests/contracts/analytics-event.test.ts",
+      "metric": "trace_stage_missing_total"
+    },
+    {
       "id": "DATA-001",
+      "source": "08_DATABASE_SCHEMA.md",
+      "sourceLine": 5,
+      "section": "노출 경계",
+      "text": "Supabase Data API에는 `public`과 `graphql_public`만 노출한다. `private`는 설정에서 제외하며 schema/object/default privilege를 `PUBLIC`, `anon`, `authenticated`, `service_role`에서 모두 회수한다. 설정 제외만 보안 장치로 간주하지 않는다.",
+      "fingerprint": "8b09ebc2f0f5ca655a201b320dabb71eeba943607d65a78316bf0583b89f8288",
+      "schema": "supabase/migrations/202607150001_initial_schema.sql",
+      "phase": "D",
+      "test": "tests/database/concurrency.test.ts",
+      "metric": "db_transaction_failure_total"
+    },
+    {
+      "id": "DATA-002",
+      "source": "08_DATABASE_SCHEMA.md",
+      "sourceLine": 7,
+      "section": "노출 경계",
+      "text": "공개 콘텐츠 저장소는 다음과 같이 분리한다.",
+      "fingerprint": "0ec3bdaed72b16e05fd020387f52b101fd926147cf714de0e89fd91b011279fb",
+      "schema": "supabase/migrations/202607150001_initial_schema.sql",
+      "phase": "D",
+      "test": "tests/database/concurrency.test.ts",
+      "metric": "db_transaction_failure_total"
+    },
+    {
+      "id": "DATA-003",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 9,
       "section": "노출 경계",
@@ -1023,7 +1515,7 @@
       "metric": "db_transaction_failure_total"
     },
     {
-      "id": "DATA-002",
+      "id": "DATA-004",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 10,
       "section": "노출 경계",
@@ -1035,7 +1527,7 @@
       "metric": "db_transaction_failure_total"
     },
     {
-      "id": "DATA-003",
+      "id": "DATA-005",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 11,
       "section": "노출 경계",
@@ -1047,7 +1539,7 @@
       "metric": "db_transaction_failure_total"
     },
     {
-      "id": "DATA-004",
+      "id": "DATA-006",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 12,
       "section": "노출 경계",
@@ -1059,7 +1551,7 @@
       "metric": "db_transaction_failure_total"
     },
     {
-      "id": "DATA-005",
+      "id": "DATA-007",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 13,
       "section": "노출 경계",
@@ -1071,7 +1563,19 @@
       "metric": "db_transaction_failure_total"
     },
     {
-      "id": "DATA-006",
+      "id": "DATA-008",
+      "source": "08_DATABASE_SCHEMA.md",
+      "sourceLine": 15,
+      "section": "노출 경계",
+      "text": "legacy `game_contents`, `match_events`, 기존 match/player 행은 새 계약을 증명할 자료가 없으므로 자동 변환하지 않는다. migration은 원본 JSON을 `private.legacy_*_quarantine`에 보존하고 공개 secret-bearing table을 제거한다. 운영자는 재검증·재게시 또는 명시적 폐기 결정을 해야 한다. 외부 베타 전에 quarantine의 법적 근거, 최대 보존기간, 접근 감사, 계정삭제 시 JSON 내 식별자 제거 절차를 승인해야 하며 승인 전에는 legacy 데이터를 production으로 이관하지 않는다.",
+      "fingerprint": "8dd0625da9956265c79f23a9c1e48ae1fb27e730760bbda76903203977dc6aa9",
+      "schema": "supabase/migrations/202607150001_initial_schema.sql",
+      "phase": "D",
+      "test": "tests/database/concurrency.test.ts",
+      "metric": "db_transaction_failure_total"
+    },
+    {
+      "id": "DATA-009",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 19,
       "section": "역할과 함수 표면",
@@ -1083,7 +1587,7 @@
       "metric": "db_transaction_failure_total"
     },
     {
-      "id": "DATA-007",
+      "id": "DATA-010",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 20,
       "section": "역할과 함수 표면",
@@ -1095,7 +1599,7 @@
       "metric": "db_transaction_failure_total"
     },
     {
-      "id": "DATA-008",
+      "id": "DATA-011",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 21,
       "section": "역할과 함수 표면",
@@ -1107,7 +1611,31 @@
       "metric": "db_transaction_failure_total"
     },
     {
-      "id": "DATA-009",
+      "id": "DATA-012",
+      "source": "08_DATABASE_SCHEMA.md",
+      "sourceLine": 23,
+      "section": "역할과 함수 표면",
+      "text": "운영 migration은 ownership 이전 동안만 `postgres`에 `game_security_owner` membership을 주고 마지막에 회수한다. 로컬 전용 `supabase/roles.sql`만 테스트 관리자를 `app_server`와 `deployment_role`에 연결한다. 이 파일을 production에 `--include-roles`로 배포하면 안 된다. 운영 로그인 생성·비밀 회전·pooler 설정은 [docs/operations/database-role-provisioning.md](docs/operations/database-role-provisioning.md)를 따른다.",
+      "fingerprint": "3cdcc158880cdf821d6642d9a84f1ff4735e51afef7897af3e76740ce6e3ed0c",
+      "schema": "supabase/migrations/202607150001_initial_schema.sql",
+      "phase": "D",
+      "test": "tests/database/concurrency.test.ts",
+      "metric": "db_transaction_failure_total"
+    },
+    {
+      "id": "DATA-013",
+      "source": "08_DATABASE_SCHEMA.md",
+      "sourceLine": 25,
+      "section": "역할과 함수 표면",
+      "text": "두 공개 진입 함수는 `SECURITY DEFINER`, 고정 `search_path=pg_catalog`, schema-qualified object reference, 전용 owner, exact EXECUTE grant를 사용한다. `service_role`은 권위 게임/경제 write 우회권이 없으며 인증·관리 allow-list 용도와 분리한다.",
+      "fingerprint": "e29988b763687085700f061b079f2ecf3aa2fd43d5a0a545b06c6f2b821ee5fa",
+      "schema": "supabase/migrations/202607150001_initial_schema.sql",
+      "phase": "D",
+      "test": "tests/database/concurrency.test.ts",
+      "metric": "db_transaction_failure_total"
+    },
+    {
+      "id": "DATA-014",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 29,
       "section": "경기 불변식",
@@ -1119,7 +1647,7 @@
       "metric": "db_transaction_failure_total"
     },
     {
-      "id": "DATA-010",
+      "id": "DATA-015",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 30,
       "section": "경기 불변식",
@@ -1131,7 +1659,7 @@
       "metric": "db_transaction_failure_total"
     },
     {
-      "id": "DATA-011",
+      "id": "DATA-016",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 31,
       "section": "경기 불변식",
@@ -1143,7 +1671,7 @@
       "metric": "db_transaction_failure_total"
     },
     {
-      "id": "DATA-012",
+      "id": "DATA-017",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 32,
       "section": "경기 불변식",
@@ -1155,7 +1683,7 @@
       "metric": "db_transaction_failure_total"
     },
     {
-      "id": "DATA-013",
+      "id": "DATA-018",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 33,
       "section": "경기 불변식",
@@ -1167,7 +1695,7 @@
       "metric": "db_transaction_failure_total"
     },
     {
-      "id": "DATA-014",
+      "id": "DATA-019",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 34,
       "section": "경기 불변식",
@@ -1179,7 +1707,7 @@
       "metric": "db_transaction_failure_total"
     },
     {
-      "id": "DATA-015",
+      "id": "DATA-020",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 35,
       "section": "경기 불변식",
@@ -1191,7 +1719,31 @@
       "metric": "db_transaction_failure_total"
     },
     {
-      "id": "DATA-016",
+      "id": "DATA-021",
+      "source": "08_DATABASE_SCHEMA.md",
+      "sourceLine": 37,
+      "section": "경기 불변식",
+      "text": "`private.match_request_receipts`, `private.match_command_receipts`, `private.match_events`는 request reservation 상태, sequenced command decision, ordered event를 분리한다. command receipt와 event는 append-only trigger로 UPDATE/DELETE를 거부한다. request receipt는 `PENDING -> COMPLETED`만 허용한다.",
+      "fingerprint": "c1cc71feb2f4b0cd9bbeb02f715a7f064c7c39da8dfcba4b4d202d58329226d7",
+      "schema": "supabase/migrations/202607150001_initial_schema.sql",
+      "phase": "D",
+      "test": "tests/database/concurrency.test.ts",
+      "metric": "db_transaction_failure_total"
+    },
+    {
+      "id": "DATA-022",
+      "source": "08_DATABASE_SCHEMA.md",
+      "sourceLine": 39,
+      "section": "경기 불변식",
+      "text": "이 스키마만으로 crash recovery가 완성됐다고 주장하지 않는다. 원 계획의 G3 adapter가 fenced claim/replay/complete, snapshot·timer·outbox의 단일 transaction과 fault injection을 추가해야 한다.",
+      "fingerprint": "5270bc2fcf406fe22f9f0e35c571658b2f2806d12611785b19ba87ffbb6fbe85",
+      "schema": "supabase/migrations/202607150001_initial_schema.sql",
+      "phase": "D",
+      "test": "tests/database/concurrency.test.ts",
+      "metric": "db_transaction_failure_total"
+    },
+    {
+      "id": "DATA-023",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 43,
       "section": "RLS와 클라이언트 권한",
@@ -1203,7 +1755,7 @@
       "metric": "db_transaction_failure_total"
     },
     {
-      "id": "DATA-017",
+      "id": "DATA-024",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 44,
       "section": "RLS와 클라이언트 권한",
@@ -1215,7 +1767,7 @@
       "metric": "db_transaction_failure_total"
     },
     {
-      "id": "DATA-018",
+      "id": "DATA-025",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 45,
       "section": "RLS와 클라이언트 권한",
@@ -1227,7 +1779,7 @@
       "metric": "db_transaction_failure_total"
     },
     {
-      "id": "DATA-019",
+      "id": "DATA-026",
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 46,
       "section": "RLS와 클라이언트 권한",
@@ -1237,6 +1789,54 @@
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
       "metric": "db_transaction_failure_total"
+    },
+    {
+      "id": "DATA-027",
+      "source": "08_DATABASE_SCHEMA.md",
+      "sourceLine": 57,
+      "section": "로컬 검증",
+      "text": "pgTAP은 schema 노출, RLS, grants/default ACL, 안전 view, definer allow-list, 리비전 불변성, phase/종료/계정삭제/event 불변식을 검사한다. Node harness는 서로 다른 20개 `app_server` 세션으로 실제 third-seat race를 검사하며 loopback DB가 아니면 fail closed한다.",
+      "fingerprint": "f10da60c5496be5d184eb3e92285b767a397a04f07767ab721ee6fbb42689e18",
+      "schema": "supabase/migrations/202607150001_initial_schema.sql",
+      "phase": "D",
+      "test": "tests/database/concurrency.test.ts",
+      "metric": "db_transaction_failure_total"
+    },
+    {
+      "id": "DATA-028",
+      "source": "08_DATABASE_SCHEMA.md",
+      "sourceLine": 59,
+      "section": "로컬 검증",
+      "text": "현재 Task 3의 TypeScript `MatchPhase`/`MatchEndReason` SSOT는 아직 구현되지 않았다. 따라서 pgTAP의 SQL enum 목록 검사는 DB 내부 계약만 고정하며 domain↔DB 자동 parity 완료를 뜻하지 않는다. Task 3이 추가되면 생성 artifact 또는 cross-layer contract test로 이 목록을 대체하기 전까지 전체 계획 gate는 미완료다.",
+      "fingerprint": "e371b1c0d11d3a52b7487ee2100d2ed7382275fbf1b44dbfb86d95fbe11a2d0d",
+      "schema": "supabase/migrations/202607150001_initial_schema.sql",
+      "phase": "D",
+      "test": "tests/database/concurrency.test.ts",
+      "metric": "db_transaction_failure_total"
+    },
+    {
+      "id": "DATA-029",
+      "source": "08_DATABASE_SCHEMA.md",
+      "sourceLine": 62,
+      "section": "Private economy ledger extension (2026-07-15)",
+      "text": "Migration `202607150004_economy_ledgers.sql` adds random economy subjects, immutable economy/catalog revisions, effect-once receipts, reward/draw/fusion histories, pity state, protected inventory, and transactional outbox intents under `private`. Application roles can call only the trusted operation functions and cannot mutate these tables directly.",
+      "fingerprint": "f74c96d1e44a4353e02d7a38c00156a0e0f020a8f13449b98da7843020204b80",
+      "schema": "supabase/migrations/202607150001_initial_schema.sql",
+      "phase": "D",
+      "test": "tests/database/concurrency.test.ts",
+      "metric": "db_transaction_failure_total"
+    },
+    {
+      "id": "API-005",
+      "source": "09_API_AND_SOCKET_EVENTS.md",
+      "sourceLine": 5,
+      "section": "Frozen authenticated wire contract",
+      "text": "All routes use Bearer authentication. State-changing POST and DELETE operations require UUIDv4 `Idempotency-Key`; GET operations do not. Rejected Socket commands return only an ack. Private viewer events become `state_advanced` at the same cursor. Canonical answers, aliases, `correctOptionId`, undiscovered hitboxes, auth UUIDs, raw JWTs, and private attestation or failure detail are forbidden.",
+      "fingerprint": "946aeadfa8bc0c1a8b7f64d9f5aa78de66d5019b3c2d72205af47219dc8a0676",
+      "schema": "packages/contracts/openapi.yaml",
+      "phase": "C",
+      "test": "packages/contracts/src/openapi.test.ts",
+      "metric": "api_contract_rejection_total"
     },
     {
       "id": "API-001",
@@ -1287,7 +1887,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-005",
+      "id": "API-006",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 12,
       "section": "REST",
@@ -1299,7 +1899,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-006",
+      "id": "API-007",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 13,
       "section": "REST",
@@ -1311,7 +1911,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-007",
+      "id": "API-008",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 14,
       "section": "REST",
@@ -1323,7 +1923,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-008",
+      "id": "API-009",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 15,
       "section": "REST",
@@ -1335,7 +1935,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-009",
+      "id": "API-010",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 18,
       "section": "Client → Server",
@@ -1347,7 +1947,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-010",
+      "id": "API-011",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 19,
       "section": "Client → Server",
@@ -1359,7 +1959,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-011",
+      "id": "API-012",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 20,
       "section": "Client → Server",
@@ -1371,7 +1971,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-012",
+      "id": "API-013",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 21,
       "section": "Client → Server",
@@ -1383,7 +1983,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-013",
+      "id": "API-014",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 22,
       "section": "Client → Server",
@@ -1395,7 +1995,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-014",
+      "id": "API-015",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 25,
       "section": "Server → Client",
@@ -1407,7 +2007,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-015",
+      "id": "API-016",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 26,
       "section": "Server → Client",
@@ -1419,7 +2019,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-016",
+      "id": "API-017",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 27,
       "section": "Server → Client",
@@ -1431,7 +2031,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-017",
+      "id": "API-018",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 28,
       "section": "Server → Client",
@@ -1443,7 +2043,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-018",
+      "id": "API-019",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 29,
       "section": "Server → Client",
@@ -1455,7 +2055,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-019",
+      "id": "API-020",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 30,
       "section": "Server → Client",
@@ -1467,7 +2067,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-020",
+      "id": "API-021",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 31,
       "section": "Server → Client",
@@ -1479,7 +2079,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-021",
+      "id": "API-022",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 32,
       "section": "Server → Client",
@@ -1491,7 +2091,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-022",
+      "id": "API-023",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 33,
       "section": "Server → Client",
@@ -1503,7 +2103,7 @@
       "metric": "api_contract_rejection_total"
     },
     {
-      "id": "API-023",
+      "id": "API-024",
       "source": "09_API_AND_SOCKET_EVENTS.md",
       "sourceLine": 34,
       "section": "Server → Client",
@@ -1517,6 +2117,18 @@
     {
       "id": "CONTENT-001",
       "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceLine": 5,
+      "section": "계약 경계",
+      "text": "콘텐츠 번들은 공개 메타데이터, 비공개 정답, 권리 증빙을 분리한다.",
+      "fingerprint": "66f06095eb9e8c8b1412142691b23c3ff8a750d1f8d915c19b7f8bdee873f69e",
+      "schema": "packages/contracts/src/content.ts",
+      "phase": "A",
+      "test": "packages/contracts/src/content.test.ts",
+      "metric": "content_validation_failure_total"
+    },
+    {
+      "id": "CONTENT-002",
+      "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceLine": 7,
       "section": "계약 경계",
       "text": "`PublicGameContentV1`: `contentId`, `version`, `contentRevisionId`, 계약/자산 정책 버전, 테마·언어·난이도, 이미지 A/B의 콘텐츠 주소와 메타데이터만 포함한다. `contentId + version`은 논리 콘텐츠의 리비전 순서를, `contentRevisionId`는 불변 리비전 자체를 식별한다.",
@@ -1527,7 +2139,7 @@
       "metric": "content_validation_failure_total"
     },
     {
-      "id": "CONTENT-002",
+      "id": "CONTENT-003",
       "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceLine": 8,
       "section": "계약 경계",
@@ -1539,7 +2151,7 @@
       "metric": "content_validation_failure_total"
     },
     {
-      "id": "CONTENT-003",
+      "id": "CONTENT-004",
       "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceLine": 9,
       "section": "계약 경계",
@@ -1551,7 +2163,31 @@
       "metric": "content_validation_failure_total"
     },
     {
-      "id": "CONTENT-004",
+      "id": "CONTENT-005",
+      "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceLine": 11,
+      "section": "계약 경계",
+      "text": "TypeScript 타입은 [packages/contracts/src/content.ts](packages/contracts/src/content.ts)의 schema-first 상수에서 생성한다. JSON Schema는 `corepack pnpm content:schemas`로 기계 생성하며 `content:schemas:check`가 drift를 거부한다.",
+      "fingerprint": "c53bdc237858156099354748798b4b15bfd2fdc16e3d40ba9a60689558e70997",
+      "schema": "packages/contracts/src/content.ts",
+      "phase": "A",
+      "test": "packages/contracts/src/content.test.ts",
+      "metric": "content_validation_failure_total"
+    },
+    {
+      "id": "CONTENT-006",
+      "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceLine": 13,
+      "section": "계약 경계",
+      "text": "기존 [schemas/game-content.schema.json](schemas/game-content.schema.json)은 폐기 예정인 결합 계약이다. 신규 게시와 소비 코드에서는 다음 세 계약만 사용한다.",
+      "fingerprint": "02ab542cccdbbbaf8853b2d694c72517125c175d35952dd98bfe5143f588c146",
+      "schema": "packages/contracts/src/content.ts",
+      "phase": "A",
+      "test": "packages/contracts/src/content.test.ts",
+      "metric": "content_validation_failure_total"
+    },
+    {
+      "id": "CONTENT-007",
       "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceLine": 15,
       "section": "계약 경계",
@@ -1563,7 +2199,7 @@
       "metric": "content_validation_failure_total"
     },
     {
-      "id": "CONTENT-005",
+      "id": "CONTENT-008",
       "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceLine": 16,
       "section": "계약 경계",
@@ -1575,7 +2211,7 @@
       "metric": "content_validation_failure_total"
     },
     {
-      "id": "CONTENT-006",
+      "id": "CONTENT-009",
       "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceLine": 17,
       "section": "계약 경계",
@@ -1587,7 +2223,163 @@
       "metric": "content_validation_failure_total"
     },
     {
-      "id": "CONTENT-007",
+      "id": "CONTENT-010",
+      "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceLine": 19,
+      "section": "계약 경계",
+      "text": "Task 5는 콘텐츠 계약만 소유한다. 아직 구현되지 않은 Task 3/4의 reducer·wire 계층은 이후 이 타입과 `CONTENT_TEXT_LIMITS_V1`을 import해야 하며 별도 정답/hitbox shape를 만들면 안 된다.",
+      "fingerprint": "a469e63c3b1d0c0df331220fc5b3e60f0cdea85714792f1b5f7d1e8279d190d9",
+      "schema": "packages/contracts/src/content.ts",
+      "phase": "A",
+      "test": "packages/contracts/src/content.test.ts",
+      "metric": "content_validation_failure_total"
+    },
+    {
+      "id": "CONTENT-011",
+      "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceLine": 23,
+      "section": "게시 게이트",
+      "text": "`@spot-learn/content-validator`는 Ajv 2020 strict mode와 semantic 검사를 함께 수행한다. 검증 순서는 다음과 같다.",
+      "fingerprint": "27d3dfdd80b252f8fab6ec4407a8570d2bb529658fa580cc34cc67b4dbb48143",
+      "schema": "packages/contracts/src/content.ts",
+      "phase": "A",
+      "test": "packages/contracts/src/content.test.ts",
+      "metric": "content_validation_failure_total"
+    },
+    {
+      "id": "CONTENT-012",
+      "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceLine": 25,
+      "section": "게시 게이트",
+      "text": "세 JSON Schema와 revision ID 일치, canonical private hash를 검사한다.",
+      "fingerprint": "c4caff250d5fdeda442dd532c8e503c151373a49026029405003b4a18cebe86a",
+      "schema": "packages/contracts/src/content.ts",
+      "phase": "A",
+      "test": "packages/contracts/src/content.test.ts",
+      "metric": "content_validation_failure_total"
+    },
+    {
+      "id": "CONTENT-013",
+      "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceLine": 26,
+      "section": "게시 게이트",
+      "text": "자산 URL을 versioned allow-list의 `<origin>/assets/<sha256>.<mime-ext>`로 제한한다. local 기본 origin은 `https://cdn.spot-learn.test`이고 production validator는 `CONTENT_ASSET_ORIGINS`가 없으면 시작을 거부한다. DB의 `private.content_asset_origins`에도 같은 정책을 환경별 migration으로 등록해야 한다. userinfo, 임의 port, query, fragment, 비정규 경로를 거부한다.",
+      "fingerprint": "488e19604f1cd2b9d9f47f01c70407cdd3af59e552c12324ce89bf212c0e2f63",
+      "schema": "packages/contracts/src/content.ts",
+      "phase": "A",
+      "test": "packages/contracts/src/content.test.ts",
+      "metric": "content_validation_failure_total"
+    },
+    {
+      "id": "CONTENT-014",
+      "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceLine": 27,
+      "section": "게시 게이트",
+      "text": "자산 파일명과 real path가 fixture asset root 안의 `<sha256>.<ext>`인지 확인하고 symlink·경로 탈출을 거부한다.",
+      "fingerprint": "b0011f982a2409b2afdd71f1a66067e68b9bb1f35f97ea89489c93ced5a3c7e3",
+      "schema": "packages/contracts/src/content.ts",
+      "phase": "A",
+      "test": "packages/contracts/src/content.test.ts",
+      "metric": "content_validation_failure_total"
+    },
+    {
+      "id": "CONTENT-015",
+      "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceLine": 28,
+      "section": "게시 게이트",
+      "text": "실제 bytes의 SHA-256과 encoded size, magic MIME, decoder format, 선언 MIME를 대조한다.",
+      "fingerprint": "62d1559dc38bddd5dd6f3fbd009dcdd240258f13fa2ac0d5ff4f743fa043b013",
+      "schema": "packages/contracts/src/content.ts",
+      "phase": "A",
+      "test": "packages/contracts/src/content.test.ts",
+      "metric": "content_validation_failure_total"
+    },
+    {
+      "id": "CONTENT-016",
+      "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceLine": 29,
+      "section": "게시 게이트",
+      "text": "PNG/JPEG/WebP container 종료 이후 trailing payload, 잘린 파일, 애니메이션·다중 page, EXIF orientation, dimension/pixel 상한을 검사한 뒤 제한된 `sharp` decode를 수행한다.",
+      "fingerprint": "ad85d8ceac041c4194adef5a4f43e83d52f116add51420ec9c84bfedfe37695d",
+      "schema": "packages/contracts/src/content.ts",
+      "phase": "A",
+      "test": "packages/contracts/src/content.test.ts",
+      "metric": "content_validation_failure_total"
+    },
+    {
+      "id": "CONTENT-017",
+      "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceLine": 30,
+      "section": "게시 게이트",
+      "text": "A/B 크기와 aspect, hitbox 경계, 모든 objective 쌍의 overlap·tangent 금지를 검사한다.",
+      "fingerprint": "be396af5b4641ffb3066a8af8bf863dff69bb60ba26c63327b8ae96001f03a06",
+      "schema": "packages/contracts/src/content.ts",
+      "phase": "A",
+      "test": "packages/contracts/src/content.test.ts",
+      "metric": "content_validation_failure_total"
+    },
+    {
+      "id": "CONTENT-018",
+      "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceLine": 31,
+      "section": "게시 게이트",
+      "text": "7 NORMAL + 3 HARD, word hunt 2 NORMAL + 1 SPECIAL, 전역 objective ID 유일성, 정답 option 존재를 검사한다.",
+      "fingerprint": "95585af0f21fe2a480c73a284ea35377ccc6a441e8ecb7c2bd4afc4462732601",
+      "schema": "packages/contracts/src/content.ts",
+      "phase": "A",
+      "test": "packages/contracts/src/content.test.ts",
+      "metric": "content_validation_failure_total"
+    },
+    {
+      "id": "CONTENT-019",
+      "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceLine": 32,
+      "section": "게시 게이트",
+      "text": "NFKC/case/whitespace 정규화한 정답·별칭의 길이와 유일성, `Intl.Segmenter` grapheme 배열과 `hintUnits`의 정확한 일치를 검사한다.",
+      "fingerprint": "d3bbd45badea781ac6c70eb35261ad6cc956322c94f443627a68359c9efbbeb9",
+      "schema": "packages/contracts/src/content.ts",
+      "phase": "A",
+      "test": "packages/contracts/src/content.test.ts",
+      "metric": "content_validation_failure_total"
+    },
+    {
+      "id": "CONTENT-020",
+      "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceLine": 33,
+      "section": "게시 게이트",
+      "text": "공개 자산과 권리 entry의 SHA-256 bijection 및 권리·교육의 승인 상태를 검사한다.",
+      "fingerprint": "6ff685e4383db370e0d40e4d7413247f875faad40a33384f3b20dfa5ecb763c9",
+      "schema": "packages/contracts/src/content.ts",
+      "phase": "A",
+      "test": "packages/contracts/src/content.test.ts",
+      "metric": "content_validation_failure_total"
+    },
+    {
+      "id": "CONTENT-021",
+      "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceLine": 35,
+      "section": "게시 게이트",
+      "text": "자산 정책 `1.0.0`은 파일당 8 MiB 이하, width/height 각각 4096 이하, decoded pixel 16,000,000 이하이다. 이미지 정규화가 필요하면 게시 전에 새 bytes를 만들고 새 raw hash와 메타데이터를 부여한다. 검증 뒤 원본 bytes를 바꾸면 안 된다.",
+      "fingerprint": "362450ad0f2e8f998b1e9bcd1d61953fe07e87c9b2b1bc43041a7d30f992cca4",
+      "schema": "packages/contracts/src/content.ts",
+      "phase": "A",
+      "test": "packages/contracts/src/content.test.ts",
+      "metric": "content_validation_failure_total"
+    },
+    {
+      "id": "CONTENT-022",
+      "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceLine": 37,
+      "section": "게시 게이트",
+      "text": "성공 결과는 public/private/rights의 canonical JSON text와 각 SHA-256을 함께 만든다. private hash는 `privateSolutionHash` 자체를 제외한 canonical object에 적용한다. DB 게시 함수는 canonical text를 SHA-256하고 그 text를 JSONB로 parse한 값이 저장 요청과 정확히 같은지 확인한다. 또한 공개 root/image key allow-list, 리비전·버전·승인·자산 bijection을 다시 검사한다. PostgreSQL이 canonicalization을 새로 수행한다고 주장하지 않으며, 배포 principal은 validator가 만든 canonical text를 그대로 전달해야 한다.",
+      "fingerprint": "b9e6909883789f7e8e9f41332972efa7d5abee0e6001bda3fde10778bfc118cf",
+      "schema": "packages/contracts/src/content.ts",
+      "phase": "A",
+      "test": "packages/contracts/src/content.test.ts",
+      "metric": "content_validation_failure_total"
+    },
+    {
+      "id": "CONTENT-023",
       "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceLine": 41,
       "section": "fixture와 실행",
@@ -1599,7 +2391,7 @@
       "metric": "content_validation_failure_total"
     },
     {
-      "id": "CONTENT-008",
+      "id": "CONTENT-024",
       "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceLine": 42,
       "section": "fixture와 실행",
@@ -1611,12 +2403,36 @@
       "metric": "content_validation_failure_total"
     },
     {
-      "id": "CONTENT-009",
+      "id": "CONTENT-025",
       "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceLine": 43,
       "section": "fixture와 실행",
       "text": "hash-pinned bytes: `content/fixtures/assets`",
       "fingerprint": "1199d285d7bde1d024889faea19122e8c9332dd144a5a401cfd23cb0ccbf868a",
+      "schema": "packages/contracts/src/content.ts",
+      "phase": "A",
+      "test": "packages/contracts/src/content.test.ts",
+      "metric": "content_validation_failure_total"
+    },
+    {
+      "id": "CONTENT-026",
+      "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceLine": 46,
+      "section": "fixture와 실행",
+      "text": "`UiRuntimeAssetManifestV1` is an empty strict DRAFT manifest. `ui:assets:check` rejects approval forgery and any unapproved beta asset. Publish verifies immutable bytes and the exact `(rightsRecordId, assetSha256)` pair; rollback selects an earlier approved immutable manifest; takedown blocks the hash at CDN and admission layers. Concept references are never runtime assets or visual goldens.",
+      "fingerprint": "d667561e552d06a325d3034a84004629b5dcabca4690475bfa91fd5d4a207e88",
+      "schema": "packages/contracts/src/content.ts",
+      "phase": "A",
+      "test": "packages/contracts/src/content.test.ts",
+      "metric": "content_validation_failure_total"
+    },
+    {
+      "id": "CONTENT-027",
+      "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
+      "sourceLine": 55,
+      "section": "fixture와 실행",
+      "text": "게시 작업은 위 검증을 통과한 번들만 `private.publish_content_revision_v1`에 전달한다. legacy 결합 JSON은 자동 승인하거나 자동 게시하지 않는다.",
+      "fingerprint": "32971616fdd14bac234378873334a3b2155faf7126a19efe45c52edf9c612b3b",
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
@@ -1673,6 +2489,54 @@
     {
       "id": "QA-005",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
+      "sourceLine": 12,
+      "section": "Versioned evidence classes",
+      "text": "PR wiring uses 50 matches, nightly bot sensitivity uses 10,000 matches, and economy modeling uses 100,000 draws. Every simulation pins its seed, ruleset version, report version, and `botModelVersion`; it remains DRAFT/test-only unless separately approved. Bot output is not evidence of human satisfaction, learning, fairness, or production capacity.",
+      "fingerprint": "6371c2e52692a548048b41d3abb9c2b8f7170530af1b598e723a4972285e2248",
+      "schema": "tools/release-evidence.ts",
+      "phase": "G",
+      "test": "tests/simulation/release-verification.test.ts",
+      "metric": "release_gate_failure_total"
+    },
+    {
+      "id": "QA-006",
+      "source": "11_TEST_AND_BALANCE_PLAN.md",
+      "sourceLine": 15,
+      "section": "A/B 테스트",
+      "text": "A: 차이점 6/9, 최종 패키지 50",
+      "fingerprint": "cd1e7d70dc34e9ea7aabb8aead1ddd083655359d8d334f3fdf13c403b609be43",
+      "schema": "tools/release-evidence.ts",
+      "phase": "G",
+      "test": "tests/simulation/release-verification.test.ts",
+      "metric": "release_gate_failure_total"
+    },
+    {
+      "id": "QA-007",
+      "source": "11_TEST_AND_BALANCE_PLAN.md",
+      "sourceLine": 16,
+      "section": "A/B 테스트",
+      "text": "B: 차이점 7/10, 최종 패키지 40",
+      "fingerprint": "dc69407551f63713230a2399de3ed6a230e6466a9495de3102ad2f12a731f959",
+      "schema": "tools/release-evidence.ts",
+      "phase": "G",
+      "test": "tests/simulation/release-verification.test.ts",
+      "metric": "release_gate_failure_total"
+    },
+    {
+      "id": "QA-008",
+      "source": "11_TEST_AND_BALANCE_PLAN.md",
+      "sourceLine": 18,
+      "section": "A/B 테스트",
+      "text": "비교: 날먹 체감, 학습 참여율, 역전 빈도, 만족도.",
+      "fingerprint": "c497985fca3c483dde661f5b4ba4c5d578c7af9b6f745e1b2be4cfb80661b0b5",
+      "schema": "tools/release-evidence.ts",
+      "phase": "G",
+      "test": "tests/simulation/release-verification.test.ts",
+      "metric": "release_gate_failure_total"
+    },
+    {
+      "id": "QA-009",
+      "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 21,
       "section": "필수 테스트",
       "text": "동시 클릭",
@@ -1683,7 +2547,7 @@
       "metric": "release_gate_failure_total"
     },
     {
-      "id": "QA-006",
+      "id": "QA-010",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 22,
       "section": "필수 테스트",
@@ -1695,7 +2559,7 @@
       "metric": "release_gate_failure_total"
     },
     {
-      "id": "QA-007",
+      "id": "QA-011",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 23,
       "section": "필수 테스트",
@@ -1707,7 +2571,7 @@
       "metric": "release_gate_failure_total"
     },
     {
-      "id": "QA-008",
+      "id": "QA-012",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 24,
       "section": "필수 테스트",
@@ -1719,7 +2583,7 @@
       "metric": "release_gate_failure_total"
     },
     {
-      "id": "QA-009",
+      "id": "QA-013",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 25,
       "section": "필수 테스트",
@@ -1731,7 +2595,7 @@
       "metric": "release_gate_failure_total"
     },
     {
-      "id": "QA-010",
+      "id": "QA-014",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 26,
       "section": "필수 테스트",
@@ -1745,6 +2609,114 @@
     {
       "id": "ENV-001",
       "source": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceLine": 4,
+      "section": "Step 0 설계 고정 — 1~2일",
+      "text": "타입, 상태 머신, 와이어프레임, 콘텐츠 JSON 3개.",
+      "fingerprint": "151606785fa3dad0aef5b78c6432807c8e8cc8e48af04a224daa29c00210c6db",
+      "schema": "tools/check-runtime.mjs",
+      "phase": "A",
+      "test": "tests/contracts/runtime-gate.test.ts",
+      "metric": "runtime_gate_failure_total"
+    },
+    {
+      "id": "ENV-002",
+      "source": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceLine": 7,
+      "section": "Step 1 싱글 프로토타입 — 5일",
+      "text": "이미지 2장, 줌/팬, hitbox, 점수, 타이머.",
+      "fingerprint": "c3db4975fb094843210cd5ae320d6dd2342cfebb16d1c444080527a3bb1d1ac2",
+      "schema": "tools/check-runtime.mjs",
+      "phase": "A",
+      "test": "tests/contracts/runtime-gate.test.ts",
+      "metric": "runtime_gate_failure_total"
+    },
+    {
+      "id": "ENV-003",
+      "source": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceLine": 10,
+      "section": "Step 2 돌발 단어 — 3일",
+      "text": "등장 타이밍, 오브젝트 판정, 버프.",
+      "fingerprint": "195a0fa9b52ad0667d2a47e9b56bf163b2521a3a52f8ef0bd9d11cd080911bad",
+      "schema": "tools/check-runtime.mjs",
+      "phase": "A",
+      "test": "tests/contracts/runtime-gate.test.ts",
+      "metric": "runtime_gate_failure_total"
+    },
+    {
+      "id": "ENV-004",
+      "source": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceLine": 13,
+      "section": "Step 3 최종 단어·뜻 — 3일",
+      "text": "정답, 3지선다, 잠금, 점수.",
+      "fingerprint": "f87c920dea42a12b559af2b08f12d09f1be535702d3b8e3ea12992ca8427dbf2",
+      "schema": "tools/check-runtime.mjs",
+      "phase": "A",
+      "test": "tests/contracts/runtime-gate.test.ts",
+      "metric": "runtime_gate_failure_total"
+    },
+    {
+      "id": "ENV-005",
+      "source": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceLine": 16,
+      "section": "Step 4 실시간 1:1 — 7일",
+      "text": "Socket.IO 룸, 서버 판정, 동시 클릭, 재접속.",
+      "fingerprint": "477b3d97751b9f12cbf44ee9a512d2cd0b4ecbaf90caa2b6c9c041d53ad66769",
+      "schema": "tools/check-runtime.mjs",
+      "phase": "A",
+      "test": "tests/contracts/runtime-gate.test.ts",
+      "metric": "runtime_gate_failure_total"
+    },
+    {
+      "id": "ENV-006",
+      "source": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceLine": 19,
+      "section": "Step 5 계정/보상 — 4일",
+      "text": "Supabase Auth, 결과, EXP, 뽑기 포인트.",
+      "fingerprint": "4787c9be4be8d7db9f7a04f6c3f845eccdc9e7ec0d6bd317ab45d536fd205153",
+      "schema": "tools/check-runtime.mjs",
+      "phase": "A",
+      "test": "tests/contracts/runtime-gate.test.ts",
+      "metric": "runtime_gate_failure_total"
+    },
+    {
+      "id": "ENV-007",
+      "source": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceLine": 22,
+      "section": "Step 6 펫 — 5일",
+      "text": "뽑기, 합성, 도감, 대표 펫.",
+      "fingerprint": "dc31982495ce3e04d097b7d7f886ea768e2116be5021221d33cd8e7887bca8b6",
+      "schema": "tools/check-runtime.mjs",
+      "phase": "A",
+      "test": "tests/contracts/runtime-gate.test.ts",
+      "metric": "runtime_gate_failure_total"
+    },
+    {
+      "id": "ENV-008",
+      "source": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceLine": 25,
+      "section": "Step 7 운영 도구 — 5일",
+      "text": "이미지 업로드, 좌표 에디터, 게시.",
+      "fingerprint": "4b1d46a2b85309c378a709570ee2e187e6838c2202af72575946c8aa5f340158",
+      "schema": "tools/check-runtime.mjs",
+      "phase": "A",
+      "test": "tests/contracts/runtime-gate.test.ts",
+      "metric": "runtime_gate_failure_total"
+    },
+    {
+      "id": "ENV-009",
+      "source": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceLine": 28,
+      "section": "Step 8 QA/베타 — 7~14일",
+      "text": "분석, 크래시, 50판 자동 테스트.",
+      "fingerprint": "ead51083920fc769648b76e5a6688a88166ca6d5497df5ed886de893313155b4",
+      "schema": "tools/check-runtime.mjs",
+      "phase": "A",
+      "test": "tests/contracts/runtime-gate.test.ts",
+      "metric": "runtime_gate_failure_total"
+    },
+    {
+      "id": "ENV-010",
+      "source": "12_IMPLEMENTATION_ROADMAP.md",
       "sourceLine": 31,
       "section": "예상",
       "text": "1인 + AI 코딩 보조: 6~10주",
@@ -1755,7 +2727,7 @@
       "metric": "runtime_gate_failure_total"
     },
     {
-      "id": "ENV-002",
+      "id": "ENV-011",
       "source": "12_IMPLEMENTATION_ROADMAP.md",
       "sourceLine": 32,
       "section": "예상",
@@ -1769,6 +2741,42 @@
     {
       "id": "DOC-001",
       "source": "13_CODING_AGENT_PROMPTS.md",
+      "sourceLine": 4,
+      "section": "공통",
+      "text": "TypeScript strict. 임의 기능 추가 금지. 각 단계 후 테스트 결과와 변경 파일 목록 보고. 서버가 점수와 승패를 결정.",
+      "fingerprint": "0a024fd63b88cbb5896bcc3d05dbe31304908f3669a50b52cb678ed5aa47f854",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-002",
+      "source": "13_CODING_AGENT_PROMPTS.md",
+      "sourceLine": 7,
+      "section": "Step 0",
+      "text": "전체 문서를 읽고 코드는 작성하지 말고 모노레포 구조, 공통 타입, 상태 머신, 위험 요소, 테스트 계획을 작성하라.",
+      "fingerprint": "0bf10a6c056e781df74613adb96ce458bcebd464e0b9734836bfe0c70f45d822",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-003",
+      "source": "13_CODING_AGENT_PROMPTS.md",
+      "sourceLine": 10,
+      "section": "Step 1",
+      "text": "Expo로 오프라인 싱글 프로토타입 구현:",
+      "fingerprint": "a6435ebc65fa90334c61cfc923fd3ef6f5c3b268f169f47063a5f94630edc76f",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-004",
+      "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 11,
       "section": "Step 1",
       "text": "두 이미지",
@@ -1779,7 +2787,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-002",
+      "id": "DOC-005",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 12,
       "section": "Step 1",
@@ -1791,7 +2799,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-003",
+      "id": "DOC-006",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 13,
       "section": "Step 1",
@@ -1803,7 +2811,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-004",
+      "id": "DOC-007",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 14,
       "section": "Step 1",
@@ -1815,7 +2823,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-005",
+      "id": "DOC-008",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 15,
       "section": "Step 1",
@@ -1827,7 +2835,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-006",
+      "id": "DOC-009",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 16,
       "section": "Step 1",
@@ -1839,7 +2847,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-007",
+      "id": "DOC-010",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 17,
       "section": "Step 1",
@@ -1851,7 +2859,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-008",
+      "id": "DOC-011",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 18,
       "section": "Step 1",
@@ -1863,7 +2871,19 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-009",
+      "id": "DOC-012",
+      "source": "13_CODING_AGENT_PROMPTS.md",
+      "sourceLine": 21,
+      "section": "Step 2",
+      "text": "돌발 단어 사냥 추가:",
+      "fingerprint": "8f285199470848d324566017cbffcc278e1bd9ad4611a6c63052defb58b31659",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-013",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 22,
       "section": "Step 2",
@@ -1875,7 +2895,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-010",
+      "id": "DOC-014",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 23,
       "section": "Step 2",
@@ -1887,7 +2907,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-011",
+      "id": "DOC-015",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 24,
       "section": "Step 2",
@@ -1899,7 +2919,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-012",
+      "id": "DOC-016",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 25,
       "section": "Step 2",
@@ -1911,7 +2931,19 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-013",
+      "id": "DOC-017",
+      "source": "13_CODING_AGENT_PROMPTS.md",
+      "sourceLine": 28,
+      "section": "Step 3",
+      "text": "최종 단어와 뜻 추가:",
+      "fingerprint": "4fe130068b8fc1037f61efa357a5c33400abf51f5f24593ee5dbe206b4ffc00f",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-018",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 29,
       "section": "Step 3",
@@ -1923,7 +2955,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-014",
+      "id": "DOC-019",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 30,
       "section": "Step 3",
@@ -1935,7 +2967,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-015",
+      "id": "DOC-020",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 31,
       "section": "Step 3",
@@ -1947,7 +2979,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-016",
+      "id": "DOC-021",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 32,
       "section": "Step 3",
@@ -1959,7 +2991,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-017",
+      "id": "DOC-022",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 33,
       "section": "Step 3",
@@ -1971,7 +3003,19 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-018",
+      "id": "DOC-023",
+      "source": "13_CODING_AGENT_PROMPTS.md",
+      "sourceLine": 36,
+      "section": "Step 4",
+      "text": "NestJS + Socket.IO 서버:",
+      "fingerprint": "7d4a6c6f6bff32976c936884bbf3d75867d1cd78cd1dda87a5bd5f35d31e52e4",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-024",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 37,
       "section": "Step 4",
@@ -1983,7 +3027,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-019",
+      "id": "DOC-025",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 38,
       "section": "Step 4",
@@ -1995,7 +3039,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-020",
+      "id": "DOC-026",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 39,
       "section": "Step 4",
@@ -2007,7 +3051,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-021",
+      "id": "DOC-027",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 40,
       "section": "Step 4",
@@ -2019,7 +3063,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-022",
+      "id": "DOC-028",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 41,
       "section": "Step 4",
@@ -2031,7 +3075,19 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-023",
+      "id": "DOC-029",
+      "source": "13_CODING_AGENT_PROMPTS.md",
+      "sourceLine": 44,
+      "section": "Step 5",
+      "text": "Supabase:",
+      "fingerprint": "d3b8312a56fd49d82d119c7ccad88952cb844885d569a1e2077d41b0633b745e",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-030",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 45,
       "section": "Step 5",
@@ -2043,7 +3099,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-024",
+      "id": "DOC-031",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 46,
       "section": "Step 5",
@@ -2055,7 +3111,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-025",
+      "id": "DOC-032",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 47,
       "section": "Step 5",
@@ -2067,7 +3123,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-026",
+      "id": "DOC-033",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 48,
       "section": "Step 5",
@@ -2079,7 +3135,19 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-027",
+      "id": "DOC-034",
+      "source": "13_CODING_AGENT_PROMPTS.md",
+      "sourceLine": 51,
+      "section": "Step 6",
+      "text": "펫:",
+      "fingerprint": "e6d323f8d02407d183cb29cab229faa0b046902d5e50affa8ebfc43016f545c6",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-035",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 52,
       "section": "Step 6",
@@ -2091,7 +3159,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-028",
+      "id": "DOC-036",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 53,
       "section": "Step 6",
@@ -2103,7 +3171,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-029",
+      "id": "DOC-037",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 54,
       "section": "Step 6",
@@ -2115,7 +3183,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-030",
+      "id": "DOC-038",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 55,
       "section": "Step 6",
@@ -2127,7 +3195,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-031",
+      "id": "DOC-039",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 56,
       "section": "Step 6",
@@ -2139,7 +3207,19 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-032",
+      "id": "DOC-040",
+      "source": "13_CODING_AGENT_PROMPTS.md",
+      "sourceLine": 59,
+      "section": "Step 7",
+      "text": "Next.js 운영 도구:",
+      "fingerprint": "e4be1909ae5c061a3cc5653c8c218b5a840acf308cfc3052a75e0b8d9519bfa9",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-041",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 60,
       "section": "Step 7",
@@ -2151,7 +3231,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-033",
+      "id": "DOC-042",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 61,
       "section": "Step 7",
@@ -2163,7 +3243,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-034",
+      "id": "DOC-043",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 62,
       "section": "Step 7",
@@ -2175,7 +3255,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-035",
+      "id": "DOC-044",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 63,
       "section": "Step 7",
@@ -2187,7 +3267,19 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-036",
+      "id": "DOC-045",
+      "source": "13_CODING_AGENT_PROMPTS.md",
+      "sourceLine": 66,
+      "section": "Step 8",
+      "text": "전체 검증:",
+      "fingerprint": "938e3d0b1406363fcd1edf2475a46182f9ed5517f45830f65fdc094eab691413",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-046",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 67,
       "section": "Step 8",
@@ -2199,7 +3291,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-037",
+      "id": "DOC-047",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 68,
       "section": "Step 8",
@@ -2211,7 +3303,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-038",
+      "id": "DOC-048",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 69,
       "section": "Step 8",
@@ -2223,7 +3315,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-039",
+      "id": "DOC-049",
       "source": "13_CODING_AGENT_PROMPTS.md",
       "sourceLine": 70,
       "section": "Step 8",
@@ -2235,7 +3327,19 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-040",
+      "id": "DOC-050",
+      "source": "README.md",
+      "sourceLine": 5,
+      "section": "한 줄 정의",
+      "text": "두 플레이어가 틀린그림을 찾는 중 돌발 단어 미션을 선점하고, 최종 단어와 뜻을 맞혀 100점을 먼저 만드는 실시간 학습 PvP 게임.",
+      "fingerprint": "5717d3030e0e84fa6e87f91083fcff76cac17768bceca85f6177bcea9dd2801f",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-051",
       "source": "README.md",
       "sourceLine": 8,
       "section": "최종 권장 규칙",
@@ -2247,7 +3351,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-041",
+      "id": "DOC-052",
       "source": "README.md",
       "sourceLine": 9,
       "section": "최종 권장 규칙",
@@ -2259,7 +3363,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-042",
+      "id": "DOC-053",
       "source": "README.md",
       "sourceLine": 10,
       "section": "최종 권장 규칙",
@@ -2271,7 +3375,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-043",
+      "id": "DOC-054",
       "source": "README.md",
       "sourceLine": 11,
       "section": "최종 권장 규칙",
@@ -2283,7 +3387,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-044",
+      "id": "DOC-055",
       "source": "README.md",
       "sourceLine": 12,
       "section": "최종 권장 규칙",
@@ -2295,7 +3399,19 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-045",
+      "id": "DOC-056",
+      "source": "README.md",
+      "sourceLine": 15,
+      "section": "핵심 수정 사항",
+      "text": "사용자 제안은 방향이 좋다. 다만 파이널 러시에서 오답 잠금을 완전히 제거하면 연타 스팸이 생길 수 있어, **-10점 + 1.5초 잠금**으로 유지한다. 또한 차이점은 일반/어려움으로 나눠 점수 차를 둔다.",
+      "fingerprint": "0b24199f89c84e26eb6187b669e04f222234a6a7b80997a1d06ffe6a06282de8",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-057",
       "source": "README.md",
       "sourceLine": 31,
       "section": "MVP 기술 스택",
@@ -2307,7 +3423,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-046",
+      "id": "DOC-058",
       "source": "README.md",
       "sourceLine": 32,
       "section": "MVP 기술 스택",
@@ -2319,7 +3435,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-047",
+      "id": "DOC-059",
       "source": "README.md",
       "sourceLine": 33,
       "section": "MVP 기술 스택",
@@ -2331,7 +3447,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-048",
+      "id": "DOC-060",
       "source": "README.md",
       "sourceLine": 34,
       "section": "MVP 기술 스택",
@@ -2343,7 +3459,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-049",
+      "id": "DOC-061",
       "source": "README.md",
       "sourceLine": 35,
       "section": "MVP 기술 스택",
@@ -2355,7 +3471,7 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-050",
+      "id": "DOC-062",
       "source": "README.md",
       "sourceLine": 36,
       "section": "MVP 기술 스택",
@@ -2367,12 +3483,180 @@
       "metric": "docs_gate_failure_total"
     },
     {
-      "id": "DOC-051",
+      "id": "DOC-063",
       "source": "README.md",
       "sourceLine": 37,
       "section": "MVP 기술 스택",
       "text": "Crash: Sentry",
       "fingerprint": "0d587eba2e562586441f914d7fb43a694c151c88778f26642e10753769a76259",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-064",
+      "source": "README.md",
+      "sourceLine": 40,
+      "section": "문서 순서",
+      "text": "[Game design overview](01_GAME_DESIGN_OVERVIEW.md)",
+      "fingerprint": "9c18a35c1b7cd8a6cb8cbfb8035c8a11a929120af521062b6817e49c1e5a5c7d",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-065",
+      "source": "README.md",
+      "sourceLine": 41,
+      "section": "문서 순서",
+      "text": "[Core rules and balance](02_CORE_RULES_AND_BALANCE.md)",
+      "fingerprint": "f8a5eeaeff640209235fdea02791cf52162b3214b0ed907e376d1df0955e3624",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-066",
+      "source": "README.md",
+      "sourceLine": 42,
+      "section": "문서 순서",
+      "text": "[Game flow and state machine](03_GAME_FLOW_AND_STATE_MACHINE.md)",
+      "fingerprint": "39cd09929d7778174eb5d24f294b1e6d56b6bd08e6e9ee88b6bcf5b68ef970e8",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-067",
+      "source": "README.md",
+      "sourceLine": 43,
+      "section": "문서 순서",
+      "text": "[UX screen specification](04_UX_SCREEN_SPEC.md)",
+      "fingerprint": "6db6ee1e130cbd5beb59c4585610187d7b37fad2d1a73dd08e1c21fc7a6d7356",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-068",
+      "source": "README.md",
+      "sourceLine": 44,
+      "section": "문서 순서",
+      "text": "[Pet collection system](05_PET_COLLECTION_SYSTEM.md)",
+      "fingerprint": "9dcd9ae0370a6fefbba8a3fbe80d46dbfc7e61e1c139185e5a1ac07036f8a470",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-069",
+      "source": "README.md",
+      "sourceLine": 45,
+      "section": "문서 순서",
+      "text": "[Client architecture](06_CLIENT_ARCHITECTURE.md)",
+      "fingerprint": "1378e2e6a98632985bb651e1c0f2f7257dc12ec326b8751e5e80443b7bad1792",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-070",
+      "source": "README.md",
+      "sourceLine": 46,
+      "section": "문서 순서",
+      "text": "[Realtime server specification](07_REALTIME_SERVER_SPEC.md)",
+      "fingerprint": "ac2c3b40a94fcec1efcc9a44060246f3ce02d36a5075840aef2362c9147f67be",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-071",
+      "source": "README.md",
+      "sourceLine": 47,
+      "section": "문서 순서",
+      "text": "[Database schema](08_DATABASE_SCHEMA.md)",
+      "fingerprint": "0012bfb1494f5dba90acd10a8093136f10d28e612852532fbe65e8e88ae8045d",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-072",
+      "source": "README.md",
+      "sourceLine": 48,
+      "section": "문서 순서",
+      "text": "[API and socket events](09_API_AND_SOCKET_EVENTS.md)",
+      "fingerprint": "0ed6566aaa3133049490237ba88d57fec77b59872edf6f58216fb5c19a5fe903",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-073",
+      "source": "README.md",
+      "sourceLine": 49,
+      "section": "문서 순서",
+      "text": "[Content and image pipeline](10_CONTENT_AND_IMAGE_PIPELINE.md)",
+      "fingerprint": "f8e592d43634c081cc3098c98e60ed114cd0713654b8df85601dfcc25ac779a2",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-074",
+      "source": "README.md",
+      "sourceLine": 50,
+      "section": "문서 순서",
+      "text": "[Test and balance plan](11_TEST_AND_BALANCE_PLAN.md)",
+      "fingerprint": "e342a63b33a66751371dda759361ff30b4c3b5a74aa4a32827539eaa377ba34e",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-075",
+      "source": "README.md",
+      "sourceLine": 51,
+      "section": "문서 순서",
+      "text": "[Implementation roadmap](12_IMPLEMENTATION_ROADMAP.md)",
+      "fingerprint": "411ec307068ff9121ad3eac5d17edeaadcbb88e56daad2bef250e830d7b52795",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-076",
+      "source": "README.md",
+      "sourceLine": 52,
+      "section": "문서 순서",
+      "text": "[Coding-agent prompts](13_CODING_AGENT_PROMPTS.md)",
+      "fingerprint": "92ceff1c8900ffcf7a19f60347673ab32f59aa5b3cc84723ef24960c4680dc4b",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "docs_gate_failure_total"
+    },
+    {
+      "id": "DOC-077",
+      "source": "README.md",
+      "sourceLine": 54,
+      "section": "문서 순서",
+      "text": "The machine-checked semantic registry for every annotated normative bullet, ordered item, and prose statement is [requirements traceability](docs/requirements-traceability.md).",
+      "fingerprint": "005e28dd6f7a2e4a101928a0365ecd649b4eab2a1ced75153ac1e9bcc30de5c6",
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",

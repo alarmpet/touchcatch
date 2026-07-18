@@ -32,13 +32,14 @@
     "ui:schemas:check": "node tools/write-ui-contract-schemas.mjs --check",
     "ui:docs:check": "node tools/check-ui-doc-projections.mjs",
     "docs:check": "node tools/check-docs.mjs",
+    "release:reports:check": "tsx tools/write-release-reports.ts --check",
     "release:load": "tsx -e \"import {evaluateLoadSamples} from './tools/release-evidence.ts'; const samples=Array.from({length:10000},(_,i)=>({requestId:'r'+i,outcome:'SUCCESS',occurredAtMs:i*180,durationMs:100,schemaValid:true,duplicateClaim:false,duplicateReward:false,finishLost:false,concurrency:100})); console.log(JSON.stringify(evaluateLoadSamples(samples,{soakStartMs:0,soakEndMs:1800000,expectedConcurrency:100}),null,2))\"",
     "release:fault": "tsx -e \"import {runDeterministicFaultHarness} from './tools/release-evidence.ts'; void runDeterministicFaultHarness(20260719).then(x=>console.log(JSON.stringify(x,null,2)))\"",
-    "release:balance": "tsx -e \"import {runBalanceSimulation} from './tools/release-evidence.ts'; console.log(JSON.stringify(runBalanceSimulation({seed:20260719,matches:100000,botModelVersion:'bot-v1'}),null,2))\"",
+    "release:balance": "tsx tools/write-release-reports.ts --check",
     "db:start": "supabase start",
     "test:db:concurrency": "vitest run --config vitest.db.config.ts --sequence.concurrent=false",
     "check:db": "corepack pnpm ruleset:projections:check && supabase db reset --local && supabase db lint --local --fail-on error && supabase test db --local && corepack pnpm test:db:concurrency",
-    "check": "corepack pnpm check:runtime && corepack pnpm admin:check && corepack pnpm ruleset:projections:check && corepack pnpm content:schemas:check && corepack pnpm ui:schemas:check && corepack pnpm ui:docs:check && corepack pnpm ui:reference:check && corepack pnpm ui:assets:check && corepack pnpm ui:acceptance:check && corepack pnpm lint && corepack pnpm typecheck && corepack pnpm test && corepack pnpm openapi:lint && corepack pnpm docs:check && corepack pnpm content:validate && corepack pnpm secret:scan",
+    "check": "corepack pnpm check:runtime && corepack pnpm admin:check && corepack pnpm ruleset:projections:check && corepack pnpm content:schemas:check && corepack pnpm ui:schemas:check && corepack pnpm ui:docs:check && corepack pnpm ui:reference:check && corepack pnpm ui:assets:check && corepack pnpm ui:acceptance:check && corepack pnpm lint && corepack pnpm typecheck && corepack pnpm test && corepack pnpm openapi:lint && corepack pnpm docs:check && corepack pnpm release:reports:check && corepack pnpm content:validate && corepack pnpm secret:scan",
     "verify": "pnpm check && pnpm check:db"
   },
   "devDependencies": {

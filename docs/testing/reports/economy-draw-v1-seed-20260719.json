@@ -1,0 +1,18 @@
+{
+  "reportVersion": 1,
+  "evidenceClass": "DRAFT_TEST_ONLY",
+  "seed": 20260719,
+  "drawCount": 100000,
+  "economyVersion": "1.0.0",
+  "economyStatus": "DRAFT",
+  "economyHash": "257dc0f7944208179e9619aec7d2530b838c3305b8d1d4e44bf6b5a7b6260689",
+  "draws": {
+    "COMMON": 79942,
+    "RARE": 17995,
+    "LEGENDARY": 2063
+  },
+  "pityFinal": {
+    "rareCounter": 7,
+    "legendaryCounter": 40
+  }
+}

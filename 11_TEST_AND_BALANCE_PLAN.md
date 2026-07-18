@@ -9,18 +9,18 @@
 
 ## Versioned evidence classes
 
-PR wiring uses 50 matches, nightly bot sensitivity uses 10,000 matches, and economy modeling uses 100,000 draws. Every simulation pins its seed, ruleset version, report version, and `botModelVersion`; it remains DRAFT/test-only unless separately approved. Bot output is not evidence of human satisfaction, learning, fairness, or production capacity.
+PR wiring uses 50 matches, nightly bot sensitivity uses 10,000 matches, and economy modeling uses 100,000 draws. Every simulation pins its seed, ruleset version, report version, and `botModelVersion`; it remains DRAFT/test-only unless separately approved. Bot output is not evidence of human satisfaction, learning, fairness, or production capacity. <!-- REQ: QA-005 -->
 
 ## A/B 테스트
-A: 차이점 6/9, 최종 패키지 50
-B: 차이점 7/10, 최종 패키지 40
+A: 차이점 6/9, 최종 패키지 50 <!-- REQ: QA-006 -->
+B: 차이점 7/10, 최종 패키지 40 <!-- REQ: QA-007 -->
 
-비교: 날먹 체감, 학습 참여율, 역전 빈도, 만족도.
+비교: 날먹 체감, 학습 참여율, 역전 빈도, 만족도. <!-- REQ: QA-008 -->
 
 ## 필수 테스트
-- 동시 클릭 <!-- REQ: QA-005 -->
-- 줌 상태 좌표 <!-- REQ: QA-006 -->
-- 재접속 <!-- REQ: QA-007 -->
-- 75초와 점수 이벤트 동시 <!-- REQ: QA-008 -->
-- 파이널 러시 오답 연타 <!-- REQ: QA-009 -->
-- 보상 중복 지급 <!-- REQ: QA-010 -->
+- 동시 클릭 <!-- REQ: QA-009 -->
+- 줌 상태 좌표 <!-- REQ: QA-010 -->
+- 재접속 <!-- REQ: QA-011 -->
+- 75초와 점수 이벤트 동시 <!-- REQ: QA-012 -->
+- 파이널 러시 오답 연타 <!-- REQ: QA-013 -->
+- 보상 중복 지급 <!-- REQ: QA-014 -->
