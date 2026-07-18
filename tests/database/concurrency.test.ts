@@ -26,6 +26,7 @@ const admin = new Pool({ connectionString: databaseUrl, max: 25 });
 const publisherRole = `content_publisher_test_${process.pid}`;
 const publisherPassword = randomUUID();
 let publisherPool: Pool;
+let adminPublishFixture: Extract<Awaited<ReturnType<typeof validateFixtureFile>>, { ok: true }>['value'];
 const matchId = randomUUID();
 const revisionId = '11111111-1111-4111-8111-111111111111';
 const userIds = Array.from({ length: 20 }, () => randomUUID());
@@ -38,6 +39,9 @@ async function asAppServer(client: PoolClient): Promise<void> {
 }
 
 beforeAll(async () => {
+  const adminFixture = await validateFixtureFile(resolve('content/fixtures/valid/en-intermediate.json'));
+  if (!adminFixture.ok) throw new Error('admin fixture rejected');
+  adminPublishFixture = adminFixture.value;
   const validated = await validateFixtureFile(resolve('content/fixtures/valid/ko-beginner.json'));
   if (!validated.ok) throw new Error(`valid content fixture rejected: ${JSON.stringify(validated.errors)}`);
   await admin.query(
@@ -56,7 +60,7 @@ beforeAll(async () => {
   const publisherUrl = new URL(databaseUrl);
   publisherUrl.username = publisherRole;
   publisherUrl.password = publisherPassword;
-  publisherPool = new Pool({ connectionString: publisherUrl.toString(), max: 1 });
+  publisherPool = new Pool({ connectionString: publisherUrl.toString(), max: 4 });
   const publisher = await publisherPool.connect();
   try {
     const identity = await publisher.query<{ session_user: string; current_user: string; app_server_member: boolean }>(
@@ -161,5 +165,22 @@ describe('join_match_participant_v1 concurrency', () => {
     } finally {
       await Promise.all(clients.map(async (client) => { await client.query('reset role').catch(() => undefined); client.release(); }));
     }
+  });
+});
+
+describe('admin publish durable database boundary', () => {
+  it('replays exact stored results and rejects key/hash and attestation reuse across real sessions', async () => {
+    const client = await publisherPool.connect(); const restartedClient = await publisherPool.connect();
+    const key = `idem_${randomUUID().replaceAll('-', '')}`; const requestHash = '1'.repeat(64); const attestationHash = '2'.repeat(64);
+    const args = [key,requestHash,attestationHash,adminPublishFixture.publicContent,adminPublishFixture.privateSolution,adminPublishFixture.rightsManifest,adminPublishFixture.publicContentCanonicalJson,adminPublishFixture.privateSolutionCanonicalJson,adminPublishFixture.rightsManifestCanonicalJson,'a'.repeat(43),'b'.repeat(43),`worker_${randomUUID().replaceAll('-','')}`];
+    try {
+      await client.query('set role deployment_role');
+      await restartedClient.query('set role deployment_role');
+      const first = await client.query<{ id: string }>('select private.publish_attested_content_revision_v1($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)::text as id', args);
+      const replay = await restartedClient.query<{ id: string }>('select private.publish_attested_content_revision_v1($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)::text as id', args);
+      expect(replay.rows).toEqual(first.rows);
+      await expect(client.query('select private.publish_attested_content_revision_v1($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)', [key,'3'.repeat(64),...args.slice(2)])).rejects.toThrow('IDEMPOTENCY_CONFLICT');
+      await expect(client.query('select private.publish_attested_content_revision_v1($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)', [`other_${key}`,requestHash,...args.slice(2)])).rejects.toThrow();
+    } finally { await client.query('reset role').catch(() => undefined); await restartedClient.query('reset role').catch(() => undefined); client.release(); restartedClient.release(); }
   });
 });

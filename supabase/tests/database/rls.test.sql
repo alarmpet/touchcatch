@@ -30,6 +30,8 @@ select is((select count(*)::int from pg_proc where prosecdef and pronamespace in
   'private.join_match_participant_v1(uuid,uuid,uuid)'::regprocedure,
   'private.publish_content_revision_v1(jsonb,jsonb,jsonb,text,text,text,text)'::regprocedure,
   'private.publish_attested_content_revision_v1(text,text,text,jsonb,jsonb,jsonb,text,text,text,text,text,text)'::regprocedure,
+  'private.lookup_admin_session_v1(text)'::regprocedure,
+  'private.create_admin_session_v1(text,text,uuid)'::regprocedure,
   'private.publish_economy_bundle_v1(jsonb,jsonb)'::regprocedure,
   'private.secure_random_below_v1(bigint)'::regprocedure,
   'private.award_match_reward_v1(uuid,uuid,text,bigint,text,text,text)'::regprocedure,

@@ -1,16 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { authenticateAdmin } from './server/auth.js';
+import { createCookieSessionAuth } from './server/auth.js';
 
-describe('admin session authentication', () => {
-  it('derives authority only from verified auth app metadata', async () => {
-    const fetcher = async () => new Response(JSON.stringify({ id: 'actor-1', app_metadata: { roles: ['CONTENT_PUBLISHER'] }, user_metadata: { roles: ['OWNER'] } }), { status: 200 });
-    await expect(authenticateAdmin({ authorization: 'Bearer token-safe', sessionId: 'session-safe' }, { authOrigin: 'https://auth.example.test', publishableKey: 'public', fetcher })).resolves.toEqual({ actorId: 'actor-1', sessionId: 'session-safe', roles: ['CONTENT_PUBLISHER'] });
-  });
-
-  it('fails closed for malformed bearer, auth failure, missing role or forged user metadata', async () => {
-    const ok = (body: unknown, status = 200) => async () => new Response(JSON.stringify(body), { status });
-    await expect(authenticateAdmin({ authorization: 'Basic bad', sessionId: 's' }, { authOrigin: 'https://auth.example.test', publishableKey: 'public', fetcher: ok({}) })).rejects.toThrow('UNAUTHORIZED');
-    await expect(authenticateAdmin({ authorization: 'Bearer token', sessionId: 's' }, { authOrigin: 'https://auth.example.test', publishableKey: 'public', fetcher: ok({}, 401) })).rejects.toThrow('UNAUTHORIZED');
-    await expect(authenticateAdmin({ authorization: 'Bearer token', sessionId: 's' }, { authOrigin: 'https://auth.example.test', publishableKey: 'public', fetcher: ok({ id: 'actor', app_metadata: {}, user_metadata: { roles: ['CONTENT_PUBLISHER'] } }) })).rejects.toThrow('FORBIDDEN');
+describe('HttpOnly cookie session authentication', () => {
+  const input = { sessionId: 'opaque-session', origin: 'https://admin.test', allowedOrigin: 'https://admin.test', csrfCookie: 'csrf', csrfHeader: 'csrf' };
+  it('fails closed for missing, expired and role-denied sessions', async () => {
+    const missing = createCookieSessionAuth({ hashSession: (v) => v, loadSession: async () => null });
+    await expect(missing.authenticate({ ...input, sessionId: null })).rejects.toThrow('UNAUTHORIZED');
+    await expect(missing.authenticate(input)).rejects.toThrow('UNAUTHORIZED');
+    const denied = createCookieSessionAuth({ hashSession: (v) => v, loadSession: async () => ({ sessionId: 's', actorId: 'a', roles: [] }) });
+    await expect(denied.authenticate(input)).rejects.toThrow('FORBIDDEN');
   });
 });

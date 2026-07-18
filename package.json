@@ -34,7 +34,7 @@
     "db:start": "supabase start",
     "test:db:concurrency": "vitest run --config vitest.db.config.ts --sequence.concurrent=false",
     "check:db": "corepack pnpm ruleset:projections:check && supabase db reset --local && supabase db lint --local --fail-on error && supabase test db --local && corepack pnpm test:db:concurrency",
-    "check": "corepack pnpm check:runtime && corepack pnpm ruleset:projections:check && corepack pnpm content:schemas:check && corepack pnpm ui:schemas:check && corepack pnpm ui:docs:check && corepack pnpm ui:reference:check && corepack pnpm ui:assets:check && corepack pnpm ui:acceptance:check && corepack pnpm lint && corepack pnpm typecheck && corepack pnpm test && corepack pnpm openapi:lint && corepack pnpm content:validate && corepack pnpm secret:scan",
+    "check": "corepack pnpm check:runtime && corepack pnpm admin:check && corepack pnpm ruleset:projections:check && corepack pnpm content:schemas:check && corepack pnpm ui:schemas:check && corepack pnpm ui:docs:check && corepack pnpm ui:reference:check && corepack pnpm ui:assets:check && corepack pnpm ui:acceptance:check && corepack pnpm lint && corepack pnpm typecheck && corepack pnpm test && corepack pnpm openapi:lint && corepack pnpm content:validate && corepack pnpm secret:scan",
     "verify": "pnpm check && pnpm check:db"
   },
   "devDependencies": {

@@ -17,11 +17,11 @@ export function intakeUpload(input: UploadInput) {
   if (input.mimeType !== 'application/json') throw new Error('UPLOAD_TYPE');
   if (input.bytes.byteLength > ADMIN_UPLOAD_MAX_BYTES) throw new Error('UPLOAD_SIZE');
   const trimmed = input.filename.trim();
-  if (trimmed.includes('../') || trimmed.includes('..\\') || trimmed.includes('/') || trimmed.includes('\0')) {
+  if (trimmed !== input.filename || trimmed.includes('../') || trimmed.includes('..\\') || trimmed.includes('/') || trimmed.includes('\0')) {
     throw new Error('UPLOAD_FILENAME');
   }
-  const filename = trimmed.replace(/^C:\\fake\\/iu, '').replaceAll('\\', '/').split('/').at(-1)?.toLowerCase();
-  if (!filename || !/^[a-z0-9][a-z0-9._-]{0,127}\.json$/u.test(filename) || filename.includes('..')) {
+  const filename = trimmed.replace(/^C:\\fake\\/u, '').replaceAll('\\', '/').split('/').at(-1);
+  if (!filename || !/^[a-z0-9][a-z0-9_-]{0,127}\.json$/u.test(filename)) {
     throw new Error('UPLOAD_FILENAME');
   }
   return {
@@ -48,6 +48,7 @@ async function boundedFile(form: FormData, field: string, allowed: readonly stri
 export async function intakeMultipart(form: FormData) {
   if ([...form.keys()].sort().join(',') !== 'artifact,imageA,imageB') throw new Error('UPLOAD_FIELDS');
   const artifactFile = await boundedFile(form, 'artifact', ['application/json'], ADMIN_UPLOAD_MAX_BYTES);
+  intakeUpload({ filename: artifactFile.name, mimeType: artifactFile.type, bytes: Buffer.from(await artifactFile.arrayBuffer()) });
   const artifactBytes = Buffer.from(await artifactFile.arrayBuffer());
   let artifact: unknown;
   try { artifact = JSON.parse(artifactBytes.toString('utf8')); } catch { throw new Error('UPLOAD_JSON_INVALID'); }

@@ -18,6 +18,7 @@ export function parseAdminRuntimeEnv(raw: Readonly<Record<string, string | undef
   const values = Object.fromEntries(exactKeys.map((key) => {
     const value = raw[key];
     if (!value?.trim()) throw new Error(`${key} must not be empty`);
+    if (value !== value.trim()) throw new Error(`${key} must not contain surrounding whitespace`);
     return [key, value];
   })) as Record<(typeof exactKeys)[number], string>;
   const origin = new URL(values.ADMIN_ALLOWED_ORIGIN);

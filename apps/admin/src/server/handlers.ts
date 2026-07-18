@@ -43,10 +43,8 @@ export function createAdminHandlers(dependencies: Dependencies) {
         const idempotencyKey = request.headers.get('idempotency-key') ?? '';
         try {
           const result = await dependencies.publish({ submission, session, attestation, idempotencyKey });
-          await dependencies.audit({ action: 'PUBLISH_SUCCEEDED', session, outcome: 'PUBLISHED', submission, contentRevisionId: result.contentRevisionId });
           return Response.json({ ok: true, result });
         } catch (error) {
-          await dependencies.audit({ action: 'PUBLISH_FAILED', session, outcome: 'ZERO_EFFECT', submission });
           throw error;
         }
       } catch (error) { return errorResponse(error); }

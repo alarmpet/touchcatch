@@ -1,5 +1,5 @@
 begin;
-select plan(8);
+select plan(14);
 select has_table('private','admin_publish_receipts','durable admin publish receipts exist');
 select has_table('private','admin_sessions','verified server sessions exist');
 select has_table('private','admin_publish_audit','safe admin audit exists');
@@ -8,5 +8,11 @@ select function_privs_are('private','publish_attested_content_revision_v1',array
 select col_is_unique('private','admin_publish_receipts','attestation_hash','attestations are single-use across keys');
 select col_not_null('private','admin_publish_receipts','fence','receipt fencing is mandatory');
 select policies_are('private','admin_publish_receipts',array[]::text[],'receipt authority is never exposed through RLS');
+select has_function('private','lookup_admin_session_v1',array['text'],'session lookup wrapper exists');
+select has_function('private','create_admin_session_v1',array['text','text','uuid'],'session bootstrap wrapper exists');
+select ok((select not rolcanlogin and not rolinherit from pg_roles where rolname='game_security_owner'),'admin definer owner is NOLOGIN NOINHERIT');
+select ok((select proowner=(select oid from pg_roles where rolname='game_security_owner') and proconfig=array['search_path=pg_catalog'] from pg_proc where oid='private.lookup_admin_session_v1(text)'::regprocedure),'lookup is owned and pins pg_catalog only');
+select ok((select proowner=(select oid from pg_roles where rolname='game_security_owner') and proconfig=array['search_path=pg_catalog'] from pg_proc where oid='private.create_admin_session_v1(text,text,uuid)'::regprocedure),'bootstrap is owned and pins pg_catalog only');
+select ok((select proowner=(select oid from pg_roles where rolname='game_security_owner') and proconfig=array['search_path=pg_catalog'] from pg_proc where oid='private.publish_attested_content_revision_v1(text,text,text,jsonb,jsonb,jsonb,text,text,text,text,text,text)'::regprocedure),'publish is owned and pins pg_catalog only');
 select * from finish();
 rollback;
