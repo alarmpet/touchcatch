@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "retiredIdRanges": [
+    {"family":"DOC","from":1,"to":67,"reason":"README marketing, examples, scoring duplicates, headings, and descriptive prose; not normative contracts"}
+  ],
+  "overrides": {
+    "RULE-015":{"lifecycle":"PLANNED","evidenceOwner":"game-design","closureCondition":"Implement and contract-test post-launch 2v2 mode"},
+    "RULE-016":{"lifecycle":"PLANNED","evidenceOwner":"game-design","closureCondition":"Implement and contract-test post-launch cooperative mode"},
+    "DOC-069":{"lifecycle":"PLANNED","evidenceOwner":"server-platform","closureCondition":"Add NestJS and Socket.IO package surfaces"},
+    "DOC-071":{"lifecycle":"PLANNED","evidenceOwner":"server-platform","closureCondition":"Add Redis package and integration surface"},
+    "DOC-072":{"lifecycle":"PLANNED","evidenceOwner":"admin-platform","closureCondition":"Add Next.js admin package surface"},
+    "DOC-073":{"lifecycle":"EXTERNAL","externalKind":"PRODUCT_DECISION","evidenceOwner":"product-analytics","closureCondition":"Record provider decision and implement selected analytics adapter"},
+    "DOC-074":{"lifecycle":"PLANNED","evidenceOwner":"observability","closureCondition":"Implement and contract-test Sentry integration"}
+  }
+}
