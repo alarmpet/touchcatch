@@ -27,9 +27,9 @@ const pityProjection = {
 
 function catalog(status: 'DRAFT' | 'APPROVED' = 'DRAFT') {
   const entries = [
-    ...Array.from({ length: 30 }, (_, i) => ({ petId: `common-${i + 1}`, rarity: 'COMMON', displayKey: `pet.common.${i + 1}` })),
-    ...Array.from({ length: 15 }, (_, i) => ({ petId: `rare-${i + 1}`, rarity: 'RARE', displayKey: `pet.rare.${i + 1}` })),
-    ...Array.from({ length: 5 }, (_, i) => ({ petId: `legendary-${i + 1}`, rarity: 'LEGENDARY', displayKey: `pet.legendary.${i + 1}` })),
+    ...Array.from({ length: 30 }, (_, i) => ({ petId: `00000000-0000-4000-8000-${String(i+1).padStart(12,'0')}`, rarity: 'COMMON', displayKey: `pet.common.${i + 1}` })),
+    ...Array.from({ length: 15 }, (_, i) => ({ petId: `00000000-0000-4000-8000-${String(i+31).padStart(12,'0')}`, rarity: 'RARE', displayKey: `pet.rare.${i + 1}` })),
+    ...Array.from({ length: 5 }, (_, i) => ({ petId: `00000000-0000-4000-8000-${String(i+46).padStart(12,'0')}`, rarity: 'LEGENDARY', displayKey: `pet.legendary.${i + 1}` })),
   ];
   const core = { schemaVersion: 1, catalogRevision: 'catalog-v1', entries };
   return {

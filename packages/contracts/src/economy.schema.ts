@@ -1,6 +1,13 @@
 import { canonicalJsonSha256 } from './canonical-json.js';
 import type { EconomyV1, LoadedApprovedEconomyV1 } from './economy.js';
 import type { PetCatalogRevisionV1, PetRarity } from './pet-catalog.js';
+import { Ajv2020 } from 'ajv/dist/2020.js';
+import economyJsonSchema from '../../../schemas/economy.schema.json' with { type: 'json' };
+import catalogJsonSchema from '../../../schemas/pet-catalog.schema.json' with { type: 'json' };
+
+const ajv = new Ajv2020({ strict: true, allErrors: true, validateFormats: false });
+const validateEconomyStructure = ajv.compile(economyJsonSchema);
+const validateCatalogStructure = ajv.compile(catalogJsonSchema);
 
 const economyKeys = new Set(['schemaVersion','economyVersion','status','catalogRevision','catalogHash','pitySeriesId','pitySemantics','pitySemanticsHash','draw','fusion','exp','simulationPolicy','rewardPolicies','approvalDecisionId','approvedBy','approvedAt']);
 const catalogKeys = new Set(['schemaVersion','catalogRevision','status','catalogHash','entries','approvalDecisionId','approvedBy','approvedAt']);
@@ -20,12 +27,13 @@ function approval(value: Record<string, unknown>): void {
 }
 
 export function parsePetCatalog(input: unknown): PetCatalogRevisionV1 {
+  if (!validateCatalogStructure(input)) throw new TypeError(`catalog schema: ${ajv.errorsText(validateCatalogStructure.errors)}`);
   const value = object(input, 'catalog'); exactKeys(value, catalogKeys, 'catalog'); approval(value);
   if (value.schemaVersion !== 1 || !['DRAFT','APPROVED'].includes(String(value.status)) || typeof value.catalogRevision !== 'string' || !Array.isArray(value.entries)) throw new TypeError('invalid catalog structure');
   const ids = new Set<string>(); const counts: Record<PetRarity, number> = { COMMON: 0, RARE: 0, LEGENDARY: 0 };
   for (const raw of value.entries) {
     const entry = object(raw, 'catalog entry'); exactKeys(entry, new Set(['petId','rarity','displayKey']), 'catalog entry');
-    if (typeof entry.petId !== 'string' || entry.petId === '' || ids.has(entry.petId) || typeof entry.displayKey !== 'string' || !(entry.rarity === 'COMMON' || entry.rarity === 'RARE' || entry.rarity === 'LEGENDARY')) throw new TypeError('catalog entries require unique opaque IDs and valid rarity');
+    if (typeof entry.petId !== 'string' || entry.petId === '' || ids.has(entry.petId) || (value.status === 'APPROVED' && !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(entry.petId)) || typeof entry.displayKey !== 'string' || !(entry.rarity === 'COMMON' || entry.rarity === 'RARE' || entry.rarity === 'LEGENDARY')) throw new TypeError('catalog entries require unique opaque UUIDv4 IDs and valid rarity');
     ids.add(entry.petId); counts[entry.rarity] += 1;
   }
   if (counts.COMMON !== 30 || counts.RARE !== 15 || counts.LEGENDARY !== 5) throw new TypeError('catalog requires exact 30/15/5 rarity grouping');
@@ -35,6 +43,7 @@ export function parsePetCatalog(input: unknown): PetCatalogRevisionV1 {
 }
 
 export function parseEconomy(input: unknown): EconomyV1 {
+  if (!validateEconomyStructure(input)) throw new TypeError(`economy schema: ${ajv.errorsText(validateEconomyStructure.errors)}`);
   const value = object(input, 'economy'); exactKeys(value, economyKeys, 'economy'); approval(value);
   if (value.schemaVersion !== 1 || !semverPattern.test(String(value.economyVersion)) || !['DRAFT','APPROVED'].includes(String(value.status))) throw new TypeError('invalid economy version/lifecycle');
   const pity = object(value.pitySemantics, 'pitySemantics'); const thresholds = object(pity.thresholds, 'thresholds');
