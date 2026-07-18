@@ -134,14 +134,21 @@ language sql immutable set search_path=pg_catalog as $$
       and (select array_agg(k order by k) from jsonb_object_keys(value) k)=array['catalogHash','catalogRevision','economyHash','economyVersion','legendaryCounter','petId','pitySemanticsHash','pitySeriesId','pointsRemaining','rareCounter','rarity','userPetId']::text[]
       and value->>'petId' ~* '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' and value->>'userPetId' ~* '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
       and value->>'rarity' in ('COMMON','RARE','LEGENDARY') and jsonb_typeof(value->'pointsRemaining')='number' and jsonb_typeof(value->'rareCounter')='number' and jsonb_typeof(value->'legendaryCounter')='number'
+      and jsonb_typeof(value->'economyVersion')='string' and jsonb_typeof(value->'economyHash')='string'
+      and jsonb_typeof(value->'catalogRevision')='string' and jsonb_typeof(value->'catalogHash')='string'
+      and jsonb_typeof(value->'pitySeriesId')='string' and jsonb_typeof(value->'pitySemanticsHash')='string'
       and value->>'economyHash' ~ '^[0-9a-f]{64}$' and value->>'catalogHash' ~ '^[0-9a-f]{64}$' and value->>'pitySemanticsHash' ~ '^[0-9a-f]{64}$'
     when 'FUSION_COMMITTED' then scope='FUSION_V1'
       and (select array_agg(k order by k) from jsonb_object_keys(value) k)=array['catalogHash','catalogRevision','consumed','economyHash','economyVersion','output']::text[]
       and jsonb_typeof(value->'consumed')='array' and jsonb_array_length(value->'consumed')>0
-      and not exists(select 1 from jsonb_array_elements(value->'consumed') m where jsonb_typeof(m)<>'object' or (select array_agg(k order by k) from jsonb_object_keys(m) k)<>array['count','userPetId']::text[] or not (m->>'count' ~ '^[1-9][0-9]*$') or not (m->>'userPetId' ~* '^[0-9a-f-]{36}$'))
+      and not exists(select 1 from jsonb_array_elements(value->'consumed') m where jsonb_typeof(m)<>'object' or (select array_agg(k order by k) from jsonb_object_keys(m) k)<>array['count','userPetId']::text[] or jsonb_typeof(m->'count')<>'number' or not (m->>'count' ~ '^[1-9][0-9]*$') or jsonb_typeof(m->'userPetId')<>'string' or not (m->>'userPetId' ~* '^[0-9a-f-]{36}$'))
+      and (select count(*)=count(distinct m->>'userPetId') and sum((m->>'count')::int)=5 from jsonb_array_elements(value->'consumed') m)
       and (select array_agg(k order by k) from jsonb_object_keys(value->'output') k)=array['petId','rarity','userPetId']::text[]
       and value#>>'{output,petId}' ~* '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' and value#>>'{output,userPetId}' ~* '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
-      and value#>>'{output,rarity}' in ('RARE','LEGENDARY') and value->>'economyHash' ~ '^[0-9a-f]{64}$' and value->>'catalogHash' ~ '^[0-9a-f]{64}$'
+      and value#>>'{output,rarity}' in ('RARE','LEGENDARY')
+      and jsonb_typeof(value->'economyVersion')='string' and jsonb_typeof(value->'economyHash')='string'
+      and jsonb_typeof(value->'catalogRevision')='string' and jsonb_typeof(value->'catalogHash')='string'
+      and value->>'economyHash' ~ '^[0-9a-f]{64}$' and value->>'catalogHash' ~ '^[0-9a-f]{64}$'
     when 'PET_SELECTED' then scope='SELECT_PET_V1'
       and (select array_agg(k order by k) from jsonb_object_keys(value) k)=array['petId','selected']::text[]
       and value->>'petId' ~* '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' and value->'selected'='true'::jsonb
@@ -242,8 +249,8 @@ begin
   end if;
   select * into guard from private.economy_series_guard where singleton for update;
   if guard.pity_semantics_hash is not null and (guard.supported_pity_series_id <> economy->>'pitySeriesId' or guard.pity_semantics_hash <> economy->>'pitySemanticsHash' or guard.pity_semantics_projection <> economy->'pitySemantics') then return jsonb_build_object('code','UNSUPPORTED_SERIES_MIGRATION'); end if;
-  if jsonb_array_length(catalog->'entries') <> 50 then raise exception 'CATALOG_COUNT_INVALID' using errcode='22023'; end if;
-  if (select count(*) from jsonb_array_elements(catalog->'entries') e where e->>'rarity'='COMMON')<>30 or (select count(*) from jsonb_array_elements(catalog->'entries') e where e->>'rarity'='RARE')<>15 or (select count(*) from jsonb_array_elements(catalog->'entries') e where e->>'rarity'='LEGENDARY')<>5 then raise exception 'CATALOG_GROUPING_INVALID' using errcode='22023'; end if;
+  if jsonb_array_length(catalog->'entries') <> 50 or (select count(distinct e->>'petId') from jsonb_array_elements(catalog->'entries') e)<>50 then raise exception 'CATALOG_COUNT_INVALID' using errcode='22023'; end if;
+  if (select count(distinct e->>'petId') from jsonb_array_elements(catalog->'entries') e where e->>'rarity'='COMMON')<>30 or (select count(distinct e->>'petId') from jsonb_array_elements(catalog->'entries') e where e->>'rarity'='RARE')<>15 or (select count(distinct e->>'petId') from jsonb_array_elements(catalog->'entries') e where e->>'rarity'='LEGENDARY')<>5 then raise exception 'CATALOG_GROUPING_INVALID' using errcode='22023'; end if;
   for entry in select value from jsonb_array_elements(catalog->'entries') loop
     if jsonb_typeof(entry)<>'object'
        or (select array_agg(k order by k) from jsonb_object_keys(entry) k)<>array['displayKey','petId','rarity']::text[]
@@ -406,6 +413,11 @@ alter table private.gacha_history owner to economy_security_owner;
 alter table private.fusion_history owner to economy_security_owner;
 alter table private.outbox_events owner to economy_security_owner;
 alter function private.reject_economy_immutable_v1() owner to economy_security_owner;
+alter function private.economy_outbox_payload_valid_v1(text,integer,text,jsonb) owner to economy_security_owner;
+alter function private.canonical_json_v1(jsonb) owner to economy_security_owner;
+alter function private.canonical_json_sha256_v1(jsonb) owner to economy_security_owner;
+alter function private.fusion_materials_shape_valid_v1(jsonb) owner to economy_security_owner;
+alter function private.validate_fusion_materials_v1(jsonb) owner to economy_security_owner;
 alter function private.publish_economy_bundle_v1(jsonb,jsonb) owner to economy_security_owner;
 alter function private.operation_key_v1(jsonb) owner to economy_security_owner;
 alter function private.secure_random_below_v1(bigint) owner to economy_security_owner;
@@ -418,7 +430,8 @@ revoke all on private.economy_series_guard,private.economy_policy_revisions,priv
 revoke all on sequence private.idempotency_requests_id_seq,private.reward_ledger_reward_ledger_id_seq,private.gacha_history_gacha_history_id_seq,private.fusion_history_fusion_history_id_seq from public,anon,authenticated,service_role,app_server,deployment_role;
 grant all on private.economy_series_guard,private.economy_policy_revisions,private.pet_definitions,private.pet_catalog_revisions,private.pet_catalog_revision_entries,private.economy_subjects,private.idempotency_requests,private.reward_ledger,private.gacha_pity_state,private.pet_inventory,private.gacha_history,private.fusion_history,private.outbox_events to postgres;
 grant all on sequence private.idempotency_requests_id_seq,private.reward_ledger_reward_ledger_id_seq,private.gacha_history_gacha_history_id_seq,private.fusion_history_fusion_history_id_seq to postgres;
-revoke execute on function private.reject_economy_immutable_v1(),private.publish_economy_bundle_v1(jsonb,jsonb),private.operation_key_v1(jsonb),private.secure_random_below_v1(bigint),private.award_match_reward_v1(uuid,uuid,text,bigint,text,text,text),private.draw_pet_v1(uuid,uuid,text,text,text,text,text),private.fuse_pets_v1(uuid,uuid,text,jsonb,text,text,text,text),private.select_pet_v1(uuid,uuid,text,uuid),private.set_pet_lock_v1(uuid,uuid,text,uuid,boolean) from public,anon,authenticated,service_role,app_server,deployment_role;
+revoke execute on function private.economy_outbox_payload_valid_v1(text,integer,text,jsonb),private.reject_economy_immutable_v1(),private.canonical_json_v1(jsonb),private.canonical_json_sha256_v1(jsonb),private.publish_economy_bundle_v1(jsonb,jsonb),private.fusion_materials_shape_valid_v1(jsonb),private.operation_key_v1(jsonb),private.secure_random_below_v1(bigint),private.award_match_reward_v1(uuid,uuid,text,bigint,text,text,text),private.draw_pet_v1(uuid,uuid,text,text,text,text,text),private.validate_fusion_materials_v1(jsonb),private.fuse_pets_impl_v1(uuid,uuid,text,jsonb,text,text,text,text),private.fuse_pets_v1(uuid,uuid,text,jsonb,text,text,text,text),private.select_pet_v1(uuid,uuid,text,uuid),private.set_pet_lock_v1(uuid,uuid,text,uuid,boolean) from public,anon,authenticated,service_role,app_server,deployment_role;
+grant execute on function private.economy_outbox_payload_valid_v1(text,integer,text,jsonb),private.fusion_materials_shape_valid_v1(jsonb) to postgres;
 grant usage on schema private to app_server,deployment_role;
 grant execute on function private.publish_economy_bundle_v1(jsonb,jsonb) to deployment_role;
 grant execute on function private.award_match_reward_v1(uuid,uuid,text,bigint,text,text,text),private.draw_pet_v1(uuid,uuid,text,text,text,text,text),private.fuse_pets_v1(uuid,uuid,text,jsonb,text,text,text,text),private.select_pet_v1(uuid,uuid,text,uuid),private.set_pet_lock_v1(uuid,uuid,text,uuid,boolean) to app_server;

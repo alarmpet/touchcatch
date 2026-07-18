@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { analyticLegendaryEquivalent, simulatePetEconomy } from '../../tools/simulate-pet-economy.mjs';
+import { analyticLegendaryEquivalent, chooseSamePetFusionOutput, simulatePetEconomy } from '../../tools/simulate-pet-economy.mjs';
 
 describe('pet economy simulation', () => {
   it('pins the no-pity any-rarity material upper-bound formula', () => {
@@ -33,5 +33,13 @@ describe('pet economy simulation', () => {
     expect(samePet.propagatedRareCopies).toBe(samePet.commonOutputs);
     expect(samePet.propagatedRareCopiesConsumed).toBeGreaterThan(0);
     expect(samePet.legendaryOutputs).toBeGreaterThan(samePet.drawnRareOnlyLegendaryOutputs);
+  });
+
+  it('draws same-pet fusion output from every rare ID, including the representative', () => {
+    const rareIds = Array.from({ length: 15 }, (_, index) => `rare-${index}`);
+    expect(chooseSamePetFusionOutput(() => 0, rareIds)).toBe('rare-0');
+    expect(chooseSamePetFusionOutput(() => 0.999999, rareIds)).toBe('rare-14');
+    const sequence = Array.from({ length: 15 }, (_, index) => chooseSamePetFusionOutput(() => (index + 0.5) / 15, rareIds));
+    expect(sequence).toEqual(rareIds);
   });
 });
