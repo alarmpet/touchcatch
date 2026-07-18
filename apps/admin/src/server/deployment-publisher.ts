@@ -17,3 +17,4 @@ export function createDeploymentPublisher(connection: DeploymentConnection): Dep
     },
   };
 }
+import 'server-only';

@@ -23,7 +23,7 @@ import {
   type ContentValidationResult,
 } from '../../contracts/src/index.js';
 
-type ValidationOptions = {
+export type ValidationOptions = {
   fixturePath: string;
   assetRoot: string;
   allowedAssetOrigins: readonly string[];

@@ -1,24 +1,46 @@
 'use client';
 
 import { useState, type ChangeEvent } from 'react';
+import type { AdminPreviewDto, AdminPublishResultDto } from './public-dto.js';
 
-type Stage = 'INTAKE' | 'READY_TO_VALIDATE' | 'VALIDATING' | 'VALIDATED';
-
+type ApiError = Readonly<{ path?: string; ruleId?: string; message?: string; code?: string }>;
 export function PublishConsole() {
-  const [stage, setStage] = useState<Stage>('INTAKE');
-  const [filename, setFilename] = useState('');
-  function selected(event: ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files?.[0];
-    setFilename(file?.name ?? '');
-    setStage(file ? 'READY_TO_VALIDATE' : 'INTAKE');
+  const [files, setFiles] = useState<{ artifact?: File; imageA?: File; imageB?: File }>({});
+  const [preview, setPreview] = useState<AdminPreviewDto>();
+  const [attestation, setAttestation] = useState('');
+  const [errors, setErrors] = useState<readonly ApiError[]>([]);
+  const [published, setPublished] = useState<AdminPublishResultDto>();
+  const [busy, setBusy] = useState(false);
+  function selected(field: 'artifact' | 'imageA' | 'imageB') { return (event: ChangeEvent<HTMLInputElement>) => setFiles((current) => ({ ...current, [field]: event.target.files?.[0] })); }
+  function body() { const form = new FormData(); for (const field of ['artifact', 'imageA', 'imageB'] as const) { const file = files[field]; if (file) form.set(field, file); } return form; }
+  async function validate() {
+    setBusy(true); setErrors([]); setPreview(undefined); setAttestation('');
+    try {
+      const response = await fetch('/api/admin/validate', { method: 'POST', body: body(), credentials: 'same-origin', headers: { 'x-csrf-token': document.cookie.match(/(?:^|; )admin_csrf=([^;]+)/u)?.[1] ?? '' } });
+      const value = await response.json() as { ok: boolean; preview?: AdminPreviewDto; attestation?: string; errors?: ApiError[]; error?: ApiError };
+      if (!response.ok || !value.ok || !value.preview || !value.attestation) { setErrors(value.errors ?? [value.error ?? { code: 'VALIDATION_FAILED' }]); return; }
+      setPreview(value.preview); setAttestation(value.attestation);
+    } finally { setBusy(false); }
   }
+  async function publish() {
+    setBusy(true); setErrors([]);
+    try {
+      const response = await fetch('/api/admin/publish', { method: 'POST', body: body(), credentials: 'same-origin', headers: { 'x-csrf-token': document.cookie.match(/(?:^|; )admin_csrf=([^;]+)/u)?.[1] ?? '', 'x-validator-attestation': attestation, 'idempotency-key': crypto.randomUUID() } });
+      const value = await response.json() as { ok: boolean; result?: AdminPublishResultDto; error?: ApiError };
+      if (!response.ok || !value.ok || !value.result) { setErrors([value.error ?? { code: 'PUBLISH_FAILED' }]); return; }
+      setPublished(value.result);
+    } finally { setBusy(false); }
+  }
+  const complete = Boolean(files.artifact && files.imageA && files.imageB);
   return <section className="panel" aria-labelledby="workflow-title">
     <h2 id="workflow-title">1. Intake · 2. Validate · 3. Preview · 4. Publish</h2>
-    <label>콘텐츠 bundle (.json, 최대 1 MiB)<input type="file" accept="application/json,.json" onChange={selected} /></label>
-    <p aria-live="polite">{filename ? `${filename} 선택됨` : '파일을 선택하세요.'}</p>
-    <button type="button" disabled={stage !== 'READY_TO_VALIDATE'} onClick={() => setStage('VALIDATING')}>서버 검증 요청</button>
-    <button type="button" disabled={stage !== 'VALIDATED'}>검증된 preview 열기</button>
-    <button type="button" disabled>새 attestation 확인 후 게시</button>
-    <p className="notice">{stage === 'VALIDATING' ? '인증된 운영 API 연결이 필요합니다. 로컬 화면은 승인을 모의하지 않습니다.' : '게시 버튼은 인증된 운영 API가 연결되고 fresh validation을 다시 통과할 때만 활성화됩니다.'}</p>
+    <label>콘텐츠 bundle<input type="file" accept="application/json,.json" onChange={selected('artifact')} /></label>
+    <label>Image A<input type="file" accept="image/png,image/jpeg,image/webp" onChange={selected('imageA')} /></label>
+    <label>Image B<input type="file" accept="image/png,image/jpeg,image/webp" onChange={selected('imageB')} /></label>
+    <button type="button" disabled={!complete || busy} onClick={() => void validate()}>서버 검증 요청</button>
+    <button type="button" disabled={!preview || !attestation || busy} onClick={() => void publish()}>fresh attestation으로 게시</button>
+    <div aria-live="polite">{errors.map((error, index) => <p key={`${error.ruleId ?? error.code}-${index}`}>{error.path} {error.ruleId ?? error.code}: {error.message}</p>)}</div>
+    {preview && <article data-testid="validated-preview"><h3>{preview.theme}</h3><p>{preview.contentRevisionId} · {preview.language} · {preview.difficulty}</p><img src={preview.imageA.url} width={preview.imageA.width} height={preview.imageA.height} alt="검증된 A 이미지" /><img src={preview.imageB.url} width={preview.imageB.width} height={preview.imageB.height} alt="검증된 B 이미지" /></article>}
+    {published && <p role="status">게시 완료: {published.contentRevisionId}</p>}
   </section>;
 }

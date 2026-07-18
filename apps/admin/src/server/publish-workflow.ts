@@ -1,5 +1,5 @@
 import { createHash, createHmac, randomBytes, timingSafeEqual } from 'node:crypto';
-import { canonicalJson, canonicalJsonSha256, type ContentValidationResult, type PublicGameContentV1, type RightsManifestSetV1 } from '../../../../packages/contracts/src/index.js';
+import { canonicalJson, canonicalJsonSha256, type ContentValidationResult, type PrivateGameSolutionV1, type PublicGameContentV1, type RightsManifestSetV1 } from '../../../../packages/contracts/src/index.js';
 import type { AdminPreviewDto, AdminPublishResultDto } from '../client/public-dto.js';
 
 type Session = Readonly<{ actorId: string; sessionId: string; roles: readonly string[] }>;
@@ -20,7 +20,7 @@ type AttestationPayload = Readonly<{
 
 export type DeploymentPublishInput = Readonly<{
   publicContent: PublicGameContentV1;
-  privateSolution: ContentValidationResult extends { ok: true; value: infer V } ? V extends { privateSolution: infer P } ? P : never : never;
+  privateSolution: PrivateGameSolutionV1;
   rightsManifest: RightsManifestSetV1;
   publicContentCanonicalJson: string;
   privateSolutionCanonicalJson: string;
@@ -181,6 +181,7 @@ export function createPublishWorkflow(options: Options) {
         throw new Error('ATTESTATION_MISMATCH');
       }
       const attestationHash = tokenHash(input.attestation);
+      const authorizedSession = input.session;
       return options.receipts.effectOnce(input.idempotencyKey, requestHash, attestationHash, async () => {
         return options.publisher.publish({
           publicContent: validation.value.publicContent,
@@ -189,10 +190,11 @@ export function createPublishWorkflow(options: Options) {
           publicContentCanonicalJson: validation.value.publicContentCanonicalJson,
           privateSolutionCanonicalJson: validation.value.privateSolutionCanonicalJson,
           rightsManifestCanonicalJson: validation.value.rightsManifestCanonicalJson,
-          validatorAttestation: { artifactHash, actorId: input.session.actorId, sessionId: input.session.sessionId },
+          validatorAttestation: { artifactHash, actorId: authorizedSession.actorId, sessionId: authorizedSession.sessionId },
         });
       });
     },
     async receipt(key: string) { return options.receipts.get(key); },
   };
 }
+import 'server-only';

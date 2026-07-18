@@ -1,0 +1,12 @@
+begin;
+select plan(8);
+select has_table('private','admin_publish_receipts','durable admin publish receipts exist');
+select has_table('private','admin_sessions','verified server sessions exist');
+select has_table('private','admin_publish_audit','safe admin audit exists');
+select has_function('private','publish_attested_content_revision_v1',array['text','text','text','jsonb','jsonb','jsonb','text','text','text','text','text','text'],'attested deployment boundary exists');
+select function_privs_are('private','publish_attested_content_revision_v1',array['text','text','text','jsonb','jsonb','jsonb','text','text','text','text','text','text'],'deployment_role',array['EXECUTE'],'only deployment role executes attested publish');
+select col_is_unique('private','admin_publish_receipts','attestation_hash','attestations are single-use across keys');
+select col_not_null('private','admin_publish_receipts','fence','receipt fencing is mandatory');
+select policies_are('private','admin_publish_receipts',array[]::text[],'receipt authority is never exposed through RLS');
+select * from finish();
+rollback;

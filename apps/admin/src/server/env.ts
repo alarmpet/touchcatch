@@ -1,4 +1,5 @@
 import 'server-only';
+import { parseContentAssetOrigins } from '../../../../packages/contracts/src/index.js';
 
 const exactKeys = [
   'NEXT_PUBLIC_SUPABASE_URL',
@@ -6,6 +7,9 @@ const exactKeys = [
   'SUPABASE_SECRET_KEY',
   'ADMIN_ALLOWED_ORIGIN',
   'ADMIN_ATTESTATION_KEY',
+  'ADMIN_AUDIT_KEY',
+  'ADMIN_DATABASE_URL',
+  'CONTENT_ASSET_ORIGINS',
 ] as const;
 
 export function parseAdminRuntimeEnv(raw: Readonly<Record<string, string | undefined>>) {
@@ -19,5 +23,8 @@ export function parseAdminRuntimeEnv(raw: Readonly<Record<string, string | undef
   const origin = new URL(values.ADMIN_ALLOWED_ORIGIN);
   if (origin.origin !== values.ADMIN_ALLOWED_ORIGIN || origin.protocol !== 'https:') throw new Error('ADMIN_ALLOWED_ORIGIN must be an exact HTTPS origin');
   if (values.ADMIN_ATTESTATION_KEY.length < 32) throw new Error('ADMIN_ATTESTATION_KEY is too short');
-  return values;
+  if (values.ADMIN_AUDIT_KEY.length < 32) throw new Error('ADMIN_AUDIT_KEY is too short');
+  const database = new URL(values.ADMIN_DATABASE_URL);
+  if (!['postgres:', 'postgresql:'].includes(database.protocol)) throw new Error('ADMIN_DATABASE_URL must be PostgreSQL');
+  return { ...values, CONTENT_ASSET_ORIGINS: parseContentAssetOrigins(values.CONTENT_ASSET_ORIGINS) };
 }

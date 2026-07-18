@@ -17,5 +17,9 @@ describe('admin server/client boundary', () => {
     const text = (await Promise.all((await files(clientRoot)).map((path) => readFile(path, 'utf8')))).join('\n');
     expect(text).not.toMatch(/SUPABASE_SECRET|DEPLOYMENT|ATTESTATION_KEY|server\/|privateSolution|canonicalAnswer|correctOptionId/u);
     expect(await readFile(resolve('apps/admin/src/server/env.ts'), 'utf8')).toContain("import 'server-only'");
+    const serverFiles = (await files(resolve('apps/admin/src/server'))).filter((path) => path.endsWith('.ts'));
+    for (const path of serverFiles) expect(await readFile(path, 'utf8'), path).toContain("import 'server-only'");
+    expect(await readFile(resolve('apps/admin/app/api/admin/validate/route.ts'), 'utf8')).toContain('adminHandlers.validate');
+    expect(await readFile(resolve('apps/admin/app/api/admin/publish/route.ts'), 'utf8')).toContain('adminHandlers.publish');
   });
 });
