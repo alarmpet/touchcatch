@@ -1,0 +1,1 @@
+{"schemaVersion":"1.0.0","adapters":{"ios":{"id":"maestro-ios@1","os":"iOS-18.5","device":"iPhone-16","runner":"macos-15-arm64"},"android":{"id":"maestro-android@1","os":"Android-15-api35","device":"Pixel-7","runner":"ubuntu-24.04-x64","gpu":"SwiftShader"}}}

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { assertPublicUiValue, buildBattleScreen, createTapIntent, layoutContainedPair, parseUiBundle } from '../../apps/mobile/src/ui/battle-shell.js';
+import { adaptMatchSnapshot, assertPublicUiValue, buildBattleScreen, clampTransformToContent, createTapIntent, inverseContentPoint, layoutContainedPair, parseUiBundle } from '../../apps/mobile/src/ui/battle-shell.js';
 
 const snapshot = JSON.parse(readFileSync('tests/fixtures/public-match-snapshot.json','utf8'));
 
@@ -43,4 +43,26 @@ describe('Task 7 acceptance regressions', () => {
     expect(() => parseUiBundle({...bundle,theme:{...bundle.theme,color:{...bundle.theme.color,extra:'#fff'}}})).toThrow();
     expect(() => parseUiBundle({...bundle,assets:{...bundle.assets,lifecycle:'APPROVED'}})).toThrow();
   });
+
+  it('adapts the actual wire snapshot without invented circle or asset shapes',()=>{
+    const vm=adaptMatchSnapshot(snapshot,{pendingIntentId:null,connection:'CONNECTED'});
+    expect(vm.assets.map(x=>x.side)).toEqual(['A','B']);
+    expect(vm.claimed).toEqual(snapshot.claimed);
+    expect(()=>adaptMatchSnapshot({...snapshot,canonicalAnswer:'private'},{pendingIntentId:null,connection:'CONNECTED'})).toThrow(/private/);
+  });
+
+  it('clamps against the contained image and round-trips randomized B-board coordinates',()=>{
+    let seed=7182026; const random=()=>((seed=(seed*1664525+1013904223)>>>0)/2**32);
+    for(let i=0;i<100;i++){
+      const pair=layoutContainedPair({width:320+random()*200,height:568+random()*400},{width:941,height:1672},8);
+      const t=clampTransformToContent({scale:1+random()*3,tx:(random()-.5)*900,ty:(random()-.5)*900},pair.b.content,{min:1,max:4});
+      const p={x:random(),y:random()}; const screen={...inverseForTest(p,pair.b.content,t)};
+      const back=inverseContentPoint(screen,pair.b.content,t,'FINAL_RUSH');
+      expect(back.x).toBeCloseTo(p.x,9); expect(back.y).toBeCloseTo(p.y,9);
+    }
+  });
 });
+
+function inverseForTest(point:{x:number;y:number},rect:{x:number;y:number;width:number;height:number},transform:{scale:number;tx:number;ty:number}){
+ return {x:rect.x+rect.width/2+(point.x-.5)*rect.width*transform.scale+transform.tx,y:rect.y+rect.height/2+(point.y-.5)*rect.height*transform.scale+transform.ty};
+}

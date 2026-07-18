@@ -1,3 +1,4 @@
-import { Text,View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-export default function Home(){return <SafeAreaView accessibilityLabel="Spot Learn home"><View><Text accessibilityRole="header" allowFontScaling maxFontSizeMultiplier={2}>Spot Learn</Text></View></SafeAreaView>}
+import {BattleScreen} from '../src/ui/BattleScreen.js';
+import fixture from '../../../tests/fixtures/public-match-snapshot.json';
+import {matchSnapshotV1Schema} from '../../../packages/contracts/src/socket.schema.js';
+export default function Home(){if(!__DEV__)throw new Error('Battle route requires an authenticated projected snapshot');return <BattleScreen snapshot={matchSnapshotV1Schema.parse(fixture)} pendingIntentId={null} connection="CONNECTED" onIntent={()=>{}}/>}
