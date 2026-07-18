@@ -2935,7 +2935,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-028"
       },
       "testCase": "DATA-028 executes DB_PROJECTION",
@@ -2950,7 +2950,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-029"
       },
       "testCase": "DATA-029 executes DB_PROJECTION",

@@ -2761,18 +2761,18 @@
       "source": "08_DATABASE_SCHEMA.md",
       "sourceLine": 59,
       "section": "로컬 검증",
-      "text": "현재 Task 3의 TypeScript `MatchPhase`/`MatchEndReason` SSOT는 아직 구현되지 않았다. 따라서 pgTAP의 SQL enum 목록 검사는 DB 내부 계약만 고정하며 domain↔DB 자동 parity 완료를 뜻하지 않는다. Task 3이 추가되면 생성 artifact 또는 cross-layer contract test로 이 목록을 대체하기 전까지 전체 계획 gate는 미완료다.",
-      "fingerprint": "e371b1c0d11d3a52b7487ee2100d2ed7382275fbf1b44dbfb86d95fbe11a2d0d",
+      "text": "TypeScript `MatchPhase`/`MatchEndReason` SSOT와 `MATCH_DB_PROJECTION_V1`이 구현되어 있으며 cross-layer contract test가 SQL phase enum과 terminal winner/end-reason 조합을 domain projection에 대조한다.",
+      "fingerprint": "51f042824890d535582c02de86cdc38abef749daff0384541835ee6a59071071",
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-028:DB_PROJECTION:FAIL",
+      "oracle": "DATA-028:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-028",
-      "linkageProof": "9b7c92c3c253241b87df642e37fde1c6c3c372abfb95b76b7c17379b1af62fe5"
+      "linkageProof": "bd0b11a058a0a506f64f09d208f8ddc7d5f03df2e39225780d536ebde891c961"
     },
     {
       "id": "DATA-029",
@@ -2786,11 +2786,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-029:DB_PROJECTION:FAIL",
+      "oracle": "DATA-029:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-029",
-      "linkageProof": "d06ad98f1aa5fee84071170946981490fe2bbf9a24c3bcde2e62a523a3297fc7"
+      "linkageProof": "e83c961e5825046fd8a8c2dbb3f9621d57d4f7e445eface6312d88836c3d2778"
     },
     {
       "id": "API-005",
