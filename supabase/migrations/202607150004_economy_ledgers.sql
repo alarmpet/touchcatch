@@ -152,6 +152,16 @@ create trigger catalog_revision_immutable before update or delete on private.pet
 create trigger catalog_entries_immutable before update or delete on private.pet_catalog_revision_entries for each row execute function private.reject_economy_immutable_v1();
 create trigger pet_definitions_immutable before update or delete on private.pet_definitions for each row execute function private.reject_economy_immutable_v1();
 
+create function private.canonical_json_v1(value jsonb) returns text language sql immutable set search_path=pg_catalog as $$
+  select case jsonb_typeof(value)
+    when 'object' then '{'||coalesce((select string_agg(to_jsonb(key)::text||':'||private.canonical_json_v1(value->key),',' order by key) from jsonb_object_keys(value) key),'')||'}'
+    when 'array' then '['||coalesce((select string_agg(private.canonical_json_v1(element),',' order by ordinal) from jsonb_array_elements(value) with ordinality a(element,ordinal)),'')||']'
+    else value::text end
+$$;
+create function private.canonical_json_sha256_v1(value jsonb) returns text language sql immutable set search_path=pg_catalog as $$
+  select encode(extensions.digest(convert_to(private.canonical_json_v1(value),'UTF8'),'sha256'),'hex')
+$$;
+
 create function private.publish_economy_bundle_v1(economy jsonb,catalog jsonb) returns jsonb
 language plpgsql security definer set search_path=pg_catalog as $$
 declare guard private.economy_series_guard%rowtype; entry jsonb; existing private.pet_definitions%rowtype;
@@ -165,7 +175,7 @@ begin
   if (select array_agg(key order by key) from jsonb_object_keys(economy) key) <>
      array['approvalDecisionId','approvedAt','approvedBy','catalogHash','catalogRevision','draw','economyHash','economyVersion','exp','fusion','pitySemantics','pitySemanticsHash','pitySeriesId','rewardPolicies','schemaVersion','simulationPolicy','status']::text[]
      or (select array_agg(key order by key) from jsonb_object_keys(catalog) key) <>
-     array['approvalDecisionId','approvedAt','approvedBy','catalogHash','catalogRevision','entries','schemaVersion','status']::text[] then
+     array['approvalDecisionId','approvedAt','approvedBy','catalogArtifactHash','catalogHash','catalogRevision','entries','schemaVersion','status']::text[] then
     raise exception 'BUNDLE_SCHEMA_INVALID' using errcode='22023';
   end if;
   if economy->>'schemaVersion'<>'1' or catalog->>'schemaVersion'<>'1'
@@ -175,6 +185,22 @@ begin
      or economy#>>'{exp,win}'<>'100' or economy#>>'{exp,loss}'<>'60' or economy#>>'{exp,perfectWordMeaning}'<>'40'
      or economy#>>'{draw,probabilities,COMMON}'<>'0.8' or economy#>>'{draw,probabilities,RARE}'<>'0.18' or economy#>>'{draw,probabilities,LEGENDARY}'<>'0.02' then
     raise exception 'BUNDLE_PROJECTION_INVALID' using errcode='22023';
+  end if;
+  if (select array_agg(k order by k) from jsonb_object_keys(economy->'draw') k)<>array['cost','probabilities']::text[]
+     or (select array_agg(k order by k) from jsonb_object_keys(economy#>'{draw,probabilities}') k)<>array['COMMON','LEGENDARY','RARE']::text[]
+     or (select array_agg(k order by k) from jsonb_object_keys(economy->'fusion') k)<>array['excludeLocked','excludeSelected','materialCount']::text[]
+     or (select array_agg(k order by k) from jsonb_object_keys(economy->'exp') k)<>array['loss','perfectWordMeaning','win']::text[]
+     or (select array_agg(k order by k) from jsonb_object_keys(economy->'pitySemantics') k)<>array['counterIncrementSources','counterIncrementTiming','eligibleResultSemantics','fusionAffectsPity','hardPityOverlapPrecedence','legendaryOverrideRule','legendaryResetRule','rareOverrideRule','rareResetRule','thresholds','transformAlgorithmVersion']::text[]
+     or economy#>>'{pitySemantics,counterIncrementTiming}'<>'BEFORE_DRAW' or economy#>>'{pitySemantics,hardPityOverlapPrecedence}'<>'LEGENDARY'
+     or economy#>>'{pitySemantics,rareOverrideRule}'<>'COMMON_TO_RARE' or economy#>>'{pitySemantics,legendaryOverrideRule}'<>'ALWAYS_LEGENDARY'
+     or economy#>>'{pitySemantics,rareResetRule}'<>'RARE_OR_BETTER' or economy#>>'{pitySemantics,legendaryResetRule}'<>'LEGENDARY_RESETS_BOTH' then
+    raise exception 'BUNDLE_NESTED_SCHEMA_INVALID' using errcode='22023';
+  end if;
+  if private.canonical_json_sha256_v1(economy-'economyHash')<>economy->>'economyHash'
+     or private.canonical_json_sha256_v1(jsonb_build_object('schemaVersion',catalog->'schemaVersion','catalogRevision',catalog->'catalogRevision','entries',catalog->'entries'))<>catalog->>'catalogHash'
+     or private.canonical_json_sha256_v1(catalog-'catalogArtifactHash')<>catalog->>'catalogArtifactHash'
+     or private.canonical_json_sha256_v1(economy->'pitySemantics')<>economy->>'pitySemanticsHash' then
+    raise exception 'BUNDLE_HASH_INVALID' using errcode='22023';
   end if;
   select * into guard from private.economy_series_guard where singleton for update;
   if guard.pity_semantics_hash is not null and (guard.supported_pity_series_id <> economy->>'pitySeriesId' or guard.pity_semantics_hash <> economy->>'pitySemanticsHash' or guard.pity_semantics_projection <> economy->'pitySemantics') then return jsonb_build_object('code','UNSUPPORTED_SERIES_MIGRATION'); end if;

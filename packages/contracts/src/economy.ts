@@ -44,5 +44,5 @@ export interface LoadedApprovedEconomyV1 {
   pitySeriesId: string;
   pitySemanticsHash: string;
   /** Exact, already-admitted JSON values accepted by publish_economy_bundle_v1. */
-  publishInput: { economy: EconomyV1; catalog: PetCatalogRevisionV1 };
+  publishInput: { economy: EconomyV1 & { economyHash: string }; catalog: PetCatalogRevisionV1 & { catalogArtifactHash: string } };
 }

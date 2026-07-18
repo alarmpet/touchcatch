@@ -63,7 +63,7 @@ export function loadProductionEconomy(economyInput: unknown, catalogInput: unkno
   const loaded = validateEconomyBundleCore(economyInput, catalogInput, expected);
   if (loaded.economy.status !== 'APPROVED' || loaded.catalog.status !== 'APPROVED') throw new TypeError('production economy and catalog must be APPROVED');
   if (loaded.economy.approvedBy?.startsWith('test-') || loaded.catalog.approvedBy?.startsWith('test-')) throw new TypeError('test-only approval metadata is forbidden in production');
-  return { config: loaded.economy, economyVersion: loaded.economy.economyVersion, economyHash: loaded.economyHash, catalog: loaded.catalog, catalogRevision: loaded.catalog.catalogRevision, catalogHash: loaded.catalog.catalogHash, catalogArtifactHash: loaded.catalogArtifactHash, pitySeriesId: loaded.economy.pitySeriesId, pitySemanticsHash: loaded.economy.pitySemanticsHash, publishInput: { economy: loaded.economy, catalog: loaded.catalog } };
+  return { config: loaded.economy, economyVersion: loaded.economy.economyVersion, economyHash: loaded.economyHash, catalog: loaded.catalog, catalogRevision: loaded.catalog.catalogRevision, catalogHash: loaded.catalog.catalogHash, catalogArtifactHash: loaded.catalogArtifactHash, pitySeriesId: loaded.economy.pitySeriesId, pitySemanticsHash: loaded.economy.pitySemanticsHash, publishInput: { economy: { ...loaded.economy, economyHash: loaded.economyHash }, catalog: { ...loaded.catalog, catalogArtifactHash: loaded.catalogArtifactHash } } };
 }
 
 export function normalizeFusionMaterials(materials: ReadonlyArray<{ userPetId: string; count: number }>): Array<{ userPetId: string; count: number }> {

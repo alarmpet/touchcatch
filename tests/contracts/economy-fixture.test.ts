@@ -6,10 +6,13 @@ describe('approved economy transaction fixture', () => {
   it('returns the exact nested shape published to SQL with opaque UUID pet IDs and canonical hashes', async () => {
     const loaded = await loadTestEconomyFixture();
     expect(Object.keys(loaded.publishInput).sort()).toEqual(['catalog', 'economy']);
-    expect(loaded.publishInput).toEqual({ economy: loaded.config, catalog: loaded.catalog });
+    expect(loaded.publishInput.economy).toEqual({ ...loaded.config, economyHash: loaded.economyHash });
+    expect(loaded.publishInput.catalog).toEqual({ ...loaded.catalog, catalogArtifactHash: loaded.catalogArtifactHash });
     expect(loaded.catalog.entries.every(({ petId }) => /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/.test(petId))).toBe(true);
-    expect(loaded.economyHash).toBe(canonicalJsonSha256(loaded.publishInput.economy));
-    expect(loaded.catalogArtifactHash).toBe(canonicalJsonSha256(loaded.publishInput.catalog));
+    const { economyHash, ...economyArtifact } = loaded.publishInput.economy;
+    const { catalogArtifactHash, ...catalogArtifact } = loaded.publishInput.catalog;
+    expect(economyHash).toBe(canonicalJsonSha256(economyArtifact));
+    expect(catalogArtifactHash).toBe(canonicalJsonSha256(catalogArtifact));
     expect(loaded.config.catalogHash).toBe(loaded.catalog.catalogHash);
   });
 });
