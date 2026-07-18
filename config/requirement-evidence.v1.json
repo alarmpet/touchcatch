@@ -7,7 +7,13 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/rulesetVersion",
+            "expected": "1.0.0"
+          }
+        ]
       },
       "testCase": "RULE-001 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -21,195 +27,208 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-002 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-002",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-003",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-003 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-003",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-004",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-004 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-004",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-005",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-005 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-005",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-006",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-006 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-006",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-007",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-007 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-007",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-008",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-008 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-008",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-009",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-009 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-009",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-010",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-010 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-010",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-011",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-011 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-011",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-012",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-012 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-012",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-013",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-013 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-013",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-014",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-014 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-014",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-015",
@@ -248,30 +267,32 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-017 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-017",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-018",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-018 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-018",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-019",
@@ -279,7 +300,29 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/rulesetVersion",
+            "expected": "1.0.0"
+          },
+          {
+            "pointer": "/time/finalRushStartsAtMs",
+            "expected": 60000
+          },
+          {
+            "pointer": "/time/playingMs",
+            "expected": 75000
+          },
+          {
+            "pointer": "/time/meaningSettlementCapMs",
+            "expected": 80000
+          },
+          {
+            "pointer": "/scoreFloor",
+            "expected": 0
+          }
+        ]
       },
       "testCase": "RULE-019 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -294,7 +337,13 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/targetScore",
+            "expected": 100
+          }
+        ]
       },
       "testCase": "RULE-020 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -309,7 +358,13 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/time/playingMs",
+            "expected": 75000
+          }
+        ]
       },
       "testCase": "RULE-021 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -323,15 +378,16 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-022 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-022",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-023",
@@ -339,7 +395,13 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/tieBreak/1",
+            "expected": "FINAL_PACKAGE_CORRECT"
+          }
+        ]
       },
       "testCase": "RULE-023 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -354,7 +416,13 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/tieBreak/2",
+            "expected": "HARD_DIFFERENCES"
+          }
+        ]
       },
       "testCase": "RULE-024 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -369,7 +437,13 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/tieBreak/3",
+            "expected": "FEWER_FINAL_ANSWER_ERRORS"
+          }
+        ]
       },
       "testCase": "RULE-025 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -384,7 +458,13 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/time/suddenDeathMs",
+            "expected": 10000
+          }
+        ]
       },
       "testCase": "RULE-026 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -399,7 +479,17 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/content/normalDifferences",
+            "expected": 7
+          },
+          {
+            "pointer": "/content/hardDifferences",
+            "expected": 3
+          }
+        ]
       },
       "testCase": "RULE-027 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -414,7 +504,17 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/content/normalDifferences",
+            "expected": 7
+          },
+          {
+            "pointer": "/score/normalDifference",
+            "expected": 6
+          }
+        ]
       },
       "testCase": "RULE-028 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -429,7 +529,17 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/content/hardDifferences",
+            "expected": 3
+          },
+          {
+            "pointer": "/score/hardDifference",
+            "expected": 9
+          }
+        ]
       },
       "testCase": "RULE-029 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -444,7 +554,25 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/content/normalDifferences",
+            "expected": 7
+          },
+          {
+            "pointer": "/content/hardDifferences",
+            "expected": 3
+          },
+          {
+            "pointer": "/score/normalDifference",
+            "expected": 6
+          },
+          {
+            "pointer": "/score/hardDifference",
+            "expected": 9
+          }
+        ]
       },
       "testCase": "RULE-030 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -459,7 +587,16 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/wordHuntSchedule/0/spawnWindowMs",
+            "expected": [
+              16000,
+              22000
+            ]
+          }
+        ]
       },
       "testCase": "RULE-031 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -474,7 +611,16 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/wordHuntSchedule/1/spawnWindowMs",
+            "expected": [
+              34000,
+              42000
+            ]
+          }
+        ]
       },
       "testCase": "RULE-032 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -489,7 +635,17 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/wordHuntSchedule/2/spawnAtMs",
+            "expected": 60000
+          },
+          {
+            "pointer": "/wordHuntSchedule/2/kind",
+            "expected": "SPECIAL"
+          }
+        ]
       },
       "testCase": "RULE-033 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -504,7 +660,17 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/score/normalWordHunt",
+            "expected": 10
+          },
+          {
+            "pointer": "/score/specialWordHunt",
+            "expected": 15
+          }
+        ]
       },
       "testCase": "RULE-034 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -518,15 +684,16 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-035 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-035",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-036",
@@ -534,7 +701,21 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/finalChallenge/unlock/onDifferenceClaim",
+            "expected": true
+          },
+          {
+            "pointer": "/finalChallenge/unlock/onWordHuntClaim",
+            "expected": true
+          },
+          {
+            "pointer": "/finalChallenge/unlock/atMs",
+            "expected": 12000
+          }
+        ]
       },
       "testCase": "RULE-036 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -549,7 +730,13 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/finalChallenge/unlock/onDifferenceClaim",
+            "expected": true
+          }
+        ]
       },
       "testCase": "RULE-037 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -564,7 +751,13 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/finalChallenge/unlock/onWordHuntClaim",
+            "expected": true
+          }
+        ]
       },
       "testCase": "RULE-038 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -579,7 +772,13 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/finalChallenge/unlock/atMs",
+            "expected": 12000
+          }
+        ]
       },
       "testCase": "RULE-039 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -594,7 +793,13 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/score/finalWord",
+            "expected": 25
+          }
+        ]
       },
       "testCase": "RULE-040 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -609,7 +814,13 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/time/meaningQuizMs",
+            "expected": 5000
+          }
+        ]
       },
       "testCase": "RULE-041 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -624,7 +835,13 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/score/meaning",
+            "expected": 15
+          }
+        ]
       },
       "testCase": "RULE-042 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -639,7 +856,13 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/score/combo",
+            "expected": 10
+          }
+        ]
       },
       "testCase": "RULE-043 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -654,7 +877,17 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/score/wrongAnswer",
+            "expected": -5
+          },
+          {
+            "pointer": "/lockMs/wrongAnswer",
+            "expected": 2000
+          }
+        ]
       },
       "testCase": "RULE-044 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -669,7 +902,17 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/score/finalRushWrongAnswer",
+            "expected": -10
+          },
+          {
+            "pointer": "/lockMs/finalRushWrongAnswer",
+            "expected": 1500
+          }
+        ]
       },
       "testCase": "RULE-045 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -684,7 +927,17 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/time/finalRushStartsAtMs",
+            "expected": 60000
+          },
+          {
+            "pointer": "/time/playingMs",
+            "expected": 75000
+          }
+        ]
       },
       "testCase": "RULE-046 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -699,7 +952,13 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/score/finalRushDifferenceMultiplier",
+            "expected": 2
+          }
+        ]
       },
       "testCase": "RULE-047 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -714,7 +973,13 @@
       "oracle": {
         "kind": "RULESET_PARSE",
         "expected": "PASS",
-        "input": "config/ruleset.v1.json"
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/wordHuntSchedule/2/kind",
+            "expected": "SPECIAL"
+          }
+        ]
       },
       "testCase": "RULE-048 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
@@ -728,45 +993,48 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-049 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-049",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-050",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-050 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-050",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-051",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-051 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for RULE-051",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "STATE-001",
@@ -1237,105 +1505,112 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/economy.v1.json"
       },
       "testCase": "ECON-001 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "economy",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for ECON-001",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY"
     },
     {
       "id": "ECON-002",
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/economy.v1.json"
       },
       "testCase": "ECON-002 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "economy",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for ECON-002",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY"
     },
     {
       "id": "ECON-003",
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/economy.v1.json"
       },
       "testCase": "ECON-003 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "economy",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for ECON-003",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY"
     },
     {
       "id": "ECON-004",
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/economy.v1.json"
       },
       "testCase": "ECON-004 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "economy",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for ECON-004",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY"
     },
     {
       "id": "ECON-005",
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/economy.v1.json"
       },
       "testCase": "ECON-005 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "economy",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for ECON-005",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY"
     },
     {
       "id": "ECON-006",
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/economy.v1.json"
       },
       "testCase": "ECON-006 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "economy",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for ECON-006",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY"
     },
     {
       "id": "ECON-007",
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/economy.v1.json"
       },
       "testCase": "ECON-007 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "economy",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for ECON-007",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY"
     },
     {
       "id": "ECON-008",
@@ -1343,7 +1618,13 @@
       "oracle": {
         "kind": "ECONOMY_PARSE",
         "expected": "PASS",
-        "input": "config/economy.v1.json"
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/draw/cost",
+            "expected": 100
+          }
+        ]
       },
       "testCase": "ECON-008 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
@@ -1358,7 +1639,21 @@
       "oracle": {
         "kind": "ECONOMY_PARSE",
         "expected": "PASS",
-        "input": "config/economy.v1.json"
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/draw/probabilities/COMMON",
+            "expected": 0.8
+          },
+          {
+            "pointer": "/draw/probabilities/RARE",
+            "expected": 0.18
+          },
+          {
+            "pointer": "/draw/probabilities/LEGENDARY",
+            "expected": 0.02
+          }
+        ]
       },
       "testCase": "ECON-009 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
@@ -1373,7 +1668,13 @@
       "oracle": {
         "kind": "ECONOMY_PARSE",
         "expected": "PASS",
-        "input": "config/economy.v1.json"
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/pitySemantics/thresholds/rareOrBetter",
+            "expected": 50
+          }
+        ]
       },
       "testCase": "ECON-010 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
@@ -1388,7 +1689,13 @@
       "oracle": {
         "kind": "ECONOMY_PARSE",
         "expected": "PASS",
-        "input": "config/economy.v1.json"
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/pitySemantics/thresholds/legendary",
+            "expected": 150
+          }
+        ]
       },
       "testCase": "ECON-011 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
@@ -1403,7 +1710,13 @@
       "oracle": {
         "kind": "ECONOMY_PARSE",
         "expected": "PASS",
-        "input": "config/economy.v1.json"
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/status",
+            "expected": "DRAFT"
+          }
+        ]
       },
       "testCase": "ECON-012 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
@@ -1418,7 +1731,13 @@
       "oracle": {
         "kind": "ECONOMY_PARSE",
         "expected": "PASS",
-        "input": "config/economy.v1.json"
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/fusion/materialCount",
+            "expected": 5
+          }
+        ]
       },
       "testCase": "ECON-013 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
@@ -1433,7 +1752,13 @@
       "oracle": {
         "kind": "ECONOMY_PARSE",
         "expected": "PASS",
-        "input": "config/economy.v1.json"
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/fusion/materialCount",
+            "expected": 5
+          }
+        ]
       },
       "testCase": "ECON-014 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
@@ -1448,7 +1773,17 @@
       "oracle": {
         "kind": "ECONOMY_PARSE",
         "expected": "PASS",
-        "input": "config/economy.v1.json"
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/fusion/excludeSelected",
+            "expected": true
+          },
+          {
+            "pointer": "/fusion/excludeLocked",
+            "expected": true
+          }
+        ]
       },
       "testCase": "ECON-015 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
@@ -1463,7 +1798,13 @@
       "oracle": {
         "kind": "ECONOMY_PARSE",
         "expected": "PASS",
-        "input": "config/economy.v1.json"
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/catalogRevision",
+            "expected": "catalog-v1"
+          }
+        ]
       },
       "testCase": "ECON-016 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
@@ -1478,7 +1819,13 @@
       "oracle": {
         "kind": "ECONOMY_PARSE",
         "expected": "PASS",
-        "input": "config/economy.v1.json"
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/catalogRevision",
+            "expected": "catalog-v1"
+          }
+        ]
       },
       "testCase": "ECON-017 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
@@ -1493,7 +1840,13 @@
       "oracle": {
         "kind": "ECONOMY_PARSE",
         "expected": "PASS",
-        "input": "config/economy.v1.json"
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/catalogRevision",
+            "expected": "catalog-v1"
+          }
+        ]
       },
       "testCase": "ECON-018 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
@@ -1508,7 +1861,13 @@
       "oracle": {
         "kind": "ECONOMY_PARSE",
         "expected": "PASS",
-        "input": "config/economy.v1.json"
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/catalogRevision",
+            "expected": "catalog-v1"
+          }
+        ]
       },
       "testCase": "ECON-019 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
@@ -1523,7 +1882,13 @@
       "oracle": {
         "kind": "ECONOMY_PARSE",
         "expected": "PASS",
-        "input": "config/economy.v1.json"
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/exp/win",
+            "expected": 100
+          }
+        ]
       },
       "testCase": "ECON-020 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
@@ -1538,7 +1903,13 @@
       "oracle": {
         "kind": "ECONOMY_PARSE",
         "expected": "PASS",
-        "input": "config/economy.v1.json"
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/exp/loss",
+            "expected": 60
+          }
+        ]
       },
       "testCase": "ECON-021 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
@@ -1553,7 +1924,13 @@
       "oracle": {
         "kind": "ECONOMY_PARSE",
         "expected": "PASS",
-        "input": "config/economy.v1.json"
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/exp/perfectWordMeaning",
+            "expected": 40
+          }
+        ]
       },
       "testCase": "ECON-022 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
@@ -1567,15 +1944,16 @@
       "evidenceKind": "ECONOMY_PARSE",
       "oracle": {
         "kind": "ECONOMY_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/economy.v1.json"
       },
       "testCase": "ECON-023 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "economy",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for ECON-023",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:COSMETIC_PRODUCT_DIRECTION"
     },
     {
       "id": "ECON-024",
@@ -1583,7 +1961,17 @@
       "oracle": {
         "kind": "ECONOMY_PARSE",
         "expected": "PASS",
-        "input": "config/economy.v1.json"
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/status",
+            "expected": "DRAFT"
+          },
+          {
+            "pointer": "/economyVersion",
+            "expected": "1.0.0"
+          }
+        ]
       },
       "testCase": "ECON-024 executes ECONOMY_PARSE",
       "metric": "release_requirement_gate_status",
@@ -1709,225 +2097,240 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-001 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for OBS-001",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-002",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-002 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for OBS-002",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-003",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-003 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for OBS-003",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-004",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-004 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for OBS-004",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-005",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-005 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for OBS-005",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-006",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-006 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for OBS-006",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-007",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-007 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for OBS-007",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-008",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-008 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for OBS-008",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-009",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-009 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for OBS-009",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-010",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-010 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for OBS-010",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-011",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-011 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for OBS-011",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-012",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-012 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for OBS-012",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-013",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-013 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for OBS-013",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-014",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-014 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for OBS-014",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-015",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-015 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable oracle green"
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for OBS-015",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "DATA-001",

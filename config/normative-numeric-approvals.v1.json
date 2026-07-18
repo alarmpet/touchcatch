@@ -6,12 +6,18 @@
       "approvedTokens": [
         "1.0.0"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
-      "sourceHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/rulesetVersion",
+          "expected": "1.0.0"
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-006",
@@ -22,9 +28,10 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Implement exact behavioral predicate for RULE-006",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-007",
@@ -34,9 +41,10 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Implement exact behavioral predicate for RULE-007",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-008",
@@ -46,9 +54,10 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Implement exact behavioral predicate for RULE-008",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-009",
@@ -58,9 +67,10 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Implement exact behavioral predicate for RULE-009",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-010",
@@ -70,9 +80,10 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Implement exact behavioral predicate for RULE-010",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-011",
@@ -82,9 +93,10 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Implement exact behavioral predicate for RULE-011",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-013",
@@ -95,9 +107,10 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Implement exact behavioral predicate for RULE-013",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-015",
@@ -110,7 +123,8 @@
       "sourceHash": "26ffbf5310176dab499662b6645df4c5fef72e41b452fc62dea4720ff9a258b6",
       "lifecycle": "PLANNED",
       "evidenceOwner": "game-design",
-      "closureCondition": "Implement and contract-test post-launch 2v2 mode"
+      "closureCondition": "Implement and contract-test post-launch 2v2 mode",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RULESET_PARSE"
     },
     {
       "id": "RULE-019",
@@ -120,36 +134,70 @@
         "75,000",
         "80,000"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/rulesetVersion",
+          "expected": "1.0.0"
+        },
+        {
+          "pointer": "/time/finalRushStartsAtMs",
+          "expected": 60000
+        },
+        {
+          "pointer": "/time/playingMs",
+          "expected": 75000
+        },
+        {
+          "pointer": "/time/meaningSettlementCapMs",
+          "expected": 80000
+        },
+        {
+          "pointer": "/scoreFloor",
+          "expected": 0
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-020",
       "approvedTokens": [
         "100"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/targetScore",
+          "expected": 100
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-021",
       "approvedTokens": [
         "75"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/time/playingMs",
+          "expected": 75000
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-022",
@@ -159,33 +207,50 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
       "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Implement exact behavioral predicate for RULE-022",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-026",
       "approvedTokens": [
         "10"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/time/suddenDeathMs",
+          "expected": 10000
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-027",
       "approvedTokens": [
         "10"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/content/normalDifferences",
+          "expected": 7
+        },
+        {
+          "pointer": "/content/hardDifferences",
+          "expected": 3
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-028",
@@ -194,12 +259,22 @@
         "6",
         "42"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/content/normalDifferences",
+          "expected": 7
+        },
+        {
+          "pointer": "/score/normalDifference",
+          "expected": 6
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-029",
@@ -208,24 +283,52 @@
         "9",
         "27"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/content/hardDifferences",
+          "expected": 3
+        },
+        {
+          "pointer": "/score/hardDifference",
+          "expected": 9
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-030",
       "approvedTokens": [
         "69"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/content/normalDifferences",
+          "expected": 7
+        },
+        {
+          "pointer": "/content/hardDifferences",
+          "expected": 3
+        },
+        {
+          "pointer": "/score/normalDifference",
+          "expected": 6
+        },
+        {
+          "pointer": "/score/hardDifference",
+          "expected": 9
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-031",
@@ -233,12 +336,21 @@
         "16~22",
         "1"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/wordHuntSchedule/0/spawnWindowMs",
+          "expected": [
+            16000,
+            22000
+          ]
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-032",
@@ -246,12 +358,21 @@
         "34~42",
         "1"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/wordHuntSchedule/1/spawnWindowMs",
+          "expected": [
+            34000,
+            42000
+          ]
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-033",
@@ -259,12 +380,22 @@
         "60",
         "1"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/wordHuntSchedule/2/spawnAtMs",
+          "expected": 60000
+        },
+        {
+          "pointer": "/wordHuntSchedule/2/kind",
+          "expected": "SPECIAL"
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-034",
@@ -272,12 +403,22 @@
         "10",
         "15"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/score/normalWordHunt",
+          "expected": 10
+        },
+        {
+          "pointer": "/score/specialWordHunt",
+          "expected": 15
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-035",
@@ -287,57 +428,82 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
       "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Implement exact behavioral predicate for RULE-035",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "RULE-037",
       "approvedTokens": [
         "1"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/finalChallenge/unlock/onDifferenceClaim",
+          "expected": true
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-038",
       "approvedTokens": [
         "1"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/finalChallenge/unlock/onWordHuntClaim",
+          "expected": true
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-039",
       "approvedTokens": [
         "12"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/finalChallenge/unlock/atMs",
+          "expected": 12000
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-040",
       "approvedTokens": [
         "25"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/score/finalWord",
+          "expected": 25
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-041",
@@ -345,36 +511,54 @@
         "3",
         "5"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/time/meaningQuizMs",
+          "expected": 5000
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-042",
       "approvedTokens": [
         "15"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/score/meaning",
+          "expected": 15
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-043",
       "approvedTokens": [
         "10"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/score/combo",
+          "expected": 10
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-044",
@@ -382,12 +566,22 @@
         "5",
         "2"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/score/wrongAnswer",
+          "expected": -5
+        },
+        {
+          "pointer": "/lockMs/wrongAnswer",
+          "expected": 2000
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-045",
@@ -395,36 +589,62 @@
         "10",
         "1.5"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/score/finalRushWrongAnswer",
+          "expected": -10
+        },
+        {
+          "pointer": "/lockMs/finalRushWrongAnswer",
+          "expected": 1500
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-046",
       "approvedTokens": [
         "60~75"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/time/finalRushStartsAtMs",
+          "expected": 60000
+        },
+        {
+          "pointer": "/time/playingMs",
+          "expected": 75000
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-047",
       "approvedTokens": [
         "2"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/score/finalRushDifferenceMultiplier",
+          "expected": 2
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-051",
@@ -442,9 +662,10 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
       "sourceHash": "1555f7f46194cc332d1aead948214d330db3194861f85cba21a642bf195732c5",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Implement exact behavioral predicate for RULE-051",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
       "id": "STATE-001",
@@ -458,7 +679,8 @@
       "sourceHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f",
       "lifecycle": "PLANNED",
       "evidenceOwner": "game-state",
-      "closureCondition": "Implement exact STATE_SCHEMA predicate"
+      "closureCondition": "Implement exact STATE_SCHEMA predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STATE_SCHEMA"
     },
     {
       "id": "STATE-007",
@@ -470,7 +692,8 @@
       "sourceHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f",
       "lifecycle": "PLANNED",
       "evidenceOwner": "game-state",
-      "closureCondition": "Implement exact STATE_SCHEMA predicate"
+      "closureCondition": "Implement exact STATE_SCHEMA predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STATE_SCHEMA"
     },
     {
       "id": "UX-001",
@@ -490,7 +713,8 @@
       "sourceHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8",
       "lifecycle": "PLANNED",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "closureCondition": "Implement exact UI_PROJECTION predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION"
     },
     {
       "id": "UX-010",
@@ -502,7 +726,8 @@
       "sourceHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8",
       "lifecycle": "PLANNED",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "closureCondition": "Implement exact UI_PROJECTION predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION"
     },
     {
       "id": "UX-012",
@@ -514,7 +739,8 @@
       "sourceHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8",
       "lifecycle": "PLANNED",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "closureCondition": "Implement exact UI_PROJECTION predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION"
     },
     {
       "id": "ECON-008",
@@ -522,12 +748,18 @@
         "100",
         "1"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
-      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "economy",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/draw/cost",
+          "expected": 100
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
     },
     {
       "id": "ECON-009",
@@ -536,36 +768,62 @@
         "18%",
         "2%"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
-      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "economy",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/draw/probabilities/COMMON",
+          "expected": 0.8
+        },
+        {
+          "pointer": "/draw/probabilities/RARE",
+          "expected": 0.18
+        },
+        {
+          "pointer": "/draw/probabilities/LEGENDARY",
+          "expected": 0.02
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
     },
     {
       "id": "ECON-010",
       "approvedTokens": [
         "50"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
-      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "economy",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/pitySemantics/thresholds/rareOrBetter",
+          "expected": 50
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
     },
     {
       "id": "ECON-011",
       "approvedTokens": [
         "150"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
-      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "economy",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/pitySemantics/thresholds/legendary",
+          "expected": 150
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
     },
     {
       "id": "ECON-013",
@@ -573,12 +831,18 @@
         "5",
         "1"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
-      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "economy",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/fusion/materialCount",
+          "expected": 5
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
     },
     {
       "id": "ECON-014",
@@ -586,108 +850,166 @@
         "5",
         "1"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
-      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "economy",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/fusion/materialCount",
+          "expected": 5
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
     },
     {
       "id": "ECON-016",
       "approvedTokens": [
         "30"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
-      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "economy",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/catalogRevision",
+          "expected": "catalog-v1"
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
     },
     {
       "id": "ECON-017",
       "approvedTokens": [
         "15"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
-      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "economy",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/catalogRevision",
+          "expected": "catalog-v1"
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
     },
     {
       "id": "ECON-018",
       "approvedTokens": [
         "5"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
-      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "economy",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/catalogRevision",
+          "expected": "catalog-v1"
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
     },
     {
       "id": "ECON-019",
       "approvedTokens": [
         "50"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
-      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "economy",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/catalogRevision",
+          "expected": "catalog-v1"
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
     },
     {
       "id": "ECON-020",
       "approvedTokens": [
         "100"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
-      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "economy",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/exp/win",
+          "expected": 100
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
     },
     {
       "id": "ECON-021",
       "approvedTokens": [
         "60"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
-      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "economy",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/exp/loss",
+          "expected": 60
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
     },
     {
       "id": "ECON-022",
       "approvedTokens": [
         "40"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
-      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "economy",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/exp/perfectWordMeaning",
+          "expected": 40
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
     },
     {
       "id": "ECON-024",
       "approvedTokens": [
         "004"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "05_PET_COLLECTION_SYSTEM.md",
-      "sourceHash": "006ee062d851ca6175d2049be3946852d8a6b11e854762046381695980460fca",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "economy",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/status",
+          "expected": "DRAFT"
+        },
+        {
+          "pointer": "/economyVersion",
+          "expected": "1.0.0"
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
     },
     {
       "id": "SEC-002",
@@ -701,7 +1023,8 @@
       "sourceHash": "fa34d46aa891fd03b328139a787b73f2d5c7ec9234f2854517c070ac6d50973c",
       "lifecycle": "PLANNED",
       "evidenceOwner": "privacy",
-      "closureCondition": "Implement exact PRIVACY_CONTRACT predicate"
+      "closureCondition": "Implement exact PRIVACY_CONTRACT predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:PRIVACY_CONTRACT"
     },
     {
       "id": "SEC-006",
@@ -713,7 +1036,8 @@
       "sourceHash": "fa34d46aa891fd03b328139a787b73f2d5c7ec9234f2854517c070ac6d50973c",
       "lifecycle": "PLANNED",
       "evidenceOwner": "privacy",
-      "closureCondition": "Implement exact PRIVACY_CONTRACT predicate"
+      "closureCondition": "Implement exact PRIVACY_CONTRACT predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:PRIVACY_CONTRACT"
     },
     {
       "id": "OBS-001",
@@ -723,9 +1047,10 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Implement exact behavioral predicate for OBS-001",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-002",
@@ -735,9 +1060,10 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Implement exact behavioral predicate for OBS-002",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-004",
@@ -747,9 +1073,10 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Implement exact behavioral predicate for OBS-004",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-009",
@@ -759,9 +1086,10 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Implement exact behavioral predicate for OBS-009",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-010",
@@ -771,9 +1099,10 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Implement exact behavioral predicate for OBS-010",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "OBS-015",
@@ -793,9 +1122,10 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "closureCondition": "Keep exact executable oracle green"
+      "closureCondition": "Implement exact behavioral predicate for OBS-015",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
       "id": "DATA-004",
@@ -808,7 +1138,8 @@
       "sourceHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
       "lifecycle": "PLANNED",
       "evidenceOwner": "database",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "closureCondition": "Implement exact DB_PROJECTION predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION"
     },
     {
       "id": "DATA-017",
@@ -822,7 +1153,8 @@
       "sourceHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
       "lifecycle": "PLANNED",
       "evidenceOwner": "database",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "closureCondition": "Implement exact DB_PROJECTION predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION"
     },
     {
       "id": "DATA-027",
@@ -834,7 +1166,8 @@
       "sourceHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
       "lifecycle": "PLANNED",
       "evidenceOwner": "database",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "closureCondition": "Implement exact DB_PROJECTION predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION"
     },
     {
       "id": "DATA-028",
@@ -847,7 +1180,8 @@
       "sourceHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
       "lifecycle": "PLANNED",
       "evidenceOwner": "database",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "closureCondition": "Implement exact DB_PROJECTION predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION"
     },
     {
       "id": "DATA-029",
@@ -859,7 +1193,8 @@
       "sourceHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
       "lifecycle": "PLANNED",
       "evidenceOwner": "database",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "closureCondition": "Implement exact DB_PROJECTION predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION"
     },
     {
       "id": "CONTENT-004",
@@ -873,7 +1208,8 @@
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
       "lifecycle": "PLANNED",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-010",
@@ -887,7 +1223,8 @@
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
       "lifecycle": "PLANNED",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-011",
@@ -899,7 +1236,8 @@
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
       "lifecycle": "PLANNED",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-013",
@@ -911,7 +1249,8 @@
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
       "lifecycle": "PLANNED",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-014",
@@ -923,7 +1262,8 @@
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
       "lifecycle": "PLANNED",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-015",
@@ -935,7 +1275,8 @@
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
       "lifecycle": "PLANNED",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-018",
@@ -950,7 +1291,8 @@
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
       "lifecycle": "PLANNED",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-020",
@@ -962,7 +1304,8 @@
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
       "lifecycle": "PLANNED",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-021",
@@ -977,7 +1320,8 @@
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
       "lifecycle": "PLANNED",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-022",
@@ -990,7 +1334,8 @@
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
       "lifecycle": "PLANNED",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-023",
@@ -1002,7 +1347,8 @@
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
       "lifecycle": "PLANNED",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
       "id": "CONTENT-026",
@@ -1014,7 +1360,8 @@
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
       "lifecycle": "PLANNED",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
       "id": "QA-001",
@@ -1031,7 +1378,8 @@
       "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "release",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "closureCondition": "Implement exact RELEASE_HARNESS predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS"
     },
     {
       "id": "QA-002",
@@ -1043,7 +1391,8 @@
       "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "release",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "closureCondition": "Implement exact RELEASE_HARNESS predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS"
     },
     {
       "id": "QA-003",
@@ -1055,7 +1404,8 @@
       "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "release",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "closureCondition": "Implement exact RELEASE_HARNESS predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS"
     },
     {
       "id": "QA-004",
@@ -1067,7 +1417,8 @@
       "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "release",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "closureCondition": "Implement exact RELEASE_HARNESS predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS"
     },
     {
       "id": "QA-005",
@@ -1079,7 +1430,8 @@
       "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "release",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "closureCondition": "Implement exact RELEASE_HARNESS predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS"
     },
     {
       "id": "QA-006",
@@ -1093,7 +1445,8 @@
       "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "release",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "closureCondition": "Implement exact RELEASE_HARNESS predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS"
     },
     {
       "id": "QA-007",
@@ -1107,7 +1460,8 @@
       "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "release",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "closureCondition": "Implement exact RELEASE_HARNESS predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS"
     },
     {
       "id": "QA-008",
@@ -1121,7 +1475,8 @@
       "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "release",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "closureCondition": "Implement exact RELEASE_HARNESS predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS"
     },
     {
       "id": "QA-013",
@@ -1133,7 +1488,8 @@
       "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "release",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "closureCondition": "Implement exact RELEASE_HARNESS predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS"
     },
     {
       "id": "ENV-001",
@@ -1145,7 +1501,8 @@
       "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
       "lifecycle": "EXTERNAL",
       "evidenceOwner": "runtime",
-      "closureCondition": "Run exact approved runtime externally"
+      "closureCondition": "Run exact approved runtime externally",
+      "blockerReason": "EXTERNAL:EXACT_RUNTIME"
     },
     {
       "id": "ENV-002",
@@ -1157,7 +1514,8 @@
       "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
       "lifecycle": "EXTERNAL",
       "evidenceOwner": "runtime",
-      "closureCondition": "Run exact approved runtime externally"
+      "closureCondition": "Run exact approved runtime externally",
+      "blockerReason": "EXTERNAL:EXACT_RUNTIME"
     },
     {
       "id": "ENV-004",
@@ -1169,7 +1527,8 @@
       "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
       "lifecycle": "EXTERNAL",
       "evidenceOwner": "runtime",
-      "closureCondition": "Run exact approved runtime externally"
+      "closureCondition": "Run exact approved runtime externally",
+      "blockerReason": "EXTERNAL:EXACT_RUNTIME"
     },
     {
       "id": "ENV-009",
@@ -1181,7 +1540,8 @@
       "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
       "lifecycle": "EXTERNAL",
       "evidenceOwner": "runtime",
-      "closureCondition": "Run exact approved runtime externally"
+      "closureCondition": "Run exact approved runtime externally",
+      "blockerReason": "EXTERNAL:EXACT_RUNTIME"
     },
     {
       "id": "ENV-010",
@@ -1194,7 +1554,8 @@
       "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
       "lifecycle": "EXTERNAL",
       "evidenceOwner": "runtime",
-      "closureCondition": "Run exact approved runtime externally"
+      "closureCondition": "Run exact approved runtime externally",
+      "blockerReason": "EXTERNAL:EXACT_RUNTIME"
     },
     {
       "id": "ENV-011",
@@ -1207,7 +1568,8 @@
       "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
       "lifecycle": "EXTERNAL",
       "evidenceOwner": "runtime",
-      "closureCondition": "Run exact approved runtime externally"
+      "closureCondition": "Run exact approved runtime externally",
+      "blockerReason": "EXTERNAL:EXACT_RUNTIME"
     },
     {
       "id": "DOC-075",
@@ -1219,7 +1581,8 @@
       "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
+      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-076",
@@ -1231,7 +1594,8 @@
       "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
+      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-077",
@@ -1243,7 +1607,8 @@
       "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
+      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-078",
@@ -1255,7 +1620,8 @@
       "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
+      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-079",
@@ -1267,7 +1633,8 @@
       "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
+      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-080",
@@ -1279,7 +1646,8 @@
       "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
+      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-081",
@@ -1291,7 +1659,8 @@
       "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
+      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-082",
@@ -1303,7 +1672,8 @@
       "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
+      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-083",
@@ -1315,7 +1685,8 @@
       "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
+      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-084",
@@ -1327,7 +1698,8 @@
       "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
+      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-085",
@@ -1339,7 +1711,8 @@
       "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
+      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-086",
@@ -1351,7 +1724,8 @@
       "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
+      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
     },
     {
       "id": "DOC-087",
@@ -1363,8 +1737,13 @@
       "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
       "lifecycle": "PLANNED",
       "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
+      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
     }
   ],
-  "status": "UNAPPROVED_BASELINES"
+  "status": "MIXED_VERIFIED_AND_UNAPPROVED",
+  "summary": {
+    "verifiedLocalSsot": 38,
+    "unapproved": 69
+  }
 }
