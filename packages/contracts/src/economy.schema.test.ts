@@ -61,6 +61,19 @@ function economy(status: 'DRAFT' | 'APPROVED' = 'DRAFT') {
 }
 
 describe('economy and catalog admission', () => {
+  it.each([
+    ['invalid-extra-property.json', 'economy', /additional/i],
+    ['invalid-pity-threshold.json', 'economy', /threshold|rareOrBetter/i],
+    ['invalid-pity-semantics-hash.json', 'economy', /pitySemanticsHash/i],
+    ['invalid-approved-metadata.json', 'economy', /approvalDecisionId|approvedBy|approvedAt/i],
+    ['invalid-protection.json', 'economy', /excludeLocked/i],
+    ['invalid-pet-catalog.json', 'catalog', /30.*15.*5/],
+  ] as const)('rejects fixture %s at its named %s rule', (file, kind, rule) => {
+    const fixture = JSON.parse(readFileSync(resolve('tests/fixtures/economy', file), 'utf8')) as unknown;
+    const parse = kind === 'economy' ? parseEconomy : parsePetCatalog;
+    expect(() => parse(fixture)).toThrow(rule);
+  });
+
   it('JSON Schema validates every nested baseline field and rejects real negative fixture mutations', () => {
     const ajv = new Ajv2020({ allErrors: true, strict: true, validateFormats: false });
     const economySchema = JSON.parse(readFileSync(resolve('schemas/economy.schema.json'), 'utf8'));
@@ -105,6 +118,16 @@ describe('economy and catalog admission', () => {
 });
 
 describe('transaction normalization and pity boundaries', () => {
+  it('keeps one physical final definition for each economy mutation entry point', () => {
+    const migration = readFileSync(resolve('supabase/migrations/202607150004_economy_ledgers.sql'), 'utf8');
+    for (const functionName of ['select_pet_v1', 'set_pet_lock_v1', 'fuse_pets_v1']) {
+      const definitions = migration.match(new RegExp(`create(?: or replace)? function private\\.${functionName}\\(`, 'g')) ?? [];
+      expect(definitions, `${functionName} must have one final definition`).toHaveLength(1);
+    }
+    expect(migration).not.toMatch(/alter function private\.fuse_pets_v1\([^;]+rename to/i);
+    expect(migration).not.toMatch(/drop function private\.fuse_pets_impl_v1/i);
+  });
+
   it('requires a strict unique fusion array totaling exactly five copies', () => {
     expect(() => normalizeFusionMaterials([{ userPetId: 'b', count: 2 }, { userPetId: 'a', count: 1 }, { userPetId: 'b', count: 2 }])).toThrow(/unique/i);
     expect(normalizeFusionMaterials([{ userPetId: 'b', count: 4 }, { userPetId: 'a', count: 1 }])).toEqual([
