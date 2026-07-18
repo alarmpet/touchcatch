@@ -8,18 +8,9 @@ import { projectMatchEvent } from '../../contracts/src/projection.js';
 import { createMatchInitialState as engineCreateMatchInitialState, reduceMatch } from './reducer.js';
 import { replayMatch } from './replay.js';
 import { drainDueTimers, reduceAfterDrainingDueTimers } from './scheduler.js';
+import { privateSolutionFixture as solution } from './testing-fixtures.js';
 const frozenRules = parseRuleset(rules);
 const createMatchInitialState=(input:Omit<Parameters<typeof engineCreateMatchInitialState>[0],'contentManifest'>&{contentManifest:Omit<Parameters<typeof engineCreateMatchInitialState>[0]['contentManifest'],'contentLanguage'>},sharedRules:Parameters<typeof engineCreateMatchInitialState>[1])=>engineCreateMatchInitialState({...input,contentManifest:{...input.contentManifest,contentLanguage:'en'}},sharedRules);
-
-const solution = {
-  schemaVersion: '1.0.0' as const, contentRevisionId: '00000000-0000-4000-8000-000000000010', privateSolutionHash: 'b'.repeat(64),
-  differences: Array.from({length: 10},(_,i)=>({objectiveId:`d${i}`,tier:i<7?'NORMAL' as const:'HARD' as const,hitboxes:{imageA:{cx:.1+i*.05,cy:.2,r:.01},imageB:{cx:.1+i*.05,cy:.2,r:.01}}})),
-  wordHunts: [{missionId:'w1',kind:'NORMAL' as const,publicPrompt:'one',hitboxes:{imageA:{cx:.2,cy:.8,r:.02},imageB:{cx:.2,cy:.8,r:.02}}},{missionId:'w2',kind:'NORMAL' as const,publicPrompt:'two',hitboxes:{imageA:{cx:.4,cy:.8,r:.02},imageB:{cx:.4,cy:.8,r:.02}}},{missionId:'w3',kind:'SPECIAL' as const,publicPrompt:'three',hitboxes:{imageA:{cx:.6,cy:.8,r:.02},imageB:{cx:.6,cy:.8,r:.02}}}],
-  suddenDeath:{objectiveId:'sd',hitboxes:{imageA:{cx:.9,cy:.9,r:.02},imageB:{cx:.9,cy:.9,r:.02}}},
-  finalChallenge:{canonicalAnswer:'cat',aliases:['kitty'],hintUnits:['c','a','t'],meaning:{prompt:'meaning',options:[{id:'a',label:'A'},{id:'b',label:'B'},{id:'c',label:'C'}],correctOptionId:'a'}}
-};
-const {privateSolutionHash:_ignoredHash,...hashableSolution}=solution;
-solution.privateSolutionHash=canonicalJsonSha256(hashableSolution);
 
 function startedState(){
  const matchId='00000000-0000-4000-8000-000000000001';const asset=(side:'A'|'B')=>({side,url:`https://cdn.test/${side}.png`,sha256:(side==='A'?'a':'c').repeat(64),encodedBytes:1,width:1,height:1,mimeType:'image/png' as const});

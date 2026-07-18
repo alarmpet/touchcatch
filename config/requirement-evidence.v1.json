@@ -1085,7 +1085,7 @@
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "STATE-001"
       },
       "testCase": "STATE-001 executes STATE_SCHEMA",
@@ -1205,7 +1205,7 @@
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "STATE-009"
       },
       "testCase": "STATE-009 executes STATE_SCHEMA",
@@ -2286,7 +2286,7 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-012 executes ANALYTICS_CONTRACT",
@@ -2301,7 +2301,7 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-013 executes ANALYTICS_CONTRACT",
