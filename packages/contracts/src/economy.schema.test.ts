@@ -7,6 +7,9 @@ import {
   parsePetCatalog,
   pityTransition,
 } from './economy.schema.js';
+import Ajv2020 from 'ajv/dist/2020.js';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 
 const pityProjection = {
   thresholds: { rareOrBetter: 50, legendary: 150 },
@@ -58,6 +61,21 @@ function economy(status: 'DRAFT' | 'APPROVED' = 'DRAFT') {
 }
 
 describe('economy and catalog admission', () => {
+  it('JSON Schema validates every nested baseline field and rejects real negative fixture mutations', () => {
+    const ajv = new Ajv2020({ allErrors: true, strict: true, validateFormats: false });
+    const economySchema = JSON.parse(readFileSync(resolve('schemas/economy.schema.json'), 'utf8'));
+    const catalogSchema = JSON.parse(readFileSync(resolve('schemas/pet-catalog.schema.json'), 'utf8'));
+    const validateEconomy = ajv.compile(economySchema);
+    const validateCatalog = ajv.compile(catalogSchema);
+    expect(validateEconomy(economy())).toBe(true);
+    expect(validateCatalog(catalog())).toBe(true);
+    const negatives = [
+      { ...economy(), draw: { ...economy().draw, probabilities: { COMMON: 0.79, RARE: 0.18, LEGENDARY: 0.02 } } },
+      { ...economy(), pitySemantics: { ...pityProjection, extra: true } },
+      { ...economy(), exp: { ...economy().exp, win: 101 } },
+    ];
+    for (const fixture of negatives) expect(validateEconomy(fixture), JSON.stringify(validateEconomy.errors)).toBe(false);
+  });
   it('strictly parses the DRAFT baseline but refuses it for production', () => {
     expect(parseEconomy(economy()).economyVersion).toBe('1.0.0');
     expect(parsePetCatalog(catalog()).entries).toHaveLength(50);
@@ -87,10 +105,10 @@ describe('economy and catalog admission', () => {
 });
 
 describe('transaction normalization and pity boundaries', () => {
-  it('canonicalizes duplicate fusion material IDs and requires exactly five copies', () => {
-    expect(normalizeFusionMaterials([{ userPetId: 'b', count: 2 }, { userPetId: 'a', count: 1 }, { userPetId: 'b', count: 2 }])).toEqual([
-      { userPetId: 'a', count: 1 },
-      { userPetId: 'b', count: 4 },
+  it('requires a strict unique fusion array totaling exactly five copies', () => {
+    expect(() => normalizeFusionMaterials([{ userPetId: 'b', count: 2 }, { userPetId: 'a', count: 1 }, { userPetId: 'b', count: 2 }])).toThrow(/unique/i);
+    expect(normalizeFusionMaterials([{ userPetId: 'b', count: 4 }, { userPetId: 'a', count: 1 }])).toEqual([
+      { userPetId: 'a', count: 1 }, { userPetId: 'b', count: 4 },
     ]);
     expect(() => normalizeFusionMaterials([{ userPetId: 'a', count: 4 }])).toThrow(/five/i);
   });

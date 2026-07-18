@@ -63,12 +63,12 @@ export function loadProductionEconomy(economyInput: unknown, catalogInput: unkno
   const loaded = validateEconomyBundleCore(economyInput, catalogInput, expected);
   if (loaded.economy.status !== 'APPROVED' || loaded.catalog.status !== 'APPROVED') throw new TypeError('production economy and catalog must be APPROVED');
   if (loaded.economy.approvedBy?.startsWith('test-') || loaded.catalog.approvedBy?.startsWith('test-')) throw new TypeError('test-only approval metadata is forbidden in production');
-  return { config: loaded.economy, economyVersion: loaded.economy.economyVersion, economyHash: loaded.economyHash, catalog: loaded.catalog, catalogRevision: loaded.catalog.catalogRevision, catalogHash: loaded.catalog.catalogHash, catalogArtifactHash: loaded.catalogArtifactHash, pitySeriesId: loaded.economy.pitySeriesId, pitySemanticsHash: loaded.economy.pitySemanticsHash };
+  return { config: loaded.economy, economyVersion: loaded.economy.economyVersion, economyHash: loaded.economyHash, catalog: loaded.catalog, catalogRevision: loaded.catalog.catalogRevision, catalogHash: loaded.catalog.catalogHash, catalogArtifactHash: loaded.catalogArtifactHash, pitySeriesId: loaded.economy.pitySeriesId, pitySemanticsHash: loaded.economy.pitySemanticsHash, publishInput: { economy: loaded.economy, catalog: loaded.catalog } };
 }
 
 export function normalizeFusionMaterials(materials: ReadonlyArray<{ userPetId: string; count: number }>): Array<{ userPetId: string; count: number }> {
   const aggregate = new Map<string, number>();
-  for (const item of materials) { if (!item.userPetId || !Number.isSafeInteger(item.count) || item.count <= 0) throw new TypeError('materials require positive integer counts'); aggregate.set(item.userPetId, (aggregate.get(item.userPetId) ?? 0) + item.count); }
+  for (const item of materials) { if (!item.userPetId || !Number.isSafeInteger(item.count) || item.count <= 0) throw new TypeError('materials require positive integer counts'); if (aggregate.has(item.userPetId)) throw new TypeError('materials require unique userPetId values'); aggregate.set(item.userPetId, item.count); }
   const result = [...aggregate].sort(([a],[b]) => a.localeCompare(b)).map(([userPetId,count]) => ({ userPetId, count }));
   if (result.reduce((sum,item) => sum + item.count, 0) !== 5) throw new TypeError('fusion requires exactly five materials');
   return result;

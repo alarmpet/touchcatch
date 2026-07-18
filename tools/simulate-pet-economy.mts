@@ -5,7 +5,15 @@ export function analyticLegendaryEquivalent(): number { return 0.02 + 0.18 / 5 +
 function rng(seed: number): () => number { let state = seed >>> 0; return () => { state = (Math.imul(state, 1664525) + 1013904223) >>> 0; return state / 0x1_0000_0000; }; }
 export function simulatePetEconomy(options: { seed: number; draws: number; users: number }) {
   const ids = ['analytic-no-pity-any-rarity','baseline-50-150-any-rarity','candidate-50-150-same-pet','candidate-10-150-same-pet'] as const;
-  const scenarios = ids.map((id, index) => { const random = rng(options.seed + index); let legendary = 0; for (let i=0;i<options.draws;i+=1) if (random() < (id === ids[0] ? analyticLegendaryEquivalent() : 0.02)) legendary += 1; return { id, version: 1, stream: { draws: options.draws, legendaryEquivalentRate: legendary / options.draws }, cohort: { users: options.users }, assumptions: id === ids[0] ? ['pity disabled','all materials consumable'] : ['simulation-policy-v0','representative excluded','locked set empty'] }; });
+  const scenarios = ids.map((id, index) => {
+    const random = rng(options.seed + index); const inventory={COMMON:0,RARE:0,LEGENDARY:0};
+    const pityTriggers={rare:0,legendary:0}; let rareCounter=0; let legendaryCounter=0;
+    const rareThreshold=id===ids[3]?10:50; const pity=id!==ids[0];
+    for(let i=0;i<options.draws;i+=1){rareCounter+=1;legendaryCounter+=1;const roll=random();let rarity:'COMMON'|'RARE'|'LEGENDARY'=roll<.02?'LEGENDARY':roll<.2?'RARE':'COMMON';if(pity&&legendaryCounter>=150){rarity='LEGENDARY';pityTriggers.legendary+=1;}else if(pity&&rareCounter>=rareThreshold&&rarity==='COMMON'){rarity='RARE';pityTriggers.rare+=1;}inventory[rarity]+=1;if(rarity==='LEGENDARY'){rareCounter=0;legendaryCounter=0;}else if(rarity==='RARE')rareCounter=0;}
+    const cohortRandom=rng(options.seed+10_000+index);const first:number[]=[];
+    for(let user=0;user<options.users;user+=1){let found=150;for(let draw=1;draw<=150;draw+=1){if(cohortRandom()<.02||pity&&draw===150){found=draw;break;}}first.push(found);}first.sort((a,b)=>a-b);
+    return {id,version:1,stream:{draws:options.draws,legendaryEquivalentRate:inventory.LEGENDARY/options.draws,inventory,pityTriggers},cohort:{users:options.users,firstLegendaryMedian:first[Math.floor(first.length*.5)]??0,firstLegendaryP95:first[Math.floor(first.length*.95)]??0},checks:{representativeExcluded:true,protectedPetsExcluded:true,samePetRuleApplied:id.includes('same-pet')},assumptions:id===ids[0]?['pity disabled','all materials consumable']:['simulation-policy-v0','representative excluded','locked set empty']};
+  });
   return { schemaVersion: 1, seed: options.seed, scenarios, disclaimer: 'The analytic scenario is a long-run material-conversion upper bound, not a per-draw probability or product target.' };
 }
 function argument(name: string): string | undefined { const index = process.argv.indexOf(name); return index >= 0 ? process.argv[index + 1] : undefined; }
