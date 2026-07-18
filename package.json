@@ -20,10 +20,11 @@
     "test": "vitest run --exclude tests/database/**/*.test.ts",
     "content:validate": "tsx packages/content-validator/src/validate-content.ts content/fixtures/valid",
     "openapi:lint": "redocly lint packages/contracts/openapi.yaml",
+    "ui:reference:check": "node tools/check-ui-reference.mjs",
     "db:start": "supabase start",
     "test:db:concurrency": "vitest run --config vitest.db.config.ts --sequence.concurrent=false",
     "check:db": "corepack pnpm ruleset:projections:check && supabase db reset --local && supabase db lint --local --fail-on error && supabase test db --local && corepack pnpm test:db:concurrency",
-    "check": "corepack pnpm check:runtime && corepack pnpm ruleset:projections:check && corepack pnpm content:schemas:check && corepack pnpm lint && corepack pnpm typecheck && corepack pnpm test && corepack pnpm openapi:lint && corepack pnpm content:validate && corepack pnpm secret:scan",
+    "check": "corepack pnpm check:runtime && corepack pnpm ruleset:projections:check && corepack pnpm content:schemas:check && corepack pnpm ui:reference:check && corepack pnpm lint && corepack pnpm typecheck && corepack pnpm test && corepack pnpm openapi:lint && corepack pnpm content:validate && corepack pnpm secret:scan",
     "verify": "pnpm check && pnpm check:db"
   },
   "devDependencies": {
