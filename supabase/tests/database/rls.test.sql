@@ -28,7 +28,14 @@ select ok((select proconfig = array['search_path=pg_catalog'] from pg_proc where
 select ok((select proowner = (select oid from pg_roles where rolname='game_security_owner') from pg_proc where oid='private.publish_content_revision_v1(jsonb,jsonb,jsonb,text,text,text,text)'::regprocedure), 'publish definer has dedicated owner');
 select is((select count(*)::int from pg_proc where prosecdef and pronamespace in ('public'::regnamespace, 'private'::regnamespace) and oid not in (
   'private.join_match_participant_v1(uuid,uuid,uuid)'::regprocedure,
-  'private.publish_content_revision_v1(jsonb,jsonb,jsonb,text,text,text,text)'::regprocedure
+  'private.publish_content_revision_v1(jsonb,jsonb,jsonb,text,text,text,text)'::regprocedure,
+  'private.publish_economy_bundle_v1(jsonb,jsonb)'::regprocedure,
+  'private.secure_random_below_v1(bigint)'::regprocedure,
+  'private.award_match_reward_v1(uuid,uuid,text,bigint,text,text,text)'::regprocedure,
+  'private.draw_pet_v1(uuid,uuid,text,text,text,text,text)'::regprocedure,
+  'private.fuse_pets_v1(uuid,uuid,text,jsonb,text,text,text,text)'::regprocedure,
+  'private.select_pet_v1(uuid,uuid,text,uuid)'::regprocedure,
+  'private.set_pet_lock_v1(uuid,uuid,text,uuid,boolean)'::regprocedure
 )), 0, 'no unexpected security definer functions');
 select is((select count(*)::int from pg_default_acl d cross join lateral aclexplode(d.defaclacl) a where d.defaclnamespace in ('public'::regnamespace, 'private'::regnamespace) and d.defaclrole in ((select oid from pg_roles where rolname='postgres'), (select oid from pg_roles where rolname='game_security_owner')) and a.grantee in (0, (select oid from pg_roles where rolname='anon'), (select oid from pg_roles where rolname='authenticated'), (select oid from pg_roles where rolname='service_role'))), 0, 'future object default ACLs do not expose client/service roles');
 

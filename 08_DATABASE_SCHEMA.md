@@ -57,3 +57,6 @@ corepack pnpm test:db:concurrency
 pgTAP은 schema 노출, RLS, grants/default ACL, 안전 view, definer allow-list, 리비전 불변성, phase/종료/계정삭제/event 불변식을 검사한다. Node harness는 서로 다른 20개 `app_server` 세션으로 실제 third-seat race를 검사하며 loopback DB가 아니면 fail closed한다.
 
 현재 Task 3의 TypeScript `MatchPhase`/`MatchEndReason` SSOT는 아직 구현되지 않았다. 따라서 pgTAP의 SQL enum 목록 검사는 DB 내부 계약만 고정하며 domain↔DB 자동 parity 완료를 뜻하지 않는다. Task 3이 추가되면 생성 artifact 또는 cross-layer contract test로 이 목록을 대체하기 전까지 전체 계획 gate는 미완료다.
+# Private economy ledger extension (2026-07-15)
+
+Migration `202607150004_economy_ledgers.sql` adds random economy subjects, immutable economy/catalog revisions, effect-once receipts, reward/draw/fusion histories, pity state, protected inventory, and transactional outbox intents under `private`. Application roles can call only the trusted operation functions and cannot mutate these tables directly.

@@ -13,6 +13,9 @@ export * from './delivery-policy.js';
 export * from './rest-idempotency.js';
 export * from './projection.js';
 export * from './integration-evidence.js';
+export * from './economy.js';
+export * from './economy.schema.js';
+export * from './pet-catalog.js';
 export {
   PRIVACY_OPERATOR_ROLE,
   parseQuarantinePolicy,

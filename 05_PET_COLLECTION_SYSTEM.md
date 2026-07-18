@@ -34,3 +34,6 @@
 - 패배 60 EXP
 - 단어+뜻 퍼펙트 +40 EXP
 - 레벨은 외형, 프레임, 감정표현, 자랑 요소 중심
+# Implementation baseline note (2026-07-15)
+
+The executable economy baseline is documented in `docs/decisions/ADR-004-pet-economy.md`. Repository configs are DRAFT and must not be admitted by production startup until product approval metadata and exact immutable DB revisions exist.

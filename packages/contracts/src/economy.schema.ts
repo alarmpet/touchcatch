@@ -1,0 +1,82 @@
+import { canonicalJsonSha256 } from './canonical-json.js';
+import type { EconomyV1, LoadedApprovedEconomyV1 } from './economy.js';
+import type { PetCatalogRevisionV1, PetRarity } from './pet-catalog.js';
+
+const economyKeys = new Set(['schemaVersion','economyVersion','status','catalogRevision','catalogHash','pitySeriesId','pitySemantics','pitySemanticsHash','draw','fusion','exp','simulationPolicy','rewardPolicies','approvalDecisionId','approvedBy','approvedAt']);
+const catalogKeys = new Set(['schemaVersion','catalogRevision','status','catalogHash','entries','approvalDecisionId','approvedBy','approvedAt']);
+const hashPattern = /^[0-9a-f]{64}$/;
+const semverPattern = /^\d+\.\d+\.\d+$/;
+
+function object(value: unknown, name: string): Record<string, unknown> {
+  if (value === null || typeof value !== 'object' || Array.isArray(value)) throw new TypeError(`${name} must be an object`);
+  return value as Record<string, unknown>;
+}
+function exactKeys(value: Record<string, unknown>, allowed: Set<string>, name: string): void {
+  const extra = Object.keys(value).filter((key) => !allowed.has(key));
+  if (extra.length) throw new TypeError(`${name} has additional properties: ${extra.join(', ')}`);
+}
+function approval(value: Record<string, unknown>): void {
+  if (value.status === 'APPROVED' && ['approvalDecisionId','approvedBy','approvedAt'].some((key) => typeof value[key] !== 'string' || value[key] === '')) throw new TypeError('APPROVED artifact requires approval metadata');
+}
+
+export function parsePetCatalog(input: unknown): PetCatalogRevisionV1 {
+  const value = object(input, 'catalog'); exactKeys(value, catalogKeys, 'catalog'); approval(value);
+  if (value.schemaVersion !== 1 || !['DRAFT','APPROVED'].includes(String(value.status)) || typeof value.catalogRevision !== 'string' || !Array.isArray(value.entries)) throw new TypeError('invalid catalog structure');
+  const ids = new Set<string>(); const counts: Record<PetRarity, number> = { COMMON: 0, RARE: 0, LEGENDARY: 0 };
+  for (const raw of value.entries) {
+    const entry = object(raw, 'catalog entry'); exactKeys(entry, new Set(['petId','rarity','displayKey']), 'catalog entry');
+    if (typeof entry.petId !== 'string' || entry.petId === '' || ids.has(entry.petId) || typeof entry.displayKey !== 'string' || !(entry.rarity === 'COMMON' || entry.rarity === 'RARE' || entry.rarity === 'LEGENDARY')) throw new TypeError('catalog entries require unique opaque IDs and valid rarity');
+    ids.add(entry.petId); counts[entry.rarity] += 1;
+  }
+  if (counts.COMMON !== 30 || counts.RARE !== 15 || counts.LEGENDARY !== 5) throw new TypeError('catalog requires exact 30/15/5 rarity grouping');
+  const projection = { schemaVersion: value.schemaVersion, catalogRevision: value.catalogRevision, entries: value.entries };
+  if (!hashPattern.test(String(value.catalogHash)) || canonicalJsonSha256(projection) !== value.catalogHash) throw new TypeError('catalogHash mismatch');
+  return value as unknown as PetCatalogRevisionV1;
+}
+
+export function parseEconomy(input: unknown): EconomyV1 {
+  const value = object(input, 'economy'); exactKeys(value, economyKeys, 'economy'); approval(value);
+  if (value.schemaVersion !== 1 || !semverPattern.test(String(value.economyVersion)) || !['DRAFT','APPROVED'].includes(String(value.status))) throw new TypeError('invalid economy version/lifecycle');
+  const pity = object(value.pitySemantics, 'pitySemantics'); const thresholds = object(pity.thresholds, 'thresholds');
+  if (thresholds.rareOrBetter !== 50 || thresholds.legendary !== 150) throw new TypeError('pity threshold must be 50/150');
+  if (canonicalJsonSha256(pity) !== value.pitySemanticsHash) throw new TypeError('pitySemanticsHash mismatch');
+  const draw = object(value.draw, 'draw'); const probabilities = object(draw.probabilities, 'probabilities');
+  const sum = Number(probabilities.COMMON) + Number(probabilities.RARE) + Number(probabilities.LEGENDARY);
+  if (!(Number(draw.cost) > 0) || Math.abs(sum - 1) > 1e-12) throw new TypeError('draw cost/probabilities invalid');
+  const fusion = object(value.fusion, 'fusion');
+  if (fusion.materialCount !== 5 || fusion.excludeSelected !== true || fusion.excludeLocked !== true) throw new TypeError('fusion requires five materials and excludeSelected/excludeLocked protection');
+  if (value.simulationPolicy !== 'simulation-policy-v0' || typeof value.catalogRevision !== 'string' || !hashPattern.test(String(value.catalogHash)) || typeof value.pitySeriesId !== 'string' || value.pitySeriesId === '') throw new TypeError('invalid economy references');
+  return value as unknown as EconomyV1;
+}
+
+export function validateEconomyBundleCore(economyInput: unknown, catalogInput: unknown, expected: { economyHash?: string; catalogHash?: string; pitySemanticsHash?: string }): { economy: EconomyV1; catalog: PetCatalogRevisionV1; economyHash: string; catalogArtifactHash: string } {
+  const economy = parseEconomy(economyInput); const catalog = parsePetCatalog(catalogInput);
+  if (economy.catalogRevision !== catalog.catalogRevision || economy.catalogHash !== catalog.catalogHash) throw new TypeError('economy/catalog cross-reference mismatch');
+  const economyHash = canonicalJsonSha256(economy); const catalogArtifactHash = canonicalJsonSha256(catalog);
+  if (expected.economyHash && expected.economyHash !== economyHash) throw new TypeError('economyHash mismatch');
+  if (expected.catalogHash && expected.catalogHash !== catalog.catalogHash) throw new TypeError('expected catalogHash mismatch');
+  if (expected.pitySemanticsHash && expected.pitySemanticsHash !== economy.pitySemanticsHash) throw new TypeError('expected pitySemanticsHash mismatch');
+  return { economy, catalog, economyHash, catalogArtifactHash };
+}
+
+export function loadProductionEconomy(economyInput: unknown, catalogInput: unknown, expected: { economyHash?: string; catalogHash?: string; pitySemanticsHash?: string }): LoadedApprovedEconomyV1 {
+  const loaded = validateEconomyBundleCore(economyInput, catalogInput, expected);
+  if (loaded.economy.status !== 'APPROVED' || loaded.catalog.status !== 'APPROVED') throw new TypeError('production economy and catalog must be APPROVED');
+  if (loaded.economy.approvedBy?.startsWith('test-') || loaded.catalog.approvedBy?.startsWith('test-')) throw new TypeError('test-only approval metadata is forbidden in production');
+  return { config: loaded.economy, economyVersion: loaded.economy.economyVersion, economyHash: loaded.economyHash, catalog: loaded.catalog, catalogRevision: loaded.catalog.catalogRevision, catalogHash: loaded.catalog.catalogHash, catalogArtifactHash: loaded.catalogArtifactHash, pitySeriesId: loaded.economy.pitySeriesId, pitySemanticsHash: loaded.economy.pitySemanticsHash };
+}
+
+export function normalizeFusionMaterials(materials: ReadonlyArray<{ userPetId: string; count: number }>): Array<{ userPetId: string; count: number }> {
+  const aggregate = new Map<string, number>();
+  for (const item of materials) { if (!item.userPetId || !Number.isSafeInteger(item.count) || item.count <= 0) throw new TypeError('materials require positive integer counts'); aggregate.set(item.userPetId, (aggregate.get(item.userPetId) ?? 0) + item.count); }
+  const result = [...aggregate].sort(([a],[b]) => a.localeCompare(b)).map(([userPetId,count]) => ({ userPetId, count }));
+  if (result.reduce((sum,item) => sum + item.count, 0) !== 5) throw new TypeError('fusion requires exactly five materials');
+  return result;
+}
+
+export function pityTransition(state: { rareCounter: number; legendaryCounter: number }, rolled: PetRarity): { rarity: PetRarity; rareCounter: number; legendaryCounter: number } {
+  const rareCounter = state.rareCounter + 1; const legendaryCounter = state.legendaryCounter + 1;
+  const rarity: PetRarity = legendaryCounter >= 150 ? 'LEGENDARY' : rareCounter >= 50 && rolled === 'COMMON' ? 'RARE' : rolled;
+  if (rarity === 'LEGENDARY') return { rarity, rareCounter: 0, legendaryCounter: 0 };
+  return { rarity, rareCounter: rarity === 'RARE' ? 0 : rareCounter, legendaryCounter };
+}

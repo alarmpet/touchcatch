@@ -21,7 +21,6 @@ paths:
       operationId: selectPet
       summary: Select an owned pet
       parameters: [{ $ref: "#/components/parameters/Id" }, { $ref: "#/components/parameters/IdempotencyKey" }]
-      requestBody: { $ref: "#/components/requestBodies/SelectPetRequest" }
       responses: { "200": { $ref: "#/components/responses/SelectPetResponse" }, "400": { $ref: "#/components/responses/SelectPetError" }, "404": { $ref: "#/components/responses/SelectPetError" }, "409": { $ref: "#/components/responses/SelectPetError" } }
   /v1/pets/{id}/lock:
     post:
@@ -35,12 +34,11 @@ paths:
       operationId: drawGacha
       summary: Draw a pet
       parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
-      requestBody: { $ref: "#/components/requestBodies/GachaDrawRequest" }
       responses: { "200": { $ref: "#/components/responses/GachaDrawResponse" }, "400": { $ref: "#/components/responses/GachaDrawError" }, "409": { $ref: "#/components/responses/GachaDrawError" } }
   /v1/fusion:
     post:
       operationId: fusePets
-      summary: Fuse two owned pets
+      summary: Fuse exactly five eligible same-rarity copies
       parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
       requestBody: { $ref: "#/components/requestBodies/FusionRequest" }
       responses: { "200": { $ref: "#/components/responses/FusionResponse" }, "400": { $ref: "#/components/responses/FusionError" }, "404": { $ref: "#/components/responses/FusionError" }, "409": { $ref: "#/components/responses/FusionError" } }
@@ -90,43 +88,39 @@ components:
     RoomCode: { name: roomCode, in: path, required: true, schema: { type: string, pattern: "^[A-Z0-9]{6,12}$" } }
     IdempotencyKey: { name: Idempotency-Key, in: header, required: true, schema: { type: string, pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89aAbB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$" } }
   requestBodies:
-    SelectPetRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/SelectPetRequest" } } } }
     LockPetRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/LockPetRequest" } } } }
-    GachaDrawRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/GachaDrawRequest" } } } }
     FusionRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/FusionRequest" } } } }
     QueueCreateRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/QueueCreateRequest" } } } }
     FriendRoomCreateRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomCreateRequest" } } } }
     FriendRoomJoinRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomJoinRequest" } } } }
   schemas:
-    SelectPetRequest: { type: object, additionalProperties: false, maxProperties: 0 }
     LockPetRequest: { type: object, additionalProperties: false, required: [locked], properties: { locked: { type: boolean } } }
-    GachaDrawRequest: { type: object, additionalProperties: false, required: [bannerId], properties: { bannerId: { type: string, minLength: 1, maxLength: 128 } } }
-    FusionRequest: { type: object, additionalProperties: false, required: [petIds], properties: { petIds: { type: array, minItems: 2, maxItems: 2, uniqueItems: true, items: { type: string, minLength: 1, maxLength: 128 } } } }
+    FusionRequest: { type: object, additionalProperties: false, required: [materials], properties: { materials: { type: array, minItems: 1, maxItems: 5, items: { type: object, additionalProperties: false, required: [userPetId, count], properties: { userPetId: { type: string, format: uuid }, count: { type: integer, minimum: 1, maximum: 5 } } } } } }
     QueueCreateRequest: { type: object, additionalProperties: false, maxProperties: 0 }
     FriendRoomCreateRequest: { type: object, additionalProperties: false, maxProperties: 0 }
     FriendRoomJoinRequest: { type: object, additionalProperties: false, maxProperties: 0 }
     MeResponse: { type: object, additionalProperties: false, required: [profile, points], properties: { profile: { type: object, additionalProperties: false, required: [displayName], properties: { displayName: { type: string } } }, points: { type: integer, minimum: 0 } } }
     PetsResponse: { type: object, additionalProperties: false, required: [items, nextCursor], properties: { items: { type: array, items: { $ref: "#/components/schemas/Pet" } }, nextCursor: { type: [string, "null"], maxLength: 512 } } }
     Pet: { type: object, additionalProperties: false, required: [id, catalogId, level, exp, copies, selected, locked], properties: { id: { type: string }, catalogId: { type: string }, level: { type: integer, minimum: 1 }, exp: { type: integer, minimum: 0 }, copies: { type: integer, minimum: 1 }, selected: { type: boolean }, locked: { type: boolean } } }
-    SelectPetResponse: { $ref: "#/components/schemas/Pet" }
-    LockPetResponse: { $ref: "#/components/schemas/Pet" }
-    GachaDrawResponse: { type: object, additionalProperties: false, required: [pet, pointsRemaining], properties: { pet: { $ref: "#/components/schemas/Pet" }, pointsRemaining: { type: integer, minimum: 0 } } }
-    FusionResponse: { type: object, additionalProperties: false, required: [pet], properties: { pet: { $ref: "#/components/schemas/Pet" } } }
+    SelectPetResponse: { type: object, additionalProperties: false, required: [petId, selected], properties: { petId: { type: string, format: uuid }, selected: { const: true } } }
+    LockPetResponse: { type: object, additionalProperties: false, required: [petId, locked], properties: { petId: { type: string, format: uuid }, locked: { type: boolean } } }
+    GachaDrawResponse: { type: object, additionalProperties: false, required: [userPetId, petId, rarity, pointsRemaining, rareCounter, legendaryCounter, economyVersion, economyHash, catalogRevision, catalogHash, pitySeriesId, pitySemanticsHash], properties: { userPetId: { type: string, format: uuid }, petId: { type: string, format: uuid }, rarity: { enum: [COMMON, RARE, LEGENDARY] }, pointsRemaining: { type: integer, minimum: 0 }, rareCounter: { type: integer, minimum: 0, maximum: 49 }, legendaryCounter: { type: integer, minimum: 0, maximum: 149 }, economyVersion: { type: string }, economyHash: { type: string, pattern: "^[0-9a-f]{64}$" }, catalogRevision: { type: string }, catalogHash: { type: string, pattern: "^[0-9a-f]{64}$" }, pitySeriesId: { type: string }, pitySemanticsHash: { type: string, pattern: "^[0-9a-f]{64}$" } } }
+    FusionResponse: { type: object, additionalProperties: false, required: [consumed, output, economyVersion, economyHash, catalogRevision, catalogHash], properties: { consumed: { type: array, items: { type: object, additionalProperties: false, required: [userPetId, count], properties: { userPetId: { type: string, format: uuid }, count: { type: integer, minimum: 1 } } } }, output: { type: object, additionalProperties: false, required: [userPetId, petId, rarity], properties: { userPetId: { type: string, format: uuid }, petId: { type: string, format: uuid }, rarity: { enum: [RARE, LEGENDARY] } } }, economyVersion: { type: string }, economyHash: { type: string, pattern: "^[0-9a-f]{64}$" }, catalogRevision: { type: string }, catalogHash: { type: string, pattern: "^[0-9a-f]{64}$" } } }
     QueueTicketResponse: { type: object, additionalProperties: false, required: [ticketId, status], properties: { ticketId: { type: string }, status: { type: string, enum: [QUEUED, MATCHED] } } }
     QueueCancelResponse: { type: object, additionalProperties: false, required: [cancelled], properties: { cancelled: { const: true } } }
     FriendRoomResponse: { type: object, additionalProperties: false, required: [roomCode, memberCount], properties: { roomCode: { type: string }, memberCount: { type: integer, minimum: 1, maximum: 2 } } }
     FriendRoomLeaveResponse: { type: object, additionalProperties: false, required: [left], properties: { left: { const: true } } }
     MeError: &unauthorized { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [UNAUTHORIZED] } } }
     PetsError: *unauthorized
-    SelectPetError: &selectError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [INVALID_REQUEST, NOT_FOUND, CONFLICT, IDEMPOTENCY_CONFLICT] } } }
+    SelectPetError: &selectError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [IDEMPOTENCY_CONFLICT, NOT_OWNED] } } }
     LockPetError: *selectError
-    GachaDrawError: &drawError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [INVALID_REQUEST, CONFLICT, IDEMPOTENCY_CONFLICT] } } }
-    FusionError: *selectError
-    QueueCreateError: *drawError
+    GachaDrawError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [IDEMPOTENCY_CONFLICT, POLICY_MISMATCH, INSUFFICIENT_FUNDS] } } }
+    FusionError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [IDEMPOTENCY_CONFLICT, POLICY_MISMATCH, NOT_OWNED, INVALID_MATERIALS] } } }
+    QueueCreateError: &drawError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [INVALID_REQUEST, CONFLICT, IDEMPOTENCY_CONFLICT] } } }
     QueueGetError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [UNAUTHORIZED, NOT_FOUND] } } }
     QueueCancelError: &cancelError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [NOT_FOUND, CONFLICT, IDEMPOTENCY_CONFLICT] } } }
     FriendRoomCreateError: *drawError
-    FriendRoomJoinError: *selectError
+    FriendRoomJoinError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [INVALID_REQUEST, NOT_FOUND, CONFLICT, IDEMPOTENCY_CONFLICT] } } }
     FriendRoomLeaveError: *cancelError
   responses:
     MeResponse: &meResponse { description: Profile, content: { application/json: { schema: { $ref: "#/components/schemas/MeResponse" } } } }
