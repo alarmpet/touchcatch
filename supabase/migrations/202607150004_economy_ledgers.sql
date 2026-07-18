@@ -122,6 +122,34 @@ create table private.fusion_history (
   catalog_revision text not null, catalog_hash text not null,
   created_at timestamptz not null default clock_timestamp()
 );
+create function private.economy_outbox_payload_valid_v1(kind text,version integer,scope text,value jsonb) returns boolean
+language sql immutable set search_path=pg_catalog as $$
+  select version=1 and jsonb_typeof(value)='object' and case kind
+    when 'REWARD_COMMITTED' then scope='REWARD_V1'
+      and (select array_agg(k order by k) from jsonb_object_keys(value) k)=array['amount','balance','catalogHash','catalogRevision','economyHash','economyVersion','rewardType']::text[]
+      and jsonb_typeof(value->'amount')='number' and jsonb_typeof(value->'balance')='number'
+      and jsonb_typeof(value->'rewardType')='string' and jsonb_typeof(value->'economyVersion')='string'
+      and value->>'economyHash' ~ '^[0-9a-f]{64}$' and jsonb_typeof(value->'catalogRevision')='string' and value->>'catalogHash' ~ '^[0-9a-f]{64}$'
+    when 'DRAW_COMMITTED' then scope='DRAW_V1'
+      and (select array_agg(k order by k) from jsonb_object_keys(value) k)=array['catalogHash','catalogRevision','economyHash','economyVersion','legendaryCounter','petId','pitySemanticsHash','pitySeriesId','pointsRemaining','rareCounter','rarity','userPetId']::text[]
+      and value->>'petId' ~* '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' and value->>'userPetId' ~* '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
+      and value->>'rarity' in ('COMMON','RARE','LEGENDARY') and jsonb_typeof(value->'pointsRemaining')='number' and jsonb_typeof(value->'rareCounter')='number' and jsonb_typeof(value->'legendaryCounter')='number'
+      and value->>'economyHash' ~ '^[0-9a-f]{64}$' and value->>'catalogHash' ~ '^[0-9a-f]{64}$' and value->>'pitySemanticsHash' ~ '^[0-9a-f]{64}$'
+    when 'FUSION_COMMITTED' then scope='FUSION_V1'
+      and (select array_agg(k order by k) from jsonb_object_keys(value) k)=array['catalogHash','catalogRevision','consumed','economyHash','economyVersion','output']::text[]
+      and jsonb_typeof(value->'consumed')='array' and jsonb_array_length(value->'consumed')>0
+      and not exists(select 1 from jsonb_array_elements(value->'consumed') m where jsonb_typeof(m)<>'object' or (select array_agg(k order by k) from jsonb_object_keys(m) k)<>array['count','userPetId']::text[] or not (m->>'count' ~ '^[1-9][0-9]*$') or not (m->>'userPetId' ~* '^[0-9a-f-]{36}$'))
+      and (select array_agg(k order by k) from jsonb_object_keys(value->'output') k)=array['petId','rarity','userPetId']::text[]
+      and value#>>'{output,petId}' ~* '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' and value#>>'{output,userPetId}' ~* '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
+      and value#>>'{output,rarity}' in ('RARE','LEGENDARY') and value->>'economyHash' ~ '^[0-9a-f]{64}$' and value->>'catalogHash' ~ '^[0-9a-f]{64}$'
+    when 'PET_SELECTED' then scope='SELECT_PET_V1'
+      and (select array_agg(k order by k) from jsonb_object_keys(value) k)=array['petId','selected']::text[]
+      and value->>'petId' ~* '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' and value->'selected'='true'::jsonb
+    when 'PET_LOCK_CHANGED' then scope='SET_PET_LOCK_V1'
+      and (select array_agg(k order by k) from jsonb_object_keys(value) k)=array['locked','petId']::text[]
+      and value->>'petId' ~* '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$' and jsonb_typeof(value->'locked')='boolean'
+    else false end
+$$;
 create table private.outbox_events (
   event_id uuid primary key default extensions.uuid_generate_v4(),
   event_type text not null check(event_type in ('REWARD_COMMITTED','DRAW_COMMITTED','FUSION_COMMITTED','PET_SELECTED','PET_LOCK_CHANGED')),
@@ -137,6 +165,11 @@ create table private.outbox_events (
   economy_version text, economy_hash text, catalog_revision text, catalog_hash text,
   occurred_at timestamptz not null default clock_timestamp(), created_at timestamptz not null default clock_timestamp(), published_at timestamptz,
   check(num_nonnulls(reward_ledger_id,gacha_history_id,fusion_history_id,idempotency_request_id)=1),
+  check((event_type='REWARD_COMMITTED' and reward_ledger_id is not null)
+     or (event_type='DRAW_COMMITTED' and gacha_history_id is not null)
+     or (event_type='FUSION_COMMITTED' and fusion_history_id is not null)
+     or (event_type in ('PET_SELECTED','PET_LOCK_CHANGED') and idempotency_request_id is not null)),
+  check(private.economy_outbox_payload_valid_v1(event_type,event_version,operation_scope,payload)),
   check(occurred_at <= created_at and (published_at is null or created_at <= published_at)),
   check((event_type in ('PET_SELECTED','PET_LOCK_CHANGED') and num_nonnulls(economy_version,economy_hash,catalog_revision,catalog_hash)=0) or (event_type not in ('PET_SELECTED','PET_LOCK_CHANGED') and num_nonnulls(economy_version,economy_hash,catalog_revision,catalog_hash)=4)),
   unique(operation_scope,operation_key)
@@ -192,8 +225,13 @@ begin
      or (select array_agg(k order by k) from jsonb_object_keys(economy->'exp') k)<>array['loss','perfectWordMeaning','win']::text[]
      or (select array_agg(k order by k) from jsonb_object_keys(economy->'pitySemantics') k)<>array['counterIncrementSources','counterIncrementTiming','eligibleResultSemantics','fusionAffectsPity','hardPityOverlapPrecedence','legendaryOverrideRule','legendaryResetRule','rareOverrideRule','rareResetRule','thresholds','transformAlgorithmVersion']::text[]
      or economy#>>'{pitySemantics,counterIncrementTiming}'<>'BEFORE_DRAW' or economy#>>'{pitySemantics,hardPityOverlapPrecedence}'<>'LEGENDARY'
+     or (select array_agg(value#>>'{}' order by ordinality) from jsonb_array_elements(economy#>'{pitySemantics,counterIncrementSources}') with ordinality)<>'{DIRECT_DRAW}'::text[]
+     or economy#>>'{pitySemantics,thresholds,rareOrBetter}'<>'50' or economy#>>'{pitySemantics,thresholds,legendary}'<>'150'
+     or (select array_agg(k order by k) from jsonb_object_keys(economy#>'{pitySemantics,thresholds}') k)<>array['legendary','rareOrBetter']::text[]
+     or economy#>>'{pitySemantics,transformAlgorithmVersion}'<>'simulation-policy-v0'
      or economy#>>'{pitySemantics,rareOverrideRule}'<>'COMMON_TO_RARE' or economy#>>'{pitySemantics,legendaryOverrideRule}'<>'ALWAYS_LEGENDARY'
-     or economy#>>'{pitySemantics,rareResetRule}'<>'RARE_OR_BETTER' or economy#>>'{pitySemantics,legendaryResetRule}'<>'LEGENDARY_RESETS_BOTH' then
+     or economy#>>'{pitySemantics,rareResetRule}'<>'RARE_OR_BETTER' or economy#>>'{pitySemantics,legendaryResetRule}'<>'LEGENDARY_RESETS_BOTH'
+     or economy#>'{pitySemantics,fusionAffectsPity}'<>'false'::jsonb or economy#>>'{pitySemantics,eligibleResultSemantics}'<>'UNIFORM_WITHIN_RARITY' then
     raise exception 'BUNDLE_NESTED_SCHEMA_INVALID' using errcode='22023';
   end if;
   if private.canonical_json_sha256_v1(economy-'economyHash')<>economy->>'economyHash'
@@ -207,6 +245,13 @@ begin
   if jsonb_array_length(catalog->'entries') <> 50 then raise exception 'CATALOG_COUNT_INVALID' using errcode='22023'; end if;
   if (select count(*) from jsonb_array_elements(catalog->'entries') e where e->>'rarity'='COMMON')<>30 or (select count(*) from jsonb_array_elements(catalog->'entries') e where e->>'rarity'='RARE')<>15 or (select count(*) from jsonb_array_elements(catalog->'entries') e where e->>'rarity'='LEGENDARY')<>5 then raise exception 'CATALOG_GROUPING_INVALID' using errcode='22023'; end if;
   for entry in select value from jsonb_array_elements(catalog->'entries') loop
+    if jsonb_typeof(entry)<>'object'
+       or (select array_agg(k order by k) from jsonb_object_keys(entry) k)<>array['displayKey','petId','rarity']::text[]
+       or jsonb_typeof(entry->'displayKey')<>'string' or entry->>'displayKey'=''
+       or jsonb_typeof(entry->'petId')<>'string' or not (entry->>'petId' ~* '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$')
+       or jsonb_typeof(entry->'rarity')<>'string' or entry->>'rarity' not in ('COMMON','RARE','LEGENDARY') then
+      raise exception 'CATALOG_ENTRY_INVALID' using errcode='22023';
+    end if;
     select * into existing from private.pet_definitions where pet_id=(entry->>'petId')::uuid;
     if found and (existing.rarity::text<>entry->>'rarity' or existing.display_key<>entry->>'displayKey') then raise exception 'PET_IDENTITY_DRIFT' using errcode='22023'; end if;
   end loop;
@@ -262,7 +307,7 @@ language plpgsql security definer set search_path=pg_catalog as $$declare receip
   select rare_counter,legendary_counter into rarec,legc from private.gacha_pity_state p where p.subject_key=draw_pet_v1.subject_key and p.pity_series_id=policy.pity_series_id for update;
   if (select pity_semantics_hash from private.gacha_pity_state p where p.subject_key=draw_pet_v1.subject_key and p.pity_series_id=policy.pity_series_id)<>policy.pity_semantics_hash then raise exception 'POLICY_MISMATCH'; end if;
   if (select gacha_points from private.economy_subjects s where s.subject_key=draw_pet_v1.subject_key)<policy.draw_cost then raise exception 'INSUFFICIENT_FUNDS'; end if;
-  if legc+1>=150 then selected_rarity:='LEGENDARY'; elsif rarec+1>=50 then selected_rarity:='RARE'; else case private.secure_random_below_v1(100) when 0,1 then selected_rarity:='LEGENDARY'; when 2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 then selected_rarity:='RARE'; else selected_rarity:='COMMON'; end case; end if;
+  if legc+1 >= (policy.pity_semantics#>>'{thresholds,legendary}')::int then selected_rarity:='LEGENDARY'; elsif rarec+1 >= (policy.pity_semantics#>>'{thresholds,rareOrBetter}')::int then selected_rarity:='RARE'; else case private.secure_random_below_v1(100) when 0,1 then selected_rarity:='LEGENDARY'; when 2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19 then selected_rarity:='RARE'; else selected_rarity:='COMMON'; end case; end if;
   select pet_id into chosen from private.pet_catalog_revision_entries e where e.catalog_revision=expected_catalog_revision and e.rarity=selected_rarity order by ordinal offset private.secure_random_below_v1((select count(*) from private.pet_catalog_revision_entries x where x.catalog_revision=expected_catalog_revision and x.rarity=selected_rarity)) limit 1;
   update private.economy_subjects s set gacha_points=gacha_points-policy.draw_cost where s.subject_key=draw_pet_v1.subject_key;
   if selected_rarity='LEGENDARY' then rarec:=0;legc:=0; elsif selected_rarity='RARE' then rarec:=0;legc:=legc+1; else rarec:=rarec+1;legc:=legc+1;end if;

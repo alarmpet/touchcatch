@@ -29,5 +29,9 @@ describe('pet economy simulation', () => {
     expect(first.scenarios[3]!.stream.pityTriggers.rare).toBeGreaterThan(first.scenarios[2]!.stream.pityTriggers.rare);
     expect(first.scenarios[0]!.stream.legendaryEquivalentRate).toBeGreaterThan(first.scenarios[2]!.stream.legendaryEquivalentRate);
     expect(first.scenarios[1]!.stream.fusion.legendaryOutputs).toBeGreaterThan(first.scenarios[2]!.stream.fusion.legendaryOutputs);
+    const samePet = first.scenarios[2]!.stream.fusion;
+    expect(samePet.propagatedRareCopies).toBe(samePet.commonOutputs);
+    expect(samePet.propagatedRareCopiesConsumed).toBeGreaterThan(0);
+    expect(samePet.legendaryOutputs).toBeGreaterThan(samePet.drawnRareOnlyLegendaryOutputs);
   });
 });
