@@ -2282,11 +2282,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-001:DB_PROJECTION:FAIL",
+      "oracle": "DATA-001:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-001",
-      "linkageProof": "7b9226006a6f4865fdec92806b79a22eebbb0c35d160d259b5868ddba5565ea6"
+      "linkageProof": "e351d4e051ebccca83fe2d68a7b01e9309d8d031f14897a85663a2fcbba00e3d"
     },
     {
       "id": "DATA-002",
@@ -2300,11 +2300,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-002:DB_PROJECTION:FAIL",
+      "oracle": "DATA-002:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-002",
-      "linkageProof": "009eae7917bbb4568d69055b88ab5b21ad11f0a809d3b0e1750946225b7ac175"
+      "linkageProof": "8bd48c0c960b9608610a92ee80808570bc7045626ba32bdf35e9311167d66cc4"
     },
     {
       "id": "DATA-003",
@@ -2318,11 +2318,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-003:DB_PROJECTION:FAIL",
+      "oracle": "DATA-003:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-003",
-      "linkageProof": "9492146849796253376151b9be1870417fe62b5833e21fa8ca0ee228dfbda413"
+      "linkageProof": "a13faf81e3143d513b725f17c2045b359822971259c7586db095fe8a21f292ad"
     },
     {
       "id": "DATA-004",
@@ -2336,11 +2336,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-004:DB_PROJECTION:FAIL",
+      "oracle": "DATA-004:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-004",
-      "linkageProof": "63685ee6c3a38adb6eccf26c366d29b89c65e54df71ac8780cefdee5a28a1b57"
+      "linkageProof": "0056830ce5ce303ba8de4e6a5cd52f35a1180ba2713d8de1065a25c362e0a303"
     },
     {
       "id": "DATA-005",
@@ -2354,11 +2354,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-005:DB_PROJECTION:FAIL",
+      "oracle": "DATA-005:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-005",
-      "linkageProof": "d735c4065843ba1c5b767189ee85c08c2281ccbafb8235b37886ae2aaabd96f1"
+      "linkageProof": "df38f646de7538f3834f847574ab21293087dd577d54ea8395ebf610e83a4ec9"
     },
     {
       "id": "DATA-006",
@@ -2372,11 +2372,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-006:DB_PROJECTION:FAIL",
+      "oracle": "DATA-006:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-006",
-      "linkageProof": "8b945655dfdbd6de9d0ef1bd2dbb0199d70465dc99748fb2a4b783809f4beec0"
+      "linkageProof": "bb26f625cc74a86bfaec6efc19edf38d3169f8d66a4ff0be101fa3d0e81067bf"
     },
     {
       "id": "DATA-007",
@@ -2390,11 +2390,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-007:DB_PROJECTION:FAIL",
+      "oracle": "DATA-007:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-007",
-      "linkageProof": "dc3bab1bd6b8ecc28dd1ad9114035b29c94217d31acac9c5a929e8c35131f5a8"
+      "linkageProof": "0d2e99e9d96eb9fc3c4fd75bd64af9e561bbf98a470588c2eaca5977421e6d6a"
     },
     {
       "id": "DATA-008",
@@ -2408,11 +2408,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-008:DB_PROJECTION:FAIL",
+      "oracle": "DATA-008:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-008",
-      "linkageProof": "e778c82af7f91bac881dbb8af6e853c2371d22eaff598808e8cd5b27900976a4"
+      "closureCondition": "Keep exact local quarantine projection green; external legal approval remains independent",
+      "linkageProof": "d9bb0f6c8d54c1a179c9cd290c7c6989ac5a338780666beffefe4ca22571ce11"
     },
     {
       "id": "DATA-009",
@@ -2426,11 +2426,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-009:DB_PROJECTION:FAIL",
+      "oracle": "DATA-009:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-009",
-      "linkageProof": "025bc6770870653839759476a0fc64870e1aff208b23ca3a7eb71045e8afd83e"
+      "linkageProof": "9cbfe8b6e008b6309bbd804f9f5ab8fb9329c2dc8c7ffedb68fb039fc066a831"
     },
     {
       "id": "DATA-010",
@@ -2447,7 +2447,7 @@
       "oracle": "DATA-010:DB_PROJECTION:FAIL",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-010",
+      "closureCondition": "Reconcile the documented single-function deployment_role contract with its additional economy and admin publish EXECUTE grants",
       "linkageProof": "5dbeac57d26c77ea73978b26b720741a4f692d86da27d912f51015b2384ac8a1"
     },
     {
@@ -2465,7 +2465,7 @@
       "oracle": "DATA-011:DB_PROJECTION:FAIL",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-011",
+      "closureCondition": "Reconcile the documented single-function app_server contract with its additional economy EXECUTE grants",
       "linkageProof": "e4db29284464dc51a144f84bea590046431c03e304071948515bd3577f98dc70"
     },
     {
@@ -2480,11 +2480,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-012:DB_PROJECTION:FAIL",
+      "oracle": "DATA-012:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-012",
-      "linkageProof": "a3c66a5ae4e304ea3afd33757bf12d65174836e9fa4dfd47974463c1615a1a75"
+      "linkageProof": "35255639c98bfeed26332e4f7adbfb033dcee0bb54e6592d642c1361f03da651"
     },
     {
       "id": "DATA-013",
@@ -2498,11 +2498,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-013:DB_PROJECTION:FAIL",
+      "oracle": "DATA-013:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-013",
-      "linkageProof": "745e3a575b33cae617d6cd468e83978adfb9acafa28f2fe449d565d48c4d7e45"
+      "linkageProof": "2bf4f0498e98cf517e16fceb2c5d73ab8621e3a285e5dfed7186e73666f78776"
     },
     {
       "id": "DATA-014",

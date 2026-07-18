@@ -2524,7 +2524,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-001"
       },
       "testCase": "DATA-001 executes DB_PROJECTION",
@@ -2539,7 +2539,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-002"
       },
       "testCase": "DATA-002 executes DB_PROJECTION",
@@ -2554,7 +2554,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-003"
       },
       "testCase": "DATA-003 executes DB_PROJECTION",
@@ -2569,7 +2569,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-004"
       },
       "testCase": "DATA-004 executes DB_PROJECTION",
@@ -2584,7 +2584,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-005"
       },
       "testCase": "DATA-005 executes DB_PROJECTION",
@@ -2599,7 +2599,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-006"
       },
       "testCase": "DATA-006 executes DB_PROJECTION",
@@ -2614,7 +2614,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-007"
       },
       "testCase": "DATA-007 executes DB_PROJECTION",
@@ -2629,7 +2629,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-008"
       },
       "testCase": "DATA-008 executes DB_PROJECTION",
@@ -2637,14 +2637,20 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-008"
+      "closureCondition": "Keep exact local quarantine projection green; external legal approval remains independent",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "LEGAL_APPROVAL",
+        "closureCondition": "Approve legal basis, maximum retention, access audit, and account-deletion nested-identifier removal before production legacy migration",
+        "localEvidenceScope": "REPOSITORY_LOCAL_QUARANTINE_ONLY"
+      }
     },
     {
       "id": "DATA-009",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-009"
       },
       "testCase": "DATA-009 executes DB_PROJECTION",
@@ -2667,7 +2673,7 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-010"
+      "closureCondition": "Reconcile the documented single-function deployment_role contract with its additional economy and admin publish EXECUTE grants"
     },
     {
       "id": "DATA-011",
@@ -2682,14 +2688,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-011"
+      "closureCondition": "Reconcile the documented single-function app_server contract with its additional economy EXECUTE grants"
     },
     {
       "id": "DATA-012",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-012"
       },
       "testCase": "DATA-012 executes DB_PROJECTION",
@@ -2704,7 +2710,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-013"
       },
       "testCase": "DATA-013 executes DB_PROJECTION",
