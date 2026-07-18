@@ -2845,7 +2845,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-022"
       },
       "testCase": "DATA-022 executes DB_PROJECTION",
@@ -2853,7 +2853,7 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-022"
+      "closureCondition": "Keep the exact G3 receipt/journal/snapshot/timer/outbox transaction and fault-boundary projection green"
     },
     {
       "id": "DATA-023",
