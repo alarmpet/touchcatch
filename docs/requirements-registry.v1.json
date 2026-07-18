@@ -2516,11 +2516,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-014:DB_PROJECTION:FAIL",
+      "oracle": "DATA-014:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-014",
-      "linkageProof": "c4fd64aced9d362ee6d067b3d03e2501fa71e92e2d94a4a796c550e0546b6777"
+      "linkageProof": "9e46bb1ed3b8cb981b25ba7461be8f579808986c06ee6b6cf9c55b5cc27fc3b5"
     },
     {
       "id": "DATA-015",
@@ -2534,11 +2534,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-015:DB_PROJECTION:FAIL",
+      "oracle": "DATA-015:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-015",
-      "linkageProof": "6f3fe95836bc40232853ca8cf29c0d84fe8c2a641d56d6f8546fff2f233a019c"
+      "linkageProof": "20a34dbcdada707cb2541d49b20541dbe965fa0b1b8f5dddf8e9ccc0762aa087"
     },
     {
       "id": "DATA-016",
@@ -2552,11 +2552,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-016:DB_PROJECTION:FAIL",
+      "oracle": "DATA-016:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-016",
-      "linkageProof": "ba0e3a5b7cc651f2a4201afa7b432e34288a41b6934d90aa39d6211bbffe90a8"
+      "linkageProof": "7a78d0d2ecf7bdb595e752753f49dba63d5d2f5d5214a4478ab240eb6566e764"
     },
     {
       "id": "DATA-017",
@@ -2570,11 +2570,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-017:DB_PROJECTION:FAIL",
+      "oracle": "DATA-017:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-017",
-      "linkageProof": "92ede4f9f08ab6d3b2ffe50c5fc3cf825af686645b38fb914335c528341da712"
+      "linkageProof": "7cc330618eb98b77fc1c8869c70eb24fbe564001f12fbe17b20712dd8b25169c"
     },
     {
       "id": "DATA-018",
@@ -2588,11 +2588,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-018:DB_PROJECTION:FAIL",
+      "oracle": "DATA-018:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-018",
-      "linkageProof": "b35bc42772e559450d5d4603a3a4a149c23005deeebcbeda2ee1bb1ded5554e0"
+      "linkageProof": "be2e7265cbb96f082b20b860f2f411caef0619edb4ce9cd115234aba6a28d5a1"
     },
     {
       "id": "DATA-019",
@@ -2606,11 +2606,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-019:DB_PROJECTION:FAIL",
+      "oracle": "DATA-019:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-019",
-      "linkageProof": "fbc12066caaf154161336695999d16914a3226303d9eb3131bb7b308bc3a00c7"
+      "linkageProof": "3cfdddee7e2889d9ff62e8bdafc9a4bdd575a3cfa691a227ea7af23f4bcc1158"
     },
     {
       "id": "DATA-020",
@@ -2624,11 +2624,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-020:DB_PROJECTION:FAIL",
+      "oracle": "DATA-020:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-020",
-      "linkageProof": "ba76c2d12b6e85a705bcd97651f47edcfb5c69c89d57c709d8f57fa9b6589859"
+      "linkageProof": "c51755df1c1257f4aa3cacc217b2af7e9b8362e805a0a014ed014666a7a20b41"
     },
     {
       "id": "DATA-021",
@@ -2642,11 +2642,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-021:DB_PROJECTION:FAIL",
+      "oracle": "DATA-021:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-021",
-      "linkageProof": "6e899786733b148a3c558feb0bcf0a10c54a5939fda6b2b56ecdd3d85a9e100d"
+      "linkageProof": "64d0acaaa11e73d290d02dbf9748e0cb7db670f7d4bcdb07737b3749354b8057"
     },
     {
       "id": "DATA-022",

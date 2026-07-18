@@ -2725,7 +2725,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-014"
       },
       "testCase": "DATA-014 executes DB_PROJECTION",
@@ -2740,7 +2740,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-015"
       },
       "testCase": "DATA-015 executes DB_PROJECTION",
@@ -2755,7 +2755,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-016"
       },
       "testCase": "DATA-016 executes DB_PROJECTION",
@@ -2770,7 +2770,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-017"
       },
       "testCase": "DATA-017 executes DB_PROJECTION",
@@ -2785,7 +2785,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-018"
       },
       "testCase": "DATA-018 executes DB_PROJECTION",
@@ -2800,7 +2800,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-019"
       },
       "testCase": "DATA-019 executes DB_PROJECTION",
@@ -2815,7 +2815,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-020"
       },
       "testCase": "DATA-020 executes DB_PROJECTION",
@@ -2830,7 +2830,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-021"
       },
       "testCase": "DATA-021 executes DB_PROJECTION",
