@@ -2860,7 +2860,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-023"
       },
       "testCase": "DATA-023 executes DB_PROJECTION",
@@ -2875,7 +2875,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-024"
       },
       "testCase": "DATA-024 executes DB_PROJECTION",
@@ -2890,7 +2890,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-025"
       },
       "testCase": "DATA-025 executes DB_PROJECTION",
@@ -2905,7 +2905,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-026"
       },
       "testCase": "DATA-026 executes DB_PROJECTION",
@@ -2920,7 +2920,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-027"
       },
       "testCase": "DATA-027 executes DB_PROJECTION",

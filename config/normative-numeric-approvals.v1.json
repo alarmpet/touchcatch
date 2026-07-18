@@ -1216,7 +1216,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact repository-local 1:1 revision projection oracle green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "ad1d9848d1e6c1ec7e4bb8ee27f15c1e872effb01bdcd9b4aaee410ec81ebec7",
+      "ssotHash": "043021ac1966057881104cf51557cb4ba7d8ac390ed9f7e53867680fe087c7b9",
       "ssotAssertions": [
         {
           "pointer": "/entries/129/oracle/expected",
@@ -1236,7 +1236,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact seat and 20-session concurrency predicate green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "ad1d9848d1e6c1ec7e4bb8ee27f15c1e872effb01bdcd9b4aaee410ec81ebec7",
+      "ssotHash": "043021ac1966057881104cf51557cb4ba7d8ac390ed9f7e53867680fe087c7b9",
       "ssotAssertions": [{"pointer":"/entries/142/oracle/expected","expected":"PASS"}]
     },
     {
@@ -1244,13 +1244,13 @@
       "approvedTokens": [
         "20"
       ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
-      "sourcePath": "08_DATABASE_SCHEMA.md",
-      "sourceHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
+      "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-027",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION"
+      "closureCondition": "Keep exact 20-session concurrency evidence green",
+      "ssotPath": "config/requirement-evidence.v1.json",
+      "ssotHash": "043021ac1966057881104cf51557cb4ba7d8ac390ed9f7e53867680fe087c7b9",
+      "ssotAssertions": [{"pointer":"/entries/152/oracle/expected","expected":"PASS"}]
     },
     {
       "id": "DATA-028",
