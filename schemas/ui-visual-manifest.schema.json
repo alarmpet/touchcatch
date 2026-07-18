@@ -1,0 +1,5 @@
+{
+ "$schema":"https://json-schema.org/draft/2020-12/schema","$id":"UiVisualManifestV1","type":"object","additionalProperties":false,"required":["status","goldens","masks"],
+ "properties":{"schemaVersion":{"const":"1.0.0"},"status":{"enum":["APPROVED","BLOCKED_MANUAL_DEVICE_EVIDENCE"]},"baselineAutoUpdate":{"const":false},
+ "goldens":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["platform","viewport","source","approvedBy","approvedAt","goldenFile","currentFile","regions"],"properties":{"platform":{"enum":["ios","android"]},"viewport":{"enum":["320x568","390x844","412x915"]},"source":{"const":"DEVICE_CAPTURE"},"approvedBy":{"type":"string","minLength":1},"approvedAt":{"type":"string","format":"date-time"},"goldenFile":{"type":"string","pattern":"^(?!.*\\.\\.).+$"},"currentFile":{"type":"string","pattern":"^(?!.*\\.\\.).+$"},"regions":{"type":"array","minItems":1,"items":{"type":"object"}}}}},"masks":{"type":"array","items":{"type":"object"}}}
+}

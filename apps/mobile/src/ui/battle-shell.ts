@@ -22,6 +22,18 @@ export function layoutContainedPair(
   } as const;
 }
 
+export function layoutBattleRegions(
+  safeArea:Readonly<{width:number;height:number}>,
+  chrome:Readonly<{headerHeight:number;summaryHeight:number}>,
+  image:Readonly<{width:number;height:number}>,gap:number,
+){
+  const boardsTop=chrome.headerHeight+chrome.summaryHeight;
+  if(!Number.isFinite(boardsTop)||boardsTop<0||boardsTop>=safeArea.height)throw new RangeError('chrome exceeds safe area');
+  return {boardsTop,pair:layoutContainedPair({width:safeArea.width,height:safeArea.height-boardsTop},image,gap)} as const;
+}
+
+export function touchTargetForPlatform(platform:'ios'|'android'){return platform==='ios'?44:48 as const}
+
 export function clampTransform(transform: Transform, viewport: Readonly<{ width: number; height: number }>, limits: Readonly<{ min: number; max: number }>): Transform {
   if(![transform.scale,transform.tx,transform.ty,viewport.width,viewport.height,limits.min,limits.max].every(Number.isFinite)||viewport.width<=0||viewport.height<=0||limits.min<=0||limits.max<limits.min)throw new RangeError('invalid transform');
   const scale = Math.min(limits.max, Math.max(limits.min, transform.scale));

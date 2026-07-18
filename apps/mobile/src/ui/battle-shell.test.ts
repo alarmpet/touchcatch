@@ -7,6 +7,8 @@ import {
   hitTestCircle,
   inverseContentPoint,
   layoutContainedPair,
+  layoutBattleRegions,
+  touchTargetForPlatform,
   resolveViewport,
   shouldCancelSyntheticTap,
   applyGestureDelta,
@@ -69,6 +71,12 @@ describe('battle geometry', () => {
     expect(applyGestureDelta(first,{scale:1.5,tx:10,ty:-5},rect,limits)).toEqual({scale:3,tx:30,ty:25});
     expect(applyGestureDelta({scale:4,tx:100,ty:100},{scale:2,tx:100,ty:100},rect,limits)).toEqual({scale:4,tx:150,ty:200});
   });
+});
+
+describe('native acceptance geometry',()=>{
+  it('subtracts measured chrome and contains both boards in the remaining safe-area',()=>{const x=layoutBattleRegions({width:320,height:568},{headerHeight:104,summaryHeight:72},{width:1600,height:900},8);expect(x.boardsTop).toBe(176);expect(x.pair.b.viewport.y+x.boardsTop+x.pair.b.viewport.height).toBeLessThanOrEqual(568);expect(x.pair.a.content.width).toBeLessThanOrEqual(320)});
+  it('uses platform-native minimum targets',()=>{expect(touchTargetForPlatform('ios')).toBe(44);expect(touchTargetForPlatform('android')).toBe(48)});
+  it('maps image and ring coordinates through one image-center transform',()=>{expect(contentToScreen({x:.25,y:.75},{x:10,y:20,width:200,height:100},{scale:2,tx:7,ty:-3})).toEqual({x:17,y:117})});
 });
 
 describe('public view-model battle shell', () => {
