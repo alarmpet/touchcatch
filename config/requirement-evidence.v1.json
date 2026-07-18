@@ -36,7 +36,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-002",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-002.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-003",
@@ -52,7 +54,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-003",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-003.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-004",
@@ -68,7 +72,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-004",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-004.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-005",
@@ -84,7 +90,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-005",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-005.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-006",
@@ -100,7 +108,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-006",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-006.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-007",
@@ -116,7 +126,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-007",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-007.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-008",
@@ -132,7 +144,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-008",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-008.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-009",
@@ -148,7 +162,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-009",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-009.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-010",
@@ -164,7 +180,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-010",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-010.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-011",
@@ -180,7 +198,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-011",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-011.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-012",
@@ -196,7 +216,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-012",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-012.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-013",
@@ -212,7 +234,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-013",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-013.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-014",
@@ -228,7 +252,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-014",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-014.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-015",
@@ -244,7 +270,9 @@
       "evidenceOwner": "game-design",
       "phase": "PLANNED",
       "closureCondition": "Implement and contract-test post-launch 2v2 mode",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RULESET_PARSE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RULESET_PARSE",
+      "closureArtifact": "tests/requirements/RULE-015.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-016",
@@ -260,7 +288,9 @@
       "evidenceOwner": "game-design",
       "phase": "PLANNED",
       "closureCondition": "Implement and contract-test post-launch cooperative mode",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RULESET_PARSE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RULESET_PARSE",
+      "closureArtifact": "tests/requirements/RULE-016.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-017",
@@ -276,7 +306,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-017",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-017.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-018",
@@ -292,7 +324,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-018",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-018.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-019",
@@ -387,7 +421,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-022",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-022.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-023",
@@ -693,7 +729,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-035",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-035.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-036",
@@ -1002,7 +1040,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-049",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-049.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-050",
@@ -1018,7 +1058,9 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-050",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-050.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-051",
@@ -1034,471 +1076,444 @@
       "evidenceOwner": "rules",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for RULE-051",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureArtifact": "tests/requirements/RULE-051.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "STATE-001",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "STATE-001"
       },
       "testCase": "STATE-001 executes STATE_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STATE_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "game-state",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact STATE_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-001"
     },
     {
       "id": "STATE-002",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "STATE-002"
       },
       "testCase": "STATE-002 executes STATE_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STATE_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "game-state",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact STATE_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-002"
     },
     {
       "id": "STATE-003",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "STATE-003"
       },
       "testCase": "STATE-003 executes STATE_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STATE_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "game-state",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact STATE_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-003"
     },
     {
       "id": "STATE-004",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "STATE-004"
       },
       "testCase": "STATE-004 executes STATE_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STATE_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "game-state",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact STATE_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-004"
     },
     {
       "id": "STATE-005",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "STATE-005"
       },
       "testCase": "STATE-005 executes STATE_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STATE_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "game-state",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact STATE_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-005"
     },
     {
       "id": "STATE-006",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "STATE-006"
       },
       "testCase": "STATE-006 executes STATE_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STATE_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "game-state",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact STATE_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-006"
     },
     {
       "id": "STATE-007",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "STATE-007"
       },
       "testCase": "STATE-007 executes STATE_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STATE_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "game-state",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact STATE_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-007"
     },
     {
       "id": "STATE-008",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "STATE-008"
       },
       "testCase": "STATE-008 executes STATE_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STATE_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "game-state",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact STATE_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-008"
     },
     {
       "id": "STATE-009",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "STATE-009"
       },
       "testCase": "STATE-009 executes STATE_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STATE_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "game-state",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact STATE_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-009"
     },
     {
       "id": "STATE-010",
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "STATE-010"
       },
       "testCase": "STATE-010 executes STATE_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STATE_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "game-state",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact STATE_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-010"
     },
     {
       "id": "UX-001",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-001"
       },
       "testCase": "UX-001 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-001"
     },
     {
       "id": "UX-002",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-002"
       },
       "testCase": "UX-002 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-002"
     },
     {
       "id": "UX-003",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-003"
       },
       "testCase": "UX-003 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-003"
     },
     {
       "id": "UX-004",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-004"
       },
       "testCase": "UX-004 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-004"
     },
     {
       "id": "UX-005",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-005"
       },
       "testCase": "UX-005 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-005"
     },
     {
       "id": "UX-006",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-006"
       },
       "testCase": "UX-006 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-006"
     },
     {
       "id": "UX-007",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-007"
       },
       "testCase": "UX-007 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-007"
     },
     {
       "id": "UX-008",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-008"
       },
       "testCase": "UX-008 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-008"
     },
     {
       "id": "UX-009",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-009"
       },
       "testCase": "UX-009 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-009"
     },
     {
       "id": "UX-010",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-010"
       },
       "testCase": "UX-010 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-010"
     },
     {
       "id": "UX-011",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-011"
       },
       "testCase": "UX-011 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-011"
     },
     {
       "id": "UX-012",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-012"
       },
       "testCase": "UX-012 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-012"
     },
     {
       "id": "UX-013",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-013"
       },
       "testCase": "UX-013 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-013"
     },
     {
       "id": "UX-014",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-014"
       },
       "testCase": "UX-014 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-014"
     },
     {
       "id": "UX-015",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-015"
       },
       "testCase": "UX-015 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-015"
     },
     {
       "id": "UX-016",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-016"
       },
       "testCase": "UX-016 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-016"
     },
     {
       "id": "UX-017",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-017"
       },
       "testCase": "UX-017 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-017"
     },
     {
       "id": "UX-018",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-018"
       },
       "testCase": "UX-018 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-018"
     },
     {
       "id": "UX-019",
       "evidenceKind": "UI_PROJECTION",
       "oracle": {
         "kind": "UI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "UX-019"
       },
       "testCase": "UX-019 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact UI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-019"
     },
     {
       "id": "ECON-001",
@@ -1514,7 +1529,9 @@
       "evidenceOwner": "economy",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for ECON-001",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY",
+      "closureArtifact": "tests/requirements/ECON-001.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ECON-002",
@@ -1530,7 +1547,9 @@
       "evidenceOwner": "economy",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for ECON-002",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY",
+      "closureArtifact": "tests/requirements/ECON-002.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ECON-003",
@@ -1546,7 +1565,9 @@
       "evidenceOwner": "economy",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for ECON-003",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY",
+      "closureArtifact": "tests/requirements/ECON-003.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ECON-004",
@@ -1562,7 +1583,9 @@
       "evidenceOwner": "economy",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for ECON-004",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY",
+      "closureArtifact": "tests/requirements/ECON-004.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ECON-005",
@@ -1578,7 +1601,9 @@
       "evidenceOwner": "economy",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for ECON-005",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY",
+      "closureArtifact": "tests/requirements/ECON-005.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ECON-006",
@@ -1594,7 +1619,9 @@
       "evidenceOwner": "economy",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for ECON-006",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY",
+      "closureArtifact": "tests/requirements/ECON-006.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ECON-007",
@@ -1610,7 +1637,9 @@
       "evidenceOwner": "economy",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for ECON-007",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY",
+      "closureArtifact": "tests/requirements/ECON-007.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ECON-008",
@@ -1953,7 +1982,9 @@
       "evidenceOwner": "economy",
       "phase": "PLANNED",
       "closureCondition": "Implement exact behavioral predicate for ECON-023",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:COSMETIC_PRODUCT_DIRECTION"
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:COSMETIC_PRODUCT_DIRECTION",
+      "closureArtifact": "tests/requirements/ECON-023.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ECON-024",
@@ -1985,1872 +2016,1755 @@
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "SEC-001"
       },
       "testCase": "SEC-001 executes PRIVACY_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:PRIVACY_CONTRACT",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact PRIVACY_CONTRACT predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-001"
     },
     {
       "id": "SEC-002",
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "SEC-002"
       },
       "testCase": "SEC-002 executes PRIVACY_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:PRIVACY_CONTRACT",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact PRIVACY_CONTRACT predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-002"
     },
     {
       "id": "SEC-003",
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "SEC-003"
       },
       "testCase": "SEC-003 executes PRIVACY_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:PRIVACY_CONTRACT",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact PRIVACY_CONTRACT predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-003"
     },
     {
       "id": "SEC-004",
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "SEC-004"
       },
       "testCase": "SEC-004 executes PRIVACY_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:PRIVACY_CONTRACT",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact PRIVACY_CONTRACT predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-004"
     },
     {
       "id": "SEC-005",
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "SEC-005"
       },
       "testCase": "SEC-005 executes PRIVACY_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:PRIVACY_CONTRACT",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact PRIVACY_CONTRACT predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-005"
     },
     {
       "id": "SEC-006",
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "SEC-006"
       },
       "testCase": "SEC-006 executes PRIVACY_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:PRIVACY_CONTRACT",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact PRIVACY_CONTRACT predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-006"
     },
     {
       "id": "SEC-007",
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "SEC-007"
       },
       "testCase": "SEC-007 executes PRIVACY_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:PRIVACY_CONTRACT",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact PRIVACY_CONTRACT predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-007"
     },
     {
       "id": "OBS-001",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-001 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for OBS-001",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-001"
     },
     {
       "id": "OBS-002",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-002 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for OBS-002",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-002"
     },
     {
       "id": "OBS-003",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-003 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for OBS-003",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-003"
     },
     {
       "id": "OBS-004",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-004 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for OBS-004",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-004"
     },
     {
       "id": "OBS-005",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-005 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for OBS-005",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-005"
     },
     {
       "id": "OBS-006",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-006 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for OBS-006",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-006"
     },
     {
       "id": "OBS-007",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-007 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for OBS-007",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-007"
     },
     {
       "id": "OBS-008",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-008 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for OBS-008",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-008"
     },
     {
       "id": "OBS-009",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-009 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for OBS-009",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-009"
     },
     {
       "id": "OBS-010",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-010 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for OBS-010",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-010"
     },
     {
       "id": "OBS-011",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-011 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for OBS-011",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-011"
     },
     {
       "id": "OBS-012",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-012 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for OBS-012",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-012"
     },
     {
       "id": "OBS-013",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-013 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for OBS-013",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-013"
     },
     {
       "id": "OBS-014",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-014 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for OBS-014",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-014"
     },
     {
       "id": "OBS-015",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-015 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for OBS-015",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-015"
     },
     {
       "id": "DATA-001",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-001"
       },
       "testCase": "DATA-001 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-001"
     },
     {
       "id": "DATA-002",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-002"
       },
       "testCase": "DATA-002 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-002"
     },
     {
       "id": "DATA-003",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-003"
       },
       "testCase": "DATA-003 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-003"
     },
     {
       "id": "DATA-004",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-004"
       },
       "testCase": "DATA-004 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-004"
     },
     {
       "id": "DATA-005",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-005"
       },
       "testCase": "DATA-005 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-005"
     },
     {
       "id": "DATA-006",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-006"
       },
       "testCase": "DATA-006 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-006"
     },
     {
       "id": "DATA-007",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-007"
       },
       "testCase": "DATA-007 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-007"
     },
     {
       "id": "DATA-008",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-008"
       },
       "testCase": "DATA-008 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-008"
     },
     {
       "id": "DATA-009",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-009"
       },
       "testCase": "DATA-009 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-009"
     },
     {
       "id": "DATA-010",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-010"
       },
       "testCase": "DATA-010 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-010"
     },
     {
       "id": "DATA-011",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-011"
       },
       "testCase": "DATA-011 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-011"
     },
     {
       "id": "DATA-012",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-012"
       },
       "testCase": "DATA-012 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-012"
     },
     {
       "id": "DATA-013",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-013"
       },
       "testCase": "DATA-013 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-013"
     },
     {
       "id": "DATA-014",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-014"
       },
       "testCase": "DATA-014 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-014"
     },
     {
       "id": "DATA-015",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-015"
       },
       "testCase": "DATA-015 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-015"
     },
     {
       "id": "DATA-016",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-016"
       },
       "testCase": "DATA-016 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-016"
     },
     {
       "id": "DATA-017",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-017"
       },
       "testCase": "DATA-017 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-017"
     },
     {
       "id": "DATA-018",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-018"
       },
       "testCase": "DATA-018 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-018"
     },
     {
       "id": "DATA-019",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-019"
       },
       "testCase": "DATA-019 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-019"
     },
     {
       "id": "DATA-020",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-020"
       },
       "testCase": "DATA-020 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-020"
     },
     {
       "id": "DATA-021",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-021"
       },
       "testCase": "DATA-021 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-021"
     },
     {
       "id": "DATA-022",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-022"
       },
       "testCase": "DATA-022 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-022"
     },
     {
       "id": "DATA-023",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-023"
       },
       "testCase": "DATA-023 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-023"
     },
     {
       "id": "DATA-024",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-024"
       },
       "testCase": "DATA-024 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-024"
     },
     {
       "id": "DATA-025",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-025"
       },
       "testCase": "DATA-025 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-025"
     },
     {
       "id": "DATA-026",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-026"
       },
       "testCase": "DATA-026 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-026"
     },
     {
       "id": "DATA-027",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-027"
       },
       "testCase": "DATA-027 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-027"
     },
     {
       "id": "DATA-028",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-028"
       },
       "testCase": "DATA-028 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-028"
     },
     {
       "id": "DATA-029",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DATA-029"
       },
       "testCase": "DATA-029 executes DB_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DB_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-029"
     },
     {
       "id": "API-005",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-005"
       },
       "testCase": "API-005 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-005"
     },
     {
       "id": "API-001",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-001"
       },
       "testCase": "API-001 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-001"
     },
     {
       "id": "API-002",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-002"
       },
       "testCase": "API-002 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-002"
     },
     {
       "id": "API-003",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-003"
       },
       "testCase": "API-003 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-003"
     },
     {
       "id": "API-004",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-004"
       },
       "testCase": "API-004 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-004"
     },
     {
       "id": "API-006",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-006"
       },
       "testCase": "API-006 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-006"
     },
     {
       "id": "API-007",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-007"
       },
       "testCase": "API-007 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-007"
     },
     {
       "id": "API-008",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-008"
       },
       "testCase": "API-008 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-008"
     },
     {
       "id": "API-009",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-009"
       },
       "testCase": "API-009 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-009"
     },
     {
       "id": "API-010",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-010"
       },
       "testCase": "API-010 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-010"
     },
     {
       "id": "API-011",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-011"
       },
       "testCase": "API-011 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-011"
     },
     {
       "id": "API-012",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-012"
       },
       "testCase": "API-012 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-012"
     },
     {
       "id": "API-013",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-013"
       },
       "testCase": "API-013 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-013"
     },
     {
       "id": "API-014",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-014"
       },
       "testCase": "API-014 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-014"
     },
     {
       "id": "API-015",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-015"
       },
       "testCase": "API-015 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-015"
     },
     {
       "id": "API-016",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-016"
       },
       "testCase": "API-016 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-016"
     },
     {
       "id": "API-017",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-017"
       },
       "testCase": "API-017 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-017"
     },
     {
       "id": "API-018",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-018"
       },
       "testCase": "API-018 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-018"
     },
     {
       "id": "API-019",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-019"
       },
       "testCase": "API-019 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-019"
     },
     {
       "id": "API-020",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-020"
       },
       "testCase": "API-020 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-020"
     },
     {
       "id": "API-021",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-021"
       },
       "testCase": "API-021 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-021"
     },
     {
       "id": "API-022",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-022"
       },
       "testCase": "API-022 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-022"
     },
     {
       "id": "API-023",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-023"
       },
       "testCase": "API-023 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-023"
     },
     {
       "id": "API-024",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "API-024"
       },
       "testCase": "API-024 executes OPENAPI_PROJECTION",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:OPENAPI_PROJECTION",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact OPENAPI_PROJECTION predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-024"
     },
     {
       "id": "CONTENT-001",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-001"
       },
       "testCase": "CONTENT-001 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-001"
     },
     {
       "id": "CONTENT-002",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-002"
       },
       "testCase": "CONTENT-002 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-002"
     },
     {
       "id": "CONTENT-003",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-003"
       },
       "testCase": "CONTENT-003 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-003"
     },
     {
       "id": "CONTENT-004",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-004"
       },
       "testCase": "CONTENT-004 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-004"
     },
     {
       "id": "CONTENT-005",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-005"
       },
       "testCase": "CONTENT-005 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-005"
     },
     {
       "id": "CONTENT-006",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-006"
       },
       "testCase": "CONTENT-006 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-006"
     },
     {
       "id": "CONTENT-007",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-007"
       },
       "testCase": "CONTENT-007 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-007"
     },
     {
       "id": "CONTENT-008",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-008"
       },
       "testCase": "CONTENT-008 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-008"
     },
     {
       "id": "CONTENT-009",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-009"
       },
       "testCase": "CONTENT-009 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-009"
     },
     {
       "id": "CONTENT-010",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-010"
       },
       "testCase": "CONTENT-010 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-010"
     },
     {
       "id": "CONTENT-011",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-011"
       },
       "testCase": "CONTENT-011 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-011"
     },
     {
       "id": "CONTENT-012",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-012"
       },
       "testCase": "CONTENT-012 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-012"
     },
     {
       "id": "CONTENT-013",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-013"
       },
       "testCase": "CONTENT-013 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-013"
     },
     {
       "id": "CONTENT-014",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-014"
       },
       "testCase": "CONTENT-014 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-014"
     },
     {
       "id": "CONTENT-015",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-015"
       },
       "testCase": "CONTENT-015 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-015"
     },
     {
       "id": "CONTENT-016",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-016"
       },
       "testCase": "CONTENT-016 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-016"
     },
     {
       "id": "CONTENT-017",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-017"
       },
       "testCase": "CONTENT-017 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-017"
     },
     {
       "id": "CONTENT-018",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-018"
       },
       "testCase": "CONTENT-018 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-018"
     },
     {
       "id": "CONTENT-019",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-019"
       },
       "testCase": "CONTENT-019 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-019"
     },
     {
       "id": "CONTENT-020",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-020"
       },
       "testCase": "CONTENT-020 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-020"
     },
     {
       "id": "CONTENT-021",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-021"
       },
       "testCase": "CONTENT-021 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-021"
     },
     {
       "id": "CONTENT-022",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-022"
       },
       "testCase": "CONTENT-022 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-022"
     },
     {
       "id": "CONTENT-023",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-023"
       },
       "testCase": "CONTENT-023 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-023"
     },
     {
       "id": "CONTENT-024",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-024"
       },
       "testCase": "CONTENT-024 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-024"
     },
     {
       "id": "CONTENT-025",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-025"
       },
       "testCase": "CONTENT-025 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-025"
     },
     {
       "id": "CONTENT-026",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-026"
       },
       "testCase": "CONTENT-026 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-026"
     },
     {
       "id": "CONTENT-027",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "CONTENT-027"
       },
       "testCase": "CONTENT-027 executes CONTENT_SCHEMA",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-027"
     },
     {
       "id": "QA-001",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "QA-001"
       },
       "testCase": "QA-001 executes RELEASE_HARNESS",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-001"
     },
     {
       "id": "QA-002",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "QA-002"
       },
       "testCase": "QA-002 executes RELEASE_HARNESS",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-002"
     },
     {
       "id": "QA-003",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "QA-003"
       },
       "testCase": "QA-003 executes RELEASE_HARNESS",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-003"
     },
     {
       "id": "QA-004",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "QA-004"
       },
       "testCase": "QA-004 executes RELEASE_HARNESS",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-004"
     },
     {
       "id": "QA-005",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "QA-005"
       },
       "testCase": "QA-005 executes RELEASE_HARNESS",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-005"
     },
     {
       "id": "QA-006",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "QA-006"
       },
       "testCase": "QA-006 executes RELEASE_HARNESS",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-006"
     },
     {
       "id": "QA-007",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "QA-007"
       },
       "testCase": "QA-007 executes RELEASE_HARNESS",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-007"
     },
     {
       "id": "QA-008",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "QA-008"
       },
       "testCase": "QA-008 executes RELEASE_HARNESS",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-008"
     },
     {
       "id": "QA-009",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "QA-009"
       },
       "testCase": "QA-009 executes RELEASE_HARNESS",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-009"
     },
     {
       "id": "QA-010",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "QA-010"
       },
       "testCase": "QA-010 executes RELEASE_HARNESS",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-010"
     },
     {
       "id": "QA-011",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "QA-011"
       },
       "testCase": "QA-011 executes RELEASE_HARNESS",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-011"
     },
     {
       "id": "QA-012",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "QA-012"
       },
       "testCase": "QA-012 executes RELEASE_HARNESS",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-012"
     },
     {
       "id": "QA-013",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "QA-013"
       },
       "testCase": "QA-013 executes RELEASE_HARNESS",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-013"
     },
     {
       "id": "QA-014",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "QA-014"
       },
       "testCase": "QA-014 executes RELEASE_HARNESS",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-014"
     },
     {
       "id": "QA-015",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "QA-015"
       },
       "testCase": "QA-015 executes RELEASE_HARNESS",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-015"
     },
     {
       "id": "ENV-001",
@@ -3862,12 +3776,13 @@
       },
       "testCase": "ENV-001 executes RUNTIME_GATE",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "EXTERNAL:EXACT_RUNTIME",
-      "lifecycle": "EXTERNAL",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "runtime",
-      "phase": "EXTERNAL",
-      "closureCondition": "Run exact approved runtime externally",
-      "externalKind": "EXACT_RUNTIME"
+      "phase": "FUTURE",
+      "closureCondition": "Deliver roadmap runtime requirement ENV-001",
+      "closureArtifact": "tests/requirements/ENV-001.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ENV-002",
@@ -3879,12 +3794,13 @@
       },
       "testCase": "ENV-002 executes RUNTIME_GATE",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "EXTERNAL:EXACT_RUNTIME",
-      "lifecycle": "EXTERNAL",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "runtime",
-      "phase": "EXTERNAL",
-      "closureCondition": "Run exact approved runtime externally",
-      "externalKind": "EXACT_RUNTIME"
+      "phase": "FUTURE",
+      "closureCondition": "Deliver roadmap runtime requirement ENV-002",
+      "closureArtifact": "tests/requirements/ENV-002.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ENV-003",
@@ -3896,12 +3812,13 @@
       },
       "testCase": "ENV-003 executes RUNTIME_GATE",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "EXTERNAL:EXACT_RUNTIME",
-      "lifecycle": "EXTERNAL",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "runtime",
-      "phase": "EXTERNAL",
-      "closureCondition": "Run exact approved runtime externally",
-      "externalKind": "EXACT_RUNTIME"
+      "phase": "FUTURE",
+      "closureCondition": "Deliver roadmap runtime requirement ENV-003",
+      "closureArtifact": "tests/requirements/ENV-003.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ENV-004",
@@ -3913,12 +3830,13 @@
       },
       "testCase": "ENV-004 executes RUNTIME_GATE",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "EXTERNAL:EXACT_RUNTIME",
-      "lifecycle": "EXTERNAL",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "runtime",
-      "phase": "EXTERNAL",
-      "closureCondition": "Run exact approved runtime externally",
-      "externalKind": "EXACT_RUNTIME"
+      "phase": "FUTURE",
+      "closureCondition": "Deliver roadmap runtime requirement ENV-004",
+      "closureArtifact": "tests/requirements/ENV-004.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ENV-005",
@@ -3930,12 +3848,13 @@
       },
       "testCase": "ENV-005 executes RUNTIME_GATE",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "EXTERNAL:EXACT_RUNTIME",
-      "lifecycle": "EXTERNAL",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "runtime",
-      "phase": "EXTERNAL",
-      "closureCondition": "Run exact approved runtime externally",
-      "externalKind": "EXACT_RUNTIME"
+      "phase": "FUTURE",
+      "closureCondition": "Deliver roadmap runtime requirement ENV-005",
+      "closureArtifact": "tests/requirements/ENV-005.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ENV-006",
@@ -3947,12 +3866,13 @@
       },
       "testCase": "ENV-006 executes RUNTIME_GATE",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "EXTERNAL:EXACT_RUNTIME",
-      "lifecycle": "EXTERNAL",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "runtime",
-      "phase": "EXTERNAL",
-      "closureCondition": "Run exact approved runtime externally",
-      "externalKind": "EXACT_RUNTIME"
+      "phase": "FUTURE",
+      "closureCondition": "Deliver roadmap runtime requirement ENV-006",
+      "closureArtifact": "tests/requirements/ENV-006.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ENV-007",
@@ -3964,12 +3884,13 @@
       },
       "testCase": "ENV-007 executes RUNTIME_GATE",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "EXTERNAL:EXACT_RUNTIME",
-      "lifecycle": "EXTERNAL",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "runtime",
-      "phase": "EXTERNAL",
-      "closureCondition": "Run exact approved runtime externally",
-      "externalKind": "EXACT_RUNTIME"
+      "phase": "FUTURE",
+      "closureCondition": "Deliver roadmap runtime requirement ENV-007",
+      "closureArtifact": "tests/requirements/ENV-007.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ENV-008",
@@ -3981,12 +3902,13 @@
       },
       "testCase": "ENV-008 executes RUNTIME_GATE",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "EXTERNAL:EXACT_RUNTIME",
-      "lifecycle": "EXTERNAL",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "runtime",
-      "phase": "EXTERNAL",
-      "closureCondition": "Run exact approved runtime externally",
-      "externalKind": "EXACT_RUNTIME"
+      "phase": "FUTURE",
+      "closureCondition": "Deliver roadmap runtime requirement ENV-008",
+      "closureArtifact": "tests/requirements/ENV-008.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ENV-009",
@@ -3998,12 +3920,13 @@
       },
       "testCase": "ENV-009 executes RUNTIME_GATE",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "EXTERNAL:EXACT_RUNTIME",
-      "lifecycle": "EXTERNAL",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "runtime",
-      "phase": "EXTERNAL",
-      "closureCondition": "Run exact approved runtime externally",
-      "externalKind": "EXACT_RUNTIME"
+      "phase": "FUTURE",
+      "closureCondition": "Deliver roadmap runtime requirement ENV-009",
+      "closureArtifact": "tests/requirements/ENV-009.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ENV-010",
@@ -4015,12 +3938,13 @@
       },
       "testCase": "ENV-010 executes RUNTIME_GATE",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "EXTERNAL:EXACT_RUNTIME",
-      "lifecycle": "EXTERNAL",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "runtime",
-      "phase": "EXTERNAL",
-      "closureCondition": "Run exact approved runtime externally",
-      "externalKind": "EXACT_RUNTIME"
+      "phase": "FUTURE",
+      "closureCondition": "Deliver roadmap runtime requirement ENV-010",
+      "closureArtifact": "tests/requirements/ENV-010.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ENV-011",
@@ -4032,28 +3956,28 @@
       },
       "testCase": "ENV-011 executes RUNTIME_GATE",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "EXTERNAL:EXACT_RUNTIME",
-      "lifecycle": "EXTERNAL",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "runtime",
-      "phase": "EXTERNAL",
-      "closureCondition": "Run exact approved runtime externally",
-      "externalKind": "EXACT_RUNTIME"
+      "phase": "FUTURE",
+      "closureCondition": "Deliver roadmap runtime requirement ENV-011",
+      "closureArtifact": "tests/requirements/ENV-011.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "DOC-068",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DOC-068"
       },
       "testCase": "DOC-068 executes DOCUMENT_INVENTORY",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "documentation",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact local manifest/inventory oracle for DOC-068"
     },
     {
       "id": "DOC-069",
@@ -4068,24 +3992,25 @@
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
       "lifecycle": "PLANNED",
       "evidenceOwner": "server-platform",
-      "phase": "PLANNED",
-      "closureCondition": "Add NestJS and Socket.IO package surfaces"
+      "phase": "FUTURE",
+      "closureCondition": "Add NestJS and Socket.IO package surfaces",
+      "closureArtifact": "tests/requirements/DOC-069.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "DOC-070",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DOC-070"
       },
       "testCase": "DOC-070 executes DOCUMENT_INVENTORY",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "documentation",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact local manifest/inventory oracle for DOC-070"
     },
     {
       "id": "DOC-071",
@@ -4100,8 +4025,10 @@
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
       "lifecycle": "PLANNED",
       "evidenceOwner": "server-platform",
-      "phase": "PLANNED",
-      "closureCondition": "Add Redis package and integration surface"
+      "phase": "FUTURE",
+      "closureCondition": "Add Redis package and integration surface",
+      "closureArtifact": "tests/requirements/DOC-071.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "DOC-072",
@@ -4116,8 +4043,10 @@
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
       "lifecycle": "PLANNED",
       "evidenceOwner": "admin-platform",
-      "phase": "PLANNED",
-      "closureCondition": "Add Next.js admin package surface"
+      "phase": "FUTURE",
+      "closureCondition": "Add Next.js admin package surface",
+      "closureArtifact": "tests/requirements/DOC-072.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "DOC-073",
@@ -4134,7 +4063,8 @@
       "evidenceOwner": "product-analytics",
       "phase": "EXTERNAL",
       "closureCondition": "Record provider decision and implement selected analytics adapter",
-      "externalKind": "PRODUCT_DECISION"
+      "externalKind": "PRODUCT_DECISION",
+      "localSubstitute": "evidence/external/DOC-073.json"
     },
     {
       "id": "DOC-074",
@@ -4149,232 +4079,25 @@
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
       "lifecycle": "PLANNED",
       "evidenceOwner": "observability",
-      "phase": "PLANNED",
-      "closureCondition": "Implement and contract-test Sentry integration"
-    },
-    {
-      "id": "DOC-075",
-      "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": {
-        "kind": "DOCUMENT_INVENTORY",
-        "expected": "BLOCKED",
-        "input": "DOC-075"
-      },
-      "testCase": "DOC-075 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
-    },
-    {
-      "id": "DOC-076",
-      "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": {
-        "kind": "DOCUMENT_INVENTORY",
-        "expected": "BLOCKED",
-        "input": "DOC-076"
-      },
-      "testCase": "DOC-076 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
-    },
-    {
-      "id": "DOC-077",
-      "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": {
-        "kind": "DOCUMENT_INVENTORY",
-        "expected": "BLOCKED",
-        "input": "DOC-077"
-      },
-      "testCase": "DOC-077 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
-    },
-    {
-      "id": "DOC-078",
-      "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": {
-        "kind": "DOCUMENT_INVENTORY",
-        "expected": "BLOCKED",
-        "input": "DOC-078"
-      },
-      "testCase": "DOC-078 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
-    },
-    {
-      "id": "DOC-079",
-      "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": {
-        "kind": "DOCUMENT_INVENTORY",
-        "expected": "BLOCKED",
-        "input": "DOC-079"
-      },
-      "testCase": "DOC-079 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
-    },
-    {
-      "id": "DOC-080",
-      "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": {
-        "kind": "DOCUMENT_INVENTORY",
-        "expected": "BLOCKED",
-        "input": "DOC-080"
-      },
-      "testCase": "DOC-080 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
-    },
-    {
-      "id": "DOC-081",
-      "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": {
-        "kind": "DOCUMENT_INVENTORY",
-        "expected": "BLOCKED",
-        "input": "DOC-081"
-      },
-      "testCase": "DOC-081 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
-    },
-    {
-      "id": "DOC-082",
-      "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": {
-        "kind": "DOCUMENT_INVENTORY",
-        "expected": "BLOCKED",
-        "input": "DOC-082"
-      },
-      "testCase": "DOC-082 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
-    },
-    {
-      "id": "DOC-083",
-      "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": {
-        "kind": "DOCUMENT_INVENTORY",
-        "expected": "BLOCKED",
-        "input": "DOC-083"
-      },
-      "testCase": "DOC-083 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
-    },
-    {
-      "id": "DOC-084",
-      "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": {
-        "kind": "DOCUMENT_INVENTORY",
-        "expected": "BLOCKED",
-        "input": "DOC-084"
-      },
-      "testCase": "DOC-084 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
-    },
-    {
-      "id": "DOC-085",
-      "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": {
-        "kind": "DOCUMENT_INVENTORY",
-        "expected": "BLOCKED",
-        "input": "DOC-085"
-      },
-      "testCase": "DOC-085 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
-    },
-    {
-      "id": "DOC-086",
-      "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": {
-        "kind": "DOCUMENT_INVENTORY",
-        "expected": "BLOCKED",
-        "input": "DOC-086"
-      },
-      "testCase": "DOC-086 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
-    },
-    {
-      "id": "DOC-087",
-      "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": {
-        "kind": "DOCUMENT_INVENTORY",
-        "expected": "BLOCKED",
-        "input": "DOC-087"
-      },
-      "testCase": "DOC-087 executes DOCUMENT_INVENTORY",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
+      "phase": "FUTURE",
+      "closureCondition": "Implement and contract-test Sentry integration",
+      "closureArtifact": "tests/requirements/DOC-074.test.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "DOC-088",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "BLOCKED",
+        "expected": "FAIL",
         "input": "DOC-088"
       },
       "testCase": "DOC-088 executes DOCUMENT_INVENTORY",
       "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "documentation",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact local manifest/inventory oracle for DOC-088"
     }
   ],
   "provenance": "CURATED_MAPPING_WITHOUT_REVIEW_ATTESTATION"

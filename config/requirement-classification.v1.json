@@ -1,7 +1,8 @@
 {
   "schemaVersion": 1,
   "retiredIdRanges": [
-    {"family":"DOC","from":1,"to":67,"reason":"README marketing, examples, scoring duplicates, headings, and descriptive prose; not normative contracts"}
+    {"family":"DOC","from":1,"to":67,"reason":"README marketing, examples, scoring duplicates, headings, and descriptive prose; not normative contracts"},
+    {"family":"DOC","from":75,"to":87,"reason":"Individual README inventory links are descriptive duplicates; DOC-088 retains the actual inventory/registry contract"}
   ],
   "overrides": {
     "RULE-015":{"lifecycle":"PLANNED","evidenceOwner":"game-design","closureCondition":"Implement and contract-test post-launch 2v2 mode"},

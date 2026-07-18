@@ -674,12 +674,12 @@
         "75,000",
         "80,000"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "03_GAME_FLOW_AND_STATE_MACHINE.md",
       "sourceHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "game-state",
-      "closureCondition": "Implement exact STATE_SCHEMA predicate",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-001",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:STATE_SCHEMA"
     },
     {
@@ -687,12 +687,12 @@
       "approvedTokens": [
         "0~1"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "03_GAME_FLOW_AND_STATE_MACHINE.md",
       "sourceHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "game-state",
-      "closureCondition": "Implement exact STATE_SCHEMA predicate",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-007",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:STATE_SCHEMA"
     },
     {
@@ -708,12 +708,12 @@
         "44",
         "48"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "04_UX_SCREEN_SPEC.md",
       "sourceHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact UI_PROJECTION predicate",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-001",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION"
     },
     {
@@ -721,12 +721,12 @@
       "approvedTokens": [
         "100"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "04_UX_SCREEN_SPEC.md",
       "sourceHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact UI_PROJECTION predicate",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-010",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION"
     },
     {
@@ -734,12 +734,12 @@
       "approvedTokens": [
         "1.2"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "04_UX_SCREEN_SPEC.md",
       "sourceHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact UI_PROJECTION predicate",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-012",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION"
     },
     {
@@ -1018,12 +1018,12 @@
         "0.86",
         "4"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "06_CLIENT_ARCHITECTURE.md",
       "sourceHash": "fa34d46aa891fd03b328139a787b73f2d5c7ec9234f2854517c070ac6d50973c",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
-      "closureCondition": "Implement exact PRIVACY_CONTRACT predicate",
+      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-002",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:PRIVACY_CONTRACT"
     },
     {
@@ -1031,12 +1031,12 @@
       "approvedTokens": [
         "1536"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "06_CLIENT_ARCHITECTURE.md",
       "sourceHash": "fa34d46aa891fd03b328139a787b73f2d5c7ec9234f2854517c070ac6d50973c",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
-      "closureCondition": "Implement exact PRIVACY_CONTRACT predicate",
+      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-006",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:PRIVACY_CONTRACT"
     },
     {
@@ -1044,12 +1044,12 @@
       "approvedTokens": [
         "15,000"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact behavioral predicate for OBS-001",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-001",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
@@ -1057,12 +1057,12 @@
       "approvedTokens": [
         "22"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact behavioral predicate for OBS-002",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-002",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
@@ -1070,12 +1070,12 @@
       "approvedTokens": [
         "8"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact behavioral predicate for OBS-004",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-004",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
@@ -1083,12 +1083,12 @@
       "approvedTokens": [
         "5"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact behavioral predicate for OBS-009",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-009",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
@@ -1096,12 +1096,12 @@
       "approvedTokens": [
         "15"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact behavioral predicate for OBS-010",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-010",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
@@ -1119,12 +1119,12 @@
         "400",
         "30"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact behavioral predicate for OBS-015",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-015",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
     },
     {
@@ -1133,12 +1133,12 @@
         "1",
         "1"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "08_DATABASE_SCHEMA.md",
       "sourceHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "closureCondition": "Implement exact DB_PROJECTION predicate",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-004",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION"
     },
     {
@@ -1148,12 +1148,12 @@
         "2",
         "20"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "08_DATABASE_SCHEMA.md",
       "sourceHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "closureCondition": "Implement exact DB_PROJECTION predicate",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-017",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION"
     },
     {
@@ -1161,12 +1161,12 @@
       "approvedTokens": [
         "20"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "08_DATABASE_SCHEMA.md",
       "sourceHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "closureCondition": "Implement exact DB_PROJECTION predicate",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-027",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION"
     },
     {
@@ -1175,12 +1175,12 @@
         "3",
         "3"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "08_DATABASE_SCHEMA.md",
       "sourceHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "closureCondition": "Implement exact DB_PROJECTION predicate",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-028",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION"
     },
     {
@@ -1188,12 +1188,12 @@
       "approvedTokens": [
         "202607150004"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "08_DATABASE_SCHEMA.md",
       "sourceHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "closureCondition": "Implement exact DB_PROJECTION predicate",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-029",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION"
     },
     {
@@ -1203,12 +1203,12 @@
         "1",
         "1"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-004",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
@@ -1218,12 +1218,12 @@
         "3",
         "4"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-010",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
@@ -1231,12 +1231,12 @@
       "approvedTokens": [
         "2020"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-011",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
@@ -1244,12 +1244,12 @@
       "approvedTokens": [
         "56"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-013",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
@@ -1257,12 +1257,12 @@
       "approvedTokens": [
         "56"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-014",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
@@ -1270,12 +1270,12 @@
       "approvedTokens": [
         "256"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-015",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
@@ -1286,12 +1286,12 @@
         "2",
         "1"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-018",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
@@ -1299,12 +1299,12 @@
       "approvedTokens": [
         "256"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-020",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
@@ -1315,12 +1315,12 @@
         "4096",
         "16,000,000"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-021",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
@@ -1329,12 +1329,12 @@
         "256",
         "256"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-022",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
@@ -1342,12 +1342,12 @@
       "approvedTokens": [
         "3"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-023",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
@@ -1355,12 +1355,12 @@
       "approvedTokens": [
         "56"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceHash": "1b97c6e1ba1599057fa86514823aa03bd0d5bbaa7098c203feade186a33cf33d",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact CONTENT_SCHEMA predicate",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-026",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
@@ -1373,12 +1373,12 @@
         "75,000",
         "80,000"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-001",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS"
     },
     {
@@ -1386,12 +1386,12 @@
       "approvedTokens": [
         "50~70"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-002",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS"
     },
     {
@@ -1399,12 +1399,12 @@
       "approvedTokens": [
         "40~65%"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-003",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS"
     },
     {
@@ -1412,12 +1412,12 @@
       "approvedTokens": [
         "70%"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-004",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS"
     },
     {
@@ -1425,12 +1425,12 @@
       "approvedTokens": [
         "0.5~1.5"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-005",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS"
     },
     {
@@ -1440,12 +1440,12 @@
         "10,000",
         "100,000"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-006",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS"
     },
     {
@@ -1455,12 +1455,12 @@
         "9",
         "50"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-007",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS"
     },
     {
@@ -1470,12 +1470,12 @@
         "10",
         "40"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-008",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS"
     },
     {
@@ -1483,12 +1483,12 @@
       "approvedTokens": [
         "75"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceHash": "213d6cb056cdbaabce66bc3132a7f6aca9f8a5bc8066398a66772dc65d43a3d1",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "release",
-      "closureCondition": "Implement exact RELEASE_HARNESS predicate",
+      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-013",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:RELEASE_HARNESS"
     },
     {
@@ -1499,9 +1499,9 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
       "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
-      "lifecycle": "EXTERNAL",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "runtime",
-      "closureCondition": "Run exact approved runtime externally",
+      "closureCondition": "Deliver roadmap runtime requirement ENV-001",
       "blockerReason": "EXTERNAL:EXACT_RUNTIME"
     },
     {
@@ -1512,9 +1512,9 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
       "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
-      "lifecycle": "EXTERNAL",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "runtime",
-      "closureCondition": "Run exact approved runtime externally",
+      "closureCondition": "Deliver roadmap runtime requirement ENV-002",
       "blockerReason": "EXTERNAL:EXACT_RUNTIME"
     },
     {
@@ -1525,9 +1525,9 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
       "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
-      "lifecycle": "EXTERNAL",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "runtime",
-      "closureCondition": "Run exact approved runtime externally",
+      "closureCondition": "Deliver roadmap runtime requirement ENV-004",
       "blockerReason": "EXTERNAL:EXACT_RUNTIME"
     },
     {
@@ -1538,9 +1538,9 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
       "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
-      "lifecycle": "EXTERNAL",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "runtime",
-      "closureCondition": "Run exact approved runtime externally",
+      "closureCondition": "Deliver roadmap runtime requirement ENV-009",
       "blockerReason": "EXTERNAL:EXACT_RUNTIME"
     },
     {
@@ -1552,9 +1552,9 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
       "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
-      "lifecycle": "EXTERNAL",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "runtime",
-      "closureCondition": "Run exact approved runtime externally",
+      "closureCondition": "Deliver roadmap runtime requirement ENV-010",
       "blockerReason": "EXTERNAL:EXACT_RUNTIME"
     },
     {
@@ -1566,179 +1566,10 @@
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
       "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
-      "lifecycle": "EXTERNAL",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "runtime",
-      "closureCondition": "Run exact approved runtime externally",
+      "closureCondition": "Deliver roadmap runtime requirement ENV-011",
       "blockerReason": "EXTERNAL:EXACT_RUNTIME"
-    },
-    {
-      "id": "DOC-075",
-      "approvedTokens": [
-        "01"
-      ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "README.md",
-      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
-    },
-    {
-      "id": "DOC-076",
-      "approvedTokens": [
-        "02"
-      ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "README.md",
-      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
-    },
-    {
-      "id": "DOC-077",
-      "approvedTokens": [
-        "03"
-      ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "README.md",
-      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
-    },
-    {
-      "id": "DOC-078",
-      "approvedTokens": [
-        "04"
-      ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "README.md",
-      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
-    },
-    {
-      "id": "DOC-079",
-      "approvedTokens": [
-        "05"
-      ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "README.md",
-      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
-    },
-    {
-      "id": "DOC-080",
-      "approvedTokens": [
-        "06"
-      ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "README.md",
-      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
-    },
-    {
-      "id": "DOC-081",
-      "approvedTokens": [
-        "07"
-      ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "README.md",
-      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
-    },
-    {
-      "id": "DOC-082",
-      "approvedTokens": [
-        "08"
-      ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "README.md",
-      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
-    },
-    {
-      "id": "DOC-083",
-      "approvedTokens": [
-        "09"
-      ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "README.md",
-      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
-    },
-    {
-      "id": "DOC-084",
-      "approvedTokens": [
-        "10"
-      ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "README.md",
-      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
-    },
-    {
-      "id": "DOC-085",
-      "approvedTokens": [
-        "11"
-      ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "README.md",
-      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
-    },
-    {
-      "id": "DOC-086",
-      "approvedTokens": [
-        "12"
-      ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "README.md",
-      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
-    },
-    {
-      "id": "DOC-087",
-      "approvedTokens": [
-        "13"
-      ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
-      "sourcePath": "README.md",
-      "sourceHash": "e0cb3a04fd69e38ffae1b22ddec0536e6e3cb5c4ae22b8dc3487a0ea4b5012e1",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact DOCUMENT_INVENTORY predicate",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY"
     }
   ],
   "status": "MIXED_VERIFIED_AND_UNAPPROVED",
