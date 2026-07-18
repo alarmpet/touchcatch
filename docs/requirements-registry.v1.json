@@ -2804,11 +2804,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-005:OPENAPI_PROJECTION:FAIL",
+      "oracle": "API-005:OPENAPI_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
-      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-005",
-      "linkageProof": "b2dc8266cb7e69ce06dc2b9bfad830adce5307a621eecae67a501391237c1e87"
+      "closureCondition": "Keep aggregate REST bearer/idempotency and socket ack/redaction/privacy predicates green",
+      "linkageProof": "2e926a58a74be473d29f27a2bc0243ab98f791a85e4d8a09ee1d1af3a08df422"
     },
     {
       "id": "API-001",

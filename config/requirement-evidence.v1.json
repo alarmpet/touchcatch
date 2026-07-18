@@ -2965,7 +2965,7 @@
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "API-005"
       },
       "testCase": "API-005 executes OPENAPI_PROJECTION",
@@ -2973,7 +2973,13 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-005"
+      "closureCondition": "Keep aggregate REST bearer/idempotency and socket ack/redaction/privacy predicates green",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PROVIDER_CREDENTIALS",
+        "closureCondition": "Run authenticated live gateway REST and Socket E2E with deployment credentials",
+        "localEvidenceScope": "REPOSITORY_LOCAL_WIRE_CONTRACT_ONLY"
+      }
     },
     {
       "id": "API-001",
