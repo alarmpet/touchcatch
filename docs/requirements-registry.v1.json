@@ -1,9 +1,22 @@
 {
-  "schemaVersion": 1,
-  "generatedFrom": "README_AND_01_TO_13_ALL_NORMATIVE_SEMANTIC_LINES",
+  "schemaVersion": 2,
+  "generatedFrom": "README_AND_01_TO_13_ALL_NORMATIVE_LINES_BLOCKQUOTES_AND_TABLE_ROWS",
   "requirements": [
     {
       "id": "RULE-001",
+      "source": "01_GAME_DESIGN_OVERVIEW.md",
+      "sourceLine": 2,
+      "section": "01. 게임 기획 개요",
+      "text": "RulesetV1 (`1.0.0`) is authoritative for scoring, timing, unlocks, hints, and tie breaking. Prose examples are non-authoritative.",
+      "fingerprint": "1e79c8626d1ef92b3205293cabf6014e91488a9622f55c8eb27c477c341338d5",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "requirement_rule_001_violation_total",
+      "linkageProof": "7b061fe412f7704454111538b26f0543733d115397f4aceab2da357539e27f1a"
+    },
+    {
+      "id": "RULE-002",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 5,
       "section": "게임 정체성",
@@ -12,10 +25,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_002_violation_total",
+      "linkageProof": "54e8abd4d6fe95140ad5bae13d6975911c33d32dbb5fffcae7f2cebb94265134"
     },
     {
-      "id": "RULE-002",
+      "id": "RULE-003",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 6,
       "section": "게임 정체성",
@@ -24,10 +38,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_003_violation_total",
+      "linkageProof": "e641a8f1af8e0d2062aff2fa2985e6e04456f6e1087c96b59dc4c498b1d85438"
     },
     {
-      "id": "RULE-003",
+      "id": "RULE-004",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 7,
       "section": "게임 정체성",
@@ -36,10 +51,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_004_violation_total",
+      "linkageProof": "78e3815b364658ec84a8e26a67e714207854be667e8955089f6b03fd22fbbd85"
     },
     {
-      "id": "RULE-004",
+      "id": "RULE-005",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 8,
       "section": "게임 정체성",
@@ -48,10 +64,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_005_violation_total",
+      "linkageProof": "22d302743d31d6dcc42e97fb8a56b5fe19a13121792c6259f1b56f34ebd5101e"
     },
     {
-      "id": "RULE-005",
+      "id": "RULE-006",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 11,
       "section": "장르",
@@ -60,10 +77,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_006_violation_total",
+      "linkageProof": "9fe2236fb5e0845f8e9675d665a3f282af7cdc10cbe28baad2482f2183b2a614"
     },
     {
-      "id": "RULE-006",
+      "id": "RULE-007",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 14,
       "section": "한 판 감정 곡선",
@@ -72,10 +90,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_007_violation_total",
+      "linkageProof": "478331e7cc428acf52e4b12cf491940bc5b17c5a35a287b47cb10d63ec587df5"
     },
     {
-      "id": "RULE-007",
+      "id": "RULE-008",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 15,
       "section": "한 판 감정 곡선",
@@ -84,10 +103,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_008_violation_total",
+      "linkageProof": "fb436e3c4aa6f5ed67e858bb08034e0db106eb8ff573ee67fa1dc4c43810fac1"
     },
     {
-      "id": "RULE-008",
+      "id": "RULE-009",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 16,
       "section": "한 판 감정 곡선",
@@ -96,10 +116,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_009_violation_total",
+      "linkageProof": "d61ec6b7467284d3e27810bac569db3d8ab119335dbbf40f34b53cd3e705590f"
     },
     {
-      "id": "RULE-009",
+      "id": "RULE-010",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 17,
       "section": "한 판 감정 곡선",
@@ -108,10 +129,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_010_violation_total",
+      "linkageProof": "5765683a1761ebcb1042939a18282944f378b2a9103115b509023099f6db8129"
     },
     {
-      "id": "RULE-010",
+      "id": "RULE-011",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 18,
       "section": "한 판 감정 곡선",
@@ -120,10 +142,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_011_violation_total",
+      "linkageProof": "73f0c972eddcfa97e15ed4a696a2f343edd28d5d1d273e86a5821bd9269bfcbb"
     },
     {
-      "id": "RULE-011",
+      "id": "RULE-012",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 21,
       "section": "MVP 모드",
@@ -132,10 +155,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_012_violation_total",
+      "linkageProof": "3b7c00cc5ba4b68c679f6f09c844581faf18c8b93e5a6053c166871a3ae77073"
     },
     {
-      "id": "RULE-012",
+      "id": "RULE-013",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 22,
       "section": "MVP 모드",
@@ -144,10 +168,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_013_violation_total",
+      "linkageProof": "b2bbf559f7c234ef74ce63cdf88d596cae02074eb241826412deb2d26f784c10"
     },
     {
-      "id": "RULE-013",
+      "id": "RULE-014",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 23,
       "section": "MVP 모드",
@@ -156,10 +181,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_014_violation_total",
+      "linkageProof": "e30152467ddebdac926bcb204d6897b901f3ba178d7e570a29aecbc3a8587557"
     },
     {
-      "id": "RULE-014",
+      "id": "RULE-015",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 26,
       "section": "출시 후",
@@ -168,10 +194,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_015_violation_total",
+      "linkageProof": "dc6d2474e04e925800a181adbf0571f4d79ef22afddb20b6365ad4b8dc21b955"
     },
     {
-      "id": "RULE-015",
+      "id": "RULE-016",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 27,
       "section": "출시 후",
@@ -180,10 +207,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_016_violation_total",
+      "linkageProof": "e2600d32b6f21d93f93a2d13cffbdce1cc7d5ffdb3b9f2d9f193963400673753"
     },
     {
-      "id": "RULE-016",
+      "id": "RULE-017",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 28,
       "section": "출시 후",
@@ -192,10 +220,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_017_violation_total",
+      "linkageProof": "d0e36f10af0d157f7b7be625de39c07bc3cfacba6394c9eb317a01062661433b"
     },
     {
-      "id": "RULE-017",
+      "id": "RULE-018",
       "source": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceLine": 29,
       "section": "출시 후",
@@ -204,10 +233,24 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_018_violation_total",
+      "linkageProof": "fbbed0b8ce79b93fbb961f036c678423d1bf1a57e1c392c00f867dae1aa90d69"
     },
     {
-      "id": "RULE-018",
+      "id": "RULE-019",
+      "source": "02_CORE_RULES_AND_BALANCE.md",
+      "sourceLine": 2,
+      "section": "02. 핵심 규칙과 밸런스",
+      "text": "RulesetV1 (`1.0.0`) is authoritative. Final rush is `[60,000, 75,000)`, settlement ends by 80,000 ms, unlocks use OR semantics, scores have a zero floor, and ties proceed to sudden death.",
+      "fingerprint": "53672071ad15ea6207002452ec265293ea4b5925b02c61ef34faf63ace54db79",
+      "schema": "packages/contracts/src/rules.schema.ts",
+      "phase": "A",
+      "test": "tests/specs/ruleset-parity.test.ts",
+      "metric": "requirement_rule_019_violation_total",
+      "linkageProof": "6203be99edaf55bd5fb43d54efe17e73ba313bc26e19448e27768b0398edd0f8"
+    },
+    {
+      "id": "RULE-020",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 5,
       "section": "승리 조건",
@@ -216,10 +259,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_020_violation_total",
+      "linkageProof": "218374c9e9e02ef7e9f0e685fb8889b7f58a08dddefe5026ee0843a14104e689"
     },
     {
-      "id": "RULE-019",
+      "id": "RULE-021",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 6,
       "section": "승리 조건",
@@ -228,10 +272,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_021_violation_total",
+      "linkageProof": "4510d7ece4d721768033151f94302fd219c1915e8504a36ce0b3b7ebd63254ef"
     },
     {
-      "id": "RULE-020",
+      "id": "RULE-022",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 7,
       "section": "승리 조건",
@@ -240,10 +285,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_022_violation_total",
+      "linkageProof": "ae4bf724c0025a46c563a0f4895b11ff6c9109198caecbbf3821073c6088cfdf"
     },
     {
-      "id": "RULE-021",
+      "id": "RULE-023",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 10,
       "section": "동점 판정",
@@ -252,10 +298,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_023_violation_total",
+      "linkageProof": "805c0dc57ff123404e828f67dd21581d26b4a9d85ed81bc97d11b5283ee1e822"
     },
     {
-      "id": "RULE-022",
+      "id": "RULE-024",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 11,
       "section": "동점 판정",
@@ -264,10 +311,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_024_violation_total",
+      "linkageProof": "3fff9213f12e3baaf0b6dda7b3ae28571a46050f0c276962851863681f591e2d"
     },
     {
-      "id": "RULE-023",
+      "id": "RULE-025",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 12,
       "section": "동점 판정",
@@ -276,10 +324,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_025_violation_total",
+      "linkageProof": "aa9d55e2fd6040de8ab9eadefe61f14ba2904fd74453448c5a9619de5b63d144"
     },
     {
-      "id": "RULE-024",
+      "id": "RULE-026",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 13,
       "section": "동점 판정",
@@ -288,10 +337,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_026_violation_total",
+      "linkageProof": "f773aa8bfd554889812e8c0b8a4767e0081a668e4a0aef81b66005719b6a2e91"
     },
     {
-      "id": "RULE-025",
+      "id": "RULE-027",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 16,
       "section": "차이점 구성",
@@ -300,10 +350,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_027_violation_total",
+      "linkageProof": "22cfb9b4db22500093c5a665c1dc0e3ac5c5347083f11f1a662a315e4017a88c"
     },
     {
-      "id": "RULE-026",
+      "id": "RULE-028",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 17,
       "section": "차이점 구성",
@@ -312,10 +363,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_028_violation_total",
+      "linkageProof": "344cd8e0a74538a723f89243b9855865a16a05d9b8135b4a1359c57a1822d142"
     },
     {
-      "id": "RULE-027",
+      "id": "RULE-029",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 18,
       "section": "차이점 구성",
@@ -324,10 +376,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_029_violation_total",
+      "linkageProof": "2b8be4378fa9787eb10089ee2ca8785b1e76b4253362f48e3f645ee1bffb9313"
     },
     {
-      "id": "RULE-028",
+      "id": "RULE-030",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 19,
       "section": "차이점 구성",
@@ -336,10 +389,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_030_violation_total",
+      "linkageProof": "67a0dd3590e4c6055385d7a89c05c891d19ed88a34869efebf3f1a4f9bc72473"
     },
     {
-      "id": "RULE-029",
+      "id": "RULE-031",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 22,
       "section": "돌발 단어",
@@ -348,10 +402,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_031_violation_total",
+      "linkageProof": "40811baefb58476141d6b1a137ba93ef88fba4bfb9ab66e54d2acf1f9a96bdeb"
     },
     {
-      "id": "RULE-030",
+      "id": "RULE-032",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 23,
       "section": "돌발 단어",
@@ -360,10 +415,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_032_violation_total",
+      "linkageProof": "9c43cb9d458558f7ddd147c677189a23f1359d6dcc405d934a04a71af9ed2de2"
     },
     {
-      "id": "RULE-031",
+      "id": "RULE-033",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 24,
       "section": "돌발 단어",
@@ -372,10 +428,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_033_violation_total",
+      "linkageProof": "f7d03b83d5ef8fde9b8bc04d69d836825549d61552471938956d3be26c556298"
     },
     {
-      "id": "RULE-032",
+      "id": "RULE-034",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 25,
       "section": "돌발 단어",
@@ -384,10 +441,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_034_violation_total",
+      "linkageProof": "e51391acc3a4e60dfecac8ee486e5b65673423471621fbb17730b8658d40b166"
     },
     {
-      "id": "RULE-033",
+      "id": "RULE-035",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 26,
       "section": "돌발 단어",
@@ -396,10 +454,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_035_violation_total",
+      "linkageProof": "6184417e7da9191d8bcb253d3b52dae2883ae88a527beb5166a28f3cde4b8efc"
     },
     {
-      "id": "RULE-034",
+      "id": "RULE-036",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 29,
       "section": "최종 단어 도전",
@@ -408,10 +467,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_036_violation_total",
+      "linkageProof": "f236346f2db447184de77d5e196bcfc72b1d9b8a9f1955af97dffdcf9790fc6f"
     },
     {
-      "id": "RULE-035",
+      "id": "RULE-037",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 30,
       "section": "최종 단어 도전",
@@ -420,10 +480,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_037_violation_total",
+      "linkageProof": "cb72d0ac46b6c7b23d93ce8b0e1cb958c4532b41210bb2342760943e6d46374e"
     },
     {
-      "id": "RULE-036",
+      "id": "RULE-038",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 31,
       "section": "최종 단어 도전",
@@ -432,10 +493,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_038_violation_total",
+      "linkageProof": "776a9087083c706f50c05c0f15540ce834555e99096f1108b2fc05a8a6218d63"
     },
     {
-      "id": "RULE-037",
+      "id": "RULE-039",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 32,
       "section": "최종 단어 도전",
@@ -444,10 +506,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_039_violation_total",
+      "linkageProof": "2384f63b68380a8ec04e2a5b3927a258eddfbf84d45f5ec84b272e0df994fcba"
     },
     {
-      "id": "RULE-038",
+      "id": "RULE-040",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 35,
       "section": "최종 단어·뜻",
@@ -456,10 +519,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_040_violation_total",
+      "linkageProof": "ec43361ab83342d6fd781f9a7586842b9f042b68c10f43f393efcbb990c2d304"
     },
     {
-      "id": "RULE-039",
+      "id": "RULE-041",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 36,
       "section": "최종 단어·뜻",
@@ -468,10 +532,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_041_violation_total",
+      "linkageProof": "51fe5599d15091fa9cca85d9bc034433b40251949891b096f12d9ff533d7a58e"
     },
     {
-      "id": "RULE-040",
+      "id": "RULE-042",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 37,
       "section": "최종 단어·뜻",
@@ -480,10 +545,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_042_violation_total",
+      "linkageProof": "8a1e634c5220d12d247d509d24bc69ab3c18cf08a39d7503f81431cac395454e"
     },
     {
-      "id": "RULE-041",
+      "id": "RULE-043",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 38,
       "section": "최종 단어·뜻",
@@ -492,10 +558,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_043_violation_total",
+      "linkageProof": "18ade521fa75be964ac61e20b7348f294ea1450308d8da6fd99631846eae72e9"
     },
     {
-      "id": "RULE-042",
+      "id": "RULE-044",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 39,
       "section": "최종 단어·뜻",
@@ -504,10 +571,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_044_violation_total",
+      "linkageProof": "b62b2d773b6eb41415e9a2699344844c4ad61f81a6b8d06bdf61754f74c0cf4b"
     },
     {
-      "id": "RULE-043",
+      "id": "RULE-045",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 40,
       "section": "최종 단어·뜻",
@@ -516,10 +584,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_045_violation_total",
+      "linkageProof": "022988aa19f69717c988b57dcaf6886acf455647211e57584f24f7a7b5b45916"
     },
     {
-      "id": "RULE-044",
+      "id": "RULE-046",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 43,
       "section": "파이널 러시",
@@ -528,10 +597,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_046_violation_total",
+      "linkageProof": "b78abe67d864c1e8195a0f84c4cd4aba4b1fecb32f86c83356c4705cb68982a0"
     },
     {
-      "id": "RULE-045",
+      "id": "RULE-047",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 44,
       "section": "파이널 러시",
@@ -540,10 +610,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_047_violation_total",
+      "linkageProof": "2ad15cc7e78ec926a76539b58abba2f56ef5cc6e26b75d55dc704eaf6fce8ea8"
     },
     {
-      "id": "RULE-046",
+      "id": "RULE-048",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 45,
       "section": "파이널 러시",
@@ -552,10 +623,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_048_violation_total",
+      "linkageProof": "e53c1e82e77e8ef8c463566f68bd6432e8679e780ba3cbf69046317374d5109d"
     },
     {
-      "id": "RULE-047",
+      "id": "RULE-049",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 46,
       "section": "파이널 러시",
@@ -564,10 +636,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_049_violation_total",
+      "linkageProof": "e5181e3249b02463f6ae558cb517d3a26c1404188ebe4454cc42c2e89d11f74a"
     },
     {
-      "id": "RULE-048",
+      "id": "RULE-050",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 47,
       "section": "파이널 러시",
@@ -576,10 +649,11 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_050_violation_total",
+      "linkageProof": "2023d399d1ca7552288e33baba712acc39ca1ab5b9a3f1070144e040efe05b69"
     },
     {
-      "id": "RULE-049",
+      "id": "RULE-051",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 50,
       "section": "예시",
@@ -588,10 +662,24 @@
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "A",
       "test": "tests/specs/ruleset-parity.test.ts",
-      "metric": "ruleset_projection_drift_total"
+      "metric": "requirement_rule_051_violation_total",
+      "linkageProof": "7530051830d3c4485a8913c73f861ea8c6f13b427f1b49bc40be5fa3a2f8c48c"
     },
     {
       "id": "STATE-001",
+      "source": "03_GAME_FLOW_AND_STATE_MACHINE.md",
+      "sourceLine": 2,
+      "section": "03. 게임 흐름과 상태 머신",
+      "text": "State boundaries follow RulesetV1 (`1.0.0`) half-open windows. At 75,000 ms new match input closes; only already-started meaning settlement may continue through the 80,000 ms cap.",
+      "fingerprint": "26e86af2fee8f61511e9ed81248eb1ad3c69aca327e31b22ebc61845168d2539",
+      "schema": "packages/contracts/src/match.schema.ts",
+      "phase": "B",
+      "test": "packages/game-engine/src/replay.test.ts",
+      "metric": "requirement_state_001_violation_total",
+      "linkageProof": "72e59c444a46e2db07563c1cb1a70e306fedda70108474fe4c1eb0164d9297f9"
+    },
+    {
+      "id": "STATE-002",
       "source": "03_GAME_FLOW_AND_STATE_MACHINE.md",
       "sourceLine": 17,
       "section": "플레이어 입력 상태",
@@ -600,10 +688,11 @@
       "schema": "packages/contracts/src/match.schema.ts",
       "phase": "B",
       "test": "packages/game-engine/src/replay.test.ts",
-      "metric": "replay_hash_mismatch_total"
+      "metric": "requirement_state_002_violation_total",
+      "linkageProof": "c480e0e7a62bdda6855754dbd5971b92a5f184907ca15793e44e486dd1c1d369"
     },
     {
-      "id": "STATE-002",
+      "id": "STATE-003",
       "source": "03_GAME_FLOW_AND_STATE_MACHINE.md",
       "sourceLine": 18,
       "section": "플레이어 입력 상태",
@@ -612,10 +701,11 @@
       "schema": "packages/contracts/src/match.schema.ts",
       "phase": "B",
       "test": "packages/game-engine/src/replay.test.ts",
-      "metric": "replay_hash_mismatch_total"
+      "metric": "requirement_state_003_violation_total",
+      "linkageProof": "8b9489f3e27c565f9672088d828b632019a2f6ee8239b4449fcb20cb71d55eef"
     },
     {
-      "id": "STATE-003",
+      "id": "STATE-004",
       "source": "03_GAME_FLOW_AND_STATE_MACHINE.md",
       "sourceLine": 19,
       "section": "플레이어 입력 상태",
@@ -624,10 +714,11 @@
       "schema": "packages/contracts/src/match.schema.ts",
       "phase": "B",
       "test": "packages/game-engine/src/replay.test.ts",
-      "metric": "replay_hash_mismatch_total"
+      "metric": "requirement_state_004_violation_total",
+      "linkageProof": "64aa9279606b0510492af7346f1e639739c2456e2e7fdc846c161bfabafa6bc3"
     },
     {
-      "id": "STATE-004",
+      "id": "STATE-005",
       "source": "03_GAME_FLOW_AND_STATE_MACHINE.md",
       "sourceLine": 20,
       "section": "플레이어 입력 상태",
@@ -636,10 +727,11 @@
       "schema": "packages/contracts/src/match.schema.ts",
       "phase": "B",
       "test": "packages/game-engine/src/replay.test.ts",
-      "metric": "replay_hash_mismatch_total"
+      "metric": "requirement_state_005_violation_total",
+      "linkageProof": "8de028920584555c8da48d41d2b0efe4e04333ad629b3bf258de3b4ee4990412"
     },
     {
-      "id": "STATE-005",
+      "id": "STATE-006",
       "source": "03_GAME_FLOW_AND_STATE_MACHINE.md",
       "sourceLine": 21,
       "section": "플레이어 입력 상태",
@@ -648,10 +740,11 @@
       "schema": "packages/contracts/src/match.schema.ts",
       "phase": "B",
       "test": "packages/game-engine/src/replay.test.ts",
-      "metric": "replay_hash_mismatch_total"
+      "metric": "requirement_state_006_violation_total",
+      "linkageProof": "a3d2e91ad9510aa007e2277da28db6f39d39b3cc3c73d121d2e7aada92952bf3"
     },
     {
-      "id": "STATE-006",
+      "id": "STATE-007",
       "source": "03_GAME_FLOW_AND_STATE_MACHINE.md",
       "sourceLine": 24,
       "section": "좌표",
@@ -660,10 +753,11 @@
       "schema": "packages/contracts/src/match.schema.ts",
       "phase": "B",
       "test": "packages/game-engine/src/replay.test.ts",
-      "metric": "replay_hash_mismatch_total"
+      "metric": "requirement_state_007_violation_total",
+      "linkageProof": "0c11c811b1a4664186dddd8899af08cd9ef58daec5b7d3e450713ffcf946a4d0"
     },
     {
-      "id": "STATE-007",
+      "id": "STATE-008",
       "source": "03_GAME_FLOW_AND_STATE_MACHINE.md",
       "sourceLine": 31,
       "section": "줌/팬",
@@ -672,10 +766,11 @@
       "schema": "packages/contracts/src/match.schema.ts",
       "phase": "B",
       "test": "packages/game-engine/src/replay.test.ts",
-      "metric": "replay_hash_mismatch_total"
+      "metric": "requirement_state_008_violation_total",
+      "linkageProof": "5e59130184ee4c0af4f27afb1deb590886eb55950700ecac2e144f15c5350eca"
     },
     {
-      "id": "STATE-008",
+      "id": "STATE-009",
       "source": "03_GAME_FLOW_AND_STATE_MACHINE.md",
       "sourceLine": 34,
       "section": "Deterministic persisted phases",
@@ -684,10 +779,11 @@
       "schema": "packages/contracts/src/match.schema.ts",
       "phase": "B",
       "test": "packages/game-engine/src/replay.test.ts",
-      "metric": "replay_hash_mismatch_total"
+      "metric": "requirement_state_009_violation_total",
+      "linkageProof": "985d3e931a52b52df1f56f15083013ad1ebb5e1cfd61a1342d456fe7e9227533"
     },
     {
-      "id": "STATE-009",
+      "id": "STATE-010",
       "source": "03_GAME_FLOW_AND_STATE_MACHINE.md",
       "sourceLine": 36,
       "section": "Deterministic persisted phases",
@@ -696,7 +792,8 @@
       "schema": "packages/contracts/src/match.schema.ts",
       "phase": "B",
       "test": "packages/game-engine/src/replay.test.ts",
-      "metric": "replay_hash_mismatch_total"
+      "metric": "requirement_state_010_violation_total",
+      "linkageProof": "3568aebadd7be29eb6fdc276c0a117a2ad850535cb0cbdd79854533785889169"
     },
     {
       "id": "UX-001",
@@ -708,7 +805,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_001_violation_total",
+      "linkageProof": "2b0bf45eff29cf283cab354a8747137fb3b8972df4fc5bdd71d7cd7cce44262d"
     },
     {
       "id": "UX-002",
@@ -720,7 +818,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_002_violation_total",
+      "linkageProof": "52d55f6d759fbecbb2c41c18df6280b8bfdbea11cc06f75b1616d9e26ec0b704"
     },
     {
       "id": "UX-003",
@@ -732,7 +831,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_003_violation_total",
+      "linkageProof": "c5e49e786db1ebb9d2a3af453c48a39790624d3e7a7c81cc042cefde2202c3d3"
     },
     {
       "id": "UX-004",
@@ -744,7 +844,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_004_violation_total",
+      "linkageProof": "03138f0d331d86291aee19c7c995153cd6eb40d2edae07a404749df425417535"
     },
     {
       "id": "UX-005",
@@ -756,7 +857,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_005_violation_total",
+      "linkageProof": "06f99ba6f1c378f5cb2fc43accbd254775ab4c625a876100f662520f5406e993"
     },
     {
       "id": "UX-006",
@@ -768,7 +870,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_006_violation_total",
+      "linkageProof": "d65d6ed5512fcac3a9943acd477363475c3f10851f4ef6a39a7c2523371b3da4"
     },
     {
       "id": "UX-007",
@@ -780,7 +883,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_007_violation_total",
+      "linkageProof": "6f13d00293a6615df2bcadb9cd1fcc0f45e34cb581b9ec86ee9762af15bcfa64"
     },
     {
       "id": "UX-008",
@@ -792,7 +896,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_008_violation_total",
+      "linkageProof": "817e87e92044f45531c4df199ee1da76ecb9e714224498964396a8b95f68ec40"
     },
     {
       "id": "UX-009",
@@ -804,7 +909,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_009_violation_total",
+      "linkageProof": "40d497a094f14048ec9bb35215817f42eb4d4ded7c5c9d18b688d5187913d523"
     },
     {
       "id": "UX-010",
@@ -816,7 +922,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_010_violation_total",
+      "linkageProof": "871a1f442d3223af78176419724f17b8df314ad8776f3357a41a06ba6a9321ae"
     },
     {
       "id": "UX-011",
@@ -828,7 +935,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_011_violation_total",
+      "linkageProof": "41414a15b9963bd357ddc393423c3d6b71d8af8238ab8ea72359a8aca5ce2991"
     },
     {
       "id": "UX-012",
@@ -840,7 +948,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_012_violation_total",
+      "linkageProof": "d508d8c14f8074f001bf33e76cb4d4d01e96cfc316306e3678d7f6ef26a0cf5b"
     },
     {
       "id": "UX-013",
@@ -852,7 +961,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_013_violation_total",
+      "linkageProof": "35ddb349630455bc6e78af2c7591b71f6395eb86af2169280ea9e53b84ad628d"
     },
     {
       "id": "UX-014",
@@ -864,7 +974,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_014_violation_total",
+      "linkageProof": "7677b176c368c1a0e9c831add7c45201a7d790712b0d87f6fb62b33f89542ef5"
     },
     {
       "id": "UX-015",
@@ -876,7 +987,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_015_violation_total",
+      "linkageProof": "860b3842be8f97057cf5ff22580e23572654c79102a3aaf1cee7230a3a8134cb"
     },
     {
       "id": "UX-016",
@@ -888,7 +1000,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_016_violation_total",
+      "linkageProof": "5dba7d8c414b1c3d593da71b923896d5dc80d963521dad9d5d2e2a5aec0b4320"
     },
     {
       "id": "UX-017",
@@ -900,7 +1013,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_017_violation_total",
+      "linkageProof": "ef03b453f9f8b0acbf43ac935e62456a9c040a3659148ff7c3bd0637b380d958"
     },
     {
       "id": "UX-018",
@@ -912,7 +1026,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_018_violation_total",
+      "linkageProof": "105760da5270ec928d0291b0fa6ec06022ea096ce417afadd5bd97f5322ed3bd"
     },
     {
       "id": "UX-019",
@@ -924,7 +1039,8 @@
       "schema": "packages/contracts/src/ui.ts",
       "phase": "F",
       "test": "tests/contracts/ui-final-acceptance.test.ts",
-      "metric": "ui_acceptance_failure_total"
+      "metric": "requirement_ux_019_violation_total",
+      "linkageProof": "55324b7deb20ea3482cc9ca39d8e04ae25d34e0f9f7919b069a3675e63e49ace"
     },
     {
       "id": "ECON-001",
@@ -936,7 +1052,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_001_violation_total",
+      "linkageProof": "497fff48d88a14a73eb01622bcb006775f011994bbb723a7128d1191192afacb"
     },
     {
       "id": "ECON-002",
@@ -948,7 +1065,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_002_violation_total",
+      "linkageProof": "1fd12dcb42f293b789ea1d8b423328566ede72e3ca70ac5ce8682f995e2d9475"
     },
     {
       "id": "ECON-003",
@@ -960,7 +1078,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_003_violation_total",
+      "linkageProof": "73b0b79360bc396cae7871187b326d811782b77bebaf7bcb749af0cc90f6e7d8"
     },
     {
       "id": "ECON-004",
@@ -972,7 +1091,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_004_violation_total",
+      "linkageProof": "81bd6dd9d0912593bd58e0349d62356a1ebc500c85dfaa005c80ffd3d0889706"
     },
     {
       "id": "ECON-005",
@@ -984,7 +1104,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_005_violation_total",
+      "linkageProof": "8feba2e3931a1747bda5f0755746aec2411483f02e7b964f86177571a951ff31"
     },
     {
       "id": "ECON-006",
@@ -996,7 +1117,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_006_violation_total",
+      "linkageProof": "953acd40de0ca73308a23523f1cc3242290859a5bb8bdeb97f65b05cfac1de0d"
     },
     {
       "id": "ECON-007",
@@ -1008,7 +1130,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_007_violation_total",
+      "linkageProof": "de58b292aefac6ee92b6bdc34b71969951addc73ab6cda04855d7df6acd77890"
     },
     {
       "id": "ECON-008",
@@ -1020,7 +1143,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_008_violation_total",
+      "linkageProof": "a219d620c05e3c19f2bd5591119012e4fc94724bf534b587d43d4d7285dc8cd6"
     },
     {
       "id": "ECON-009",
@@ -1032,7 +1156,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_009_violation_total",
+      "linkageProof": "89da0a74a09e8d37e1e6c49a3cb22cf145495a7b0a4d33366e553c10d0e49799"
     },
     {
       "id": "ECON-010",
@@ -1044,7 +1169,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_010_violation_total",
+      "linkageProof": "6a5d1798835e5e61ae0a813f5639683ba905d2a8e713efff5beccdc3e6853491"
     },
     {
       "id": "ECON-011",
@@ -1056,7 +1182,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_011_violation_total",
+      "linkageProof": "22cbec53c8aa0a7957875868efb4d9fc88292a8294f35deda9883a20e88d403b"
     },
     {
       "id": "ECON-012",
@@ -1068,7 +1195,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_012_violation_total",
+      "linkageProof": "852a7365e7e771391d4389e0358a696f8bb4e7cdee9949381968481e852ffd7b"
     },
     {
       "id": "ECON-013",
@@ -1080,7 +1208,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_013_violation_total",
+      "linkageProof": "62dbe39d4f0ed17be61058fc20763ffa8f5530274505727a430b4848dfd9c6ca"
     },
     {
       "id": "ECON-014",
@@ -1092,7 +1221,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_014_violation_total",
+      "linkageProof": "353491558056f987fbefdf22cea8210f96d09a3397d5275859789101a5fc6942"
     },
     {
       "id": "ECON-015",
@@ -1104,7 +1234,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_015_violation_total",
+      "linkageProof": "90415f9aab9684198ff30269ed452835e4a184e616750165039447a789a093d7"
     },
     {
       "id": "ECON-016",
@@ -1116,7 +1247,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_016_violation_total",
+      "linkageProof": "417f9032a871b037e63c2f3869f38deb0314c1d6169d3e13f341f69d8f0dae95"
     },
     {
       "id": "ECON-017",
@@ -1128,7 +1260,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_017_violation_total",
+      "linkageProof": "093a5296ac286a11c50695a9a5d984343d6795a46d5127bd4effe97f3bb212b7"
     },
     {
       "id": "ECON-018",
@@ -1140,7 +1273,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_018_violation_total",
+      "linkageProof": "04dd3adbd5f7603a6e1f0e84723135d42cc2ef20c85daa5491863488fcdd55e4"
     },
     {
       "id": "ECON-019",
@@ -1152,7 +1286,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_019_violation_total",
+      "linkageProof": "7a82cef2405e2d3b667a4abdb609f74a86e3fef685205efdd9bc071b9a3162bb"
     },
     {
       "id": "ECON-020",
@@ -1164,7 +1299,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_020_violation_total",
+      "linkageProof": "4f3ef9b98013980cb3b4478ec8963d30c1644cdb71ca3c948f6e84231059c0b0"
     },
     {
       "id": "ECON-021",
@@ -1176,7 +1312,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_021_violation_total",
+      "linkageProof": "6cc510bca7bb57e960a8a77c1760dedb117ca5325d32ec324ba831661de5270e"
     },
     {
       "id": "ECON-022",
@@ -1188,7 +1325,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_022_violation_total",
+      "linkageProof": "f5bdb313c0a0c5e7c9a33b1431ae0fdfaecdbb57c66187a3cb9fc8f866bbec1e"
     },
     {
       "id": "ECON-023",
@@ -1200,7 +1338,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_023_violation_total",
+      "linkageProof": "c65267bb0fdbaa1f35a91ee9e9d07db50d8a81b179de352507c5dc3234fff211"
     },
     {
       "id": "ECON-024",
@@ -1212,7 +1351,8 @@
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "E",
       "test": "tests/simulation/pet-economy.test.ts",
-      "metric": "economy_duplicate_effect_total"
+      "metric": "requirement_econ_024_violation_total",
+      "linkageProof": "5da72656797c18620f066923dcbbd129a3b822d10f368118f6298ab4a01128aa"
     },
     {
       "id": "SEC-001",
@@ -1224,7 +1364,8 @@
       "schema": "packages/contracts/src/quarantine.ts",
       "phase": "D",
       "test": "packages/contracts/src/quarantine.test.ts",
-      "metric": "quarantine_failure_total"
+      "metric": "requirement_sec_001_violation_total",
+      "linkageProof": "8ee3b584e4a6d468e80f0173f2a0b3ec85dc390720e9936fd70fa9a0d8e68ff0"
     },
     {
       "id": "SEC-002",
@@ -1236,7 +1377,8 @@
       "schema": "packages/contracts/src/quarantine.ts",
       "phase": "D",
       "test": "packages/contracts/src/quarantine.test.ts",
-      "metric": "quarantine_failure_total"
+      "metric": "requirement_sec_002_violation_total",
+      "linkageProof": "927623c9e53475e1519105c3f839c6e3ee327b8090265b9870fdc79bdcb17e88"
     },
     {
       "id": "SEC-003",
@@ -1248,7 +1390,8 @@
       "schema": "packages/contracts/src/quarantine.ts",
       "phase": "D",
       "test": "packages/contracts/src/quarantine.test.ts",
-      "metric": "quarantine_failure_total"
+      "metric": "requirement_sec_003_violation_total",
+      "linkageProof": "54175570ab44c0f7fb7df25142f5d74deb5ab6755b4e62f8ba1e1854e1cbc931"
     },
     {
       "id": "SEC-004",
@@ -1260,7 +1403,8 @@
       "schema": "packages/contracts/src/quarantine.ts",
       "phase": "D",
       "test": "packages/contracts/src/quarantine.test.ts",
-      "metric": "quarantine_failure_total"
+      "metric": "requirement_sec_004_violation_total",
+      "linkageProof": "f3022a79db798b3abbd0589a34cc36c81e52e0ba854182f3d4e3fb69a4b28409"
     },
     {
       "id": "SEC-005",
@@ -1272,7 +1416,8 @@
       "schema": "packages/contracts/src/quarantine.ts",
       "phase": "D",
       "test": "packages/contracts/src/quarantine.test.ts",
-      "metric": "quarantine_failure_total"
+      "metric": "requirement_sec_005_violation_total",
+      "linkageProof": "5d6cd2fb29f1036f2dafe6575cdb9d3e2f2a6f7316ef14ed3f8d33d681e8116a"
     },
     {
       "id": "SEC-006",
@@ -1284,7 +1429,8 @@
       "schema": "packages/contracts/src/quarantine.ts",
       "phase": "D",
       "test": "packages/contracts/src/quarantine.test.ts",
-      "metric": "quarantine_failure_total"
+      "metric": "requirement_sec_006_violation_total",
+      "linkageProof": "e5c2276262f198f39e37a81203bafc88a7bddb1f436536c95baffa6271b96f2e"
     },
     {
       "id": "SEC-007",
@@ -1296,7 +1442,8 @@
       "schema": "packages/contracts/src/quarantine.ts",
       "phase": "D",
       "test": "packages/contracts/src/quarantine.test.ts",
-      "metric": "quarantine_failure_total"
+      "metric": "requirement_sec_007_violation_total",
+      "linkageProof": "13b516fe7b6a3bc2f53bb128955a5de081d9879e2742c4504e11ced99c812667"
     },
     {
       "id": "OBS-001",
@@ -1308,7 +1455,8 @@
       "schema": "packages/contracts/src/analytics.ts",
       "phase": "G",
       "test": "tests/contracts/analytics-event.test.ts",
-      "metric": "trace_stage_missing_total"
+      "metric": "requirement_obs_001_violation_total",
+      "linkageProof": "bc146057f10ddce1f3139f39c1a57aaf731856d7526c71d5572eca54c0d767c9"
     },
     {
       "id": "OBS-002",
@@ -1320,7 +1468,8 @@
       "schema": "packages/contracts/src/analytics.ts",
       "phase": "G",
       "test": "tests/contracts/analytics-event.test.ts",
-      "metric": "trace_stage_missing_total"
+      "metric": "requirement_obs_002_violation_total",
+      "linkageProof": "d18fe0186e5704aad4d08355decf6e0b7c661544a05f8dbf72b68a70caac3692"
     },
     {
       "id": "OBS-003",
@@ -1332,7 +1481,8 @@
       "schema": "packages/contracts/src/analytics.ts",
       "phase": "G",
       "test": "tests/contracts/analytics-event.test.ts",
-      "metric": "trace_stage_missing_total"
+      "metric": "requirement_obs_003_violation_total",
+      "linkageProof": "f419d16c892692bf127882301059ce6fe2a52825923fafce1d7388c8362f4379"
     },
     {
       "id": "OBS-004",
@@ -1344,7 +1494,8 @@
       "schema": "packages/contracts/src/analytics.ts",
       "phase": "G",
       "test": "tests/contracts/analytics-event.test.ts",
-      "metric": "trace_stage_missing_total"
+      "metric": "requirement_obs_004_violation_total",
+      "linkageProof": "40347761930bf9b1d420659a4513030e19ccd912914a423bda58bc42b8507cb3"
     },
     {
       "id": "OBS-005",
@@ -1356,7 +1507,8 @@
       "schema": "packages/contracts/src/analytics.ts",
       "phase": "G",
       "test": "tests/contracts/analytics-event.test.ts",
-      "metric": "trace_stage_missing_total"
+      "metric": "requirement_obs_005_violation_total",
+      "linkageProof": "0964408f646ec5855a2fdaee0826f901f4ee2a094a1a73e9fb9023df4886d3a5"
     },
     {
       "id": "OBS-006",
@@ -1368,7 +1520,8 @@
       "schema": "packages/contracts/src/analytics.ts",
       "phase": "G",
       "test": "tests/contracts/analytics-event.test.ts",
-      "metric": "trace_stage_missing_total"
+      "metric": "requirement_obs_006_violation_total",
+      "linkageProof": "e4d966ac43c05e926645e0ab39a3038be354ff92ed86b0cce2a998e1307f4b1f"
     },
     {
       "id": "OBS-007",
@@ -1380,7 +1533,8 @@
       "schema": "packages/contracts/src/analytics.ts",
       "phase": "G",
       "test": "tests/contracts/analytics-event.test.ts",
-      "metric": "trace_stage_missing_total"
+      "metric": "requirement_obs_007_violation_total",
+      "linkageProof": "a6b655ca76b4f274a6d3e2d8e6cf42587ab9ad5a61dae975f5013895e5f6f21c"
     },
     {
       "id": "OBS-008",
@@ -1392,7 +1546,8 @@
       "schema": "packages/contracts/src/analytics.ts",
       "phase": "G",
       "test": "tests/contracts/analytics-event.test.ts",
-      "metric": "trace_stage_missing_total"
+      "metric": "requirement_obs_008_violation_total",
+      "linkageProof": "72b1a4d443b606a9475e46660b6b67ac0742d56c8f12c4bd51e7244f848d1d63"
     },
     {
       "id": "OBS-009",
@@ -1404,7 +1559,8 @@
       "schema": "packages/contracts/src/analytics.ts",
       "phase": "G",
       "test": "tests/contracts/analytics-event.test.ts",
-      "metric": "trace_stage_missing_total"
+      "metric": "requirement_obs_009_violation_total",
+      "linkageProof": "26d8e2b99b8d122b8e360c04315eb377bc58ab93431abbda3b0fd1bd28960fb8"
     },
     {
       "id": "OBS-010",
@@ -1416,7 +1572,8 @@
       "schema": "packages/contracts/src/analytics.ts",
       "phase": "G",
       "test": "tests/contracts/analytics-event.test.ts",
-      "metric": "trace_stage_missing_total"
+      "metric": "requirement_obs_010_violation_total",
+      "linkageProof": "1c028ef59b57651e1c9578d5fa8b1310d4776f540ae04e28f8ee0b01d72c450e"
     },
     {
       "id": "OBS-011",
@@ -1428,7 +1585,8 @@
       "schema": "packages/contracts/src/analytics.ts",
       "phase": "G",
       "test": "tests/contracts/analytics-event.test.ts",
-      "metric": "trace_stage_missing_total"
+      "metric": "requirement_obs_011_violation_total",
+      "linkageProof": "eedf5e0d1dc1580d121f5e87290e3aeb9862ca61796250cf31d75fe56d21b87a"
     },
     {
       "id": "OBS-012",
@@ -1440,7 +1598,8 @@
       "schema": "packages/contracts/src/analytics.ts",
       "phase": "G",
       "test": "tests/contracts/analytics-event.test.ts",
-      "metric": "trace_stage_missing_total"
+      "metric": "requirement_obs_012_violation_total",
+      "linkageProof": "7c07238e9ea6509fcae4a389b04836ed7b6dd96c8657826f990deaee8c54768f"
     },
     {
       "id": "OBS-013",
@@ -1452,7 +1611,8 @@
       "schema": "packages/contracts/src/analytics.ts",
       "phase": "G",
       "test": "tests/contracts/analytics-event.test.ts",
-      "metric": "trace_stage_missing_total"
+      "metric": "requirement_obs_013_violation_total",
+      "linkageProof": "6e410ac7e2511908dc6593e9dcc5f8f0d72f9a991b94b41ca3dbc30fd339a3de"
     },
     {
       "id": "OBS-014",
@@ -1464,7 +1624,8 @@
       "schema": "packages/contracts/src/analytics.ts",
       "phase": "G",
       "test": "tests/contracts/analytics-event.test.ts",
-      "metric": "trace_stage_missing_total"
+      "metric": "requirement_obs_014_violation_total",
+      "linkageProof": "3d65a8805e0208e0d2daca6e2927838c0d1a9fdb58739dbf0d8b1364bc183765"
     },
     {
       "id": "OBS-015",
@@ -1476,7 +1637,8 @@
       "schema": "packages/contracts/src/analytics.ts",
       "phase": "G",
       "test": "tests/contracts/analytics-event.test.ts",
-      "metric": "trace_stage_missing_total"
+      "metric": "requirement_obs_015_violation_total",
+      "linkageProof": "bee2870e2b1df09d5d774ad00a1e3c2a5cdd20a8412d8e57db111ece4eaab5e0"
     },
     {
       "id": "DATA-001",
@@ -1488,7 +1650,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_001_violation_total",
+      "linkageProof": "f2ac0b5671a6e05f9ad1c98c9355081898d251198bda24694de021096fea00e8"
     },
     {
       "id": "DATA-002",
@@ -1500,7 +1663,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_002_violation_total",
+      "linkageProof": "f98944e9e04f933946e190bb738212d32a3c96c75166b84c3abdcb0b86031ab3"
     },
     {
       "id": "DATA-003",
@@ -1512,7 +1676,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_003_violation_total",
+      "linkageProof": "a346e1a472c8c22734c77cdc286a228969cb3339f32ff608c21848678fcc1c6f"
     },
     {
       "id": "DATA-004",
@@ -1524,7 +1689,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_004_violation_total",
+      "linkageProof": "5d160041ece7cbc866aac91f5a53dc3b807eb2c50d5620a46266a55e6df04780"
     },
     {
       "id": "DATA-005",
@@ -1536,7 +1702,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_005_violation_total",
+      "linkageProof": "91d6fd14f2d76a3e889e282fb4a2cfb85a16f58fcd85b2a88aaeee4cd871bb34"
     },
     {
       "id": "DATA-006",
@@ -1548,7 +1715,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_006_violation_total",
+      "linkageProof": "19b4f02ab7d15658f3614d4f027e13327b94c0fc8c7f156eceb1c0d75c06d487"
     },
     {
       "id": "DATA-007",
@@ -1560,7 +1728,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_007_violation_total",
+      "linkageProof": "150bb4b55ec58b5eb6edc4cace9fc08791ce4c5fa6311b1955d97432e3d41128"
     },
     {
       "id": "DATA-008",
@@ -1572,7 +1741,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_008_violation_total",
+      "linkageProof": "3ef879e0ec64945d18405b0824e17cb1c12e6d9bfcb2c4d591826cde7968b441"
     },
     {
       "id": "DATA-009",
@@ -1584,7 +1754,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_009_violation_total",
+      "linkageProof": "51aadff4ead7ee0b75959caad85c2a75d1c6f1975fd5de716c5c4ace7e8a41df"
     },
     {
       "id": "DATA-010",
@@ -1596,7 +1767,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_010_violation_total",
+      "linkageProof": "7ab14463f42c237f3123d80cf97d908a8343629b948a0fd1afb77dc8f8a06cc0"
     },
     {
       "id": "DATA-011",
@@ -1608,7 +1780,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_011_violation_total",
+      "linkageProof": "1106e5b57c3cdfd50e1640f37dc28926f8c5b954005620cdaec25b5ceba49196"
     },
     {
       "id": "DATA-012",
@@ -1620,7 +1793,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_012_violation_total",
+      "linkageProof": "69cad8a285d666b83500be0540b7a75935095a65912af511e9462dc440b6d2f9"
     },
     {
       "id": "DATA-013",
@@ -1632,7 +1806,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_013_violation_total",
+      "linkageProof": "bf25c3f8f2a49f248b51c3b360e010381a0b57db3c67d66a01ab059bd676b032"
     },
     {
       "id": "DATA-014",
@@ -1644,7 +1819,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_014_violation_total",
+      "linkageProof": "b535df131675e09fbcebf3843d624679fa3a8974a9e9828e39597a55a68ef103"
     },
     {
       "id": "DATA-015",
@@ -1656,7 +1832,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_015_violation_total",
+      "linkageProof": "63c41a7490ac11b1828d9604d70a0c79640940d66d1433af356bf4ef31c8ef1c"
     },
     {
       "id": "DATA-016",
@@ -1668,7 +1845,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_016_violation_total",
+      "linkageProof": "60a1f22f50930bd8b3ff82013fd2bb5b1ab9a6af55b3e62bc5fee8808965d589"
     },
     {
       "id": "DATA-017",
@@ -1680,7 +1858,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_017_violation_total",
+      "linkageProof": "307827a06c36f904e3efa8cbc269610a04db0f824530c05cbc4bb4f4245a82dd"
     },
     {
       "id": "DATA-018",
@@ -1692,7 +1871,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_018_violation_total",
+      "linkageProof": "61f74519d1810c7956118aa2104d7620ddb68d9648a34cf490699efe9258bcd3"
     },
     {
       "id": "DATA-019",
@@ -1704,7 +1884,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_019_violation_total",
+      "linkageProof": "6683dd3fc98f8ab0f2537c63399b3b1eca8a0073b58fc6c510fcb9ec7caaffbc"
     },
     {
       "id": "DATA-020",
@@ -1716,7 +1897,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_020_violation_total",
+      "linkageProof": "886f7832f41e8dae59cef2a1bffb3500ff478018ed511a440b83265beda44cbd"
     },
     {
       "id": "DATA-021",
@@ -1728,7 +1910,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_021_violation_total",
+      "linkageProof": "9da7313aaf848a9b52abb004b48a264c73d5edcd1563337c123897ad48e2a1ec"
     },
     {
       "id": "DATA-022",
@@ -1740,7 +1923,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_022_violation_total",
+      "linkageProof": "a10592419422fe2404cf3eaa87af9765971ebcefe26b8c8e984f028b01da2543"
     },
     {
       "id": "DATA-023",
@@ -1752,7 +1936,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_023_violation_total",
+      "linkageProof": "e7b69efb0b61f4a2f21f1a0c37aff608af9d57012dd59fcac06ee3bf2e9a0294"
     },
     {
       "id": "DATA-024",
@@ -1764,7 +1949,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_024_violation_total",
+      "linkageProof": "74cf9f3f516080a4e74ab3e8081980364d3c08e6ad698fad6a98bd8cd11927f1"
     },
     {
       "id": "DATA-025",
@@ -1776,7 +1962,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_025_violation_total",
+      "linkageProof": "054c662cb5e1ce0a40b9ab9729ba138a2f3b61b1c98373e27acf881b7b7fef85"
     },
     {
       "id": "DATA-026",
@@ -1788,7 +1975,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_026_violation_total",
+      "linkageProof": "c9088e268af545510398bfd43f4a24b4e094d1a73db2eafc2d0a4d56f1212f38"
     },
     {
       "id": "DATA-027",
@@ -1800,7 +1988,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_027_violation_total",
+      "linkageProof": "8e70b21814da34386a472e1024658a82138e958751cb18585f6d6c34c0d32756"
     },
     {
       "id": "DATA-028",
@@ -1812,7 +2001,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_028_violation_total",
+      "linkageProof": "e9642a0ebb2d74d9abaed79ab9be1d326d0e6a01ff0fcdb901d7fece889739b4"
     },
     {
       "id": "DATA-029",
@@ -1824,7 +2014,8 @@
       "schema": "supabase/migrations/202607150001_initial_schema.sql",
       "phase": "D",
       "test": "tests/database/concurrency.test.ts",
-      "metric": "db_transaction_failure_total"
+      "metric": "requirement_data_029_violation_total",
+      "linkageProof": "41b4e1408c2428a67e1cb958688fb2c4734eb4fe7e499adc16be4cbf11b91adf"
     },
     {
       "id": "API-005",
@@ -1836,7 +2027,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_005_violation_total",
+      "linkageProof": "e7aabc69efd591c78e945e9a1dccd79a057cd7b7b46daa133860d6994e46e471"
     },
     {
       "id": "API-001",
@@ -1848,7 +2040,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_001_violation_total",
+      "linkageProof": "da248175dcc01ce4d72f283952242ecbb35f736b0c06d37fac88510c3b10baed"
     },
     {
       "id": "API-002",
@@ -1860,7 +2053,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_002_violation_total",
+      "linkageProof": "cabe8f7b1a921a2d59b3b9b6adc374fef5825d5d2a9c5b4284f5751b4bb6ed61"
     },
     {
       "id": "API-003",
@@ -1872,7 +2066,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_003_violation_total",
+      "linkageProof": "492e180079d820a93f30262537ba439f07cbd1976957d3a43751d52561e1adce"
     },
     {
       "id": "API-004",
@@ -1884,7 +2079,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_004_violation_total",
+      "linkageProof": "f6d7e863c31c4c9aafd3407b402cef969077ab35c37e212593f8ec8e356e903b"
     },
     {
       "id": "API-006",
@@ -1896,7 +2092,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_006_violation_total",
+      "linkageProof": "5b5692b132058cafa452bae0d64ab4f9f415d1a9f2ca9e82f4cb1dbcedaacc12"
     },
     {
       "id": "API-007",
@@ -1908,7 +2105,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_007_violation_total",
+      "linkageProof": "2cda132c3e4d426f1c457d71465a722d3437bb376451b093ce9c37ed547638d7"
     },
     {
       "id": "API-008",
@@ -1920,7 +2118,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_008_violation_total",
+      "linkageProof": "810df486b17488e2da3eef635068bafb3b28d7cd8bbd150890ec1a9b42208f69"
     },
     {
       "id": "API-009",
@@ -1932,7 +2131,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_009_violation_total",
+      "linkageProof": "df3251d06874d5f7a55e1befaacaee27d1cd3c166edb6bef13d9d966b518abc6"
     },
     {
       "id": "API-010",
@@ -1944,7 +2144,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_010_violation_total",
+      "linkageProof": "584f12bacf9e084244e7d401ee61f2fb2a84530fc56f5e58e70607c4e5f57027"
     },
     {
       "id": "API-011",
@@ -1956,7 +2157,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_011_violation_total",
+      "linkageProof": "4a99bb97fed12cb7f70b3e3ac91c903709ba0bfed94d8057d93e319367f7f344"
     },
     {
       "id": "API-012",
@@ -1968,7 +2170,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_012_violation_total",
+      "linkageProof": "8f6dd30e642eacdd74b84e55d01094c34807410885ee2ad4d949074bf3fc82ea"
     },
     {
       "id": "API-013",
@@ -1980,7 +2183,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_013_violation_total",
+      "linkageProof": "33a5f12be0b45d15bd840230974e9d07e6f736cf28b73d980f5f3eca99d77693"
     },
     {
       "id": "API-014",
@@ -1992,7 +2196,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_014_violation_total",
+      "linkageProof": "6cedd37844c2d4b345916bbe1821b577e11b567de3f861ec036825e8b352aad8"
     },
     {
       "id": "API-015",
@@ -2004,7 +2209,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_015_violation_total",
+      "linkageProof": "20be0eb404a64d28c65ae240ae14db01623d8f6a1220ce4002865374133518d6"
     },
     {
       "id": "API-016",
@@ -2016,7 +2222,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_016_violation_total",
+      "linkageProof": "684cccec6acff1a79da823f937cd12a6f748541da9bb8fd4405380345f1544cc"
     },
     {
       "id": "API-017",
@@ -2028,7 +2235,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_017_violation_total",
+      "linkageProof": "c910b51dfd9b51f03110bd5cad3f572512fc383c360335d642486283ad5abefa"
     },
     {
       "id": "API-018",
@@ -2040,7 +2248,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_018_violation_total",
+      "linkageProof": "a7beac339715fa49c9ee7a0fc80dd35e96e6f949d4fc7b2f4cba5d26818f84f4"
     },
     {
       "id": "API-019",
@@ -2052,7 +2261,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_019_violation_total",
+      "linkageProof": "16981a59447a1a6ffc2e60f724885fe1c92023c0ecf8fd2ea8642e7eea0e558a"
     },
     {
       "id": "API-020",
@@ -2064,7 +2274,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_020_violation_total",
+      "linkageProof": "ae199b2f15ee1f1a9d112704233f0157f428702331bd31b55841a3e324289b8c"
     },
     {
       "id": "API-021",
@@ -2076,7 +2287,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_021_violation_total",
+      "linkageProof": "2ba9c534090cd1991cf3bdcb41dc16c721a827ed376f88e8c46ea089fcb24138"
     },
     {
       "id": "API-022",
@@ -2088,7 +2300,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_022_violation_total",
+      "linkageProof": "c71e8afe5e4e77b271850ba27bddbcab5db0b98a1a104208ff46d4eb4276e0fb"
     },
     {
       "id": "API-023",
@@ -2100,7 +2313,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_023_violation_total",
+      "linkageProof": "21f30941ab54517a015ec90db0f45fe9f027b88a742449db4fd5528cf984a164"
     },
     {
       "id": "API-024",
@@ -2112,7 +2326,8 @@
       "schema": "packages/contracts/openapi.yaml",
       "phase": "C",
       "test": "packages/contracts/src/openapi.test.ts",
-      "metric": "api_contract_rejection_total"
+      "metric": "requirement_api_024_violation_total",
+      "linkageProof": "7acc2bdd5dd4494f0f07af9f37f38c29994c0802d0f58933a6758a8e8e56a88b"
     },
     {
       "id": "CONTENT-001",
@@ -2124,7 +2339,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_001_violation_total",
+      "linkageProof": "f2581f53723ae1505b9630e1bc5430c16cd9b2a58ba5bc132670faa3c58bd2d6"
     },
     {
       "id": "CONTENT-002",
@@ -2136,7 +2352,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_002_violation_total",
+      "linkageProof": "5632a72d037243680b6d621e47daa82d0e411dabf86640604274c474fca050fa"
     },
     {
       "id": "CONTENT-003",
@@ -2148,7 +2365,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_003_violation_total",
+      "linkageProof": "ca0bda64edcd8d5330159504e38960ce3848133a7335f5165f5cada8a9f998ce"
     },
     {
       "id": "CONTENT-004",
@@ -2160,7 +2378,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_004_violation_total",
+      "linkageProof": "f9b9c7ddc107b14e2234e83abdd2c1c9ec858224b0a9c557bb6e9dbe7e632a05"
     },
     {
       "id": "CONTENT-005",
@@ -2172,7 +2391,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_005_violation_total",
+      "linkageProof": "89f67eea8155c7a4464e9a893f26a9b81eb8eb6eae71d7a08bab9cc4ec2dc838"
     },
     {
       "id": "CONTENT-006",
@@ -2184,7 +2404,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_006_violation_total",
+      "linkageProof": "33e03159834bfeb6f916e1466d5d475ca1b0292522112aa9f4129c88559b1ee5"
     },
     {
       "id": "CONTENT-007",
@@ -2196,7 +2417,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_007_violation_total",
+      "linkageProof": "26070fa2d271ce0c07f50801430b28cd70a7dcd5b34dd1c2eab16c3fd40bba23"
     },
     {
       "id": "CONTENT-008",
@@ -2208,7 +2430,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_008_violation_total",
+      "linkageProof": "3d651725bf4814259722bcbcd3e28fd876864f1e372e1567675713df28983e9e"
     },
     {
       "id": "CONTENT-009",
@@ -2220,7 +2443,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_009_violation_total",
+      "linkageProof": "df687461bf9445b072e8b26341f710833960e1fe7f831ea851d703ab72e1eae7"
     },
     {
       "id": "CONTENT-010",
@@ -2232,7 +2456,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_010_violation_total",
+      "linkageProof": "3e7ecea11febeab9ceb94e72ee926813415bd66759a78a4ccb2e8a3032b9868b"
     },
     {
       "id": "CONTENT-011",
@@ -2244,7 +2469,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_011_violation_total",
+      "linkageProof": "dfef89acfba5a56c494ff81db73b52f98787c52de3558b8597cfc4728d2ad728"
     },
     {
       "id": "CONTENT-012",
@@ -2256,7 +2482,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_012_violation_total",
+      "linkageProof": "a12dfbaa965e4cd28e02241345c2fa16a8e603ab1db163fe54ec1929f91854ce"
     },
     {
       "id": "CONTENT-013",
@@ -2268,7 +2495,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_013_violation_total",
+      "linkageProof": "5955ea8221ac7c7540678215e9e482084701f6520c43ff7b1ca42c5bc29cd676"
     },
     {
       "id": "CONTENT-014",
@@ -2280,7 +2508,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_014_violation_total",
+      "linkageProof": "e39cf49650a81919a986d1f55c25786afdcb60d7d6f6b19111f1182751ce64fe"
     },
     {
       "id": "CONTENT-015",
@@ -2292,7 +2521,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_015_violation_total",
+      "linkageProof": "531db0f921167c818eb68c32b3d7aa4ce10704496581da0545431085c39a8022"
     },
     {
       "id": "CONTENT-016",
@@ -2304,7 +2534,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_016_violation_total",
+      "linkageProof": "7ea9ae9ae6a9b3463d1c32937fc66ef6cbdbeaf23b172aaaccb1cd91596024c1"
     },
     {
       "id": "CONTENT-017",
@@ -2316,7 +2547,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_017_violation_total",
+      "linkageProof": "b7995d52f2096eb3dd2888da255dc8cdf6d320d682cc07db2ccf0c1bc7530256"
     },
     {
       "id": "CONTENT-018",
@@ -2328,7 +2560,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_018_violation_total",
+      "linkageProof": "6fccb28afcb2fcd89c373c3137f122e34b07fa49fcd941145753e1c5cdde113c"
     },
     {
       "id": "CONTENT-019",
@@ -2340,7 +2573,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_019_violation_total",
+      "linkageProof": "d7549c45787caa8204a65f2221c4d05f1915d323f0cdece2911db2834f6537ec"
     },
     {
       "id": "CONTENT-020",
@@ -2352,7 +2586,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_020_violation_total",
+      "linkageProof": "7352138894c22ef0a4d05782ed4a406321f158f8b3dd1897494b04f5f4788412"
     },
     {
       "id": "CONTENT-021",
@@ -2364,7 +2599,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_021_violation_total",
+      "linkageProof": "a34fc7aad2ab2ba8345c8f2b5423e4a4e5482384b7a43e1b17939cf8c183cbb1"
     },
     {
       "id": "CONTENT-022",
@@ -2376,7 +2612,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_022_violation_total",
+      "linkageProof": "3fa6920fcb82741a06d932af3dfb9e86f42ad0cbb249627e11543698ef5af9ae"
     },
     {
       "id": "CONTENT-023",
@@ -2388,7 +2625,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_023_violation_total",
+      "linkageProof": "e808c50771dd13e2b346cd2535e152e4832c850e832220fbe0c331ab7166739d"
     },
     {
       "id": "CONTENT-024",
@@ -2400,7 +2638,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_024_violation_total",
+      "linkageProof": "e8a00be00aec08d8215fdfa68c6efc1bb6c2c6c184a07065f5dde9ed857d8766"
     },
     {
       "id": "CONTENT-025",
@@ -2412,7 +2651,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_025_violation_total",
+      "linkageProof": "d28a1cbe72aadf7578abaf6d5963971c54f8ca0508d665d717f5b45a504e1505"
     },
     {
       "id": "CONTENT-026",
@@ -2424,7 +2664,8 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_026_violation_total",
+      "linkageProof": "f4c037f10c71a483e62df99727c264505ee14a71e90cd7564a999bc241a0ccf3"
     },
     {
       "id": "CONTENT-027",
@@ -2436,10 +2677,24 @@
       "schema": "packages/contracts/src/content.ts",
       "phase": "A",
       "test": "packages/contracts/src/content.test.ts",
-      "metric": "content_validation_failure_total"
+      "metric": "requirement_content_027_violation_total",
+      "linkageProof": "0a79d08fcdb4a280b09a3442892751e182b1d66108069d6b976ce00cd259872e"
     },
     {
       "id": "QA-001",
+      "source": "11_TEST_AND_BALANCE_PLAN.md",
+      "sourceLine": 2,
+      "section": "11. 테스트 및 밸런스",
+      "text": "Balance tests load RulesetV1 (`1.0.0`) and cover 59,999/60,000 ms, 74,999/75,000 ms, settlement through 80,000 ms, the score floor, atomic final scoring, and tie-chain boundaries.",
+      "fingerprint": "33e71956744ed73892af7f59a9e2947a54d38c13e6795029587dbee0096c9ba4",
+      "schema": "tools/release-evidence.ts",
+      "phase": "G",
+      "test": "tests/simulation/release-verification.test.ts",
+      "metric": "requirement_qa_001_violation_total",
+      "linkageProof": "72974df1e17301adf926ef617217c31e50e0d11a241b849057620910d5edf0b4"
+    },
+    {
+      "id": "QA-002",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 5,
       "section": "목표 지표",
@@ -2448,10 +2703,11 @@
       "schema": "tools/release-evidence.ts",
       "phase": "G",
       "test": "tests/simulation/release-verification.test.ts",
-      "metric": "release_gate_failure_total"
+      "metric": "requirement_qa_002_violation_total",
+      "linkageProof": "0e59b7b30d75a2487bb0d70ff12570c7836920f22d19a7af9d58197bb14bf2f1"
     },
     {
-      "id": "QA-002",
+      "id": "QA-003",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 6,
       "section": "목표 지표",
@@ -2460,10 +2716,11 @@
       "schema": "tools/release-evidence.ts",
       "phase": "G",
       "test": "tests/simulation/release-verification.test.ts",
-      "metric": "release_gate_failure_total"
+      "metric": "requirement_qa_003_violation_total",
+      "linkageProof": "e8c138570570ef3d67c3db1765276793af785e3a5d4148e04a9da107b34ab174"
     },
     {
-      "id": "QA-003",
+      "id": "QA-004",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 7,
       "section": "목표 지표",
@@ -2472,10 +2729,11 @@
       "schema": "tools/release-evidence.ts",
       "phase": "G",
       "test": "tests/simulation/release-verification.test.ts",
-      "metric": "release_gate_failure_total"
+      "metric": "requirement_qa_004_violation_total",
+      "linkageProof": "4143843286006f3b040e5108ebf08280fc9780ce97cdfec866415fac5ca4bca5"
     },
     {
-      "id": "QA-004",
+      "id": "QA-005",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 8,
       "section": "목표 지표",
@@ -2484,10 +2742,11 @@
       "schema": "tools/release-evidence.ts",
       "phase": "G",
       "test": "tests/simulation/release-verification.test.ts",
-      "metric": "release_gate_failure_total"
+      "metric": "requirement_qa_005_violation_total",
+      "linkageProof": "84de180226b693239bff38f7900554b3f823788de63c5008adc3c711196d50df"
     },
     {
-      "id": "QA-005",
+      "id": "QA-006",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 12,
       "section": "Versioned evidence classes",
@@ -2496,10 +2755,11 @@
       "schema": "tools/release-evidence.ts",
       "phase": "G",
       "test": "tests/simulation/release-verification.test.ts",
-      "metric": "release_gate_failure_total"
+      "metric": "requirement_qa_006_violation_total",
+      "linkageProof": "2093563e83dd9da05a223fa033796948c8ecf067e0a7d2b524bfcbb79b3a9e08"
     },
     {
-      "id": "QA-006",
+      "id": "QA-007",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 15,
       "section": "A/B 테스트",
@@ -2508,10 +2768,11 @@
       "schema": "tools/release-evidence.ts",
       "phase": "G",
       "test": "tests/simulation/release-verification.test.ts",
-      "metric": "release_gate_failure_total"
+      "metric": "requirement_qa_007_violation_total",
+      "linkageProof": "3d4da9b5fbc4109a1e365bb8f1dcaeebb0368493764e054b1299dfc75dac64e1"
     },
     {
-      "id": "QA-007",
+      "id": "QA-008",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 16,
       "section": "A/B 테스트",
@@ -2520,10 +2781,11 @@
       "schema": "tools/release-evidence.ts",
       "phase": "G",
       "test": "tests/simulation/release-verification.test.ts",
-      "metric": "release_gate_failure_total"
+      "metric": "requirement_qa_008_violation_total",
+      "linkageProof": "7743f6428607b757f1a77cc6dea843f6f328e2642943016f853344eed3b1ab99"
     },
     {
-      "id": "QA-008",
+      "id": "QA-009",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 18,
       "section": "A/B 테스트",
@@ -2532,10 +2794,11 @@
       "schema": "tools/release-evidence.ts",
       "phase": "G",
       "test": "tests/simulation/release-verification.test.ts",
-      "metric": "release_gate_failure_total"
+      "metric": "requirement_qa_009_violation_total",
+      "linkageProof": "33da6b9dc1a1ea0d697ee7d15b1bd501a8aca94b1338c4458751f9578528fad7"
     },
     {
-      "id": "QA-009",
+      "id": "QA-010",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 21,
       "section": "필수 테스트",
@@ -2544,10 +2807,11 @@
       "schema": "tools/release-evidence.ts",
       "phase": "G",
       "test": "tests/simulation/release-verification.test.ts",
-      "metric": "release_gate_failure_total"
+      "metric": "requirement_qa_010_violation_total",
+      "linkageProof": "603b027393f680523f4fd32b7b3114426a39e761cdfa1e1f68511d3249afcfd4"
     },
     {
-      "id": "QA-010",
+      "id": "QA-011",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 22,
       "section": "필수 테스트",
@@ -2556,10 +2820,11 @@
       "schema": "tools/release-evidence.ts",
       "phase": "G",
       "test": "tests/simulation/release-verification.test.ts",
-      "metric": "release_gate_failure_total"
+      "metric": "requirement_qa_011_violation_total",
+      "linkageProof": "32662203ecd6c80d9d7e0e966538817250721d9cfc5d8fc1daf0394796b7285c"
     },
     {
-      "id": "QA-011",
+      "id": "QA-012",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 23,
       "section": "필수 테스트",
@@ -2568,10 +2833,11 @@
       "schema": "tools/release-evidence.ts",
       "phase": "G",
       "test": "tests/simulation/release-verification.test.ts",
-      "metric": "release_gate_failure_total"
+      "metric": "requirement_qa_012_violation_total",
+      "linkageProof": "42b3e105c3102a36f0d8561d75b2ebb57473b5a668e49e53c5cf8d4acfa8cf9c"
     },
     {
-      "id": "QA-012",
+      "id": "QA-013",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 24,
       "section": "필수 테스트",
@@ -2580,10 +2846,11 @@
       "schema": "tools/release-evidence.ts",
       "phase": "G",
       "test": "tests/simulation/release-verification.test.ts",
-      "metric": "release_gate_failure_total"
+      "metric": "requirement_qa_013_violation_total",
+      "linkageProof": "f74c516c7d9e121f19eb5db73675210295037f262342826235210bd99ea8146a"
     },
     {
-      "id": "QA-013",
+      "id": "QA-014",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 25,
       "section": "필수 테스트",
@@ -2592,10 +2859,11 @@
       "schema": "tools/release-evidence.ts",
       "phase": "G",
       "test": "tests/simulation/release-verification.test.ts",
-      "metric": "release_gate_failure_total"
+      "metric": "requirement_qa_014_violation_total",
+      "linkageProof": "59f74d148f7d0b1f108614a22e9919bc0c74eaf1a4caf6b954ca6618194ea118"
     },
     {
-      "id": "QA-014",
+      "id": "QA-015",
       "source": "11_TEST_AND_BALANCE_PLAN.md",
       "sourceLine": 26,
       "section": "필수 테스트",
@@ -2604,7 +2872,8 @@
       "schema": "tools/release-evidence.ts",
       "phase": "G",
       "test": "tests/simulation/release-verification.test.ts",
-      "metric": "release_gate_failure_total"
+      "metric": "requirement_qa_015_violation_total",
+      "linkageProof": "93f3142e154a038db7fdc647601c3ee00b66832d81da8750663373d78ced8970"
     },
     {
       "id": "ENV-001",
@@ -2616,7 +2885,8 @@
       "schema": "tools/check-runtime.mjs",
       "phase": "A",
       "test": "tests/contracts/runtime-gate.test.ts",
-      "metric": "runtime_gate_failure_total"
+      "metric": "requirement_env_001_violation_total",
+      "linkageProof": "86928ab9bd570439872bc5e9ddbd4e0fa6364be0882a15e0cfa47be02d1b5b95"
     },
     {
       "id": "ENV-002",
@@ -2628,7 +2898,8 @@
       "schema": "tools/check-runtime.mjs",
       "phase": "A",
       "test": "tests/contracts/runtime-gate.test.ts",
-      "metric": "runtime_gate_failure_total"
+      "metric": "requirement_env_002_violation_total",
+      "linkageProof": "374e7f2a3c925c547150f5e34e07f677db6433737b6ff9d89a984ca030199941"
     },
     {
       "id": "ENV-003",
@@ -2640,7 +2911,8 @@
       "schema": "tools/check-runtime.mjs",
       "phase": "A",
       "test": "tests/contracts/runtime-gate.test.ts",
-      "metric": "runtime_gate_failure_total"
+      "metric": "requirement_env_003_violation_total",
+      "linkageProof": "d99df3e22dd3a7a79a8b065a298bd5723c5822f8a94b89b64fe9d754cd764480"
     },
     {
       "id": "ENV-004",
@@ -2652,7 +2924,8 @@
       "schema": "tools/check-runtime.mjs",
       "phase": "A",
       "test": "tests/contracts/runtime-gate.test.ts",
-      "metric": "runtime_gate_failure_total"
+      "metric": "requirement_env_004_violation_total",
+      "linkageProof": "46d4813062fd83fea33cd2b524d0f6565ffc5dd2ddcb14b044c1d2ff164cd5b9"
     },
     {
       "id": "ENV-005",
@@ -2664,7 +2937,8 @@
       "schema": "tools/check-runtime.mjs",
       "phase": "A",
       "test": "tests/contracts/runtime-gate.test.ts",
-      "metric": "runtime_gate_failure_total"
+      "metric": "requirement_env_005_violation_total",
+      "linkageProof": "ca58aff87fd9f75212acb2d5062fca7c98613815d52e83e43f984dbc31b21d98"
     },
     {
       "id": "ENV-006",
@@ -2676,7 +2950,8 @@
       "schema": "tools/check-runtime.mjs",
       "phase": "A",
       "test": "tests/contracts/runtime-gate.test.ts",
-      "metric": "runtime_gate_failure_total"
+      "metric": "requirement_env_006_violation_total",
+      "linkageProof": "d83c900665dbd46d8c34d8dc204aa6de2923ac0179c59eb0be5fdc33a453f6ee"
     },
     {
       "id": "ENV-007",
@@ -2688,7 +2963,8 @@
       "schema": "tools/check-runtime.mjs",
       "phase": "A",
       "test": "tests/contracts/runtime-gate.test.ts",
-      "metric": "runtime_gate_failure_total"
+      "metric": "requirement_env_007_violation_total",
+      "linkageProof": "6e3ffe47dbbbb9494dbdb341c9452529e06d4cb7e60eed73025e839c25ebe3bf"
     },
     {
       "id": "ENV-008",
@@ -2700,7 +2976,8 @@
       "schema": "tools/check-runtime.mjs",
       "phase": "A",
       "test": "tests/contracts/runtime-gate.test.ts",
-      "metric": "runtime_gate_failure_total"
+      "metric": "requirement_env_008_violation_total",
+      "linkageProof": "988d32d0dd729fc0e30357a15ae4f2b313732306229a9f460bfdf565bc225261"
     },
     {
       "id": "ENV-009",
@@ -2712,7 +2989,8 @@
       "schema": "tools/check-runtime.mjs",
       "phase": "A",
       "test": "tests/contracts/runtime-gate.test.ts",
-      "metric": "runtime_gate_failure_total"
+      "metric": "requirement_env_009_violation_total",
+      "linkageProof": "7a731830cae45688d1ffec3e00c3907ffd5e35ba284963c42d0845673966dc82"
     },
     {
       "id": "ENV-010",
@@ -2724,7 +3002,8 @@
       "schema": "tools/check-runtime.mjs",
       "phase": "A",
       "test": "tests/contracts/runtime-gate.test.ts",
-      "metric": "runtime_gate_failure_total"
+      "metric": "requirement_env_010_violation_total",
+      "linkageProof": "ecd1f456b8cf3f854d4567658f2632f91c597135da29c5146911ef7a19f8be81"
     },
     {
       "id": "ENV-011",
@@ -2736,7 +3015,8 @@
       "schema": "tools/check-runtime.mjs",
       "phase": "A",
       "test": "tests/contracts/runtime-gate.test.ts",
-      "metric": "runtime_gate_failure_total"
+      "metric": "requirement_env_011_violation_total",
+      "linkageProof": "91250053101b9adf588e7ae86dea836f55dfbca489e1b529ecf5fec69a28524b"
     },
     {
       "id": "DOC-001",
@@ -2748,7 +3028,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_001_violation_total",
+      "linkageProof": "e88401416012883b7076bd2d7bb1bac8a4101599a54c7fb10e3a825bea54ffd4"
     },
     {
       "id": "DOC-002",
@@ -2760,7 +3041,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_002_violation_total",
+      "linkageProof": "e6808126967a49d5e5be25e029835fc6e8ee2f6430f8c074a0c06aa249b34791"
     },
     {
       "id": "DOC-003",
@@ -2772,7 +3054,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_003_violation_total",
+      "linkageProof": "97ac7dfb0690bbbd7b70ab6f3410bf0a4fbfd0ef5c6f2b727b51baf9a0811b52"
     },
     {
       "id": "DOC-004",
@@ -2784,7 +3067,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_004_violation_total",
+      "linkageProof": "d79291bdfc219e8771f667776ae950af54087e27a7ed57af29f46948db4dc4ac"
     },
     {
       "id": "DOC-005",
@@ -2796,7 +3080,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_005_violation_total",
+      "linkageProof": "e75a9d65f9ad7cca9cdf4888c03bebcae994a5ece7d5387afcc61f84ed4db858"
     },
     {
       "id": "DOC-006",
@@ -2808,7 +3093,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_006_violation_total",
+      "linkageProof": "03d1abb46dbfd95b099ee17dec78d61090506b63e45b02b6a32fab6cffa690be"
     },
     {
       "id": "DOC-007",
@@ -2820,7 +3106,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_007_violation_total",
+      "linkageProof": "631252bdb08305406add4cdef66c628a9fcaf88ea3d08117831392737e8d4ac2"
     },
     {
       "id": "DOC-008",
@@ -2832,7 +3119,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_008_violation_total",
+      "linkageProof": "0e74b6a1542a527ffcce2663974fd80bb7a045e20e506b1021c36f55fe6fff00"
     },
     {
       "id": "DOC-009",
@@ -2844,7 +3132,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_009_violation_total",
+      "linkageProof": "600874acb401f87640532c2949c8f0548ff13e6e4c09cf91e8bf4dd468ecce94"
     },
     {
       "id": "DOC-010",
@@ -2856,7 +3145,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_010_violation_total",
+      "linkageProof": "eb2142a0c4ed547e8578a852d00e0fe3ead3fccd909f9d0664c392276167a0a2"
     },
     {
       "id": "DOC-011",
@@ -2868,7 +3158,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_011_violation_total",
+      "linkageProof": "fe6a3814dbfe45e91918c2a40180f950f9f8e44dabb6b30ecf9cace7bfe39f8d"
     },
     {
       "id": "DOC-012",
@@ -2880,7 +3171,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_012_violation_total",
+      "linkageProof": "a4c441ff5a1e13edfea6fb52ce0be9bcceaf402431566248119ab2db3bd68a24"
     },
     {
       "id": "DOC-013",
@@ -2892,7 +3184,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_013_violation_total",
+      "linkageProof": "aec2f47bb8903795ed232b9fc51dee9ea5dc26415dc5306f0b2b0fdba586b98a"
     },
     {
       "id": "DOC-014",
@@ -2904,7 +3197,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_014_violation_total",
+      "linkageProof": "a30acf6124e0c8b2fbe7141bb46cde65c39bfe801de1babfe9fd4145350d6f43"
     },
     {
       "id": "DOC-015",
@@ -2916,7 +3210,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_015_violation_total",
+      "linkageProof": "3438f509d784a2961deadbd1b007a602f720feecd9a275b122a0ccf0a70a9307"
     },
     {
       "id": "DOC-016",
@@ -2928,7 +3223,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_016_violation_total",
+      "linkageProof": "6294e5f4d69baa088ab2475d28052385d386e124febd883c7489651871f74a0a"
     },
     {
       "id": "DOC-017",
@@ -2940,7 +3236,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_017_violation_total",
+      "linkageProof": "75d10c2fc7689487ec28ee9226d2aced136e8a6368df9b4a0f7b6f46c171a73b"
     },
     {
       "id": "DOC-018",
@@ -2952,7 +3249,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_018_violation_total",
+      "linkageProof": "30dd835606b8dffb1af43ee43a121fe7ca33513e0614135001252dada11ca460"
     },
     {
       "id": "DOC-019",
@@ -2964,7 +3262,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_019_violation_total",
+      "linkageProof": "28175a328fdd5a63a929c6f8c2a31d77be1deb22c201d844fb2a584d0b6e2587"
     },
     {
       "id": "DOC-020",
@@ -2976,7 +3275,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_020_violation_total",
+      "linkageProof": "63a469deecee2a847af1b8e187bf78d81fb9e156034582ff0ed11bcf3591c264"
     },
     {
       "id": "DOC-021",
@@ -2988,7 +3288,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_021_violation_total",
+      "linkageProof": "062b2707bd2fcfb1f1914d9c4d1d9bfda0f815c604f821dffe5f93d2f6740884"
     },
     {
       "id": "DOC-022",
@@ -3000,7 +3301,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_022_violation_total",
+      "linkageProof": "9194fcfb039e6046da16fd9cdba32e5bc4041e8b4c30b97dc6ea8b29cbcae6a7"
     },
     {
       "id": "DOC-023",
@@ -3012,7 +3314,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_023_violation_total",
+      "linkageProof": "c74335304e4b346346782f98190ae41eb431248c6e5f2a8907eeb9b30adbeb6f"
     },
     {
       "id": "DOC-024",
@@ -3024,7 +3327,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_024_violation_total",
+      "linkageProof": "eda21558b991658d06625b89552fd12065d7442281769b6d2667ced375879d24"
     },
     {
       "id": "DOC-025",
@@ -3036,7 +3340,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_025_violation_total",
+      "linkageProof": "d11c4a08e928745257d0b03bdbc25d33497ee7516b26d529b2f60c1ef73d00b1"
     },
     {
       "id": "DOC-026",
@@ -3048,7 +3353,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_026_violation_total",
+      "linkageProof": "6c3a211c57b50a3f37d8d610ff3327cd71df2710cca564105d7b5beb898b35a4"
     },
     {
       "id": "DOC-027",
@@ -3060,7 +3366,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_027_violation_total",
+      "linkageProof": "94b7785d9c3785462d8294015044fad93e500531efa8de9eae8c9e4a4b2169cc"
     },
     {
       "id": "DOC-028",
@@ -3072,7 +3379,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_028_violation_total",
+      "linkageProof": "bcd1ad0c1166307ad0d3b20aa93ee493e33666832ad54a5472f17ef2be86ae0e"
     },
     {
       "id": "DOC-029",
@@ -3084,7 +3392,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_029_violation_total",
+      "linkageProof": "a3cee854413c41f6f7875949b2bd4ba7ca851ef010139741f35ed5e6d5202692"
     },
     {
       "id": "DOC-030",
@@ -3096,7 +3405,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_030_violation_total",
+      "linkageProof": "3fbf5630920b0fa0ec65622c83c338077f56b027970855428e1ea9d88c3584b0"
     },
     {
       "id": "DOC-031",
@@ -3108,7 +3418,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_031_violation_total",
+      "linkageProof": "7beb87df3ce2f29b744f59e746c124156804e118ae78b731251f9091547f41e0"
     },
     {
       "id": "DOC-032",
@@ -3120,7 +3431,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_032_violation_total",
+      "linkageProof": "cf5932f2eedd32e235df9caee642ca2f1bb406b238bf6fb5047986842b7ffc48"
     },
     {
       "id": "DOC-033",
@@ -3132,7 +3444,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_033_violation_total",
+      "linkageProof": "fbd63d5f82e6647c2c23f29ce7d0bfa7e5ae739762aab5f9fa3a308f5e2f44f0"
     },
     {
       "id": "DOC-034",
@@ -3144,7 +3457,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_034_violation_total",
+      "linkageProof": "d5a5ceb6c3ec5f7e9dbde63992d00903c9c44bd8ed4b5fac47d6a41a90d7ea28"
     },
     {
       "id": "DOC-035",
@@ -3156,7 +3470,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_035_violation_total",
+      "linkageProof": "e8df32fbe978dc5f4bc60dfa0baf3d20c6f271e0ce3e663252eff3cfdfce6efe"
     },
     {
       "id": "DOC-036",
@@ -3168,7 +3483,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_036_violation_total",
+      "linkageProof": "9d6d72fc97cb592940d2258af90952cf4353bf72b8f3c8573aee3e9936f2980d"
     },
     {
       "id": "DOC-037",
@@ -3180,7 +3496,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_037_violation_total",
+      "linkageProof": "7c474a2a1a432ebd7a422c04b69fe69242b2b57c040f7760cc378020f2b59f06"
     },
     {
       "id": "DOC-038",
@@ -3192,7 +3509,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_038_violation_total",
+      "linkageProof": "ac3eeca010eac1a0c5aef4bd3c8ec91b3a4213d5b2b87af3ec3c1aa5c7f6c1b8"
     },
     {
       "id": "DOC-039",
@@ -3204,7 +3522,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_039_violation_total",
+      "linkageProof": "2f0f79805fd51bbb8539bc91619f59428ea66fdbb07ba6e0dec3ffe47fcd8e34"
     },
     {
       "id": "DOC-040",
@@ -3216,7 +3535,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_040_violation_total",
+      "linkageProof": "83a8b64f6ae98f8a4fccebcc8d7710711bf682ea6266712f9d37db50c3f2e191"
     },
     {
       "id": "DOC-041",
@@ -3228,7 +3548,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_041_violation_total",
+      "linkageProof": "5bd8d4fd66e77a9342abfcdd9657f26ef5dec0b1a7d434b78d36d3e191a671e9"
     },
     {
       "id": "DOC-042",
@@ -3240,7 +3561,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_042_violation_total",
+      "linkageProof": "71bd593e67007bd3efa19715c945fa2f58b52365a0d252b983ef59e707740e5e"
     },
     {
       "id": "DOC-043",
@@ -3252,7 +3574,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_043_violation_total",
+      "linkageProof": "1e9e7009e0b14147d471561c8cabac446937b52d64bfec0f1c7c4972e02b7e26"
     },
     {
       "id": "DOC-044",
@@ -3264,7 +3587,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_044_violation_total",
+      "linkageProof": "937cd6b3bc7460f835afa2e91addd5b6d3407bdb2ab00fc87a3e7baf59cd03fd"
     },
     {
       "id": "DOC-045",
@@ -3276,7 +3600,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_045_violation_total",
+      "linkageProof": "42ebac76e29a58e6bddf948e3063f4831b0e629f9bf5ffa0bcae8d1b80b29c6d"
     },
     {
       "id": "DOC-046",
@@ -3288,7 +3613,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_046_violation_total",
+      "linkageProof": "9044adde3583fd79bf0b309690a1d3dacfb74f49a50f58ef29e0769a74c83551"
     },
     {
       "id": "DOC-047",
@@ -3300,7 +3626,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_047_violation_total",
+      "linkageProof": "c3d662931ca086c54d1a6b154f6d3c3ad96aadd58c1801889d6acc21b715d909"
     },
     {
       "id": "DOC-048",
@@ -3312,7 +3639,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_048_violation_total",
+      "linkageProof": "be68ab8e7fa3e468f3f6690fa629cbac5db224b7dce8c64a206ceec406fc009a"
     },
     {
       "id": "DOC-049",
@@ -3324,10 +3652,24 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_049_violation_total",
+      "linkageProof": "f4a84db46e86d8b5305a379426f61f7155c51793d77d27aa22f1c5d745133a5e"
     },
     {
       "id": "DOC-050",
+      "source": "README.md",
+      "sourceLine": 2,
+      "section": "Spot & Learn Battle — 개발 사양서 종합본",
+      "text": "Ruleset SSOT: normative match rules are frozen as `rulesetVersion` **1.0.0** in `config/ruleset.v1.json`; see ADR-001. Timing windows are half-open and ties use the exact ordered sudden-death chain.",
+      "fingerprint": "b674db5d0e14caf32abdc3406b31f81f2e73dd6aa96827c6cb9cf718a2895778",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "requirement_doc_050_violation_total",
+      "linkageProof": "bc2f04da6bada40ecc91b3b577a7100f81263799cce2348be65c3ac9f12cec5f"
+    },
+    {
+      "id": "DOC-051",
       "source": "README.md",
       "sourceLine": 5,
       "section": "한 줄 정의",
@@ -3336,10 +3678,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_051_violation_total",
+      "linkageProof": "88c93b24aeed649c5f18854bd064887185eb8814efbeef3a52445dcb6dda9443"
     },
     {
-      "id": "DOC-051",
+      "id": "DOC-052",
       "source": "README.md",
       "sourceLine": 8,
       "section": "최종 권장 규칙",
@@ -3348,10 +3691,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_052_violation_total",
+      "linkageProof": "ca2d4faa06231e39a0bd847853ec066e78129fcbc009f2727cfb4e480c6ad359"
     },
     {
-      "id": "DOC-052",
+      "id": "DOC-053",
       "source": "README.md",
       "sourceLine": 9,
       "section": "최종 권장 규칙",
@@ -3360,10 +3704,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_053_violation_total",
+      "linkageProof": "d9893201e5ca026cd607ca903acb75a9fa10fbdc5cd6366282afda58c037c257"
     },
     {
-      "id": "DOC-053",
+      "id": "DOC-054",
       "source": "README.md",
       "sourceLine": 10,
       "section": "최종 권장 규칙",
@@ -3372,10 +3717,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_054_violation_total",
+      "linkageProof": "cda134939c7f71039a32741412b210d727e249f6328cfdc8744388c8cb8e87d4"
     },
     {
-      "id": "DOC-054",
+      "id": "DOC-055",
       "source": "README.md",
       "sourceLine": 11,
       "section": "최종 권장 규칙",
@@ -3384,10 +3730,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_055_violation_total",
+      "linkageProof": "bc763f2cd2b58d676876b8ea8ddf3acadf13467d21e69e3692885baee6162744"
     },
     {
-      "id": "DOC-055",
+      "id": "DOC-056",
       "source": "README.md",
       "sourceLine": 12,
       "section": "최종 권장 규칙",
@@ -3396,10 +3743,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_056_violation_total",
+      "linkageProof": "eaf4ecb92fc9aae21c9ad49d22363cf8aaa4cf381389889a519b9da138d8bbb6"
     },
     {
-      "id": "DOC-056",
+      "id": "DOC-057",
       "source": "README.md",
       "sourceLine": 15,
       "section": "핵심 수정 사항",
@@ -3408,10 +3756,141 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_057_violation_total",
+      "linkageProof": "34846db4f6cdf9c29d7f7365496310b66248dfe358e82f16dd515e2f73b4e0bc"
     },
     {
-      "id": "DOC-057",
+      "id": "DOC-058",
+      "source": "README.md",
+      "sourceLine": 18,
+      "section": "권장 점수표",
+      "text": "| 행동 | 점수 |",
+      "fingerprint": "97febe7649a25f17d4208d3b1c8bbc9885b11bdbe95b80c53ab34c228c1aae3b",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "requirement_doc_058_violation_total",
+      "linkageProof": "08393f3368c96c85fbab55ad34093ee50c2b7ae4b9b8250e5ad587e0b79ecb80"
+    },
+    {
+      "id": "DOC-059",
+      "source": "README.md",
+      "sourceLine": 20,
+      "section": "권장 점수표",
+      "text": "| 일반 차이점 | +6 |",
+      "fingerprint": "6c1421f93e1c59b997f3514ff40db23e29fc37054442493a77404c4e59fdff2b",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "requirement_doc_059_violation_total",
+      "linkageProof": "1e7b1bd3d307787fc2c069221b1fc96e274a9aba095e9424859cab11e24697b3"
+    },
+    {
+      "id": "DOC-060",
+      "source": "README.md",
+      "sourceLine": 21,
+      "section": "권장 점수표",
+      "text": "| 어려운 차이점 | +9 |",
+      "fingerprint": "c9a9251b80d9be35076dc9c96a4f33d29c41056d086c36755eaf7f9fdc4d5fe2",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "requirement_doc_060_violation_total",
+      "linkageProof": "01f5a1f2f9dd734132a095b64cafe7e122553b9f44c341038c2cdb7a0a110aa5"
+    },
+    {
+      "id": "DOC-061",
+      "source": "README.md",
+      "sourceLine": 22,
+      "section": "권장 점수표",
+      "text": "| 돌발 단어 사냥 | +10 |",
+      "fingerprint": "b2e6dfaf52a4fad87ad7368004b271700aa7a2c8dacccfca39f53408a65bae0f",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "requirement_doc_061_violation_total",
+      "linkageProof": "4af9ce44018b42f1cc903d18537d9f61dfa51251a8aa237907e7ff0a8da2f5db"
+    },
+    {
+      "id": "DOC-062",
+      "source": "README.md",
+      "sourceLine": 23,
+      "section": "권장 점수표",
+      "text": "| 스페셜 돌발 단어 | +15 |",
+      "fingerprint": "895877f68046c561012a2d6523f452b576130fd1575a0a9cf99bceb366e44a1d",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "requirement_doc_062_violation_total",
+      "linkageProof": "c6df1d1a10826aa3b04ec0739cda19db80f6fedad612e55038f1da0c79afa9ff"
+    },
+    {
+      "id": "DOC-063",
+      "source": "README.md",
+      "sourceLine": 24,
+      "section": "권장 점수표",
+      "text": "| 최종 단어 정답 | +25 |",
+      "fingerprint": "587e68faf624486eaaadce2302ec4d01d76561067748fe1f9b027c2c2e90e223",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "requirement_doc_063_violation_total",
+      "linkageProof": "77e1ddff95f652c768943eb285167b67c94fc52e4135dd4ff3ff18f07d062055"
+    },
+    {
+      "id": "DOC-064",
+      "source": "README.md",
+      "sourceLine": 25,
+      "section": "권장 점수표",
+      "text": "| 뜻 맞히기 | +15 |",
+      "fingerprint": "9d008dce551d726a284eed9b765e12eb54df1a829a0155f7dd14edd86a0ecfc1",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "requirement_doc_064_violation_total",
+      "linkageProof": "6c721458e954827901deb1753f9621b3c4fe680aeeb73b969e2286ba7030d005"
+    },
+    {
+      "id": "DOC-065",
+      "source": "README.md",
+      "sourceLine": 26,
+      "section": "권장 점수표",
+      "text": "| 단어+뜻 연속 성공 | +10 |",
+      "fingerprint": "207b7e36161502bc6ac7c9bca59e29f3a9f7825c4a170d2ee7f84acd4989f39d",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "requirement_doc_065_violation_total",
+      "linkageProof": "b6a1bf6aec27827c34c288fdf93829bbb2968640a365bafe1903778adc4a86ba"
+    },
+    {
+      "id": "DOC-066",
+      "source": "README.md",
+      "sourceLine": 27,
+      "section": "권장 점수표",
+      "text": "| 오답 | -5 + 2초 잠금 |",
+      "fingerprint": "4b6d7c8e5d8737d9ef6eb63cbaa695f36ef9f6650288b92cf389feed4680bb9b",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "requirement_doc_066_violation_total",
+      "linkageProof": "756fffdb1a3a3dc51c3417529439c85d554adf369ed4617841c309f6cb37c2c6"
+    },
+    {
+      "id": "DOC-067",
+      "source": "README.md",
+      "sourceLine": 28,
+      "section": "권장 점수표",
+      "text": "| 파이널 러시 오답 | -10 + 1.5초 잠금 |",
+      "fingerprint": "8995bf7c757986a17b64ecf7f3c78110684bcec2b007468e18d07c5d64e5d131",
+      "schema": "tools/check-docs.mjs",
+      "phase": "G",
+      "test": "tests/specs/traceability.test.ts",
+      "metric": "requirement_doc_067_violation_total",
+      "linkageProof": "170095ec0a4f28cc2246c848f4b7eb1bc4722b2e111da2bbdf9a44280e4202f8"
+    },
+    {
+      "id": "DOC-068",
       "source": "README.md",
       "sourceLine": 31,
       "section": "MVP 기술 스택",
@@ -3420,10 +3899,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_068_violation_total",
+      "linkageProof": "ad420b27fc389a460e8bd7f6ab6db0f3fcff7bf487ff48522d451b1f672f4c66"
     },
     {
-      "id": "DOC-058",
+      "id": "DOC-069",
       "source": "README.md",
       "sourceLine": 32,
       "section": "MVP 기술 스택",
@@ -3432,10 +3912,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_069_violation_total",
+      "linkageProof": "eade070bc0cb2951a1f92bf387c8643932931044b377067d5eb3c742aa4ffe7d"
     },
     {
-      "id": "DOC-059",
+      "id": "DOC-070",
       "source": "README.md",
       "sourceLine": 33,
       "section": "MVP 기술 스택",
@@ -3444,10 +3925,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_070_violation_total",
+      "linkageProof": "7258418543d7baf3691c1460c9ccb0c12ae0ac383d835d3a40b92eeda046e195"
     },
     {
-      "id": "DOC-060",
+      "id": "DOC-071",
       "source": "README.md",
       "sourceLine": 34,
       "section": "MVP 기술 스택",
@@ -3456,10 +3938,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_071_violation_total",
+      "linkageProof": "37d67b813f117cd701011f6c735a877dde650b13c0e062eb507e643161ed97a0"
     },
     {
-      "id": "DOC-061",
+      "id": "DOC-072",
       "source": "README.md",
       "sourceLine": 35,
       "section": "MVP 기술 스택",
@@ -3468,10 +3951,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_072_violation_total",
+      "linkageProof": "c26f4dfe26d5a6936da92122bfadaa60eda829e9efd2716b9705f1239045d0dc"
     },
     {
-      "id": "DOC-062",
+      "id": "DOC-073",
       "source": "README.md",
       "sourceLine": 36,
       "section": "MVP 기술 스택",
@@ -3480,10 +3964,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_073_violation_total",
+      "linkageProof": "550ad07fac6c4fb792e31112e38429f9e7288acd631a046a74c5b91cf6af1edc"
     },
     {
-      "id": "DOC-063",
+      "id": "DOC-074",
       "source": "README.md",
       "sourceLine": 37,
       "section": "MVP 기술 스택",
@@ -3492,10 +3977,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_074_violation_total",
+      "linkageProof": "f551131a48feda5aca3f4ca05651047951b4faa67477841a5a3b9e78a33b73d7"
     },
     {
-      "id": "DOC-064",
+      "id": "DOC-075",
       "source": "README.md",
       "sourceLine": 40,
       "section": "문서 순서",
@@ -3504,10 +3990,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_075_violation_total",
+      "linkageProof": "1dfa7746bb37b0b535f44ad352040c650f52d1b3b43866ba51177ff0e3d842c9"
     },
     {
-      "id": "DOC-065",
+      "id": "DOC-076",
       "source": "README.md",
       "sourceLine": 41,
       "section": "문서 순서",
@@ -3516,10 +4003,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_076_violation_total",
+      "linkageProof": "48252b684bbec955702bac56267ce0e5f3aac82eea537aac2c423eb558f086e1"
     },
     {
-      "id": "DOC-066",
+      "id": "DOC-077",
       "source": "README.md",
       "sourceLine": 42,
       "section": "문서 순서",
@@ -3528,10 +4016,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_077_violation_total",
+      "linkageProof": "62567a471c33efcfbe978aa9db6e90b7512c65ae59f47f067cc8dcaeed251fbd"
     },
     {
-      "id": "DOC-067",
+      "id": "DOC-078",
       "source": "README.md",
       "sourceLine": 43,
       "section": "문서 순서",
@@ -3540,10 +4029,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_078_violation_total",
+      "linkageProof": "8f3989dd457ed1a1d23a0991ef2ce157e8ff956726aa8a2ab817b65216cc1c41"
     },
     {
-      "id": "DOC-068",
+      "id": "DOC-079",
       "source": "README.md",
       "sourceLine": 44,
       "section": "문서 순서",
@@ -3552,10 +4042,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_079_violation_total",
+      "linkageProof": "7b4cf8d3bdb7bad8d462fe38cb0fdab380d575307355a5f932dc098789253148"
     },
     {
-      "id": "DOC-069",
+      "id": "DOC-080",
       "source": "README.md",
       "sourceLine": 45,
       "section": "문서 순서",
@@ -3564,10 +4055,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_080_violation_total",
+      "linkageProof": "be2a805d7df1b83d59c4bce2b54f21578af35cc71a9f187311cc562326461f53"
     },
     {
-      "id": "DOC-070",
+      "id": "DOC-081",
       "source": "README.md",
       "sourceLine": 46,
       "section": "문서 순서",
@@ -3576,10 +4068,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_081_violation_total",
+      "linkageProof": "1175fb5fdd76a47c209c537dcbd77950f8dbe3ff673d074c1713bcbbf2a5dba4"
     },
     {
-      "id": "DOC-071",
+      "id": "DOC-082",
       "source": "README.md",
       "sourceLine": 47,
       "section": "문서 순서",
@@ -3588,10 +4081,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_082_violation_total",
+      "linkageProof": "da828a7c77a64bea0c99b1485bf25f1d1ced975419bd7169739122bce945aa41"
     },
     {
-      "id": "DOC-072",
+      "id": "DOC-083",
       "source": "README.md",
       "sourceLine": 48,
       "section": "문서 순서",
@@ -3600,10 +4094,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_083_violation_total",
+      "linkageProof": "0e881c3be0008fa7a6d05c800f956e859630016185c326f2b545a7c1455fe426"
     },
     {
-      "id": "DOC-073",
+      "id": "DOC-084",
       "source": "README.md",
       "sourceLine": 49,
       "section": "문서 순서",
@@ -3612,10 +4107,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_084_violation_total",
+      "linkageProof": "c78d09b1c5b244de85344aca82da7415a2d7d073291a22d0dc3650cb083d6bc7"
     },
     {
-      "id": "DOC-074",
+      "id": "DOC-085",
       "source": "README.md",
       "sourceLine": 50,
       "section": "문서 순서",
@@ -3624,10 +4120,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_085_violation_total",
+      "linkageProof": "de6525ee958e1c1821b26973fe45de63f802cd97493c6063f95a23a05ad95484"
     },
     {
-      "id": "DOC-075",
+      "id": "DOC-086",
       "source": "README.md",
       "sourceLine": 51,
       "section": "문서 순서",
@@ -3636,10 +4133,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_086_violation_total",
+      "linkageProof": "9fbd84155004f8bf7ad287d9c27e22970b9b078ff154c03e4520bf5fac41e2f7"
     },
     {
-      "id": "DOC-076",
+      "id": "DOC-087",
       "source": "README.md",
       "sourceLine": 52,
       "section": "문서 순서",
@@ -3648,10 +4146,11 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_087_violation_total",
+      "linkageProof": "1c8c3090c1ed4cd1d7de62c4dc3552e8cf0586b9226b18f4b2435d5aeaca4fe0"
     },
     {
-      "id": "DOC-077",
+      "id": "DOC-088",
       "source": "README.md",
       "sourceLine": 54,
       "section": "문서 순서",
@@ -3660,7 +4159,8 @@
       "schema": "tools/check-docs.mjs",
       "phase": "G",
       "test": "tests/specs/traceability.test.ts",
-      "metric": "docs_gate_failure_total"
+      "metric": "requirement_doc_088_violation_total",
+      "linkageProof": "ad64a74aa6c4ddc44e1bc62d3b08c56b297650efda8fa7e7270c39b349cbd98d"
     }
   ]
 }

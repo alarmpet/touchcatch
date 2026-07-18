@@ -34,6 +34,7 @@ describe('release evidence harnesses', () => {
     expect(()=>evaluateLoadSamples([sample('r','SUCCESS',1)],{soakStartMs:0,soakEndMs:100,expectedConcurrency:100})).toThrow(/30-minute/);
     expect(()=>evaluateLoadSamples([{...sample('r','SUCCESS',1),concurrency:0}],{soakStartMs:0,soakEndMs:1_800_000,expectedConcurrency:100})).toThrow(/concurrency/);
   });
+  it('assigns a retry only to its terminal rolling window across a 5m boundary',()=>{const rows=[sample('retry','UNEXPECTED_FAILURE',299999,'ACK_TIMEOUT'),sample('retry','SUCCESS',300001)];const result=evaluateLoadSamples(rows,{soakStartMs:0,soakEndMs:1_800_000,expectedConcurrency:100});expect(result.rolling5m[0]).toMatchObject({denominator:0,numerator:0});expect(result.rolling5m[1]).toMatchObject({denominator:1,numerator:0});});
 
   it('executes lease/fence crash/restart, journal gap snapshot and exactly-once outbox effects', async () => {
     const result=await runDeterministicFaultHarness(20260719);
@@ -41,6 +42,7 @@ describe('release evidence harnesses', () => {
     expect(result.reconstructedTerminalHash).toBe(result.authoritativeTerminalHash);
     expect(result.crashPoints).toEqual(['AFTER_CLAIM','AFTER_JOURNAL','AFTER_EFFECT','BEFORE_ACK']);
     expect(result.injectedCrashCounts).toEqual({AFTER_CLAIM:50,AFTER_JOURNAL:50,AFTER_EFFECT:50,BEFORE_ACK:50});
+    expect(result.staleWriteAttempts).toBe(200);expect(result.externalProviderDeduplications).toBe(50);
   });
 
   it('separates deterministic 10k match and 100k economy evidence', () => {
@@ -53,6 +55,7 @@ describe('release evidence harnesses', () => {
     const contract=parseExperimentContractV1({schemaVersion:1,experimentId:'battle-v1',assignmentUnit:'anonymousUserId',assignmentSaltVersion:'salt-v1',variants:['CONTROL','TREATMENT'],allocationBasisPoints:[5000,5000],primaryMetric:'final_attempt_rate',mde:0.03,alpha:0.05,power:0.8,minSamplePerVariant:10000,guardrails:['tap_result_p95','unexpected_failure_rate','srm'],stoppingRule:'FIXED_HORIZON',cellBucket:'03:12'});
     expect(contract.cellBucket).toBe('03:12');
     expect(()=>parseExperimentContractV1({...contract,allocationBasisPoints:[6000,3000]})).toThrow(/allocation/);
+    expect(()=>parseExperimentContractV1({...contract,allocationBasisPoints:[10000,0]})).toThrow(/allocation/);
     expect(assignExperimentVariant('anon-1',contract)).toBe(assignExperimentVariant('anon-1',contract));
     expect(evaluateSampleRatioMismatch({CONTROL:5000,TREATMENT:5000},contract).verdict).toBe('PASS');expect(evaluateSampleRatioMismatch({CONTROL:9000,TREATMENT:1000},contract).verdict).toBe('FAIL');
   });

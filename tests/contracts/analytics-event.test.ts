@@ -34,6 +34,7 @@ describe('analytics privacy boundary', () => {
     expect(reconstructTrace(events,'trace_opaque')).toEqual(stages);
     expect(()=>reconstructTrace(events.slice(0,5),'trace_opaque')).toThrow(/complete/i);
     expect(()=>reconstructTrace([...events,events[5]!],'trace_opaque')).toThrow(/complete|duplicate/i);
+    expect(()=>reconstructTrace(events.map((event,index)=>index===3?{...event,matchId:'other-match'}:event),'trace_opaque')).toThrow(/match/i);
   });
   it('keeps JSON schema cellBucket string semantics in runtime parity',()=>{const schema=JSON.parse(fs.readFileSync('schemas/analytics-event.schema.json','utf8'));const validate=new Ajv2020({strict:false,formats:{'date-time':true}}).compile(schema);const good={...base,name:'same_coordinate_burst_signal',data:{cellBucket:'03:12',countBucket:'8-15',windowDurationBucket:'1-2s'}};expect(validate(good)).toBe(true);expect(()=>parseAnalyticsEventV1(good)).not.toThrow();for(const value of [312,null,{}]){const bad={...good,data:{...good.data,cellBucket:value}};expect(validate(bad)).toBe(false);expect(()=>parseAnalyticsEventV1(bad)).toThrow();}});
 });
