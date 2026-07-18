@@ -32,7 +32,18 @@ describe('cross-layer generated evidence', () => {
     expect(enumBody?.match(/'[^']+'/gu)?.map((v) => v.slice(1, -1))).toEqual(MATCH_DB_PROJECTION_V1.phases);
     const projection=deriveTerminalConstraintProjection(sql);
     expect(projection).toEqual({cancelled:[...MATCH_DB_PROJECTION_V1.winnerForbidden.filter(x=>x!=='DRAW')].sort(),finished:[...MATCH_DB_PROJECTION_V1.winnerRequired,'DRAW'].sort(),drawWinnerNull:true,nonDrawWinnerPresent:true});
-    expect(()=>deriveTerminalConstraintProjection(sql.replace("'FORFEIT'", "'DRAW'"))).toThrow();
+    const mutations = [
+      sql.replace("status not in ('FINISHED','CANCELLED')", "status = 'FINISHED'"),
+      sql.replace("status = 'CANCELLED'", "status = 'FINISHED'"),
+      sql.replace('and ended_at is null and end_reason is null and winner_participant_key is null', 'and end_reason is null and winner_participant_key is null'),
+      sql.replace("status = 'CANCELLED'\n    and ended_at is not null", "status = 'CANCELLED'\n    and ended_at is null"),
+      sql.replace("'NO_CONTEST_ASSET_LOAD','NO_CONTEST'", "'NO_CONTEST_ASSET_LOAD','FORFEIT'"),
+      sql.replace("'SCORE_TARGET','TIMEOUT_TIEBREAK','SUDDEN_DEATH','FORFEIT','DRAW'", "'SCORE_TARGET','TIMEOUT_TIEBREAK','SUDDEN_DEATH','NO_CONTEST','DRAW'"),
+      sql.replace("and winner_participant_key is null\n  ) or (\n    status = 'FINISHED'", "and winner_participant_key is not null\n  ) or (\n    status = 'FINISHED'"),
+      sql.replace("end_reason = 'DRAW' and winner_participant_key is null", "end_reason = 'DRAW' and winner_participant_key is not null"),
+      sql.replace("end_reason <> 'DRAW' and winner_participant_key is not null", "end_reason <> 'DRAW' and winner_participant_key is null"),
+    ];
+    for (const mutated of mutations) expect(() => deriveTerminalConstraintProjection(mutated)).toThrow('terminal constraint drift');
   });
 
   it('includes policy version in the exact origin identity',()=>{

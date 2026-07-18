@@ -81,7 +81,17 @@ beforeAll(async () => {
     )).rejects.toThrow();
     await publisher.query('set role deployment_role');
     await expect(publisher.query('select * from private.game_content_solutions')).rejects.toThrow();
-    await expect(publisher.query("insert into public.game_content_revisions(content_revision_id) values (gen_random_uuid())")).rejects.toThrow();
+    const privilege=await publisher.query<{allowed:boolean}>("select has_table_privilege(current_user,'public.game_content_revisions','INSERT') as allowed");
+    expect(privilege.rows[0]?.allowed).toBe(false);
+    const directRevision=randomUUID();
+    await publisher.query(
+      `insert into public.game_content_revisions(content_revision_id,content_id,version,schema_version,asset_policy_version,public_content,public_content_hash,status,approved_at,rights_manifest_set_id,validator_version)
+       values ($1,$2,1,'1.0.0','1.0.0',$3::jsonb,$4,'PUBLISHED',now(),'direct-dml-test','1.0.0')`,
+      [directRevision,randomUUID(),JSON.stringify({schemaVersion:'1.0.0'}),'f'.repeat(64)],
+    ).then(
+      ()=>{throw new Error('direct DML unexpectedly succeeded');},
+      (error:unknown)=>{expect(error).toMatchObject({code:'42501'});},
+    );
     await publisher.query(
       'select private.publish_content_revision_v1($1,$2,$3,$4,$5,$6,$7)',
       [

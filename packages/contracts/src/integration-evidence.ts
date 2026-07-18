@@ -16,7 +16,21 @@ export const CONTENT_INTEGRATION_EVIDENCE = Object.freeze({
   validateTerminalTuple(tuple:{phase:MatchPhase;endReason:MatchEndReason|null;winnerPlayerId:string|null}){const terminal=tuple.phase==='FINISHED'||tuple.phase==='CANCELLED';if(!terminal)return tuple.endReason===null&&tuple.winnerPlayerId===null;if(tuple.endReason===null)return false;if(tuple.phase==='CANCELLED')return MATCH_DB_PROJECTION_V1.winnerForbidden.includes(tuple.endReason as never)&&tuple.endReason!=='DRAW'&&tuple.winnerPlayerId===null;if(MATCH_DB_PROJECTION_V1.winnerRequired.includes(tuple.endReason as never))return tuple.winnerPlayerId!==null;return tuple.endReason==='DRAW'&&tuple.winnerPlayerId===null;},
 });
 
-export function deriveTerminalConstraintProjection(sql:string){const body=/matches_terminal_shape check \(([\s\S]*?)\n\);/u.exec(sql)?.[1];if(!body)throw Error('terminal constraint missing');const groups=[...body.matchAll(/end_reason in \(([^)]+)\)/gu)].map(m=>(m[1]!.match(/'[^']+'/gu)?.map(v=>v.slice(1,-1))??[]).sort());if(groups.length!==2)throw Error('terminal partition malformed');const result={cancelled:groups[0],finished:groups[1],drawWinnerNull:/end_reason = 'DRAW' and winner_participant_key is null/su.test(body),nonDrawWinnerPresent:/end_reason <> 'DRAW' and winner_participant_key is not null/su.test(body)};const expected={cancelled:[...MATCH_DB_PROJECTION_V1.winnerForbidden.filter(x=>x!=='DRAW')].sort(),finished:[...MATCH_DB_PROJECTION_V1.winnerRequired,'DRAW'].sort(),drawWinnerNull:true,nonDrawWinnerPresent:true};if(JSON.stringify(result)!==JSON.stringify(expected))throw Error('terminal constraint drift');return result;}
+const sqlList=(values:readonly string[])=>values.map(value=>`'${value}'`).join(',');
+export const GENERATED_MATCH_TERMINAL_CONSTRAINT_V1=`(
+status not in ('FINISHED','CANCELLED') and ended_at is null and end_reason is null and winner_participant_key is null
+) or (
+status = 'CANCELLED' and ended_at is not null and end_reason in (${sqlList(MATCH_DB_PROJECTION_V1.winnerForbidden.filter(value=>value!=='DRAW'))}) and winner_participant_key is null
+) or (
+status = 'FINISHED' and ended_at is not null and end_reason in (${sqlList([...MATCH_DB_PROJECTION_V1.winnerRequired,'DRAW'])}) and ((end_reason = 'DRAW' and winner_participant_key is null) or (end_reason <> 'DRAW' and winner_participant_key is not null))
+)`;
+const normalizeSql=(value:string)=>value.replace(/\s+/gu,' ').trim();
+export function deriveTerminalConstraintProjection(sql:string){
+ const body=/matches_terminal_shape check \(([\s\S]*?)\n\);/u.exec(sql)?.[1];
+ if(!body)throw Error('terminal constraint missing');
+ if(normalizeSql(body)!==normalizeSql(GENERATED_MATCH_TERMINAL_CONSTRAINT_V1))throw Error('terminal constraint drift');
+ return {cancelled:[...MATCH_DB_PROJECTION_V1.winnerForbidden.filter(x=>x!=='DRAW')].sort(),finished:[...MATCH_DB_PROJECTION_V1.winnerRequired,'DRAW'].sort(),drawWinnerNull:true,nonDrawWinnerPresent:true};
+}
 
 export function parseContentAssetOrigins(value: string): readonly string[];
 export function parseContentAssetOrigins(value: string, assetPolicyVersion:string): readonly {assetPolicyVersion:string;origin:string}[];
