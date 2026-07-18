@@ -3056,11 +3056,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-015:OPENAPI_PROJECTION:FAIL",
+      "oracle": "API-015:OPENAPI_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-015",
-      "linkageProof": "d7e9c40ca48f303438ece977ab6b50514193b14dfedf4a4ef333003c74634c9a"
+      "linkageProof": "6b31336f487b6430bdda5e4fe4e0b9da43b5a0b9b72ef671d4f0c7b2c09132ae"
     },
     {
       "id": "API-016",

@@ -3175,7 +3175,7 @@
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "API-015"
       },
       "testCase": "API-015 executes OPENAPI_PROJECTION",
