@@ -7,7 +7,7 @@ import {
   parsePetCatalog,
   pityTransition,
 } from './economy.schema.js';
-import Ajv2020 from 'ajv/dist/2020.js';
+import { Ajv2020 } from 'ajv/dist/2020.js';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 

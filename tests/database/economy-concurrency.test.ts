@@ -9,7 +9,7 @@ import { canonicalJsonSha256 } from '../../packages/contracts/src/canonical-json
 function databaseUrl():string { const explicit=process.env.TEST_DATABASE_URL; const output=explicit??execFileSync(process.execPath,[resolve('D:/touchcatch/node_modules/supabase/dist/supabase.js'),'status','-o','env'],{encoding:'utf8'}); const raw=explicit??/^DB_URL=(?:"([^"]+)"|([^\r\n]+))$/mu.exec(output)?.slice(1).find(Boolean); if(!raw)throw new Error('local DB required');const url=new URL(raw);if(!['127.0.0.1','localhost','::1'].includes(url.hostname))throw new Error('loopback required');return url.toString(); }
 const pool=new Pool({connectionString:databaseUrl(),max:25});
 let fixture:Awaited<ReturnType<typeof loadTestEconomyFixture>>;
-let economy:Record<string,unknown>;let catalog:Awaited<ReturnType<typeof loadTestEconomyFixture>>['catalog'];
+let economy:Awaited<ReturnType<typeof loadTestEconomyFixture>>['publishInput']['economy'];let catalog:Awaited<ReturnType<typeof loadTestEconomyFixture>>['publishInput']['catalog'];
 async function role(c:PoolClient,name:'deployment_role'|'app_server'){await c.query(`set role ${name}`);expect((await c.query('select current_user')).rows[0]?.current_user).toBe(name);}
 async function clients20(){const clients=await Promise.all(Array.from({length:20},()=>pool.connect()));await Promise.all(clients.map(c=>role(c,'app_server')));return clients;}
 async function release(clients:PoolClient[]){await Promise.all(clients.map(async c=>{await c.query('reset role').catch(()=>undefined);c.release();}));}
