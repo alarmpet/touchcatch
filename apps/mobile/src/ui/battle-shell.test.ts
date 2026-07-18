@@ -35,6 +35,12 @@ describe('battle geometry', () => {
     expect(inverseContentPoint(screen, rect, transform, 'FINAL_RUSH').y).toBeCloseTo(point.y);
   });
 
+  it('rejects non-finite or degenerate transform geometry',()=>{
+    expect(()=>inverseContentPoint({x:1,y:1},{x:0,y:0,width:0,height:1},{scale:1,tx:0,ty:0})).toThrow();
+    expect(()=>inverseContentPoint({x:1,y:1},{x:0,y:0,width:1,height:1},{scale:0,tx:0,ty:0})).toThrow();
+    expect(()=>clampTransform({scale:Number.NaN,tx:0,ty:0},{width:1,height:1},{min:1,max:4})).toThrow();
+  });
+
   it('hit tests normalized public display circles at the boundary', () => {
     expect(hitTestCircle({ x: .6, y: .5 }, { x: .5, y: .5, radius: .1 })).toBe(true);
     expect(hitTestCircle({ x: .601, y: .5 }, { x: .5, y: .5, radius: .1 })).toBe(false);

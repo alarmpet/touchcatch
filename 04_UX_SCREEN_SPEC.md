@@ -1,5 +1,11 @@
 # 04. UX 및 화면 사양
 
+<!-- GENERATED:UI_ACCEPTANCE:START -->
+## UI acceptance matrix (generated contract projection)
+
+Every `320x568`, `390x844`, and `412x915` viewport is checked on iOS and Android for default, disabled, pending, offline, reconnecting, modal, 200% text, reduced-motion, and high-contrast states. Safe-area containment, logical focus order, 44pt/48dp targets, modal focus trap, blocked backdrop/system-back dismissal, live-region announcements, and private-answer non-disclosure are required. Actual device captures and approved goldens remain `BLOCKED_MANUAL_DEVICE_EVIDENCE`.
+<!-- GENERATED:UI_ACCEPTANCE:END -->
+
 ## 원칙
 - 게임 화면에는 점수, 시간, 최종 정답, 힌트만 노출
 - 펫 능력치와 재료를 게임 화면에 표시하지 않음

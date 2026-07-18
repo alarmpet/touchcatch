@@ -1,0 +1,2 @@
+import {Ajv2020} from 'ajv/dist/2020.js'; import {readFileSync} from 'node:fs';
+const schema=JSON.parse(readFileSync('schemas/ui-runtime-assets.schema.json'));const value=JSON.parse(readFileSync('config/ui-runtime-assets.v1.json'));const validate=new Ajv2020({strict:true,allErrors:true}).compile(schema);if(!validate(value)){console.error(validate.errors);process.exit(1)}if(value.lifecycle!=='DRAFT'||value.entries.length!==0){console.error('unapproved UI assets cannot enter beta');process.exit(1)}console.log('UiRuntimeAssetManifestV1 DRAFT: 0 runtime assets, beta blocked');

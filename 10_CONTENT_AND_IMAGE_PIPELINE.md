@@ -42,6 +42,10 @@ Task 5는 콘텐츠 계약만 소유한다. 아직 구현되지 않은 Task 3/4�
 - 실패 fixture: `content/fixtures/invalid`의 schema, geometry, normalization, provenance, URL/path, container 및 image decode 공격 사례
 - hash-pinned bytes: `content/fixtures/assets`
 
+<!-- GENERATED:UI_ASSETS:START -->
+`UiRuntimeAssetManifestV1` is an empty strict DRAFT manifest. `ui:assets:check` rejects approval forgery and any unapproved beta asset. Publish verifies immutable bytes and the exact `(rightsRecordId, assetSha256)` pair; rollback selects an earlier approved immutable manifest; takedown blocks the hash at CDN and admission layers. Concept references are never runtime assets or visual goldens.
+<!-- GENERATED:UI_ASSETS:END -->
+
 ```powershell
 corepack pnpm content:schemas:check
 corepack pnpm content:validate

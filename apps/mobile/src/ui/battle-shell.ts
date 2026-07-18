@@ -1,3 +1,5 @@
+import { Ajv2020 } from 'ajv/dist/2020.js';
+import type { MatchSnapshotV1 } from '../../../../packages/contracts/src/socket.js';
 export type Point = Readonly<{ x: number; y: number }>;
 export type Rect = Readonly<{ x: number; y: number; width: number; height: number }>;
 export type Transform = Readonly<{ scale: number; tx: number; ty: number }>;
@@ -7,6 +9,7 @@ export function layoutContainedPair(
   image: Readonly<{ width: number; height: number }>,
   gap: number,
 ) {
+  if (![available.width,available.height,image.width,image.height].every(Number.isFinite) || available.width<=0 || available.height<=0 || image.width<=0 || image.height<=0 || !Number.isFinite(gap) || gap<0 || gap>=available.height) throw new RangeError('invalid layout dimensions');
   const viewportHeight = (available.height - gap) / 2;
   const viewport = { x: 0, y: 0, width: available.width, height: viewportHeight };
   const scale = Math.min(viewport.width / image.width, viewport.height / image.height);
@@ -20,6 +23,7 @@ export function layoutContainedPair(
 }
 
 export function clampTransform(transform: Transform, viewport: Readonly<{ width: number; height: number }>, limits: Readonly<{ min: number; max: number }>): Transform {
+  if(![transform.scale,transform.tx,transform.ty,viewport.width,viewport.height,limits.min,limits.max].every(Number.isFinite)||viewport.width<=0||viewport.height<=0||limits.min<=0||limits.max<limits.min)throw new RangeError('invalid transform');
   const scale = Math.min(limits.max, Math.max(limits.min, transform.scale));
   const maxX = viewport.width * (scale - 1) / 2;
   const maxY = viewport.height * (scale - 1) / 2;
@@ -27,6 +31,7 @@ export function clampTransform(transform: Transform, viewport: Readonly<{ width:
 }
 
 export function contentToScreen(point: Point, rect: Rect, transform: Transform): Point {
+  assertGeometry(point,rect,transform);
   return {
     x: rect.x + rect.width / 2 + ((point.x - .5) * rect.width) * transform.scale + transform.tx,
     y: rect.y + rect.height / 2 + ((point.y - .5) * rect.height) * transform.scale + transform.ty,
@@ -34,11 +39,13 @@ export function contentToScreen(point: Point, rect: Rect, transform: Transform):
 }
 
 export function inverseContentPoint(point: Point, rect: Rect, transform: Transform, _phase?: 'FINAL_RUSH'): Point {
+  assertGeometry(point,rect,transform);
   return {
     x: ((point.x - rect.x - rect.width / 2 - transform.tx) / transform.scale) / rect.width + .5,
     y: ((point.y - rect.y - rect.height / 2 - transform.ty) / transform.scale) / rect.height + .5,
   };
 }
+function assertGeometry(point:Point,rect:Rect,transform:Transform){if(![point.x,point.y,rect.x,rect.y,rect.width,rect.height,transform.scale,transform.tx,transform.ty].every(Number.isFinite)||rect.width<=0||rect.height<=0||transform.scale<=0)throw new RangeError('invalid geometry')}
 
 export function hitTestCircle(point: Point, circle: Readonly<{ x: number; y: number; radius: number }>): boolean {
   return Math.hypot(point.x - circle.x, point.y - circle.y) <= circle.radius + Number.EPSILON;
@@ -57,8 +64,7 @@ export function shouldCancelSyntheticTap(
   return Math.abs(gesture.translationPx)>threshold.translationPx || Math.abs(gesture.scaleDelta)>threshold.scaleDelta;
 }
 
-type PublicBattleViewModel = Readonly<{
-  phase: 'WAITING_FOR_ASSETS' | 'COUNTDOWN' | 'PLAYING' | 'FINAL_RUSH' | 'SETTLING' | 'TIEBREAK_EVAL' | 'SUDDEN_DEATH' | 'FINISHED' | 'CANCELLED';
+export type PublicBattleViewModel = Pick<MatchSnapshotV1,'phase'|'scores'|'claimed'|'meaningQuiz'|'viewerInput'> & Readonly<{
   pendingIntentId: string | null;
   connection: 'CONNECTED' | 'OFFLINE' | 'RECONNECTING';
   scores: ReadonlyArray<Readonly<{ playerId: string; absoluteScore: number }>>;
@@ -72,6 +78,16 @@ type UiPreferences = Readonly<{ platform: 'ios' | 'android'; reducedMotion: bool
 
 export function buildBattleScreen(vm: PublicBattleViewModel, preferences: UiPreferences) {
   const minTarget = preferences.platform === 'ios' ? 44 : 48;
+  const modal=vm.meaningQuiz ? {
+      dismissible: false as const,
+      options: vm.meaningQuiz.options.map(({ id, label }) => ({ id, label })),
+      accessibilityLabels: vm.meaningQuiz.options.map(option => option.label),
+      accessibilityViewIsModal:true as const,
+      focusTrap:true as const,
+      backdropDismiss:false as const,
+      systemBackDismiss:false as const,
+      liveRegion:'polite' as const,
+    } : null;
   return {
     status: vm.pendingIntentId ? 'pending' as const : vm.connection === 'CONNECTED' ? 'default' as const : vm.connection.toLowerCase() as 'offline' | 'reconnecting',
     confirmedDifferenceRings: vm.claimed.flatMap(c => c.displayCircles),
@@ -83,13 +99,36 @@ export function buildBattleScreen(vm: PublicBattleViewModel, preferences: UiPref
       { id: 'board-b', role: 'imagebutton', label: 'Difference image B', minTarget },
       { id: 'submit-response', role: 'button', label: 'Submit final response', minTarget, disabled: !vm.viewerInput.enabled },
     ] as const,
-    modal: vm.meaningQuiz ? {
-      dismissible: false as const,
-      options: vm.meaningQuiz.options.map(({ id, label }) => ({ id, label })),
-      accessibilityLabels: vm.meaningQuiz.options.map(option => option.label),
-    } : null,
+    modal,
+    nativeTree:{type:'SafeAreaView' as const,props:{accessible:true,accessibilityViewIsModal:false,allowFontScaling:true,maxFontSizeMultiplier:2,importantForAccessibility:'yes'},children:[{type:'View',props:{accessibilityRole:'summary',accessibilityLiveRegion:'polite'}},{type:'SpotBoardPair',props:{accessibilityRole:'adjustable',disabled:!vm.viewerInput.enabled||vm.connection!=='CONNECTED'||vm.pendingIntentId!==null}},{type:'Modal',props:{visible:modal!==null,accessibilityViewIsModal:modal!==null,onRequestClose:null,backdropDismiss:false}}]},
     emitTap(point: Readonly<{ side: 'A' | 'B'; x: number; y: number }>) {
       return { type: 'TAP_IMAGE' as const, imageSide: point.side, x: point.x, y: point.y };
     },
   };
 }
+
+const playable=new Set(['PLAYING','FINAL_RUSH','SUDDEN_DEATH']);
+export function createTapIntent(vm:PublicBattleViewModel, point:Readonly<{side:'A'|'B';x:number;y:number}>) {
+  if(!vm.viewerInput.enabled||vm.connection!=='CONNECTED'||vm.pendingIntentId!==null||!playable.has(vm.phase)) return null;
+  if(!Number.isFinite(point.x)||!Number.isFinite(point.y)||point.x<0||point.x>1||point.y<0||point.y>1) return null;
+  return {type:'TAP_IMAGE' as const,imageSide:point.side,x:point.x,y:point.y};
+}
+const forbiddenPrivateKeys=new Set(['canonicalAnswer','aliases','correctOptionId','hitboxes','privateSolution','serviceRoleKey','assetAttestation']);
+export function assertPublicUiValue(value:unknown,path='$'):void{if(Array.isArray(value)){value.forEach((x,i)=>assertPublicUiValue(x,`${path}[${i}]`));return}if(typeof value!=='object'||value===null)return;for(const [key,nested] of Object.entries(value)){if(forbiddenPrivateKeys.has(key))throw new TypeError(`${path}.${key} is private`);assertPublicUiValue(nested,`${path}.${key}`)}}
+
+const ajv=new Ajv2020({strict:true,allErrors:true});
+export function parseUiBundle<T extends {theme:unknown;screens:unknown;references:unknown;rights:unknown;assets:unknown}>(bundle:T):T {
+  // Frozen manifests are themselves the exact contract. Compiling `const` schemas with
+  // Draft 2020-12 rejects nested additions, omissions, reordering and token drift.
+  const baselines={theme:themeBaseline,screens:screenBaseline,references:referenceBaseline,rights:rightsBaseline,assets:assetBaseline};
+  for(const key of Object.keys(baselines) as Array<keyof typeof baselines>){
+    const validate=ajv.compile({$schema:'https://json-schema.org/draft/2020-12/schema',const:baselines[key]});
+    if(!validate(bundle[key])) throw new TypeError(`${key}: ${ajv.errorsText(validate.errors)}`);
+  }
+  return bundle;
+}
+import themeBaseline from '../../../../config/ui-theme.v1.json' with {type:'json'};
+import screenBaseline from '../../../../config/ui-screen-contract.v1.json' with {type:'json'};
+import referenceBaseline from '../../../../docs/design/ui-reference/manifest.json' with {type:'json'};
+import rightsBaseline from '../../../../docs/design/ui-reference/rights-manifest.json' with {type:'json'};
+import assetBaseline from '../../../../config/ui-runtime-assets.v1.json' with {type:'json'};

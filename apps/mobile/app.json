@@ -1,0 +1,1 @@
+{"expo":{"name":"Spot Learn Battle","slug":"spot-learn-battle","scheme":"spotlearn","version":"0.0.0","orientation":"portrait","newArchEnabled":true,"plugins":["expo-router","expo-screen-orientation"],"ios":{"supportsTablet":true,"bundleIdentifier":"test.spotlearn.mobile"},"android":{"package":"test.spotlearn.mobile"}}}

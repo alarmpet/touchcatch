@@ -4,6 +4,10 @@
 
 The client declares supported protocol, engine, and ruleset versions while authenticating with a Supabase access token. It never sends the auth UUID as a player identity. `UPDATE_REQUIRED` closes admission before command ingress. Persist `lastEventSeq`, request exact journal replay on gaps, and replace with a viewer-safe snapshot when replay is unavailable or inconsistent. Retries reuse the UUIDv4 `requestId`.
 
+<!-- GENERATED:UI_CLIENT:START -->
+The Expo SDK 57 / React Native 0.86 shell consumes `MatchSnapshotV1` from the public Task 4 projection. It renders a safe-area native tree and emits only normalized `TAP_IMAGE` intents. Input fails closed outside playable phases, while offline/reconnecting, while an intent is pending, or when `viewerInput.enabled` is false. It never derives score, correctness, ownership, rewards, or private hitboxes.
+<!-- GENERATED:UI_CLIENT:END -->
+
 ## 스택
 Expo, React Native, TypeScript strict, expo-router, Zustand, TanStack Query, Socket.IO Client, Reanimated, Gesture Handler, Sentry.
 
