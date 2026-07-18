@@ -1116,13 +1116,20 @@
       "approvedTokens": [
         "8"
       ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
+      "status": "VERIFIED_LOCAL_SSOT",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-004",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/limits/maxBoardTapsPerSecond",
+          "expected": 8
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "OBS-009",
@@ -1142,13 +1149,20 @@
       "approvedTokens": [
         "15"
       ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
+      "status": "VERIFIED_LOCAL_SSOT",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-010",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/time/reconnectForfeitMs",
+          "expected": 15000
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "OBS-015",
@@ -1165,13 +1179,13 @@
         "400",
         "30"
       ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
+      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-015",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "lifecycle": "EXTERNAL",
+      "evidenceOwner": "release",
+      "closureCondition": "Run target-region 200-match/400-socket 30-minute production soak",
+      "blockerReason": "TARGET_REGION_SOAK_REQUIRED"
     },
     {
       "id": "DATA-004",

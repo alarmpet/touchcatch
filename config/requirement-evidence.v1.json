@@ -2323,18 +2323,24 @@
     },
     {
       "id": "OBS-004",
-      "evidenceKind": "ANALYTICS_CONTRACT",
+      "evidenceKind": "RULESET_PARSE",
       "oracle": {
-        "kind": "ANALYTICS_CONTRACT",
-        "expected": "FAIL",
-        "input": "packages/contracts/src/analytics.ts"
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/limits/maxBoardTapsPerSecond",
+            "expected": 8
+          }
+        ]
       },
       "testCase": "OBS-004 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
-      "evidenceOwner": "analytics",
+      "evidenceOwner": "rules",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-004"
+      "closureCondition": "Keep exact ruleset predicate green"
     },
     {
       "id": "OBS-005",
@@ -2356,30 +2362,30 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "FAIL",
-        "input": "packages/contracts/src/analytics.ts"
+        "expected": "PASS",
+        "input": "OBS-006"
       },
       "testCase": "OBS-006 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-006"
+      "closureCondition": "Keep exact direct behavioral oracle green"
     },
     {
       "id": "OBS-007",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "FAIL",
-        "input": "packages/contracts/src/analytics.ts"
+        "expected": "PASS",
+        "input": "OBS-007"
       },
       "testCase": "OBS-007 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-007"
+      "closureCondition": "Keep exact direct behavioral oracle green"
     },
     {
       "id": "OBS-008",
@@ -2413,33 +2419,39 @@
     },
     {
       "id": "OBS-010",
-      "evidenceKind": "ANALYTICS_CONTRACT",
+      "evidenceKind": "RULESET_PARSE",
       "oracle": {
-        "kind": "ANALYTICS_CONTRACT",
-        "expected": "FAIL",
-        "input": "packages/contracts/src/analytics.ts"
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/time/reconnectForfeitMs",
+            "expected": 15000
+          }
+        ]
       },
       "testCase": "OBS-010 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
-      "evidenceOwner": "analytics",
+      "evidenceOwner": "rules",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-010"
+      "closureCondition": "Keep exact ruleset predicate green"
     },
     {
       "id": "OBS-011",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "FAIL",
-        "input": "packages/contracts/src/analytics.ts"
+        "expected": "PASS",
+        "input": "OBS-011"
       },
       "testCase": "OBS-011 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
-      "evidenceOwner": "analytics",
+      "evidenceOwner": "game-state",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-011"
+      "closureCondition": "Keep exact direct behavioral oracle green"
     },
     {
       "id": "OBS-012",
@@ -2447,14 +2459,14 @@
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
         "expected": "PASS",
-        "input": "packages/contracts/src/analytics.ts"
+        "input": "OBS-012"
       },
       "testCase": "OBS-012 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
-      "evidenceOwner": "analytics",
+      "evidenceOwner": "game-state",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-012"
+      "closureCondition": "Keep exact direct behavioral oracle green"
     },
     {
       "id": "OBS-013",
@@ -2462,44 +2474,50 @@
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
         "expected": "PASS",
-        "input": "packages/contracts/src/analytics.ts"
+        "input": "OBS-013"
       },
       "testCase": "OBS-013 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
-      "evidenceOwner": "analytics",
+      "evidenceOwner": "game-state",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-013"
+      "closureCondition": "Keep exact direct behavioral oracle green"
     },
     {
       "id": "OBS-014",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "FAIL",
-        "input": "packages/contracts/src/analytics.ts"
+        "expected": "PASS",
+        "input": "OBS-014"
       },
       "testCase": "OBS-014 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-014"
+      "closureCondition": "Keep exact direct behavioral oracle green"
     },
     {
       "id": "OBS-015",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "FAIL",
-        "input": "packages/contracts/src/analytics.ts"
+        "expected": "PASS",
+        "input": "OBS-015"
       },
       "testCase": "OBS-015 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-015"
+      "closureCondition": "Keep exact direct behavioral oracle green",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "TARGET_REGION_SOAK",
+        "closureCondition": "Run target-region 200-match/400-socket 30-minute production soak",
+        "localEvidenceScope": "DETERMINISTIC_LOCAL_NOT_PRODUCTION"
+      }
     },
     {
       "id": "DATA-001",

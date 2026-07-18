@@ -2065,12 +2065,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "ANALYTICS_CONTRACT",
-      "oracle": "OBS-004:ANALYTICS_CONTRACT:FAIL",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": "OBS-004:RULESET_PARSE:PASS",
       "lifecycle": "CURRENT",
-      "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-004",
-      "linkageProof": "e1bb890995db6c0876f5a9eb66d70bdccb0ecfd96000b2a95c704306d86fb50d"
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact ruleset predicate green",
+      "linkageProof": "a6ff3783ce76b543e46a4044581d1606f276863a9b3af4cae2c1314c1b4fbe9c"
     },
     {
       "id": "OBS-005",
@@ -2102,11 +2102,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "ANALYTICS_CONTRACT",
-      "oracle": "OBS-006:ANALYTICS_CONTRACT:FAIL",
+      "oracle": "OBS-006:ANALYTICS_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-006",
-      "linkageProof": "6c43164fdf0572c06cec9da828964e82feae7c11b8cede6944725fc85a73cf87"
+      "closureCondition": "Keep exact direct behavioral oracle green",
+      "linkageProof": "8ce1c1cddb2572a973821cbda203f67a9ca273f690f61ce12247e4820d13c866"
     },
     {
       "id": "OBS-007",
@@ -2120,11 +2120,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "ANALYTICS_CONTRACT",
-      "oracle": "OBS-007:ANALYTICS_CONTRACT:FAIL",
+      "oracle": "OBS-007:ANALYTICS_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-007",
-      "linkageProof": "5633937aae1d045c7f09accd2fc06f730d3b4f407b9bf7706c5cb69e1d063a77"
+      "closureCondition": "Keep exact direct behavioral oracle green",
+      "linkageProof": "408cd38aefddb60cfa95fee676dd0a8b9c1a36b2627052af58ef0b3b99d576a4"
     },
     {
       "id": "OBS-008",
@@ -2173,12 +2173,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "ANALYTICS_CONTRACT",
-      "oracle": "OBS-010:ANALYTICS_CONTRACT:FAIL",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": "OBS-010:RULESET_PARSE:PASS",
       "lifecycle": "CURRENT",
-      "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-010",
-      "linkageProof": "c1eff23d58f908dd53c722fcb92db3e91442b0dc32cd07b8ca87472934fd1d48"
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact ruleset predicate green",
+      "linkageProof": "d82980989fc88a832a0d41bb0922d76e8d19bccbf7fc984f40b10f06181ce405"
     },
     {
       "id": "OBS-011",
@@ -2192,11 +2192,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "ANALYTICS_CONTRACT",
-      "oracle": "OBS-011:ANALYTICS_CONTRACT:FAIL",
+      "oracle": "OBS-011:ANALYTICS_CONTRACT:PASS",
       "lifecycle": "CURRENT",
-      "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-011",
-      "linkageProof": "0800daa45f7f9d927a77a469098df8eec00dc8322a340b939de93e83e80dfc94"
+      "evidenceOwner": "game-state",
+      "closureCondition": "Keep exact direct behavioral oracle green",
+      "linkageProof": "54efdabae67bb8792055345abb0cc082b4468029304aa27d19d7a2504d88163a"
     },
     {
       "id": "OBS-012",
@@ -2212,8 +2212,8 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": "OBS-012:ANALYTICS_CONTRACT:PASS",
       "lifecycle": "CURRENT",
-      "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-012",
+      "evidenceOwner": "game-state",
+      "closureCondition": "Keep exact direct behavioral oracle green",
       "linkageProof": "4e4f23ad632875e3f7c59b3f8a8513efad1cc3acd02c3d3e71d9b44c4c088e7f"
     },
     {
@@ -2230,8 +2230,8 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": "OBS-013:ANALYTICS_CONTRACT:PASS",
       "lifecycle": "CURRENT",
-      "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-013",
+      "evidenceOwner": "game-state",
+      "closureCondition": "Keep exact direct behavioral oracle green",
       "linkageProof": "d43630764a3f24defc149b5788940e82d2a521a831c1d974d2fd7ec549e1855f"
     },
     {
@@ -2246,11 +2246,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "ANALYTICS_CONTRACT",
-      "oracle": "OBS-014:ANALYTICS_CONTRACT:FAIL",
+      "oracle": "OBS-014:ANALYTICS_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-014",
-      "linkageProof": "ab56776f70084292de7d276bca67fb302fa428207510f82f28f8f53f0714ecdb"
+      "closureCondition": "Keep exact direct behavioral oracle green",
+      "linkageProof": "f3646d2ab39f7d06392932567b2bfc55050707a6ef76bc25237d71a74a0b288d"
     },
     {
       "id": "OBS-015",
@@ -2264,11 +2264,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "ANALYTICS_CONTRACT",
-      "oracle": "OBS-015:ANALYTICS_CONTRACT:FAIL",
+      "oracle": "OBS-015:ANALYTICS_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-015",
-      "linkageProof": "598d6071f71e6e0a8006925fb48a4ecc9a4714033bec265e1cb9f49c2c013b03"
+      "closureCondition": "Keep exact direct behavioral oracle green",
+      "linkageProof": "400c60f5e3be7adc6a92ac2e913102a536b324388a2c53009895d157d51d64bc"
     },
     {
       "id": "DATA-001",
