@@ -3074,11 +3074,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-016:OPENAPI_PROJECTION:FAIL",
+      "oracle": "API-016:OPENAPI_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-016",
-      "linkageProof": "7c95537d8d0e1e103f7d937ffc1d64884a68aa55bf6fb9c526616ff110da285c"
+      "linkageProof": "af560b46513a9a8ae7c5c3253992f57fdc4f446de2d3fc04c94793a56985c328"
     },
     {
       "id": "API-017",
@@ -3092,11 +3092,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-017:OPENAPI_PROJECTION:FAIL",
+      "oracle": "API-017:OPENAPI_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-017",
-      "linkageProof": "f774859360c3aa6d63f90f6e0e124cb022e6aaadde7dfd600f1671be4d595d57"
+      "linkageProof": "1d1f29ef26e59cb9c9946040dc9593743cb837e1d8f2b8fd36473977c0fa6578"
     },
     {
       "id": "API-018",
@@ -3110,11 +3110,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-018:OPENAPI_PROJECTION:FAIL",
+      "oracle": "API-018:OPENAPI_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-018",
-      "linkageProof": "83f12093ef86764a3c3ef13ab2c30d77c2f83f86ba529821873511860b9fcfa4"
+      "linkageProof": "275c6ee797dfadf0673acb469dfc93adca2d6349c2138f08868e514f51b4325a"
     },
     {
       "id": "API-019",
@@ -3128,11 +3128,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-019:OPENAPI_PROJECTION:FAIL",
+      "oracle": "API-019:OPENAPI_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-019",
-      "linkageProof": "4b8bde914976398f354a584ebac5474072ff0c8e283574c178f01e60b3d1bd29"
+      "linkageProof": "4fa23e5cf9c8fe2ac8f6dc4da13851f1c60b1d257cd3745627403c1c4c149856"
     },
     {
       "id": "API-020",
@@ -3146,11 +3146,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-020:OPENAPI_PROJECTION:FAIL",
+      "oracle": "API-020:OPENAPI_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-020",
-      "linkageProof": "468dffb5ec5c0c5d0aa1a5a3df047a7e4a25767d59c847dee2ac2b770cdbd362"
+      "linkageProof": "29fb114a9921210d6b276e6229ae73544000d21664bd1d65cc1773c7f3727047"
     },
     {
       "id": "API-021",
@@ -3164,11 +3164,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-021:OPENAPI_PROJECTION:FAIL",
+      "oracle": "API-021:OPENAPI_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-021",
-      "linkageProof": "80c4870ae4b9c0f9ad34ac246127b69c780345eb60a99ae295e9d0e75220e185"
+      "linkageProof": "4ede726b15364448f4dbbe8b87b5043f215141f33b41a24c2861299aa9d8d9b9"
     },
     {
       "id": "API-022",
@@ -3182,11 +3182,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-022:OPENAPI_PROJECTION:FAIL",
+      "oracle": "API-022:OPENAPI_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-022",
-      "linkageProof": "0c3bf20aedc6f3c73c4a5b3a0571125a34db2d15747737e836c480878c1c75b1"
+      "linkageProof": "2d9c3ac7c5f13386297440a0747c23bbfeb56834cb93779b83e65f59bae40589"
     },
     {
       "id": "API-023",
@@ -3200,11 +3200,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-023:OPENAPI_PROJECTION:FAIL",
+      "oracle": "API-023:OPENAPI_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-023",
-      "linkageProof": "c765906ef01e0d4c33bfb19580a6954ef0d5c9f68c8d297a6eee646411574c13"
+      "linkageProof": "9c43669a54881ec683e2ed07181536c125098db32a217889f126f26d0f8be01e"
     },
     {
       "id": "API-024",
@@ -3218,11 +3218,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "OPENAPI_PROJECTION",
-      "oracle": "API-024:OPENAPI_PROJECTION:FAIL",
+      "oracle": "API-024:OPENAPI_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-024",
-      "linkageProof": "078e3f1176381f40021eb7f3df216b686a3671f244fd6b641c69d74d98484cdc"
+      "linkageProof": "c99802d3fdc7deca4863a83b81899a7d7d1795e32c6614822f0d933f456064be"
     },
     {
       "id": "CONTENT-001",
