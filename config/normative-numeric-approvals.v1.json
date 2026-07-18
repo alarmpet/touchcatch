@@ -1216,7 +1216,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact repository-local 1:1 revision projection oracle green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "852f8d70977d017d6f64f30beee796cfa06eafd1344c61d23c33ed7462a82c5d",
+      "ssotHash": "37b7401fc1967fadea8122cb1c3414c205ac634da0ffa21eea22e6dc668cfba4",
       "ssotAssertions": [
         {
           "pointer": "/entries/129/oracle/expected",

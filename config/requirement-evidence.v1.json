@@ -2665,7 +2665,7 @@
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-010"
       },
       "testCase": "DATA-010 executes DB_PROJECTION",
@@ -2673,14 +2673,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Reconcile the documented single-function deployment_role contract with its additional economy and admin publish EXECUTE grants"
+      "closureCondition": "Keep deployment_role exact single-function grant and specialized role split green"
     },
     {
       "id": "DATA-011",
       "evidenceKind": "DB_PROJECTION",
       "oracle": {
         "kind": "DB_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DATA-011"
       },
       "testCase": "DATA-011 executes DB_PROJECTION",
@@ -2688,7 +2688,7 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Reconcile the documented single-function app_server contract with its additional economy EXECUTE grants"
+      "closureCondition": "Keep app_server exact single-function grant and specialized role split green"
     },
     {
       "id": "DATA-012",

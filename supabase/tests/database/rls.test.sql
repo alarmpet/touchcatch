@@ -23,6 +23,8 @@ select ok((select not rolcanlogin and not rolinherit from pg_roles where rolname
 select ok((select not rolcanlogin and not rolinherit from pg_roles where rolname='app_server'), 'app server group is NOLOGIN NOINHERIT');
 select ok((select not rolcanlogin and not rolinherit from pg_roles where rolname='deployment_role'), 'deployment group is NOLOGIN NOINHERIT');
 select ok(not pg_has_role('app_server','deployment_role','MEMBER') and not pg_has_role('deployment_role','app_server','MEMBER'), 'operation and deployment roles are not cross-members');
+select is((select array_agg(routine_name::text order by routine_name) from information_schema.role_routine_grants where routine_schema='private' and grantee='deployment_role'),array['publish_content_revision_v1']::text[],'deployment role exact function set');
+select is((select array_agg(routine_name::text order by routine_name) from information_schema.role_routine_grants where routine_schema='private' and grantee='app_server'),array['join_match_participant_v1']::text[],'app server exact function set');
 select ok(not has_schema_privilege('game_security_owner','public','CREATE'), 'security owner cannot create arbitrary public objects after migration');
 select ok((select proconfig = array['search_path=pg_catalog'] from pg_proc where oid='private.publish_content_revision_v1(jsonb,jsonb,jsonb,text,text,text,text)'::regprocedure), 'publish definer pins exact search_path');
 select ok((select proowner = (select oid from pg_roles where rolname='game_security_owner') from pg_proc where oid='private.publish_content_revision_v1(jsonb,jsonb,jsonb,text,text,text,text)'::regprocedure), 'publish definer has dedicated owner');

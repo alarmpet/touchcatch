@@ -2444,11 +2444,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-010:DB_PROJECTION:FAIL",
+      "oracle": "DATA-010:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "closureCondition": "Reconcile the documented single-function deployment_role contract with its additional economy and admin publish EXECUTE grants",
-      "linkageProof": "5dbeac57d26c77ea73978b26b720741a4f692d86da27d912f51015b2384ac8a1"
+      "closureCondition": "Keep deployment_role exact single-function grant and specialized role split green",
+      "linkageProof": "4ff805b974dd35a4864e22b53bc4df6560e8cc7f0cdfadff90974284733a87b0"
     },
     {
       "id": "DATA-011",
@@ -2462,11 +2462,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-011:DB_PROJECTION:FAIL",
+      "oracle": "DATA-011:DB_PROJECTION:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "closureCondition": "Reconcile the documented single-function app_server contract with its additional economy EXECUTE grants",
-      "linkageProof": "e4db29284464dc51a144f84bea590046431c03e304071948515bd3577f98dc70"
+      "closureCondition": "Keep app_server exact single-function grant and specialized role split green",
+      "linkageProof": "37082e0f90b7444f534b49a07bd9e5cc7aebb75d0e210ae91cc0468438408ff7"
     },
     {
       "id": "DATA-012",

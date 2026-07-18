@@ -10,7 +10,7 @@ function databaseUrl():string { const explicit=process.env.TEST_DATABASE_URL; co
 const pool=new Pool({connectionString:databaseUrl(),max:25});
 let fixture:Awaited<ReturnType<typeof loadTestEconomyFixture>>;
 let economy:Awaited<ReturnType<typeof loadTestEconomyFixture>>['publishInput']['economy'];let catalog:Awaited<ReturnType<typeof loadTestEconomyFixture>>['publishInput']['catalog'];
-async function role(c:PoolClient,name:'deployment_role'|'app_server'){await c.query(`set role ${name}`);expect((await c.query('select current_user')).rows[0]?.current_user).toBe(name);}
+async function role(c:PoolClient,name:'deployment_role'|'app_server'){const specialized=name==='deployment_role'?'economy_deployment_role':'economy_server';await c.query(`set role ${specialized}`);expect((await c.query('select current_user')).rows[0]?.current_user).toBe(specialized);}
 async function clients20(){const clients=await Promise.all(Array.from({length:20},()=>pool.connect()));await Promise.all(clients.map(c=>role(c,'app_server')));return clients;}
 async function release(clients:PoolClient[]){await Promise.all(clients.map(async c=>{await c.query('reset role').catch(()=>undefined);c.release();}));}
 function revision(version:string, changes:Record<string,unknown>={}){const {economyHash:_,...base}=economy;const artifact={...base,...changes,economyVersion:version};return {...artifact,economyHash:canonicalJsonSha256(artifact)};}

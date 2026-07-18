@@ -19,8 +19,8 @@ select has_function('private','fuse_pets_v1','fusion command exists');
 select has_function('private','select_pet_v1','select command exists');
 select has_function('private','set_pet_lock_v1','lock command exists');
 
-select ok(has_function_privilege('deployment_role','private.publish_economy_bundle_v1(jsonb,jsonb)','EXECUTE') and not has_function_privilege('app_server','private.publish_economy_bundle_v1(jsonb,jsonb)','EXECUTE'),'only deployment role publishes');
-select ok(has_function_privilege('app_server','private.draw_pet_v1(uuid,uuid,text,text,text,text,text)','EXECUTE') and not has_function_privilege('authenticated','private.draw_pet_v1(uuid,uuid,text,text,text,text,text)','EXECUTE'),'only app server draws');
+select ok(has_function_privilege('economy_deployment_role','private.publish_economy_bundle_v1(jsonb,jsonb)','EXECUTE') and not has_function_privilege('deployment_role','private.publish_economy_bundle_v1(jsonb,jsonb)','EXECUTE'),'only economy deployment role publishes');
+select ok(has_function_privilege('economy_server','private.draw_pet_v1(uuid,uuid,text,text,text,text,text)','EXECUTE') and not has_function_privilege('app_server','private.draw_pet_v1(uuid,uuid,text,text,text,text,text)','EXECUTE'),'only economy server draws');
 select isnt(has_schema_privilege('authenticated','private','USAGE'),true,'authenticated cannot use private schema');
 select isnt(has_table_privilege('app_server','private.economy_subjects','INSERT'),true,'app_server cannot mutate economy tables directly');
 
@@ -48,7 +48,7 @@ select is((select row_to_json(x)::text from (select rarity,display_key from priv
 select is((select count(*)::int from private.pet_catalog_revision_entries where catalog_revision='catalog-mutation-test'),1,'failed catalog entry mutations write zero rows');
 
 select ok((select convalidated from pg_constraint where conrelid='private.fusion_history'::regclass and conname='INVALID_MATERIALS'),'fusion exact unique-five shape constraint is validated');
-select ok((select count(*)=4 from information_schema.role_routine_grants where routine_schema='private' and grantee='app_server' and routine_name in ('draw_pet_v1','fuse_pets_v1','select_pet_v1','set_pet_lock_v1')),'app-server economy command allowlist is exact');
+select ok((select count(*)=5 from information_schema.role_routine_grants where routine_schema='private' and grantee='economy_server' and routine_name in ('award_match_reward_v1','draw_pet_v1','fuse_pets_v1','select_pet_v1','set_pet_lock_v1')),'economy-server command allowlist is exact');
 select ok((select count(*)=0 from information_schema.role_table_grants where table_schema='private' and grantee in ('app_server','authenticated','anon','service_role') and privilege_type in ('INSERT','UPDATE','DELETE')),'client and app roles have no direct economy DML grants');
 
 insert into auth.users(id,aud,role,email) values('10000000-0000-4000-8000-000000000099','authenticated','authenticated','economy-delete@example.test');
