@@ -1216,7 +1216,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact repository-local 1:1 revision projection oracle green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "aad707be5f06dde77ea3424fcd90cd154aae49b0b2ec818020edf02a025b2f59",
+      "ssotHash": "e33d42f1865d9a506d80e4c50c708a8bab8e525f46e3c5f42f17fda58b568ae2",
       "ssotAssertions": [
         {
           "pointer": "/entries/129/oracle/expected",
@@ -1236,7 +1236,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact seat and 20-session concurrency predicate green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "aad707be5f06dde77ea3424fcd90cd154aae49b0b2ec818020edf02a025b2f59",
+      "ssotHash": "e33d42f1865d9a506d80e4c50c708a8bab8e525f46e3c5f42f17fda58b568ae2",
       "ssotAssertions": [{"pointer":"/entries/142/oracle/expected","expected":"PASS"}]
     },
     {
@@ -1249,7 +1249,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact 20-session concurrency evidence green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "aad707be5f06dde77ea3424fcd90cd154aae49b0b2ec818020edf02a025b2f59",
+      "ssotHash": "e33d42f1865d9a506d80e4c50c708a8bab8e525f46e3c5f42f17fda58b568ae2",
       "ssotAssertions": [{"pointer":"/entries/152/oracle/expected","expected":"PASS"}]
     },
     {

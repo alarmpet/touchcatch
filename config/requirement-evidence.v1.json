@@ -3100,7 +3100,7 @@
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "API-010"
       },
       "testCase": "API-010 executes OPENAPI_PROJECTION",
@@ -3115,7 +3115,7 @@
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "API-011"
       },
       "testCase": "API-011 executes OPENAPI_PROJECTION",
@@ -3130,7 +3130,7 @@
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "API-012"
       },
       "testCase": "API-012 executes OPENAPI_PROJECTION",
@@ -3145,7 +3145,7 @@
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "API-013"
       },
       "testCase": "API-013 executes OPENAPI_PROJECTION",
@@ -3160,7 +3160,7 @@
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "API-014"
       },
       "testCase": "API-014 executes OPENAPI_PROJECTION",
