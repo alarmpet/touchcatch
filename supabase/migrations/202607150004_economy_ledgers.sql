@@ -264,6 +264,69 @@ begin
   if (select count(*)<>count(distinct m->>'userPetId') or sum((m->>'count')::int)<>5 from jsonb_array_elements(materials)m) then raise exception 'INVALID_MATERIALS'; end if;
 end$$;
 
+create or replace function private.select_pet_v1(subject_key uuid,idempotency_key uuid,request_hash text,pet_id uuid) returns jsonb
+language plpgsql security definer set search_path=pg_catalog as $$declare r private.idempotency_requests%rowtype;response jsonb;begin
+  select * into r from private.idempotency_requests i where i.subject_key=select_pet_v1.subject_key and scope='SELECT_PET_V1' and i.idempotency_key=select_pet_v1.idempotency_key;
+  if found then if r.request_hash<>select_pet_v1.request_hash then raise exception 'IDEMPOTENCY_CONFLICT';end if;return r.response_body;end if;
+  perform 1 from private.economy_subjects s where s.subject_key=select_pet_v1.subject_key for update;
+  select * into r from private.idempotency_requests i where i.subject_key=select_pet_v1.subject_key and scope='SELECT_PET_V1' and i.idempotency_key=select_pet_v1.idempotency_key;
+  if found then if r.request_hash<>select_pet_v1.request_hash then raise exception 'IDEMPOTENCY_CONFLICT';end if;return r.response_body;end if;
+  perform 1 from private.pet_inventory p where p.subject_key=select_pet_v1.subject_key and p.user_pet_id=select_pet_v1.pet_id for update;if not found then raise exception 'NOT_OWNED';end if;
+  update private.pet_inventory p set selected=false where p.subject_key=select_pet_v1.subject_key and selected;update private.pet_inventory p set selected=true where p.user_pet_id=select_pet_v1.pet_id;
+  response:=jsonb_build_object('petId',pet_id,'selected',true);insert into private.idempotency_requests(subject_key,scope,idempotency_key,request_hash,response_status,response_body) values(subject_key,'SELECT_PET_V1',idempotency_key,request_hash,200,response) returning * into r;
+  insert into private.outbox_events(event_type,operation_scope,operation_key,aggregate_key,payload,idempotency_request_id) values('PET_SELECTED','SELECT_PET_V1',private.operation_key_v1(jsonb_build_object('subjectKey',subject_key,'scope','SELECT_PET_V1','idempotencyUuid',idempotency_key)),subject_key,response,r.id);return response;
+end$$;
+
+create or replace function private.set_pet_lock_v1(subject_key uuid,idempotency_key uuid,request_hash text,pet_id uuid,locked boolean) returns jsonb
+language plpgsql security definer set search_path=pg_catalog as $$declare r private.idempotency_requests%rowtype;response jsonb;begin
+  select * into r from private.idempotency_requests i where i.subject_key=set_pet_lock_v1.subject_key and scope='SET_PET_LOCK_V1' and i.idempotency_key=set_pet_lock_v1.idempotency_key;if found then if r.request_hash<>set_pet_lock_v1.request_hash then raise exception 'IDEMPOTENCY_CONFLICT';end if;return r.response_body;end if;
+  perform 1 from private.economy_subjects s where s.subject_key=set_pet_lock_v1.subject_key for update;
+  select * into r from private.idempotency_requests i where i.subject_key=set_pet_lock_v1.subject_key and scope='SET_PET_LOCK_V1' and i.idempotency_key=set_pet_lock_v1.idempotency_key;if found then if r.request_hash<>set_pet_lock_v1.request_hash then raise exception 'IDEMPOTENCY_CONFLICT';end if;return r.response_body;end if;
+  perform 1 from private.pet_inventory p where p.subject_key=set_pet_lock_v1.subject_key and p.user_pet_id=set_pet_lock_v1.pet_id for update;if not found then raise exception 'NOT_OWNED';end if;
+  update private.pet_inventory p set locked=set_pet_lock_v1.locked where p.user_pet_id=set_pet_lock_v1.pet_id;response:=jsonb_build_object('petId',pet_id,'locked',locked);
+  insert into private.idempotency_requests(subject_key,scope,idempotency_key,request_hash,response_status,response_body) values(subject_key,'SET_PET_LOCK_V1',idempotency_key,request_hash,200,response) returning * into r;
+  insert into private.outbox_events(event_type,operation_scope,operation_key,aggregate_key,payload,idempotency_request_id) values('PET_LOCK_CHANGED','SET_PET_LOCK_V1',private.operation_key_v1(jsonb_build_object('subjectKey',subject_key,'scope','SET_PET_LOCK_V1','idempotencyUuid',idempotency_key)),subject_key,response,r.id);return response;
+end$$;
+
+alter function private.fuse_pets_v1(uuid,uuid,text,jsonb,text,text,text,text) rename to fuse_pets_impl_v1;
+drop function private.fuse_pets_impl_v1(uuid,uuid,text,jsonb,text,text,text,text);
+create function private.fuse_pets_impl_v1(p_subject uuid,p_key uuid,p_hash text,p_materials jsonb,p_economy_version text,p_economy_hash text,p_catalog_revision text,p_catalog_hash text) returns jsonb
+language plpgsql security invoker set search_path=pg_catalog as $$
+declare source_rarity public.pet_rarity;target_rarity public.pet_rarity;output_pet uuid;output_user_pet uuid;history_id bigint;receipt_id bigint;response jsonb;
+begin
+  perform 1 from private.economy_subjects s where s.subject_key=p_subject for update;if not found then raise exception 'NOT_OWNED';end if;
+  if not exists(select 1 from private.economy_policy_revisions where economy_version=p_economy_version and economy_hash=p_economy_hash)
+    or not exists(select 1 from private.pet_catalog_revisions where catalog_revision=p_catalog_revision and catalog_hash=p_catalog_hash) then raise exception 'POLICY_MISMATCH';end if;
+  perform 1 from private.pet_inventory p join jsonb_array_elements(p_materials)m on p.user_pet_id=(m->>'userPetId')::uuid where p.subject_key=p_subject order by p.user_pet_id for update;
+  if (select count(*) from private.pet_inventory p join jsonb_array_elements(p_materials)m on p.user_pet_id=(m->>'userPetId')::uuid where p.subject_key=p_subject)<>jsonb_array_length(p_materials)
+    or exists(select 1 from private.pet_inventory p join jsonb_array_elements(p_materials)m on p.user_pet_id=(m->>'userPetId')::uuid where p.subject_key<>p_subject or p.selected or p.locked or p.copies<(m->>'count')::int) then raise exception 'INVALID_MATERIALS';end if;
+  select p.rarity into source_rarity from private.pet_inventory p join jsonb_array_elements(p_materials)m on p.user_pet_id=(m->>'userPetId')::uuid limit 1;
+  if source_rarity is null or source_rarity='LEGENDARY' or exists(select 1 from private.pet_inventory p join jsonb_array_elements(p_materials)m on p.user_pet_id=(m->>'userPetId')::uuid where p.rarity<>source_rarity) then raise exception 'INVALID_MATERIALS';end if;
+  target_rarity:=case source_rarity when 'COMMON' then 'RARE'::public.pet_rarity else 'LEGENDARY'::public.pet_rarity end;
+  select pet_id into output_pet from private.pet_catalog_revision_entries e where e.catalog_revision=p_catalog_revision and e.rarity=target_rarity order by ordinal offset private.secure_random_below_v1((select count(*) from private.pet_catalog_revision_entries x where x.catalog_revision=p_catalog_revision and x.rarity=target_rarity)) limit 1;
+  delete from private.pet_inventory p using jsonb_array_elements(p_materials)m where p.user_pet_id=(m->>'userPetId')::uuid and p.copies=(m->>'count')::int;
+  update private.pet_inventory p set copies=copies-(m->>'count')::int from jsonb_array_elements(p_materials)m where p.user_pet_id=(m->>'userPetId')::uuid and p.copies>(m->>'count')::int;
+  insert into private.pet_inventory(subject_key,pet_id,rarity,acquired_catalog_revision,acquired_catalog_hash) values(p_subject,output_pet,target_rarity,p_catalog_revision,p_catalog_hash) returning user_pet_id into output_user_pet;
+  response:=jsonb_build_object('consumed',p_materials,'output',jsonb_build_object('userPetId',output_user_pet,'petId',output_pet,'rarity',target_rarity),'economyVersion',p_economy_version,'economyHash',p_economy_hash,'catalogRevision',p_catalog_revision,'catalogHash',p_catalog_hash);
+  insert into private.idempotency_requests(subject_key,scope,idempotency_key,request_hash,response_status,response_body) values(p_subject,'FUSION_V1',p_key,p_hash,200,response) returning id into receipt_id;
+  insert into private.fusion_history(idempotency_request_id,subject_key,materials,output_user_pet_id,output_pet_id,economy_version,economy_hash,catalog_revision,catalog_hash) values(receipt_id,p_subject,p_materials,output_user_pet,output_pet,p_economy_version,p_economy_hash,p_catalog_revision,p_catalog_hash) returning fusion_history_id into history_id;
+  insert into private.outbox_events(event_type,operation_scope,operation_key,aggregate_key,payload,fusion_history_id,economy_version,economy_hash,catalog_revision,catalog_hash) values('FUSION_COMMITTED','FUSION_V1',private.operation_key_v1(jsonb_build_object('idempotencyUuid',p_key,'scope','FUSION_V1','subjectKey',p_subject)),p_subject,response,history_id,p_economy_version,p_economy_hash,p_catalog_revision,p_catalog_hash);
+  return response;
+end$$;
+alter function private.fuse_pets_impl_v1(uuid,uuid,text,jsonb,text,text,text,text) owner to economy_security_owner;
+alter function private.fuse_pets_impl_v1(uuid,uuid,text,jsonb,text,text,text,text) security invoker;
+revoke all on function private.fuse_pets_impl_v1(uuid,uuid,text,jsonb,text,text,text,text) from public,anon,authenticated,service_role,app_server,deployment_role;
+create function private.fuse_pets_v1(p_subject_key uuid,p_idempotency_key uuid,p_request_hash text,p_materials jsonb,p_expected_economy_version text,p_expected_economy_hash text,p_expected_catalog_revision text,p_expected_catalog_hash text) returns jsonb
+language plpgsql security definer set search_path=pg_catalog as $$declare r private.idempotency_requests%rowtype;begin
+  select * into r from private.idempotency_requests i where i.subject_key=p_subject_key and scope='FUSION_V1' and i.idempotency_key=p_idempotency_key;
+  if found then if r.request_hash<>p_request_hash then raise exception 'IDEMPOTENCY_CONFLICT';end if;return r.response_body;end if;
+  perform pg_advisory_xact_lock(hashtextextended(p_subject_key::text,0));
+  select * into r from private.idempotency_requests i where i.subject_key=p_subject_key and scope='FUSION_V1' and i.idempotency_key=p_idempotency_key;
+  if found then if r.request_hash<>p_request_hash then raise exception 'IDEMPOTENCY_CONFLICT';end if;return r.response_body;end if;
+  perform private.validate_fusion_materials_v1(p_materials);
+  return private.fuse_pets_impl_v1(p_subject_key,p_idempotency_key,p_request_hash,p_materials,p_expected_economy_version,p_expected_economy_hash,p_expected_catalog_revision,p_expected_catalog_hash);
+end$$;
+
 alter table private.economy_series_guard owner to economy_security_owner;
 alter table private.economy_policy_revisions owner to economy_security_owner;
 alter table private.pet_definitions owner to economy_security_owner;

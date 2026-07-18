@@ -1,6 +1,6 @@
 begin;
 create extension if not exists pgtap with schema extensions;
-select plan(20);
+select plan(30);
 select has_table('private','economy_policy_revisions','economy policy revisions are private');
 select has_table('private','pet_catalog_revisions','catalog revisions are private');
 select has_table('private','pet_catalog_revision_entries','catalog entries are private');
@@ -21,5 +21,21 @@ select ok(has_function_privilege('deployment_role','private.publish_economy_bund
 select ok(has_function_privilege('app_server','private.draw_pet_v1(uuid,uuid,text,text,text,text,text)','EXECUTE') and not has_function_privilege('authenticated','private.draw_pet_v1(uuid,uuid,text,text,text,text,text)','EXECUTE'),'only app server draws');
 select isnt(has_schema_privilege('authenticated','private','USAGE'),true,'authenticated cannot use private schema');
 select isnt(has_table_privilege('app_server','private.economy_subjects','INSERT'),true,'app_server cannot mutate economy tables directly');
+insert into private.economy_policy_revisions(economy_version,economy_hash,pity_series_id,pity_semantics_hash,pity_semantics,draw_cost,reward_policies)
+values('mutation-test','a'||repeat('0',63),'pity-50-150-v1','b'||repeat('0',63),'{}',100,'{}');
+select throws_ok($$update private.economy_policy_revisions set draw_cost=101 where economy_version='mutation-test'$$,'P0001','IMMUTABLE_ECONOMY_REVISION','approved policy update is rejected');
+select throws_ok($$delete from private.economy_policy_revisions where economy_version='mutation-test'$$,'P0001','IMMUTABLE_ECONOMY_REVISION','approved policy delete is rejected');
+insert into private.pet_definitions(pet_id,rarity,display_key) values('00000000-0000-4000-8000-000000000999','COMMON','pet.test');
+select throws_ok($$update private.pet_definitions set rarity='RARE' where pet_id='00000000-0000-4000-8000-000000000999'$$,'P0001','IMMUTABLE_ECONOMY_REVISION','cross-revision rarity mutation is rejected');
+select throws_ok($$delete from private.pet_definitions where pet_id='00000000-0000-4000-8000-000000000999'$$,'P0001','IMMUTABLE_ECONOMY_REVISION','stable pet identity delete is rejected');
+select ok((select convalidated from pg_constraint where conrelid='private.fusion_history'::regclass and conname='INVALID_MATERIALS'),'fusion exact unique-five shape constraint is validated');
+select ok((select count(*)=4 from information_schema.role_routine_grants where routine_schema='private' and grantee='app_server' and routine_name in ('draw_pet_v1','fuse_pets_v1','select_pet_v1','set_pet_lock_v1')),'app-server economy command allowlist is exact');
+select ok((select count(*)=0 from information_schema.role_table_grants where table_schema='private' and grantee in ('app_server','authenticated','anon','service_role') and privilege_type in ('INSERT','UPDATE','DELETE')),'client and app roles have no direct economy DML grants');
+select throws_ok($$insert into private.outbox_events(event_type,operation_scope,operation_key,aggregate_key,payload) values('DRAW_COMMITTED','DRAW_V1',repeat('a',64),extensions.uuid_generate_v4(),'{}')$$,'23514',null,'outbox requires complete policy/source provenance');
+insert into auth.users(id,aud,role,email) values('10000000-0000-4000-8000-000000000099','authenticated','authenticated','economy-delete@example.test');
+insert into private.economy_subjects(subject_key,user_id) values('70000000-0000-4000-8000-000000000001','10000000-0000-4000-8000-000000000099');
+delete from auth.users where id='10000000-0000-4000-8000-000000000099';
+select is((select user_id from private.economy_subjects where subject_key='70000000-0000-4000-8000-000000000001'),null::uuid,'account deletion nulls economy auth mapping');
+select is((select count(*)::int from private.economy_subjects where subject_key='70000000-0000-4000-8000-000000000001'),1,'non-identifying economy subject and retained history anchor survive deletion');
 select * from finish();
 rollback;
