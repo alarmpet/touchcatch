@@ -1100,7 +1100,7 @@
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "STATE-002"
       },
       "testCase": "STATE-002 executes STATE_SCHEMA",
@@ -1115,7 +1115,7 @@
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "STATE-003"
       },
       "testCase": "STATE-003 executes STATE_SCHEMA",
@@ -1130,7 +1130,7 @@
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "STATE-004"
       },
       "testCase": "STATE-004 executes STATE_SCHEMA",
@@ -1145,7 +1145,7 @@
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "STATE-005"
       },
       "testCase": "STATE-005 executes STATE_SCHEMA",
@@ -1160,7 +1160,7 @@
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "STATE-006"
       },
       "testCase": "STATE-006 executes STATE_SCHEMA",
@@ -1175,7 +1175,7 @@
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "STATE-007"
       },
       "testCase": "STATE-007 executes STATE_SCHEMA",
@@ -1190,7 +1190,7 @@
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "STATE-008"
       },
       "testCase": "STATE-008 executes STATE_SCHEMA",
@@ -1220,7 +1220,7 @@
       "evidenceKind": "STATE_SCHEMA",
       "oracle": {
         "kind": "STATE_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "STATE-010"
       },
       "testCase": "STATE-010 executes STATE_SCHEMA",
