@@ -21,27 +21,27 @@ paths:
       operationId: selectPet
       summary: Select an owned pet
       parameters: [{ $ref: "#/components/parameters/Id" }, { $ref: "#/components/parameters/IdempotencyKey" }]
-      responses: { "200": { $ref: "#/components/responses/SelectPetResponse" }, "400": { $ref: "#/components/responses/SelectPetError" }, "404": { $ref: "#/components/responses/SelectPetError" }, "409": { $ref: "#/components/responses/SelectPetError" } }
+      responses: { "200": { $ref: "#/components/responses/SelectPetResponse" }, "404": { $ref: "#/components/responses/SelectPetNotOwnedError" }, "409": { $ref: "#/components/responses/SelectPetConflictError" } }
   /v1/pets/{id}/lock:
     post:
       operationId: lockPet
       summary: Change an owned pet lock
       parameters: [{ $ref: "#/components/parameters/Id" }, { $ref: "#/components/parameters/IdempotencyKey" }]
       requestBody: { $ref: "#/components/requestBodies/LockPetRequest" }
-      responses: { "200": { $ref: "#/components/responses/LockPetResponse" }, "400": { $ref: "#/components/responses/LockPetError" }, "404": { $ref: "#/components/responses/LockPetError" }, "409": { $ref: "#/components/responses/LockPetError" } }
+      responses: { "200": { $ref: "#/components/responses/LockPetResponse" }, "404": { $ref: "#/components/responses/LockPetNotOwnedError" }, "409": { $ref: "#/components/responses/LockPetConflictError" } }
   /v1/gacha/draw:
     post:
       operationId: drawGacha
       summary: Draw a pet
       parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
-      responses: { "200": { $ref: "#/components/responses/GachaDrawResponse" }, "400": { $ref: "#/components/responses/GachaDrawError" }, "409": { $ref: "#/components/responses/GachaDrawError" } }
+      responses: { "200": { $ref: "#/components/responses/GachaDrawResponse" }, "409": { $ref: "#/components/responses/GachaDrawConflictError" } }
   /v1/fusion:
     post:
       operationId: fusePets
       summary: Fuse exactly five eligible same-rarity copies
       parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
       requestBody: { $ref: "#/components/requestBodies/FusionRequest" }
-      responses: { "200": { $ref: "#/components/responses/FusionResponse" }, "400": { $ref: "#/components/responses/FusionError" }, "404": { $ref: "#/components/responses/FusionError" }, "409": { $ref: "#/components/responses/FusionError" } }
+      responses: { "200": { $ref: "#/components/responses/FusionResponse" }, "400": { $ref: "#/components/responses/FusionInvalidMaterialsError" }, "404": { $ref: "#/components/responses/FusionNotOwnedError" }, "409": { $ref: "#/components/responses/FusionConflictError" } }
   /v1/matches/queue:
     post:
       operationId: createQueueTicket
@@ -95,7 +95,7 @@ components:
     FriendRoomJoinRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomJoinRequest" } } } }
   schemas:
     LockPetRequest: { type: object, additionalProperties: false, required: [locked], properties: { locked: { type: boolean } } }
-    FusionRequest: { type: object, additionalProperties: false, required: [materials], properties: { materials: { type: array, minItems: 1, maxItems: 5, items: { type: object, additionalProperties: false, required: [userPetId, count], properties: { userPetId: { type: string, format: uuid }, count: { type: integer, minimum: 1, maximum: 5 } } } } } }
+    FusionRequest: { type: object, additionalProperties: false, required: [materials], properties: { materials: { type: array, minItems: 1, maxItems: 5, x-runtime-validation: { exactCountSum: 5, uniqueBy: userPetId }, items: { type: object, additionalProperties: false, required: [userPetId, count], properties: { userPetId: { type: string, format: uuid }, count: { type: integer, minimum: 1, maximum: 5 } } } } } }
     QueueCreateRequest: { type: object, additionalProperties: false, maxProperties: 0 }
     FriendRoomCreateRequest: { type: object, additionalProperties: false, maxProperties: 0 }
     FriendRoomJoinRequest: { type: object, additionalProperties: false, maxProperties: 0 }
@@ -112,10 +112,14 @@ components:
     FriendRoomLeaveResponse: { type: object, additionalProperties: false, required: [left], properties: { left: { const: true } } }
     MeError: &unauthorized { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [UNAUTHORIZED] } } }
     PetsError: *unauthorized
-    SelectPetError: &selectError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [IDEMPOTENCY_CONFLICT, NOT_OWNED] } } }
-    LockPetError: *selectError
-    GachaDrawError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [IDEMPOTENCY_CONFLICT, POLICY_MISMATCH, INSUFFICIENT_FUNDS] } } }
-    FusionError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [IDEMPOTENCY_CONFLICT, POLICY_MISMATCH, NOT_OWNED, INVALID_MATERIALS] } } }
+    SelectPetNotOwnedError: &notOwnedError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [NOT_OWNED] } } }
+    SelectPetConflictError: &idempotencyError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [IDEMPOTENCY_CONFLICT] } } }
+    LockPetNotOwnedError: *notOwnedError
+    LockPetConflictError: *idempotencyError
+    GachaDrawConflictError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [IDEMPOTENCY_CONFLICT, POLICY_MISMATCH, INSUFFICIENT_FUNDS] } } }
+    FusionInvalidMaterialsError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [INVALID_MATERIALS] } } }
+    FusionNotOwnedError: *notOwnedError
+    FusionConflictError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [IDEMPOTENCY_CONFLICT, POLICY_MISMATCH] } } }
     QueueCreateError: &drawError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [INVALID_REQUEST, CONFLICT, IDEMPOTENCY_CONFLICT] } } }
     QueueGetError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [UNAUTHORIZED, NOT_FOUND] } } }
     QueueCancelError: &cancelError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [NOT_FOUND, CONFLICT, IDEMPOTENCY_CONFLICT] } } }
@@ -135,10 +139,14 @@ components:
     FriendRoomLeaveResponse: { description: Friend-room departure, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomLeaveResponse" } } } }
     MeError: &meError { description: Unauthorized, content: { application/json: { schema: { $ref: "#/components/schemas/MeError" } } } }
     PetsError: { description: Unauthorized, content: { application/json: { schema: { $ref: "#/components/schemas/PetsError" } } } }
-    SelectPetError: { description: Select-pet error, content: { application/json: { schema: { $ref: "#/components/schemas/SelectPetError" } } } }
-    LockPetError: { description: Lock-pet error, content: { application/json: { schema: { $ref: "#/components/schemas/LockPetError" } } } }
-    GachaDrawError: { description: Draw error, content: { application/json: { schema: { $ref: "#/components/schemas/GachaDrawError" } } } }
-    FusionError: { description: Fusion error, content: { application/json: { schema: { $ref: "#/components/schemas/FusionError" } } } }
+    SelectPetNotOwnedError: { description: Pet is not owned, content: { application/json: { schema: { $ref: "#/components/schemas/SelectPetNotOwnedError" } } } }
+    SelectPetConflictError: { description: Idempotency conflict, content: { application/json: { schema: { $ref: "#/components/schemas/SelectPetConflictError" } } } }
+    LockPetNotOwnedError: { description: Pet is not owned, content: { application/json: { schema: { $ref: "#/components/schemas/LockPetNotOwnedError" } } } }
+    LockPetConflictError: { description: Idempotency conflict, content: { application/json: { schema: { $ref: "#/components/schemas/LockPetConflictError" } } } }
+    GachaDrawConflictError: { description: Draw conflict, content: { application/json: { schema: { $ref: "#/components/schemas/GachaDrawConflictError" } } } }
+    FusionInvalidMaterialsError: { description: Invalid fusion materials, content: { application/json: { schema: { $ref: "#/components/schemas/FusionInvalidMaterialsError" } } } }
+    FusionNotOwnedError: { description: Fusion material is not owned, content: { application/json: { schema: { $ref: "#/components/schemas/FusionNotOwnedError" } } } }
+    FusionConflictError: { description: Fusion conflict, content: { application/json: { schema: { $ref: "#/components/schemas/FusionConflictError" } } } }
     QueueCreateError: { description: Queue-create error, content: { application/json: { schema: { $ref: "#/components/schemas/QueueCreateError" } } } }
     QueueGetError: { description: Queue-read error, content: { application/json: { schema: { $ref: "#/components/schemas/QueueGetError" } } } }
     QueueCancelError: { description: Queue-cancel error, content: { application/json: { schema: { $ref: "#/components/schemas/QueueCancelError" } } } }
