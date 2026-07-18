@@ -3,6 +3,7 @@ import { parseAttestation } from './server/attestation.js';
 import { parseAdminRuntimeEnv } from './server/env.js';
 import { intakeUpload } from './server/intake.js';
 import { readSessionCookie, sessionCookieHeaders } from './server/session-cookie.js';
+import { isProvenDatabaseRejection, resolvePublishAfterTransportFailure } from './server/publish-protocol.js';
 
 describe('final admin acceptance boundaries', () => {
   it('keeps the verified session secret in an HttpOnly strict cookie', () => {
@@ -29,7 +30,19 @@ describe('final admin acceptance boundaries', () => {
   });
 
   it('rejects whitespace-padded environment secrets', () => {
-    const env = { NEXT_PUBLIC_SUPABASE_URL: 'https://auth.test', NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: 'public', SUPABASE_SECRET_KEY: 's'.repeat(32), ADMIN_ALLOWED_ORIGIN: 'https://admin.test', ADMIN_ATTESTATION_KEY: 'a'.repeat(32), ADMIN_AUDIT_KEY: 'b'.repeat(32), ADMIN_DATABASE_URL: 'postgres://x:y@localhost/db', CONTENT_ASSET_ORIGINS: 'https://cdn.test' };
+    const env = { NEXT_PUBLIC_SUPABASE_URL: 'https://auth.test', NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: 'public', ADMIN_ALLOWED_ORIGIN: 'https://admin.test', ADMIN_ATTESTATION_KEY: 'a'.repeat(32), ADMIN_AUDIT_KEY: 'b'.repeat(32), ADMIN_DATABASE_URL: 'postgres://x:y@localhost/db', CONTENT_ASSET_ORIGINS: 'https://cdn.test' };
     expect(() => parseAdminRuntimeEnv({ ...env, ADMIN_AUDIT_KEY: ` ${env.ADMIN_AUDIT_KEY}` })).toThrow('whitespace');
+  });
+
+  it('resolves commit-then-throw from the durable receipt without contradictory failure', async () => {
+    await expect(resolvePublishAfterTransportFailure(async () => ({ state: 'COMPLETED', requestHash: 'a'.repeat(64), result: { contentRevisionId: 'revision-1' } }), 'a'.repeat(64))).resolves.toEqual({ kind: 'SUCCESS', contentRevisionId: 'revision-1' });
+    await expect(resolvePublishAfterTransportFailure(async () => ({ state: 'PENDING', requestHash: 'a'.repeat(64), result: null }), 'a'.repeat(64))).resolves.toEqual({ kind: 'OUTCOME_UNKNOWN', retry: 'SAME_KEY' });
+    await expect(resolvePublishAfterTransportFailure(async () => null, 'a'.repeat(64))).resolves.toEqual({ kind: 'ZERO_EFFECT' });
+  });
+
+  it('distinguishes SQL statement rollback from ambiguous connection loss',()=>{
+    expect(isProvenDatabaseRejection(Object.assign(new Error('constraint'),{code:'22023'}))).toBe(true);
+    expect(isProvenDatabaseRejection(Object.assign(new Error('connection'),{code:'08006'}))).toBe(false);
+    expect(isProvenDatabaseRejection(new Error('socket closed'))).toBe(false);
   });
 });

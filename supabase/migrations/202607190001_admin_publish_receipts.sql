@@ -71,40 +71,59 @@ begin
   values(p_action,p_actor_ref,p_session_ref,p_artifact_ref,p_content_revision_ref,pg_catalog.clock_timestamp(),p_outcome);
 end $$;
 
-create or replace function private.publish_attested_content_revision_v1(
+create or replace function private.claim_admin_publish_v1(
   p_idempotency_key pg_catalog.text, p_request_hash pg_catalog.text, p_attestation_hash pg_catalog.text,
-  p_public_content pg_catalog.jsonb, p_private_solution pg_catalog.jsonb, p_rights_manifest pg_catalog.jsonb,
-  p_public_canonical pg_catalog.text, p_private_canonical pg_catalog.text, p_rights_canonical pg_catalog.text,
-  p_actor_ref pg_catalog.text, p_session_ref pg_catalog.text, p_owner_id pg_catalog.text, p_artifact_ref pg_catalog.text
-) returns pg_catalog.uuid language plpgsql security definer set search_path = pg_catalog as $$
-declare v_receipt private.admin_publish_receipts%rowtype; v_revision pg_catalog.uuid; v_fence pg_catalog.int8;
+  p_owner_id pg_catalog.text, p_lease_seconds pg_catalog.int4 default 30
+) returns pg_catalog.jsonb language plpgsql security definer set search_path = pg_catalog as $$
+declare v_receipt private.admin_publish_receipts%rowtype;
 begin
-  if p_idempotency_key !~ '^[A-Za-z0-9_-]{8,128}$' or p_request_hash !~ '^[a-f0-9]{64}$' or p_attestation_hash !~ '^[a-f0-9]{64}$' or p_actor_ref !~ '^[A-Za-z0-9_-]{20,64}$' or p_session_ref !~ '^[A-Za-z0-9_-]{20,64}$' or p_artifact_ref !~ '^artifact:[A-Za-z0-9_-]{20,64}$' then raise exception 'ADMIN_PUBLISH_INPUT_INVALID'; end if;
+  if p_idempotency_key !~ '^[A-Za-z0-9_-]{8,128}$' or p_request_hash !~ '^[a-f0-9]{64}$' or p_attestation_hash !~ '^[a-f0-9]{64}$' or p_owner_id !~ '^[A-Za-z0-9_-]{8,128}$' or p_lease_seconds < 1 or p_lease_seconds > 300 then raise exception 'ADMIN_PUBLISH_INPUT_INVALID'; end if;
   insert into private.admin_publish_receipts(idempotency_key,request_hash,attestation_hash,owner_id,fence,lease_expires_at,state)
-    values(p_idempotency_key,p_request_hash,p_attestation_hash,p_owner_id,1,pg_catalog.clock_timestamp()+interval '30 seconds','PENDING')
-    on conflict (idempotency_key) do nothing;
+    values(p_idempotency_key,p_request_hash,p_attestation_hash,p_owner_id,1,pg_catalog.clock_timestamp()+pg_catalog.make_interval(secs=>p_lease_seconds),'PENDING')
+    on conflict do nothing;
   select * into v_receipt from private.admin_publish_receipts where idempotency_key=p_idempotency_key for update;
-  if v_receipt.request_hash <> p_request_hash then raise exception 'IDEMPOTENCY_CONFLICT'; end if;
-  if v_receipt.attestation_hash <> p_attestation_hash then raise exception 'ATTESTATION_REPLAY'; end if;
-  if v_receipt.state='COMPLETED' then return v_receipt.content_revision_id; end if;
-  if exists(select 1 from private.admin_publish_receipts where attestation_hash=p_attestation_hash and idempotency_key<>p_idempotency_key) then raise exception 'ATTESTATION_REPLAY'; end if;
-  if v_receipt.owner_id<>p_owner_id and v_receipt.lease_expires_at>pg_catalog.clock_timestamp() then raise exception 'PUBLISH_IN_PROGRESS'; end if;
-  update private.admin_publish_receipts set owner_id=p_owner_id,fence=fence+1,lease_expires_at=pg_catalog.clock_timestamp()+interval '30 seconds' where idempotency_key=p_idempotency_key returning fence into v_fence;
+  if not found then return pg_catalog.jsonb_build_object('disposition','CONFLICT'); end if;
+  if v_receipt.request_hash <> p_request_hash or v_receipt.attestation_hash <> p_attestation_hash then return pg_catalog.jsonb_build_object('disposition','CONFLICT'); end if;
+  if v_receipt.state='COMPLETED' then return pg_catalog.jsonb_build_object('disposition','REPLAY','fence',v_receipt.fence,'result',v_receipt.result); end if;
+  if v_receipt.owner_id=p_owner_id then return pg_catalog.jsonb_build_object('disposition','OWNER','fence',v_receipt.fence); end if;
+  if v_receipt.lease_expires_at>pg_catalog.clock_timestamp() then return pg_catalog.jsonb_build_object('disposition','IN_FLIGHT','fence',v_receipt.fence); end if;
+  update private.admin_publish_receipts set owner_id=p_owner_id,fence=fence+1,lease_expires_at=pg_catalog.clock_timestamp()+pg_catalog.make_interval(secs=>p_lease_seconds) where idempotency_key=p_idempotency_key returning * into v_receipt;
+  return pg_catalog.jsonb_build_object('disposition','OWNER','fence',v_receipt.fence);
+end $$;
+
+create or replace function private.complete_admin_publish_v1(
+  p_idempotency_key pg_catalog.text,p_request_hash pg_catalog.text,p_owner_id pg_catalog.text,p_fence pg_catalog.int8,
+  p_public_content pg_catalog.jsonb,p_private_solution pg_catalog.jsonb,p_rights_manifest pg_catalog.jsonb,
+  p_public_canonical pg_catalog.text,p_private_canonical pg_catalog.text,p_rights_canonical pg_catalog.text,
+  p_actor_ref pg_catalog.text,p_session_ref pg_catalog.text,p_artifact_ref pg_catalog.text
+) returns pg_catalog.uuid language plpgsql security definer set search_path=pg_catalog as $$
+declare v_receipt private.admin_publish_receipts%rowtype; v_revision pg_catalog.uuid;
+begin
+  select * into v_receipt from private.admin_publish_receipts where idempotency_key=p_idempotency_key for update;
+  if not found or v_receipt.state<>'PENDING' or v_receipt.request_hash<>p_request_hash or v_receipt.owner_id<>p_owner_id or v_receipt.fence<>p_fence or v_receipt.lease_expires_at<=pg_catalog.clock_timestamp() then raise exception 'PUBLISH_FENCE_LOST'; end if;
   v_revision := private.publish_content_revision_v1(p_public_content,p_private_solution,p_rights_manifest,p_public_canonical,p_private_canonical,p_rights_canonical,'1.0.0');
-  update private.admin_publish_receipts set state='COMPLETED',content_revision_id=v_revision,result=pg_catalog.jsonb_build_object('contentRevisionId',v_revision) where idempotency_key=p_idempotency_key and request_hash=p_request_hash and owner_id=p_owner_id and fence=v_fence;
+  update private.admin_publish_receipts set state='COMPLETED',content_revision_id=v_revision,result=pg_catalog.jsonb_build_object('contentRevisionId',v_revision) where idempotency_key=p_idempotency_key and owner_id=p_owner_id and fence=p_fence and state='PENDING';
   if not found then raise exception 'PUBLISH_FENCE_LOST'; end if;
   perform private.write_admin_publish_audit_v1('PUBLISH_SUCCEEDED',p_actor_ref,p_session_ref,p_artifact_ref,'revision:'||v_revision::text,'PUBLISHED');
   return v_revision;
 end $$;
 
+create or replace function private.resolve_admin_publish_v1(p_idempotency_key pg_catalog.text,p_request_hash pg_catalog.text)
+returns pg_catalog.jsonb language sql security definer set search_path=pg_catalog as $$
+ select case when r.idempotency_key is null then null else pg_catalog.jsonb_build_object('state',r.state,'requestHash',r.request_hash,'result',r.result) end
+ from (select 1) x left join private.admin_publish_receipts r on r.idempotency_key=p_idempotency_key and r.request_hash=p_request_hash
+$$;
+
 revoke all on private.admin_sessions, private.admin_publish_receipts from public, anon, authenticated;
 revoke all on private.admin_publish_audit from public, anon, authenticated, service_role, app_server, deployment_role;
-alter function private.publish_attested_content_revision_v1(text,text,text,jsonb,jsonb,jsonb,text,text,text,text,text,text,text) owner to game_security_owner;
+alter function private.claim_admin_publish_v1(text,text,text,text,int4) owner to game_security_owner;
+alter function private.complete_admin_publish_v1(text,text,text,int8,jsonb,jsonb,jsonb,text,text,text,text,text,text) owner to game_security_owner;
+alter function private.resolve_admin_publish_v1(text,text) owner to game_security_owner;
 alter function private.write_admin_publish_audit_v1(text,text,text,text,text,text) owner to game_security_owner;
 alter function private.lookup_admin_session_v1(text) owner to game_security_owner;
 alter function private.create_admin_session_v1(text,text,uuid) owner to game_security_owner;
-revoke all on function private.publish_attested_content_revision_v1(text,text,text,jsonb,jsonb,jsonb,text,text,text,text,text,text,text) from public, anon, authenticated, service_role, app_server;
-grant execute on function private.publish_attested_content_revision_v1(text,text,text,jsonb,jsonb,jsonb,text,text,text,text,text,text,text) to deployment_role;
+revoke all on function private.claim_admin_publish_v1(text,text,text,text,int4), private.complete_admin_publish_v1(text,text,text,int8,jsonb,jsonb,jsonb,text,text,text,text,text,text), private.resolve_admin_publish_v1(text,text) from public, anon, authenticated, service_role, app_server;
+grant execute on function private.claim_admin_publish_v1(text,text,text,text,int4), private.complete_admin_publish_v1(text,text,text,int8,jsonb,jsonb,jsonb,text,text,text,text,text,text), private.resolve_admin_publish_v1(text,text) to deployment_role;
 revoke all on function private.write_admin_publish_audit_v1(text,text,text,text,text,text) from public,anon,authenticated,service_role,app_server;
 grant execute on function private.write_admin_publish_audit_v1(text,text,text,text,text,text) to deployment_role;
 revoke all on function private.lookup_admin_session_v1(text), private.create_admin_session_v1(text,text,uuid) from public,anon,authenticated,service_role,app_server;

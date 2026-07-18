@@ -13,20 +13,22 @@ export function createCookieSessionAuth(dependencies: Readonly<{ hashSession(val
   } };
 }
 
-export function createVerifiedAuthAdapter(dependencies: Readonly<{
-  verifyToken(token: string): Promise<Readonly<{ actorId: string; tokenId: string }>>;
-  loadSession(tokenId: string): Promise<VerifiedAdminSession | null>;
+export function createAdminSessionBootstrap(dependencies: Readonly<{
+  allowedOrigin:string;
+  verifyToken(token:string):Promise<Readonly<{actorId:string}>>;
+  createSession(value:Readonly<{sessionId:string;sessionHash:string;actorId:string}>):Promise<void>;
+  randomToken():string;
+  hashSession(value:string):string;
+  cookieHeaders(sessionId:string,csrfToken:string):readonly string[];
 }>) {
-  return { async authenticate(request: AdminRequestProof, allowedOrigin: string): Promise<VerifiedAdminSession> {
-    if (request.origin !== allowedOrigin) throw new Error('ORIGIN_MISMATCH');
-    if (!request.csrfCookie || request.csrfCookie !== request.csrfHeader) throw new Error('CSRF_MISMATCH');
-    const match = /^Bearer ([A-Za-z0-9._~-]{8,4096})$/u.exec(request.authorization ?? '');
-    if (!match) throw new Error('UNAUTHORIZED');
-    const verified = await dependencies.verifyToken(match[1]!);
-    const session = await dependencies.loadSession(verified.tokenId);
-    if (!session || session.actorId !== verified.actorId) throw new Error('UNAUTHORIZED');
-    if (!session.roles.includes('CONTENT_PUBLISHER')) throw new Error('FORBIDDEN');
-    return session;
-  } };
+  return async (request:Request):Promise<Response>=>{
+    if(request.headers.get('origin')!==dependencies.allowedOrigin)return Response.json({ok:false},{status:403});
+    const match=/^Bearer ([A-Za-z0-9._~-]{8,4096})$/u.exec(request.headers.get('authorization')??'');
+    if(!match)return Response.json({ok:false},{status:401});
+    const verified=await dependencies.verifyToken(match[1]!);const sessionId=dependencies.randomToken();const csrfToken=dependencies.randomToken();
+    await dependencies.createSession({sessionId,sessionHash:dependencies.hashSession(sessionId),actorId:verified.actorId});
+    const response=Response.json({ok:true,csrfToken});for(const cookie of dependencies.cookieHeaders(sessionId,csrfToken))response.headers.append('set-cookie',cookie);return response;
+  };
 }
+
 import 'server-only';

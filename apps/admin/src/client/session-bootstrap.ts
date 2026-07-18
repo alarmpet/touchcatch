@@ -12,11 +12,16 @@ export async function bootstrapBrowserSession(auth: BrowserAuthShell, request: t
   } catch { return { status: 'error', code: 'SESSION_BOOTSTRAP_FAILED' }; }
 }
 
-export function supabaseBrowserAuthShell(): BrowserAuthShell {
+export function createSupabaseBrowserTokenAdapter(config: Readonly<{ supabaseUrl: string; storage: Pick<Storage, 'getItem'> }>): BrowserAuthShell {
+  const projectRef = new URL(config.supabaseUrl).hostname.split('.')[0];
+  if (!projectRef) throw new Error('AUTH_PROVIDER_CONFIG_INVALID');
   return { async acquireAccessToken() {
-    const provider = (globalThis as typeof globalThis & { __touchcatchAuth?: { getAccessToken(): Promise<string | null> } }).__touchcatchAuth;
-    const token = await provider?.getAccessToken();
-    if (!token) throw new Error('AUTH_PROVIDER_UNAVAILABLE');
+    const raw = config.storage.getItem(`sb-${projectRef}-auth-token`);
+    if (!raw) throw new Error('AUTH_PROVIDER_UNAVAILABLE');
+    let parsed: unknown;
+    try { parsed = JSON.parse(raw); } catch { throw new Error('AUTH_PROVIDER_INVALID'); }
+    const token = (parsed as { access_token?: unknown }).access_token;
+    if (typeof token !== 'string' || token.length < 8) throw new Error('AUTH_PROVIDER_INVALID');
     return token;
   } };
 }

@@ -47,7 +47,9 @@ export function createAdminHandlers(dependencies: Dependencies) {
           const result = await dependencies.publish({ submission, session, attestation, idempotencyKey });
           return Response.json({ ok: true, result });
         } catch (error) {
-          try { await dependencies.audit({ action: 'PUBLISH_FAILED', session, outcome: 'ZERO_EFFECT', submission }); } catch { /* audit availability never changes publish outcome */ }
+          if (!(error instanceof Error && error.message.startsWith('OUTCOME_UNKNOWN'))) {
+            try { await dependencies.audit({ action: 'PUBLISH_FAILED', session, outcome: 'ZERO_EFFECT', submission }); } catch { /* audit availability never changes publish outcome */ }
+          }
           throw error;
         }
       } catch (error) { return errorResponse(error); }

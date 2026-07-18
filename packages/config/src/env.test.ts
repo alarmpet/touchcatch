@@ -21,7 +21,6 @@ const server = {
 const admin = {
   NEXT_PUBLIC_SUPABASE_URL: 'https://project.supabase.co',
   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: 'publishable',
-  SUPABASE_SECRET_KEY: 'secret',
 };
 
 describe('application environment boundaries', () => {
@@ -40,7 +39,7 @@ describe('application environment boundaries', () => {
   it('rejects empty required values', () => {
     expect(() => parseMobileEnv({ ...mobile, EXPO_PUBLIC_API_ORIGIN: '' })).toThrow(/EXPO_PUBLIC_API_ORIGIN.*empty/i);
     expect(() => parseServerEnv({ ...server, DATABASE_URL: '' })).toThrow(/DATABASE_URL.*empty/i);
-    expect(() => parseAdminServerEnv({ ...admin, SUPABASE_SECRET_KEY: '' })).toThrow(/SUPABASE_SECRET_KEY.*empty/i);
+    expect(() => parseAdminServerEnv({ ...admin, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: '' })).toThrow(/NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY.*empty/i);
   });
 
   it('rejects loopback service URLs in production', () => {
@@ -69,5 +68,6 @@ describe('application environment boundaries', () => {
   it('does not permit server secrets in either public environment', () => {
     expect(() => parseMobileEnv({ ...mobile, DATABASE_URL: server.DATABASE_URL })).toThrow(/unknown.*DATABASE_URL/i);
     expect(projectAdminPublicEnv(parseAdminServerEnv(admin))).not.toHaveProperty('SUPABASE_SECRET_KEY');
+    expect(() => parseAdminServerEnv({ ...admin, SUPABASE_SECRET_KEY: 'secret' })).toThrow(/unknown.*SUPABASE_SECRET_KEY/i);
   });
 });

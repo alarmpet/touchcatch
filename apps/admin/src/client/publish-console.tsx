@@ -3,10 +3,11 @@
 import { useEffect, useState, type ChangeEvent } from 'react';
 import type { AdminPreviewDto, AdminPublishResultDto } from './public-dto.js';
 import { rotateAfterValidation } from './idempotency-key.js';
-import { bootstrapBrowserSession, supabaseBrowserAuthShell } from './session-bootstrap.js';
+import { bootstrapBrowserSession, createSupabaseBrowserTokenAdapter, type BrowserAuthShell } from './session-bootstrap.js';
 
 type ApiError = Readonly<{ path?: string; ruleId?: string; message?: string; code?: string }>;
-export function PublishConsole() {
+export type AuthShellProvider = () => BrowserAuthShell;
+export function PublishConsole({ authProvider, supabaseUrl }: Readonly<{ authProvider?: AuthShellProvider; supabaseUrl: string }>) {
   const [files, setFiles] = useState<{ artifact?: File; imageA?: File; imageB?: File }>({});
   const [preview, setPreview] = useState<AdminPreviewDto>();
   const [attestation, setAttestation] = useState('');
@@ -16,9 +17,9 @@ export function PublishConsole() {
   const [idempotencyKey, setIdempotencyKey] = useState('');
   const [csrfToken, setCsrfToken] = useState('');
   const [sessionState, setSessionState] = useState<'loading' | 'ready' | 'error'>('loading');
-  useEffect(() => { void bootstrapBrowserSession(supabaseBrowserAuthShell()).then((state) => {
+  useEffect(() => { const provider = authProvider ?? (() => createSupabaseBrowserTokenAdapter({ supabaseUrl, storage: window.localStorage })); void bootstrapBrowserSession(provider()).then((state) => {
     setSessionState(state.status); if (state.status === 'ready') setCsrfToken(state.csrfToken);
-  }); }, []);
+  }); }, [authProvider, supabaseUrl]);
   function selected(field: 'artifact' | 'imageA' | 'imageB') { return (event: ChangeEvent<HTMLInputElement>) => { setFiles((current) => ({ ...current, [field]: event.target.files?.[0] })); setPreview(undefined); setAttestation(''); setIdempotencyKey(''); }; }
   function body() { const form = new FormData(); for (const field of ['artifact', 'imageA', 'imageB'] as const) { const file = files[field]; if (file) form.set(field, file); } return form; }
   async function validate() {

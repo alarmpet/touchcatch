@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { createVerifiedAuthAdapter } from './server/auth.js';
+import { createVerifiedAuthAdapter } from './testing/verified-auth-adapter.js';
 import { intakeMultipart } from './server/intake.js';
 import { safeAuditEvent } from './server/audit.js';
 import { PostgresPublishReceiptStore } from './testing/receipt-store.js';

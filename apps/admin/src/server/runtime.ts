@@ -9,9 +9,10 @@ import { intakeMultipart } from './intake.js';
 import { createSubmittedArtifactValidator } from './submitted-validator.js';
 import { parseAttestation } from './attestation.js';
 import { readSessionCookie, sessionCookieHeaders } from './session-cookie.js';
-import { createCookieSessionAuth } from './auth.js';
+import { createAdminSessionBootstrap, createCookieSessionAuth } from './auth.js';
+import { isProvenDatabaseRejection, resolvePublishAfterTransportFailure } from './publish-protocol.js';
 
-const env = parseAdminRuntimeEnv({ NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY, SUPABASE_SECRET_KEY: process.env.SUPABASE_SECRET_KEY, ADMIN_ALLOWED_ORIGIN: process.env.ADMIN_ALLOWED_ORIGIN, ADMIN_ATTESTATION_KEY: process.env.ADMIN_ATTESTATION_KEY, ADMIN_AUDIT_KEY: process.env.ADMIN_AUDIT_KEY, ADMIN_DATABASE_URL: process.env.ADMIN_DATABASE_URL, CONTENT_ASSET_ORIGINS: process.env.CONTENT_ASSET_ORIGINS });
+const env = parseAdminRuntimeEnv({ NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY, ADMIN_ALLOWED_ORIGIN: process.env.ADMIN_ALLOWED_ORIGIN, ADMIN_ATTESTATION_KEY: process.env.ADMIN_ATTESTATION_KEY, ADMIN_AUDIT_KEY: process.env.ADMIN_AUDIT_KEY, ADMIN_DATABASE_URL: process.env.ADMIN_DATABASE_URL, CONTENT_ASSET_ORIGINS: process.env.CONTENT_ASSET_ORIGINS });
 const pool = new Pool({ connectionString: env.ADMIN_DATABASE_URL, max: 4, statement_timeout: 10_000, ssl: { rejectUnauthorized: true } });
 const validateSubmission = createSubmittedArtifactValidator(env.CONTENT_ASSET_ORIGINS);
 const ref = (scope: string, value: string) => createHmac('sha256', env.ADMIN_ATTESTATION_KEY).update(`${scope}:${value}`).digest('base64url');
@@ -51,21 +52,25 @@ export const adminHandlers = createAdminHandlers({
     const v: Valid['value'] = validation.value;
     const ownerId = `worker_${randomBytes(18).toString('base64url')}`;
     const artifactRef = `artifact:${ref('artifact', canonicalJsonSha256(submission.artifact)).slice(0, 32)}`;
-    const result = await pool.query<{ content_revision_id: string }>('select private.publish_attested_content_revision_v1($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)::text as content_revision_id', [idempotencyKey, requestHash, tokenHash, v.publicContent, v.privateSolution, v.rightsManifest, v.publicContentCanonicalJson, v.privateSolutionCanonicalJson, v.rightsManifestCanonicalJson, expected.actorRef, expected.sessionRef, ownerId, artifactRef]);
-    const contentRevisionId = result.rows[0]?.content_revision_id; if (!contentRevisionId) throw new Error('DEPLOYMENT_PUBLISH_EMPTY_RESULT');
-    return { publishId: `content:${contentRevisionId}`, contentRevisionId };
+    const claimed = await pool.query<{ claim: { disposition: 'OWNER'|'REPLAY'|'IN_FLIGHT'|'CONFLICT'; fence?: number; result?: { contentRevisionId?: string } } }>('select private.claim_admin_publish_v1($1,$2,$3,$4,$5)::jsonb as claim', [idempotencyKey, requestHash, tokenHash, ownerId, 30]);
+    const claim = claimed.rows[0]?.claim;
+    if (claim?.disposition === 'CONFLICT') throw new Error('IDEMPOTENCY_CONFLICT');
+    if (claim?.disposition === 'IN_FLIGHT') throw new Error('OUTCOME_UNKNOWN:RETRY_SAME_KEY');
+    if (claim?.disposition === 'REPLAY' && claim.result?.contentRevisionId) { const contentRevisionId=claim.result.contentRevisionId; return { publishId:`content:${contentRevisionId}`,contentRevisionId }; }
+    if (claim?.disposition !== 'OWNER' || !Number.isSafeInteger(claim.fence)) throw new Error('OUTCOME_UNKNOWN:RETRY_SAME_KEY');
+    try {
+      const result = await pool.query<{ content_revision_id: string }>('select private.complete_admin_publish_v1($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)::text as content_revision_id', [idempotencyKey,requestHash,ownerId,claim.fence,v.publicContent,v.privateSolution,v.rightsManifest,v.publicContentCanonicalJson,v.privateSolutionCanonicalJson,v.rightsManifestCanonicalJson,expected.actorRef,expected.sessionRef,artifactRef]);
+      const contentRevisionId=result.rows[0]?.content_revision_id; if(!contentRevisionId) throw new Error('DEPLOYMENT_PUBLISH_EMPTY_RESULT');
+      return { publishId:`content:${contentRevisionId}`,contentRevisionId };
+    } catch (error) {
+      const resolution=await resolvePublishAfterTransportFailure(async()=>{const result=await pool.query<{receipt: {state:'PENDING'|'COMPLETED';requestHash:string;result:{contentRevisionId:string}|null}|null}>('select private.resolve_admin_publish_v1($1,$2)::jsonb as receipt',[idempotencyKey,requestHash]);return result.rows[0]?.receipt??null;},requestHash);
+      if(resolution.kind==='SUCCESS') return {publishId:`content:${resolution.contentRevisionId}`,contentRevisionId:resolution.contentRevisionId};
+      if(isProvenDatabaseRejection(error)) throw error;
+      if(resolution.kind==='OUTCOME_UNKNOWN') throw new Error('OUTCOME_UNKNOWN:RETRY_SAME_KEY');
+      throw error;
+    }
   },
   async audit(event) { const artifactId = event.submission ? `artifact:${ref('artifact', canonicalJsonSha256(event.submission.artifact)).slice(0, 32)}` : `artifact:${randomBytes(18).toString('base64url')}`; const contentRevisionId = event.contentRevisionId ? `revision:${event.contentRevisionId}` : 'revision:unknown'; const safe = safeAuditEvent({ action: event.action as 'VALIDATION_FAILED' | 'VALIDATION_SUCCEEDED' | 'PUBLISH_FAILED' | 'PUBLISH_SUCCEEDED', actorId: event.session.actorId, sessionId: event.session.sessionId, artifactId, contentRevisionId, occurredAt: new Date().toISOString() }, env.ADMIN_AUDIT_KEY); await pool.query('select private.write_admin_publish_audit_v1($1,$2,$3,$4,$5,$6)', [safe.action, safe.actorRef, safe.sessionRef, safe.artifactId, safe.contentRevisionId, event.outcome]); },
 });
 
-export async function bootstrapAdminSession(request: Request): Promise<Response> {
-  if (request.headers.get('origin') !== env.ADMIN_ALLOWED_ORIGIN) return Response.json({ ok: false }, { status: 403 });
-  const match = /^Bearer ([A-Za-z0-9._~-]{8,4096})$/u.exec(request.headers.get('authorization') ?? '');
-  if (!match) return Response.json({ ok: false }, { status: 401 });
-  const verified = await tokenVerifier.verifyToken(match[1]!);
-  const sessionId = randomBytes(24).toString('base64url'); const csrf = randomBytes(24).toString('base64url'); const hash = createHash('sha256').update(sessionId).digest('hex');
-  await pool.query('select private.create_admin_session_v1($1,$2,$3)', [sessionId, hash, verified.actorId]);
-  const response = Response.json({ ok: true, csrfToken: csrf });
-  for (const cookie of sessionCookieHeaders(sessionId, csrf)) response.headers.append('set-cookie', cookie);
-  return response;
-}
+export const bootstrapAdminSession=createAdminSessionBootstrap({allowedOrigin:env.ADMIN_ALLOWED_ORIGIN,verifyToken:token=>tokenVerifier.verifyToken(token),async createSession(value){await pool.query('select private.create_admin_session_v1($1,$2,$3)',[value.sessionId,value.sessionHash,value.actorId]);},randomToken:()=>randomBytes(24).toString('base64url'),hashSession:value=>createHash('sha256').update(value).digest('hex'),cookieHeaders:sessionCookieHeaders});

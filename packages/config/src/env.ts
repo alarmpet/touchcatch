@@ -8,7 +8,7 @@ const mobileKeys = [
   'EXPO_PUBLIC_SENTRY_DSN',
 ] as const;
 const serverKeys = ['PORT', 'SUPABASE_URL', 'SUPABASE_SECRET_KEY', 'DATABASE_URL', 'REDIS_URL', 'SENTRY_DSN'] as const;
-const adminKeys = ['NEXT_PUBLIC_SUPABASE_URL', 'NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY', 'SUPABASE_SECRET_KEY'] as const;
+const adminKeys = ['NEXT_PUBLIC_SUPABASE_URL', 'NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY'] as const;
 
 type MobileEnv = Record<(typeof mobileKeys)[number], string>;
 type ServerEnv = Omit<Record<(typeof serverKeys)[number], string>, 'PORT'> & { PORT: number };

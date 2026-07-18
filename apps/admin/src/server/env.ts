@@ -4,7 +4,6 @@ import { parseContentAssetOrigins } from '../../../../packages/contracts/src/ind
 const exactKeys = [
   'NEXT_PUBLIC_SUPABASE_URL',
   'NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY',
-  'SUPABASE_SECRET_KEY',
   'ADMIN_ALLOWED_ORIGIN',
   'ADMIN_ATTESTATION_KEY',
   'ADMIN_AUDIT_KEY',
