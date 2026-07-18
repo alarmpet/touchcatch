@@ -2980,7 +2980,7 @@
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "API-001"
       },
       "testCase": "API-001 executes OPENAPI_PROJECTION",
@@ -2988,14 +2988,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-001"
+      "closureCondition": "Exact REST operation, bearer, idempotency, schema, status, and error-code projection is repository-verified"
     },
     {
       "id": "API-002",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "API-002"
       },
       "testCase": "API-002 executes OPENAPI_PROJECTION",
@@ -3003,14 +3003,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-002"
+      "closureCondition": "Exact REST operation, bearer, idempotency, schema, status, and error-code projection is repository-verified"
     },
     {
       "id": "API-003",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "API-003"
       },
       "testCase": "API-003 executes OPENAPI_PROJECTION",
@@ -3018,14 +3018,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-003"
+      "closureCondition": "Exact REST operation, bearer, idempotency, schema, status, and error-code projection is repository-verified"
     },
     {
       "id": "API-004",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "API-004"
       },
       "testCase": "API-004 executes OPENAPI_PROJECTION",
@@ -3033,14 +3033,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-004"
+      "closureCondition": "Exact REST operation, bearer, idempotency, schema, status, and error-code projection is repository-verified"
     },
     {
       "id": "API-006",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "API-006"
       },
       "testCase": "API-006 executes OPENAPI_PROJECTION",
@@ -3048,14 +3048,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-006"
+      "closureCondition": "Exact REST operation, bearer, idempotency, schema, status, and error-code projection is repository-verified"
     },
     {
       "id": "API-007",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "API-007"
       },
       "testCase": "API-007 executes OPENAPI_PROJECTION",
@@ -3063,14 +3063,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-007"
+      "closureCondition": "Exact REST operation, bearer, idempotency, schema, status, and error-code projection is repository-verified"
     },
     {
       "id": "API-008",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "API-008"
       },
       "testCase": "API-008 executes OPENAPI_PROJECTION",
@@ -3078,14 +3078,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-008"
+      "closureCondition": "Exact REST operation, bearer, idempotency, schema, status, and error-code projection is repository-verified"
     },
     {
       "id": "API-009",
       "evidenceKind": "OPENAPI_PROJECTION",
       "oracle": {
         "kind": "OPENAPI_PROJECTION",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "API-009"
       },
       "testCase": "API-009 executes OPENAPI_PROJECTION",
@@ -3093,7 +3093,7 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "api",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-009"
+      "closureCondition": "Exact REST operation, bearer, idempotency, schema, status, and error-code projection is repository-verified"
     },
     {
       "id": "API-010",

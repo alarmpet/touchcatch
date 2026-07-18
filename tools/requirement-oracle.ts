@@ -1,4 +1,5 @@
 import fs from'node:fs';import path from'node:path';
+import{parse as parseYaml}from'yaml';
 import{parseRuleset}from'../packages/contracts/src/rules.schema.js';
 import{parseEconomy}from'../packages/contracts/src/economy.schema.js';
 import{AnalyticsCollector,emitRequirementGateStatus,parseAnalyticsEventV1,validateLifecycleTrace,type RequirementGateResult}from'../packages/contracts/src/analytics.js';
@@ -15,6 +16,20 @@ type Row={id:string;source:string;sourceLine:number;text:string};
 type Assertion={pointer:string;expected:unknown};type Claim={lifecycle:'CURRENT'|'PLANNED'|'EXTERNAL';oracle:{kind:string;expected:RequirementGateResult;input?:string;assertions?:Assertion[]};blockerReason?:string;closureCondition?:string;closureArtifact?:string;closureArtifactState?:'ABSENT'|'PRESENT';externalKind?:string;localSubstitute?:string};
 const resolve=(value:unknown,pointer:string)=>pointer.split('/').slice(1).reduce<unknown>((current,key)=>current!==null&&typeof current==='object'?(current as Record<string,unknown>)[key]:undefined,value);
 const assertExact=(value:unknown,assertions:Assertion[]|undefined)=>{if(!assertions?.length)throw Error('exact assertions required');for(const assertion of assertions)if(JSON.stringify(resolve(value,assertion.pointer))!==JSON.stringify(assertion.expected))throw Error(`SSOT mismatch ${assertion.pointer}`);};
+type OpenApiOperation={parameters?:Array<{$ref:string}>;requestBody?:{$ref:string};responses:Record<string,{$ref:string}>};
+type OpenApiDocument={security?:unknown;paths:Record<string,Record<string,OpenApiOperation>>;components:{schemas:Record<string,{properties?:{code?:{enum?:string[]}}}>}};
+const REST_REQUIREMENTS:Record<string,{method:'get'|'post';path:string;request:null|string;success:string;statuses:string[];errors:string[]}>= {
+ 'API-001':{method:'get',path:'/v1/me',request:null,success:'MeResponse',statuses:['200','401'],errors:['UNAUTHORIZED']},
+ 'API-002':{method:'get',path:'/v1/pets',request:null,success:'PetsResponse',statuses:['200','401'],errors:['UNAUTHORIZED']},
+ 'API-003':{method:'post',path:'/v1/pets/{id}/lock',request:'LockPetRequest',success:'LockPetResponse',statuses:['200','404','409'],errors:['NOT_OWNED','IDEMPOTENCY_CONFLICT']},
+ 'API-004':{method:'post',path:'/v1/pets/{id}/select',request:null,success:'SelectPetResponse',statuses:['200','404','409'],errors:['NOT_OWNED','IDEMPOTENCY_CONFLICT']},
+ 'API-006':{method:'post',path:'/v1/gacha/draw',request:null,success:'GachaDrawResponse',statuses:['200','409'],errors:['IDEMPOTENCY_CONFLICT','POLICY_MISMATCH','INSUFFICIENT_FUNDS']},
+ 'API-007':{method:'post',path:'/v1/fusion',request:'FusionRequest',success:'FusionResponse',statuses:['200','400','404','409'],errors:['INVALID_MATERIALS','NOT_OWNED','IDEMPOTENCY_CONFLICT','POLICY_MISMATCH']},
+ 'API-008':{method:'post',path:'/v1/matches/queue',request:'QueueCreateRequest',success:'QueueTicketResponse',statuses:['202','400','409'],errors:['INVALID_REQUEST','CONFLICT','IDEMPOTENCY_CONFLICT']},
+ 'API-009':{method:'post',path:'/v1/matches/friend-room',request:'FriendRoomCreateRequest',success:'FriendRoomResponse',statuses:['201','400','409'],errors:['INVALID_REQUEST','CONFLICT','IDEMPOTENCY_CONFLICT']},
+};
+const refName=(ref:string)=>ref.split('/').at(-1);
+export function evaluateOpenApiRequirement(id:string,provided?:string){const expected=REST_REQUIREMENTS[id];if(!expected)throw Error('unsupported REST requirement');const source=provided??fs.readFileSync(path.resolve('packages/contracts/openapi.yaml'),'utf8'),document=parseYaml(source)as OpenApiDocument;if(JSON.stringify(document.security)!==JSON.stringify([{bearerAuth:[]}]))throw Error('bearer security drift');const operation=document.paths?.[expected.path]?.[expected.method];if(!operation)throw Error('REST operation missing');const parameterRefs=(operation.parameters??[]).map(x=>x.$ref),idempotency='#/components/parameters/IdempotencyKey';if(expected.method==='get'&&parameterRefs.includes(idempotency))throw Error('GET idempotency drift');if(expected.method!=='get'&&!parameterRefs.includes(idempotency))throw Error('mutation idempotency drift');const actualRequest=operation.requestBody?refName(operation.requestBody.$ref):null;if(actualRequest!==expected.request)throw Error('request schema drift');const statuses=Object.keys(operation.responses??{}).sort();if(JSON.stringify(statuses)!==JSON.stringify([...expected.statuses].sort()))throw Error('status set drift');const successStatus=expected.statuses[0];if(!successStatus||refName(operation.responses[successStatus]?.$ref??'')!==expected.success)throw Error('success response schema drift');const errors=expected.statuses.slice(1).flatMap(status=>{const schema=refName(operation.responses[status]?.$ref??'');return document.components.schemas[schema??'']?.properties?.code?.enum??[];});if(JSON.stringify([...new Set(errors)].sort())!==JSON.stringify([...expected.errors].sort()))throw Error('error code set drift');return true;}
 export type DatabaseRequirementSource={sql:string;config:string;roles:string};
 const requireSql=(source:DatabaseRequirementSource,needles:string[])=>{for(const needle of needles)if(!source.sql.toLowerCase().includes(needle.toLowerCase()))throw Error(`database predicate missing: ${needle}`);};
 export function evaluateDatabaseRequirement(id:string,provided?:DatabaseRequirementSource){const root=process.cwd(),read=(p:string)=>fs.readFileSync(path.join(root,p),'utf8'),source=provided??{sql:fs.readdirSync(path.join(root,'supabase/migrations')).filter(x=>x.endsWith('.sql')).sort().map(x=>read(`supabase/migrations/${x}`)).join('\n'),config:read('supabase/config.toml'),roles:read('supabase/roles.sql')};
@@ -93,6 +108,7 @@ export function executeRequirementOracle(root:string,row:Row,claim:Claim){
    case'ECONOMY_PARSE':{const value=JSON.parse(fs.readFileSync(path.join(root,claim.oracle.input??'config/economy.v1.json'),'utf8'));parseEconomy(value);assertExact(value,claim.oracle.assertions);status='PASS';break;}
    case'UI_CONTRACT':{const value=JSON.parse(fs.readFileSync(path.join(root,claim.oracle.input??'config/ui-screen-contract.v1.json'),'utf8')),load=(file:string)=>JSON.parse(fs.readFileSync(path.join(root,file),'utf8')),bundle={theme:load('config/ui-theme.v1.json'),screens:value,references:load('docs/design/ui-reference/manifest.json'),rights:load('docs/design/ui-reference/rights-manifest.json')};if(validateUiReferenceBundle(bundle).length)throw Error('UI bundle invalid');assertExact(value,claim.oracle.assertions);status='PASS';break;}
    case'DB_PROJECTION':evaluateDatabaseRequirement(row.id);status='PASS';break;
+   case'OPENAPI_PROJECTION':evaluateOpenApiRequirement(row.id);status='PASS';break;
    default:throw Error('missing current executable oracle');
   }
  }catch{status='FAIL';}
