@@ -11,6 +11,14 @@ const ORDERS:Record<string,string[]>= {
   MATCH_WORD_HUNT:['HUD','WORD_SLOTS','BOARD_PAIR','ACTION_DOCK'],
   MATCH_MEANING_SUCCESS:['MASCOT','REWARD_BANNER','COMPLETED_WORD','QUESTION','CHOICES_3','STREAK','LEARNING_BONUS'],
   PET_COLLECTION:['HEADER','PET_CURRENCY_HERO','SEGMENT_TABS','COLLECTION_GRID','GACHA','FUSION_GUIDE','BOTTOM_TABS'],
+  RESULT:['OUTCOME','SCORE_DETAIL','LEARNING_SUMMARY','PET_PROGRESS','DRAW_REWARD','RETRY_ACTION'],
+};
+const SEMANTICS:Record<string,Record<string,string[]>>={
+  HOME_DEFAULT:{requiredContentRoles:['REPRESENTATIVE_PET','PET_LEVEL_EXP','QUICK_MATCH','FRIEND_MATCH','BOTTOM_TABS_HOME_PET_FUSION_COLLECTION'],forbiddenContentRoles:[],transitionClauses:[],accessibilityClauses:['LOGICAL_FOCUS_ORDER','SOLE_PRIMARY_ACTION_LABEL']},
+  MATCH_WORD_HUNT:{requiredContentRoles:['SCORES','TIMER','FINAL_ANSWER','HINT','TARGET_SCORE_100','FOUND_DIFFERENCE_RINGS','ANSWER_CHALLENGE'],forbiddenContentRoles:['PET_STATS','FUSION_MATERIALS','PRIVATE_ANSWER'],transitionClauses:['MISSION_OVERLAY_TO_BAR_1200MS'],accessibilityClauses:['SCORE_TIMER_TABULAR_LABELS','PRIVATE_ANSWER_NON_DISCLOSURE']},
+  MATCH_MEANING_SUCCESS:{requiredContentRoles:['COMPLETED_WORD','MEANING_CHOICES_3'],forbiddenContentRoles:['CORRECT_OPTION_BEFORE_SUBMIT'],transitionClauses:[],accessibilityClauses:['MODAL_FOCUS_TRAP','BLOCK_BACKDROP_AND_SYSTEM_BACK']},
+  PET_COLLECTION:{requiredContentRoles:['PET_COLLECTION','DRAW_POINTS','FUSION_GUIDE'],forbiddenContentRoles:[],transitionClauses:[],accessibilityClauses:['LOCKED_PET_UNLOCK_LABEL']},
+  RESULT:{requiredContentRoles:['WIN_LOSS','SCORE_DETAIL','LEARNED_WORDS','PET_EXP','DRAW_POINTS','RETRY'],forbiddenContentRoles:['PRIVATE_ANSWER'],transitionClauses:['MATCH_FINISHED_TO_RESULT'],accessibilityClauses:['RESULT_LIVE_REGION','LOGICAL_FOCUS_ORDER']},
 };
 
 export function validateUiReferenceBundle(bundle:unknown):string[] {
@@ -22,6 +30,7 @@ export function validateUiReferenceBundle(bundle:unknown):string[] {
   for(const [id,order] of Object.entries(ORDERS)){
     const screen=object(screenMap[id]);
     if(JSON.stringify(screen.orderedBlockIds)!==JSON.stringify(order)) errors.push(`${id} block order`);
+    for(const[key,expected]of Object.entries(SEMANTICS[id]!))if(JSON.stringify(screen[key])!==JSON.stringify(expected))errors.push(`${id} ${key}`);
     for(const ids of Object.values(object(screen.blocks))) for(const component of array(ids)) if(typeof component!=='string'||!COMPONENTS.includes(component)) errors.push(`unknown component ${String(component)}`);
   }
   const refs=object(b.references); if(refs.betaReady!==false) errors.push('unapproved betaReady');

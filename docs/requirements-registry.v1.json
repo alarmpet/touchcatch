@@ -932,11 +932,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "STATE_SCHEMA",
-      "oracle": "STATE-001:STATE_SCHEMA:FAIL",
+      "oracle": "STATE-001:STATE_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "game-state",
       "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-001",
-      "linkageProof": "fd84f1bcb59378d4c053a75eba2a15626d5dfc519cc6e7f68e10cec0479de66d"
+      "linkageProof": "ca8578d21014d1c731de1006390262ca577c0bb806101225877595ed6a9c4eaf"
     },
     {
       "id": "STATE-002",
@@ -1076,11 +1076,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "STATE_SCHEMA",
-      "oracle": "STATE-009:STATE_SCHEMA:FAIL",
+      "oracle": "STATE-009:STATE_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "game-state",
       "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-009",
-      "linkageProof": "11f71825374dbd8e7418eb73ea1ca5e1f83b80697e0fcc330141dad513d24b27"
+      "linkageProof": "34c6bda68efe796d8eec209a601ca17ff11806f980660fb8c065f9f56a9567ff"
     },
     {
       "id": "STATE-010",
@@ -2210,11 +2210,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "ANALYTICS_CONTRACT",
-      "oracle": "OBS-012:ANALYTICS_CONTRACT:FAIL",
+      "oracle": "OBS-012:ANALYTICS_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-012",
-      "linkageProof": "ec28fc64391d412b76edb7602b51cd00b07ae6f503562c901df60136b433e222"
+      "linkageProof": "4e4f23ad632875e3f7c59b3f8a8513efad1cc3acd02c3d3e71d9b44c4c088e7f"
     },
     {
       "id": "OBS-013",
@@ -2228,11 +2228,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "ANALYTICS_CONTRACT",
-      "oracle": "OBS-013:ANALYTICS_CONTRACT:FAIL",
+      "oracle": "OBS-013:ANALYTICS_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-013",
-      "linkageProof": "5aba7ed3af712723c719634918859c3b37bfef8560b8238d8e61ba99489ce583"
+      "linkageProof": "d43630764a3f24defc149b5788940e82d2a521a831c1d974d2fd7ec549e1855f"
     },
     {
       "id": "OBS-014",

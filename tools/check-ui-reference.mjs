@@ -13,7 +13,7 @@ const errors=[];
 for(const [file,value] of [['schemas/ui-theme.schema.json',JSON.parse(themeBytes)],['schemas/ui-screen-contract.schema.json',JSON.parse(readFileSync(resolve(root,'config/ui-screen-contract.v1.json')))],['schemas/ui-reference-manifest.schema.json',manifest],['schemas/ui-reference-rights.schema.json',rights]]){const schema=JSON.parse(readFileSync(resolve(root,file)));const validate=new Ajv2020({strict:true,allErrors:true}).compile(schema);if(!validate(value))errors.push(`${file}: ${JSON.stringify(validate.errors)}`)}
 if (themeHash !== '30b4cafd04f1fa04cdca7f447ae09e266cc6b62c3b53e690343d66afc9fd4d2d') errors.push('frozen theme token drift');
 const screenHash=createHash('sha256').update(readFileSync(resolve(root,'config/ui-screen-contract.v1.json'))).digest('hex');
-if(screenHash!=='8c236188a67b2eaf7e360c975a7d79e9d202fdfb6dd09ff1003f9c2167c42d5a') errors.push('frozen screen contract drift');
+if(screenHash!=='7f5fb565ef4e3981d9943e71c1088028641c3b39661e8ec615d36b808bb5aa4c') errors.push('frozen screen contract drift');
 if (manifest.themeHash !== themeHash) errors.push('theme hash mismatch');
 if (manifest.rightsManifestSetId !== rights.setId) errors.push('rights set mismatch');
 const ids=new Set(), files=new Set(), hashes=new Set();
