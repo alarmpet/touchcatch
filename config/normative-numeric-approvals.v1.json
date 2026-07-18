@@ -708,39 +708,85 @@
         "44",
         "48"
       ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
+      "status": "VERIFIED_LOCAL_SSOT",
       "sourcePath": "04_UX_SCREEN_SPEC.md",
       "sourceHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-001",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION"
+      "ssotPath": "config/ui-theme.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/viewport/minimum",
+          "expected": [
+            320,
+            568
+          ]
+        },
+        {
+          "pointer": "/viewport/baseline",
+          "expected": [
+            390,
+            844
+          ]
+        },
+        {
+          "pointer": "/viewport/additionalReview",
+          "expected": [
+            412,
+            915
+          ]
+        },
+        {
+          "pointer": "/touchTarget/iosPt",
+          "expected": 44
+        },
+        {
+          "pointer": "/touchTarget/androidDp",
+          "expected": 48
+        }
+      ],
+      "ssotHash": "30b4cafd04f1fa04cdca7f447ae09e266cc6b62c3b53e690343d66afc9fd4d2d"
     },
     {
       "id": "UX-010",
       "approvedTokens": [
         "100"
       ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
+      "status": "VERIFIED_LOCAL_SSOT",
       "sourcePath": "04_UX_SCREEN_SPEC.md",
       "sourceHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-010",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION"
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/targetScore",
+          "expected": 100
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "UX-012",
       "approvedTokens": [
         "1.2"
       ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
+      "status": "VERIFIED_LOCAL_SSOT",
       "sourcePath": "04_UX_SCREEN_SPEC.md",
       "sourceHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-012",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:UI_PROJECTION"
+      "ssotPath": "config/ui-screen-contract.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/screens/MATCH_WORD_HUNT/transitionClauses/0",
+          "expected": "MISSION_OVERLAY_TO_BAR_1200MS"
+        }
+      ],
+      "ssotHash": "7f5fb565ef4e3981d9943e71c1088028641c3b39661e8ec615d36b808bb5aa4c"
     },
     {
       "id": "ECON-008",

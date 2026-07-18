@@ -1232,288 +1232,448 @@
     },
     {
       "id": "UX-001",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-001"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/contractVersion",
+            "expected": "1.1.0"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/accessibilityClauses/1",
+            "expected": "PRIVATE_ANSWER_NON_DISCLOSURE"
+          }
+        ]
       },
       "testCase": "UX-001 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-001"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "DEVICE_GOLDEN",
+        "closureCondition": "Capture and human-approve pinned iOS and Android device goldens",
+        "manifest": "config/ui-goldens.v1.json"
+      }
     },
     {
       "id": "UX-002",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-002"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/0",
+            "expected": "SCORES"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/1",
+            "expected": "TIMER"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/2",
+            "expected": "FINAL_ANSWER"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/3",
+            "expected": "HINT"
+          }
+        ]
       },
       "testCase": "UX-002 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-002"
+      "closureCondition": "Keep exact semantic UI contract predicate green"
     },
     {
       "id": "UX-003",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-003"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/forbiddenContentRoles/0",
+            "expected": "PET_STATS"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/forbiddenContentRoles/1",
+            "expected": "FUSION_MATERIALS"
+          }
+        ]
       },
       "testCase": "UX-003 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-003"
+      "closureCondition": "Keep exact semantic UI contract predicate green"
     },
     {
       "id": "UX-004",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-004"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/HOME_DEFAULT/requiredBehaviorIds/0",
+            "expected": "SOLE_HIGHEST_PRIORITY_CTA"
+          }
+        ]
       },
       "testCase": "UX-004 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-004"
+      "closureCondition": "Keep exact semantic UI contract predicate green"
     },
     {
       "id": "UX-005",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-005"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/HOME_DEFAULT/requiredContentRoles/0",
+            "expected": "REPRESENTATIVE_PET"
+          }
+        ]
       },
       "testCase": "UX-005 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-005"
+      "closureCondition": "Keep exact semantic UI contract predicate green"
     },
     {
       "id": "UX-006",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-006"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/HOME_DEFAULT/requiredContentRoles/1",
+            "expected": "PET_LEVEL_EXP"
+          }
+        ]
       },
       "testCase": "UX-006 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-006"
+      "closureCondition": "Keep exact semantic UI contract predicate green"
     },
     {
       "id": "UX-007",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-007"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/HOME_DEFAULT/requiredContentRoles/2",
+            "expected": "QUICK_MATCH"
+          }
+        ]
       },
       "testCase": "UX-007 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-007"
+      "closureCondition": "Keep exact semantic UI contract predicate green"
     },
     {
       "id": "UX-008",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-008"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/HOME_DEFAULT/requiredContentRoles/3",
+            "expected": "FRIEND_MATCH"
+          }
+        ]
       },
       "testCase": "UX-008 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-008"
+      "closureCondition": "Keep exact semantic UI contract predicate green"
     },
     {
       "id": "UX-009",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-009"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/HOME_DEFAULT/requiredContentRoles/4",
+            "expected": "BOTTOM_TABS_HOME_PET_FUSION_COLLECTION"
+          }
+        ]
       },
       "testCase": "UX-009 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-009"
+      "closureCondition": "Keep exact semantic UI contract predicate green"
     },
     {
       "id": "UX-010",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-010"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/0",
+            "expected": "SCORES"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/1",
+            "expected": "TIMER"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/4",
+            "expected": "TARGET_SCORE_100"
+          }
+        ]
       },
       "testCase": "UX-010 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-010"
+      "closureCondition": "Keep exact semantic UI contract predicate green"
     },
     {
       "id": "UX-011",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-011"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/5",
+            "expected": "FOUND_DIFFERENCE_RINGS"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredBehaviorIds/1",
+            "expected": "SERVER_CONFIRMED_RING_AND_SCORE"
+          }
+        ]
       },
       "testCase": "UX-011 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-011"
+      "closureCondition": "Keep exact semantic UI contract predicate green"
     },
     {
       "id": "UX-012",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-012"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/transitionClauses/0",
+            "expected": "MISSION_OVERLAY_TO_BAR_1200MS"
+          }
+        ]
       },
       "testCase": "UX-012 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-012"
+      "closureCondition": "Keep exact semantic UI contract predicate green"
     },
     {
       "id": "UX-013",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-013"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/2",
+            "expected": "FINAL_ANSWER"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/3",
+            "expected": "HINT"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/6",
+            "expected": "ANSWER_CHALLENGE"
+          }
+        ]
       },
       "testCase": "UX-013 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-013"
+      "closureCondition": "Keep exact semantic UI contract predicate green"
     },
     {
       "id": "UX-014",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-014"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/RESULT/requiredContentRoles/0",
+            "expected": "WIN_LOSS"
+          }
+        ]
       },
       "testCase": "UX-014 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-014"
+      "closureCondition": "Keep exact semantic UI contract predicate green"
     },
     {
       "id": "UX-015",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-015"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/RESULT/requiredContentRoles/1",
+            "expected": "SCORE_DETAIL"
+          }
+        ]
       },
       "testCase": "UX-015 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-015"
+      "closureCondition": "Keep exact semantic UI contract predicate green"
     },
     {
       "id": "UX-016",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-016"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/RESULT/requiredContentRoles/2",
+            "expected": "LEARNED_WORDS"
+          }
+        ]
       },
       "testCase": "UX-016 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-016"
+      "closureCondition": "Keep exact semantic UI contract predicate green"
     },
     {
       "id": "UX-017",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-017"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/RESULT/requiredContentRoles/3",
+            "expected": "PET_EXP"
+          }
+        ]
       },
       "testCase": "UX-017 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-017"
+      "closureCondition": "Keep exact semantic UI contract predicate green"
     },
     {
       "id": "UX-018",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-018"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/RESULT/requiredContentRoles/4",
+            "expected": "DRAW_POINTS"
+          }
+        ]
       },
       "testCase": "UX-018 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-018"
+      "closureCondition": "Keep exact semantic UI contract predicate green"
     },
     {
       "id": "UX-019",
-      "evidenceKind": "UI_PROJECTION",
+      "evidenceKind": "UI_CONTRACT",
       "oracle": {
-        "kind": "UI_PROJECTION",
-        "expected": "FAIL",
-        "input": "UX-019"
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/RESULT/requiredContentRoles/5",
+            "expected": "RETRY"
+          }
+        ]
       },
       "testCase": "UX-019 executes UI_PROJECTION",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-019"
+      "closureCondition": "Keep exact semantic UI contract predicate green"
     },
     {
       "id": "ECON-001",

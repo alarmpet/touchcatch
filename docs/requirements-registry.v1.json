@@ -1111,12 +1111,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-001:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-001:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-001",
-      "linkageProof": "e8cde521ca6ea87c39b2084d2f253cabc8d036d8acf7eb91cd27986f440e9a18"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "a86833131c2e7633f6289b1fd5639d95e338077c7cbbddacaf1181b92015d6c8"
     },
     {
       "id": "UX-002",
@@ -1129,12 +1129,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-002:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-002:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-002",
-      "linkageProof": "f0d46ea32d9e7d1368b6a73b8b01bafbd73e978ceafb21d20b22366c02e1b2af"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "32f54b9bc3e54b105f51fbf00f2c5460489af583c2870140f5761ceb30a8d902"
     },
     {
       "id": "UX-003",
@@ -1147,12 +1147,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-003:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-003:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-003",
-      "linkageProof": "b58c1de88b26ca3665265a78bc75496100919f4627c4b2292741c391ac810a77"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "9ee7de1f9196f1a9447a2f614269fc89cefeff658cca3000a51a9619b97c0637"
     },
     {
       "id": "UX-004",
@@ -1165,12 +1165,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-004:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-004:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-004",
-      "linkageProof": "0ff9bab319b1b68224bc9f46a0c574d6061aa2cb892725ca59a94a1a12b304dd"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "8ac7c6d001681fe3c39738cd09e91b81374c2b6a234088b6d980727c87daac2d"
     },
     {
       "id": "UX-005",
@@ -1183,12 +1183,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-005:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-005:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-005",
-      "linkageProof": "a1f5a4f1acbc1616376c7f894d4597422ebdb1ef5967131698d7c75a53fd2289"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "b9ecda7271d3dd4e11fb52f870cfe2692cdcf8f04e0f56b360a59fd1e2d9e610"
     },
     {
       "id": "UX-006",
@@ -1201,12 +1201,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-006:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-006:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-006",
-      "linkageProof": "a1c84dcc95a70d29a13f1cfe16afe5e4cb3f768c5edde9d7614f6f3c2c9dc6a2"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "d766605de55e6d40578379907e7b91e16e94e32613534e952c5d434271425075"
     },
     {
       "id": "UX-007",
@@ -1219,12 +1219,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-007:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-007:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-007",
-      "linkageProof": "7d0a026dab25643e350803922a699b85060fbad7b2a8e68f439de289516acc25"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "2520d6764d6b31019d7d0f7aff8e039d606a60055e3f4dd319a26ba86b77dc26"
     },
     {
       "id": "UX-008",
@@ -1237,12 +1237,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-008:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-008:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-008",
-      "linkageProof": "338633c0409c849f3648b82a525c5f611611b1b3c09bc715591101ecce105e91"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "730b15e4ec613b1c59b7f536f0ad52138a619d9b82124814f03f4bc08a6efb4a"
     },
     {
       "id": "UX-009",
@@ -1255,12 +1255,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-009:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-009:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-009",
-      "linkageProof": "74f85fc52c94ad428a64523d0e6746b32ed721ebda23801bc75d5cbf6b985df8"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "17939ed651d2f5126b204a0a2baceadcffa0917afb7fd86a8e6be92afd3ff718"
     },
     {
       "id": "UX-010",
@@ -1273,12 +1273,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-010:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-010:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-010",
-      "linkageProof": "5918e2380bf547cec6b2226b8dc7b98f5f3490b42fbe0178b290629ce7e231bc"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "2d5cd39c0eb0bfe3242fced8bebc9ebfe37c5459828a8ea01c039ad5b4ff62ff"
     },
     {
       "id": "UX-011",
@@ -1291,12 +1291,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-011:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-011:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-011",
-      "linkageProof": "dbfcebf30811317000db7fc513faa57e967ae6548cf3d4023f6f73c5f77cdaee"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "ff54d31101a600ba51cec74eb179a64806f7073cab8fa9aa3c51056db49dcdb5"
     },
     {
       "id": "UX-012",
@@ -1309,12 +1309,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-012:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-012:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-012",
-      "linkageProof": "f8f1c4b55cd902eef1c6f2a72fd2c9d0635958e79a71b3744787ea70caf9439f"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "5b8298b678831e9d158a1b68a5234248fff895a4afd1dc8a6eeafa4b1835f303"
     },
     {
       "id": "UX-013",
@@ -1327,12 +1327,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-013:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-013:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-013",
-      "linkageProof": "8e6ad62288dfe2757d8260aadc5dc99ff495fd179d77603653a34d026c277455"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "ec7fb34d3ba4d5282fab5fb283f093d47bf684740148701db5cd93e55eec4546"
     },
     {
       "id": "UX-014",
@@ -1345,12 +1345,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-014:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-014:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-014",
-      "linkageProof": "1cc669b1a6d493f6fef8c38ce9a030a6137e9d21a157ebdc92bdc4911dc4ad4b"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "bbf103c9122e9bc7fb102205b10dd03d9a768886a78d40ac05cc7f05efe01763"
     },
     {
       "id": "UX-015",
@@ -1363,12 +1363,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-015:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-015:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-015",
-      "linkageProof": "39f35107c14b362c9430f4c28bbc6da2f0564ba65cfab06755221c21a5ad9f4e"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "be90db84c4decaae5ff80a47ec9f611ae24a5820228ef0b2f2b6f9c1fefd5a74"
     },
     {
       "id": "UX-016",
@@ -1381,12 +1381,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-016:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-016:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-016",
-      "linkageProof": "2253913d1c353b7cd649cfc1cb613cd1a22212a441bd48753f4aae35124e6c3b"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "65907a5b51d235c24ff0d6d42321e0d6bcdc121726ed9849de635455dbc2c28e"
     },
     {
       "id": "UX-017",
@@ -1399,12 +1399,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-017:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-017:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-017",
-      "linkageProof": "b4f02a634da2c81bb70908b80cc1f6b46565ff6e5abe05fd611d344dbf1abe8e"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "9761820efac01a35a59034e974171178aa0bc5bd73bee0667bec1f9eee61d34f"
     },
     {
       "id": "UX-018",
@@ -1417,12 +1417,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-018:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-018:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-018",
-      "linkageProof": "04a903ea686c5e6966c8bd3ede8a8330fdff91f1d6dd3d358645339b729f0eb2"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "c6ccf6fc77d59f473c5b66baee96d735c8c1e50e0cf13c8786d955c1409526ec"
     },
     {
       "id": "UX-019",
@@ -1435,12 +1435,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "UI_PROJECTION",
-      "oracle": "UX-019:UI_PROJECTION:FAIL",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": "UX-019:UI_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "ui",
-      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-019",
-      "linkageProof": "3e86bd1d46b9bf2a0ef9d5640b2518a30aeb58fafb158c66af27e5fc21f1eb1e"
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "linkageProof": "cab414ea4ca167f4bc33ad5033aa74aeade2b6e53132a23be28b94944ffa0029"
     },
     {
       "id": "ECON-001",
