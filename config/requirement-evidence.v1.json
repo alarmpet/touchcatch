@@ -3331,7 +3331,7 @@
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-001"
       },
       "testCase": "CONTENT-001 executes CONTENT_SCHEMA",
@@ -3346,7 +3346,7 @@
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-002"
       },
       "testCase": "CONTENT-002 executes CONTENT_SCHEMA",
@@ -3361,7 +3361,7 @@
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-003"
       },
       "testCase": "CONTENT-003 executes CONTENT_SCHEMA",
@@ -3376,7 +3376,7 @@
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-004"
       },
       "testCase": "CONTENT-004 executes CONTENT_SCHEMA",
@@ -3391,7 +3391,7 @@
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-005"
       },
       "testCase": "CONTENT-005 executes CONTENT_SCHEMA",
@@ -3406,7 +3406,7 @@
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-006"
       },
       "testCase": "CONTENT-006 executes CONTENT_SCHEMA",
@@ -3421,7 +3421,7 @@
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-007"
       },
       "testCase": "CONTENT-007 executes CONTENT_SCHEMA",
@@ -3436,7 +3436,7 @@
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-008"
       },
       "testCase": "CONTENT-008 executes CONTENT_SCHEMA",
@@ -3451,7 +3451,7 @@
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-009"
       },
       "testCase": "CONTENT-009 executes CONTENT_SCHEMA",
