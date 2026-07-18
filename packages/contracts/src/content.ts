@@ -323,4 +323,5 @@ export type ContentValidationResult =
 
 // Task 5 owns only the content contract. Future Task 3/4 implementations must import
 // these limits and types instead of declaring a second private or wire shape.
-export const RECOMMENDED_IMAGE_LONG_EDGE_PX=1536;
+import clientRuntimePolicy from '../../../config/client-runtime-policy.v1.json' with {type:'json'};
+export const RECOMMENDED_IMAGE_LONG_EDGE_PX=clientRuntimePolicy.recommendedImageLongEdgePx;

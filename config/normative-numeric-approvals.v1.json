@@ -1064,39 +1064,53 @@
         "0.86",
         "4"
       ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
+      "status": "VERIFIED_LOCAL_SSOT",
+      "ssotPath": "config/client-runtime-policy.v1.json",
+      "ssotAssertions": [
+        { "pointer": "/expoSdkMajor", "expected": 57 },
+        { "pointer": "/reactNativeVersion", "expected": "0.86" },
+        { "pointer": "/publicProjectionTask", "expected": 4 }
+      ],
+      "ssotHash": "d66182aed1b441675bc16049c1666a2db724d0b6ea40c71c78106eb6c9828054",
       "sourcePath": "06_CLIENT_ARCHITECTURE.md",
       "sourceHash": "fa34d46aa891fd03b328139a787b73f2d5c7ec9234f2854517c070ac6d50973c",
       "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
-      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-002",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:PRIVACY_CONTRACT"
+      "closureCondition": "Keep the client runtime policy and executable SEC-002 predicate synchronized"
     },
     {
       "id": "SEC-006",
       "approvedTokens": [
         "1536"
       ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
+      "status": "VERIFIED_LOCAL_SSOT",
+      "ssotPath": "config/client-runtime-policy.v1.json",
+      "ssotAssertions": [
+        { "pointer": "/recommendedImageLongEdgePx", "expected": 1536 }
+      ],
+      "ssotHash": "d66182aed1b441675bc16049c1666a2db724d0b6ea40c71c78106eb6c9828054",
       "sourcePath": "06_CLIENT_ARCHITECTURE.md",
       "sourceHash": "fa34d46aa891fd03b328139a787b73f2d5c7ec9234f2854517c070ac6d50973c",
       "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
-      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-006",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:PRIVACY_CONTRACT"
+      "closureCondition": "Keep the image recommendation policy and executable SEC-006 predicate synchronized"
     },
     {
       "id": "OBS-001",
       "approvedTokens": [
         "15,000"
       ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
+      "status": "VERIFIED_LOCAL_SSOT",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        { "pointer": "/time/reconnectForfeitMs", "expected": 15000 }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-001",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "closureCondition": "Keep the reconnect-forfeit ruleset and executable OBS-001 predicate synchronized"
     },
     {
       "id": "OBS-002",
@@ -1136,13 +1150,17 @@
       "approvedTokens": [
         "5"
       ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
+      "status": "VERIFIED_LOCAL_SSOT",
+      "ssotPath": "config/client-runtime-policy.v1.json",
+      "ssotAssertions": [
+        { "pointer": "/reconnectOverlayMs", "expected": 5000 }
+      ],
+      "ssotHash": "d66182aed1b441675bc16049c1666a2db724d0b6ea40c71c78106eb6c9828054",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-009",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
+      "closureCondition": "Keep the reconnect-overlay policy and executable OBS-009 predicate synchronized"
     },
     {
       "id": "OBS-010",

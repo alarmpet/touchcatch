@@ -2176,7 +2176,7 @@
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "SEC-001"
       },
       "testCase": "SEC-001 executes PRIVACY_CONTRACT",
@@ -2191,7 +2191,7 @@
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "SEC-002"
       },
       "testCase": "SEC-002 executes PRIVACY_CONTRACT",
@@ -2214,14 +2214,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-003"
+      "closureCondition": "Add and exercise Zustand, TanStack Query, Socket.IO Client, Reanimated, and Sentry in the Expo mobile runtime; package declarations without an executed client surface are insufficient"
     },
     {
       "id": "SEC-004",
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "SEC-004"
       },
       "testCase": "SEC-004 executes PRIVACY_CONTRACT",
@@ -2236,7 +2236,7 @@
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "SEC-005"
       },
       "testCase": "SEC-005 executes PRIVACY_CONTRACT",
@@ -2251,7 +2251,7 @@
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "SEC-006"
       },
       "testCase": "SEC-006 executes PRIVACY_CONTRACT",
@@ -2266,7 +2266,7 @@
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "SEC-007"
       },
       "testCase": "SEC-007 executes PRIVACY_CONTRACT",
@@ -2281,7 +2281,7 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-001 executes ANALYTICS_CONTRACT",
@@ -2304,14 +2304,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-002"
+      "closureCondition": "Implement an exercised NestJS/Socket.IO realtime service backed by Redis, PostgreSQL, and BullMQ; Node engine or dependency declarations alone are insufficient"
     },
     {
       "id": "OBS-003",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-003 executes ANALYTICS_CONTRACT",
@@ -2347,7 +2347,7 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-005 executes ANALYTICS_CONTRACT",
@@ -2392,7 +2392,7 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-008 executes ANALYTICS_CONTRACT",
@@ -2407,7 +2407,7 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-009 executes ANALYTICS_CONTRACT",

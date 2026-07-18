@@ -1886,11 +1886,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "PRIVACY_CONTRACT",
-      "oracle": "SEC-001:PRIVACY_CONTRACT:FAIL",
+      "oracle": "SEC-001:PRIVACY_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
       "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-001",
-      "linkageProof": "ef4fe661da3d0275bc9adc073c3ac92f918e4b021d1a968953abf3e2fe883453"
+      "linkageProof": "494252179a845a1e848d195251a01a363058c1b7b30eca9b27c314e120eb2463"
     },
     {
       "id": "SEC-002",
@@ -1904,11 +1904,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "PRIVACY_CONTRACT",
-      "oracle": "SEC-002:PRIVACY_CONTRACT:FAIL",
+      "oracle": "SEC-002:PRIVACY_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
       "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-002",
-      "linkageProof": "1df5d9777004c003da522da48f40fd2bbcb205bd0369b4c5b0984da25dd9dab1"
+      "linkageProof": "9b5e0c07aca7d0c9e082d3de0b4456a0ce83f1aaabc59f5b1cf747f83930eeff"
     },
     {
       "id": "SEC-003",
@@ -1925,7 +1925,7 @@
       "oracle": "SEC-003:PRIVACY_CONTRACT:FAIL",
       "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
-      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-003",
+      "closureCondition": "Add and exercise Zustand, TanStack Query, Socket.IO Client, Reanimated, and Sentry in the Expo mobile runtime; package declarations without an executed client surface are insufficient",
       "linkageProof": "1eb9758048bad04bedb8332812d22e83e3d488a0d62afc614eaab44127f3e464"
     },
     {
@@ -1940,11 +1940,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "PRIVACY_CONTRACT",
-      "oracle": "SEC-004:PRIVACY_CONTRACT:FAIL",
+      "oracle": "SEC-004:PRIVACY_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
       "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-004",
-      "linkageProof": "1e1d13764663d90ce038a1a9cd338009dd8e757d8d96d3faeae63fc2d74edb94"
+      "linkageProof": "6b5a655996090229caeea5dffb7b227c775c53732559702950cd60ce7477cb35"
     },
     {
       "id": "SEC-005",
@@ -1958,11 +1958,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "PRIVACY_CONTRACT",
-      "oracle": "SEC-005:PRIVACY_CONTRACT:FAIL",
+      "oracle": "SEC-005:PRIVACY_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
       "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-005",
-      "linkageProof": "b6ceab46fad9193cb58b8a092ccd607976509b574ed3bf2b98db3f185f8dd2df"
+      "linkageProof": "76a791de9d6cdf5a2ebc6ffbba761c1b0ea09e61776dd96264794fb886960885"
     },
     {
       "id": "SEC-006",
@@ -1976,11 +1976,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "PRIVACY_CONTRACT",
-      "oracle": "SEC-006:PRIVACY_CONTRACT:FAIL",
+      "oracle": "SEC-006:PRIVACY_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
       "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-006",
-      "linkageProof": "5fdb441f447952f5ffc968cc5146cc54ba479f7568b711fc0ca59953f45bd016"
+      "linkageProof": "eaa86e4de7122b3e65efc614605a9fa349c4762e0148771e0dca02243169616a"
     },
     {
       "id": "SEC-007",
@@ -1994,11 +1994,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "PRIVACY_CONTRACT",
-      "oracle": "SEC-007:PRIVACY_CONTRACT:FAIL",
+      "oracle": "SEC-007:PRIVACY_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
       "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-007",
-      "linkageProof": "92520f3561ce1692de26094440e77d9c461a8fff5ee89f4508726785505f1529"
+      "linkageProof": "c26454c2a887132f19ac3de5eb13885422c4d4502429440caafc643c9be8ad0d"
     },
     {
       "id": "OBS-001",
@@ -2012,11 +2012,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "ANALYTICS_CONTRACT",
-      "oracle": "OBS-001:ANALYTICS_CONTRACT:FAIL",
+      "oracle": "OBS-001:ANALYTICS_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-001",
-      "linkageProof": "b60f1b7a7ed50a8aa43e7f45afe73dc8b58d864854ad842710ffa030a87a7004"
+      "linkageProof": "a702420c91ec9ab7cedce19b891b5f73dd5ae0bba1a043e11a865c58014d84d2"
     },
     {
       "id": "OBS-002",
@@ -2033,7 +2033,7 @@
       "oracle": "OBS-002:ANALYTICS_CONTRACT:FAIL",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-002",
+      "closureCondition": "Implement an exercised NestJS/Socket.IO realtime service backed by Redis, PostgreSQL, and BullMQ; Node engine or dependency declarations alone are insufficient",
       "linkageProof": "1d537c827072f2bf886a27378835cbb4336574477741cae7e9ff712bd6de6c67"
     },
     {
@@ -2048,11 +2048,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "ANALYTICS_CONTRACT",
-      "oracle": "OBS-003:ANALYTICS_CONTRACT:FAIL",
+      "oracle": "OBS-003:ANALYTICS_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-003",
-      "linkageProof": "dc58022cba7b42436c6bc40e013908e6adc03500e9069c3de472e5b9a6e4ea40"
+      "linkageProof": "3d6ca9134d4fe013c2fb92df52d05d092ab740a90175c344137b42eff66feca0"
     },
     {
       "id": "OBS-004",
@@ -2084,11 +2084,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "ANALYTICS_CONTRACT",
-      "oracle": "OBS-005:ANALYTICS_CONTRACT:FAIL",
+      "oracle": "OBS-005:ANALYTICS_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-005",
-      "linkageProof": "9ece4af2f4851ea8650744e596f619ddbf5949b0ba73fc9a84e38fb7ea160252"
+      "linkageProof": "af0bb8b286529f3a84ac33f6c6eec092d470ccd26e8e2323a593dee485a0e0eb"
     },
     {
       "id": "OBS-006",
@@ -2138,11 +2138,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "ANALYTICS_CONTRACT",
-      "oracle": "OBS-008:ANALYTICS_CONTRACT:FAIL",
+      "oracle": "OBS-008:ANALYTICS_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-008",
-      "linkageProof": "965a223d24c4cf706487560dad00385860ed93c560648397a7490b0555062f7e"
+      "linkageProof": "b0153b68fd8a7c06fe4b7436bd4ca23d96ea1ebba76da670a7fc899a034cd8e6"
     },
     {
       "id": "OBS-009",
@@ -2156,11 +2156,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "ANALYTICS_CONTRACT",
-      "oracle": "OBS-009:ANALYTICS_CONTRACT:FAIL",
+      "oracle": "OBS-009:ANALYTICS_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-009",
-      "linkageProof": "ed33f21e44756a99784f90cb5d89f3a789479006440fcc15855e034de5f5fac7"
+      "linkageProof": "ad6e1d94872d4a3e29c71a9e470aa8aa7e6e34d148d27af1fd418f5a94736ccf"
     },
     {
       "id": "OBS-010",
