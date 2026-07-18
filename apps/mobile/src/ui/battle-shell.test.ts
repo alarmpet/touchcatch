@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildBattleScreen,
+  adaptMatchSnapshot,
   clampTransform,
   contentToScreen,
   hitTestCircle,
@@ -8,7 +9,11 @@ import {
   layoutContainedPair,
   resolveViewport,
   shouldCancelSyntheticTap,
+  applyGestureDelta,
+  createMeaningIntent,
 } from './battle-shell.js';
+import fixture from '../../../../tests/fixtures/public-match-snapshot.json' with {type:'json'};
+import {matchSnapshotV1Schema} from '../../../../packages/contracts/src/socket.schema.js';
 
 describe('battle geometry', () => {
   it('uses synchronized uncropped contain rectangles for the A/B pair', () => {
@@ -57,22 +62,17 @@ describe('battle geometry', () => {
     expect(shouldCancelSyntheticTap({ translationPx:1, scaleDelta:.06 }, thresholds)).toBe(true);
     expect(shouldCancelSyntheticTap({ translationPx:1, scaleDelta:.01 }, thresholds)).toBe(false);
   });
+
+  it('accumulates consecutive pan and pinch gestures and clamps the result',()=>{
+    const limits={min:1,max:4}; const rect={x:0,y:0,width:100,height:200};
+    const first=applyGestureDelta({scale:1,tx:0,ty:0},{scale:2,tx:20,ty:30},rect,limits);
+    expect(applyGestureDelta(first,{scale:1.5,tx:10,ty:-5},rect,limits)).toEqual({scale:3,tx:30,ty:25});
+    expect(applyGestureDelta({scale:4,tx:100,ty:100},{scale:2,tx:100,ty:100},rect,limits)).toEqual({scale:4,tx:150,ty:200});
+  });
 });
 
 describe('public view-model battle shell', () => {
-  const vm = {
-    phase: 'PLAYING' as const,
-    pendingIntentId: null,
-    connection: 'CONNECTED' as const,
-    scores: [{ playerId: 'p1', absoluteScore: 1 }],
-    claimed: [],
-    assets: [
-      { side: 'A' as const, url: 'https://cdn.test/a/hash.png', width: 941, height: 1672 },
-      { side: 'B' as const, url: 'https://cdn.test/b/hash.png', width: 941, height: 1672 },
-    ],
-    meaningQuiz: null,
-    viewerInput: { enabled: true, reason: null },
-  };
+  const vm = adaptMatchSnapshot(matchSnapshotV1Schema.parse(fixture),{pendingIntentId:null,connection:'CONNECTED'});
 
   it('emits intent only and keeps pending distinct from server-confirmed success', () => {
     const screen = buildBattleScreen(vm, { platform: 'android', reducedMotion: false, textScale: 1 });
@@ -97,5 +97,16 @@ describe('public view-model battle shell', () => {
     expect(screen.modal?.dismissible).toBe(false);
     expect(screen.modal?.options).toEqual([{ id: 'a', label: '하나' }]);
     expect(screen.modal?.accessibilityLabels).toEqual(['하나']);
+  });
+
+  it('fails meaning submission closed under every tap input guard',()=>{
+    const quiz={quizOrdinal:1,prompt:'q',options:[{id:'a',label:'A'},{id:'b',label:'B'}],remainingMs:100};
+    expect(createMeaningIntent({...vm,meaningQuiz:quiz},'a')).toEqual({type:'SUBMIT_MEANING',optionId:'a'});
+    expect(createMeaningIntent({...vm,meaningQuiz:quiz,connection:'OFFLINE'},'a')).toBeNull();
+    expect(createMeaningIntent({...vm,meaningQuiz:quiz,pendingIntentId:'p'},'a')).toBeNull();
+    expect(createMeaningIntent({...vm,meaningQuiz:quiz,viewerInput:{enabled:false,reason:'locked'}},'a')).toBeNull();
+    expect(createMeaningIntent({...vm,meaningQuiz:quiz,phase:'FINISHED'},'a')).toBeNull();
+    expect(createMeaningIntent({...vm,meaningQuiz:quiz,result:{winnerPlayerId:null,endReason:'DRAW'}},'a')).toBeNull();
+    expect(createMeaningIntent({...vm,meaningQuiz:quiz},'missing')).toBeNull();
   });
 });

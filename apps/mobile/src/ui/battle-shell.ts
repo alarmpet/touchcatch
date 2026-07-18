@@ -69,6 +69,10 @@ export function shouldCancelSyntheticTap(
   return Math.abs(gesture.translationPx)>threshold.translationPx || Math.abs(gesture.scaleDelta)>threshold.scaleDelta;
 }
 
+export function applyGestureDelta(base:Transform,delta:Transform,content:Rect,limits:Readonly<{min:number;max:number}>):Transform{
+  return clampTransformToContent({scale:base.scale*delta.scale,tx:base.tx+delta.tx,ty:base.ty+delta.ty},content,limits);
+}
+
 export type PublicBattleViewModel = Pick<MatchSnapshotV1,'phase'|'scores'|'claimed'|'meaningQuiz'|'viewerInput'|'result'> & Readonly<{
   pendingIntentId: string | null;
   connection: 'CONNECTED' | 'OFFLINE' | 'RECONNECTING';
@@ -124,10 +128,15 @@ export function createTapIntent(vm:PublicBattleViewModel, point:Readonly<{side:'
   if(!Number.isFinite(point.x)||!Number.isFinite(point.y)||point.x<0||point.x>1||point.y<0||point.y>1) return null;
   return {type:'TAP_IMAGE' as const,imageSide:point.side,x:point.x,y:point.y};
 }
+export function createMeaningIntent(vm:PublicBattleViewModel,optionId:string){
+  if(!vm.meaningQuiz||!vm.meaningQuiz.options.some(option=>option.id===optionId))return null;
+  if(!vm.viewerInput.enabled||vm.connection!=='CONNECTED'||vm.pendingIntentId!==null||vm.result!==null||!playable.has(vm.phase))return null;
+  return {type:'SUBMIT_MEANING' as const,optionId};
+}
 const forbiddenPrivateKeys=new Set(['canonicalAnswer','aliases','correctOptionId','hitboxes','privateSolution','serviceRoleKey','assetAttestation']);
 export function assertPublicUiValue(value:unknown,path='$'):void{if(Array.isArray(value)){value.forEach((x,i)=>assertPublicUiValue(x,`${path}[${i}]`));return}if(typeof value!=='object'||value===null)return;for(const [key,nested] of Object.entries(value)){if(forbiddenPrivateKeys.has(key))throw new TypeError(`${path}.${key} is private`);assertPublicUiValue(nested,`${path}.${key}`)}}
 
-const ajv=new Ajv2020({strict:true,allErrors:true,formats:{'date-time':/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/}});
+const ajv=new Ajv2020({strict:true,allErrors:true,formats:{'date-time':/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/,'uri':/^https?:\/\//}});
 export function parseUiBundle<T extends {theme:unknown;screens:unknown;references:unknown;rights:unknown;assets:unknown}>(bundle:T):T {
   // Frozen manifests are themselves the exact contract. Compiling `const` schemas with
   // Draft 2020-12 rejects nested additions, omissions, reordering and token drift.

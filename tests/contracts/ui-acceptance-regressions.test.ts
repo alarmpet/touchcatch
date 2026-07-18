@@ -25,7 +25,7 @@ describe('Task 7 acceptance regressions', () => {
   });
 
   it('uses a real public projection fixture and exposes native accessibility semantics', () => {
-    const screen=buildBattleScreen(snapshot,{platform:'ios',reducedMotion:true,textScale:2});
+    const screen=buildBattleScreen(adaptMatchSnapshot(snapshot,{pendingIntentId:null,connection:'CONNECTED'}),{platform:'ios',reducedMotion:true,textScale:2});
     expect(screen.nativeTree.type).toBe('SafeAreaView');
     expect(screen.nativeTree.props.accessibilityViewIsModal).toBe(false);
     expect(JSON.stringify(screen)).not.toMatch(/correctOptionId|canonicalAnswer|hitboxes/i);
@@ -42,6 +42,12 @@ describe('Task 7 acceptance regressions', () => {
     expect(parseUiBundle(bundle).assets.lifecycle).toBe('DRAFT');
     expect(() => parseUiBundle({...bundle,theme:{...bundle.theme,color:{...bundle.theme.color,extra:'#fff'}}})).toThrow();
     expect(() => parseUiBundle({...bundle,assets:{...bundle.assets,lifecycle:'APPROVED'}})).toThrow();
+  });
+
+  it('rejects forged or incomplete approved runtime asset metadata for every class',()=>{
+    const base={theme:JSON.parse(readFileSync('config/ui-theme.v1.json','utf8')),screens:JSON.parse(readFileSync('config/ui-screen-contract.v1.json','utf8')),references:JSON.parse(readFileSync('docs/design/ui-reference/manifest.json','utf8')),rights:JSON.parse(readFileSync('docs/design/ui-reference/rights-manifest.json','utf8'))};
+    const hash='a'.repeat(64),review={reviewId:'review-1',version:'1.0.0',status:'APPROVED',reviewedBy:'reviewer',reviewedAt:'2026-07-19T00:00:00Z'};
+    for(const assetClass of ['icons','illustrations','background-patterns','logos','fonts']){const font=assetClass==='fonts';const entry={assetId:`${assetClass}-one`,assetClass,file:`${assetClass}/one.${font?'woff2':'png'}`,url:`https://cdn.example/assets/${hash}.${font?'woff2':'png'}`,sha256:hash,encodedBytes:4,width:font?null:1,height:font?null:1,mimeType:font?'font/woff2':'image/png',containsBakedUiText:false,usage:[{screenId:'MATCH_WORD_HUNT',componentId:'SpotBoardPair'}],provenance:{generator:'tool',model:'model',modelVersion:'1',termsUrl:'https://terms.example/v1',promptHash:'b'.repeat(64),generatedAt:'2026-07-19T00:00:00Z'},rights:{rightsRecordId:'rights-1',licenseId:'license-1',permissionEvidenceId:'permission-1',assetSha256:hash,approvedBy:'rights-reviewer',approvedAt:'2026-07-19T00:00:00Z'},themeReview:review,modelReview:{...review,reviewId:'model-1'},visualReview:{...review,reviewId:'visual-1'}};const assets={schemaVersion:'1.0.0',lifecycle:'APPROVED',approvalDecisionId:'decision-1',approvedBy:'publisher',approvedAt:'2026-07-19T00:00:00Z',entries:[entry],buildReferences:[{assetId:entry.assetId,file:entry.file}]};expect(()=>parseUiBundle({...base,assets})).not.toThrow();for(const key of ['provenance','rights','themeReview','modelReview','visualReview'] as const){const forged=structuredClone(assets) as any;delete forged.entries[0][key];expect(()=>parseUiBundle({...base,assets:forged})).toThrow()}expect(()=>parseUiBundle({...base,assets:{...assets,entries:[{...entry,containsBakedUiText:true}]}})).toThrow()}
   });
 
   it('adapts the actual wire snapshot without invented circle or asset shapes',()=>{
