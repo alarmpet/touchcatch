@@ -50,6 +50,12 @@ describe("authenticated socket wire contracts", () => {
     expect(() => parseMatchCommandV1(command("😀".repeat(64)))).not.toThrow();
     expect(() => parseMatchCommandV1(command("a".repeat(65)))).toThrow(/answer invalid/);
   });
+  it("accepts raw answers above 64 only when normalization brings them within content limits",()=>{
+    const envelope=(answer:string)=>({...base,payload:{type:"SUBMIT_FINAL_ANSWER" as const,answer}}),command=(answer:string)=>({source:"PLAYER" as const,commandId:`${matchId}:player:p1:${requestId}`,matchId,commandSeq:1,receivedAtMs:1,requestId,playerId:"p1",expectedRevision:0,payload:{type:"SUBMIT_FINAL_ANSWER" as const,answer}});
+    const accepted=[`Ａ${" ".repeat(127)}`,"😀".repeat(64)],rejected=["a".repeat(65),"a".repeat(129),"😀".repeat(65)," ".repeat(128)];
+    for(const answer of accepted){expect(clientCommandEnvelopeSchema.safeParse(envelope(answer)).success).toBe(true);expect(()=>parseMatchCommandV1(command(answer))).not.toThrow();}
+    for(const answer of rejected){expect(clientCommandEnvelopeSchema.safeParse(envelope(answer)).success).toBe(false);expect(()=>parseMatchCommandV1(command(answer))).toThrow(/answer invalid/);}
+  });
   it("strictly validates client-only commands and UUIDv4 request IDs", () => {
     expect(clientCommandEnvelopeSchema.safeParse(base).success).toBe(true);
     expect(

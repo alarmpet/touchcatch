@@ -1,6 +1,6 @@
 import { z } from "zod";
 import type { CompatibilityHelloV1, PinnedCompatibilityV1 } from "./socket.js";
-import { isWithinContentTextLimits } from "./content.js";
+import { isValidFinalAnswerSubmission } from "./content.js";
 const uuid = z
     .string()
     .regex(
@@ -53,7 +53,7 @@ const answer = z
   .min(1)
   .refine(
     (x) =>
-      isWithinContentTextLimits(x) && !/[\u0000-\u001f\u007f]/.test(x),
+      isValidFinalAnswerSubmission(x),
   );
 const payload = z.discriminatedUnion("type", [
   z

@@ -15,7 +15,7 @@ describe('cross-layer generated evidence', () => {
   it('derives prerequisites from executable shared contracts', () => {
     expect(CONTENT_INTEGRATION_EVIDENCE.runtimeTuple).toEqual({ node: '24.18.0', pnpm: '11.13.0' });
     const envelope=clientCommandEnvelopeSchema.parse({protocolVersion:1,requestId:'00000000-0000-4000-8000-000000000001',matchId:'00000000-0000-4000-8000-000000000002',expectedRevision:0,clientSeq:0,payload:{type:'SUBMIT_FINAL_ANSWER',answer:'  ＣＡＴ\u00a0NAME  '}});
-    expect(CONTENT_INTEGRATION_EVIDENCE.verifyWire(envelope)).toEqual({normalizedAnswer:'cat name',acceptedAtMax:true,rejectedPastMax:true});
+    expect(CONTENT_INTEGRATION_EVIDENCE.verifyWire(envelope)).toEqual({normalizedAnswer:'cat name',acceptedRaw128AfterNormalization:true,rejectedRaw129:true,rejectedNormalized65:true,acceptedUtf8Bytes256:true,rejectedUtf8Bytes260:true});
     expect(()=>CONTENT_INTEGRATION_EVIDENCE.parseState({})).toThrow('invalid match state');
     expect(CONTENT_INTEGRATION_EVIDENCE.validateTerminalTuple({phase:'FINISHED',endReason:'DRAW',winnerPlayerId:null})).toBe(true);
     expect(CONTENT_INTEGRATION_EVIDENCE.validateTerminalTuple({phase:'FINISHED',endReason:'DRAW',winnerPlayerId:'p1'})).toBe(false);

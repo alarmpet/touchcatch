@@ -1,6 +1,7 @@
 import type { FromSchema } from 'json-schema-to-ts';
 import frozenRuleset from '../../../config/ruleset.v1.json' with { type: 'json' };
 import contentValidationPolicy from '../../../config/content-validation-policy.v1.json' with { type: 'json' };
+import { containsDisallowedControl, normalizeFinalAnswer } from './answer-normalization.js';
 
 export const CONTENT_CARDINALITY_V1 = frozenRuleset.content;
 
@@ -12,11 +13,22 @@ export const CONTENT_TEXT_LIMITS_V1 = {
   maxUtf8Bytes: 256,
 } as const;
 
+export const RAW_FINAL_ANSWER_LIMITS_V1 = {
+  maxCodePoints: 128,
+  maxUtf8Bytes: 256,
+} as const;
+
 export function isWithinContentTextLimits(value: string): boolean {
   return (
     [...value].length <= CONTENT_TEXT_LIMITS_V1.maxCodePoints &&
     Buffer.byteLength(value, 'utf8') <= CONTENT_TEXT_LIMITS_V1.maxUtf8Bytes
   );
+}
+
+export function isValidFinalAnswerSubmission(value: string): boolean {
+  if ([...value].length > RAW_FINAL_ANSWER_LIMITS_V1.maxCodePoints || Buffer.byteLength(value, 'utf8') > RAW_FINAL_ANSWER_LIMITS_V1.maxUtf8Bytes || containsDisallowedControl(value)) return false;
+  const normalized = normalizeFinalAnswer(value);
+  return normalized.length > 0 && isWithinContentTextLimits(normalized) && !containsDisallowedControl(normalized);
 }
 
 export const ASSET_PUBLISH_LIMITS_V1 = {
