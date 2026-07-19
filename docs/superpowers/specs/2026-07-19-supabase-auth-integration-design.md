@@ -54,7 +54,8 @@ TouchCatch 모바일 앱에 Supabase Auth 기반 Google, Kakao, 이메일 인증
 
 - 게스트는 Supabase anonymous user를 생성하지 않는다.
 - 게스트 상태는 기기 로컬의 비식별 임시 식별자와 로컬 진행 기록만 사용한다.
-- 게스트는 튜토리얼과 로컬 학습 게임을 플레이할 수 있다.
+- 1차 production에서 게스트는 온보딩과 공개 가능한 샘플 학습 팩만 플레이할 수 있다. 현재 DEV registry와 private solution projection은 production 게스트 경로에서 사용하지 않는다.
+- 공개 샘플 팩은 DEV registry와 물리적으로 분리하고, 번들에 포함되어도 유출로 간주하지 않는 content/revision만 담는다. 이 팩이 준비되기 전 production 게스트 경로는 튜토리얼과 로그인 유도까지만 fail closed한다.
 - 서버 저장, 재화, 인벤토리, 랭킹, 친구방, 매치메이킹 진입 시 로그인을 요구한다.
 - 로그인 후 로컬 학습 진행은 서버의 병합 API에 제출한다. 서버는 콘텐츠 ID·revision·완료 사실 같은 허용 필드만 검증하고, 재화·보상·점수는 로컬 기록에서 생성하지 않는다.
 
@@ -62,11 +63,12 @@ Supabase anonymous user는 `authenticated` PostgreSQL role을 사용하고 별�
 
 ### 3.3 계정 연결 정책
 
-- 공급자 이메일이 같다는 이유만으로 애플리케이션 로직에서 계정을 병합하지 않는다.
+- 애플리케이션은 이메일 문자열만으로 별도 사용자 row나 게임 데이터를 자체 병합하지 않는다. 다만 Supabase Auth는 검증된 동일 이메일 identity를 자동 연결하므로, 이를 “자동 연결 없음”으로 표현하지 않는다.
 - 로그인된 사용자가 설정 화면에서 재인증한 후 `linkIdentity()`를 호출하는 명시적 연결만 제공한다.
 - 연결 해제는 최소 두 개의 로그인 수단이 남을 때만 허용한다.
 - 이메일 계정에 OAuth를 연결하거나 OAuth 계정에 비밀번호를 추가할 때 이메일 검증 완료를 요구한다.
 - 충돌 시 자동 데이터 이동을 하지 않고 typed conflict 상태를 반환한다. 운영자 수동 병합은 1차 범위에서 제외한다.
+- unlink 가능 수 계산에는 검증 완료된 email/password identity와 OAuth identity만 포함한다. 미검증 email identity는 복구 수단으로 세지 않는다.
 
 ## 4. Haruclick 채택·폐기 판단
 
@@ -132,25 +134,23 @@ Supabase Data API              TouchCatch API/Socket
 ### 5.2 서버 인증 어댑터
 
 - REST와 Socket handshake가 Supabase access token을 받는다.
-- 서버는 Supabase JWKS를 이용해 JWT signature, issuer, audience, expiry를 검증한다.
+- 서버는 비대칭 signing key가 활성화된 Supabase JWKS와 검증된 JWT 라이브러리를 사용해 signature, issuer, audience, expiry를 검증한다. issuer는 `${SUPABASE_URL}/auth/v1`, audience는 `authenticated`, clock skew는 최대 30초다. REST와 Socket은 같은 verifier를 사용한다.
+- 프로젝트가 legacy symmetric JWT secret만 사용하는 동안에는 production API를 열지 않는다. `SUPABASE_SECRET_KEY`나 legacy JWT secret으로 애플리케이션 JWT를 직접 검증하지 않는다.
 - 검증 실패, 만료, 잘못된 issuer/audience, anonymous claim은 게임·경제 endpoint에서 fail closed한다.
-- auth UUID를 경제·게임 receipt, telemetry, public response에 직접 저장하지 않는다. 기존 random subject mapping을 사용한다.
+- auth UUID를 경제·게임 receipt, telemetry, public response에 직접 저장하지 않는다. 첫 인증 성공 뒤 trusted server bootstrap이 `private.economy_subjects`의 random subject mapping을 생성·해석한다. 아직 존재하지 않는 `private.api_subjects`는 REST control-plane 구현 단계에서 별도 migration으로 만들기 전까지 존재한다고 가정하지 않는다.
 - 서버 DB 연결은 `SUPABASE_SECRET_KEY`가 아니라 제한된 `DATABASE_URL`과 `app_server` role/function을 사용한다.
-- secret key는 필요한 auth administration capability에만 별도 allow-list로 사용하며 일반 게임 write에는 사용하지 않는다.
+- secret key allow-list는 계정 삭제와 전 세션 강제 종료로 한정한다. `listUsers()` 전체 스캔, 임시 비밀번호 발급, password sign-in 대행, profile/economy/game write에는 사용하지 않는다.
 
 ### 5.3 DB와 RLS
 
-기존 `public.profiles.id`를 `auth.users.id`와 일치시키는 lifecycle을 migration으로 명확히 한다. 신규 auth user에 대한 profile 생성은 다음 중 하나의 검증된 단일 경로만 사용한다.
+기존 `public.profiles.id`를 `auth.users.id`와 일치시키는 lifecycle을 migration으로 명확히 한다. 신규 auth user는 JWT 검증 직후 trusted server의 단일 idempotent `ensureAccount(authSub)` operation으로 bootstrap한다. Auth hook/trigger는 사용하지 않는다.
 
-1. 안전한 Auth hook/trigger, 또는
-2. 로그인 직후 trusted server의 idempotent bootstrap operation.
-
-구현 계획에서는 현재 migration과 로컬 Supabase 버전에서 더 검증 가능한 경로를 선택한다. 두 경로를 동시에 활성화하지 않는다.
+`ensureAccount`는 한 DB transaction 안에서 `public.profiles`와 `private.economy_subjects`를 모두 보장한다. 기본 nickname은 provider 이름·이메일을 복사하지 않은 `Player-` + subject key 앞 8자리 대문자 형식이다. `profiles.id` PK 또는 `economy_subjects.user_id` unique 경쟁은 같은 완성 상태를 다시 읽어 성공으로 반환한다. 부분 생성·transaction 실패는 `ACCOUNT_SETUP_FAILED`로 fail closed하고 경제·매치·진행 병합을 열지 않는다.
 
 클라이언트 권한은 다음으로 제한한다.
 
-- 자기 profile safe columns SELECT
-- 자기 nickname 같은 허용 column UPDATE
+- 자기 profile의 `id`, `nickname`, `created_at` SELECT
+- nickname은 감사·rate limit·금칙어를 적용하는 trusted `PATCH /v1/me`로만 UPDATE
 - 공개 pet catalogue SELECT
 
 클라이언트가 직접 수행할 수 없는 항목:
@@ -160,6 +160,8 @@ Supabase Data API              TouchCatch API/Socket
 - reward, gacha, fusion ledger 쓰기
 - match result 또는 winner 변경
 - private schema 접근
+
+재화·레벨·경험치의 유일한 권위 요약은 trusted server가 `private.economy_subjects`와 권위 progression projection에서 만든 `/v1/me`다. 모바일은 `public.profiles.level`, `exp`, `gacha_points`를 읽거나 신뢰하지 않는다. 기존 컬럼과 authenticated SELECT grant는 호환성 migration에서 철회하며, 값을 동기화하는 이중 쓰기는 도입하지 않는다.
 
 RLS는 row 제한만으로 충분하다고 가정하지 않고 column grant, exact RPC grant, function owner/search path 검사를 함께 유지한다.
 
@@ -192,6 +194,28 @@ RLS는 row 제한만으로 충분하다고 가정하지 않고 column grant, exa
 4. 학습 완료·해금처럼 비경제적 진행만 합친다.
 5. 점수·통화·아이템·랭킹은 병합 입력에서 거절한다.
 6. 성공 receipt를 받은 후에만 로컬 pending 상태를 제거한다.
+
+계약은 다음으로 고정한다.
+
+- `POST /v1/learning/progress/merge`, Bearer 필수, `Idempotency-Key`는 UUIDv4다.
+- body는 `{ schemaVersion: "1", events: [{ deviceEventId, contentKey, contentRevision, completedAt }] }` exact schema이며 추가 속성을 거절한다.
+- `(apiSubjectKey, deviceEventId)` 재전송은 같은 결과의 no-op replay다. 같은 idempotency key에 다른 body는 `IDEMPOTENCY_CONFLICT`다.
+- 서버에 게시된 public content/revision과 일치하지 않으면 이벤트를 `UNKNOWN_CONTENT` 또는 `REVISION_MISMATCH`로 거절한다.
+- score, points, currency, items, rank, reward 등 허용 목록 밖 필드가 하나라도 있으면 요청 전체를 `VALIDATION_FAILED`로 거절한다.
+- 응답은 `{ acceptedEventIds, rejected: [{ deviceEventId, code }] }`이고 오류 code는 `UNAUTHORIZED | EMAIL_UNVERIFIED | ACCOUNT_SETUP_FAILED | VALIDATION_FAILED | IDEMPOTENCY_CONFLICT`다.
+
+### 6.4 서버 접근 gate
+
+| 상태 | `/v1/me` | 진행 병합 | 경제·매치·Socket |
+|---|---:|---:|---:|
+| 로컬 게스트 | 401 | 401 | 401 |
+| 만료·위조·issuer/audience 불일치 JWT | 401 | 401 | 401 |
+| `is_anonymous == true` JWT | 403 | 403 | 403 |
+| email identity 미검증 | 200 + `verificationRequired: true` | 403 `EMAIL_UNVERIFIED` | 403 `EMAIL_UNVERIFIED` |
+| 검증된 email 또는 Google/Kakao OAuth + bootstrap 완료 | 200 | 허용 | 허용 |
+| 유효 JWT + bootstrap 미완료 | 503 `ACCOUNT_SETUP_FAILED` | 503 | 503 |
+
+서버는 검증된 JWT claim으로 익명 여부를 판정하고, email 검증 상태는 `getUser(accessToken)`의 검증된 user 상태 또는 동등한 서버 신뢰 결과를 사용한다. 클라이언트 표시는 편의 gate일 뿐 권한 판정 근거가 아니다.
 
 ## 7. Redirect와 환경 구성
 
@@ -239,6 +263,8 @@ https://<project-ref>.supabase.co/auth/v1/callback
 
 Supabase Auth redirect allow-list에는 환경별 앱 callback을 등록한다. Kakao는 Kakao Login과 OIDC를 활성화하고 REST API key/client secret을 Supabase provider 설정에만 저장한다.
 
+로컬 `supabase/config.toml`의 `auth.additional_redirect_urls`에는 exact `spotlearn://auth/callback`을 넣고 manual identity linking 테스트를 위해 `auth.enable_manual_linking = true`를 둔다. 이메일 확인은 로컬 Inbucket UI를 사용한다. 운영 redirect는 wildcard 대신 exact URL을 사용한다.
+
 ## 8. UX와 오류 처리
 
 - 로그인 선택 화면은 Google, Kakao, 이메일, 게스트 계속하기를 제공한다.
@@ -249,13 +275,14 @@ Supabase Auth redirect allow-list에는 환경별 앱 callback을 등록한다. 
 - offline 상태에서 기존 세션이 있어도 access token을 검증할 수 없는 권위 operation은 대기 또는 재로그인을 요구한다.
 - 로그아웃은 로컬 Supabase 세션과 auth-scoped cache를 지운다. 게스트 콘텐츠 asset cache는 유지할 수 있다.
 - 계정 삭제는 앱 안에서 시작할 수 있어야 하며 auth user 삭제, subject mapping 비식별화, 개인 데이터 삭제/quarantine 정책과 연결한다.
+- 계정 삭제는 새 매치·큐 진입을 먼저 막고 기존 티켓을 취소한 뒤 서버 job이 profile/개인 진행을 삭제하고 Auth Admin API로 `auth.users`를 삭제한다. 기존 FK가 `economy_subjects.user_id`를 null로 만드는지 검증하며 ledger는 승인된 retention/quarantine 정책에 따라 비식별 보존한다. hard-delete/유예 기간과 법적 보존 승인이 없으면 production rollout은 막는다.
 
 ## 9. 보안 및 개인정보 기준
 
 - access token, refresh token, provider token, authorization code, PKCE verifier, email을 로그·analytics·Sentry breadcrumb에 기록하지 않는다.
 - callback URL 전체를 로깅하지 않는다.
 - state/nonce 검증 실패는 generic auth failure와 비식별 reason code만 남긴다.
-- 세션 저장소는 플랫폼 보안 저장소 또는 Supabase 공식 Expo 권장 저장 어댑터를 사용한다.
+- 네이티브 세션 저장소는 Supabase Expo 공식 예제와 호환되는 AsyncStorage adapter를 사용하고 `detectSessionInUrl: false`, `persistSession: true`, `autoRefreshToken: true`, process lock을 고정한다. 이는 암호화 저장소라는 뜻이 아니므로 토큰을 별도 복제하지 않고 기기 탈취 위험을 threat model에 남긴다.
 - Web localStorage와 native storage 전략을 분리한다.
 - provider profile에서 필요한 최소 필드만 사용하며 이름·avatar의 DB 저장은 별도 개인정보 목적/보존 승인을 요구한다.
 - secret key는 provider dashboard/Supabase secret store/배포 secret manager 밖으로 이동하지 않는다.
@@ -308,18 +335,20 @@ Supabase Auth redirect allow-list에는 환경별 앱 callback을 등록한다. 
 
 ## 11. 단계별 전달 범위
 
-1. Auth contracts와 fail-closed 환경 구성
-2. Supabase client, storage, lifecycle
-3. Email signup/login/verification/reset
-4. Google/Kakao PKCE와 callback route
-5. Guest gate와 진행 병합 contract
-6. API/Socket JWT verification과 subject mapping
-7. Profile bootstrap 및 RLS/DB 검증
+1. Auth contracts, exact gate matrix, merge OpenAPI, fail-closed 환경 구성
+2. 공용 server JWT verifier와 subject resolver conformance
+3. trusted `ensureAccount` bootstrap, `/v1/me` 권위 projection, RLS/DB drift 제거
+4. Supabase mobile client, AsyncStorage, lifecycle
+5. Email signup/login/verification/reset
+6. Google/Kakao PKCE와 callback route
+7. production-safe guest sample boundary와 진행 병합
 8. Identity linking/unlinking과 account deletion entrypoint
-9. Local integration, redaction, regression gates
+9. Local Supabase/Inbucket integration, redaction, 전체 회귀
 10. Provider console handoff 및 physical-device acceptance
 
 각 단계는 RED 테스트, 최소 구현, focused GREEN, 전체 회귀, 읽기 전용 리뷰 순서로 진행한다.
+
+계약·모바일 단계는 `corepack pnpm check`, DB 변경 단계는 `corepack pnpm check:db`, 통합 완료 단계는 `corepack pnpm verify`가 필수 gate다. 외부 credential이나 실기기가 없는 green은 production provider 완료 증거가 아니다.
 
 ## 12. 승인 및 외부 blocker
 
@@ -343,6 +372,8 @@ Supabase Auth redirect allow-list에는 환경별 앱 callback을 등록한다. 
 - MFA, phone auth, SSO
 - 운영 계정 자동 병합 또는 관리자 수동 병합 도구
 - provider access token을 이용한 Google/Kakao 부가 API 호출
+- Admin 콘솔의 cookie session/CSRF/origin 인증 변경. Admin `NEXT_PUBLIC_*`와 mobile `EXPO_PUBLIC_*`를 한 모듈이나 저장소로 합치지 않는다.
+- HTTPS universal link/app link 전환. 1차 custom scheme은 PKCE, one-time code, state/nonce로 완화하고 production hardening 후속 항목으로 둔다.
 
 ## 14. 설계 완료 기준
 
@@ -352,3 +383,18 @@ Supabase Auth redirect allow-list에는 환경별 앱 callback을 등록한다. 
 - PKCE, deep link, identity linking, 삭제·redaction 정책과 검증 항목이 정의된다.
 - 실제 credential과 실기기 증거가 외부 blocker로 남는다.
 - 구현 에이전트가 추가 정책 결정을 임의로 만들지 않고 상세 계획을 작성할 수 있다.
+
+## 15. 설계 리뷰 판정 기록
+
+2026-07-19 외부 리뷰의 지적을 코드와 공식 문서에 대조한 판정이다.
+
+| 리뷰 항목 | 판정 | 반영 방식 |
+|---|---|---|
+| bootstrap/mapping, points 권위, production 게스트 경계, merge 계약 | 수용 | 단일 server bootstrap, `/v1/me` 권위, 공개 샘플 팩 격리, exact merge 계약으로 고정 |
+| gate matrix, JWKS, secret allow-list, 로컬 redirect, admin 분리, 삭제 lifecycle | 수용 | exact 상태·오류·사용 범위와 rollout blocker 추가 |
+| nickname direct Data API update | 강화 수용 | 1차부터 trusted `PATCH /v1/me`로 일원화 |
+| 동일 이메일 자동 연결 금지 표현 | 수정 수용 | 앱 자체 데이터 병합은 금지하되 Supabase의 검증된 동일 이메일 자동 linking은 사실대로 명시 |
+| SecureStore를 사실상 지정한 dependency 제안 | 부분 수용 | 공식 Expo 예제의 AsyncStorage adapter를 선택하고 비암호화 위험과 토큰 비복제 원칙 명시 |
+| guest MVP-A 단독 권고 | 부분 수용 | 사용자 결정인 게스트 플레이를 유지하되 public sample pack이 없으면 튜토리얼까지만 fail closed |
+| `mobile-identity.v1.json` 즉시 확장 | 보류 | 구현 중 app config exact test로 먼저 고정하고 별도 SSOT는 중복 가치가 확인될 때만 도입 |
+| 새 AUTH REQ ID 즉시 발급 | 보류 | 기존 SEC-001과 중복을 피하고, 구현 task에서 규범 문서 변경과 oracle을 함께 제출할 때만 추가 |
