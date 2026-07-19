@@ -14,7 +14,7 @@ export function createSessionLifecycle(auth: AuthLifecycle, purgeAuthCache: () =
       const resumeResult = await resumeBootstrap?.(session?.user?.id ?? null);
       return { sessionResult: result, resumeResult };
     },
-    subscribe() { const { data } = auth.onAuthStateChange(() => undefined); return () => data.subscription.unsubscribe(); },
+    subscribe(listener: (...args: unknown[]) => void = () => undefined) { const { data } = auth.onAuthStateChange(listener); return () => data.subscription.unsubscribe(); },
     onAppState(state: string) { if (state === 'active') auth.startAutoRefresh(); else auth.stopAutoRefresh(); },
     async logout() { const { error } = await auth.signOut(); if (error) throw error; await purgeAuthCache(); },
   };

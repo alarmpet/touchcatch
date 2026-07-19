@@ -2,6 +2,7 @@ import { useEffect, useState, type ReactNode } from 'react';
 import { useRouter } from 'expo-router';
 import { AppState, Text } from 'react-native';
 import { getNativeAuthServices } from './native-auth.js';
+import { syncGuestProgress } from '../guest-content/native.js';
 
 export function AuthRuntime({ children }: Readonly<{ children: ReactNode }>) {
   const [configurationError, setConfigurationError] = useState(false);
@@ -15,7 +16,8 @@ export function AuthRuntime({ children }: Readonly<{ children: ReactNode }>) {
         if (gate?.state === 'RECOVERY_REQUIRED') router.replace('/auth/recovery');
         if (gate?.state === 'ACCOUNT_SETUP_FAILED') setSetupError(true);
       }).catch(() => setSetupError(true));
-      const unsubscribeAuth = sessionLifecycle.subscribe();
+      const unsubscribeAuth = sessionLifecycle.subscribe(() => { void syncGuestProgress().catch(() => undefined); });
+      void syncGuestProgress().catch(() => undefined);
       const appState = AppState.addEventListener('change', (state) => sessionLifecycle.onAppState(state));
       sessionLifecycle.onAppState(AppState.currentState);
       return () => { unsubscribeAuth(); appState.remove(); };

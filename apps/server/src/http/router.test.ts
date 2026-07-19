@@ -22,4 +22,14 @@ describe('authenticated HTTP ingress', () => {
     expect((await router(new Request('https://api.test/v1/me', { headers: { authorization: 'Bearer token-value' } }))).status).toBe(403);
     expect(accountCalls).toBe(0);
   });
+
+  it('routes a verified progress batch with its idempotency key', async () => {
+    const mergeProgress = async (_identity: unknown, key: string, body: unknown) => ({ acceptedEventIds: [key], rejected: [], body });
+    const router = createHttpRouter({ verifyAccessToken: async () => ({ authSub: 'auth-sub', isAnonymous: false }), ensureAccount: async () => true, readMe: async () => ({ profile: { displayName: 'Player' }, points: 0 }), mergeProgress });
+    const idempotencyKey = '00000000-0000-4000-8000-000000000020';
+    const body = { schemaVersion: '1', events: [] };
+    const response = await router(new Request('https://api.test/v1/learning/progress/merge', { method: 'POST', headers: { authorization: 'Bearer valid-token', 'idempotency-key': idempotencyKey, 'content-type': 'application/json' }, body: JSON.stringify(body) }));
+    expect(response.status).toBe(200);
+    await expect(response.json()).resolves.toMatchObject({ acceptedEventIds: [idempotencyKey], body });
+  });
 });

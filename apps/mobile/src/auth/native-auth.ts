@@ -5,14 +5,14 @@ import { createEmailAuth } from './email.js';
 import { getAuthClient } from './native-client.js';
 import { createOAuthCoordinator } from './oauth.js';
 import { createSessionLifecycle } from './session.js';
+import { getMobileRuntimeEnv } from '../config/runtime.js';
 
 let services: ReturnType<typeof buildServices> | undefined;
 function buildServices() {
   const storage = ((AsyncStorageModule as unknown as { default?: AsyncStorageStatic }).default ?? AsyncStorageModule) as AsyncStorageStatic;
   const client = getAuthClient();
   async function ensureAccount(): Promise<void> {
-    const origin = process.env.EXPO_PUBLIC_API_ORIGIN?.replace(/\/$/u, '');
-    if (!origin) throw new Error('EXPO_PUBLIC_API_ORIGIN must not be empty');
+    const origin = getMobileRuntimeEnv().EXPO_PUBLIC_API_ORIGIN.replace(/\/$/u, '');
     const { data, error } = await client.auth.getSession();
     if (error) throw error;
     const token = data.session?.access_token;

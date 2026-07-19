@@ -1,23 +1,28 @@
 import { readFile } from 'node:fs/promises';
 import { expect, it } from 'vitest';
 
-it('places the private learning registry behind the compile-time DEV branch', async () => {
+it('removes the private learning graph from the production root module', async () => {
   const source = await readFile('apps/mobile/app/index.tsx', 'utf8');
-  expect(source).not.toMatch(/^import .*learning-demo\/registry/m);
-  const guard = source.indexOf('if (!__DEV__)');
-  const registryLoad = source.indexOf("require('../src/learning-demo/registry')");
-  expect(guard).toBeGreaterThan(-1);
-  expect(registryLoad).toBeGreaterThan(guard);
+  expect(source).not.toMatch(/learning-demo|drafts|privateSolution|require\(/);
 });
 
 it('uses Metro-resolvable extensionless imports in runtime modules', async () => {
-  const runtimeFiles = [
-    'apps/mobile/app/index.tsx',
-    'apps/mobile/src/learning-demo/LearningDemoScreen.tsx',
-    'apps/mobile/src/learning-demo/data.ts',
-    'apps/mobile/src/learning-demo/registry.ts',
-  ];
-  for (const file of runtimeFiles) {
-    expect(await readFile(file, 'utf8'), file).not.toMatch(/(?:from|require\()['"][^'"]+\.js['"]/);
-  }
+  for (const file of ['apps/mobile/app/index.tsx', 'apps/mobile/src/guest-content/registry.ts']) expect(await readFile(file, 'utf8'), file).not.toMatch(/(?:from|require\()['"][^'"]+\.js['"]/);
+});
+
+it('keeps production guest metadata independent from draft and private registries', async () => {
+  const source = await readFile('apps/mobile/src/guest-content/registry.ts', 'utf8');
+  expect(source).not.toMatch(/learning-demo|content\/learning\/drafts|privateSolution|correctOptionId|hitbox/i);
+});
+
+it('renders the public guest registry in production instead of throwing', async () => {
+  const source = await readFile('apps/mobile/app/index.tsx', 'utf8');
+  expect(source).toMatch(/publicGuestSamples/);
+  expect(source).not.toMatch(/if \(!__DEV__\) throw/);
+});
+
+it('keeps unapproved draft assets and solution geometry out of the production guest screen', async () => {
+  const source = await readFile('apps/mobile/src/guest-content/GuestLearningScreen.tsx', 'utf8');
+  expect(source).not.toMatch(/content\/learning|privateSolution|hitbox|queue\.record|imagebutton/i);
+  expect(source).toMatch(/권리 및 교육 검토 승인/);
 });
