@@ -1304,7 +1304,7 @@
   ],
   "status": "MIXED_VERIFIED_AND_UNAPPROVED",
   "summary": {
-    "verifiedLocalSsot": 38,
-    "unapproved": 69
+    "verifiedLocalSsot": 52,
+    "unapproved": 18
   }
 }

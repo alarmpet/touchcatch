@@ -5,7 +5,7 @@
     "config/requirement-evidence.v1.json",
     "config/normative-numeric-approvals.v1.json"
   ],
-  "unverifiedRequirementCount": 46,
+  "unverifiedRequirementCount": 48,
   "unverifiedRequirementIds": [
     "RULE-002",
     "RULE-003",
@@ -37,6 +37,8 @@
     "ECON-006",
     "ECON-007",
     "ECON-023",
+    "SEC-003",
+    "OBS-002",
     "ENV-001",
     "ENV-002",
     "ENV-003",
