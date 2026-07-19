@@ -221,7 +221,7 @@
     {
       "id": "RULE-023",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 10,
+      "sourceLine": 9,
       "section": "동점 판정",
       "text": "최종 단어+뜻 성공 여부",
       "fingerprint": "528c106a915cb851722364c2a763a2e2ad31681f2f4311cf0c46f38dc16d0caa",
@@ -239,7 +239,7 @@
     {
       "id": "RULE-024",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 11,
+      "sourceLine": 10,
       "section": "동점 판정",
       "text": "어려운 차이점 수",
       "fingerprint": "72a9114b1696e400b348f1eeb812e2b93065363e6a7bf2a673428fa702d10213",
@@ -257,7 +257,7 @@
     {
       "id": "RULE-025",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 12,
+      "sourceLine": 11,
       "section": "동점 판정",
       "text": "오답 수가 적은 사람",
       "fingerprint": "b7db2903f0ecc539132c8e654d9150a498877afbb720f84878f27b9357e4f85e",
@@ -275,7 +275,7 @@
     {
       "id": "RULE-026",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 13,
+      "sourceLine": 12,
       "section": "동점 판정",
       "text": "10초 서든데스",
       "fingerprint": "e06797f7a1f73edfefe1a92d29d77cc965f853568985b6707971d859863b0172",
@@ -293,7 +293,7 @@
     {
       "id": "RULE-027",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 16,
+      "sourceLine": 15,
       "section": "차이점 구성",
       "text": "총 10개",
       "fingerprint": "becdbce8ff2266cc6f8a848c969a7ef1db7045043c6c6d947847972637b404af",
@@ -311,7 +311,7 @@
     {
       "id": "RULE-028",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 17,
+      "sourceLine": 16,
       "section": "차이점 구성",
       "text": "일반 7개 × 6점 = 42점",
       "fingerprint": "71a430eadefb28c1ada8d5318917b1bc2b4aeebce0131b9584fa590d5a13dff8",
@@ -329,7 +329,7 @@
     {
       "id": "RULE-029",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 18,
+      "sourceLine": 17,
       "section": "차이점 구성",
       "text": "어려움 3개 × 9점 = 27점",
       "fingerprint": "c8204ca788db5aedcef95635bf220ad714f99686ab630cdcf8d2fe4d6d28355e",
@@ -347,7 +347,7 @@
     {
       "id": "RULE-030",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 19,
+      "sourceLine": 18,
       "section": "차이점 구성",
       "text": "차이점 총점 69점",
       "fingerprint": "54ff99dba3de8a1da3ad8b27945046bbea5671c8181724d41967e3e2b8293eda",
@@ -365,7 +365,7 @@
     {
       "id": "RULE-031",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 22,
+      "sourceLine": 21,
       "section": "돌발 단어",
       "text": "16~22초 랜덤 1회",
       "fingerprint": "3fc3399355730fc0562228af3eb4b6c29df232b575a53e214875271f4673cedb",
@@ -383,7 +383,7 @@
     {
       "id": "RULE-032",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 23,
+      "sourceLine": 22,
       "section": "돌발 단어",
       "text": "34~42초 랜덤 1회",
       "fingerprint": "ce261e66273072d24aacf61e5b5b0636a9a008e191f6a6bc986343a4f4a03d93",
@@ -401,7 +401,7 @@
     {
       "id": "RULE-033",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 24,
+      "sourceLine": 23,
       "section": "돌발 단어",
       "text": "60초 스페셜 1회",
       "fingerprint": "271db06fa7407f7f3a12c85b989111e92fb174b89948f3bd259a5966619515e8",
@@ -419,7 +419,7 @@
     {
       "id": "RULE-034",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 25,
+      "sourceLine": 24,
       "section": "돌발 단어",
       "text": "기본 +10, 스페셜 +15",
       "fingerprint": "93fc00ac5c6af6a2444eb10d31e6ab896ad5017041109b009f48c0e97e09e269",
@@ -437,7 +437,7 @@
     {
       "id": "RULE-035",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 26,
+      "sourceLine": 25,
       "section": "돌발 단어",
       "text": "단어 사냥 성공 시 힌트 크레딧 1개를 지급한다.",
       "fingerprint": "adaeca0a7652ed4af4c0652e1fb90b590d77ff76cf9e8062c5b50738ad4d7b0c",
@@ -455,7 +455,7 @@
     {
       "id": "RULE-036",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 29,
+      "sourceLine": 28,
       "section": "최종 단어 도전",
       "text": "다음 중 하나 충족 시 활성화:",
       "fingerprint": "01e8e12fc8d450368fc45586b59e7b17ea9dfab2b608b9393c3a99ecdcf363ea",
@@ -473,7 +473,7 @@
     {
       "id": "RULE-037",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 30,
+      "sourceLine": 29,
       "section": "최종 단어 도전",
       "text": "차이점 1개 발견",
       "fingerprint": "5a846f089eee41f7e3e4087c7c40e25e7f131e87678628e2318412fd35cd88a5",
@@ -491,7 +491,7 @@
     {
       "id": "RULE-038",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 31,
+      "sourceLine": 30,
       "section": "최종 단어 도전",
       "text": "돌발 단어 1개 성공",
       "fingerprint": "271900133d5b9c3d4e5439bed4e826a0fcd95a400d25b6c9afaf04fdc8752d85",
@@ -509,7 +509,7 @@
     {
       "id": "RULE-039",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 32,
+      "sourceLine": 31,
       "section": "최종 단어 도전",
       "text": "시작 후 12초 경과",
       "fingerprint": "400bccaeff576a976040e13fd71ff31f8ac9997ae68b29e064a53e4ce9a1b7af",
@@ -527,7 +527,7 @@
     {
       "id": "RULE-040",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 35,
+      "sourceLine": 34,
       "section": "최종 단어·뜻",
       "text": "최종 단어 정답 +25",
       "fingerprint": "1dffc05685138153ce740a1063a3248cee109beb1473847b4c9514926474371b",
@@ -545,7 +545,7 @@
     {
       "id": "RULE-041",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 36,
+      "sourceLine": 35,
       "section": "최종 단어·뜻",
       "text": "이어서 뜻 3지선다 5초",
       "fingerprint": "a938f8b459d80572cb98c3df4774510ad52573ae6170ab061ab640f41a291fe2",
@@ -563,7 +563,7 @@
     {
       "id": "RULE-042",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 37,
+      "sourceLine": 36,
       "section": "최종 단어·뜻",
       "text": "뜻 정답 +15",
       "fingerprint": "861a38680a8c2883dbfffc2e83c401307fc7964df27e7f69dbddefad5966908e",
@@ -581,7 +581,7 @@
     {
       "id": "RULE-043",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 38,
+      "sourceLine": 37,
       "section": "최종 단어·뜻",
       "text": "둘 다 성공 +10",
       "fingerprint": "e245f6530d17e93731ba4f33a39a6b32f140e8fd90f238d40706790ee486d5f2",
@@ -599,7 +599,7 @@
     {
       "id": "RULE-044",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 39,
+      "sourceLine": 38,
       "section": "최종 단어·뜻",
       "text": "최종 단어 오답 -5 + 2초 잠금",
       "fingerprint": "0962f505a8e9063fb34f9bfafe6874c2a81d45e8ffcec90a612408e3edff5e0a",
@@ -617,7 +617,7 @@
     {
       "id": "RULE-045",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 40,
+      "sourceLine": 39,
       "section": "최종 단어·뜻",
       "text": "파이널 러시 오답 -10 + 1.5초 잠금",
       "fingerprint": "b3c4734397914daa49d4abd40a24ff00e0ee856a81a1f948c99cb356bf2dfb06",
@@ -635,7 +635,7 @@
     {
       "id": "RULE-046",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 43,
+      "sourceLine": 42,
       "section": "파이널 러시",
       "text": "60~75초",
       "fingerprint": "c2a56ca0827e5931a6ddd3e1efebded85c3088ec13518508d4e4becc8a725165",
@@ -653,7 +653,7 @@
     {
       "id": "RULE-047",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 44,
+      "sourceLine": 43,
       "section": "파이널 러시",
       "text": "차이점 점수 2배",
       "fingerprint": "cd269cb5fa631154b1a4faa198a0ffdda98bfb7ddf89d3f338892cd1621fd36b",
@@ -671,7 +671,7 @@
     {
       "id": "RULE-048",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 45,
+      "sourceLine": 44,
       "section": "파이널 러시",
       "text": "스페셜 돌발 단어 확정",
       "fingerprint": "ba8ac64d791821fe4051252d6d327b76b7ed240aa7a1c5a18b70f05d7a48c401",
@@ -689,7 +689,7 @@
     {
       "id": "RULE-049",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 46,
+      "sourceLine": 45,
       "section": "파이널 러시",
       "text": "BGM과 테두리 연출 강화",
       "fingerprint": "9a940b7ba54f4ddf9d98776e5c712edd4ba2e8fb8adbc22002185959a3c522d4",
@@ -707,7 +707,7 @@
     {
       "id": "RULE-050",
       "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 47,
+      "sourceLine": 46,
       "section": "파이널 러시",
       "text": "입력 잠금은 유지해 스팸 방지",
       "fingerprint": "47e0968cd8bce739856677a3caebee3084823e1a494e98d773cc9bd57d4fb1e1",

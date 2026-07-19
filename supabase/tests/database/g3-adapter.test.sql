@@ -2,9 +2,9 @@ begin;set local statement_timeout='5s';create extension if not exists pgtap with
 select has_function('private','apply_match_command_g3','G3 transaction adapter exists');
 set role app_server;
 select private.acquire_match_lease_g3('90000000-0000-4000-8000-000000000001','90000000-0000-4000-8000-000000000001',null,null,15000);
-do $$begin if private.apply_match_command_g3('90000000-0000-4000-8000-000000000001','90000000-0000-4000-8000-000000000002',repeat('a',64),1,'{"type":"APPLIED"}','{"phase":"PLAYING"}','timer-1',10,'effect-1',null)->>'eventSeq'<>'1' then raise exception 'APPLY_FAILED';end if;end$$;
-do $$begin if private.apply_match_command_g3('90000000-0000-4000-8000-000000000001','90000000-0000-4000-8000-000000000002',repeat('a',64),1,'{"type":"APPLIED"}','{"phase":"PLAYING"}','timer-1',10,'effect-1',null)->>'effectId'<>'effect-1' then raise exception 'REPLAY_FAILED';end if;end$$;
-do $$begin perform private.apply_match_command_g3('90000000-0000-4000-8000-000000000001','90000000-0000-4000-8000-000000000003',repeat('b',64),1,'{}','{}','timer-2',20,'effect-2','AFTER_JOURNAL');raise exception 'FAULT_NOT_RAISED';exception when others then if sqlerrm<>'INJECTED_AFTER_JOURNAL' then raise;end if;end$$;
+do $$begin if private.apply_match_command_g3('90000000-0000-4000-8000-000000000001','90000000-0000-4000-8000-000000000002',repeat('a',64),'90000000-0000-4000-8000-000000000001',1,'{"type":"APPLIED"}','{"phase":"PLAYING"}','timer-1',10,'effect-1',null)->>'eventSeq'<>'1' then raise exception 'APPLY_FAILED';end if;end$$;
+do $$begin if private.apply_match_command_g3('90000000-0000-4000-8000-000000000001','90000000-0000-4000-8000-000000000002',repeat('a',64),'90000000-0000-4000-8000-000000000001',1,'{"type":"APPLIED"}','{"phase":"PLAYING"}','timer-1',10,'effect-1',null)->>'effectId'<>'effect-1' then raise exception 'REPLAY_FAILED';end if;end$$;
+do $$begin perform private.apply_match_command_g3('90000000-0000-4000-8000-000000000001','90000000-0000-4000-8000-000000000003',repeat('b',64),'90000000-0000-4000-8000-000000000001',1,'{}','{}','timer-2',20,'effect-2','AFTER_JOURNAL');raise exception 'FAULT_NOT_RAISED';exception when others then if sqlerrm<>'INJECTED_AFTER_JOURNAL' then raise;end if;end$$;
 reset role;
 select pass('atomic command applies');select pass('completed request replays');select pass('fault rolls back transaction');
 select is((select count(*)::int from private.g3_journal where match_id='90000000-0000-4000-8000-000000000001'),1,'fault leaves no journal');
