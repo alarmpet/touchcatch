@@ -4,4 +4,6 @@ Stable IDs are preserved. `DOC-001` through `DOC-067` are retired without reuse 
 
 No retired ID is renamed. New requirements must receive new IDs; retired IDs must never be recycled.
 
+Stage 9 retires `RULE-002` through `RULE-005`, `RULE-051`, and `ECON-001` through `ECON-007` as descriptive pillars, taxonomy labels, feature lists, or illustrative arithmetic. These IDs remain permanently reserved and are not reassigned. Surviving RULE IDs retain their original identity; lifecycle changes do not renumber them.
+
 Stage 8C additionally retires `DOC-075` through `DOC-087`: the individual README links duplicated the retained inventory contract. `DOC-088` remains the single active inventory/registry requirement.

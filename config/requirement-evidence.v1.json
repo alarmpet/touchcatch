@@ -23,184 +23,94 @@
       "closureCondition": "Keep exact executable oracle green"
     },
     {
-      "id": "RULE-002",
-      "evidenceKind": "RULESET_PARSE",
-      "oracle": {
-        "kind": "RULESET_PARSE",
-        "expected": "BLOCKED",
-        "input": "config/ruleset.v1.json"
-      },
-      "testCase": "RULE-002 executes RULESET_PARSE",
-      "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "rules",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-002",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
-      "closureArtifact": "tests/requirements/RULE-002.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "RULE-003",
-      "evidenceKind": "RULESET_PARSE",
-      "oracle": {
-        "kind": "RULESET_PARSE",
-        "expected": "BLOCKED",
-        "input": "config/ruleset.v1.json"
-      },
-      "testCase": "RULE-003 executes RULESET_PARSE",
-      "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "rules",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-003",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
-      "closureArtifact": "tests/requirements/RULE-003.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "RULE-004",
-      "evidenceKind": "RULESET_PARSE",
-      "oracle": {
-        "kind": "RULESET_PARSE",
-        "expected": "BLOCKED",
-        "input": "config/ruleset.v1.json"
-      },
-      "testCase": "RULE-004 executes RULESET_PARSE",
-      "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "rules",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-004",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
-      "closureArtifact": "tests/requirements/RULE-004.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "RULE-005",
-      "evidenceKind": "RULESET_PARSE",
-      "oracle": {
-        "kind": "RULESET_PARSE",
-        "expected": "BLOCKED",
-        "input": "config/ruleset.v1.json"
-      },
-      "testCase": "RULE-005 executes RULESET_PARSE",
-      "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "rules",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-005",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
-      "closureArtifact": "tests/requirements/RULE-005.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
       "id": "RULE-006",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "BLOCKED",
+        "expected": "PASS",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-006 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-006",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
-      "closureArtifact": "tests/requirements/RULE-006.test.ts",
-      "closureArtifactState": "ABSENT"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-006"
     },
     {
       "id": "RULE-007",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "BLOCKED",
+        "expected": "PASS",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-007 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-007",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
-      "closureArtifact": "tests/requirements/RULE-007.test.ts",
-      "closureArtifactState": "ABSENT"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-007"
     },
     {
       "id": "RULE-008",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "BLOCKED",
+        "expected": "PASS",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-008 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-008",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
-      "closureArtifact": "tests/requirements/RULE-008.test.ts",
-      "closureArtifactState": "ABSENT"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-008"
     },
     {
       "id": "RULE-009",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "BLOCKED",
+        "expected": "PASS",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-009 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-009",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
-      "closureArtifact": "tests/requirements/RULE-009.test.ts",
-      "closureArtifactState": "ABSENT"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-009"
     },
     {
       "id": "RULE-010",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "BLOCKED",
+        "expected": "PASS",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-010 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-010",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
-      "closureArtifact": "tests/requirements/RULE-010.test.ts",
-      "closureArtifactState": "ABSENT"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-010"
     },
     {
       "id": "RULE-011",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "BLOCKED",
+        "expected": "PASS",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-011 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-011",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
-      "closureArtifact": "tests/requirements/RULE-011.test.ts",
-      "closureArtifactState": "ABSENT"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-011"
     },
     {
       "id": "RULE-012",
@@ -213,10 +123,10 @@
       "testCase": "RULE-012 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
       "lifecycle": "PLANNED",
-      "evidenceOwner": "rules",
+      "evidenceOwner": "game-design",
       "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-012",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-012",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_EXECUTABLE_CONTRACT",
       "closureArtifact": "tests/requirements/RULE-012.test.ts",
       "closureArtifactState": "ABSENT"
     },
@@ -225,18 +135,15 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "BLOCKED",
+        "expected": "PASS",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-013 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-013",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
-      "closureArtifact": "tests/requirements/RULE-013.test.ts",
-      "closureArtifactState": "ABSENT"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-013"
     },
     {
       "id": "RULE-014",
@@ -249,10 +156,10 @@
       "testCase": "RULE-014 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
       "lifecycle": "PLANNED",
-      "evidenceOwner": "rules",
+      "evidenceOwner": "game-design",
       "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-014",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-014",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_EXECUTABLE_CONTRACT",
       "closureArtifact": "tests/requirements/RULE-014.test.ts",
       "closureArtifactState": "ABSENT"
     },
@@ -269,8 +176,8 @@
       "lifecycle": "PLANNED",
       "evidenceOwner": "game-design",
       "phase": "PLANNED",
-      "closureCondition": "Implement and contract-test post-launch 2v2 mode",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RULESET_PARSE",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-015",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_EXECUTABLE_CONTRACT",
       "closureArtifact": "tests/requirements/RULE-015.test.ts",
       "closureArtifactState": "ABSENT"
     },
@@ -287,8 +194,8 @@
       "lifecycle": "PLANNED",
       "evidenceOwner": "game-design",
       "phase": "PLANNED",
-      "closureCondition": "Implement and contract-test post-launch cooperative mode",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RULESET_PARSE",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-016",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_EXECUTABLE_CONTRACT",
       "closureArtifact": "tests/requirements/RULE-016.test.ts",
       "closureArtifactState": "ABSENT"
     },
@@ -303,10 +210,10 @@
       "testCase": "RULE-017 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
       "lifecycle": "PLANNED",
-      "evidenceOwner": "rules",
+      "evidenceOwner": "game-design",
       "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-017",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-017",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_EXECUTABLE_CONTRACT",
       "closureArtifact": "tests/requirements/RULE-017.test.ts",
       "closureArtifactState": "ABSENT"
     },
@@ -321,10 +228,10 @@
       "testCase": "RULE-018 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
       "lifecycle": "PLANNED",
-      "evidenceOwner": "rules",
+      "evidenceOwner": "game-design",
       "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-018",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-018",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_EXECUTABLE_CONTRACT",
       "closureArtifact": "tests/requirements/RULE-018.test.ts",
       "closureArtifactState": "ABSENT"
     },
@@ -412,18 +319,15 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "BLOCKED",
+        "expected": "PASS",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-022 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-022",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
-      "closureArtifact": "tests/requirements/RULE-022.test.ts",
-      "closureArtifactState": "ABSENT"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-022"
     },
     {
       "id": "RULE-023",
@@ -720,18 +624,15 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "BLOCKED",
+        "expected": "PASS",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-035 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-035",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
-      "closureArtifact": "tests/requirements/RULE-035.test.ts",
-      "closureArtifactState": "ABSENT"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-035"
     },
     {
       "id": "RULE-036",
@@ -1037,10 +938,10 @@
       "testCase": "RULE-049 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
       "lifecycle": "PLANNED",
-      "evidenceOwner": "rules",
+      "evidenceOwner": "game-design",
       "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-049",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-049",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_EXECUTABLE_CONTRACT",
       "closureArtifact": "tests/requirements/RULE-049.test.ts",
       "closureArtifactState": "ABSENT"
     },
@@ -1049,36 +950,15 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "BLOCKED",
+        "expected": "PASS",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-050 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
+      "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-050",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
-      "closureArtifact": "tests/requirements/RULE-050.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "RULE-051",
-      "evidenceKind": "RULESET_PARSE",
-      "oracle": {
-        "kind": "RULESET_PARSE",
-        "expected": "BLOCKED",
-        "input": "config/ruleset.v1.json"
-      },
-      "testCase": "RULE-051 executes RULESET_PARSE",
-      "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "rules",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for RULE-051",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE",
-      "closureArtifact": "tests/requirements/RULE-051.test.ts",
-      "closureArtifactState": "ABSENT"
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-050"
     },
     {
       "id": "STATE-001",
@@ -1674,132 +1554,6 @@
       "evidenceOwner": "ui",
       "phase": "IMPLEMENTED",
       "closureCondition": "Keep exact semantic UI contract predicate green"
-    },
-    {
-      "id": "ECON-001",
-      "evidenceKind": "ECONOMY_PARSE",
-      "oracle": {
-        "kind": "ECONOMY_PARSE",
-        "expected": "BLOCKED",
-        "input": "config/economy.v1.json"
-      },
-      "testCase": "ECON-001 executes ECONOMY_PARSE",
-      "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "economy",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for ECON-001",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY",
-      "closureArtifact": "tests/requirements/ECON-001.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "ECON-002",
-      "evidenceKind": "ECONOMY_PARSE",
-      "oracle": {
-        "kind": "ECONOMY_PARSE",
-        "expected": "BLOCKED",
-        "input": "config/economy.v1.json"
-      },
-      "testCase": "ECON-002 executes ECONOMY_PARSE",
-      "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "economy",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for ECON-002",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY",
-      "closureArtifact": "tests/requirements/ECON-002.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "ECON-003",
-      "evidenceKind": "ECONOMY_PARSE",
-      "oracle": {
-        "kind": "ECONOMY_PARSE",
-        "expected": "BLOCKED",
-        "input": "config/economy.v1.json"
-      },
-      "testCase": "ECON-003 executes ECONOMY_PARSE",
-      "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "economy",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for ECON-003",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY",
-      "closureArtifact": "tests/requirements/ECON-003.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "ECON-004",
-      "evidenceKind": "ECONOMY_PARSE",
-      "oracle": {
-        "kind": "ECONOMY_PARSE",
-        "expected": "BLOCKED",
-        "input": "config/economy.v1.json"
-      },
-      "testCase": "ECON-004 executes ECONOMY_PARSE",
-      "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "economy",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for ECON-004",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY",
-      "closureArtifact": "tests/requirements/ECON-004.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "ECON-005",
-      "evidenceKind": "ECONOMY_PARSE",
-      "oracle": {
-        "kind": "ECONOMY_PARSE",
-        "expected": "BLOCKED",
-        "input": "config/economy.v1.json"
-      },
-      "testCase": "ECON-005 executes ECONOMY_PARSE",
-      "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "economy",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for ECON-005",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY",
-      "closureArtifact": "tests/requirements/ECON-005.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "ECON-006",
-      "evidenceKind": "ECONOMY_PARSE",
-      "oracle": {
-        "kind": "ECONOMY_PARSE",
-        "expected": "BLOCKED",
-        "input": "config/economy.v1.json"
-      },
-      "testCase": "ECON-006 executes ECONOMY_PARSE",
-      "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "economy",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for ECON-006",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY",
-      "closureArtifact": "tests/requirements/ECON-006.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "ECON-007",
-      "evidenceKind": "ECONOMY_PARSE",
-      "oracle": {
-        "kind": "ECONOMY_PARSE",
-        "expected": "BLOCKED",
-        "input": "config/economy.v1.json"
-      },
-      "testCase": "ECON-007 executes ECONOMY_PARSE",
-      "metric": "release_requirement_gate_status",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "economy",
-      "phase": "PLANNED",
-      "closureCondition": "Implement exact behavioral predicate for ECON-007",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:TABLE_LABEL_ONLY",
-      "closureArtifact": "tests/requirements/ECON-007.test.ts",
-      "closureArtifactState": "ABSENT"
     },
     {
       "id": "ECON-008",

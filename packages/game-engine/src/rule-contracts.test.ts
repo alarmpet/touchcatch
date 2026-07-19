@@ -1,5 +1,11 @@
 import {describe,expect,it} from 'vitest';
-import {chooseRandomOneVsOne,hasMinimumMatchDuration,isTimedInputLocked,parseWordHuntRewardChoice,shouldKeepInputLocked} from './rule-contracts.js';
+import {MINIMUM_MATCH_DURATION_MS,RANDOM_ONE_V_ONE_PLAYER_COUNT,WORD_HUNT_REWARD_SELECTION_COUNT,chooseRandomOneVsOne,hasMinimumMatchDuration,isTimedInputLocked,parseWordHuntRewardChoice,shouldKeepInputLocked} from './rule-contracts.js';
+
+it('loads numeric rule contracts from the runtime policy SSOT',()=>{
+ expect(RANDOM_ONE_V_ONE_PLAYER_COUNT).toBe(2);
+ expect(MINIMUM_MATCH_DURATION_MS).toBe(15_000);
+ expect(WORD_HUNT_REWARD_SELECTION_COUNT).toBe(1);
+});
 
 describe('RULE-013 random 1v1',()=>{
  it('selects exactly two distinct queued players using the supplied random draw',()=>{

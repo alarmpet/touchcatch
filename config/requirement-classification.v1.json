@@ -1,16 +1,148 @@
 {
   "schemaVersion": 1,
   "retiredIdRanges": [
-    {"family":"DOC","from":1,"to":67,"reason":"README marketing, examples, scoring duplicates, headings, and descriptive prose; not normative contracts"},
-    {"family":"DOC","from":75,"to":87,"reason":"Individual README inventory links are descriptive duplicates; DOC-088 retains the actual inventory/registry contract"}
+    {
+      "family": "DOC",
+      "from": 1,
+      "to": 67,
+      "reason": "README marketing, examples, scoring duplicates, headings, and descriptive prose; not normative contracts"
+    },
+    {
+      "family": "DOC",
+      "from": 75,
+      "to": 87,
+      "reason": "Individual README inventory links are descriptive duplicates; DOC-088 retains the actual inventory/registry contract"
+    },
+    {
+      "family": "RULE",
+      "from": 2,
+      "to": 5,
+      "reason": "Descriptive product pillars retired without ID reuse; executable contracts use surviving normative IDs"
+    },
+    {
+      "family": "RULE",
+      "from": 51,
+      "to": 51,
+      "reason": "Illustrative score scenario retired without ID reuse"
+    },
+    {
+      "family": "ECON",
+      "from": 1,
+      "to": 7,
+      "reason": "Taxonomy and feature-list descriptions retired without ID reuse"
+    }
   ],
   "overrides": {
-    "RULE-015":{"lifecycle":"PLANNED","evidenceOwner":"game-design","closureCondition":"Implement and contract-test post-launch 2v2 mode"},
-    "RULE-016":{"lifecycle":"PLANNED","evidenceOwner":"game-design","closureCondition":"Implement and contract-test post-launch cooperative mode"},
-    "DOC-069":{"lifecycle":"PLANNED","evidenceOwner":"server-platform","closureCondition":"Add NestJS and Socket.IO package surfaces"},
-    "DOC-071":{"lifecycle":"PLANNED","evidenceOwner":"server-platform","closureCondition":"Add Redis package and integration surface"},
-    "DOC-072":{"lifecycle":"PLANNED","evidenceOwner":"admin-platform","closureCondition":"Add Next.js admin package surface"},
-    "DOC-073":{"lifecycle":"EXTERNAL","externalKind":"PRODUCT_DECISION","evidenceOwner":"product-analytics","closureCondition":"Record provider decision and implement selected analytics adapter"},
-    "DOC-074":{"lifecycle":"PLANNED","evidenceOwner":"observability","closureCondition":"Implement and contract-test Sentry integration"}
+    "RULE-015": {
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "game-design",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-015"
+    },
+    "RULE-016": {
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "game-design",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-016"
+    },
+    "DOC-069": {
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "server-platform",
+      "closureCondition": "Add NestJS and Socket.IO package surfaces"
+    },
+    "DOC-071": {
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "server-platform",
+      "closureCondition": "Add Redis package and integration surface"
+    },
+    "DOC-072": {
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "admin-platform",
+      "closureCondition": "Add Next.js admin package surface"
+    },
+    "DOC-073": {
+      "lifecycle": "EXTERNAL",
+      "externalKind": "PRODUCT_DECISION",
+      "evidenceOwner": "product-analytics",
+      "closureCondition": "Record provider decision and implement selected analytics adapter"
+    },
+    "DOC-074": {
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "observability",
+      "closureCondition": "Implement and contract-test Sentry integration"
+    },
+    "RULE-006": {
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-006"
+    },
+    "RULE-007": {
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-007"
+    },
+    "RULE-008": {
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-008"
+    },
+    "RULE-009": {
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-009"
+    },
+    "RULE-010": {
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-010"
+    },
+    "RULE-011": {
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-011"
+    },
+    "RULE-013": {
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-013"
+    },
+    "RULE-022": {
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-022"
+    },
+    "RULE-035": {
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-035"
+    },
+    "RULE-050": {
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-050"
+    },
+    "RULE-012": {
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "game-design",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-012"
+    },
+    "RULE-014": {
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "game-design",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-014"
+    },
+    "RULE-017": {
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "game-design",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-017"
+    },
+    "RULE-018": {
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "game-design",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-018"
+    },
+    "RULE-049": {
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "game-design",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-049"
+    }
   }
 }

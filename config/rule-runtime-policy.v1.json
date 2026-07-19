@@ -1,0 +1,5 @@
+{
+  "randomOneVsOnePlayerCount": 2,
+  "minimumMatchDurationMs": 15000,
+  "wordHuntRewardSelectionCount": 1
+}

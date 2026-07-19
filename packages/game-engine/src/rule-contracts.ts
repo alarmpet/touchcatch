@@ -1,10 +1,14 @@
-export const MINIMUM_MATCH_DURATION_MS=15_000;
+import runtimePolicy from '../../../config/rule-runtime-policy.v1.json' with {type:'json'};
+
+export const RANDOM_ONE_V_ONE_PLAYER_COUNT=runtimePolicy.randomOneVsOnePlayerCount;
+export const MINIMUM_MATCH_DURATION_MS=runtimePolicy.minimumMatchDurationMs;
+export const WORD_HUNT_REWARD_SELECTION_COUNT=runtimePolicy.wordHuntRewardSelectionCount;
 
 export type MatchmakingTicket={ticketId:string;playerId:string};
 
 export function chooseRandomOneVsOne<T extends MatchmakingTicket>(queue:readonly T[],random:()=>number):readonly [T,T]|null {
  const eligible=queue.filter((ticket,index)=>queue.findIndex(candidate=>candidate.playerId===ticket.playerId)===index);
- if(eligible.length<2)return null;
+ if(eligible.length<RANDOM_ONE_V_ONE_PLAYER_COUNT)return null;
  const draw=()=>{const value=random();if(!Number.isFinite(value)||value<0||value>=1)throw new RangeError('random draw must be in [0, 1)');return value;};
  const firstIndex=Math.floor(draw()*eligible.length);
  const first=eligible[firstIndex]!;
