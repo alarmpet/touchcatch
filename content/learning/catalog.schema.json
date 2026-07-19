@@ -1,0 +1,12 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","additionalProperties":false,"required":["schemaVersion","entries"],
+  "properties":{"schemaVersion":{"const":"1.0.0"},"entries":{"type":"array","minItems":9,"maxItems":9,"items":{"type":"object","additionalProperties":false,"required":["key","category","language","difficulty","status","canonicalAnswer","aliases","meaning","sceneBrief","changes","wordHunts","suddenDeath","promptProvenance"],"properties":{
+    "key":{"type":"string","pattern":"^[a-z0-9-]+$"},"category":{"enum":["ENGLISH","PROVERB","IDIOM"]},"language":{"enum":["en","ko"]},"difficulty":{"const":"ADVANCED"},"status":{"const":"DRAFT"},
+    "canonicalAnswer":{"type":"string","minLength":1,"maxLength":64},"aliases":{"type":"array","maxItems":4,"uniqueItems":true,"items":{"type":"string","minLength":1,"maxLength":64}},
+    "meaning":{"type":"object","additionalProperties":false,"required":["prompt","options","correctOptionId"],"properties":{"prompt":{"type":"string","minLength":1},"options":{"type":"array","minItems":3,"maxItems":3,"items":{"type":"object","additionalProperties":false,"required":["id","label"],"properties":{"id":{"type":"string","pattern":"^option_[1-3]$"},"label":{"type":"string","minLength":1}}}},"correctOptionId":{"type":"string","pattern":"^option_[1-3]$"}}},
+    "sceneBrief":{"type":"string","minLength":20},"changes":{"type":"array","minItems":10,"maxItems":10,"uniqueItems":true,"items":{"type":"string","minLength":5}},
+    "wordHunts":{"type":"array","minItems":3,"maxItems":3,"items":{"type":"object","additionalProperties":false,"required":["kind","prompt","object"],"properties":{"kind":{"enum":["NORMAL","SPECIAL"]},"prompt":{"type":"string","minLength":1},"object":{"type":"string","minLength":1}}}},
+    "suddenDeath":{"type":"object","additionalProperties":false,"required":["prompt","object"],"properties":{"prompt":{"type":"string","minLength":1},"object":{"type":"string","minLength":1}}},
+    "promptProvenance":{"type":"object","additionalProperties":false,"required":["provider","model","basePromptSha256","editPromptSha256","generatedAt"],"properties":{"provider":{"const":"OPENAI"},"model":{"const":"IMAGEGEN"},"basePromptSha256":{"type":"null"},"editPromptSha256":{"type":"null"},"generatedAt":{"type":"null"}}}
+  }}}}
+}
