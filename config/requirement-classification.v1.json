@@ -42,6 +42,18 @@
       "from": 22,
       "to": 22,
       "reason": "Frozen ruleset has immediate score-target termination; unsupported 15-second minimum retired without reuse"
+    },
+    {
+      "family": "OBS",
+      "from": 6,
+      "to": 7,
+      "reason": "Legacy risk observations retired without ID reuse; RISK-01 and RISK-02 preserve the independent observation-only contracts"
+    },
+    {
+      "family": "ENV",
+      "from": 1,
+      "to": 11,
+      "reason": "Former Step 0-8 roadmap mappings retired without reuse when the gate-based G3A-G6 dependency chain replaced them"
     }
   ],
   "overrides": {

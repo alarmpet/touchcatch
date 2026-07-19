@@ -2031,32 +2031,32 @@
       "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-005"
     },
     {
-      "id": "OBS-006",
+      "id": "RISK-01",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
         "expected": "PASS",
-        "input": "OBS-006"
+        "input": "RISK-01"
       },
-      "testCase": "OBS-006 executes ANALYTICS_CONTRACT",
+      "testCase": "RISK-01 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
-      "evidenceOwner": "analytics",
+      "evidenceOwner": "analytics-risk",
       "phase": "IMPLEMENTED",
       "closureCondition": "Keep exact direct behavioral oracle green"
     },
     {
-      "id": "OBS-007",
+      "id": "RISK-02",
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
         "expected": "PASS",
-        "input": "OBS-007"
+        "input": "RISK-02"
       },
-      "testCase": "OBS-007 executes ANALYTICS_CONTRACT",
+      "testCase": "RISK-02 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
-      "evidenceOwner": "analytics",
+      "evidenceOwner": "analytics-risk",
       "phase": "IMPLEMENTED",
       "closureCondition": "Keep exact direct behavioral oracle green"
     },
@@ -3636,204 +3636,6 @@
       "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-015"
     },
     {
-      "id": "ENV-001",
-      "evidenceKind": "RUNTIME_GATE",
-      "oracle": {
-        "kind": "RUNTIME_GATE",
-        "expected": "BLOCKED",
-        "input": "ENV-001"
-      },
-      "testCase": "ENV-001 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "runtime",
-      "phase": "FUTURE",
-      "closureCondition": "Deliver roadmap runtime requirement ENV-001",
-      "closureArtifact": "tests/requirements/ENV-001.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "ENV-002",
-      "evidenceKind": "RUNTIME_GATE",
-      "oracle": {
-        "kind": "RUNTIME_GATE",
-        "expected": "BLOCKED",
-        "input": "ENV-002"
-      },
-      "testCase": "ENV-002 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "runtime",
-      "phase": "FUTURE",
-      "closureCondition": "Deliver roadmap runtime requirement ENV-002",
-      "closureArtifact": "tests/requirements/ENV-002.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "ENV-003",
-      "evidenceKind": "RUNTIME_GATE",
-      "oracle": {
-        "kind": "RUNTIME_GATE",
-        "expected": "BLOCKED",
-        "input": "ENV-003"
-      },
-      "testCase": "ENV-003 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "runtime",
-      "phase": "FUTURE",
-      "closureCondition": "Deliver roadmap runtime requirement ENV-003",
-      "closureArtifact": "tests/requirements/ENV-003.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "ENV-004",
-      "evidenceKind": "RUNTIME_GATE",
-      "oracle": {
-        "kind": "RUNTIME_GATE",
-        "expected": "BLOCKED",
-        "input": "ENV-004"
-      },
-      "testCase": "ENV-004 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "runtime",
-      "phase": "FUTURE",
-      "closureCondition": "Deliver roadmap runtime requirement ENV-004",
-      "closureArtifact": "tests/requirements/ENV-004.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "ENV-005",
-      "evidenceKind": "RUNTIME_GATE",
-      "oracle": {
-        "kind": "RUNTIME_GATE",
-        "expected": "BLOCKED",
-        "input": "ENV-005"
-      },
-      "testCase": "ENV-005 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "runtime",
-      "phase": "FUTURE",
-      "closureCondition": "Deliver roadmap runtime requirement ENV-005",
-      "closureArtifact": "tests/requirements/ENV-005.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "ENV-006",
-      "evidenceKind": "RUNTIME_GATE",
-      "oracle": {
-        "kind": "RUNTIME_GATE",
-        "expected": "BLOCKED",
-        "input": "ENV-006"
-      },
-      "testCase": "ENV-006 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "runtime",
-      "phase": "FUTURE",
-      "closureCondition": "Deliver roadmap runtime requirement ENV-006",
-      "closureArtifact": "tests/requirements/ENV-006.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "ENV-007",
-      "evidenceKind": "RUNTIME_GATE",
-      "oracle": {
-        "kind": "RUNTIME_GATE",
-        "expected": "BLOCKED",
-        "input": "ENV-007"
-      },
-      "testCase": "ENV-007 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "runtime",
-      "phase": "FUTURE",
-      "closureCondition": "Deliver roadmap runtime requirement ENV-007",
-      "closureArtifact": "tests/requirements/ENV-007.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "ENV-008",
-      "evidenceKind": "RUNTIME_GATE",
-      "oracle": {
-        "kind": "RUNTIME_GATE",
-        "expected": "BLOCKED",
-        "input": "ENV-008"
-      },
-      "testCase": "ENV-008 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "runtime",
-      "phase": "FUTURE",
-      "closureCondition": "Deliver roadmap runtime requirement ENV-008",
-      "closureArtifact": "tests/requirements/ENV-008.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "ENV-009",
-      "evidenceKind": "RUNTIME_GATE",
-      "oracle": {
-        "kind": "RUNTIME_GATE",
-        "expected": "BLOCKED",
-        "input": "ENV-009"
-      },
-      "testCase": "ENV-009 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "runtime",
-      "phase": "FUTURE",
-      "closureCondition": "Deliver roadmap runtime requirement ENV-009",
-      "closureArtifact": "tests/requirements/ENV-009.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "ENV-010",
-      "evidenceKind": "RUNTIME_GATE",
-      "oracle": {
-        "kind": "RUNTIME_GATE",
-        "expected": "BLOCKED",
-        "input": "ENV-010"
-      },
-      "testCase": "ENV-010 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "runtime",
-      "phase": "FUTURE",
-      "closureCondition": "Deliver roadmap runtime requirement ENV-010",
-      "closureArtifact": "tests/requirements/ENV-010.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
-      "id": "ENV-011",
-      "evidenceKind": "RUNTIME_GATE",
-      "oracle": {
-        "kind": "RUNTIME_GATE",
-        "expected": "BLOCKED",
-        "input": "ENV-011"
-      },
-      "testCase": "ENV-011 executes RUNTIME_GATE",
-      "metric": "release_requirement_gate_status",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "runtime",
-      "phase": "FUTURE",
-      "closureCondition": "Deliver roadmap runtime requirement ENV-011",
-      "closureArtifact": "tests/requirements/ENV-011.test.ts",
-      "closureArtifactState": "ABSENT"
-    },
-    {
       "id": "DOC-068",
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
@@ -3967,6 +3769,249 @@
       "evidenceOwner": "documentation",
       "phase": "IMPLEMENTED",
       "closureCondition": "Keep exact local manifest/inventory oracle green for DOC-088"
+    },
+    {
+      "id": "ENV-012",
+      "evidenceKind": "RUNTIME_GATE",
+      "oracle": {
+        "kind": "RUNTIME_GATE",
+        "expected": "BLOCKED",
+        "input": "ENV-012"
+      },
+      "testCase": "ENV-012 executes RUNTIME_GATE",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "release-governance",
+      "phase": "FUTURE",
+      "closureCondition": "Deliver gate-based roadmap requirement ENV-012",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PRODUCT_DECISION",
+        "closureCondition": "Approve scope and staffing for roadmap gate ENV-012",
+        "localEvidenceScope": "ROADMAP_ORDER_ONLY"
+      },
+      "closureArtifact": "docs/approvals/env-012-approval.json",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "ENV-013",
+      "evidenceKind": "RUNTIME_GATE",
+      "oracle": {
+        "kind": "RUNTIME_GATE",
+        "expected": "BLOCKED",
+        "input": "ENV-013"
+      },
+      "testCase": "ENV-013 executes RUNTIME_GATE",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "release-governance",
+      "phase": "FUTURE",
+      "closureCondition": "Deliver gate-based roadmap requirement ENV-013",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PRODUCT_DECISION",
+        "closureCondition": "Approve scope and staffing for roadmap gate ENV-013",
+        "localEvidenceScope": "ROADMAP_ORDER_ONLY"
+      },
+      "closureArtifact": "docs/approvals/env-013-approval.json",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "ENV-014",
+      "evidenceKind": "RUNTIME_GATE",
+      "oracle": {
+        "kind": "RUNTIME_GATE",
+        "expected": "BLOCKED",
+        "input": "ENV-014"
+      },
+      "testCase": "ENV-014 executes RUNTIME_GATE",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "release-governance",
+      "phase": "FUTURE",
+      "closureCondition": "Deliver gate-based roadmap requirement ENV-014",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PRODUCT_DECISION",
+        "closureCondition": "Approve scope and staffing for roadmap gate ENV-014",
+        "localEvidenceScope": "ROADMAP_ORDER_ONLY"
+      },
+      "closureArtifact": "docs/approvals/env-014-approval.json",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "ENV-015",
+      "evidenceKind": "RUNTIME_GATE",
+      "oracle": {
+        "kind": "RUNTIME_GATE",
+        "expected": "BLOCKED",
+        "input": "ENV-015"
+      },
+      "testCase": "ENV-015 executes RUNTIME_GATE",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "release-governance",
+      "phase": "FUTURE",
+      "closureCondition": "Deliver gate-based roadmap requirement ENV-015",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PRODUCT_DECISION",
+        "closureCondition": "Approve scope and staffing for roadmap gate ENV-015",
+        "localEvidenceScope": "ROADMAP_ORDER_ONLY"
+      },
+      "closureArtifact": "docs/approvals/env-015-approval.json",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "ENV-016",
+      "evidenceKind": "RUNTIME_GATE",
+      "oracle": {
+        "kind": "RUNTIME_GATE",
+        "expected": "BLOCKED",
+        "input": "ENV-016"
+      },
+      "testCase": "ENV-016 executes RUNTIME_GATE",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "release-governance",
+      "phase": "FUTURE",
+      "closureCondition": "Deliver gate-based roadmap requirement ENV-016",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PRODUCT_DECISION",
+        "closureCondition": "Approve scope and staffing for roadmap gate ENV-016",
+        "localEvidenceScope": "ROADMAP_ORDER_ONLY"
+      },
+      "closureArtifact": "docs/approvals/env-016-approval.json",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "ENV-017",
+      "evidenceKind": "RUNTIME_GATE",
+      "oracle": {
+        "kind": "RUNTIME_GATE",
+        "expected": "BLOCKED",
+        "input": "ENV-017"
+      },
+      "testCase": "ENV-017 executes RUNTIME_GATE",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "release-governance",
+      "phase": "FUTURE",
+      "closureCondition": "Deliver gate-based roadmap requirement ENV-017",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PRODUCT_DECISION",
+        "closureCondition": "Approve scope and staffing for roadmap gate ENV-017",
+        "localEvidenceScope": "ROADMAP_ORDER_ONLY"
+      },
+      "closureArtifact": "docs/approvals/env-017-approval.json",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "ENV-018",
+      "evidenceKind": "RUNTIME_GATE",
+      "oracle": {
+        "kind": "RUNTIME_GATE",
+        "expected": "BLOCKED",
+        "input": "ENV-018"
+      },
+      "testCase": "ENV-018 executes RUNTIME_GATE",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "release-governance",
+      "phase": "FUTURE",
+      "closureCondition": "Deliver gate-based roadmap requirement ENV-018",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PRODUCT_DECISION",
+        "closureCondition": "Approve scope and staffing for roadmap gate ENV-018",
+        "localEvidenceScope": "ROADMAP_ORDER_ONLY"
+      },
+      "closureArtifact": "docs/approvals/env-018-approval.json",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "ENV-019",
+      "evidenceKind": "ROADMAP_CONTRACT",
+      "oracle": {
+        "kind": "ROADMAP_CONTRACT",
+        "expected": "PASS",
+        "input": "ENV-019"
+      },
+      "testCase": "ENV-019 executes ROADMAP_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release-governance",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep retired-roadmap governance assertion green for ENV-019"
+    },
+    {
+      "id": "ENV-020",
+      "evidenceKind": "ROADMAP_CONTRACT",
+      "oracle": {
+        "kind": "ROADMAP_CONTRACT",
+        "expected": "PASS",
+        "input": "ENV-020"
+      },
+      "testCase": "ENV-020 executes ROADMAP_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release-governance",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep retired-roadmap governance assertion green for ENV-020"
+    },
+    {
+      "id": "ENV-021",
+      "evidenceKind": "ROADMAP_CONTRACT",
+      "oracle": {
+        "kind": "ROADMAP_CONTRACT",
+        "expected": "PASS",
+        "input": "ENV-021"
+      },
+      "testCase": "ENV-021 executes ROADMAP_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release-governance",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep retired-roadmap governance assertion green for ENV-021"
+    },
+    {
+      "id": "ENV-022",
+      "evidenceKind": "ROADMAP_CONTRACT",
+      "oracle": {
+        "kind": "ROADMAP_CONTRACT",
+        "expected": "PASS",
+        "input": "ENV-022"
+      },
+      "testCase": "ENV-022 executes ROADMAP_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release-governance",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep retired-roadmap governance assertion green for ENV-022"
+    },
+    {
+      "id": "ENV-023",
+      "evidenceKind": "ROADMAP_CONTRACT",
+      "oracle": {
+        "kind": "ROADMAP_CONTRACT",
+        "expected": "PASS",
+        "input": "ENV-023"
+      },
+      "testCase": "ENV-023 executes ROADMAP_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release-governance",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep retired-roadmap governance assertion green for ENV-023"
     }
   ],
   "provenance": "CURATED_MAPPING_WITHOUT_REVIEW_ATTESTATION"

@@ -22,7 +22,8 @@
           "pointer": "/time/playingMs",
           "expected": 75000
         }
-      ]
+      ],
+      "sourceHash": "8f7776fd8e0cc8fd3a347e44c76a42e1dd9cbe6dbfcb8be0e782368c1f11ac3a"
     },
     {
       "id": "RULE-013",
@@ -313,7 +314,8 @@
           "pointer": "/hint/creditsPerWordHuntWin",
           "expected": 1
         }
-      ]
+      ],
+      "sourceHash": "39b25f6cbd3b09ebfde854ef3e4f2bdc1936b420f0541425c9e56f9b52787589"
     },
     {
       "id": "RULE-037",
@@ -578,7 +580,8 @@
           "expected": 80000
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e",
+      "sourceHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f"
     },
     {
       "id": "STATE-007",
@@ -601,7 +604,8 @@
           "expected": 1
         }
       ],
-      "ssotHash": "8df77043f581acb3ac0123a635155510dce76da2b174b4bc7dbf8beb4a3d1e8a"
+      "ssotHash": "8df77043f581acb3ac0123a635155510dce76da2b174b4bc7dbf8beb4a3d1e8a",
+      "sourceHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f"
     },
     {
       "id": "UX-001",
@@ -966,7 +970,7 @@
       ],
       "ssotHash": "d66182aed1b441675bc16049c1666a2db724d0b6ea40c71c78106eb6c9828054",
       "sourcePath": "06_CLIENT_ARCHITECTURE.md",
-      "sourceHash": "fa34d46aa891fd03b328139a787b73f2d5c7ec9234f2854517c070ac6d50973c",
+      "sourceHash": "f9c76179c83f794c3d44c3f776e6092dec4d78bc1d607b9fb6e4397a2b89a74d",
       "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
       "closureCondition": "Keep the client runtime policy and executable SEC-002 predicate synchronized"
@@ -986,7 +990,7 @@
       ],
       "ssotHash": "d66182aed1b441675bc16049c1666a2db724d0b6ea40c71c78106eb6c9828054",
       "sourcePath": "06_CLIENT_ARCHITECTURE.md",
-      "sourceHash": "fa34d46aa891fd03b328139a787b73f2d5c7ec9234f2854517c070ac6d50973c",
+      "sourceHash": "f9c76179c83f794c3d44c3f776e6092dec4d78bc1d607b9fb6e4397a2b89a74d",
       "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
       "closureCondition": "Keep the image recommendation policy and executable SEC-006 predicate synchronized"
@@ -1006,7 +1010,7 @@
       ],
       "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
-      "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
+      "sourceHash": "2f21d8b4a0513c71282ab6e9c44c2ed1bf588a519db9a8a4261ac062d9a54fdd",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "closureCondition": "Keep the reconnect-forfeit ruleset and executable OBS-001 predicate synchronized"
@@ -1018,7 +1022,7 @@
       ],
       "status": "VERIFIED_LOCAL_SSOT",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
-      "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
+      "sourceHash": "2f21d8b4a0513c71282ab6e9c44c2ed1bf588a519db9a8a4261ac062d9a54fdd",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-004",
@@ -1046,7 +1050,7 @@
       ],
       "ssotHash": "d66182aed1b441675bc16049c1666a2db724d0b6ea40c71c78106eb6c9828054",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
-      "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
+      "sourceHash": "2f21d8b4a0513c71282ab6e9c44c2ed1bf588a519db9a8a4261ac062d9a54fdd",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "closureCondition": "Keep the reconnect-overlay policy and executable OBS-009 predicate synchronized"
@@ -1058,7 +1062,7 @@
       ],
       "status": "VERIFIED_LOCAL_SSOT",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
-      "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
+      "sourceHash": "2f21d8b4a0513c71282ab6e9c44c2ed1bf588a519db9a8a4261ac062d9a54fdd",
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-010",
@@ -1080,7 +1084,7 @@
       ],
       "status": "UNAPPROVED_BASELINE",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
-      "sourceHash": "6dc38a7f24607b39d1f9ce7f36da32ae51c2eb0af29fc13acbcf39b2ee6d0826",
+      "sourceHash": "2f21d8b4a0513c71282ab6e9c44c2ed1bf588a519db9a8a4261ac062d9a54fdd",
       "lifecycle": "EXTERNAL",
       "evidenceOwner": "release",
       "closureCondition": "Run target-region 200-match/400-socket 30-minute production soak",
@@ -1097,7 +1101,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact repository-local 1:1 revision projection oracle green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "f0c1a78841706540a8849ca0e9dd53f715fb861f8f3ebf61120548a52852fb60",
+      "ssotHash": "5e2cceb8081ab0bacbbf477a4f88f4f49fe5c3e81f0e6cc2b835c79276942027",
       "ssotAssertions": [
         {
           "pointer": "/entries/111/oracle/expected",
@@ -1117,7 +1121,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact seat and 20-session concurrency predicate green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "f0c1a78841706540a8849ca0e9dd53f715fb861f8f3ebf61120548a52852fb60",
+      "ssotHash": "5e2cceb8081ab0bacbbf477a4f88f4f49fe5c3e81f0e6cc2b835c79276942027",
       "ssotAssertions": [
         {
           "pointer": "/entries/124/oracle/expected",
@@ -1135,7 +1139,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact 20-session concurrency evidence green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "f0c1a78841706540a8849ca0e9dd53f715fb861f8f3ebf61120548a52852fb60",
+      "ssotHash": "5e2cceb8081ab0bacbbf477a4f88f4f49fe5c3e81f0e6cc2b835c79276942027",
       "ssotAssertions": [
         {
           "pointer": "/entries/134/oracle/expected",
@@ -1194,89 +1198,65 @@
       "closureCondition": "Keep the three-language valid fixture matrix green"
     },
     {
-      "id": "ENV-001",
+      "id": "ENV-019",
       "approvedTokens": [
-        "3"
+        "0",
+        "8"
       ],
       "status": "UNAPPROVED_BASELINE",
       "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
-      "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "runtime",
-      "closureCondition": "Deliver roadmap runtime requirement ENV-001",
-      "blockerReason": "EXTERNAL:EXACT_RUNTIME"
+      "sourceHash": "5b1b5a768c37da2574664e3db80d3d26fd856c50fc5755082ab826c06a05b716",
+      "lifecycle": "RETIRED",
+      "evidenceOwner": "release-governance",
+      "closureCondition": "Retain only as explicitly unapproved roadmap migration history",
+      "blockerReason": "RETIRED_UNVALIDATED_ESTIMATE_OR_LABEL"
     },
     {
-      "id": "ENV-002",
+      "id": "ENV-020",
       "approvedTokens": [
-        "2"
+        "6",
+        "10"
       ],
       "status": "UNAPPROVED_BASELINE",
       "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
-      "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "runtime",
-      "closureCondition": "Deliver roadmap runtime requirement ENV-002",
-      "blockerReason": "EXTERNAL:EXACT_RUNTIME"
+      "sourceHash": "5b1b5a768c37da2574664e3db80d3d26fd856c50fc5755082ab826c06a05b716",
+      "lifecycle": "RETIRED",
+      "evidenceOwner": "release-governance",
+      "closureCondition": "Retain only as explicitly unapproved roadmap migration history",
+      "blockerReason": "RETIRED_UNVALIDATED_ESTIMATE_OR_LABEL"
     },
     {
-      "id": "ENV-004",
+      "id": "ENV-021",
       "approvedTokens": [
-        "3"
+        "4",
+        "7"
       ],
       "status": "UNAPPROVED_BASELINE",
       "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
-      "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "runtime",
-      "closureCondition": "Deliver roadmap runtime requirement ENV-004",
-      "blockerReason": "EXTERNAL:EXACT_RUNTIME"
+      "sourceHash": "5b1b5a768c37da2574664e3db80d3d26fd856c50fc5755082ab826c06a05b716",
+      "lifecycle": "RETIRED",
+      "evidenceOwner": "release-governance",
+      "closureCondition": "Retain only as explicitly unapproved roadmap migration history",
+      "blockerReason": "RETIRED_UNVALIDATED_ESTIMATE_OR_LABEL"
     },
     {
-      "id": "ENV-009",
+      "id": "ENV-023",
       "approvedTokens": [
-        "50"
+        "0",
+        "8"
       ],
       "status": "UNAPPROVED_BASELINE",
       "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
-      "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "runtime",
-      "closureCondition": "Deliver roadmap runtime requirement ENV-009",
-      "blockerReason": "EXTERNAL:EXACT_RUNTIME"
-    },
-    {
-      "id": "ENV-010",
-      "approvedTokens": [
-        "1",
-        "6~10"
-      ],
-      "status": "UNAPPROVED_BASELINE",
-      "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
-      "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "runtime",
-      "closureCondition": "Deliver roadmap runtime requirement ENV-010",
-      "blockerReason": "EXTERNAL:EXACT_RUNTIME"
-    },
-    {
-      "id": "ENV-011",
-      "approvedTokens": [
-        "2",
-        "4~7"
-      ],
-      "status": "UNAPPROVED_BASELINE",
-      "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
-      "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
-      "lifecycle": "PLANNED",
-      "evidenceOwner": "runtime",
-      "closureCondition": "Deliver roadmap runtime requirement ENV-011",
-      "blockerReason": "EXTERNAL:EXACT_RUNTIME"
+      "sourceHash": "5b1b5a768c37da2574664e3db80d3d26fd856c50fc5755082ab826c06a05b716",
+      "lifecycle": "RETIRED",
+      "evidenceOwner": "release-governance",
+      "closureCondition": "Retain only as explicitly unapproved roadmap migration history",
+      "blockerReason": "RETIRED_UNVALIDATED_ESTIMATE_OR_LABEL"
     }
   ],
   "status": "MIXED_VERIFIED_AND_UNAPPROVED",
   "summary": {
     "verifiedLocalSsot": 54,
-    "unapproved": 9
+    "unapproved": 7
   }
 }
