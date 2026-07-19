@@ -3474,14 +3474,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-010"
+      "closureCondition": "Import CONTENT_TEXT_LIMITS_V1 into the reducer and wire answer validators instead of maintaining the current independent limits"
     },
     {
       "id": "CONTENT-011",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-011"
       },
       "testCase": "CONTENT-011 executes CONTENT_SCHEMA",
@@ -3496,7 +3496,7 @@
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-012"
       },
       "testCase": "CONTENT-012 executes CONTENT_SCHEMA",
@@ -3511,7 +3511,7 @@
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-013"
       },
       "testCase": "CONTENT-013 executes CONTENT_SCHEMA",
@@ -3519,14 +3519,20 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-013"
+      "closureCondition": "Keep exact versioned origin and content-addressed URL validator mutations green",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PROVIDER_CREDENTIALS",
+        "closureCondition": "Verify production CDN origins and admission registration with deployment credentials",
+        "localEvidenceScope": "LOCAL_ORIGIN_POLICY_ONLY"
+      }
     },
     {
       "id": "CONTENT-014",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-014"
       },
       "testCase": "CONTENT-014 executes CONTENT_SCHEMA",
@@ -3541,7 +3547,7 @@
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-015"
       },
       "testCase": "CONTENT-015 executes CONTENT_SCHEMA",
@@ -3556,7 +3562,7 @@
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-016"
       },
       "testCase": "CONTENT-016 executes CONTENT_SCHEMA",
@@ -3571,7 +3577,7 @@
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-017"
       },
       "testCase": "CONTENT-017 executes CONTENT_SCHEMA",
@@ -3586,7 +3592,7 @@
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-018"
       },
       "testCase": "CONTENT-018 executes CONTENT_SCHEMA",

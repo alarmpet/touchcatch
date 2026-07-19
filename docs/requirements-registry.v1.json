@@ -3401,7 +3401,7 @@
       "oracle": "CONTENT-010:CONTENT_SCHEMA:FAIL",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-010",
+      "closureCondition": "Import CONTENT_TEXT_LIMITS_V1 into the reducer and wire answer validators instead of maintaining the current independent limits",
       "linkageProof": "4b33dd215dc36ab2bd896d6d59bc4165295f05057a63eae612546893d25365ea"
     },
     {
@@ -3416,11 +3416,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-011:CONTENT_SCHEMA:FAIL",
+      "oracle": "CONTENT-011:CONTENT_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-011",
-      "linkageProof": "4f676254b39b08237d5d7126f7dccdca72aacae76f5ca40790daee4682a1f5a9"
+      "linkageProof": "1aab655a5b902ca249b2d7dceb950c24046846ad04e706cbbbc99a0708b16911"
     },
     {
       "id": "CONTENT-012",
@@ -3434,11 +3434,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-012:CONTENT_SCHEMA:FAIL",
+      "oracle": "CONTENT-012:CONTENT_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-012",
-      "linkageProof": "b41a1a15e9e14563c14200646fe98534eff9ed526485691991c176b0693e7276"
+      "linkageProof": "aaba18bb5f7f1adb08a2792f95cb12a0b15eb36fc43fd048ee4bcf6ec5f869f2"
     },
     {
       "id": "CONTENT-013",
@@ -3452,11 +3452,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-013:CONTENT_SCHEMA:FAIL",
+      "oracle": "CONTENT-013:CONTENT_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-013",
-      "linkageProof": "ea879e0fe6669a5f6141bc47842b34b66540fc2f48746b4c8d362a9f7ba8bdc6"
+      "closureCondition": "Keep exact versioned origin and content-addressed URL validator mutations green",
+      "linkageProof": "09d145578206bfcbcff83c450a6c1d2c09372379d03b5d3e7bff37f7b8a22f3c"
     },
     {
       "id": "CONTENT-014",
@@ -3470,11 +3470,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-014:CONTENT_SCHEMA:FAIL",
+      "oracle": "CONTENT-014:CONTENT_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-014",
-      "linkageProof": "a2b342af90447556ad11533dcef5796fa187b173d3272fd26fdff5d5b610de0c"
+      "linkageProof": "d6d65ffdc0ea82e565e36886376e0b3632fdfe67571c3272f23f2345fda0bf16"
     },
     {
       "id": "CONTENT-015",
@@ -3488,11 +3488,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-015:CONTENT_SCHEMA:FAIL",
+      "oracle": "CONTENT-015:CONTENT_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-015",
-      "linkageProof": "cd4eed2eed3c2d1663e24560d7861222b9fc43c9b25feb72f5428eb64c094ccb"
+      "linkageProof": "1dda4014223feb780eedafb5caa1552b6a76cbf28350f7f885b57f6ca45e936d"
     },
     {
       "id": "CONTENT-016",
@@ -3506,11 +3506,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-016:CONTENT_SCHEMA:FAIL",
+      "oracle": "CONTENT-016:CONTENT_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-016",
-      "linkageProof": "c14a96398a8041e96ffc97515c883f427d952329e149c4d6e741a9667cba467d"
+      "linkageProof": "2f9f151e3dbf84b4b56b05bf55500f71486f015bde8d5027727f61f4bd0828e9"
     },
     {
       "id": "CONTENT-017",
@@ -3524,11 +3524,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-017:CONTENT_SCHEMA:FAIL",
+      "oracle": "CONTENT-017:CONTENT_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-017",
-      "linkageProof": "57d18864730a454e58f752e9d68610f62e7ced70591b1eccb1e26fc2ca9dd684"
+      "linkageProof": "2e58c4b5e96985efee544fa4cf28a0f2d8450503bb0d98d52846f6af2425d9c7"
     },
     {
       "id": "CONTENT-018",
@@ -3542,11 +3542,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-018:CONTENT_SCHEMA:FAIL",
+      "oracle": "CONTENT-018:CONTENT_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-018",
-      "linkageProof": "5cf260fa9f841a60913c28d4fa04cc7715bae7f20dc756c062e89e285db23be4"
+      "linkageProof": "f58746d2512cf183a68f6082ba9aa88f01bea7a9610d1c02726c220f0ee3c937"
     },
     {
       "id": "CONTENT-019",

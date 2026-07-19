@@ -29,6 +29,17 @@ export type ValidationOptions = {
   allowedAssetOrigins: readonly string[];
 };
 
+export const CONTENT_REQUIREMENT_CASES = {
+  'CONTENT-011': [['null-images.json','SCHEMA_PUBLIC']],
+  'CONTENT-012': [['revision-mismatch.json','REVISION_MISMATCH'],['private-hash-mismatch.json','PRIVATE_SOLUTION_HASH']],
+  'CONTENT-013': [['asset-query-url.json','ASSET_URL_POLICY'],['asset-url-extension-mismatch.json','ASSET_URL_POLICY'],['asset-path-traversal.json','ASSET_URL_POLICY']],
+  'CONTENT-014': [['asset-path-traversal.json','ASSET_URL_POLICY']],
+  'CONTENT-015': [['declared-hash-mismatch.json','ASSET_HASH_MISMATCH'],['encoded-byte-mismatch.json','ASSET_SIZE_MISMATCH'],['mime-mismatch.json','ASSET_MIME_MISMATCH']],
+  'CONTENT-016': [['polyglot-trailing-bytes.json','ASSET_CONTAINER_END'],['truncated-image.json','ASSET_CONTAINER_INVALID'],['animated-apng.json','ANIMATED_ASSET'],['rotated-jpeg.json','ASSET_ORIENTATION'],['oversized-header-dimension.json','ASSET_DIMENSION_LIMIT']],
+  'CONTENT-017': [['dimension-mismatch.json','PAIR_DIMENSION_MISMATCH'],['tangent-hitboxes.json','HITBOX_OVERLAP'],['circle-out-of-bounds.json','HITBOX_BOUNDS']],
+  'CONTENT-018': [['difficulty-count.json','DIFFERENCE_CARDINALITY'],['word-hunt-count.json','WORD_HUNT_CARDINALITY'],['duplicate-objective-id.json','OBJECTIVE_ID_UNIQUE'],['missing-correct-option.json','CORRECT_OPTION']],
+} as const;
+
 type Circle = { cx: number; cy: number; r: number };
 type Asset = {
   url: string;
