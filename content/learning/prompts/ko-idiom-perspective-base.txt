@@ -1,0 +1,8 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Create a polished bright 2D educational game illustration that visually conveys understanding another person's position: two middle-school students who disagreed while preparing a school festival exchange role cards, try each other's jobs, and begin cooperating with empathy.
+Scene/backdrop: Wide school festival workshop stage. One student tries lighting controls while the other assembles a prop; nearby are two symbolic role cards with icons only, wrench, work gloves, toolbox, two-way arrow floor symbol, stage lights, costume rack, paint cans, and shared decorations.
+Style/medium: Bright clean 2D educational game illustration, crisp outlines, softly shaded flat colors, age-appropriate, detailed but uncluttered.
+Composition/framing: 3:2 landscape, straight-on fixed wide view, separated objects for circular hitboxes.
+Lighting/mood: Thoughtful reconciliation, empathy, teamwork.
+Constraints: No Korean or English text, letters, numbers, labels, logos, brands, speech bubbles, UI, watermark, or border. Do not crop objects.

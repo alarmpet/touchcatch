@@ -1,0 +1,5 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: ko-idiom-turn-misfortune-a.png is the edit target.
+Make exactly ten localized changes: change the left basketball backboard border from orange to blue; change one tall pink umbrella in the foreground stand to white; change the sun in the center sunset painting from yellow to purple; change the stage trophy from gold to silver; change the red paint dot on the giant palette to green; change one middle ladder step from silver to red; change the top segment of the center colorful sculpture from purple to yellow; change the fish in the foreground framed painting from yellow to red; change the large purple foreground vase to green; change the blue award ribbon on the right display to red.
+Constraints: Preserve exact canvas, camera, composition, students, poses, rain, lighting, and every other object. Exactly ten changes and no others. No Korean or English text, letters, numbers, logos, watermark, border, UI, or labels.

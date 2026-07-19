@@ -1,0 +1,299 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "a05608c2-7737-40f0-8116-d1eefc9bf3f7",
+    "version": 1,
+    "contentRevisionId": "2ed283a1-d81c-4052-868f-6a2a5f1bc97f",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "ko-idiom-prepare-ahead",
+    "language": "ko",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/fea2f58b2c3603dbdf5a1ad68bdf52807c79d5f54fcd872738099e1d5c8fbf46.png",
+      "sha256": "fea2f58b2c3603dbdf5a1ad68bdf52807c79d5f54fcd872738099e1d5c8fbf46",
+      "encodedBytes": 2884450,
+      "width": 1536,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/02a616a84a402e017037f4bd5be99ed1701c7b059b004a63c33b0e86a86c4ccf.png",
+      "sha256": "02a616a84a402e017037f4bd5be99ed1701c7b059b004a63c33b0e86a86c4ccf",
+      "encodedBytes": 2726013,
+      "width": 1536,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "2ed283a1-d81c-4052-868f-6a2a5f1bc97f",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.04,
+            "cy": 0.17,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.04,
+            "cy": 0.17,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.03,
+            "cy": 0.34,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.03,
+            "cy": 0.34,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.02,
+            "cy": 0.46,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.02,
+            "cy": 0.46,
+            "r": 0.05
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.37,
+            "cy": 0.7,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.37,
+            "cy": 0.7,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.36,
+            "cy": 0.6,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.36,
+            "cy": 0.6,
+            "r": 0.05
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.65,
+            "cy": 0.17,
+            "r": 0.04
+          },
+          "imageB": {
+            "cx": 0.65,
+            "cy": 0.17,
+            "r": 0.04
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.69,
+            "cy": 0.38,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.69,
+            "cy": 0.38,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.73,
+            "cy": 0.65,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.73,
+            "cy": 0.65,
+            "r": 0.05
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.27,
+            "cy": 0.7,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.27,
+            "cy": 0.7,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.42,
+            "cy": 0.92,
+            "r": 0.04
+          },
+          "imageB": {
+            "cx": 0.42,
+            "cy": 0.92,
+            "r": 0.04
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "장화를 찾으세요.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.04,
+            "cy": 0.75,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.04,
+            "cy": 0.75,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "라디오를 찾으세요.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.73,
+            "cy": 0.83,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.73,
+            "cy": 0.83,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "점검판을 찾으세요.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.55,
+            "cy": 0.78,
+            "r": 0.09
+          },
+          "imageB": {
+            "cx": 0.55,
+            "cy": 0.78,
+            "r": 0.09
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.97,
+          "cy": 0.35,
+          "r": 0.06
+        },
+        "imageB": {
+          "cx": 0.97,
+          "cy": 0.35,
+          "r": 0.06
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "유비무환",
+      "aliases": [],
+      "hintUnits": [
+        "유",
+        "비",
+        "무",
+        "환"
+      ],
+      "meaning": {
+        "prompt": "유비무환의 뜻은 무엇인가요?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "미리 준비하면 걱정할 일이 없다"
+          },
+          {
+            "id": "option_2",
+            "label": "위험은 항상 피할 수 없다"
+          },
+          {
+            "id": "option_3",
+            "label": "준비보다 운이 더 중요하다"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "4e4532b708163826f29f9187417d6dfa9898a589665ccf4d14c1acda0083f508"
+  },
+  "assetFiles": {
+    "fea2f58b2c3603dbdf5a1ad68bdf52807c79d5f54fcd872738099e1d5c8fbf46": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\ko-idiom-prepare-ahead-a.png",
+    "02a616a84a402e017037f4bd5be99ed1701c7b059b004a63c33b0e86a86c4ccf": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\ko-idiom-prepare-ahead-b.png"
+  }
+}

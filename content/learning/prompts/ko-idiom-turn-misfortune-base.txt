@@ -1,0 +1,8 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Create a polished bright 2D educational game illustration that visually conveys turning misfortune into good fortune: rain has canceled a middle-school outdoor art fair, but students enthusiastically transform the indoor gym into an even better exhibition.
+Scene/backdrop: Wide school gym with rainy windows, closed umbrellas, water droplets, framed student art, display lights, ribbons, stage curtains, trophy, boxes, signs made only of symbols, and students arranging a successful colorful exhibition.
+Style/medium: Bright clean 2D educational game illustration, crisp outlines, softly shaded flat colors, age-appropriate, detailed but uncluttered.
+Composition/framing: 3:2 landscape, straight-on fixed wide view, separated objects for circular hitboxes.
+Lighting/mood: Resourceful, celebratory, hopeful.
+Constraints: No Korean or English text, letters, numbers, labels, logos, brands, speech bubbles, UI, watermark, or border. Do not crop objects.

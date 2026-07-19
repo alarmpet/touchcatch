@@ -1,0 +1,8 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Create a polished bright 2D educational game illustration that visually conveys being free from worry by preparing in advance: before forecast heavy rain, middle-school students proactively inspect a school courtyard drain, pack an emergency bag, secure window latches, stack sandbags, check a flashlight and radio, and mark a checklist using symbols only.
+Scene/backdrop: Wide school maintenance room opening onto a courtyard, with emergency backpack, water bottles, flashlight, radio, whistle, sandbags, drain grate, window lock, raincoat, gloves, weather symbols without text, and organized supplies.
+Style/medium: Bright clean 2D educational game illustration, crisp outlines, softly shaded flat colors, age-appropriate, detailed but uncluttered.
+Composition/framing: 3:2 landscape, straight-on fixed wide view, distinct separated objects for hitboxes.
+Lighting/mood: Calm, competent, prepared.
+Constraints: No Korean or English text, letters, numbers, labels, logos, brands, speech bubbles, UI, watermark, or border. Do not crop objects.

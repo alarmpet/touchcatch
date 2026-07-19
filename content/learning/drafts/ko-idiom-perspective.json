@@ -1,0 +1,299 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "050caabc-d151-4f1a-86ee-80a163dfa185",
+    "version": 1,
+    "contentRevisionId": "868ee043-4c0a-4f6e-8f75-65c66951e7c1",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "ko-idiom-perspective",
+    "language": "ko",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/d37c123580152a6a1552054e4ec6e171af7bfea77b299c2c1234f9e7fb51cf18.png",
+      "sha256": "d37c123580152a6a1552054e4ec6e171af7bfea77b299c2c1234f9e7fb51cf18",
+      "encodedBytes": 2756860,
+      "width": 1536,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/d3c5f45583c4166854b90cc0c675c1dad5347ee2290e10862ead0afec923e5b9.png",
+      "sha256": "d3c5f45583c4166854b90cc0c675c1dad5347ee2290e10862ead0afec923e5b9",
+      "encodedBytes": 2696269,
+      "width": 1536,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "868ee043-4c0a-4f6e-8f75-65c66951e7c1",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.045,
+            "cy": 0.16,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.045,
+            "cy": 0.16,
+            "r": 0.05
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.398,
+            "cy": 0.105,
+            "r": 0.045
+          },
+          "imageB": {
+            "cx": 0.398,
+            "cy": 0.105,
+            "r": 0.045
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.46,
+            "cy": 0.4,
+            "r": 0.045
+          },
+          "imageB": {
+            "cx": 0.46,
+            "cy": 0.4,
+            "r": 0.045
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.545,
+            "cy": 0.4,
+            "r": 0.045
+          },
+          "imageB": {
+            "cx": 0.545,
+            "cy": 0.4,
+            "r": 0.045
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.46,
+            "cy": 0.77,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.46,
+            "cy": 0.77,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.1,
+            "cy": 0.86,
+            "r": 0.1
+          },
+          "imageB": {
+            "cx": 0.1,
+            "cy": 0.86,
+            "r": 0.1
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.32,
+            "cy": 0.92,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.32,
+            "cy": 0.92,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.89,
+            "cy": 0.7,
+            "r": 0.11
+          },
+          "imageB": {
+            "cx": 0.89,
+            "cy": 0.7,
+            "r": 0.11
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.83,
+            "cy": 0.88,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.83,
+            "cy": 0.88,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.91,
+            "cy": 0.12,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.91,
+            "cy": 0.12,
+            "r": 0.05
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "조명 조절대를 찾으세요.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.08,
+            "cy": 0.5,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.08,
+            "cy": 0.5,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "의상 걸이를 찾으세요.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.92,
+            "cy": 0.33,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.92,
+            "cy": 0.33,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "붓을 찾으세요.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.68,
+            "cy": 0.96,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.68,
+            "cy": 0.96,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.52,
+          "cy": 0.19,
+          "r": 0.1
+        },
+        "imageB": {
+          "cx": 0.52,
+          "cy": 0.19,
+          "r": 0.1
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "역지사지",
+      "aliases": [],
+      "hintUnits": [
+        "역",
+        "지",
+        "사",
+        "지"
+      ],
+      "meaning": {
+        "prompt": "역지사지의 뜻은 무엇인가요?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "상대방의 처지에서 생각함"
+          },
+          {
+            "id": "option_2",
+            "label": "자기 생각만 끝까지 고집함"
+          },
+          {
+            "id": "option_3",
+            "label": "어려운 일을 다른 사람에게 미룸"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "bc2c3622df6ee8e75babf9e0fe0d64ac93066a9ba36cf9fc1890862e04321078"
+  },
+  "assetFiles": {
+    "d37c123580152a6a1552054e4ec6e171af7bfea77b299c2c1234f9e7fb51cf18": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\ko-idiom-perspective-a.png",
+    "d3c5f45583c4166854b90cc0c675c1dad5347ee2290e10862ead0afec923e5b9": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\ko-idiom-perspective-b.png"
+  }
+}

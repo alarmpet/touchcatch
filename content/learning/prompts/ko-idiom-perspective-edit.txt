@@ -1,0 +1,5 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: ko-idiom-perspective-a.png is the edit target.
+Make exactly ten localized changes: change the leftmost blue spotlight lens to red; change the pink hanging lantern to orange; change the wrench icon on the left role card from gray to red; change the lamp beam on the right role card from yellow to blue; change the purple floor arrow to orange; change the red toolbox to blue; change the work-glove cuff from blue to red; change the large wooden star prop from yellow to green; change the pink paint can to purple; change the pink band on the black top hat to green.
+Constraints: Preserve exact canvas, camera, composition, students, poses, lighting, stage, and every other object. Exactly ten changes and no others. No Korean or English text, letters, numbers, logos, watermark, border, UI, or labels.

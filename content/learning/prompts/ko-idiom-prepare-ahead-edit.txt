@@ -1,0 +1,5 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: ko-idiom-prepare-ahead-a.png is the edit target.
+Make exactly ten localized changes: change the hanging yellow raincoat to red; change the hanging blue gloves to orange; change the red first-aid box on the shelf to green; change the cap of the center foreground water bottle from blue to red; change one bar of the floor drain grate from dark gray to yellow; change the window latch held by the student from gray to red; change the top sandbag from beige to green; change the handheld flashlight's front rim from black to blue; reverse the radio antenna so it leans to the right; change the red whistle on the table to yellow.
+Constraints: Preserve exact canvas, camera, composition, students, poses, weather, lighting, and every other object. Exactly ten changes and no others. No Korean or English text, letters, numbers, logos, watermark, border, UI, or labels.

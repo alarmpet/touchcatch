@@ -1,0 +1,111 @@
+{
+  "policy": {
+    "pixelThreshold": 64,
+    "minChangedPixelsPerRegion": 24,
+    "maxOutsideChangedRatio": 0.03
+  },
+  "differences": [
+    {
+      "id": "difference_1",
+      "tier": "NORMAL",
+      "cx": 0.045,
+      "cy": 0.16,
+      "r": 0.05
+    },
+    {
+      "id": "difference_2",
+      "tier": "NORMAL",
+      "cx": 0.398,
+      "cy": 0.105,
+      "r": 0.045
+    },
+    {
+      "id": "difference_3",
+      "tier": "NORMAL",
+      "cx": 0.46,
+      "cy": 0.4,
+      "r": 0.045
+    },
+    {
+      "id": "difference_4",
+      "tier": "NORMAL",
+      "cx": 0.545,
+      "cy": 0.4,
+      "r": 0.045
+    },
+    {
+      "id": "difference_5",
+      "tier": "NORMAL",
+      "cx": 0.46,
+      "cy": 0.77,
+      "r": 0.06
+    },
+    {
+      "id": "difference_6",
+      "tier": "NORMAL",
+      "cx": 0.1,
+      "cy": 0.86,
+      "r": 0.1
+    },
+    {
+      "id": "difference_7",
+      "tier": "NORMAL",
+      "cx": 0.32,
+      "cy": 0.92,
+      "r": 0.06
+    },
+    {
+      "id": "difference_8",
+      "tier": "HARD",
+      "cx": 0.89,
+      "cy": 0.7,
+      "r": 0.11
+    },
+    {
+      "id": "difference_9",
+      "tier": "HARD",
+      "cx": 0.83,
+      "cy": 0.88,
+      "r": 0.055
+    },
+    {
+      "id": "difference_10",
+      "tier": "HARD",
+      "cx": 0.91,
+      "cy": 0.12,
+      "r": 0.05
+    }
+  ],
+  "wordHunts": [
+    {
+      "id": "word_1",
+      "kind": "NORMAL",
+      "publicPrompt": "조명 조절대를 찾으세요.",
+      "cx": 0.08,
+      "cy": 0.5,
+      "r": 0.08
+    },
+    {
+      "id": "word_2",
+      "kind": "NORMAL",
+      "publicPrompt": "의상 걸이를 찾으세요.",
+      "cx": 0.92,
+      "cy": 0.33,
+      "r": 0.08
+    },
+    {
+      "id": "word_3",
+      "kind": "SPECIAL",
+      "publicPrompt": "붓을 찾으세요.",
+      "cx": 0.68,
+      "cy": 0.96,
+      "r": 0.055
+    }
+  ],
+  "suddenDeath": {
+    "id": "sudden_1",
+    "cx": 0.52,
+    "cy": 0.19,
+    "r": 0.1
+  }
+}
