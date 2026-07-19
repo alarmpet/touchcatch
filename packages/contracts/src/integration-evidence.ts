@@ -1,5 +1,5 @@
 import packageManifest from '../../../package.json' with { type: 'json' };
-import { ASSET_PUBLISH_LIMITS_V1 } from './content.js';
+import { ASSET_PUBLISH_LIMITS_V1, CONTENT_TEXT_LIMITS_V1 } from './content.js';
 import { parseMatchStateV1 } from './match.schema.js';
 import { clientCommandEnvelopeSchema } from './socket.schema.js';
 import { normalizeFinalAnswer } from './answer-normalization.js';
@@ -11,7 +11,7 @@ const runtimeTuple = Object.freeze({ node: packageManifest.engines.node, pnpm: p
 export const CONTENT_INTEGRATION_EVIDENCE = Object.freeze({
   runtimeTuple,
   parseState(value:unknown){return parseMatchStateV1(value);},
-  verifyWire(value:unknown){const parsed=clientCommandEnvelopeSchema.parse(value);if(parsed.payload.type!=='SUBMIT_FINAL_ANSWER')throw Error('answer command required');const max='a'.repeat(128);const base={...parsed,payload:{type:'SUBMIT_FINAL_ANSWER' as const,answer:max}};return {normalizedAnswer:normalizeFinalAnswer(parsed.payload.answer),acceptedAtMax:clientCommandEnvelopeSchema.safeParse(base).success,rejectedPastMax:!clientCommandEnvelopeSchema.safeParse({...base,payload:{...base.payload,answer:`${max}a`}}).success};},
+  verifyWire(value:unknown){const parsed=clientCommandEnvelopeSchema.parse(value);if(parsed.payload.type!=='SUBMIT_FINAL_ANSWER')throw Error('answer command required');const max='a'.repeat(CONTENT_TEXT_LIMITS_V1.maxCodePoints);const base={...parsed,payload:{type:'SUBMIT_FINAL_ANSWER' as const,answer:max}};return {normalizedAnswer:normalizeFinalAnswer(parsed.payload.answer),acceptedAtMax:clientCommandEnvelopeSchema.safeParse(base).success,rejectedPastMax:!clientCommandEnvelopeSchema.safeParse({...base,payload:{...base.payload,answer:`${max}a`}}).success};},
   assetLimits:ASSET_PUBLISH_LIMITS_V1,
   validateTerminalTuple(tuple:{phase:MatchPhase;endReason:MatchEndReason|null;winnerPlayerId:string|null}){const terminal=tuple.phase==='FINISHED'||tuple.phase==='CANCELLED';if(!terminal)return tuple.endReason===null&&tuple.winnerPlayerId===null;if(tuple.endReason===null)return false;if(tuple.phase==='CANCELLED')return MATCH_DB_PROJECTION_V1.winnerForbidden.includes(tuple.endReason as never)&&tuple.endReason!=='DRAW'&&tuple.winnerPlayerId===null;if(MATCH_DB_PROJECTION_V1.winnerRequired.includes(tuple.endReason as never))return tuple.winnerPlayerId!==null;return tuple.endReason==='DRAW'&&tuple.winnerPlayerId===null;},
 });
