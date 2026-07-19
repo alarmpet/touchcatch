@@ -1,0 +1,8 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Create a polished bright 2D educational game illustration that visually conveys the Korean proverb meaning “we often overlook what is closest to us”: several middle-school students search shelves, bags, and the far side of a cozy school library for a missing key, while the key is plainly lying in the small shadow directly beneath a glowing green desk lamp in the foreground.
+Scene/backdrop: Warm school library study room with foreground desk and lamp, bookshelves, window, clock, backpack, flashlight, magnifying glass, chair, potted plant, and scattered study objects.
+Style/medium: Bright clean 2D educational game illustration, crisp outlines, softly shaded flat colors, age-appropriate, detailed but uncluttered.
+Composition/framing: 3:2 landscape, straight-on wide view. Clearly separate important objects for circular hitboxes. Make the overlooked key visible but not dominant.
+Lighting/mood: Warm, playful search mystery, safe and curious.
+Constraints: No Korean or English text, letters, numbers, labels, logos, brands, speech bubbles, UI, watermark, or border. Do not crop objects. Avoid tiny ambiguous details.

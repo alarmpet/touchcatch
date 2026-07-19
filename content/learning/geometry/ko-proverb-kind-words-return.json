@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 64, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.03 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.810, "cy": 0.100, "r": 0.060 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.930, "cy": 0.220, "r": 0.060 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.960, "cy": 0.400, "r": 0.050 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.070, "cy": 0.820, "r": 0.055 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.910, "cy": 0.830, "r": 0.055 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.145, "cy": 0.860, "r": 0.055 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.195, "cy": 0.740, "r": 0.050 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.520, "cy": 0.370, "r": 0.060 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.376, "cy": 0.940, "r": 0.025 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.690, "cy": 0.820, "r": 0.050 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "왼쪽 마이크를 찾으세요.", "cx": 0.270, "cy": 0.550, "r": 0.055 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "노트북을 찾으세요.", "cx": 0.450, "cy": 0.680, "r": 0.100 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "창가 화분을 찾으세요.", "cx": 0.045, "cy": 0.350, "r": 0.045 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.380, "cy": 0.420, "r": 0.075 }
+}

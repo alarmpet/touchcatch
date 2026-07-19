@@ -1,0 +1,303 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "03e72cd5-fd13-4e9b-85cf-7f6b23e5a5d2",
+    "version": 1,
+    "contentRevisionId": "9558ceee-d1fd-41ad-87f4-6173f09732cb",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "ko-proverb-seeing-is-believing",
+    "language": "ko",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/a242905347538545291777abe43e127c759f6aff6ddc73027799416780954311.png",
+      "sha256": "a242905347538545291777abe43e127c759f6aff6ddc73027799416780954311",
+      "encodedBytes": 2268173,
+      "width": 1536,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/60602814202a4dff87420e8f2d7f594c274733bb734590107b3fb40a0815fb84.png",
+      "sha256": "60602814202a4dff87420e8f2d7f594c274733bb734590107b3fb40a0815fb84",
+      "encodedBytes": 2203707,
+      "width": 1536,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "9558ceee-d1fd-41ad-87f4-6173f09732cb",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.478,
+            "cy": 0.535,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.478,
+            "cy": 0.535,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.23,
+            "cy": 0.45,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.23,
+            "cy": 0.45,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.195,
+            "cy": 0.75,
+            "r": 0.025
+          },
+          "imageB": {
+            "cx": 0.195,
+            "cy": 0.75,
+            "r": 0.025
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.45,
+            "cy": 0.79,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.45,
+            "cy": 0.79,
+            "r": 0.05
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.75,
+            "cy": 0.7,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.75,
+            "cy": 0.7,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.88,
+            "cy": 0.63,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.88,
+            "cy": 0.63,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.72,
+            "cy": 0.08,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.72,
+            "cy": 0.08,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.79,
+            "cy": 0.11,
+            "r": 0.035
+          },
+          "imageB": {
+            "cx": 0.79,
+            "cy": 0.11,
+            "r": 0.035
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.92,
+            "cy": 0.28,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.92,
+            "cy": 0.28,
+            "r": 0.05
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.07,
+            "cy": 0.58,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.07,
+            "cy": 0.58,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "창가 화분을 찾으세요.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.08,
+            "cy": 0.285,
+            "r": 0.045
+          },
+          "imageB": {
+            "cx": 0.08,
+            "cy": 0.285,
+            "r": 0.045
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "유리장 속 플라스크를 찾으세요.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.49,
+            "cy": 0.08,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.49,
+            "cy": 0.08,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "스위치 상자를 찾으세요.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.82,
+            "cy": 0.87,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.82,
+            "cy": 0.87,
+            "r": 0.05
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.63,
+          "cy": 0.35,
+          "r": 0.08
+        },
+        "imageB": {
+          "cx": 0.63,
+          "cy": 0.35,
+          "r": 0.08
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "백문이 불여일견",
+      "aliases": [],
+      "hintUnits": [
+        "백",
+        "문",
+        "이",
+        " ",
+        "불",
+        "여",
+        "일",
+        "견"
+      ],
+      "meaning": {
+        "prompt": "이 속담의 뜻은 무엇인가요?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "여러 번 듣는 것보다 직접 보는 것이 낫다"
+          },
+          {
+            "id": "option_2",
+            "label": "질문을 하지 않는 것이 낫다"
+          },
+          {
+            "id": "option_3",
+            "label": "책은 한 번만 읽어야 한다"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "596f81ccb0878d0a440a3d160bb49d69aaedaac6eb77425eb7313a2fa182eb55"
+  },
+  "assetFiles": {
+    "a242905347538545291777abe43e127c759f6aff6ddc73027799416780954311": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\ko-proverb-seeing-is-believing-a.png",
+    "60602814202a4dff87420e8f2d7f594c274733bb734590107b3fb40a0815fb84": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\ko-proverb-seeing-is-believing-b.png"
+  }
+}

@@ -1,0 +1,5 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: ko-proverb-kind-words-return-a.png is the edit target.
+Make exactly ten localized changes: change the wall clock rim from black to green; change the desk lamp shade from black to blue; change the right shelf plant pot from yellow to pink; change the large cone of the left speaker from beige to blue; change the large cone of the right speaker from beige to green; change the pencil cup from purple to orange; change the yellow memo pad near the left speaker to purple; change the center blue star cushion to pink; change the single yellow square button on the mixer to bright blue; change the center of the loose headphones' visible earcup from dark gray to red.
+Constraints: Preserve exact canvas, camera, composition, students, poses, lighting, laptop, microphones, and every other object. Exactly ten changes and no others. No Korean or English text, letters, numbers, logos, watermark, border, UI words, or labels. Keep pixel-level alignment as close as possible outside edit areas.

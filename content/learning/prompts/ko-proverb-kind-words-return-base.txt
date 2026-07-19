@@ -1,0 +1,8 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Create a polished bright 2D educational game illustration that visually conveys “kind words invite kind words”: middle-school students collaborate in a school media studio, taking turns at microphones, listening warmly, exchanging supportive gestures, and happily completing a shared audio project.
+Scene/backdrop: Cozy school broadcast studio with two microphones, headphones, small mixer, laptop showing abstract sound waves without text, speakers, memo cards without writing, cables, wall clock, window plant, star cushions, and acoustic panels.
+Style/medium: Bright clean 2D educational game illustration, crisp outlines, softly shaded flat colors, age-appropriate, detailed but uncluttered.
+Composition/framing: 3:2 landscape, straight-on fixed wide view. Separate objects for circular hitboxes.
+Lighting/mood: Respectful, encouraging, friendly teamwork.
+Constraints: No Korean or English text, letters, numbers, labels, logos, brands, speech bubbles, UI words, watermark, or border. Do not crop objects. Avoid tiny ambiguous details.

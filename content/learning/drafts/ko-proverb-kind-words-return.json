@@ -1,0 +1,313 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "29a97946-d408-49ed-84f1-b7a948cb1ce9",
+    "version": 1,
+    "contentRevisionId": "537f5965-6da9-49b2-8b93-2f1372ac581a",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "ko-proverb-kind-words-return",
+    "language": "ko",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/b8858205d9dafded1307dd651d8b8c40e66d8970e43c4e9614112ad2da6a139c.png",
+      "sha256": "b8858205d9dafded1307dd651d8b8c40e66d8970e43c4e9614112ad2da6a139c",
+      "encodedBytes": 2507072,
+      "width": 1536,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/5a97bfefca375c1ee810f93a2be1504b7100e457d30b5e8f4727087b9ee3d8f5.png",
+      "sha256": "5a97bfefca375c1ee810f93a2be1504b7100e457d30b5e8f4727087b9ee3d8f5",
+      "encodedBytes": 2415734,
+      "width": 1536,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "537f5965-6da9-49b2-8b93-2f1372ac581a",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.81,
+            "cy": 0.1,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.81,
+            "cy": 0.1,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.93,
+            "cy": 0.22,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.93,
+            "cy": 0.22,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.96,
+            "cy": 0.4,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.96,
+            "cy": 0.4,
+            "r": 0.05
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.07,
+            "cy": 0.82,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.07,
+            "cy": 0.82,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.91,
+            "cy": 0.83,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.91,
+            "cy": 0.83,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.145,
+            "cy": 0.86,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.145,
+            "cy": 0.86,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.195,
+            "cy": 0.74,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.195,
+            "cy": 0.74,
+            "r": 0.05
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.52,
+            "cy": 0.37,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.52,
+            "cy": 0.37,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.376,
+            "cy": 0.94,
+            "r": 0.025
+          },
+          "imageB": {
+            "cx": 0.376,
+            "cy": 0.94,
+            "r": 0.025
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.69,
+            "cy": 0.82,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.69,
+            "cy": 0.82,
+            "r": 0.05
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "왼쪽 마이크를 찾으세요.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.27,
+            "cy": 0.55,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.27,
+            "cy": 0.55,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "노트북을 찾으세요.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.45,
+            "cy": 0.68,
+            "r": 0.1
+          },
+          "imageB": {
+            "cx": 0.45,
+            "cy": 0.68,
+            "r": 0.1
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "창가 화분을 찾으세요.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.045,
+            "cy": 0.35,
+            "r": 0.045
+          },
+          "imageB": {
+            "cx": 0.045,
+            "cy": 0.35,
+            "r": 0.045
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.38,
+          "cy": 0.42,
+          "r": 0.075
+        },
+        "imageB": {
+          "cx": 0.38,
+          "cy": 0.42,
+          "r": 0.075
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "가는 말이 고와야 오는 말이 곱다",
+      "aliases": [],
+      "hintUnits": [
+        "가",
+        "는",
+        " ",
+        "말",
+        "이",
+        " ",
+        "고",
+        "와",
+        "야",
+        " ",
+        "오",
+        "는",
+        " ",
+        "말",
+        "이",
+        " ",
+        "곱",
+        "다"
+      ],
+      "meaning": {
+        "prompt": "이 속담의 뜻은 무엇인가요?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "내가 좋게 말해야 상대도 좋게 말한다"
+          },
+          {
+            "id": "option_2",
+            "label": "말은 짧을수록 언제나 좋다"
+          },
+          {
+            "id": "option_3",
+            "label": "대화보다 혼자 일하는 것이 낫다"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "ca4ab1bb70c229850102c817a4475dde282b8ebce8cf52ae9898b97254a8d038"
+  },
+  "assetFiles": {
+    "b8858205d9dafded1307dd651d8b8c40e66d8970e43c4e9614112ad2da6a139c": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\ko-proverb-kind-words-return-a.png",
+    "5a97bfefca375c1ee810f93a2be1504b7100e457d30b5e8f4727087b9ee3d8f5": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\ko-proverb-kind-words-return-b.png"
+  }
+}

@@ -1,0 +1,5 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: ko-proverb-seeing-is-believing-a.png is the edit target.
+Make exactly ten localized changes: change the prism base edge from pale blue to pink; change the lamp rim from black to red; change the leftmost purple test-tube liquid to yellow; change the magnet's red pole to green; remove the ring from the orange model planet; change the right flask liquid from blue to green; change the globe stand from black to red; change the shelf plant pot from blue to yellow; change the purple crystal to bright turquoise; change the left microscope's two black eyepieces to one centered eyepiece.
+Constraints: Preserve exact canvas, camera, composition, students, poses, light beam, rainbow, lighting, and every other object. Exactly ten changes and no others. No Korean or English text, letters, numbers, logos, watermark, border, UI, or labels. Keep pixel-level alignment as close as possible outside edit areas.

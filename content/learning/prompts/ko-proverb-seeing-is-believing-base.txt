@@ -1,0 +1,8 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Create a polished bright 2D educational game illustration that visually conveys “seeing once is better than hearing many times”: middle-school students who had only heard explanations now directly observe a glass prism splitting a beam of white light into a vivid rainbow in a school science lab.
+Scene/backdrop: Wide science lab with central prism experiment, lamp, rainbow beam, safety goggles, microscope, test tubes, magnet, flask, model planet, cables, stools, and cabinets.
+Style/medium: Bright clean 2D educational game illustration, crisp outlines, softly shaded flat colors, age-appropriate, scientifically plausible and uncluttered.
+Composition/framing: 3:2 landscape, straight-on fixed wide view. Separate important objects for circular hitboxes.
+Lighting/mood: Wonder, discovery, direct observation.
+Constraints: No Korean or English text, letters, numbers, labels, logos, brands, speech bubbles, UI, watermark, or border. Do not crop objects. Avoid tiny ambiguous details.

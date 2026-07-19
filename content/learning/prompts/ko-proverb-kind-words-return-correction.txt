@@ -1,0 +1,5 @@
+Use case: precise-object-edit
+Asset type: final correction for spot-the-difference source image B
+Input image: the first ko-proverb-kind-words-return B candidate is the edit target.
+Change exactly one thing: recolor the single small yellow square button on the audio mixer to bright blue.
+Preserve the other nine approved changes and every other feature. No text, letters, numbers, logos, watermark, border, UI words, or labels.

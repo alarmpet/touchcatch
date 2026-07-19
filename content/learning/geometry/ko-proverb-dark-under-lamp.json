@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 96, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.02 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.435, "cy": 0.635, "r": 0.100 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.455, "cy": 0.920, "r": 0.050 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.610, "cy": 0.740, "r": 0.050 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.310, "cy": 0.920, "r": 0.070 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.715, "cy": 0.080, "r": 0.055 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.615, "cy": 0.605, "r": 0.050 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.920, "cy": 0.120, "r": 0.045 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.930, "cy": 0.750, "r": 0.060 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.785, "cy": 0.840, "r": 0.055 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.320, "cy": 0.570, "r": 0.040 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "책 더미를 찾으세요.", "cx": 0.160, "cy": 0.770, "r": 0.100 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "창가 화분을 찾으세요.", "cx": 0.480, "cy": 0.285, "r": 0.045 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "액자를 찾으세요.", "cx": 0.690, "cy": 0.230, "r": 0.045 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.550, "cy": 0.220, "r": 0.080 }
+}

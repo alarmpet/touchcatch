@@ -1,0 +1,5 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: ko-proverb-dark-under-lamp-a.png is the edit target.
+Make exactly ten localized changes: change the green desk-lamp shade to red; change the silver key below the lamp to gold; change the flashlight body from yellow to blue; change the magnifying-glass handle from black to red; change the wall clock rim from brown to blue; change the oval cutout in the wooden chair back to a star-shaped cutout; change the globe oceans from blue to purple; change the right foreground plant pot from white to orange; change the pencil cup from purple to green; change the backpack zipper pull from gold to red.
+Constraints: Preserve exact canvas, camera, composition, students, poses, lighting, shelves, and every other object. Exactly ten changes and no others. No Korean or English text, letters, numbers, logos, watermark, border, UI, or labels. Keep pixel-level alignment as close as possible outside edit areas.
