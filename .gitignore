@@ -1,9 +1,13 @@
 node_modules/
 .pnpm-store/
 .worktrees/
+.superpowers/
 .env
 .env.*
 !.env.example
+apps/*/.env
+apps/*/.env.*
+!apps/*/.env.example
 supabase/.temp/
 supabase/.branches/
 artifacts/

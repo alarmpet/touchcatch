@@ -1,0 +1,521 @@
+import { z } from "zod";
+import type { CompatibilityHelloV1, PinnedCompatibilityV1 } from "./socket.js";
+import { isValidFinalAnswerSubmission } from "./content.js";
+const uuid = z
+    .string()
+    .regex(
+      /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/,
+    ),
+  uuid4 = z
+    .string()
+    .regex(
+      /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/,
+    ),
+  hash = z.string().regex(/^[a-f0-9]{64}$/),
+  id = z.string().regex(/^[\x21-\x7e]{1,128}$/),
+  eventId = z.string().regex(/^[\x21-\x7e]{1,64}$/),
+  safe = z.number().int().nonnegative().safe(),
+  signed = z.number().int().safe(),
+  phase = z.enum([
+    "WAITING_FOR_ASSETS",
+    "COUNTDOWN",
+    "PLAYING",
+    "FINAL_RUSH",
+    "SETTLING",
+    "TIEBREAK_EVAL",
+    "SUDDEN_DEATH",
+    "FINISHED",
+    "CANCELLED",
+  ]),
+  circle = z
+    .object({
+      cx: z.number().finite().min(0).max(1),
+      cy: z.number().finite().min(0).max(1),
+      r: z.number().finite().gt(0).max(0.25),
+    })
+    .strict(),
+  circles = z.object({ imageA: circle, imageB: circle }).strict(),
+  option = z
+    .object({
+      id: z.string().regex(/^[A-Za-z0-9_-]{1,64}$/),
+      label: z.string().min(1).max(256),
+    })
+    .strict();
+const dimension = z
+  .object({
+    assetHash: hash,
+    width: z.number().int().min(1).max(16384),
+    height: z.number().int().min(1).max(16384),
+  })
+  .strict();
+const answer = z
+  .string()
+  .min(1)
+  .refine(
+    (x) =>
+      isValidFinalAnswerSubmission(x),
+  );
+const payload = z.discriminatedUnion("type", [
+  z
+    .object({
+      type: z.literal("READY"),
+      contentRevisionId: uuid,
+      contentHash: hash,
+      assetHashes: z.tuple([hash, hash]).refine((x) => x[0] !== x[1]),
+      decodedDimensions: z
+        .tuple([dimension, dimension])
+        .refine((x) => x[0].assetHash !== x[1].assetHash),
+    })
+    .strict(),
+  z
+    .object({
+      type: z.literal("REPORT_ASSET_LOAD_FAILURE"),
+      assetHash: hash,
+      attempts: z.literal(2),
+    })
+    .strict(),
+  z
+    .object({
+      type: z.literal("TAP_IMAGE"),
+      imageSide: z.enum(["A", "B"]),
+      x: z.number().finite().min(0).max(1),
+      y: z.number().finite().min(0).max(1),
+    })
+    .strict(),
+  z.object({ type: z.literal("SUBMIT_FINAL_ANSWER"), answer }).strict(),
+  z
+    .object({
+      type: z.literal("SUBMIT_MEANING"),
+      optionId: z.string().regex(/^[A-Za-z0-9_-]{1,64}$/),
+    })
+    .strict(),
+  z.object({ type: z.literal("USE_HINT") }).strict(),
+]);
+export const clientCommandEnvelopeSchema = z
+  .object({
+    protocolVersion: z.literal(1),
+    requestId: uuid4,
+    matchId: uuid,
+    expectedRevision: safe,
+    clientSeq: safe,
+    payload,
+  })
+  .strict()
+  .superRefine((x, c) => {
+    if (x.payload.type === "READY") {
+      const a = new Set(x.payload.assetHashes),
+        d = new Set(x.payload.decodedDimensions.map((v) => v.assetHash));
+      if ([...a].some((v) => !d.has(v)) || [...d].some((v) => !a.has(v)))
+        c.addIssue({
+          code: "custom",
+          message: "dimension hash set mismatch",
+          path: ["payload", "decodedDimensions"],
+        });
+    }
+  })
+  .transform((x) =>
+    x.payload.type === "READY"
+      ? {
+          ...x,
+          payload: {
+            ...x.payload,
+            assetHashes: [...x.payload.assetHashes].sort() as [string, string],
+            decodedDimensions: [...x.payload.decodedDimensions].sort((a, b) =>
+              a.assetHash.localeCompare(b.assetHash),
+            ) as [
+              (typeof x.payload.decodedDimensions)[0],
+              (typeof x.payload.decodedDimensions)[1],
+            ],
+          },
+        }
+      : x,
+  );
+const ackBase = {
+  protocolVersion: z.literal(1),
+  requestId: uuid4,
+  stateRevision: safe,
+  lastEventSeq: safe,
+  snapshotRequired: z.boolean(),
+};
+export const commandAckSchema = z.discriminatedUnion("accepted", [
+  z.object({ ...ackBase, accepted: z.literal(true) }).strict(),
+  z
+    .object({
+      ...ackBase,
+      accepted: z.literal(false),
+      reason: z.enum([
+        "REVISION_AHEAD",
+        "ALREADY_READY",
+        "ALREADY_CLAIMED",
+        "INPUT_LOCKED",
+        "NO_HINT_CREDIT",
+        "RATE_LIMITED",
+        "MATCH_INPUT_CLOSED",
+        "NOT_A_PARTICIPANT",
+        "INVALID_PAYLOAD",
+        "IDEMPOTENCY_CONFLICT",
+        "UPDATE_REQUIRED",
+      ]),
+    })
+    .strict(),
+]);
+const eb = {
+  protocolVersion: z.literal(1),
+  eventId,
+  eventId_: z.never().optional(),
+  matchId: uuid,
+  eventSeq: z.number().int().min(1).safe(),
+  stateRevision: safe,
+  occurredAtMs: safe,
+  phase,
+};
+const branch = <T extends string>(type: T, p: z.ZodType) =>
+  z.object({ ...eb, type: z.literal(type), payload: p }).strict();
+export const serverEventEnvelopeSchema = z.discriminatedUnion("type", [
+  branch("state_advanced", z.object({ redacted: z.literal(true) }).strict()),
+  branch(
+    "asset_ready_changed",
+    z
+      .object({
+        playerId: id,
+        readyCount: z.union([z.literal(1), z.literal(2)]),
+        countdownEndsAtMs: safe.nullable(),
+      })
+      .strict(),
+  ),
+  branch("match_started", z.object({ startedAtMs: safe }).strict()),
+  branch(
+    "tap_result",
+    z
+      .object({
+        requestId: uuid4,
+        applied: z.literal(true),
+        hit: z.boolean(),
+        objectiveId: id.nullable(),
+      })
+      .strict(),
+  ),
+  branch(
+    "difference_claimed",
+    z
+      .object({ objectiveId: id, ownerPlayerId: id, displayCircles: circles })
+      .strict(),
+  ),
+  branch(
+    "word_hunt_started",
+    z
+      .object({
+        missionId: id,
+        kind: z.enum(["NORMAL", "SPECIAL"]),
+        publicPrompt: z.string().min(1).max(120),
+        startedAtMs: safe,
+        endsAtMs: safe,
+      })
+      .strict(),
+  ),
+  branch("word_hunt_won", z.object({ missionId: id, playerId: id }).strict()),
+  branch(
+    "word_hunt_ended",
+    z.object({ missionId: id, reason: z.literal("TIMEOUT") }).strict(),
+  ),
+  branch(
+    "score_changed",
+    z.object({ playerId: id, delta: signed, absoluteScore: safe }).strict(),
+  ),
+  branch("final_rush_started", z.object({ startedAtMs: safe }).strict()),
+  branch(
+    "final_challenge_unlocked",
+    z
+      .object({
+        unlockedAtMs: safe,
+        source: z.enum(["TIME", "DIFFERENCE", "WORD_HUNT"]),
+        publicPattern: z.string().max(64),
+      })
+      .strict(),
+  ),
+  branch(
+    "hint_revealed",
+    z
+      .object({
+        playerId: id,
+        hintIndex: safe,
+        publicPattern: z.string().max(64),
+      })
+      .strict(),
+  ),
+  branch(
+    "hint_credit_changed",
+    z.object({ playerId: id, delta: signed, absoluteCredits: safe }).strict(),
+  ),
+  branch(
+    "answer_lock_changed",
+    z
+      .object({
+        playerId: id,
+        answerUntilMs: safe.nullable(),
+        reason: z.enum(["WRONG_ANSWER", "FINAL_RUSH_WRONG_ANSWER", "EXPIRED"]),
+      })
+      .strict(),
+  ),
+  branch(
+    "meaning_quiz_started",
+    z
+      .object({
+        playerId: id,
+        quizOrdinal: z.number().int().min(1).safe(),
+        prompt: z.string().min(1).max(256),
+        options: z.array(option).min(2).max(8),
+        endsAtMs: safe,
+      })
+      .strict(),
+  ),
+  branch(
+    "sudden_death_started",
+    z
+      .object({ objectiveId: id, endsAtMs: safe, displayCircles: circles })
+      .strict(),
+  ),
+  branch(
+    "input_closed",
+    z.object({ closedAtMs: safe, settlementCapAtMs: safe }).strict(),
+  ),
+  branch(
+    "connection_changed",
+    z
+      .object({
+        playerId: id,
+        status: z.enum(["CONNECTED", "DISCONNECTED"]),
+        disconnectEpoch: safe,
+        forfeitAtMs: safe.nullable(),
+      })
+      .strict(),
+  ),
+  branch(
+    "match_finished",
+    z
+      .object({
+        winnerPlayerId: id.nullable(),
+        endReason: z.enum([
+          "SCORE_TARGET",
+          "TIMEOUT_TIEBREAK",
+          "SUDDEN_DEATH",
+          "DRAW",
+          "FORFEIT",
+          "NO_CONTEST_ASSET_LOAD",
+          "NO_CONTEST",
+        ]),
+      })
+      .strict(),
+  ),
+]);
+function isImmutableAssetUrl(value: { url: string; sha256: string; mimeType: "image/png" | "image/webp" | "image/jpeg" }): boolean {
+  const ext = value.mimeType === "image/png" ? "png" : value.mimeType === "image/webp" ? "webp" : "jpg";
+  try {
+    const url = new URL(value.url);
+    return url.search === "" && url.hash === "" && url.pathname === `/assets/${value.sha256}.${ext}`;
+  } catch {
+    return false;
+  }
+}
+const asset = z
+  .object({
+    side: z.enum(["A", "B"]),
+    url: z
+      .string()
+      .url()
+      .max(2048)
+      .refine((x) => x.startsWith("https://")),
+    sha256: hash,
+    encodedBytes: z
+      .number()
+      .int()
+      .min(1)
+      .max(8 * 1024 * 1024),
+    width: z.number().int().min(1).max(4096),
+    height: z.number().int().min(1).max(4096),
+    mimeType: z.enum(["image/png", "image/webp", "image/jpeg"]),
+  })
+  .strict()
+  .refine((x) => x.width * x.height <= 16_000_000)
+  .refine(isImmutableAssetUrl, { message: "asset URL must be immutable and content-addressed" });
+const playerStatus = z
+    .object({ playerId: id, status: z.enum(["PENDING", "READY", "FAILED"]) })
+    .strict(),
+  connection = z
+    .object({
+      playerId: id,
+      status: z.enum(["CONNECTED", "DISCONNECTED"]),
+      disconnectEpoch: safe,
+      forfeitAtMs: safe.nullable(),
+    })
+    .strict(),
+  score = z.object({ playerId: id, absoluteScore: safe }).strict(),
+  claimed = z
+    .object({ objectiveId: id, ownerPlayerId: id, displayCircles: circles })
+    .strict();
+export const matchSnapshotV1Schema = z
+  .object({
+    protocolVersion: z.literal(1),
+    matchId: uuid,
+    viewerPlayerId: id,
+    engineVersion: id,
+    rulesetVersion: z.literal("1.0.0"),
+    rulesetHash: hash,
+    contentRevisionId: uuid,
+    contentHash: hash,
+    serverNowMs: safe,
+    phase,
+    phaseEndsAtMs: safe.nullable(),
+    stateRevision: safe,
+    lastEventSeq: safe,
+    preload: z
+      .object({
+        assetLoadDeadlineMs: safe,
+        assetPolicyVersion: z.literal("1.0.0"),
+        assets: z.tuple([asset, asset]).refine((x) => x[0].side === "A" && x[1].side === "B" && x[0].sha256 !== x[1].sha256),
+        players: z.array(playerStatus).length(2),
+      })
+      .strict(),
+    viewerInput: z
+      .object({ enabled: z.boolean(), reason: z.string().max(128).nullable() })
+      .strict(),
+    connections: z.array(connection).length(2),
+    scores: z.array(score).length(2),
+    claimed: z.array(claimed),
+    mission: z
+      .object({
+        id,
+        kind: z.enum(["NORMAL", "SPECIAL"]),
+        publicPrompt: z.string().min(1).max(120),
+        startedAtMs: safe,
+        endsAtMs: safe,
+      })
+      .strict()
+      .nullable(),
+    locks: z
+      .array(
+        z.object({ playerId: id, answerUntilMs: safe.nullable() }).strict(),
+      )
+      .length(2),
+    finalChallenge: z
+      .object({
+        unlocked: z.boolean(),
+        unlockedAtMs: safe.nullable(),
+        viewer: z
+          .object({
+            wrongAttempts: safe,
+            maxWrongAttempts: safe,
+            hintCredits: safe,
+            revealedHintCount: safe,
+            publicPattern: z.string().max(64).nullable(),
+          })
+          .strict(),
+      })
+      .strict(),
+    meaningQuiz: z
+      .object({
+        quizOrdinal: z.number().int().min(1).safe(),
+        prompt: z.string().min(1).max(256),
+        options: z.array(option).min(2).max(8),
+        remainingMs: safe,
+      })
+      .strict()
+      .nullable(),
+    suddenDeath: z
+      .object({ objectiveId: id, endsAtMs: safe, displayCircles: circles })
+      .strict()
+      .nullable(),
+    result: z
+      .object({
+        winnerPlayerId: id.nullable(),
+        endReason: z.enum([
+          "SCORE_TARGET",
+          "TIMEOUT_TIEBREAK",
+          "SUDDEN_DEATH",
+          "DRAW",
+          "FORFEIT",
+          "NO_CONTEST_ASSET_LOAD",
+          "NO_CONTEST",
+        ]),
+      })
+      .strict()
+      .nullable(),
+  })
+  .strict();
+const immutableAsset = asset;
+export const matchmakingNotificationSchema = z
+  .object({
+    protocolVersion: z.literal(1),
+    type: z.literal("match_found"),
+    notificationId: id,
+    ticketId: id,
+    matchId: uuid,
+    preloadDeadlineMs: safe,
+    preload: z
+      .object({
+        contentRevisionId: uuid,
+        contentHash: hash,
+        assetPolicyVersion: z.literal("1.0.0"),
+        assets: z
+          .tuple([immutableAsset, immutableAsset])
+          .refine(
+            (x) =>
+              x[0].side === "A" &&
+              x[1].side === "B" &&
+              x[0].sha256 !== x[1].sha256,
+          ),
+      })
+      .strict(),
+    compatibility: z
+      .object({
+        protocolVersion: z.literal(1),
+        engineVersion: id,
+        rulesetVersion: z.literal("1.0.0"),
+        rulesetHash: hash,
+        contentRevisionId: uuid,
+        contentHash: hash,
+      })
+      .strict(),
+  })
+  .strict()
+  .refine(
+    (x) =>
+      x.preload.contentRevisionId === x.compatibility.contentRevisionId &&
+      x.preload.contentHash === x.compatibility.contentHash,
+  );
+export const compatibilityHandshakeSchema = z
+  .object({
+    protocolVersion: z.literal(1),
+    supportedEngineVersions: z.array(id).min(1).max(16),
+    supportedRulesetVersions: z.array(id).min(1).max(16),
+  })
+  .strict();
+export function negotiateCompatibility(
+  h: CompatibilityHelloV1,
+  p: PinnedCompatibilityV1,
+) {
+  return h.protocolVersion === p.protocolVersion &&
+    h.supportedEngineVersions.includes(p.engineVersion) &&
+    h.supportedRulesetVersions.includes(p.rulesetVersion)
+    ? { accepted: true as const, pinned: p }
+    : { accepted: false as const, reason: "UPDATE_REQUIRED" as const };
+}
+export function resolveAuthenticatedParticipant(
+  subject: string,
+  memberships: ReadonlyArray<{
+    authSubject: string;
+    matchId: string;
+    participantKey: string;
+  }>,
+  matchId: string,
+  requestId: string,
+) {
+  if (subject === requestId) throw Error("INVALID_REQUEST_ID");
+  const row = memberships.find(
+    (x) => x.authSubject === subject && x.matchId === matchId,
+  );
+  if (!row) throw Error("FORBIDDEN");
+  if (!/^[\x21-\x7e]{1,128}$/.test(row.participantKey))
+    throw Error("INVALID_PARTICIPANT_MAPPING");
+  return row.participantKey;
+}

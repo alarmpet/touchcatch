@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "expoSdkMajor": 57,
+  "reactNativeVersion": "0.86",
+  "publicProjectionTask": 4,
+  "recommendedImageLongEdgePx": 1536,
+  "reconnectOverlayMs": 5000
+}

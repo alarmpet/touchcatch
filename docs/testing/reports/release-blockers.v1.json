@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "status": "BLOCKED",
+  "generatedFrom": [
+    "config/requirement-evidence.v1.json",
+    "config/normative-numeric-approvals.v1.json"
+  ],
+  "unverifiedRequirementCount": 23,
+  "unverifiedRequirementIds": [
+    "RULE-012",
+    "RULE-013",
+    "RULE-014",
+    "RULE-015",
+    "RULE-016",
+    "RULE-017",
+    "RULE-018",
+    "RULE-049",
+    "ECON-023",
+    "SEC-003",
+    "OBS-002",
+    "DOC-069",
+    "DOC-071",
+    "DOC-072",
+    "DOC-073",
+    "DOC-074",
+    "ENV-012",
+    "ENV-013",
+    "ENV-014",
+    "ENV-015",
+    "ENV-016",
+    "ENV-017",
+    "ENV-018"
+  ],
+  "unapprovedNumericBaselineCount": 7,
+  "unapprovedNumericBaselineIds": [
+    "RULE-013",
+    "RULE-015",
+    "OBS-015",
+    "ENV-019",
+    "ENV-020",
+    "ENV-021",
+    "ENV-023"
+  ],
+  "externalBlockers": [
+    "EXACT_NODE_PNPM_RUNTIME",
+    "IOS_GOLDEN",
+    "ANDROID_GOLDEN",
+    "PROVIDER_CREDENTIALS",
+    "TARGET_REGION_SOAK"
+  ]
+}

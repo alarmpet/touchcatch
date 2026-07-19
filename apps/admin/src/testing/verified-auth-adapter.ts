@@ -1,0 +1,4 @@
+import type { AdminRequestProof, VerifiedAdminSession } from '../server/auth.js';
+export function createVerifiedAuthAdapter(dependencies: Readonly<{verifyToken(token:string):Promise<Readonly<{actorId:string;tokenId:string}>>;loadSession(tokenId:string):Promise<VerifiedAdminSession|null>}>) {
+ return {async authenticate(request:AdminRequestProof,allowedOrigin:string){if(request.origin!==allowedOrigin)throw Error('ORIGIN_MISMATCH');if(!request.csrfCookie||request.csrfCookie!==request.csrfHeader)throw Error('CSRF_MISMATCH');const match=/^Bearer ([A-Za-z0-9._~-]{8,4096})$/u.exec(request.authorization??'');if(!match)throw Error('UNAUTHORIZED');const verified=await dependencies.verifyToken(match[1]!);const session=await dependencies.loadSession(verified.tokenId);if(!session||session.actorId!==verified.actorId)throw Error('UNAUTHORIZED');if(!session.roles.includes('CONTENT_PUBLISHER'))throw Error('FORBIDDEN');return session;}};
+}

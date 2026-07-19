@@ -1,0 +1,4018 @@
+{
+  "schemaVersion": 4,
+  "entries": [
+    {
+      "id": "RULE-001",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/rulesetVersion",
+            "expected": "1.0.0"
+          }
+        ]
+      },
+      "testCase": "RULE-001 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-011",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
+      },
+      "testCase": "RULE-011 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-011"
+    },
+    {
+      "id": "RULE-012",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "BLOCKED",
+        "input": "config/ruleset.v1.json"
+      },
+      "testCase": "RULE-012 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "game-design",
+      "phase": "PLANNED",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-012",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_EXECUTABLE_CONTRACT",
+      "closureArtifact": "tests/requirements/RULE-012.test.ts",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "RULE-013",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "BLOCKED",
+        "input": "config/ruleset.v1.json"
+      },
+      "testCase": "RULE-013 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "matchmaking",
+      "phase": "PLANNED",
+      "closureCondition": "Implement a production matchmaking path that invokes random distinct-player pairing",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_PRODUCTION_MATCHMAKING_PATH",
+      "closureArtifact": "apps/server/src/matchmaking/random-one-v-one.ts",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "RULE-014",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "BLOCKED",
+        "input": "config/ruleset.v1.json"
+      },
+      "testCase": "RULE-014 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "game-design",
+      "phase": "PLANNED",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-014",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_EXECUTABLE_CONTRACT",
+      "closureArtifact": "tests/requirements/RULE-014.test.ts",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "RULE-015",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "BLOCKED",
+        "input": "config/ruleset.v1.json"
+      },
+      "testCase": "RULE-015 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "game-design",
+      "phase": "PLANNED",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-015",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_EXECUTABLE_CONTRACT",
+      "closureArtifact": "tests/requirements/RULE-015.test.ts",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "RULE-016",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "BLOCKED",
+        "input": "config/ruleset.v1.json"
+      },
+      "testCase": "RULE-016 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "game-design",
+      "phase": "PLANNED",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-016",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_EXECUTABLE_CONTRACT",
+      "closureArtifact": "tests/requirements/RULE-016.test.ts",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "RULE-017",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "BLOCKED",
+        "input": "config/ruleset.v1.json"
+      },
+      "testCase": "RULE-017 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "game-design",
+      "phase": "PLANNED",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-017",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_EXECUTABLE_CONTRACT",
+      "closureArtifact": "tests/requirements/RULE-017.test.ts",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "RULE-018",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "BLOCKED",
+        "input": "config/ruleset.v1.json"
+      },
+      "testCase": "RULE-018 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "game-design",
+      "phase": "PLANNED",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-018",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_EXECUTABLE_CONTRACT",
+      "closureArtifact": "tests/requirements/RULE-018.test.ts",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "RULE-019",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/rulesetVersion",
+            "expected": "1.0.0"
+          },
+          {
+            "pointer": "/time/finalRushStartsAtMs",
+            "expected": 60000
+          },
+          {
+            "pointer": "/time/playingMs",
+            "expected": 75000
+          },
+          {
+            "pointer": "/time/meaningSettlementCapMs",
+            "expected": 80000
+          },
+          {
+            "pointer": "/scoreFloor",
+            "expected": 0
+          }
+        ]
+      },
+      "testCase": "RULE-019 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-020",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/targetScore",
+            "expected": 100
+          }
+        ]
+      },
+      "testCase": "RULE-020 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-021",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/time/playingMs",
+            "expected": 75000
+          }
+        ]
+      },
+      "testCase": "RULE-021 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-023",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/tieBreak/1",
+            "expected": "FINAL_PACKAGE_CORRECT"
+          }
+        ]
+      },
+      "testCase": "RULE-023 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-024",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/tieBreak/2",
+            "expected": "HARD_DIFFERENCES"
+          }
+        ]
+      },
+      "testCase": "RULE-024 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-025",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/tieBreak/3",
+            "expected": "FEWER_FINAL_ANSWER_ERRORS"
+          }
+        ]
+      },
+      "testCase": "RULE-025 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-026",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/time/suddenDeathMs",
+            "expected": 10000
+          }
+        ]
+      },
+      "testCase": "RULE-026 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-027",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/content/normalDifferences",
+            "expected": 7
+          },
+          {
+            "pointer": "/content/hardDifferences",
+            "expected": 3
+          }
+        ]
+      },
+      "testCase": "RULE-027 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-028",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/content/normalDifferences",
+            "expected": 7
+          },
+          {
+            "pointer": "/score/normalDifference",
+            "expected": 6
+          }
+        ]
+      },
+      "testCase": "RULE-028 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-029",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/content/hardDifferences",
+            "expected": 3
+          },
+          {
+            "pointer": "/score/hardDifference",
+            "expected": 9
+          }
+        ]
+      },
+      "testCase": "RULE-029 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-030",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/content/normalDifferences",
+            "expected": 7
+          },
+          {
+            "pointer": "/content/hardDifferences",
+            "expected": 3
+          },
+          {
+            "pointer": "/score/normalDifference",
+            "expected": 6
+          },
+          {
+            "pointer": "/score/hardDifference",
+            "expected": 9
+          }
+        ]
+      },
+      "testCase": "RULE-030 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-031",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/wordHuntSchedule/0/spawnWindowMs",
+            "expected": [
+              16000,
+              22000
+            ]
+          }
+        ]
+      },
+      "testCase": "RULE-031 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-032",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/wordHuntSchedule/1/spawnWindowMs",
+            "expected": [
+              34000,
+              42000
+            ]
+          }
+        ]
+      },
+      "testCase": "RULE-032 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-033",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/wordHuntSchedule/2/spawnAtMs",
+            "expected": 60000
+          },
+          {
+            "pointer": "/wordHuntSchedule/2/kind",
+            "expected": "SPECIAL"
+          }
+        ]
+      },
+      "testCase": "RULE-033 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-034",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/score/normalWordHunt",
+            "expected": 10
+          },
+          {
+            "pointer": "/score/specialWordHunt",
+            "expected": 15
+          }
+        ]
+      },
+      "testCase": "RULE-034 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-035",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
+      },
+      "testCase": "RULE-035 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-035"
+    },
+    {
+      "id": "RULE-036",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/finalChallenge/unlock/onDifferenceClaim",
+            "expected": true
+          },
+          {
+            "pointer": "/finalChallenge/unlock/onWordHuntClaim",
+            "expected": true
+          },
+          {
+            "pointer": "/finalChallenge/unlock/atMs",
+            "expected": 12000
+          }
+        ]
+      },
+      "testCase": "RULE-036 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-037",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/finalChallenge/unlock/onDifferenceClaim",
+            "expected": true
+          }
+        ]
+      },
+      "testCase": "RULE-037 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-038",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/finalChallenge/unlock/onWordHuntClaim",
+            "expected": true
+          }
+        ]
+      },
+      "testCase": "RULE-038 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-039",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/finalChallenge/unlock/atMs",
+            "expected": 12000
+          }
+        ]
+      },
+      "testCase": "RULE-039 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-040",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/score/finalWord",
+            "expected": 25
+          }
+        ]
+      },
+      "testCase": "RULE-040 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-041",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/time/meaningQuizMs",
+            "expected": 5000
+          }
+        ]
+      },
+      "testCase": "RULE-041 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-042",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/score/meaning",
+            "expected": 15
+          }
+        ]
+      },
+      "testCase": "RULE-042 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-043",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/score/combo",
+            "expected": 10
+          }
+        ]
+      },
+      "testCase": "RULE-043 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-044",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/score/wrongAnswer",
+            "expected": -5
+          },
+          {
+            "pointer": "/lockMs/wrongAnswer",
+            "expected": 2000
+          }
+        ]
+      },
+      "testCase": "RULE-044 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-045",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/score/finalRushWrongAnswer",
+            "expected": -10
+          },
+          {
+            "pointer": "/lockMs/finalRushWrongAnswer",
+            "expected": 1500
+          }
+        ]
+      },
+      "testCase": "RULE-045 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-046",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/time/finalRushStartsAtMs",
+            "expected": 60000
+          },
+          {
+            "pointer": "/time/playingMs",
+            "expected": 75000
+          }
+        ]
+      },
+      "testCase": "RULE-046 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-047",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/score/finalRushDifferenceMultiplier",
+            "expected": 2
+          }
+        ]
+      },
+      "testCase": "RULE-047 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-048",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/wordHuntSchedule/2/kind",
+            "expected": "SPECIAL"
+          }
+        ]
+      },
+      "testCase": "RULE-048 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "RULE-049",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "BLOCKED",
+        "input": "config/ruleset.v1.json"
+      },
+      "testCase": "RULE-049 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "game-design",
+      "phase": "PLANNED",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-049",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_EXECUTABLE_CONTRACT",
+      "closureArtifact": "tests/requirements/RULE-049.test.ts",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "RULE-050",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json"
+      },
+      "testCase": "RULE-050 executes RULESET_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-050"
+    },
+    {
+      "id": "STATE-001",
+      "evidenceKind": "STATE_SCHEMA",
+      "oracle": {
+        "kind": "STATE_SCHEMA",
+        "expected": "PASS",
+        "input": "STATE-001"
+      },
+      "testCase": "STATE-001 executes STATE_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "game-state",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-001"
+    },
+    {
+      "id": "STATE-002",
+      "evidenceKind": "STATE_SCHEMA",
+      "oracle": {
+        "kind": "STATE_SCHEMA",
+        "expected": "PASS",
+        "input": "STATE-002"
+      },
+      "testCase": "STATE-002 executes STATE_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "game-state",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-002"
+    },
+    {
+      "id": "STATE-003",
+      "evidenceKind": "STATE_SCHEMA",
+      "oracle": {
+        "kind": "STATE_SCHEMA",
+        "expected": "PASS",
+        "input": "STATE-003"
+      },
+      "testCase": "STATE-003 executes STATE_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "game-state",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-003"
+    },
+    {
+      "id": "STATE-004",
+      "evidenceKind": "STATE_SCHEMA",
+      "oracle": {
+        "kind": "STATE_SCHEMA",
+        "expected": "PASS",
+        "input": "STATE-004"
+      },
+      "testCase": "STATE-004 executes STATE_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "game-state",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-004"
+    },
+    {
+      "id": "STATE-005",
+      "evidenceKind": "STATE_SCHEMA",
+      "oracle": {
+        "kind": "STATE_SCHEMA",
+        "expected": "PASS",
+        "input": "STATE-005"
+      },
+      "testCase": "STATE-005 executes STATE_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "game-state",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-005"
+    },
+    {
+      "id": "STATE-006",
+      "evidenceKind": "STATE_SCHEMA",
+      "oracle": {
+        "kind": "STATE_SCHEMA",
+        "expected": "PASS",
+        "input": "STATE-006"
+      },
+      "testCase": "STATE-006 executes STATE_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "game-state",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-006"
+    },
+    {
+      "id": "STATE-007",
+      "evidenceKind": "STATE_SCHEMA",
+      "oracle": {
+        "kind": "STATE_SCHEMA",
+        "expected": "PASS",
+        "input": "STATE-007"
+      },
+      "testCase": "STATE-007 executes STATE_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "game-state",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-007"
+    },
+    {
+      "id": "STATE-008",
+      "evidenceKind": "STATE_SCHEMA",
+      "oracle": {
+        "kind": "STATE_SCHEMA",
+        "expected": "PASS",
+        "input": "STATE-008"
+      },
+      "testCase": "STATE-008 executes STATE_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "game-state",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-008"
+    },
+    {
+      "id": "STATE-009",
+      "evidenceKind": "STATE_SCHEMA",
+      "oracle": {
+        "kind": "STATE_SCHEMA",
+        "expected": "PASS",
+        "input": "STATE-009"
+      },
+      "testCase": "STATE-009 executes STATE_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "game-state",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-009"
+    },
+    {
+      "id": "STATE-010",
+      "evidenceKind": "STATE_SCHEMA",
+      "oracle": {
+        "kind": "STATE_SCHEMA",
+        "expected": "PASS",
+        "input": "STATE-010"
+      },
+      "testCase": "STATE-010 executes STATE_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "game-state",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-010"
+    },
+    {
+      "id": "UX-001",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/contractVersion",
+            "expected": "1.1.0"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/accessibilityClauses/1",
+            "expected": "PRIVATE_ANSWER_NON_DISCLOSURE"
+          }
+        ]
+      },
+      "testCase": "UX-001 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "DEVICE_GOLDEN",
+        "closureCondition": "Capture and human-approve pinned iOS and Android device goldens",
+        "manifest": "config/ui-goldens.v1.json"
+      }
+    },
+    {
+      "id": "UX-002",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/0",
+            "expected": "SCORES"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/1",
+            "expected": "TIMER"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/2",
+            "expected": "FINAL_ANSWER"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/3",
+            "expected": "HINT"
+          }
+        ]
+      },
+      "testCase": "UX-002 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green"
+    },
+    {
+      "id": "UX-003",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/forbiddenContentRoles/0",
+            "expected": "PET_STATS"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/forbiddenContentRoles/1",
+            "expected": "FUSION_MATERIALS"
+          }
+        ]
+      },
+      "testCase": "UX-003 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green"
+    },
+    {
+      "id": "UX-004",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/HOME_DEFAULT/requiredBehaviorIds/0",
+            "expected": "SOLE_HIGHEST_PRIORITY_CTA"
+          }
+        ]
+      },
+      "testCase": "UX-004 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green"
+    },
+    {
+      "id": "UX-005",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/HOME_DEFAULT/requiredContentRoles/0",
+            "expected": "REPRESENTATIVE_PET"
+          }
+        ]
+      },
+      "testCase": "UX-005 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green"
+    },
+    {
+      "id": "UX-006",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/HOME_DEFAULT/requiredContentRoles/1",
+            "expected": "PET_LEVEL_EXP"
+          }
+        ]
+      },
+      "testCase": "UX-006 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green"
+    },
+    {
+      "id": "UX-007",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/HOME_DEFAULT/requiredContentRoles/2",
+            "expected": "QUICK_MATCH"
+          }
+        ]
+      },
+      "testCase": "UX-007 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green"
+    },
+    {
+      "id": "UX-008",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/HOME_DEFAULT/requiredContentRoles/3",
+            "expected": "FRIEND_MATCH"
+          }
+        ]
+      },
+      "testCase": "UX-008 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green"
+    },
+    {
+      "id": "UX-009",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/HOME_DEFAULT/requiredContentRoles/4",
+            "expected": "BOTTOM_TABS_HOME_PET_FUSION_COLLECTION"
+          }
+        ]
+      },
+      "testCase": "UX-009 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green"
+    },
+    {
+      "id": "UX-010",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/0",
+            "expected": "SCORES"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/1",
+            "expected": "TIMER"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/4",
+            "expected": "TARGET_SCORE_100"
+          }
+        ]
+      },
+      "testCase": "UX-010 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green"
+    },
+    {
+      "id": "UX-011",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/5",
+            "expected": "FOUND_DIFFERENCE_RINGS"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredBehaviorIds/1",
+            "expected": "SERVER_CONFIRMED_RING_AND_SCORE"
+          }
+        ]
+      },
+      "testCase": "UX-011 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green"
+    },
+    {
+      "id": "UX-012",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/transitionClauses/0",
+            "expected": "MISSION_OVERLAY_TO_BAR_1200MS"
+          }
+        ]
+      },
+      "testCase": "UX-012 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green"
+    },
+    {
+      "id": "UX-013",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/2",
+            "expected": "FINAL_ANSWER"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/3",
+            "expected": "HINT"
+          },
+          {
+            "pointer": "/screens/MATCH_WORD_HUNT/requiredContentRoles/6",
+            "expected": "ANSWER_CHALLENGE"
+          }
+        ]
+      },
+      "testCase": "UX-013 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green"
+    },
+    {
+      "id": "UX-014",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/RESULT/requiredContentRoles/0",
+            "expected": "WIN_LOSS"
+          }
+        ]
+      },
+      "testCase": "UX-014 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green"
+    },
+    {
+      "id": "UX-015",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/RESULT/requiredContentRoles/1",
+            "expected": "SCORE_DETAIL"
+          }
+        ]
+      },
+      "testCase": "UX-015 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green"
+    },
+    {
+      "id": "UX-016",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/RESULT/requiredContentRoles/2",
+            "expected": "LEARNED_WORDS"
+          }
+        ]
+      },
+      "testCase": "UX-016 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green"
+    },
+    {
+      "id": "UX-017",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/RESULT/requiredContentRoles/3",
+            "expected": "PET_EXP"
+          }
+        ]
+      },
+      "testCase": "UX-017 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green"
+    },
+    {
+      "id": "UX-018",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/RESULT/requiredContentRoles/4",
+            "expected": "DRAW_POINTS"
+          }
+        ]
+      },
+      "testCase": "UX-018 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green"
+    },
+    {
+      "id": "UX-019",
+      "evidenceKind": "UI_CONTRACT",
+      "oracle": {
+        "kind": "UI_CONTRACT",
+        "expected": "PASS",
+        "input": "config/ui-screen-contract.v1.json",
+        "assertions": [
+          {
+            "pointer": "/screens/RESULT/requiredContentRoles/5",
+            "expected": "RETRY"
+          }
+        ]
+      },
+      "testCase": "UX-019 executes UI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact semantic UI contract predicate green"
+    },
+    {
+      "id": "ECON-008",
+      "evidenceKind": "ECONOMY_PARSE",
+      "oracle": {
+        "kind": "ECONOMY_PARSE",
+        "expected": "PASS",
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/draw/cost",
+            "expected": 100
+          }
+        ]
+      },
+      "testCase": "ECON-008 executes ECONOMY_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "ECON-009",
+      "evidenceKind": "ECONOMY_PARSE",
+      "oracle": {
+        "kind": "ECONOMY_PARSE",
+        "expected": "PASS",
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/draw/probabilities/COMMON",
+            "expected": 0.8
+          },
+          {
+            "pointer": "/draw/probabilities/RARE",
+            "expected": 0.18
+          },
+          {
+            "pointer": "/draw/probabilities/LEGENDARY",
+            "expected": 0.02
+          }
+        ]
+      },
+      "testCase": "ECON-009 executes ECONOMY_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "ECON-010",
+      "evidenceKind": "ECONOMY_PARSE",
+      "oracle": {
+        "kind": "ECONOMY_PARSE",
+        "expected": "PASS",
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/pitySemantics/thresholds/rareOrBetter",
+            "expected": 50
+          }
+        ]
+      },
+      "testCase": "ECON-010 executes ECONOMY_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "ECON-011",
+      "evidenceKind": "ECONOMY_PARSE",
+      "oracle": {
+        "kind": "ECONOMY_PARSE",
+        "expected": "PASS",
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/pitySemantics/thresholds/legendary",
+            "expected": 150
+          }
+        ]
+      },
+      "testCase": "ECON-011 executes ECONOMY_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "ECON-012",
+      "evidenceKind": "ECONOMY_PARSE",
+      "oracle": {
+        "kind": "ECONOMY_PARSE",
+        "expected": "PASS",
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/status",
+            "expected": "DRAFT"
+          }
+        ]
+      },
+      "testCase": "ECON-012 executes ECONOMY_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "ECON-013",
+      "evidenceKind": "ECONOMY_PARSE",
+      "oracle": {
+        "kind": "ECONOMY_PARSE",
+        "expected": "PASS",
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/fusion/materialCount",
+            "expected": 5
+          }
+        ]
+      },
+      "testCase": "ECON-013 executes ECONOMY_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "ECON-014",
+      "evidenceKind": "ECONOMY_PARSE",
+      "oracle": {
+        "kind": "ECONOMY_PARSE",
+        "expected": "PASS",
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/fusion/materialCount",
+            "expected": 5
+          }
+        ]
+      },
+      "testCase": "ECON-014 executes ECONOMY_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "ECON-015",
+      "evidenceKind": "ECONOMY_PARSE",
+      "oracle": {
+        "kind": "ECONOMY_PARSE",
+        "expected": "PASS",
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/fusion/excludeSelected",
+            "expected": true
+          },
+          {
+            "pointer": "/fusion/excludeLocked",
+            "expected": true
+          }
+        ]
+      },
+      "testCase": "ECON-015 executes ECONOMY_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "ECON-016",
+      "evidenceKind": "ECONOMY_PARSE",
+      "oracle": {
+        "kind": "ECONOMY_PARSE",
+        "expected": "PASS",
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/catalogRevision",
+            "expected": "catalog-v1"
+          }
+        ]
+      },
+      "testCase": "ECON-016 executes ECONOMY_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "ECON-017",
+      "evidenceKind": "ECONOMY_PARSE",
+      "oracle": {
+        "kind": "ECONOMY_PARSE",
+        "expected": "PASS",
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/catalogRevision",
+            "expected": "catalog-v1"
+          }
+        ]
+      },
+      "testCase": "ECON-017 executes ECONOMY_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "ECON-018",
+      "evidenceKind": "ECONOMY_PARSE",
+      "oracle": {
+        "kind": "ECONOMY_PARSE",
+        "expected": "PASS",
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/catalogRevision",
+            "expected": "catalog-v1"
+          }
+        ]
+      },
+      "testCase": "ECON-018 executes ECONOMY_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "ECON-019",
+      "evidenceKind": "ECONOMY_PARSE",
+      "oracle": {
+        "kind": "ECONOMY_PARSE",
+        "expected": "PASS",
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/catalogRevision",
+            "expected": "catalog-v1"
+          }
+        ]
+      },
+      "testCase": "ECON-019 executes ECONOMY_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "ECON-020",
+      "evidenceKind": "ECONOMY_PARSE",
+      "oracle": {
+        "kind": "ECONOMY_PARSE",
+        "expected": "PASS",
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/exp/win",
+            "expected": 100
+          }
+        ]
+      },
+      "testCase": "ECON-020 executes ECONOMY_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "ECON-021",
+      "evidenceKind": "ECONOMY_PARSE",
+      "oracle": {
+        "kind": "ECONOMY_PARSE",
+        "expected": "PASS",
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/exp/loss",
+            "expected": 60
+          }
+        ]
+      },
+      "testCase": "ECON-021 executes ECONOMY_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "ECON-022",
+      "evidenceKind": "ECONOMY_PARSE",
+      "oracle": {
+        "kind": "ECONOMY_PARSE",
+        "expected": "PASS",
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/exp/perfectWordMeaning",
+            "expected": 40
+          }
+        ]
+      },
+      "testCase": "ECON-022 executes ECONOMY_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "ECON-023",
+      "evidenceKind": "ECONOMY_PARSE",
+      "oracle": {
+        "kind": "ECONOMY_PARSE",
+        "expected": "BLOCKED",
+        "input": "config/economy.v1.json"
+      },
+      "testCase": "ECON-023 executes ECONOMY_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "economy",
+      "phase": "PLANNED",
+      "closureCondition": "Implement exact behavioral predicate for ECON-023",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:COSMETIC_PRODUCT_DIRECTION",
+      "closureArtifact": "tests/requirements/ECON-023.test.ts",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "ECON-024",
+      "evidenceKind": "ECONOMY_PARSE",
+      "oracle": {
+        "kind": "ECONOMY_PARSE",
+        "expected": "PASS",
+        "input": "config/economy.v1.json",
+        "assertions": [
+          {
+            "pointer": "/status",
+            "expected": "DRAFT"
+          },
+          {
+            "pointer": "/economyVersion",
+            "expected": "1.0.0"
+          }
+        ]
+      },
+      "testCase": "ECON-024 executes ECONOMY_PARSE",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact executable oracle green"
+    },
+    {
+      "id": "SEC-001",
+      "evidenceKind": "PRIVACY_CONTRACT",
+      "oracle": {
+        "kind": "PRIVACY_CONTRACT",
+        "expected": "PASS",
+        "input": "SEC-001"
+      },
+      "testCase": "SEC-001 executes PRIVACY_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "privacy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-001"
+    },
+    {
+      "id": "SEC-002",
+      "evidenceKind": "PRIVACY_CONTRACT",
+      "oracle": {
+        "kind": "PRIVACY_CONTRACT",
+        "expected": "PASS",
+        "input": "SEC-002"
+      },
+      "testCase": "SEC-002 executes PRIVACY_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "privacy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-002"
+    },
+    {
+      "id": "SEC-003",
+      "evidenceKind": "PRIVACY_CONTRACT",
+      "oracle": {
+        "kind": "PRIVACY_CONTRACT",
+        "expected": "BLOCKED",
+        "input": "SEC-003"
+      },
+      "testCase": "SEC-003 executes PRIVACY_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "privacy",
+      "phase": "PLANNED",
+      "closureCondition": "Add and exercise Zustand, TanStack Query, Socket.IO Client, and Reanimated in the Expo mobile runtime; keep Sentry live credentials external",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:MOBILE_INTEGRATION_SURFACE",
+      "closureArtifact": "apps/mobile/src/runtime/integrations.ts",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "SEC-004",
+      "evidenceKind": "PRIVACY_CONTRACT",
+      "oracle": {
+        "kind": "PRIVACY_CONTRACT",
+        "expected": "PASS",
+        "input": "SEC-004"
+      },
+      "testCase": "SEC-004 executes PRIVACY_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "privacy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-004"
+    },
+    {
+      "id": "SEC-005",
+      "evidenceKind": "PRIVACY_CONTRACT",
+      "oracle": {
+        "kind": "PRIVACY_CONTRACT",
+        "expected": "PASS",
+        "input": "SEC-005"
+      },
+      "testCase": "SEC-005 executes PRIVACY_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "privacy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-005"
+    },
+    {
+      "id": "SEC-006",
+      "evidenceKind": "PRIVACY_CONTRACT",
+      "oracle": {
+        "kind": "PRIVACY_CONTRACT",
+        "expected": "PASS",
+        "input": "SEC-006"
+      },
+      "testCase": "SEC-006 executes PRIVACY_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "privacy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-006"
+    },
+    {
+      "id": "SEC-007",
+      "evidenceKind": "PRIVACY_CONTRACT",
+      "oracle": {
+        "kind": "PRIVACY_CONTRACT",
+        "expected": "PASS",
+        "input": "SEC-007"
+      },
+      "testCase": "SEC-007 executes PRIVACY_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "privacy",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-007"
+    },
+    {
+      "id": "OBS-001",
+      "evidenceKind": "ANALYTICS_CONTRACT",
+      "oracle": {
+        "kind": "ANALYTICS_CONTRACT",
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
+      },
+      "testCase": "OBS-001 executes ANALYTICS_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "analytics",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-001"
+    },
+    {
+      "id": "OBS-002",
+      "evidenceKind": "ANALYTICS_CONTRACT",
+      "oracle": {
+        "kind": "ANALYTICS_CONTRACT",
+        "expected": "BLOCKED",
+        "input": "packages/contracts/src/analytics.ts"
+      },
+      "testCase": "OBS-002 executes ANALYTICS_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "analytics",
+      "phase": "PLANNED",
+      "closureCondition": "Implement an exercised NestJS/Socket.IO realtime service backed by Redis and BullMQ on the existing Node/PostgreSQL foundation",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:REALTIME_SERVICE_SURFACE",
+      "closureArtifact": "apps/server/package.json",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "OBS-003",
+      "evidenceKind": "ANALYTICS_CONTRACT",
+      "oracle": {
+        "kind": "ANALYTICS_CONTRACT",
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
+      },
+      "testCase": "OBS-003 executes ANALYTICS_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "analytics",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-003"
+    },
+    {
+      "id": "OBS-004",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/limits/maxBoardTapsPerSecond",
+            "expected": 8
+          }
+        ]
+      },
+      "testCase": "OBS-004 executes ANALYTICS_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact ruleset predicate green"
+    },
+    {
+      "id": "OBS-005",
+      "evidenceKind": "ANALYTICS_CONTRACT",
+      "oracle": {
+        "kind": "ANALYTICS_CONTRACT",
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
+      },
+      "testCase": "OBS-005 executes ANALYTICS_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "analytics",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-005"
+    },
+    {
+      "id": "RISK-01",
+      "evidenceKind": "ANALYTICS_CONTRACT",
+      "oracle": {
+        "kind": "ANALYTICS_CONTRACT",
+        "expected": "PASS",
+        "input": "RISK-01"
+      },
+      "testCase": "RISK-01 executes ANALYTICS_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "analytics-risk",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact direct behavioral oracle green"
+    },
+    {
+      "id": "RISK-02",
+      "evidenceKind": "ANALYTICS_CONTRACT",
+      "oracle": {
+        "kind": "ANALYTICS_CONTRACT",
+        "expected": "PASS",
+        "input": "RISK-02"
+      },
+      "testCase": "RISK-02 executes ANALYTICS_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "analytics-risk",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact direct behavioral oracle green"
+    },
+    {
+      "id": "OBS-008",
+      "evidenceKind": "ANALYTICS_CONTRACT",
+      "oracle": {
+        "kind": "ANALYTICS_CONTRACT",
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
+      },
+      "testCase": "OBS-008 executes ANALYTICS_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "analytics",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-008"
+    },
+    {
+      "id": "OBS-009",
+      "evidenceKind": "ANALYTICS_CONTRACT",
+      "oracle": {
+        "kind": "ANALYTICS_CONTRACT",
+        "expected": "PASS",
+        "input": "packages/contracts/src/analytics.ts"
+      },
+      "testCase": "OBS-009 executes ANALYTICS_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "analytics",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-009"
+    },
+    {
+      "id": "OBS-010",
+      "evidenceKind": "RULESET_PARSE",
+      "oracle": {
+        "kind": "RULESET_PARSE",
+        "expected": "PASS",
+        "input": "config/ruleset.v1.json",
+        "assertions": [
+          {
+            "pointer": "/time/reconnectForfeitMs",
+            "expected": 15000
+          }
+        ]
+      },
+      "testCase": "OBS-010 executes ANALYTICS_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact ruleset predicate green"
+    },
+    {
+      "id": "OBS-011",
+      "evidenceKind": "ANALYTICS_CONTRACT",
+      "oracle": {
+        "kind": "ANALYTICS_CONTRACT",
+        "expected": "PASS",
+        "input": "OBS-011"
+      },
+      "testCase": "OBS-011 executes ANALYTICS_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "game-state",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact direct behavioral oracle green"
+    },
+    {
+      "id": "OBS-012",
+      "evidenceKind": "ANALYTICS_CONTRACT",
+      "oracle": {
+        "kind": "ANALYTICS_CONTRACT",
+        "expected": "PASS",
+        "input": "OBS-012"
+      },
+      "testCase": "OBS-012 executes ANALYTICS_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "game-state",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact direct behavioral oracle green"
+    },
+    {
+      "id": "OBS-013",
+      "evidenceKind": "ANALYTICS_CONTRACT",
+      "oracle": {
+        "kind": "ANALYTICS_CONTRACT",
+        "expected": "PASS",
+        "input": "OBS-013"
+      },
+      "testCase": "OBS-013 executes ANALYTICS_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "game-state",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact direct behavioral oracle green"
+    },
+    {
+      "id": "OBS-014",
+      "evidenceKind": "ANALYTICS_CONTRACT",
+      "oracle": {
+        "kind": "ANALYTICS_CONTRACT",
+        "expected": "PASS",
+        "input": "OBS-014"
+      },
+      "testCase": "OBS-014 executes ANALYTICS_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "analytics",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact direct behavioral oracle green"
+    },
+    {
+      "id": "OBS-015",
+      "evidenceKind": "ANALYTICS_CONTRACT",
+      "oracle": {
+        "kind": "ANALYTICS_CONTRACT",
+        "expected": "PASS",
+        "input": "OBS-015"
+      },
+      "testCase": "OBS-015 executes ANALYTICS_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "analytics",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact direct behavioral oracle green",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "TARGET_REGION_SOAK",
+        "closureCondition": "Run target-region 200-match/400-socket 30-minute production soak",
+        "localEvidenceScope": "DETERMINISTIC_LOCAL_NOT_PRODUCTION"
+      }
+    },
+    {
+      "id": "DATA-001",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-001"
+      },
+      "testCase": "DATA-001 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-001"
+    },
+    {
+      "id": "DATA-002",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-002"
+      },
+      "testCase": "DATA-002 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-002"
+    },
+    {
+      "id": "DATA-003",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-003"
+      },
+      "testCase": "DATA-003 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-003"
+    },
+    {
+      "id": "DATA-004",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-004"
+      },
+      "testCase": "DATA-004 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-004"
+    },
+    {
+      "id": "DATA-005",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-005"
+      },
+      "testCase": "DATA-005 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-005"
+    },
+    {
+      "id": "DATA-006",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-006"
+      },
+      "testCase": "DATA-006 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-006"
+    },
+    {
+      "id": "DATA-007",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-007"
+      },
+      "testCase": "DATA-007 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-007"
+    },
+    {
+      "id": "DATA-008",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-008"
+      },
+      "testCase": "DATA-008 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact local quarantine projection green; external legal approval remains independent",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "LEGAL_APPROVAL",
+        "closureCondition": "Approve legal basis, maximum retention, access audit, and account-deletion nested-identifier removal before production legacy migration",
+        "localEvidenceScope": "REPOSITORY_LOCAL_QUARANTINE_ONLY"
+      }
+    },
+    {
+      "id": "DATA-009",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-009"
+      },
+      "testCase": "DATA-009 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-009"
+    },
+    {
+      "id": "DATA-010",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-010"
+      },
+      "testCase": "DATA-010 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep deployment_role exact single-function grant and specialized role split green"
+    },
+    {
+      "id": "DATA-011",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-011"
+      },
+      "testCase": "DATA-011 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep app_server exact single-function grant and specialized role split green"
+    },
+    {
+      "id": "DATA-012",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-012"
+      },
+      "testCase": "DATA-012 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-012"
+    },
+    {
+      "id": "DATA-013",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-013"
+      },
+      "testCase": "DATA-013 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-013"
+    },
+    {
+      "id": "DATA-014",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-014"
+      },
+      "testCase": "DATA-014 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-014"
+    },
+    {
+      "id": "DATA-015",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-015"
+      },
+      "testCase": "DATA-015 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-015"
+    },
+    {
+      "id": "DATA-016",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-016"
+      },
+      "testCase": "DATA-016 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-016"
+    },
+    {
+      "id": "DATA-017",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-017"
+      },
+      "testCase": "DATA-017 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-017"
+    },
+    {
+      "id": "DATA-018",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-018"
+      },
+      "testCase": "DATA-018 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-018"
+    },
+    {
+      "id": "DATA-019",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-019"
+      },
+      "testCase": "DATA-019 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-019"
+    },
+    {
+      "id": "DATA-020",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-020"
+      },
+      "testCase": "DATA-020 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-020"
+    },
+    {
+      "id": "DATA-021",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-021"
+      },
+      "testCase": "DATA-021 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-021"
+    },
+    {
+      "id": "DATA-022",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-022"
+      },
+      "testCase": "DATA-022 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep the exact G3 receipt/journal/snapshot/timer/outbox transaction and fault-boundary projection green"
+    },
+    {
+      "id": "DATA-023",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-023"
+      },
+      "testCase": "DATA-023 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-023"
+    },
+    {
+      "id": "DATA-024",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-024"
+      },
+      "testCase": "DATA-024 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-024"
+    },
+    {
+      "id": "DATA-025",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-025"
+      },
+      "testCase": "DATA-025 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-025"
+    },
+    {
+      "id": "DATA-026",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-026"
+      },
+      "testCase": "DATA-026 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-026"
+    },
+    {
+      "id": "DATA-027",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-027"
+      },
+      "testCase": "DATA-027 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-027"
+    },
+    {
+      "id": "DATA-028",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-028"
+      },
+      "testCase": "DATA-028 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-028"
+    },
+    {
+      "id": "DATA-029",
+      "evidenceKind": "DB_PROJECTION",
+      "oracle": {
+        "kind": "DB_PROJECTION",
+        "expected": "PASS",
+        "input": "DATA-029"
+      },
+      "testCase": "DATA-029 executes DB_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-029"
+    },
+    {
+      "id": "API-005",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-005"
+      },
+      "testCase": "API-005 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep aggregate REST bearer/idempotency and socket ack/redaction/privacy predicates green",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PROVIDER_CREDENTIALS",
+        "closureCondition": "Run authenticated live gateway REST and Socket E2E with deployment credentials",
+        "localEvidenceScope": "REPOSITORY_LOCAL_WIRE_CONTRACT_ONLY"
+      }
+    },
+    {
+      "id": "API-001",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-001"
+      },
+      "testCase": "API-001 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Exact REST operation, bearer, idempotency, schema, status, and error-code projection is repository-verified"
+    },
+    {
+      "id": "API-002",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-002"
+      },
+      "testCase": "API-002 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Exact REST operation, bearer, idempotency, schema, status, and error-code projection is repository-verified"
+    },
+    {
+      "id": "API-003",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-003"
+      },
+      "testCase": "API-003 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Exact REST operation, bearer, idempotency, schema, status, and error-code projection is repository-verified"
+    },
+    {
+      "id": "API-004",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-004"
+      },
+      "testCase": "API-004 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Exact REST operation, bearer, idempotency, schema, status, and error-code projection is repository-verified"
+    },
+    {
+      "id": "API-006",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-006"
+      },
+      "testCase": "API-006 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Exact REST operation, bearer, idempotency, schema, status, and error-code projection is repository-verified"
+    },
+    {
+      "id": "API-007",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-007"
+      },
+      "testCase": "API-007 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Exact REST operation, bearer, idempotency, schema, status, and error-code projection is repository-verified"
+    },
+    {
+      "id": "API-008",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-008"
+      },
+      "testCase": "API-008 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Exact REST operation, bearer, idempotency, schema, status, and error-code projection is repository-verified"
+    },
+    {
+      "id": "API-009",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-009"
+      },
+      "testCase": "API-009 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Exact REST operation, bearer, idempotency, schema, status, and error-code projection is repository-verified"
+    },
+    {
+      "id": "API-010",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-010"
+      },
+      "testCase": "API-010 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-010"
+    },
+    {
+      "id": "API-011",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-011"
+      },
+      "testCase": "API-011 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-011"
+    },
+    {
+      "id": "API-012",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-012"
+      },
+      "testCase": "API-012 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-012"
+    },
+    {
+      "id": "API-013",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-013"
+      },
+      "testCase": "API-013 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-013"
+    },
+    {
+      "id": "API-014",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-014"
+      },
+      "testCase": "API-014 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-014"
+    },
+    {
+      "id": "API-015",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-015"
+      },
+      "testCase": "API-015 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-015"
+    },
+    {
+      "id": "API-016",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-016"
+      },
+      "testCase": "API-016 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-016"
+    },
+    {
+      "id": "API-017",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-017"
+      },
+      "testCase": "API-017 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-017"
+    },
+    {
+      "id": "API-018",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-018"
+      },
+      "testCase": "API-018 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-018"
+    },
+    {
+      "id": "API-019",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-019"
+      },
+      "testCase": "API-019 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-019"
+    },
+    {
+      "id": "API-020",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-020"
+      },
+      "testCase": "API-020 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-020"
+    },
+    {
+      "id": "API-021",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-021"
+      },
+      "testCase": "API-021 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-021"
+    },
+    {
+      "id": "API-022",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-022"
+      },
+      "testCase": "API-022 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-022"
+    },
+    {
+      "id": "API-023",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-023"
+      },
+      "testCase": "API-023 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-023"
+    },
+    {
+      "id": "API-024",
+      "evidenceKind": "OPENAPI_PROJECTION",
+      "oracle": {
+        "kind": "OPENAPI_PROJECTION",
+        "expected": "PASS",
+        "input": "API-024"
+      },
+      "testCase": "API-024 executes OPENAPI_PROJECTION",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "api",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local OPENAPI_PROJECTION oracle for API-024"
+    },
+    {
+      "id": "CONTENT-001",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-001"
+      },
+      "testCase": "CONTENT-001 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-001"
+    },
+    {
+      "id": "CONTENT-002",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-002"
+      },
+      "testCase": "CONTENT-002 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-002"
+    },
+    {
+      "id": "CONTENT-003",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-003"
+      },
+      "testCase": "CONTENT-003 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-003"
+    },
+    {
+      "id": "CONTENT-004",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-004"
+      },
+      "testCase": "CONTENT-004 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-004"
+    },
+    {
+      "id": "CONTENT-005",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-005"
+      },
+      "testCase": "CONTENT-005 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-005"
+    },
+    {
+      "id": "CONTENT-006",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-006"
+      },
+      "testCase": "CONTENT-006 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-006"
+    },
+    {
+      "id": "CONTENT-007",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-007"
+      },
+      "testCase": "CONTENT-007 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-007"
+    },
+    {
+      "id": "CONTENT-008",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-008"
+      },
+      "testCase": "CONTENT-008 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-008"
+    },
+    {
+      "id": "CONTENT-009",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-009"
+      },
+      "testCase": "CONTENT-009 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-009"
+    },
+    {
+      "id": "CONTENT-010",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-010"
+      },
+      "testCase": "CONTENT-010 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact code-point, UTF-8 byte, and off-by-one predicates green across wire and reducer ingress"
+    },
+    {
+      "id": "CONTENT-011",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-011"
+      },
+      "testCase": "CONTENT-011 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-011"
+    },
+    {
+      "id": "CONTENT-012",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-012"
+      },
+      "testCase": "CONTENT-012 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-012"
+    },
+    {
+      "id": "CONTENT-013",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-013"
+      },
+      "testCase": "CONTENT-013 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact versioned origin and content-addressed URL validator mutations green",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PROVIDER_CREDENTIALS",
+        "closureCondition": "Verify production CDN origins and admission registration with deployment credentials",
+        "localEvidenceScope": "LOCAL_ORIGIN_POLICY_ONLY"
+      }
+    },
+    {
+      "id": "CONTENT-014",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-014"
+      },
+      "testCase": "CONTENT-014 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-014"
+    },
+    {
+      "id": "CONTENT-015",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-015"
+      },
+      "testCase": "CONTENT-015 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-015"
+    },
+    {
+      "id": "CONTENT-016",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-016"
+      },
+      "testCase": "CONTENT-016 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-016"
+    },
+    {
+      "id": "CONTENT-017",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-017"
+      },
+      "testCase": "CONTENT-017 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-017"
+    },
+    {
+      "id": "CONTENT-018",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-018"
+      },
+      "testCase": "CONTENT-018 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-018"
+    },
+    {
+      "id": "CONTENT-019",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-019"
+      },
+      "testCase": "CONTENT-019 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-019"
+    },
+    {
+      "id": "CONTENT-020",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-020"
+      },
+      "testCase": "CONTENT-020 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-020"
+    },
+    {
+      "id": "CONTENT-021",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-021"
+      },
+      "testCase": "CONTENT-021 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-021"
+    },
+    {
+      "id": "CONTENT-022",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-022"
+      },
+      "testCase": "CONTENT-022 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-022"
+    },
+    {
+      "id": "CONTENT-023",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-023"
+      },
+      "testCase": "CONTENT-023 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-023"
+    },
+    {
+      "id": "CONTENT-024",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-024"
+      },
+      "testCase": "CONTENT-024 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-024"
+    },
+    {
+      "id": "CONTENT-025",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-025"
+      },
+      "testCase": "CONTENT-025 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-025"
+    },
+    {
+      "id": "CONTENT-026",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-026"
+      },
+      "testCase": "CONTENT-026 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-026"
+    },
+    {
+      "id": "CONTENT-027",
+      "evidenceKind": "CONTENT_SCHEMA",
+      "oracle": {
+        "kind": "CONTENT_SCHEMA",
+        "expected": "PASS",
+        "input": "CONTENT-027"
+      },
+      "testCase": "CONTENT-027 executes CONTENT_SCHEMA",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-027"
+    },
+    {
+      "id": "QA-001",
+      "evidenceKind": "RELEASE_HARNESS",
+      "oracle": {
+        "kind": "RELEASE_HARNESS",
+        "expected": "PASS",
+        "input": "QA-001"
+      },
+      "testCase": "QA-001 executes RELEASE_HARNESS",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-001"
+    },
+    {
+      "id": "QA-002",
+      "evidenceKind": "RELEASE_HARNESS",
+      "oracle": {
+        "kind": "RELEASE_HARNESS",
+        "expected": "PASS",
+        "input": "QA-002"
+      },
+      "testCase": "QA-002 executes RELEASE_HARNESS",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-002"
+    },
+    {
+      "id": "QA-003",
+      "evidenceKind": "RELEASE_HARNESS",
+      "oracle": {
+        "kind": "RELEASE_HARNESS",
+        "expected": "PASS",
+        "input": "QA-003"
+      },
+      "testCase": "QA-003 executes RELEASE_HARNESS",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-003"
+    },
+    {
+      "id": "QA-004",
+      "evidenceKind": "RELEASE_HARNESS",
+      "oracle": {
+        "kind": "RELEASE_HARNESS",
+        "expected": "PASS",
+        "input": "QA-004"
+      },
+      "testCase": "QA-004 executes RELEASE_HARNESS",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-004"
+    },
+    {
+      "id": "QA-005",
+      "evidenceKind": "RELEASE_HARNESS",
+      "oracle": {
+        "kind": "RELEASE_HARNESS",
+        "expected": "PASS",
+        "input": "QA-005"
+      },
+      "testCase": "QA-005 executes RELEASE_HARNESS",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-005"
+    },
+    {
+      "id": "QA-006",
+      "evidenceKind": "RELEASE_HARNESS",
+      "oracle": {
+        "kind": "RELEASE_HARNESS",
+        "expected": "PASS",
+        "input": "QA-006"
+      },
+      "testCase": "QA-006 executes RELEASE_HARNESS",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-006"
+    },
+    {
+      "id": "QA-007",
+      "evidenceKind": "RELEASE_HARNESS",
+      "oracle": {
+        "kind": "RELEASE_HARNESS",
+        "expected": "PASS",
+        "input": "QA-007"
+      },
+      "testCase": "QA-007 executes RELEASE_HARNESS",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-007"
+    },
+    {
+      "id": "QA-008",
+      "evidenceKind": "RELEASE_HARNESS",
+      "oracle": {
+        "kind": "RELEASE_HARNESS",
+        "expected": "PASS",
+        "input": "QA-008"
+      },
+      "testCase": "QA-008 executes RELEASE_HARNESS",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-008"
+    },
+    {
+      "id": "QA-009",
+      "evidenceKind": "RELEASE_HARNESS",
+      "oracle": {
+        "kind": "RELEASE_HARNESS",
+        "expected": "PASS",
+        "input": "QA-009"
+      },
+      "testCase": "QA-009 executes RELEASE_HARNESS",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-009"
+    },
+    {
+      "id": "QA-010",
+      "evidenceKind": "RELEASE_HARNESS",
+      "oracle": {
+        "kind": "RELEASE_HARNESS",
+        "expected": "PASS",
+        "input": "QA-010"
+      },
+      "testCase": "QA-010 executes RELEASE_HARNESS",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-010"
+    },
+    {
+      "id": "QA-011",
+      "evidenceKind": "RELEASE_HARNESS",
+      "oracle": {
+        "kind": "RELEASE_HARNESS",
+        "expected": "PASS",
+        "input": "QA-011"
+      },
+      "testCase": "QA-011 executes RELEASE_HARNESS",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-011"
+    },
+    {
+      "id": "QA-012",
+      "evidenceKind": "RELEASE_HARNESS",
+      "oracle": {
+        "kind": "RELEASE_HARNESS",
+        "expected": "PASS",
+        "input": "QA-012"
+      },
+      "testCase": "QA-012 executes RELEASE_HARNESS",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-012"
+    },
+    {
+      "id": "QA-013",
+      "evidenceKind": "RELEASE_HARNESS",
+      "oracle": {
+        "kind": "RELEASE_HARNESS",
+        "expected": "PASS",
+        "input": "QA-013"
+      },
+      "testCase": "QA-013 executes RELEASE_HARNESS",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-013"
+    },
+    {
+      "id": "QA-014",
+      "evidenceKind": "RELEASE_HARNESS",
+      "oracle": {
+        "kind": "RELEASE_HARNESS",
+        "expected": "PASS",
+        "input": "QA-014"
+      },
+      "testCase": "QA-014 executes RELEASE_HARNESS",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-014"
+    },
+    {
+      "id": "QA-015",
+      "evidenceKind": "RELEASE_HARNESS",
+      "oracle": {
+        "kind": "RELEASE_HARNESS",
+        "expected": "PASS",
+        "input": "QA-015"
+      },
+      "testCase": "QA-015 executes RELEASE_HARNESS",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-015"
+    },
+    {
+      "id": "DOC-068",
+      "evidenceKind": "DOCUMENT_INVENTORY",
+      "oracle": {
+        "kind": "DOCUMENT_INVENTORY",
+        "expected": "PASS",
+        "input": "DOC-068"
+      },
+      "testCase": "DOC-068 executes DOCUMENT_INVENTORY",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "documentation",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact local manifest/inventory oracle green for DOC-068"
+    },
+    {
+      "id": "DOC-069",
+      "evidenceKind": "DOCUMENT_INVENTORY",
+      "oracle": {
+        "kind": "DOCUMENT_INVENTORY",
+        "expected": "BLOCKED",
+        "input": "DOC-069"
+      },
+      "testCase": "DOC-069 executes DOCUMENT_INVENTORY",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "server-platform",
+      "phase": "FUTURE",
+      "closureCondition": "Add NestJS and Socket.IO package surfaces",
+      "closureArtifact": "tests/requirements/DOC-069.test.ts",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "DOC-070",
+      "evidenceKind": "DOCUMENT_INVENTORY",
+      "oracle": {
+        "kind": "DOCUMENT_INVENTORY",
+        "expected": "PASS",
+        "input": "DOC-070"
+      },
+      "testCase": "DOC-070 executes DOCUMENT_INVENTORY",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "documentation",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact local manifest/inventory oracle green for DOC-070"
+    },
+    {
+      "id": "DOC-071",
+      "evidenceKind": "DOCUMENT_INVENTORY",
+      "oracle": {
+        "kind": "DOCUMENT_INVENTORY",
+        "expected": "BLOCKED",
+        "input": "DOC-071"
+      },
+      "testCase": "DOC-071 executes DOCUMENT_INVENTORY",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "server-platform",
+      "phase": "FUTURE",
+      "closureCondition": "Add Redis package and integration surface",
+      "closureArtifact": "tests/requirements/DOC-071.test.ts",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "DOC-072",
+      "evidenceKind": "DOCUMENT_INVENTORY",
+      "oracle": {
+        "kind": "DOCUMENT_INVENTORY",
+        "expected": "BLOCKED",
+        "input": "DOC-072"
+      },
+      "testCase": "DOC-072 executes DOCUMENT_INVENTORY",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "admin-platform",
+      "phase": "FUTURE",
+      "closureCondition": "Add Next.js admin package surface",
+      "closureArtifact": "tests/requirements/DOC-072.test.ts",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "DOC-073",
+      "evidenceKind": "DOCUMENT_INVENTORY",
+      "oracle": {
+        "kind": "DOCUMENT_INVENTORY",
+        "expected": "BLOCKED",
+        "input": "DOC-073"
+      },
+      "testCase": "DOC-073 executes DOCUMENT_INVENTORY",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "EXTERNAL:PRODUCT_DECISION",
+      "lifecycle": "EXTERNAL",
+      "evidenceOwner": "product-analytics",
+      "phase": "EXTERNAL",
+      "closureCondition": "Record provider decision and implement selected analytics adapter",
+      "externalKind": "PRODUCT_DECISION",
+      "localSubstitute": "evidence/external/DOC-073.json"
+    },
+    {
+      "id": "DOC-074",
+      "evidenceKind": "DOCUMENT_INVENTORY",
+      "oracle": {
+        "kind": "DOCUMENT_INVENTORY",
+        "expected": "BLOCKED",
+        "input": "DOC-074"
+      },
+      "testCase": "DOC-074 executes DOCUMENT_INVENTORY",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DOCUMENT_INVENTORY",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "observability",
+      "phase": "FUTURE",
+      "closureCondition": "Implement and contract-test Sentry integration",
+      "closureArtifact": "tests/requirements/DOC-074.test.ts",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "DOC-088",
+      "evidenceKind": "DOCUMENT_INVENTORY",
+      "oracle": {
+        "kind": "DOCUMENT_INVENTORY",
+        "expected": "PASS",
+        "input": "DOC-088"
+      },
+      "testCase": "DOC-088 executes DOCUMENT_INVENTORY",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "documentation",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep exact local manifest/inventory oracle green for DOC-088"
+    },
+    {
+      "id": "ENV-012",
+      "evidenceKind": "RUNTIME_GATE",
+      "oracle": {
+        "kind": "RUNTIME_GATE",
+        "expected": "BLOCKED",
+        "input": "ENV-012"
+      },
+      "testCase": "ENV-012 executes RUNTIME_GATE",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "release-governance",
+      "phase": "FUTURE",
+      "closureCondition": "Deliver gate-based roadmap requirement ENV-012",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PRODUCT_DECISION",
+        "closureCondition": "Approve scope and staffing for roadmap gate ENV-012",
+        "localEvidenceScope": "ROADMAP_ORDER_ONLY"
+      },
+      "closureArtifact": "docs/approvals/env-012-approval.json",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "ENV-013",
+      "evidenceKind": "RUNTIME_GATE",
+      "oracle": {
+        "kind": "RUNTIME_GATE",
+        "expected": "BLOCKED",
+        "input": "ENV-013"
+      },
+      "testCase": "ENV-013 executes RUNTIME_GATE",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "release-governance",
+      "phase": "FUTURE",
+      "closureCondition": "Deliver gate-based roadmap requirement ENV-013",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PRODUCT_DECISION",
+        "closureCondition": "Approve scope and staffing for roadmap gate ENV-013",
+        "localEvidenceScope": "ROADMAP_ORDER_ONLY"
+      },
+      "closureArtifact": "docs/approvals/env-013-approval.json",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "ENV-014",
+      "evidenceKind": "RUNTIME_GATE",
+      "oracle": {
+        "kind": "RUNTIME_GATE",
+        "expected": "BLOCKED",
+        "input": "ENV-014"
+      },
+      "testCase": "ENV-014 executes RUNTIME_GATE",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "release-governance",
+      "phase": "FUTURE",
+      "closureCondition": "Deliver gate-based roadmap requirement ENV-014",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PRODUCT_DECISION",
+        "closureCondition": "Approve scope and staffing for roadmap gate ENV-014",
+        "localEvidenceScope": "ROADMAP_ORDER_ONLY"
+      },
+      "closureArtifact": "docs/approvals/env-014-approval.json",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "ENV-015",
+      "evidenceKind": "RUNTIME_GATE",
+      "oracle": {
+        "kind": "RUNTIME_GATE",
+        "expected": "BLOCKED",
+        "input": "ENV-015"
+      },
+      "testCase": "ENV-015 executes RUNTIME_GATE",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "release-governance",
+      "phase": "FUTURE",
+      "closureCondition": "Deliver gate-based roadmap requirement ENV-015",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PRODUCT_DECISION",
+        "closureCondition": "Approve scope and staffing for roadmap gate ENV-015",
+        "localEvidenceScope": "ROADMAP_ORDER_ONLY"
+      },
+      "closureArtifact": "docs/approvals/env-015-approval.json",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "ENV-016",
+      "evidenceKind": "RUNTIME_GATE",
+      "oracle": {
+        "kind": "RUNTIME_GATE",
+        "expected": "BLOCKED",
+        "input": "ENV-016"
+      },
+      "testCase": "ENV-016 executes RUNTIME_GATE",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "release-governance",
+      "phase": "FUTURE",
+      "closureCondition": "Deliver gate-based roadmap requirement ENV-016",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PRODUCT_DECISION",
+        "closureCondition": "Approve scope and staffing for roadmap gate ENV-016",
+        "localEvidenceScope": "ROADMAP_ORDER_ONLY"
+      },
+      "closureArtifact": "docs/approvals/env-016-approval.json",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "ENV-017",
+      "evidenceKind": "RUNTIME_GATE",
+      "oracle": {
+        "kind": "RUNTIME_GATE",
+        "expected": "BLOCKED",
+        "input": "ENV-017"
+      },
+      "testCase": "ENV-017 executes RUNTIME_GATE",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "release-governance",
+      "phase": "FUTURE",
+      "closureCondition": "Deliver gate-based roadmap requirement ENV-017",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PRODUCT_DECISION",
+        "closureCondition": "Approve scope and staffing for roadmap gate ENV-017",
+        "localEvidenceScope": "ROADMAP_ORDER_ONLY"
+      },
+      "closureArtifact": "docs/approvals/env-017-approval.json",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "ENV-018",
+      "evidenceKind": "RUNTIME_GATE",
+      "oracle": {
+        "kind": "RUNTIME_GATE",
+        "expected": "BLOCKED",
+        "input": "ENV-018"
+      },
+      "testCase": "ENV-018 executes RUNTIME_GATE",
+      "metric": "release_requirement_gate_status",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:RUNTIME_ROADMAP",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "release-governance",
+      "phase": "FUTURE",
+      "closureCondition": "Deliver gate-based roadmap requirement ENV-018",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PRODUCT_DECISION",
+        "closureCondition": "Approve scope and staffing for roadmap gate ENV-018",
+        "localEvidenceScope": "ROADMAP_ORDER_ONLY"
+      },
+      "closureArtifact": "docs/approvals/env-018-approval.json",
+      "closureArtifactState": "ABSENT"
+    },
+    {
+      "id": "ENV-019",
+      "evidenceKind": "ROADMAP_CONTRACT",
+      "oracle": {
+        "kind": "ROADMAP_CONTRACT",
+        "expected": "PASS",
+        "input": "ENV-019"
+      },
+      "testCase": "ENV-019 executes ROADMAP_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release-governance",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep retired-roadmap governance assertion green for ENV-019"
+    },
+    {
+      "id": "ENV-020",
+      "evidenceKind": "ROADMAP_CONTRACT",
+      "oracle": {
+        "kind": "ROADMAP_CONTRACT",
+        "expected": "PASS",
+        "input": "ENV-020"
+      },
+      "testCase": "ENV-020 executes ROADMAP_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release-governance",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep retired-roadmap governance assertion green for ENV-020"
+    },
+    {
+      "id": "ENV-021",
+      "evidenceKind": "ROADMAP_CONTRACT",
+      "oracle": {
+        "kind": "ROADMAP_CONTRACT",
+        "expected": "PASS",
+        "input": "ENV-021"
+      },
+      "testCase": "ENV-021 executes ROADMAP_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release-governance",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep retired-roadmap governance assertion green for ENV-021"
+    },
+    {
+      "id": "ENV-022",
+      "evidenceKind": "ROADMAP_CONTRACT",
+      "oracle": {
+        "kind": "ROADMAP_CONTRACT",
+        "expected": "PASS",
+        "input": "ENV-022"
+      },
+      "testCase": "ENV-022 executes ROADMAP_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release-governance",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep retired-roadmap governance assertion green for ENV-022"
+    },
+    {
+      "id": "ENV-023",
+      "evidenceKind": "ROADMAP_CONTRACT",
+      "oracle": {
+        "kind": "ROADMAP_CONTRACT",
+        "expected": "PASS",
+        "input": "ENV-023"
+      },
+      "testCase": "ENV-023 executes ROADMAP_CONTRACT",
+      "metric": "release_requirement_gate_status",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "release-governance",
+      "phase": "IMPLEMENTED",
+      "closureCondition": "Keep retired-roadmap governance assertion green for ENV-023"
+    }
+  ],
+  "provenance": "CURATED_MAPPING_WITHOUT_REVIEW_ATTESTATION"
+}

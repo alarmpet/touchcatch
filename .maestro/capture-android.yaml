@@ -1,0 +1,6 @@
+appId: com.touchcatch.mobile
+---
+- launchApp:
+    clearState: true
+- assertVisible: "Battle"
+- takeScreenshot: ${UI_OUTPUT}

@@ -8,12 +8,14 @@ import { fileTypeFromBuffer } from 'file-type';
 import sharp from 'sharp';
 import {
   ASSET_PUBLISH_LIMITS_V1,
+  CONTENT_CARDINALITY_V1,
   CONTENT_TEXT_LIMITS_V1,
   CONTENT_VALIDATOR_VERSION,
   canonicalJson,
   canonicalJsonSha256,
   containsDisallowedControl,
   normalizeFinalAnswer,
+  parseContentAssetOrigins,
   privateGameSolutionSchema,
   publicGameContentSchema,
   rightsManifestSetSchema,
@@ -21,11 +23,22 @@ import {
   type ContentValidationResult,
 } from '../../contracts/src/index.js';
 
-type ValidationOptions = {
+export type ValidationOptions = {
   fixturePath: string;
   assetRoot: string;
   allowedAssetOrigins: readonly string[];
 };
+
+export const CONTENT_REQUIREMENT_CASES = {
+  'CONTENT-011': [['null-images.json','SCHEMA_PUBLIC']],
+  'CONTENT-012': [['revision-mismatch.json','REVISION_MISMATCH'],['private-hash-mismatch.json','PRIVATE_SOLUTION_HASH']],
+  'CONTENT-013': [['asset-query-url.json','ASSET_URL_POLICY'],['asset-url-extension-mismatch.json','ASSET_URL_POLICY'],['asset-path-traversal.json','ASSET_URL_POLICY']],
+  'CONTENT-014': [['asset-path-traversal.json','ASSET_URL_POLICY']],
+  'CONTENT-015': [['declared-hash-mismatch.json','ASSET_HASH_MISMATCH'],['encoded-byte-mismatch.json','ASSET_SIZE_MISMATCH'],['mime-mismatch.json','ASSET_MIME_MISMATCH']],
+  'CONTENT-016': [['polyglot-trailing-bytes.json','ASSET_CONTAINER_END'],['truncated-image.json','ASSET_CONTAINER_INVALID'],['animated-apng.json','ANIMATED_ASSET'],['rotated-jpeg.json','ASSET_ORIENTATION'],['oversized-header-dimension.json','ASSET_DIMENSION_LIMIT']],
+  'CONTENT-017': [['dimension-mismatch.json','PAIR_DIMENSION_MISMATCH'],['tangent-hitboxes.json','HITBOX_OVERLAP'],['circle-out-of-bounds.json','HITBOX_BOUNDS']],
+  'CONTENT-018': [['difficulty-count.json','DIFFERENCE_CARDINALITY'],['word-hunt-count.json','WORD_HUNT_CARDINALITY'],['duplicate-objective-id.json','OBJECTIVE_ID_UNIQUE'],['missing-correct-option.json','CORRECT_OPTION']],
+} as const;
 
 type Circle = { cx: number; cy: number; r: number };
 type Asset = {
@@ -41,13 +54,7 @@ const workspaceRoot = resolve(fileURLToPath(new URL('../../..', import.meta.url)
 function configuredAssetOrigins(): readonly string[] {
   const configured = process.env.CONTENT_ASSET_ORIGINS?.split(',').map((value) => value.trim()).filter(Boolean);
   if (configured?.length) {
-    for (const origin of configured) {
-      const parsed = new URL(origin);
-      if (parsed.protocol !== 'https:' || parsed.origin !== origin || parsed.pathname !== '/' || parsed.port !== '') {
-        throw new Error('CONTENT_ASSET_ORIGINS must contain comma-separated HTTPS origins without paths');
-      }
-    }
-    return configured;
+    return parseContentAssetOrigins(configured.join(','));
   }
   if (process.env.NODE_ENV === 'production') throw new Error('CONTENT_ASSET_ORIGINS is required in production');
   return ['https://cdn.spot-learn.test'];
@@ -372,11 +379,11 @@ export async function validateFixtureObject(value: unknown, options: ValidationO
   const differences = Array.isArray(privateSolution.differences) ? privateSolution.differences : [];
   const normalCount = differences.filter((entry) => isRecord(entry) && entry.tier === 'NORMAL').length;
   const hardCount = differences.filter((entry) => isRecord(entry) && entry.tier === 'HARD').length;
-  if (normalCount !== 7 || hardCount !== 3) addError(errors, '/privateSolution/differences', 'DIFFERENCE_CARDINALITY', 'differences must contain 7 NORMAL and 3 HARD objectives');
+  if (normalCount !== CONTENT_CARDINALITY_V1.normalDifferences || hardCount !== CONTENT_CARDINALITY_V1.hardDifferences) addError(errors, '/privateSolution/differences', 'DIFFERENCE_CARDINALITY', `differences must contain ${CONTENT_CARDINALITY_V1.normalDifferences} NORMAL and ${CONTENT_CARDINALITY_V1.hardDifferences} HARD objectives`);
   const wordHunts = Array.isArray(privateSolution.wordHunts) ? privateSolution.wordHunts : [];
   const normalWords = wordHunts.filter((entry) => isRecord(entry) && entry.kind === 'NORMAL').length;
   const specialWords = wordHunts.filter((entry) => isRecord(entry) && entry.kind === 'SPECIAL').length;
-  if (wordHunts.length !== 3 || normalWords !== 2 || specialWords !== 1) addError(errors, '/privateSolution/wordHunts', 'WORD_HUNT_CARDINALITY', 'word hunts must contain 2 NORMAL and 1 SPECIAL objectives');
+  if (wordHunts.length !== CONTENT_CARDINALITY_V1.wordHunts || normalWords !== CONTENT_CARDINALITY_V1.wordHunts - 1 || specialWords !== 1) addError(errors, '/privateSolution/wordHunts', 'WORD_HUNT_CARDINALITY', `word hunts must contain ${CONTENT_CARDINALITY_V1.wordHunts - 1} NORMAL and 1 SPECIAL objectives`);
 
   const objectives = [...differences, ...wordHunts, ...(isRecord(privateSolution.suddenDeath) ? [privateSolution.suddenDeath] : [])];
   const ids = objectives.map((entry) => isRecord(entry) ? (entry.objectiveId ?? entry.missionId) : undefined).filter((id): id is string => typeof id === 'string');

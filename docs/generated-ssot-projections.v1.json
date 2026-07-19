@@ -1,0 +1,709 @@
+{
+  "schemaVersion": 1,
+  "generated": true,
+  "projections": [
+    {
+      "file": "config/ruleset.v1.json",
+      "sha256": "598e59e81b592d5f3074a692f51861583fe082e8dd9bffb5c1ad0aad93937e2a",
+      "value": {
+        "rulesetVersion": "1.0.0",
+        "targetScore": 100,
+        "scoreFloor": 0,
+        "time": {
+          "assetLoadMs": 20000,
+          "countdownMs": 3000,
+          "playingMs": 75000,
+          "finalRushStartsAtMs": 60000,
+          "wordHuntMs": 5000,
+          "wordHuntRevealMs": 1200,
+          "meaningQuizMs": 5000,
+          "meaningSettlementCapMs": 80000,
+          "suddenDeathMs": 10000,
+          "reconnectForfeitMs": 15000
+        },
+        "score": {
+          "normalDifference": 6,
+          "hardDifference": 9,
+          "finalRushDifferenceMultiplier": 2,
+          "normalWordHunt": 10,
+          "specialWordHunt": 15,
+          "finalWord": 25,
+          "meaning": 15,
+          "combo": 10,
+          "wrongAnswer": -5,
+          "finalRushWrongAnswer": -10
+        },
+        "lockMs": {
+          "wrongAnswer": 2000,
+          "finalRushWrongAnswer": 1500
+        },
+        "wordHuntSchedule": [
+          {
+            "kind": "NORMAL",
+            "spawnWindowMs": [
+              16000,
+              22000
+            ]
+          },
+          {
+            "kind": "NORMAL",
+            "spawnWindowMs": [
+              34000,
+              42000
+            ]
+          },
+          {
+            "kind": "SPECIAL",
+            "spawnAtMs": 60000
+          }
+        ],
+        "limits": {
+          "maxBoardTapsPerSecond": 8
+        },
+        "hint": {
+          "creditsPerWordHuntWin": 1,
+          "charactersPerUse": 1,
+          "revealOrder": "MATCH_RANDOM_SCHEDULE"
+        },
+        "content": {
+          "normalDifferences": 7,
+          "hardDifferences": 3,
+          "wordHunts": 3
+        },
+        "finalChallenge": {
+          "unlock": {
+            "atMs": 12000,
+            "onDifferenceClaim": true,
+            "onWordHuntClaim": true
+          },
+          "maxWrongAttempts": 3,
+          "atomicScoring": true
+        },
+        "tieBreak": [
+          "SCORE",
+          "FINAL_PACKAGE_CORRECT",
+          "HARD_DIFFERENCES",
+          "FEWER_FINAL_ANSWER_ERRORS",
+          "SUDDEN_DEATH"
+        ]
+      }
+    },
+    {
+      "file": "config/economy.v1.json",
+      "sha256": "5351bb46c744286690b7f7ab18dd96e070991be1016b495b3db7d7b90b5a30ca",
+      "value": {
+        "schemaVersion": 1,
+        "economyVersion": "1.0.0",
+        "status": "DRAFT",
+        "catalogRevision": "catalog-v1",
+        "catalogHash": "138fe651ca0da29e24f95b4cd759e1f278e9cc196d721d421f6445ed00b83f55",
+        "pitySeriesId": "pity-50-150-v1",
+        "pitySemantics": {
+          "thresholds": {
+            "rareOrBetter": 50,
+            "legendary": 150
+          },
+          "counterIncrementTiming": "BEFORE_DRAW",
+          "counterIncrementSources": [
+            "DIRECT_DRAW"
+          ],
+          "hardPityOverlapPrecedence": "LEGENDARY",
+          "transformAlgorithmVersion": "simulation-policy-v0",
+          "rareOverrideRule": "COMMON_TO_RARE",
+          "legendaryOverrideRule": "ALWAYS_LEGENDARY",
+          "rareResetRule": "RARE_OR_BETTER",
+          "legendaryResetRule": "LEGENDARY_RESETS_BOTH",
+          "fusionAffectsPity": false,
+          "eligibleResultSemantics": "UNIFORM_WITHIN_RARITY"
+        },
+        "pitySemanticsHash": "9600dd70f78d5f92d30f7b61139a9703d4ca66b2852f022f3390fc0986a190e4",
+        "draw": {
+          "cost": 100,
+          "probabilities": {
+            "COMMON": 0.8,
+            "RARE": 0.18,
+            "LEGENDARY": 0.02
+          }
+        },
+        "fusion": {
+          "materialCount": 5,
+          "excludeSelected": true,
+          "excludeLocked": true
+        },
+        "exp": {
+          "win": 100,
+          "loss": 60,
+          "perfectWordMeaning": 40
+        },
+        "simulationPolicy": "simulation-policy-v0",
+        "rewardPolicies": {}
+      }
+    },
+    {
+      "file": "config/ui-screen-contract.v1.json",
+      "sha256": "bd77743e97a4558bcd1003694aaf9c561950cc44ab5ceab7b8380953867200ac",
+      "value": {
+        "contractVersion": "1.1.0",
+        "responsiveTokenPaths": [
+          "viewport",
+          "responsive"
+        ],
+        "componentIds": [
+          "ScreenScaffold",
+          "GradientHeader",
+          "SurfaceCard",
+          "CurrencyPillGroup",
+          "PetHeroCard",
+          "ActionCard",
+          "BottomTabBar",
+          "BattleScoreHeader",
+          "WordSlots",
+          "SpotBoardPair",
+          "MissionOverlay",
+          "BattleActionDock",
+          "MeaningResultModal",
+          "PetCollectionGrid",
+          "GachaPanel",
+          "FusionGuide"
+        ],
+        "componentPolicy": {
+          "viewModelOnly": true,
+          "computesServerState": false,
+          "emitsIntentOnly": true,
+          "pendingBeforeServerConfirmation": true,
+          "sampleValuesAuthoritative": false,
+          "states": [
+            "default",
+            "pressed",
+            "disabled",
+            "loading",
+            "success",
+            "error",
+            "locked",
+            "pending",
+            "offline",
+            "reconnecting",
+            "empty"
+          ]
+        },
+        "screens": {
+          "HOME_DEFAULT": {
+            "orderedBlockIds": [
+              "BRAND_HEADER",
+              "PROFILE_CURRENCY",
+              "PET_HERO",
+              "PRIMARY_ACTIONS",
+              "SECONDARY_MODES",
+              "DAILY_MISSION",
+              "LEARNING_MESSAGE",
+              "BOTTOM_TABS"
+            ],
+            "blocks": {
+              "BRAND_HEADER": [
+                "GradientHeader"
+              ],
+              "PROFILE_CURRENCY": [
+                "CurrencyPillGroup"
+              ],
+              "PET_HERO": [
+                "PetHeroCard"
+              ],
+              "PRIMARY_ACTIONS": [
+                "ActionCard"
+              ],
+              "SECONDARY_MODES": [
+                "ActionCard"
+              ],
+              "DAILY_MISSION": [
+                "SurfaceCard"
+              ],
+              "LEARNING_MESSAGE": [
+                "SurfaceCard"
+              ],
+              "BOTTOM_TABS": [
+                "BottomTabBar"
+              ]
+            },
+            "requiredBehaviorIds": [
+              "SOLE_HIGHEST_PRIORITY_CTA",
+              "SHAPE_PRESERVING_SKELETON",
+              "ERROR_REASON_DISABLED_STATE"
+            ],
+            "requiredContentRoles": [
+              "REPRESENTATIVE_PET",
+              "PET_LEVEL_EXP",
+              "QUICK_MATCH",
+              "FRIEND_MATCH",
+              "BOTTOM_TABS_HOME_PET_FUSION_COLLECTION"
+            ],
+            "forbiddenContentRoles": [],
+            "transitionClauses": [],
+            "accessibilityClauses": [
+              "LOGICAL_FOCUS_ORDER",
+              "SOLE_PRIMARY_ACTION_LABEL"
+            ]
+          },
+          "MATCH_WORD_HUNT": {
+            "orderedBlockIds": [
+              "HUD",
+              "WORD_SLOTS",
+              "BOARD_PAIR",
+              "ACTION_DOCK"
+            ],
+            "blocks": {
+              "HUD": [
+                "BattleScoreHeader"
+              ],
+              "WORD_SLOTS": [
+                "WordSlots"
+              ],
+              "BOARD_PAIR": [
+                "SpotBoardPair"
+              ],
+              "ACTION_DOCK": [
+                "BattleActionDock"
+              ],
+              "MISSION_OVERLAY": [
+                "MissionOverlay"
+              ]
+            },
+            "slots": {
+              "MISSION_OVERLAY": "OVERLAY"
+            },
+            "requiredBehaviorIds": [
+              "SYNCHRONIZED_UNCROPPED_CONTENT_RECT",
+              "SERVER_CONFIRMED_RING_AND_SCORE",
+              "MISSION_TRANSITION_1200MS",
+              "FINAL_RUSH_COORDINATE_INVARIANCE"
+            ],
+            "requiredContentRoles": [
+              "SCORES",
+              "TIMER",
+              "FINAL_ANSWER",
+              "HINT",
+              "TARGET_SCORE_100",
+              "FOUND_DIFFERENCE_RINGS",
+              "ANSWER_CHALLENGE"
+            ],
+            "forbiddenContentRoles": [
+              "PET_STATS",
+              "FUSION_MATERIALS",
+              "PRIVATE_ANSWER"
+            ],
+            "transitionClauses": [
+              "MISSION_OVERLAY_TO_BAR_1200MS"
+            ],
+            "accessibilityClauses": [
+              "SCORE_TIMER_TABULAR_LABELS",
+              "PRIVATE_ANSWER_NON_DISCLOSURE"
+            ]
+          },
+          "MATCH_MEANING_SUCCESS": {
+            "orderedBlockIds": [
+              "MASCOT",
+              "REWARD_BANNER",
+              "COMPLETED_WORD",
+              "QUESTION",
+              "CHOICES_3",
+              "STREAK",
+              "LEARNING_BONUS"
+            ],
+            "blocks": {
+              "MASCOT": [
+                "MeaningResultModal"
+              ],
+              "REWARD_BANNER": [
+                "MeaningResultModal"
+              ],
+              "COMPLETED_WORD": [
+                "MeaningResultModal"
+              ],
+              "QUESTION": [
+                "MeaningResultModal"
+              ],
+              "CHOICES_3": [
+                "MeaningResultModal"
+              ],
+              "STREAK": [
+                "MeaningResultModal"
+              ],
+              "LEARNING_BONUS": [
+                "MeaningResultModal"
+              ]
+            },
+            "requiredBehaviorIds": [
+              "PRE_SUBMIT_CORRECT_ANSWER_A11Y_ORDER_NON_LEAK",
+              "MANDATORY_MODAL_DISMISSAL_BLOCK",
+              "SERVER_CONFIRMED_REWARD_ANIMATION"
+            ],
+            "requiredContentRoles": [
+              "COMPLETED_WORD",
+              "MEANING_CHOICES_3"
+            ],
+            "forbiddenContentRoles": [
+              "CORRECT_OPTION_BEFORE_SUBMIT"
+            ],
+            "transitionClauses": [],
+            "accessibilityClauses": [
+              "MODAL_FOCUS_TRAP",
+              "BLOCK_BACKDROP_AND_SYSTEM_BACK"
+            ]
+          },
+          "PET_COLLECTION": {
+            "orderedBlockIds": [
+              "HEADER",
+              "PET_CURRENCY_HERO",
+              "SEGMENT_TABS",
+              "COLLECTION_GRID",
+              "GACHA",
+              "FUSION_GUIDE",
+              "BOTTOM_TABS"
+            ],
+            "blocks": {
+              "HEADER": [
+                "GradientHeader"
+              ],
+              "PET_CURRENCY_HERO": [
+                "PetHeroCard",
+                "CurrencyPillGroup"
+              ],
+              "SEGMENT_TABS": [
+                "ActionCard"
+              ],
+              "COLLECTION_GRID": [
+                "PetCollectionGrid"
+              ],
+              "GACHA": [
+                "GachaPanel"
+              ],
+              "FUSION_GUIDE": [
+                "FusionGuide"
+              ],
+              "BOTTOM_TABS": [
+                "BottomTabBar"
+              ]
+            },
+            "requiredBehaviorIds": [
+              "LOCKED_SILHOUETTE_WITH_UNLOCK_CONDITION",
+              "INSUFFICIENT_BALANCE_ACQUISITION_GUIDANCE"
+            ],
+            "requiredContentRoles": [
+              "PET_COLLECTION",
+              "DRAW_POINTS",
+              "FUSION_GUIDE"
+            ],
+            "forbiddenContentRoles": [],
+            "transitionClauses": [],
+            "accessibilityClauses": [
+              "LOCKED_PET_UNLOCK_LABEL"
+            ]
+          },
+          "RESULT": {
+            "orderedBlockIds": [
+              "OUTCOME",
+              "SCORE_DETAIL",
+              "LEARNING_SUMMARY",
+              "PET_PROGRESS",
+              "DRAW_REWARD",
+              "RETRY_ACTION"
+            ],
+            "blocks": {
+              "OUTCOME": [
+                "GradientHeader"
+              ],
+              "SCORE_DETAIL": [
+                "SurfaceCard"
+              ],
+              "LEARNING_SUMMARY": [
+                "SurfaceCard"
+              ],
+              "PET_PROGRESS": [
+                "PetHeroCard"
+              ],
+              "DRAW_REWARD": [
+                "CurrencyPillGroup"
+              ],
+              "RETRY_ACTION": [
+                "ActionCard"
+              ]
+            },
+            "requiredBehaviorIds": [
+              "SOLE_HIGHEST_PRIORITY_CTA",
+              "SERVER_CONFIRMED_REWARD_ANIMATION"
+            ],
+            "requiredContentRoles": [
+              "WIN_LOSS",
+              "SCORE_DETAIL",
+              "LEARNED_WORDS",
+              "PET_EXP",
+              "DRAW_POINTS",
+              "RETRY"
+            ],
+            "forbiddenContentRoles": [
+              "PRIVATE_ANSWER"
+            ],
+            "transitionClauses": [
+              "MATCH_FINISHED_TO_RESULT"
+            ],
+            "accessibilityClauses": [
+              "RESULT_LIVE_REGION",
+              "LOGICAL_FOCUS_ORDER"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "file": "config/ui-theme.v1.json",
+      "sha256": "efd36d1c4cb68829f51b86a8fd5fd401aa47e7a4303f087d19d2070700666565",
+      "value": {
+        "themeVersion": "1.0.0",
+        "color": {
+          "primary": {
+            "400": "#35A8FF",
+            "600": "#0068D9",
+            "900": "#0B2F76"
+          },
+          "ink": "#0B2347",
+          "opponent": "#D63B4A",
+          "success": "#00875A",
+          "reward": "#FFD447",
+          "aqua": "#16BFC0",
+          "legendary": "#7A4CE0",
+          "surface": "#FFFFFF",
+          "background": "#F5FAFF",
+          "border": "#D4E5F2",
+          "muted": "#5E6C80",
+          "overlay": "rgba(5,20,45,0.72)"
+        },
+        "typography": {
+          "fontAssetId": null,
+          "fontRightsStatus": "REVIEW_REQUIRED",
+          "display": {
+            "xl": {
+              "fontSize": 40,
+              "lineHeight": 48,
+              "fontWeight": 900
+            }
+          },
+          "heading": {
+            "lg": {
+              "fontSize": 28,
+              "lineHeight": 36,
+              "fontWeight": 800
+            },
+            "md": {
+              "fontSize": 22,
+              "lineHeight": 30,
+              "fontWeight": 800
+            }
+          },
+          "body": {
+            "lg": {
+              "fontSize": 16,
+              "lineHeight": 24,
+              "fontWeight": 600
+            },
+            "md": {
+              "fontSize": 14,
+              "lineHeight": 20,
+              "fontWeight": 600
+            }
+          },
+          "label": {
+            "sm": {
+              "fontSize": 12,
+              "lineHeight": 16,
+              "fontWeight": 600
+            }
+          },
+          "tabularNumericRoles": [
+            "SCORE",
+            "TIMER"
+          ]
+        },
+        "radius": {
+          "control": 16,
+          "card": 20,
+          "hero": 24,
+          "pill": 999
+        },
+        "space": {
+          "baseGrid": 8,
+          "exceptionGrid": 4,
+          "screenX": 16,
+          "cardPadding": [
+            16,
+            20
+          ],
+          "sectionGap": [
+            20,
+            24
+          ],
+          "gridGap": [
+            8,
+            12
+          ]
+        },
+        "depth": {
+          "card": {
+            "borderWidth": 1,
+            "offset": [
+              0,
+              2
+            ],
+            "blur": 6,
+            "color": "rgba(11,35,71,0.10)"
+          },
+          "emphasis": {
+            "offset": [
+              0,
+              6
+            ],
+            "blur": 16,
+            "color": "rgba(11,35,71,0.14)"
+          },
+          "ctaBottomLip": [
+            3,
+            4
+          ],
+          "pressedScale": 0.97
+        },
+        "control": {
+          "primaryCtaHeight": [
+            60,
+            64
+          ],
+          "secondaryCtaHeight": [
+            52,
+            56
+          ],
+          "meaningOptionHeight": [
+            56,
+            64
+          ],
+          "differenceRingDiameter": [
+            32,
+            40
+          ],
+          "modalMaxWidth": 360,
+          "modalMaxHeightVh": 80
+        },
+        "icon": {
+          "defaultSize": 24,
+          "bottomTabSize": [
+            26,
+            28
+          ],
+          "ctaIllustrationSize": [
+            36,
+            48
+          ],
+          "outlineWidth": [
+            2,
+            2.5
+          ],
+          "fillColorCount": [
+            2,
+            4
+          ]
+        },
+        "gradient": {
+          "header": {
+            "from": "#0068D9",
+            "to": "#35A8FF",
+            "direction": "VERTICAL"
+          }
+        },
+        "pattern": {
+          "headerOpacity": [
+            0.08,
+            0.15
+          ]
+        },
+        "textLayout": {
+          "ctaMaxLines": 2
+        },
+        "motionMs": {
+          "pressed": [
+            90,
+            120
+          ],
+          "modal": [
+            180,
+            220
+          ],
+          "differenceRing": [
+            180,
+            250
+          ],
+          "scoreCountUp": [
+            250,
+            350
+          ],
+          "wrongShakeMax": 300,
+          "successReward": [
+            650,
+            900
+          ],
+          "reducedMotionCrossfadeMax": 100
+        },
+        "touchTarget": {
+          "iosPt": 44,
+          "androidDp": 48
+        },
+        "viewport": {
+          "baseline": [
+            390,
+            844
+          ],
+          "minimum": [
+            320,
+            568
+          ],
+          "additionalReview": [
+            412,
+            915
+          ],
+          "portraitOnlyMvp": true
+        },
+        "responsive": {
+          "petGrid": [
+            {
+              "minWidth": 320,
+              "maxWidth": 374,
+              "columns": [
+                3
+              ],
+              "allowTwoPane": false
+            },
+            {
+              "minWidth": 375,
+              "maxWidth": 599,
+              "columns": [
+                4
+              ],
+              "allowTwoPane": false
+            },
+            {
+              "minWidth": 600,
+              "maxWidth": null,
+              "columns": [
+                5,
+                6
+              ],
+              "allowTwoPane": true
+            }
+          ],
+          "textScale200": {
+            "twoColumnCtaColumns": 1,
+            "petGridColumns": [
+              2,
+              3
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

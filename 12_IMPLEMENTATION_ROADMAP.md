@@ -1,32 +1,27 @@
-# 12. 구현 로드맵
+# 12. Implementation roadmap
 
-## Step 0 설계 고정 — 1~2일
-타입, 상태 머신, 와이어프레임, 콘텐츠 JSON 3개.
+This roadmap is gate-based. A downstream gate cannot begin its release claim until every predecessor has produced its required executable evidence. <!-- REQ: ENV-012 -->
 
-## Step 1 싱글 프로토타입 — 5일
-이미지 2장, 줌/팬, hitbox, 점수, 타이머.
+## Active dependency chain
 
-## Step 2 돌발 단어 — 3일
-등장 타이밍, 오브젝트 판정, 버프.
+1. **G3A — Core Engine and AI Practice** <!-- REQ: ENV-013 -->
+2. **G3B — Authenticated Realtime** (depends on G3A) <!-- REQ: ENV-014 -->
+3. **G3C — Mobile UI and Platform Goldens** (depends on G3B) <!-- REQ: ENV-015 -->
+4. **G4 — Rewards and Pets Runtime/UI Integration** (depends on G3C) <!-- REQ: ENV-016 -->
+5. **G5 — Content Administration and External Beta** (depends on G4) <!-- REQ: ENV-017 -->
+6. **G6 — Experiment and Learning Evaluation** (depends on G5) <!-- REQ: ENV-018 -->
 
-## Step 3 최종 단어·뜻 — 3일
-정답, 3지선다, 잠금, 점수.
+The former Step 0–8 sequence is retired and is not a normative implementation or release order. Historical step labels must not be used as evidence that a gate is complete. <!-- REQ: ENV-019 -->
 
-## Step 4 실시간 1:1 — 7일
-Socket.IO 룸, 서버 판정, 동시 클릭, 재접속.
+## Retired schedule estimates
 
-## Step 5 계정/보상 — 4일
-Supabase Auth, 결과, EXP, 뽑기 포인트.
+- `RETIRED_UNVALIDATED_ESTIMATE`: one developer with AI coding assistance, 6–10 weeks. <!-- REQ: ENV-020 -->
+- `RETIRED_UNVALIDATED_ESTIMATE`: two developers, 4–7 weeks. <!-- REQ: ENV-021 -->
 
-## Step 6 펫 — 5일
-뽑기, 합성, 도감, 대표 펫.
+These figures did not include the security, operations, platform-golden, legal, rights, provider-credential, or production-soak gates. They are retained only as migration history and are not approved schedules, commitments, baselines, or release evidence. Remaining work must be re-estimated from the active G3A → G3B → G3C → G4 → G5 → G6 dependency chain after each gate's staffing, external approvals, and risks are known. <!-- REQ: ENV-022 -->
 
-## Step 7 운영 도구 — 5일
-이미지 업로드, 좌표 에디터, 게시.
+## Requirement-ID migration note
 
-## Step 8 QA/베타 — 7~14일
-분석, 크래시, 50판 자동 테스트.
-
-## 예상
-- 1인 + AI 코딩 보조: 6~10주
-- 2인 개발: 4~7주
+<!-- - `RISK-01` preserves the original same-coordinate burst risk as privacy-safe, observation-only telemetry; it is not an alias for or silent remapping of an `OBS-*` requirement. -->
+<!-- - `RISK-02` preserves the original suspicious answer-reaction-time risk as privacy-safe, observation-only telemetry; it is not an alias for or silent remapping of an `OBS-*` requirement. -->
+- The removed Step 0–8 requirement markers and ENV schedule markers are retired source mappings. Their stable IDs must not be reused for the G3A–G6 gates. <!-- REQ: ENV-023 -->

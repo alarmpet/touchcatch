@@ -1,0 +1,5 @@
+export type RgbaImage={width:number;height:number;data:Uint8Array};export type Region={id:string;x:number;y:number;width:number;height:number;maxChangedRatio:number;maxChannelDelta:number};export type CaptureAdapter={capture(platform:'ios'|'android',viewport:readonly[number,number]):Promise<RgbaImage>};
+export {compareRegions} from './visual-compare.mjs';
+export function requireApprovedGolden(metadata:{approvedBy:string|null;approvedAt:string|null;source:'DEVICE_CAPTURE'|'CONCEPT'}){if(metadata.source!=='DEVICE_CAPTURE'||!metadata.approvedBy||!metadata.approvedAt)throw new Error('approved device golden required')}
+export type VisualEnvironment={node:string;pnpm:string;platform:'ios'|'android';adapter:string;viewport:readonly[number,number];locale:string;runner:string;gpu:string;font:string;fontScale:number};
+export function validateVisualEnvironment(expected:VisualEnvironment,actual:VisualEnvironment){for(const key of Object.keys(expected) as Array<keyof VisualEnvironment>)if(JSON.stringify(expected[key])!==JSON.stringify(actual[key]))throw new Error(`${key} pin mismatch`)}

@@ -1,0 +1,1262 @@
+{
+  "schemaVersion": 4,
+  "entries": [
+    {
+      "id": "RULE-011",
+      "approvedTokens": [
+        "60~75"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-011",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e",
+      "ssotAssertions": [
+        {
+          "pointer": "/time/finalRushStartsAtMs",
+          "expected": 60000
+        },
+        {
+          "pointer": "/time/playingMs",
+          "expected": 75000
+        }
+      ],
+      "sourceHash": "8f7776fd8e0cc8fd3a347e44c76a42e1dd9cbe6dbfcb8be0e782368c1f11ac3a"
+    },
+    {
+      "id": "RULE-013",
+      "approvedTokens": [
+        "1",
+        "1"
+      ],
+      "status": "UNAPPROVED_BASELINE",
+      "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "matchmaking",
+      "closureCondition": "Implement production random 1:1 matchmaking",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_PRODUCTION_MATCHMAKING_PATH",
+      "sourceHash": "8f7776fd8e0cc8fd3a347e44c76a42e1dd9cbe6dbfcb8be0e782368c1f11ac3a"
+    },
+    {
+      "id": "RULE-015",
+      "approvedTokens": [
+        "2",
+        "2"
+      ],
+      "status": "UNAPPROVED_BASELINE",
+      "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
+      "sourceHash": "8f7776fd8e0cc8fd3a347e44c76a42e1dd9cbe6dbfcb8be0e782368c1f11ac3a",
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "game-design",
+      "closureCondition": "Implement and contract-test planned mode or presentation requirement RULE-015",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_EXECUTABLE_CONTRACT"
+    },
+    {
+      "id": "RULE-020",
+      "approvedTokens": [
+        "100"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/targetScore",
+          "expected": 100
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-021",
+      "approvedTokens": [
+        "75"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/time/playingMs",
+          "expected": 75000
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-026",
+      "approvedTokens": [
+        "10"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/time/suddenDeathMs",
+          "expected": 10000
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-027",
+      "approvedTokens": [
+        "10"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/content/normalDifferences",
+          "expected": 7
+        },
+        {
+          "pointer": "/content/hardDifferences",
+          "expected": 3
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-028",
+      "approvedTokens": [
+        "7",
+        "6",
+        "42"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/content/normalDifferences",
+          "expected": 7
+        },
+        {
+          "pointer": "/score/normalDifference",
+          "expected": 6
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-029",
+      "approvedTokens": [
+        "3",
+        "9",
+        "27"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/content/hardDifferences",
+          "expected": 3
+        },
+        {
+          "pointer": "/score/hardDifference",
+          "expected": 9
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-030",
+      "approvedTokens": [
+        "69"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/content/normalDifferences",
+          "expected": 7
+        },
+        {
+          "pointer": "/content/hardDifferences",
+          "expected": 3
+        },
+        {
+          "pointer": "/score/normalDifference",
+          "expected": 6
+        },
+        {
+          "pointer": "/score/hardDifference",
+          "expected": 9
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-031",
+      "approvedTokens": [
+        "16~22",
+        "1"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/wordHuntSchedule/0/spawnWindowMs",
+          "expected": [
+            16000,
+            22000
+          ]
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-032",
+      "approvedTokens": [
+        "34~42",
+        "1"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/wordHuntSchedule/1/spawnWindowMs",
+          "expected": [
+            34000,
+            42000
+          ]
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-033",
+      "approvedTokens": [
+        "60",
+        "1"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/wordHuntSchedule/2/spawnAtMs",
+          "expected": 60000
+        },
+        {
+          "pointer": "/wordHuntSchedule/2/kind",
+          "expected": "SPECIAL"
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-034",
+      "approvedTokens": [
+        "10",
+        "15"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/score/normalWordHunt",
+          "expected": 10
+        },
+        {
+          "pointer": "/score/specialWordHunt",
+          "expected": 15
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-035",
+      "approvedTokens": [
+        "1"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable behavioral predicate green for RULE-035",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e",
+      "ssotAssertions": [
+        {
+          "pointer": "/hint/creditsPerWordHuntWin",
+          "expected": 1
+        }
+      ],
+      "sourceHash": "f4a57a9fc3b4782b6cb850eb7d9efb5bd6fa612258e6e170f52f5941ca00875a"
+    },
+    {
+      "id": "RULE-037",
+      "approvedTokens": [
+        "1"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/finalChallenge/unlock/onDifferenceClaim",
+          "expected": true
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-038",
+      "approvedTokens": [
+        "1"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/finalChallenge/unlock/onWordHuntClaim",
+          "expected": true
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-039",
+      "approvedTokens": [
+        "12"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/finalChallenge/unlock/atMs",
+          "expected": 12000
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-040",
+      "approvedTokens": [
+        "25"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/score/finalWord",
+          "expected": 25
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-041",
+      "approvedTokens": [
+        "3",
+        "5"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/time/meaningQuizMs",
+          "expected": 5000
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-042",
+      "approvedTokens": [
+        "15"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/score/meaning",
+          "expected": 15
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-043",
+      "approvedTokens": [
+        "10"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/score/combo",
+          "expected": 10
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-044",
+      "approvedTokens": [
+        "5",
+        "2"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/score/wrongAnswer",
+          "expected": -5
+        },
+        {
+          "pointer": "/lockMs/wrongAnswer",
+          "expected": 2000
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-045",
+      "approvedTokens": [
+        "10",
+        "1.5"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/score/finalRushWrongAnswer",
+          "expected": -10
+        },
+        {
+          "pointer": "/lockMs/finalRushWrongAnswer",
+          "expected": 1500
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-046",
+      "approvedTokens": [
+        "60~75"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/time/finalRushStartsAtMs",
+          "expected": 60000
+        },
+        {
+          "pointer": "/time/playingMs",
+          "expected": 75000
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-047",
+      "approvedTokens": [
+        "2"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/score/finalRushDifferenceMultiplier",
+          "expected": 2
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "RULE-019",
+      "approvedTokens": [
+        "60,000",
+        "75,000",
+        "80,000"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep final-rush and settlement timing aligned with the versioned ruleset",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/time/finalRushStartsAtMs",
+          "expected": 60000
+        },
+        {
+          "pointer": "/time/playingMs",
+          "expected": 75000
+        },
+        {
+          "pointer": "/time/meaningSettlementCapMs",
+          "expected": 80000
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "STATE-001",
+      "approvedTokens": [
+        "75,000",
+        "80,000"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "sourcePath": "03_GAME_FLOW_AND_STATE_MACHINE.md",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "game-state",
+      "closureCondition": "Keep timing constants aligned with the versioned ruleset",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/time/playingMs",
+          "expected": 75000
+        },
+        {
+          "pointer": "/time/meaningSettlementCapMs",
+          "expected": 80000
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e",
+      "sourceHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f"
+    },
+    {
+      "id": "STATE-007",
+      "approvedTokens": [
+        "0~1"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "sourcePath": "03_GAME_FLOW_AND_STATE_MACHINE.md",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "game-state",
+      "closureCondition": "Keep normalized hitbox bounds aligned with the private content schema",
+      "ssotPath": "schemas/game-content.private.schema.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/properties/differences/items/properties/hitboxes/properties/imageA/properties/cx/minimum",
+          "expected": 0
+        },
+        {
+          "pointer": "/properties/differences/items/properties/hitboxes/properties/imageA/properties/cx/maximum",
+          "expected": 1
+        }
+      ],
+      "ssotHash": "8df77043f581acb3ac0123a635155510dce76da2b174b4bc7dbf8beb4a3d1e8a",
+      "sourceHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f"
+    },
+    {
+      "id": "UX-001",
+      "approvedTokens": [
+        "200%",
+        "44",
+        "48"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "sourcePath": "04_UX_SCREEN_SPEC.md",
+      "sourceHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-001",
+      "ssotPath": "config/ui-theme.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/viewport/minimum",
+          "expected": [
+            320,
+            568
+          ]
+        },
+        {
+          "pointer": "/viewport/baseline",
+          "expected": [
+            390,
+            844
+          ]
+        },
+        {
+          "pointer": "/viewport/additionalReview",
+          "expected": [
+            412,
+            915
+          ]
+        },
+        {
+          "pointer": "/responsive/textScale200/twoColumnCtaColumns",
+          "expected": 1
+        },
+        {
+          "pointer": "/touchTarget/iosPt",
+          "expected": 44
+        },
+        {
+          "pointer": "/touchTarget/androidDp",
+          "expected": 48
+        }
+      ],
+      "ssotHash": "30b4cafd04f1fa04cdca7f447ae09e266cc6b62c3b53e690343d66afc9fd4d2d"
+    },
+    {
+      "id": "UX-010",
+      "approvedTokens": [
+        "100"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "sourcePath": "04_UX_SCREEN_SPEC.md",
+      "sourceHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-010",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/targetScore",
+          "expected": 100
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "UX-012",
+      "approvedTokens": [
+        "1.2"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "sourcePath": "04_UX_SCREEN_SPEC.md",
+      "sourceHash": "884013b99b0afe2641239682f68f7cff010d71049127c77011d1260fb3b502d8",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "ui",
+      "closureCondition": "Implement exact repository-local UI_PROJECTION oracle for UX-012",
+      "ssotPath": "config/ui-screen-contract.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/screens/MATCH_WORD_HUNT/transitionClauses/0",
+          "expected": "MISSION_OVERLAY_TO_BAR_1200MS"
+        }
+      ],
+      "ssotHash": "7f5fb565ef4e3981d9943e71c1088028641c3b39661e8ec615d36b808bb5aa4c"
+    },
+    {
+      "id": "ECON-008",
+      "approvedTokens": [
+        "100",
+        "1"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/draw/cost",
+          "expected": 100
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+    },
+    {
+      "id": "ECON-009",
+      "approvedTokens": [
+        "80%",
+        "18%",
+        "2%"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/draw/probabilities/COMMON",
+          "expected": 0.8
+        },
+        {
+          "pointer": "/draw/probabilities/RARE",
+          "expected": 0.18
+        },
+        {
+          "pointer": "/draw/probabilities/LEGENDARY",
+          "expected": 0.02
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+    },
+    {
+      "id": "ECON-010",
+      "approvedTokens": [
+        "50"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/pitySemantics/thresholds/rareOrBetter",
+          "expected": 50
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+    },
+    {
+      "id": "ECON-011",
+      "approvedTokens": [
+        "150"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/pitySemantics/thresholds/legendary",
+          "expected": 150
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+    },
+    {
+      "id": "ECON-013",
+      "approvedTokens": [
+        "5",
+        "1"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/fusion/materialCount",
+          "expected": 5
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+    },
+    {
+      "id": "ECON-014",
+      "approvedTokens": [
+        "5",
+        "1"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/fusion/materialCount",
+          "expected": 5
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+    },
+    {
+      "id": "ECON-016",
+      "approvedTokens": [
+        "30"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/catalogRevision",
+          "expected": "catalog-v1"
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+    },
+    {
+      "id": "ECON-017",
+      "approvedTokens": [
+        "15"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/catalogRevision",
+          "expected": "catalog-v1"
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+    },
+    {
+      "id": "ECON-018",
+      "approvedTokens": [
+        "5"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/catalogRevision",
+          "expected": "catalog-v1"
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+    },
+    {
+      "id": "ECON-019",
+      "approvedTokens": [
+        "50"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/catalogRevision",
+          "expected": "catalog-v1"
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+    },
+    {
+      "id": "ECON-020",
+      "approvedTokens": [
+        "100"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/exp/win",
+          "expected": 100
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+    },
+    {
+      "id": "ECON-021",
+      "approvedTokens": [
+        "60"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/exp/loss",
+          "expected": 60
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+    },
+    {
+      "id": "ECON-022",
+      "approvedTokens": [
+        "40"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "economy",
+      "closureCondition": "Keep exact executable oracle green",
+      "ssotPath": "config/economy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/exp/perfectWordMeaning",
+          "expected": 40
+        }
+      ],
+      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+    },
+    {
+      "id": "SEC-002",
+      "approvedTokens": [
+        "57",
+        "0.86",
+        "4"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "ssotPath": "config/client-runtime-policy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/expoSdkMajor",
+          "expected": 57
+        },
+        {
+          "pointer": "/reactNativeVersion",
+          "expected": "0.86"
+        },
+        {
+          "pointer": "/publicProjectionTask",
+          "expected": 4
+        }
+      ],
+      "ssotHash": "d66182aed1b441675bc16049c1666a2db724d0b6ea40c71c78106eb6c9828054",
+      "sourcePath": "06_CLIENT_ARCHITECTURE.md",
+      "sourceHash": "f9c76179c83f794c3d44c3f776e6092dec4d78bc1d607b9fb6e4397a2b89a74d",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "privacy",
+      "closureCondition": "Keep the client runtime policy and executable SEC-002 predicate synchronized"
+    },
+    {
+      "id": "SEC-006",
+      "approvedTokens": [
+        "1536"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "ssotPath": "config/client-runtime-policy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/recommendedImageLongEdgePx",
+          "expected": 1536
+        }
+      ],
+      "ssotHash": "d66182aed1b441675bc16049c1666a2db724d0b6ea40c71c78106eb6c9828054",
+      "sourcePath": "06_CLIENT_ARCHITECTURE.md",
+      "sourceHash": "f9c76179c83f794c3d44c3f776e6092dec4d78bc1d607b9fb6e4397a2b89a74d",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "privacy",
+      "closureCondition": "Keep the image recommendation policy and executable SEC-006 predicate synchronized"
+    },
+    {
+      "id": "OBS-001",
+      "approvedTokens": [
+        "15,000"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/time/reconnectForfeitMs",
+          "expected": 15000
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e",
+      "sourcePath": "07_REALTIME_SERVER_SPEC.md",
+      "sourceHash": "2f21d8b4a0513c71282ab6e9c44c2ed1bf588a519db9a8a4261ac062d9a54fdd",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "analytics",
+      "closureCondition": "Keep the reconnect-forfeit ruleset and executable OBS-001 predicate synchronized"
+    },
+    {
+      "id": "OBS-004",
+      "approvedTokens": [
+        "8"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "sourcePath": "07_REALTIME_SERVER_SPEC.md",
+      "sourceHash": "2f21d8b4a0513c71282ab6e9c44c2ed1bf588a519db9a8a4261ac062d9a54fdd",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "analytics",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-004",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/limits/maxBoardTapsPerSecond",
+          "expected": 8
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "OBS-009",
+      "approvedTokens": [
+        "5"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "ssotPath": "config/client-runtime-policy.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/reconnectOverlayMs",
+          "expected": 5000
+        }
+      ],
+      "ssotHash": "d66182aed1b441675bc16049c1666a2db724d0b6ea40c71c78106eb6c9828054",
+      "sourcePath": "07_REALTIME_SERVER_SPEC.md",
+      "sourceHash": "2f21d8b4a0513c71282ab6e9c44c2ed1bf588a519db9a8a4261ac062d9a54fdd",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "analytics",
+      "closureCondition": "Keep the reconnect-overlay policy and executable OBS-009 predicate synchronized"
+    },
+    {
+      "id": "OBS-010",
+      "approvedTokens": [
+        "15"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "sourcePath": "07_REALTIME_SERVER_SPEC.md",
+      "sourceHash": "2f21d8b4a0513c71282ab6e9c44c2ed1bf588a519db9a8a4261ac062d9a54fdd",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "analytics",
+      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-010",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/time/reconnectForfeitMs",
+          "expected": 15000
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
+      "id": "OBS-015",
+      "approvedTokens": [
+        "200",
+        "400",
+        "30"
+      ],
+      "status": "UNAPPROVED_BASELINE",
+      "sourcePath": "07_REALTIME_SERVER_SPEC.md",
+      "sourceHash": "2f21d8b4a0513c71282ab6e9c44c2ed1bf588a519db9a8a4261ac062d9a54fdd",
+      "lifecycle": "EXTERNAL",
+      "evidenceOwner": "release",
+      "closureCondition": "Run target-region 200-match/400-socket 30-minute production soak",
+      "blockerReason": "TARGET_REGION_SOAK_REQUIRED"
+    },
+    {
+      "id": "DATA-004",
+      "approvedTokens": [
+        "1",
+        "1"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "closureCondition": "Keep exact repository-local 1:1 revision projection oracle green",
+      "ssotPath": "config/requirement-evidence.v1.json",
+      "ssotHash": "5e2cceb8081ab0bacbbf477a4f88f4f49fe5c3e81f0e6cc2b835c79276942027",
+      "ssotAssertions": [
+        {
+          "pointer": "/entries/111/oracle/expected",
+          "expected": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "DATA-017",
+      "approvedTokens": [
+        "1",
+        "2",
+        "20"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "closureCondition": "Keep exact seat and 20-session concurrency predicate green",
+      "ssotPath": "config/requirement-evidence.v1.json",
+      "ssotHash": "5e2cceb8081ab0bacbbf477a4f88f4f49fe5c3e81f0e6cc2b835c79276942027",
+      "ssotAssertions": [
+        {
+          "pointer": "/entries/124/oracle/expected",
+          "expected": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "DATA-027",
+      "approvedTokens": [
+        "20"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "database",
+      "closureCondition": "Keep exact 20-session concurrency evidence green",
+      "ssotPath": "config/requirement-evidence.v1.json",
+      "ssotHash": "5e2cceb8081ab0bacbbf477a4f88f4f49fe5c3e81f0e6cc2b835c79276942027",
+      "ssotAssertions": [
+        {
+          "pointer": "/entries/134/oracle/expected",
+          "expected": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "CONTENT-021",
+      "approvedTokens": [
+        "8",
+        "4096",
+        "16,000,000"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "ssotPath": "config/content-validation-policy.v1.json",
+      "ssotHash": "bbd823f8f5efff2579ac1f415a342e58822988bf26a687d5157645e2986aa39c",
+      "ssotAssertions": [
+        {
+          "pointer": "/assetLimits/maxEncodedBytes",
+          "expected": 8388608
+        },
+        {
+          "pointer": "/assetLimits/maxWidth",
+          "expected": 4096
+        },
+        {
+          "pointer": "/assetLimits/maxHeight",
+          "expected": 4096
+        },
+        {
+          "pointer": "/assetLimits/maxDecodedPixels",
+          "expected": 16000000
+        }
+      ],
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "closureCondition": "Keep asset limit SSOT and boundary oracle green"
+    },
+    {
+      "id": "CONTENT-023",
+      "approvedTokens": [
+        "3"
+      ],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "ssotPath": "config/content-validation-policy.v1.json",
+      "ssotHash": "bbd823f8f5efff2579ac1f415a342e58822988bf26a687d5157645e2986aa39c",
+      "ssotAssertions": [
+        {
+          "pointer": "/validFixtureMatrixCount",
+          "expected": 3
+        }
+      ],
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "content",
+      "closureCondition": "Keep the three-language valid fixture matrix green"
+    },
+    {
+      "id": "ENV-019",
+      "approvedTokens": [
+        "0",
+        "8"
+      ],
+      "status": "UNAPPROVED_BASELINE",
+      "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceHash": "5b1b5a768c37da2574664e3db80d3d26fd856c50fc5755082ab826c06a05b716",
+      "lifecycle": "RETIRED",
+      "evidenceOwner": "release-governance",
+      "closureCondition": "Retain only as explicitly unapproved roadmap migration history",
+      "blockerReason": "RETIRED_UNVALIDATED_ESTIMATE_OR_LABEL"
+    },
+    {
+      "id": "ENV-020",
+      "approvedTokens": [
+        "6",
+        "10"
+      ],
+      "status": "UNAPPROVED_BASELINE",
+      "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceHash": "5b1b5a768c37da2574664e3db80d3d26fd856c50fc5755082ab826c06a05b716",
+      "lifecycle": "RETIRED",
+      "evidenceOwner": "release-governance",
+      "closureCondition": "Retain only as explicitly unapproved roadmap migration history",
+      "blockerReason": "RETIRED_UNVALIDATED_ESTIMATE_OR_LABEL"
+    },
+    {
+      "id": "ENV-021",
+      "approvedTokens": [
+        "4",
+        "7"
+      ],
+      "status": "UNAPPROVED_BASELINE",
+      "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceHash": "5b1b5a768c37da2574664e3db80d3d26fd856c50fc5755082ab826c06a05b716",
+      "lifecycle": "RETIRED",
+      "evidenceOwner": "release-governance",
+      "closureCondition": "Retain only as explicitly unapproved roadmap migration history",
+      "blockerReason": "RETIRED_UNVALIDATED_ESTIMATE_OR_LABEL"
+    },
+    {
+      "id": "ENV-023",
+      "approvedTokens": [
+        "0",
+        "8"
+      ],
+      "status": "UNAPPROVED_BASELINE",
+      "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
+      "sourceHash": "5b1b5a768c37da2574664e3db80d3d26fd856c50fc5755082ab826c06a05b716",
+      "lifecycle": "RETIRED",
+      "evidenceOwner": "release-governance",
+      "closureCondition": "Retain only as explicitly unapproved roadmap migration history",
+      "blockerReason": "RETIRED_UNVALIDATED_ESTIMATE_OR_LABEL"
+    }
+  ],
+  "status": "MIXED_VERIFIED_AND_UNAPPROVED",
+  "summary": {
+    "verifiedLocalSsot": 54,
+    "unapproved": 7
+  }
+}
