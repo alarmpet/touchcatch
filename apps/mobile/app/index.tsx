@@ -1,4 +1,15 @@
-import {BattleScreen} from '../src/ui/BattleScreen.js';
-import fixture from '../../../tests/fixtures/public-match-snapshot.json' with {type:'json'};
-import {matchSnapshotV1Schema} from '../../../packages/contracts/src/socket.schema.js';
-export default function Home(){if(!(globalThis as typeof globalThis & {__DEV__?:boolean}).__DEV__)throw new Error('Battle route requires an authenticated projected snapshot');return <BattleScreen snapshot={matchSnapshotV1Schema.parse(fixture)} pendingIntentId={null} connection="CONNECTED" onIntent={()=>{}}/>}
+import { LearningDemoScreen } from '../src/learning-demo/LearningDemoScreen.js';
+import type { LearningDemoEntry } from '../src/learning-demo/LearningDemoScreen.js';
+
+declare const __DEV__: boolean;
+declare const require: (path: string) => typeof import('../src/learning-demo/registry.js');
+
+export function LearningDemoHome({ entries }: Readonly<{ entries: readonly LearningDemoEntry[] }>) {
+  return <LearningDemoScreen entries={entries} />;
+}
+
+export default function Home() {
+  if (!__DEV__) throw new Error('Learning demo is DEV-only; production requires authenticated server projections');
+  const { learningDemoEntries } = require('../src/learning-demo/registry.js');
+  return <LearningDemoHome entries={learningDemoEntries} />;
+}
