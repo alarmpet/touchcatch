@@ -61,6 +61,15 @@ importers:
         specifier: ^4.0.16
         version: 4.1.10(@types/node@24.13.3)(vite@8.1.4(@types/node@24.13.3)(esbuild@0.28.1)(terser@5.49.0)(tsx@4.23.1)(yaml@2.9.0))
 
+  apps/account-worker:
+    dependencies:
+      '@supabase/supabase-js':
+        specifier: 2.110.7
+        version: 2.110.7
+      pg:
+        specifier: 8.16.3
+        version: 8.16.3
+
   apps/admin:
     dependencies:
       next:

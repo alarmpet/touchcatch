@@ -34,3 +34,13 @@ it('composes the live router with account and learning DB adapters', async () =>
   expect(response.status).toBe(200);
   expect(query.mock.calls.some(([text]) => text.includes('merge_learning_progress_v1'))).toBe(true);
 });
+
+it('composes profile mutation and deletion through DB projections', async () => {
+  const query = vi.fn(async (text: string) => text.includes('request_account_deletion') ? { rows: [{ value: { jobId: '00000000-0000-4000-8000-000000000020', status: 'DELETING', policyPending: true } }] } : text.includes('update_profile') ? { rows: [{ value: { profile: { displayName: 'Touch Catch' }, points: 0 } }] } : { rows: [{ value: {} }] });
+  const router = createServerRuntime({ database: { query }, verifyAccessToken: async () => ({ authSub: '00000000-0000-4000-8000-000000000001', isAnonymous: false }) });
+  const headers = { authorization: 'Bearer valid-token', 'idempotency-key': '00000000-0000-4000-8000-000000000010' };
+  expect((await router(new Request('https://api.test/v1/me', { method: 'PATCH', headers: { ...headers, 'content-type': 'application/json' }, body: JSON.stringify({ nickname: 'Touch Catch' }) }))).status).toBe(200);
+  expect((await router(new Request('https://api.test/v1/me', { method: 'DELETE', headers }))).status).toBe(202);
+  expect(query.mock.calls.some(([text]) => text.includes('update_profile_v1'))).toBe(true);
+  expect(query.mock.calls.some(([text]) => text.includes('request_account_deletion_v1'))).toBe(true);
+});

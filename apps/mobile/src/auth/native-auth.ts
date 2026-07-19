@@ -4,6 +4,7 @@ import * as WebBrowser from 'expo-web-browser';
 import { createEmailAuth } from './email.js';
 import { getAuthClient } from './native-client.js';
 import { createOAuthCoordinator } from './oauth.js';
+import { createIdentityCoordinator } from './linking.js';
 import { createSessionLifecycle } from './session.js';
 import { getMobileRuntimeEnv } from '../config/runtime.js';
 
@@ -22,13 +23,21 @@ function buildServices() {
   }
   const emailAuth = createEmailAuth({ auth: client.auth, ensureAccount, storage });
   const oauthCoordinator = createOAuthCoordinator({ auth: client.auth, browser: WebBrowser, storage, ensureAccount });
+  const identityCoordinator = createIdentityCoordinator(client.auth, { storage, browser: WebBrowser });
   const sessionLifecycle = createSessionLifecycle(client.auth, () => storage.removeItem('touchcatch.auth.pkce.pending'), async (sessionIdentity) => {
+    const linkedIdentity = await identityCoordinator.resumeLink();
+    if (linkedIdentity) return linkedIdentity;
     const oauthGate = await oauthCoordinator.resume(sessionIdentity);
     const recoveryRequired = await emailAuth.resumeRecovery(sessionIdentity);
     if (recoveryRequired) return { state: 'RECOVERY_REQUIRED' as const };
     return oauthGate;
   });
-  return { emailAuth, oauthCoordinator, sessionLifecycle };
+  const completeAuthCallback = async (url: string) => {
+    const raw = await storage.getItem('touchcatch.auth.pkce.pending');
+    if (raw && (JSON.parse(raw) as { kind?: string }).kind === 'identity-link') return identityCoordinator.completeLink(url);
+    return oauthCoordinator.completeOAuth(url);
+  };
+  return { emailAuth, oauthCoordinator, identityCoordinator, completeAuthCallback, sessionLifecycle };
 }
 
 export function getNativeAuthServices() { return services ??= buildServices(); }

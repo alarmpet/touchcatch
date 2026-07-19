@@ -1,0 +1,1 @@
+{"name":"@spot-learn/account-worker","version":"0.0.0","private":true,"type":"module","scripts":{"test":"vitest run src","typecheck":"tsc -p tsconfig.json --noEmit","start":"tsx src/start.ts"},"dependencies":{"@supabase/supabase-js":"2.110.7","pg":"8.16.3"}}

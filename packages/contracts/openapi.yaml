@@ -14,6 +14,11 @@ paths:
       parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
       requestBody: { $ref: "#/components/requestBodies/UpdateMeRequest" }
       responses: { "200": { $ref: "#/components/responses/MeResponse" }, "400": { $ref: "#/components/responses/ValidationError" }, "401": { $ref: "#/components/responses/MeError" }, "403": { $ref: "#/components/responses/MeForbiddenError" }, "429": { $ref: "#/components/responses/RateLimitError" }, "503": { $ref: "#/components/responses/AccountSetupError" } }
+    delete:
+      operationId: deleteMe
+      summary: Enter the fail-closed account deletion lifecycle; external Auth deletion remains policy pending
+      parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
+      responses: { "202": { $ref: "#/components/responses/AccountDeletionResponse" }, "400": { $ref: "#/components/responses/ValidationError" }, "401": { $ref: "#/components/responses/MeError" }, "403": { $ref: "#/components/responses/MeForbiddenError" }, "409": { $ref: "#/components/responses/AccountDeletionConflictError" } }
   /v1/learning/progress/merge:
     post:
       operationId: mergeLearningProgress
@@ -119,6 +124,8 @@ components:
     FriendRoomCreateRequest: { type: object, additionalProperties: false, maxProperties: 0 }
     FriendRoomJoinRequest: { type: object, additionalProperties: false, maxProperties: 0 }
     MeResponse: { type: object, additionalProperties: false, required: [profile, points], properties: { profile: { type: object, additionalProperties: false, required: [displayName], properties: { displayName: { type: string } } }, points: { type: integer, minimum: 0 } } }
+    AccountDeletionResponse: { type: object, additionalProperties: false, required: [jobId, status, policyPending], properties: { jobId: { type: string, format: uuid }, status: { const: DELETING }, policyPending: { const: true } } }
+    AccountDeletionConflictError: { type: object, additionalProperties: false, required: [code], properties: { code: { const: IDEMPOTENCY_CONFLICT } } }
     PetsResponse: { type: object, additionalProperties: false, required: [items, nextCursor], properties: { items: { type: array, items: { $ref: "#/components/schemas/Pet" } }, nextCursor: { type: [string, "null"], maxLength: 512 } } }
     Pet: { type: object, additionalProperties: false, required: [id, catalogId, level, exp, copies, selected, locked], properties: { id: { type: string }, catalogId: { type: string }, level: { type: integer, minimum: 1 }, exp: { type: integer, minimum: 0 }, copies: { type: integer, minimum: 1 }, selected: { type: boolean }, locked: { type: boolean } } }
     SelectPetResponse: { type: object, additionalProperties: false, required: [petId, selected], properties: { petId: { type: string, format: uuid }, selected: { const: true } } }
@@ -130,7 +137,7 @@ components:
     FriendRoomResponse: { type: object, additionalProperties: false, required: [roomCode, memberCount], properties: { roomCode: { type: string }, memberCount: { type: integer, minimum: 1, maximum: 2 } } }
     FriendRoomLeaveResponse: { type: object, additionalProperties: false, required: [left], properties: { left: { const: true } } }
     MeError: &unauthorized { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [UNAUTHORIZED] } } }
-    MeForbiddenError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [ANONYMOUS_FORBIDDEN] } } }
+    MeForbiddenError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [ANONYMOUS_FORBIDDEN, ACCOUNT_DELETING] } } }
     AccountSetupError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [ACCOUNT_SETUP_FAILED] } } }
     ValidationError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [VALIDATION_FAILED] } } }
     RateLimitError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [RATE_LIMITED] } } }
@@ -152,6 +159,8 @@ components:
     FriendRoomLeaveError: *cancelError
   responses:
     MeResponse: &meResponse { description: Profile, content: { application/json: { schema: { $ref: "#/components/schemas/MeResponse" } } } }
+    AccountDeletionResponse: { description: Account access is blocked while the hard/soft Auth deletion policy remains pending, content: { application/json: { schema: { $ref: "#/components/schemas/AccountDeletionResponse" } } } }
+    AccountDeletionConflictError: { description: Deletion idempotency conflict, content: { application/json: { schema: { $ref: "#/components/schemas/AccountDeletionConflictError" } } } }
     PetsResponse: { description: Pets, content: { application/json: { schema: { $ref: "#/components/schemas/PetsResponse" } } } }
     SelectPetResponse: { description: Selected pet, content: { application/json: { schema: { $ref: "#/components/schemas/SelectPetResponse" } } } }
     LockPetResponse: { description: Locked pet, content: { application/json: { schema: { $ref: "#/components/schemas/LockPetResponse" } } } }
@@ -162,7 +171,7 @@ components:
     FriendRoomResponse: { description: Friend room, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomResponse" } } } }
     FriendRoomLeaveResponse: { description: Friend-room departure, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomLeaveResponse" } } } }
     MeError: &meError { description: Unauthorized, content: { application/json: { schema: { $ref: "#/components/schemas/MeError" } } } }
-    MeForbiddenError: { description: Anonymous identities are forbidden, content: { application/json: { schema: { $ref: "#/components/schemas/MeForbiddenError" } } } }
+    MeForbiddenError: { description: Anonymous or deleting accounts are forbidden, content: { application/json: { schema: { $ref: "#/components/schemas/MeForbiddenError" } } } }
     AccountSetupError: { description: Account bootstrap did not complete, content: { application/json: { schema: { $ref: "#/components/schemas/AccountSetupError" } } } }
     ValidationError: { description: Invalid request, content: { application/json: { schema: { $ref: "#/components/schemas/ValidationError" } } } }
     RateLimitError: { description: Rate limited, content: { application/json: { schema: { $ref: "#/components/schemas/RateLimitError" } } } }
