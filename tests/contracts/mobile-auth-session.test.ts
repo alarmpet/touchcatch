@@ -11,13 +11,13 @@ describe('mobile auth session lifecycle', () => {
       stopAutoRefresh: () => calls.push('stop'),
       signOut: async () => { calls.push('signout'); return { error: null }; },
     };
-    const lifecycle = createSessionLifecycle(auth, async () => { calls.push('purge'); });
+    const lifecycle = createSessionLifecycle(auth, async () => { calls.push('purge'); }, async (sessionIdentity) => { calls.push(`resume:${sessionIdentity}`); });
     await lifecycle.restore();
     const unsubscribe = lifecycle.subscribe();
     lifecycle.onAppState('active');
     lifecycle.onAppState('background');
     await lifecycle.logout();
     unsubscribe();
-    expect(calls).toEqual(['restore', 'subscribe', 'start', 'stop', 'signout', 'purge', 'unsubscribe']);
+    expect(calls).toEqual(['restore', 'resume:null', 'subscribe', 'start', 'stop', 'signout', 'purge', 'unsubscribe']);
   });
 });

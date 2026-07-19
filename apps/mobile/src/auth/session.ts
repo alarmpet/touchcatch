@@ -6,11 +6,16 @@ type AuthLifecycle = Readonly<{
   signOut(): Promise<{ error: unknown }>;
 }>;
 
-export function createSessionLifecycle(auth: AuthLifecycle, purgeAuthCache: () => Promise<void>) {
+export function createSessionLifecycle(auth: AuthLifecycle, purgeAuthCache: () => Promise<void>, resumeBootstrap?: (sessionIdentity: string | null) => Promise<unknown>) {
   return {
-    restore: () => auth.getSession(),
+    async restore() {
+      const result = await auth.getSession();
+      const session = (result as { data?: { session?: { user?: { id?: string } } } }).data?.session;
+      const resumeResult = await resumeBootstrap?.(session?.user?.id ?? null);
+      return { sessionResult: result, resumeResult };
+    },
     subscribe() { const { data } = auth.onAuthStateChange(() => undefined); return () => data.subscription.unsubscribe(); },
-    onAppState(state: 'active' | 'background' | 'inactive') { if (state === 'active') auth.startAutoRefresh(); else auth.stopAutoRefresh(); },
+    onAppState(state: string) { if (state === 'active') auth.startAutoRefresh(); else auth.stopAutoRefresh(); },
     async logout() { const { error } = await auth.signOut(); if (error) throw error; await purgeAuthCache(); },
   };
 }
