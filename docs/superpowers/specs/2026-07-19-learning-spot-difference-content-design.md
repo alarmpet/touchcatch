@@ -45,7 +45,7 @@ A/B를 독립적으로 생성하지 않는다. 독립 생성으로 생긴 비의
 
 ## Geometry and Gameplay
 
-- 각 세트는 NORMAL 8개, HARD 2개의 차이점으로 구성한다.
+- 각 세트는 동결 ruleset에 맞춰 NORMAL 7개, HARD 3개의 차이점으로 구성한다.
 - 동일 side의 모든 difference, Word Hunt, sudden-death 원형 hitbox는 서로 겹치거나 접하지 않는다.
 - hitbox는 이미지 실제 픽셀에서 측정한 뒤 0~1 정규화 좌표로 저장한다.
 - 차이점은 모바일 축소 화면에서도 구분 가능해야 하며 단순 압축 노이즈나 한두 픽셀 변경은 허용하지 않는다.
