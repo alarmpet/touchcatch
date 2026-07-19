@@ -1,0 +1,42 @@
+import type { PrivateGameSolutionV1 } from './content.js';
+import type { RulesetV1 } from './rules.js';
+export type MatchPhase='WAITING_FOR_ASSETS'|'COUNTDOWN'|'PLAYING'|'FINAL_RUSH'|'SETTLING'|'TIEBREAK_EVAL'|'SUDDEN_DEATH'|'FINISHED'|'CANCELLED';
+export type MatchEndReason='SCORE_TARGET'|'TIMEOUT_TIEBREAK'|'SUDDEN_DEATH'|'DRAW'|'FORFEIT'|'NO_CONTEST_ASSET_LOAD'|'NO_CONTEST';
+export const MATCH_DB_PROJECTION_V1 = {
+ phases:['WAITING_FOR_ASSETS','COUNTDOWN','PLAYING','FINAL_RUSH','SETTLING','TIEBREAK_EVAL','SUDDEN_DEATH','FINISHED','CANCELLED'],
+ endReasons:['SCORE_TARGET','TIMEOUT_TIEBREAK','SUDDEN_DEATH','DRAW','FORFEIT','NO_CONTEST_ASSET_LOAD','NO_CONTEST'],
+ winnerRequired:['SCORE_TARGET','TIMEOUT_TIEBREAK','SUDDEN_DEATH','FORFEIT'],
+ winnerForbidden:['DRAW','NO_CONTEST_ASSET_LOAD','NO_CONTEST'],
+} as const satisfies {phases:readonly MatchPhase[];endReasons:readonly MatchEndReason[];winnerRequired:readonly MatchEndReason[];winnerForbidden:readonly MatchEndReason[]};
+export type ExpectedMatchAssetV1={side:'A'|'B';url:string;sha256:string;encodedBytes:number;width:number;height:number;mimeType:'image/png'|'image/webp'|'image/jpeg'};
+export type MatchRandomScheduleV1={wordHunts:readonly [{kind:'NORMAL';missionId:string;startsAfterMs:number;endsAfterMs:number},{kind:'NORMAL';missionId:string;startsAfterMs:number;endsAfterMs:number},{kind:'SPECIAL';missionId:string;startsAfterMs:number;endsAfterMs:number}];hintRevealOrder:ReadonlyArray<number>;suddenDeathObjectiveId:string};
+export type PinnedMatchContentManifestV1={contentRevisionId:string;contentLanguage:'ko'|'en'|'ja';publicContentHash:string;privateSolutionHash:string;assetPolicyVersion:'1.0.0';expectedAssets:readonly [ExpectedMatchAssetV1,ExpectedMatchAssetV1]};
+export type CreateMatchInitialStateInput={matchId:string;createdAtMs:number;engineVersion:string;rulesetHash:string;playerIds:readonly [string,string];contentManifest:PinnedMatchContentManifestV1;privateSolution:PrivateGameSolutionV1;randomSchedule:MatchRandomScheduleV1};
+export type MatchPlayerStateV1={playerId:string;assetLoadStatus:'PENDING'|'READY'|'FAILED';assetFailure:{reason:'FETCH_FAILED';assetHash:string;attempts:2}|{reason:'ATTESTATION_MISMATCH'}|{reason:'TIMEOUT'}|null;assetAttestation:{contentHash:string;assetHashes:ReadonlyArray<string>;decodedDimensions:ReadonlyArray<{assetHash:string;width:number;height:number}>}|null;score:number;wrongFinalAttempts:number;hintCredits:number;revealedHintIndexes:ReadonlyArray<number>;publicPattern:string|null;finalAnswerStatus:'NOT_SUBMITTED'|'MEANING_PENDING'|'FAILED'|'SETTLED';meaningCorrect:boolean|null;answerUntilMs:number|null;tapRateWindow:{windowIndex:number|null;acceptedCount:number}};
+export type MatchStateV1={matchId:string;engineVersion:string;rulesetVersion:'1.0.0';rulesetHash:string;contentRevisionId:string;contentLanguage:'ko'|'en'|'ja';contentHash:string;assetPolicyVersion:'1.0.0';createdAtMs:number;assetLoadDeadlineMs:number;expectedAssets:readonly [ExpectedMatchAssetV1,ExpectedMatchAssetV1];phase:MatchPhase;phaseEndsAtMs:number|null;startedAtMs:number|null;gameplayClosesAtMs:number|null;settlementCapAtMs:number|null;stateRevision:number;nextEventSeq:number;players:readonly [MatchPlayerStateV1,MatchPlayerStateV1];connections:readonly [{playerId:string;status:'CONNECTED'|'DISCONNECTED';disconnectEpoch:number;disconnectedAtMs:number|null;forfeitAtMs:number|null},{playerId:string;status:'CONNECTED'|'DISCONNECTED';disconnectEpoch:number;disconnectedAtMs:number|null;forfeitAtMs:number|null}];objectives:ReadonlyArray<{objectiveId:string;kind:'DIFFERENCE'|'WORD_HUNT';ownerPlayerId:string|null}>;activeMission:{missionId:string;kind:'NORMAL'|'SPECIAL';publicPrompt:string;startedAtMs:number;endsAtMs:number}|null;finalChallenge:{unlockedAtMs:number|null;unlockSource:'TIME'|'DIFFERENCE'|'WORD_HUNT'|null};meaningQuizzes:ReadonlyArray<{playerId:string;quizOrdinal:number;startedAtMs:number;endsAtMs:number;submitted:boolean}>;suddenDeath:{objectiveId:string;endsAtMs:number}|null;randomSchedule:MatchRandomScheduleV1;privateSolution:PrivateGameSolutionV1;winnerPlayerId:string|null;endReason:MatchEndReason|null};
+export type MatchInitialStateV1=MatchStateV1&{phase:'WAITING_FOR_ASSETS';stateRevision:0;nextEventSeq:1};
+type Base={commandId:string;matchId:string;commandSeq:number;receivedAtMs:number};
+export type PlayerCommandPayload={type:'READY';contentRevisionId:string;contentHash:string;assetHashes:ReadonlyArray<string>;decodedDimensions:ReadonlyArray<{assetHash:string;width:number;height:number}>}|{type:'REPORT_ASSET_LOAD_FAILURE';assetHash:string;attempts:2}|{type:'TAP_IMAGE';imageSide:'A'|'B';x:number;y:number}|{type:'SUBMIT_FINAL_ANSWER';answer:string}|{type:'SUBMIT_MEANING';optionId:string}|{type:'USE_HINT'};
+export type TimerCommandPayload={type:'ASSET_LOAD_TIMEOUT'}|{type:'START_MATCH'}|{type:'START_WORD_HUNT';missionId:string}|{type:'END_WORD_HUNT';missionId:string}|{type:'UNLOCK_FINAL_CHALLENGE'}|{type:'START_FINAL_RUSH'}|{type:'CLOSE_INPUT'}|{type:'ANSWER_LOCK_EXPIRED';playerId:string;wrongAttemptOrdinal:number}|{type:'MEANING_TIMEOUT';playerId:string;quizOrdinal:number}|{type:'DISCONNECT_FORFEIT_TIMEOUT';playerId:string;disconnectEpoch:number}|{type:'SUDDEN_DEATH_TIMEOUT';objectiveId:string};
+export type MatchCommand=(Base&{source:'PLAYER';requestId:string;playerId:string;expectedRevision:number;payload:PlayerCommandPayload})|(Base&{source:'TIMER';timerId:string;dueAtMs:number;payload:TimerCommandPayload})|(Base&{source:'SYSTEM';systemCommandId:string;payload:{type:'PLAYER_CONNECTION_CHANGED';playerId:string;disconnectEpoch:number;status:'CONNECTED'|'DISCONNECTED'}|{type:'CANCEL_NO_CONTEST';incidentId:string;reason:'BOTH_DISCONNECTED'|'SERVER_OWNERSHIP_LOST'}});
+export type TimerIntent={kind:'SCHEDULE';timerId:string;dueAtMs:number;payload:TimerCommandPayload}|{kind:'CANCEL';timerId:string};
+type EventBase={eventId:string;matchId:string;eventSeq:number;causedByCommandSeq:number;stateRevision:number;occurredAtMs:number;phase:MatchPhase};
+export type MatchEvent=EventBase&(
+ |{type:'ASSET_READY_CHANGED';payload:{playerId:string;readyCount:1|2;countdownEndsAtMs:number|null}}
+ |{type:'MATCH_STARTED'|'FINAL_RUSH_STARTED';payload:{startedAtMs:number}}
+ |{type:'FINAL_CHALLENGE_UNLOCKED';payload:{unlockedAtMs:number;source:'TIME'|'DIFFERENCE'|'WORD_HUNT';publicPattern:string}}
+ |{type:'HINT_REVEALED';payload:{playerId:string;hintIndex:number;publicPattern:string}}
+ |{type:'HINT_CREDIT_CHANGED'|'SCORE_CHANGED';payload:{playerId:string;delta:number;absoluteCredits?:number;absoluteScore?:number}}
+ |{type:'ANSWER_LOCK_CHANGED';payload:{playerId:string;answerUntilMs:number|null;reason:'WRONG_ANSWER'|'FINAL_RUSH_WRONG_ANSWER'|'EXPIRED'}}
+ |{type:'TAP_RESOLVED';payload:{playerId:string;requestId:string;hit:boolean;objectiveId:string|null}}
+ |{type:'OBJECTIVE_CLAIMED';payload:{objectiveId:string;ownerPlayerId:string;kind:'DIFFERENCE'}}
+ |{type:'WORD_HUNT_STARTED';payload:{missionId:string;kind:'NORMAL'|'SPECIAL';publicPrompt:string;startedAtMs:number;endsAtMs:number}}
+ |{type:'WORD_HUNT_WON';payload:{missionId:string;playerId:string}}|{type:'WORD_HUNT_ENDED';payload:{missionId:string;reason:'TIMEOUT'}}
+ |{type:'MEANING_QUIZ_STARTED';payload:{playerId:string;quizOrdinal:number;endsAtMs:number}}
+ |{type:'SUDDEN_DEATH_STARTED';payload:{objectiveId:string;endsAtMs:number}}|{type:'INPUT_CLOSED';payload:{closedAtMs:number;settlementCapAtMs:number}}
+ |{type:'PLAYER_CONNECTION_CHANGED';payload:{playerId:string;status:'CONNECTED'|'DISCONNECTED';disconnectEpoch:number;forfeitAtMs:number|null}}
+ |{type:'MATCH_FINISHED';payload:{winnerPlayerId:string|null;endReason:MatchEndReason}}
+)&{payload:{delta?:number}};
+export type DomainDecision={status:'APPLIED'}|{status:'REJECTED';reason:'REVISION_AHEAD'|'ALREADY_READY'|'ALREADY_CLAIMED'|'INPUT_LOCKED'|'NO_HINT_CREDIT'|'RATE_LIMITED'|'OBSOLETE_TIMER'|'OBSOLETE_SYSTEM_COMMAND'|'MATCH_INPUT_CLOSED'|'NOT_A_PARTICIPANT'};
+export type ReduceResult={state:MatchStateV1;events:ReadonlyArray<MatchEvent>;timerIntents:ReadonlyArray<TimerIntent>;decision:DomainDecision};
+export type ReplayBundleV1={bundleVersion:1;engineVersion:string;ruleset:RulesetV1;rulesetVersion:'1.0.0';rulesetHash:string;contentRevisionId:string;contentLanguage:'ko'|'en'|'ja';contentHash:string;initialState:MatchInitialStateV1;commands:ReadonlyArray<MatchCommand>};

@@ -1,4 +1,9 @@
 import type { FromSchema } from 'json-schema-to-ts';
+import frozenRuleset from '../../../config/ruleset.v1.json' with { type: 'json' };
+import contentValidationPolicy from '../../../config/content-validation-policy.v1.json' with { type: 'json' };
+import { containsDisallowedControl, normalizeFinalAnswer } from './answer-normalization.js';
+
+export const CONTENT_CARDINALITY_V1 = frozenRuleset.content;
 
 export const CONTENT_CONTRACT_VERSION = '1.0.0' as const;
 export const CONTENT_VALIDATOR_VERSION = '1.0.0' as const;
@@ -8,12 +13,27 @@ export const CONTENT_TEXT_LIMITS_V1 = {
   maxUtf8Bytes: 256,
 } as const;
 
+export const RAW_FINAL_ANSWER_LIMITS_V1 = {
+  maxCodePoints: 128,
+  maxUtf8Bytes: 256,
+} as const;
+
+export function isWithinContentTextLimits(value: string): boolean {
+  return (
+    [...value].length <= CONTENT_TEXT_LIMITS_V1.maxCodePoints &&
+    Buffer.byteLength(value, 'utf8') <= CONTENT_TEXT_LIMITS_V1.maxUtf8Bytes
+  );
+}
+
+export function isValidFinalAnswerSubmission(value: string): boolean {
+  if ([...value].length > RAW_FINAL_ANSWER_LIMITS_V1.maxCodePoints || Buffer.byteLength(value, 'utf8') > RAW_FINAL_ANSWER_LIMITS_V1.maxUtf8Bytes || containsDisallowedControl(value)) return false;
+  const normalized = normalizeFinalAnswer(value);
+  return normalized.length > 0 && isWithinContentTextLimits(normalized) && !containsDisallowedControl(normalized);
+}
+
 export const ASSET_PUBLISH_LIMITS_V1 = {
-  version: '1.0.0',
-  maxEncodedBytes: 8 * 1024 * 1024,
-  maxWidth: 4096,
-  maxHeight: 4096,
-  maxDecodedPixels: 16_000_000,
+  version: contentValidationPolicy.version,
+  ...contentValidationPolicy.assetLimits,
 } as const;
 
 const idPattern = '^[a-z0-9][a-z0-9_-]{0,127}$';
@@ -26,9 +46,9 @@ const assetSchema = {
   properties: {
     url: { type: 'string', format: 'uri', minLength: 1, maxLength: 2048 },
     sha256: { type: 'string', pattern: sha256Pattern },
-    encodedBytes: { type: 'integer', minimum: 1, maximum: 8388608 },
-    width: { type: 'integer', minimum: 1, maximum: 4096 },
-    height: { type: 'integer', minimum: 1, maximum: 4096 },
+    encodedBytes: { type: 'integer', minimum: 1, maximum: ASSET_PUBLISH_LIMITS_V1.maxEncodedBytes },
+    width: { type: 'integer', minimum: 1, maximum: ASSET_PUBLISH_LIMITS_V1.maxWidth },
+    height: { type: 'integer', minimum: 1, maximum: ASSET_PUBLISH_LIMITS_V1.maxHeight },
     mimeType: { enum: ['image/png', 'image/jpeg', 'image/webp'] },
   },
 } as const;
@@ -104,8 +124,8 @@ export const privateGameSolutionSchema = {
     privateSolutionHash: { type: 'string', pattern: sha256Pattern },
     differences: {
       type: 'array',
-      minItems: 10,
-      maxItems: 10,
+      minItems: CONTENT_CARDINALITY_V1.normalDifferences + CONTENT_CARDINALITY_V1.hardDifferences,
+      maxItems: CONTENT_CARDINALITY_V1.normalDifferences + CONTENT_CARDINALITY_V1.hardDifferences,
       items: {
         type: 'object',
         additionalProperties: false,
@@ -119,8 +139,8 @@ export const privateGameSolutionSchema = {
     },
     wordHunts: {
       type: 'array',
-      minItems: 3,
-      maxItems: 3,
+      minItems: CONTENT_CARDINALITY_V1.wordHunts,
+      maxItems: CONTENT_CARDINALITY_V1.wordHunts,
       items: {
         type: 'object',
         additionalProperties: false,
@@ -320,7 +340,5 @@ export type ContentValidationResult =
 
 // Task 5 owns only the content contract. Future Task 3/4 implementations must import
 // these limits and types instead of declaring a second private or wire shape.
-export const CONTENT_PREREQUISITE_STATUS = {
-  task3MatchContractImplemented: false,
-  task4WireContractImplemented: false,
-} as const;
+import clientRuntimePolicy from '../../../config/client-runtime-policy.v1.json' with {type:'json'};
+export const RECOMMENDED_IMAGE_LONG_EDGE_PX=clientRuntimePolicy.recommendedImageLongEdgePx;

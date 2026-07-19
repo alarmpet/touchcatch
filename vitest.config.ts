@@ -1,8 +1,9 @@
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
+  resolve: { alias: { 'server-only': new URL('./tools/server-only-test.ts', import.meta.url).pathname } },
   test: {
-    include: ['packages/**/*.test.ts', 'tests/contracts/**/*.test.ts'],
+    include: ['apps/**/*.test.{ts,tsx}', 'packages/**/*.test.ts', 'tests/contracts/**/*.test.ts', 'tests/specs/**/*.test.ts', 'tests/simulation/**/*.test.ts'],
     exclude: ['tests/database/**/*.test.ts', 'node_modules/**'],
   },
 });

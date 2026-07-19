@@ -72,7 +72,7 @@ alter table public.matches add constraint matches_terminal_shape check (
   ) or (
     status = 'FINISHED'
     and ended_at is not null
-    and end_reason in ('SCORE_TARGET','TIMEOUT_TIEBREAK','SUDDEN_DEATH','DRAW','FORFEIT')
+    and end_reason in ('SCORE_TARGET','TIMEOUT_TIEBREAK','SUDDEN_DEATH','FORFEIT','DRAW')
     and ((end_reason = 'DRAW' and winner_participant_key is null) or (end_reason <> 'DRAW' and winner_participant_key is not null))
   )
 );

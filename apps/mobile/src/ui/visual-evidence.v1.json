@@ -1,0 +1,8 @@
+{
+  "status":"BLOCKED_MANUAL_DEVICE_EVIDENCE",
+  "pins":{"node":"24.18.0","pnpm":"11.13.0","runner":"ubuntu-24.04-x64","ios":"MANUAL_REQUIRED","android":"MANUAL_REQUIRED","emulator":"PIN_ON_APPROVAL","font":"SYSTEM_FALLBACK_UNAPPROVED","fontScale":1,"locale":"ko-KR","gpu":"SwiftShader","seed":7182026,"time":"2026-07-18T00:00:00.000Z"},
+  "conceptImagesAreGolden":false,"baselineAutoUpdate":false,
+  "candidateThresholds":{"ssim":0.97,"rgbAbsoluteDifference":0.047058823529411764,"maxDifferentPixelRatio":0.05,"calibrated":false},
+  "masks":["LIVE_TIMER","NETWORK_STATUS","USER_DATA","ANIMATION_FRAME"],
+  "requiredViewports":[[320,568],[390,844],[412,915]]
+}

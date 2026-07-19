@@ -1,0 +1,1 @@
+{"eventVersion":1,"eventSeq":1,"stateRevision":0,"occurredAt":"2026-07-19T00:00:00.000Z","matchId":"match_opaque","anonymousUserId":"anon_rotating","traceId":"trace_opaque","engineVersion":"1.0.0","rulesetVersion":"1.0.0","contentRevisionId":"content_1","experimentVariant":"CONTROL","serverVersion":"server_1","protocolVersion":1,"name":"match_stage","data":{"stage":"queue"}}
