@@ -8,6 +8,7 @@ import {
   serverEventEnvelopeSchema,
 } from "./socket.schema.js";
 import { hashMatchCommandRequest } from "./idempotency.js";
+import { parseMatchCommandV1 } from "./match.schema.js";
 
 const requestId = "123e4567-e89b-42d3-a456-426614174000",
   matchId = "123e4567-e89b-12d3-a456-426614174000";
@@ -25,6 +26,30 @@ const base = {
   },
 };
 describe("authenticated socket wire contracts", () => {
+  it("uses the content answer limits at the exact wire and reducer-ingress boundaries", () => {
+    const envelope = (answer: string) => ({
+      ...base,
+      payload: { type: "SUBMIT_FINAL_ANSWER" as const, answer },
+    });
+    const command = (answer: string) => ({
+      source: "PLAYER" as const,
+      commandId: `${matchId}:player:p1:${requestId}`,
+      matchId,
+      commandSeq: 1,
+      receivedAtMs: 1,
+      requestId,
+      playerId: "p1",
+      expectedRevision: 0,
+      payload: { type: "SUBMIT_FINAL_ANSWER" as const, answer },
+    });
+
+    expect(clientCommandEnvelopeSchema.safeParse(envelope("a".repeat(64))).success).toBe(true);
+    expect(clientCommandEnvelopeSchema.safeParse(envelope("😀".repeat(64))).success).toBe(true);
+    expect(clientCommandEnvelopeSchema.safeParse(envelope("a".repeat(65))).success).toBe(false);
+    expect(() => parseMatchCommandV1(command("a".repeat(64)))).not.toThrow();
+    expect(() => parseMatchCommandV1(command("😀".repeat(64)))).not.toThrow();
+    expect(() => parseMatchCommandV1(command("a".repeat(65)))).toThrow(/answer invalid/);
+  });
   it("strictly validates client-only commands and UUIDv4 request IDs", () => {
     expect(clientCommandEnvelopeSchema.safeParse(base).success).toBe(true);
     expect(

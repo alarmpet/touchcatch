@@ -3391,18 +3391,18 @@
       "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceLine": 19,
       "section": "계약 경계",
-      "text": "Task 5는 콘텐츠 계약만 소유한다. 아직 구현되지 않은 Task 3/4의 reducer·wire 계층은 이후 이 타입과 `CONTENT_TEXT_LIMITS_V1`을 import해야 하며 별도 정답/hitbox shape를 만들면 안 된다.",
-      "fingerprint": "a469e63c3b1d0c0df331220fc5b3e60f0cdea85714792f1b5f7d1e8279d190d9",
+      "text": "콘텐츠 계약은 정답 텍스트 제한의 단일 소유자이며 reducer·wire 계층은 `CONTENT_TEXT_LIMITS_V1`에서 파생된 공용 검증기를 사용하고 별도 정답/hitbox shape를 만들지 않는다.",
+      "fingerprint": "e4bb2ea2936e57fda9d9c33f102493cc04dfb6c41942ea6a76bcca6fe2b082fc",
       "schema": "packages/contracts/src/content.ts",
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-010:CONTENT_SCHEMA:FAIL",
+      "oracle": "CONTENT-010:CONTENT_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Import CONTENT_TEXT_LIMITS_V1 into the reducer and wire answer validators instead of maintaining the current independent limits",
-      "linkageProof": "4b33dd215dc36ab2bd896d6d59bc4165295f05057a63eae612546893d25365ea"
+      "closureCondition": "Keep exact code-point, UTF-8 byte, and off-by-one predicates green across wire and reducer ingress",
+      "linkageProof": "3b2f9ba2f97075db03c4fcb12f4316299146998954148eb1ac5292122bc2e7bc"
     },
     {
       "id": "CONTENT-011",

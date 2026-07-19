@@ -3466,7 +3466,7 @@
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-010"
       },
       "testCase": "CONTENT-010 executes CONTENT_SCHEMA",
@@ -3474,7 +3474,7 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Import CONTENT_TEXT_LIMITS_V1 into the reducer and wire answer validators instead of maintaining the current independent limits"
+      "closureCondition": "Keep exact code-point, UTF-8 byte, and off-by-one predicates green across wire and reducer ingress"
     },
     {
       "id": "CONTENT-011",

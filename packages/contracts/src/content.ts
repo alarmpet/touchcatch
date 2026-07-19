@@ -11,6 +11,13 @@ export const CONTENT_TEXT_LIMITS_V1 = {
   maxUtf8Bytes: 256,
 } as const;
 
+export function isWithinContentTextLimits(value: string): boolean {
+  return (
+    [...value].length <= CONTENT_TEXT_LIMITS_V1.maxCodePoints &&
+    Buffer.byteLength(value, 'utf8') <= CONTENT_TEXT_LIMITS_V1.maxUtf8Bytes
+  );
+}
+
 export const ASSET_PUBLISH_LIMITS_V1 = {
   version: '1.0.0',
   maxEncodedBytes: 8 * 1024 * 1024,

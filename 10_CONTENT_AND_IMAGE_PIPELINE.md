@@ -16,7 +16,7 @@ TypeScript 타입은 [packages/contracts/src/content.ts](packages/contracts/src/
 - [schemas/game-content.private.schema.json](schemas/game-content.private.schema.json) <!-- REQ: CONTENT-008 -->
 - [schemas/rights-manifest.schema.json](schemas/rights-manifest.schema.json) <!-- REQ: CONTENT-009 -->
 
-Task 5는 콘텐츠 계약만 소유한다. 아직 구현되지 않은 Task 3/4의 reducer·wire 계층은 이후 이 타입과 `CONTENT_TEXT_LIMITS_V1`을 import해야 하며 별도 정답/hitbox shape를 만들면 안 된다. <!-- REQ: CONTENT-010 -->
+콘텐츠 계약은 정답 텍스트 제한의 단일 소유자이며 reducer·wire 계층은 `CONTENT_TEXT_LIMITS_V1`에서 파생된 공용 검증기를 사용하고 별도 정답/hitbox shape를 만들지 않는다. <!-- REQ: CONTENT-010 -->
 
 ## 게시 게이트
 
