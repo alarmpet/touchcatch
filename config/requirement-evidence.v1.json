@@ -3742,7 +3742,7 @@
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "QA-001"
       },
       "testCase": "QA-001 executes RELEASE_HARNESS",
@@ -3750,14 +3750,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "release",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-001"
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-001"
     },
     {
       "id": "QA-002",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "QA-002"
       },
       "testCase": "QA-002 executes RELEASE_HARNESS",
@@ -3765,14 +3765,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "release",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-002"
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-002"
     },
     {
       "id": "QA-003",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "QA-003"
       },
       "testCase": "QA-003 executes RELEASE_HARNESS",
@@ -3780,14 +3780,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "release",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-003"
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-003"
     },
     {
       "id": "QA-004",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "QA-004"
       },
       "testCase": "QA-004 executes RELEASE_HARNESS",
@@ -3795,14 +3795,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "release",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-004"
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-004"
     },
     {
       "id": "QA-005",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "QA-005"
       },
       "testCase": "QA-005 executes RELEASE_HARNESS",
@@ -3810,14 +3810,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "release",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-005"
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-005"
     },
     {
       "id": "QA-006",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "QA-006"
       },
       "testCase": "QA-006 executes RELEASE_HARNESS",
@@ -3825,14 +3825,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "release",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-006"
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-006"
     },
     {
       "id": "QA-007",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "QA-007"
       },
       "testCase": "QA-007 executes RELEASE_HARNESS",
@@ -3840,14 +3840,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "release",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-007"
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-007"
     },
     {
       "id": "QA-008",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "QA-008"
       },
       "testCase": "QA-008 executes RELEASE_HARNESS",
@@ -3855,14 +3855,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "release",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-008"
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-008"
     },
     {
       "id": "QA-009",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "QA-009"
       },
       "testCase": "QA-009 executes RELEASE_HARNESS",
@@ -3870,14 +3870,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "release",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-009"
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-009"
     },
     {
       "id": "QA-010",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "QA-010"
       },
       "testCase": "QA-010 executes RELEASE_HARNESS",
@@ -3885,14 +3885,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "release",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-010"
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-010"
     },
     {
       "id": "QA-011",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "QA-011"
       },
       "testCase": "QA-011 executes RELEASE_HARNESS",
@@ -3900,14 +3900,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "release",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-011"
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-011"
     },
     {
       "id": "QA-012",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "QA-012"
       },
       "testCase": "QA-012 executes RELEASE_HARNESS",
@@ -3915,14 +3915,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "release",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-012"
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-012"
     },
     {
       "id": "QA-013",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "QA-013"
       },
       "testCase": "QA-013 executes RELEASE_HARNESS",
@@ -3930,14 +3930,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "release",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-013"
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-013"
     },
     {
       "id": "QA-014",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "QA-014"
       },
       "testCase": "QA-014 executes RELEASE_HARNESS",
@@ -3945,14 +3945,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "release",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-014"
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-014"
     },
     {
       "id": "QA-015",
       "evidenceKind": "RELEASE_HARNESS",
       "oracle": {
         "kind": "RELEASE_HARNESS",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "QA-015"
       },
       "testCase": "QA-015 executes RELEASE_HARNESS",
@@ -3960,7 +3960,7 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "release",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local RELEASE_HARNESS oracle for QA-015"
+      "closureCondition": "Keep exact repository-local release predicate and mutation green for QA-015"
     },
     {
       "id": "ENV-001",
