@@ -18,3 +18,14 @@ end
 $$;
 
 grant app_server, deployment_role, economy_deployment_role, economy_server, admin_publish_role to postgres;
+
+-- Local integration credential only. Production provisions an equivalent
+-- LOGIN identity through the deployment secret manager and rotates it there.
+do $$begin
+  if not exists (select 1 from pg_roles where rolname='touchcatch_api_test') then
+    create role touchcatch_api_test login noinherit nosuperuser nocreatedb nocreaterole noreplication password 'touchcatch_local_test_only';
+  else
+    alter role touchcatch_api_test with login noinherit password 'touchcatch_local_test_only';
+  end if;
+end$$;
+grant app_server to touchcatch_api_test;
