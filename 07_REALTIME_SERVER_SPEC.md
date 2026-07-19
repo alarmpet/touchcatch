@@ -5,7 +5,7 @@
 Resolve the verified token subject through server-owned membership to an opaque participant key. Never serialize the subject or raw JWT. Pin protocol, engine, ruleset hash, content revision, and content hash before receipt reservation. Durable journal replay is authoritative; Redis and memory are bounded caches only. Disconnect epochs are monotonic, with resume below 15,000ms and forfeit at the exact boundary. <!-- REQ: OBS-001 -->
 
 ## 스택
-Node.js 22+, NestJS, Socket.IO, Redis, PostgreSQL, BullMQ. <!-- REQ: OBS-002 -->
+현재 로컬 기반은 pinned Node runtime 계약과 PostgreSQL/Supabase migration이다. 실행 가능한 NestJS/Socket.IO 서버 및 Redis/BullMQ adapter는 아직 계획 상태이며 패키지 선언만으로 구현됐다고 간주하지 않는다. <!-- REQ: OBS-002 -->
 
 ## 서버가 결정하는 것
 점수, 정답, 시간, 승패, 돌발 미션, 버프, 잠금. <!-- REQ: OBS-003 -->

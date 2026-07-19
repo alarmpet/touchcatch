@@ -2206,15 +2206,18 @@
       "evidenceKind": "PRIVACY_CONTRACT",
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
-        "expected": "FAIL",
+        "expected": "BLOCKED",
         "input": "SEC-003"
       },
       "testCase": "SEC-003 executes PRIVACY_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "privacy",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Add and exercise Zustand, TanStack Query, Socket.IO Client, Reanimated, and Sentry in the Expo mobile runtime; package declarations without an executed client surface are insufficient"
+      "phase": "PLANNED",
+      "closureCondition": "Add and exercise Zustand, TanStack Query, Socket.IO Client, and Reanimated in the Expo mobile runtime; keep Sentry live credentials external",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:MOBILE_INTEGRATION_SURFACE",
+      "closureArtifact": "apps/mobile/src/runtime/integrations.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "SEC-004",
@@ -2296,15 +2299,18 @@
       "evidenceKind": "ANALYTICS_CONTRACT",
       "oracle": {
         "kind": "ANALYTICS_CONTRACT",
-        "expected": "FAIL",
+        "expected": "BLOCKED",
         "input": "packages/contracts/src/analytics.ts"
       },
       "testCase": "OBS-002 executes ANALYTICS_CONTRACT",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Implement an exercised NestJS/Socket.IO realtime service backed by Redis, PostgreSQL, and BullMQ; Node engine or dependency declarations alone are insufficient"
+      "phase": "PLANNED",
+      "closureCondition": "Implement an exercised NestJS/Socket.IO realtime service backed by Redis and BullMQ on the existing Node/PostgreSQL foundation",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:REALTIME_SERVICE_SURFACE",
+      "closureArtifact": "apps/server/package.json",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "OBS-003",
@@ -4165,7 +4171,7 @@
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DOC-068"
       },
       "testCase": "DOC-068 executes DOCUMENT_INVENTORY",
@@ -4173,7 +4179,7 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "documentation",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact local manifest/inventory oracle for DOC-068"
+      "closureCondition": "Keep exact local manifest/inventory oracle green for DOC-068"
     },
     {
       "id": "DOC-069",
@@ -4198,7 +4204,7 @@
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DOC-070"
       },
       "testCase": "DOC-070 executes DOCUMENT_INVENTORY",
@@ -4206,7 +4212,7 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "documentation",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact local manifest/inventory oracle for DOC-070"
+      "closureCondition": "Keep exact local manifest/inventory oracle green for DOC-070"
     },
     {
       "id": "DOC-071",
@@ -4285,7 +4291,7 @@
       "evidenceKind": "DOCUMENT_INVENTORY",
       "oracle": {
         "kind": "DOCUMENT_INVENTORY",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "DOC-088"
       },
       "testCase": "DOC-088 executes DOCUMENT_INVENTORY",
@@ -4293,7 +4299,7 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "documentation",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact local manifest/inventory oracle for DOC-088"
+      "closureCondition": "Keep exact local manifest/inventory oracle green for DOC-088"
     }
   ],
   "provenance": "CURATED_MAPPING_WITHOUT_REVIEW_ATTESTATION"

@@ -1915,18 +1915,18 @@
       "source": "06_CLIENT_ARCHITECTURE.md",
       "sourceLine": 12,
       "section": "스택",
-      "text": "Expo, React Native, TypeScript strict, expo-router, Zustand, TanStack Query, Socket.IO Client, Reanimated, Gesture Handler, Sentry.",
-      "fingerprint": "d16fecd120dc28acb071b9f8fedb6837266ae1b50fa79d36f95e8a230d2ad6fb",
+      "text": "현재 실행 surface는 Expo, React Native, strict TypeScript, expo-router와 Gesture Handler다. Zustand, TanStack Query, Socket.IO Client와 Reanimated의 실제 import 경로는 아직 계획 상태이며, Sentry live/provider 연동은 자격증명이 필요한 외부 단계다.",
+      "fingerprint": "b618322fe9bd293269ff8edc13f8ffa17b7b77362eda25cb6fa17f1f02525cfb",
       "schema": "packages/contracts/src/quarantine.ts",
-      "phase": "IMPLEMENTED",
+      "phase": "PLANNED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "PRIVACY_CONTRACT",
-      "oracle": "SEC-003:PRIVACY_CONTRACT:FAIL",
-      "lifecycle": "CURRENT",
+      "oracle": "SEC-003:PRIVACY_CONTRACT:BLOCKED",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "privacy",
-      "closureCondition": "Add and exercise Zustand, TanStack Query, Socket.IO Client, Reanimated, and Sentry in the Expo mobile runtime; package declarations without an executed client surface are insufficient",
-      "linkageProof": "1eb9758048bad04bedb8332812d22e83e3d488a0d62afc614eaab44127f3e464"
+      "closureCondition": "Add and exercise Zustand, TanStack Query, Socket.IO Client, and Reanimated in the Expo mobile runtime; keep Sentry live credentials external",
+      "linkageProof": "c386fcb035cf7b188836496c64ccf5d47636d2c1e56796fd8e13e4875e0af915"
     },
     {
       "id": "SEC-004",
@@ -2023,18 +2023,18 @@
       "source": "07_REALTIME_SERVER_SPEC.md",
       "sourceLine": 8,
       "section": "스택",
-      "text": "Node.js 22+, NestJS, Socket.IO, Redis, PostgreSQL, BullMQ.",
-      "fingerprint": "b60b447e611f30744186e7886e1d5b450f9146e21aa34099eb1a1358dea2610d",
+      "text": "현재 로컬 기반은 pinned Node runtime 계약과 PostgreSQL/Supabase migration이다. 실행 가능한 NestJS/Socket.IO 서버 및 Redis/BullMQ adapter는 아직 계획 상태이며 패키지 선언만으로 구현됐다고 간주하지 않는다.",
+      "fingerprint": "bc43ebba24d06d02dd1992f4f3575629a0291e131fa679113721f6222fdd7763",
       "schema": "packages/contracts/src/analytics.ts",
-      "phase": "IMPLEMENTED",
+      "phase": "PLANNED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "ANALYTICS_CONTRACT",
-      "oracle": "OBS-002:ANALYTICS_CONTRACT:FAIL",
-      "lifecycle": "CURRENT",
+      "oracle": "OBS-002:ANALYTICS_CONTRACT:BLOCKED",
+      "lifecycle": "PLANNED",
       "evidenceOwner": "analytics",
-      "closureCondition": "Implement an exercised NestJS/Socket.IO realtime service backed by Redis, PostgreSQL, and BullMQ; Node engine or dependency declarations alone are insufficient",
-      "linkageProof": "1d537c827072f2bf886a27378835cbb4336574477741cae7e9ff712bd6de6c67"
+      "closureCondition": "Implement an exercised NestJS/Socket.IO realtime service backed by Redis and BullMQ on the existing Node/PostgreSQL foundation",
+      "linkageProof": "e68d2d1aff219b2d289c89fef32f776b1d462fdf72e448b9cf11ffbae293f49a"
     },
     {
       "id": "OBS-003",
@@ -4190,11 +4190,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-068:DOCUMENT_INVENTORY:FAIL",
+      "oracle": "DOC-068:DOCUMENT_INVENTORY:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact local manifest/inventory oracle for DOC-068",
-      "linkageProof": "d4b673ac09cc220227110bef228fc451f1f1639754ed1cf9f267b47a2d54ec98"
+      "closureCondition": "Keep exact local manifest/inventory oracle green for DOC-068",
+      "linkageProof": "e723c6c8f3cf35b400bc4dabffb15b364d4ce2b5fda951170a2cc2f35f46bede"
     },
     {
       "id": "DOC-069",
@@ -4226,11 +4226,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-070:DOCUMENT_INVENTORY:FAIL",
+      "oracle": "DOC-070:DOCUMENT_INVENTORY:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact local manifest/inventory oracle for DOC-070",
-      "linkageProof": "4c1563e455a341c0b4ffe0ece28e690c103f6d28896d76b583cd7ba4a80cd5ec"
+      "closureCondition": "Keep exact local manifest/inventory oracle green for DOC-070",
+      "linkageProof": "451418f71edb3363f1fc85df84add409d304e541b362758de35e6cab6a40e2f3"
     },
     {
       "id": "DOC-071",
@@ -4317,11 +4317,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "DOCUMENT_INVENTORY",
-      "oracle": "DOC-088:DOCUMENT_INVENTORY:FAIL",
+      "oracle": "DOC-088:DOCUMENT_INVENTORY:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "documentation",
-      "closureCondition": "Implement exact local manifest/inventory oracle for DOC-088",
-      "linkageProof": "69d187a6a97f010835fe15b3970415a56fb22f6a28a90edc721c723688283056"
+      "closureCondition": "Keep exact local manifest/inventory oracle green for DOC-088",
+      "linkageProof": "e1a9d613f37bb0bde868cbffffd432d034a63ff8c306a9174549f108fd95ba91"
     }
   ]
 }

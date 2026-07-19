@@ -1113,19 +1113,6 @@
       "closureCondition": "Keep the reconnect-forfeit ruleset and executable OBS-001 predicate synchronized"
     },
     {
-      "id": "OBS-002",
-      "approvedTokens": [
-        "22"
-      ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
-      "sourcePath": "07_REALTIME_SERVER_SPEC.md",
-      "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "analytics",
-      "closureCondition": "Implement exact repository-local ANALYTICS_CONTRACT oracle for OBS-002",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STAGE8B_ANALYTICS_EXACT_ORACLE_GAP"
-    },
-    {
       "id": "OBS-004",
       "approvedTokens": [
         "8"
@@ -1216,7 +1203,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact repository-local 1:1 revision projection oracle green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "36ff51789c55a1ab71995bdcd688bbcffcd4af8362d939c32cabd0255a34b4f1",
+      "ssotHash": "e84fed0a26fc75d4ba6dcb0a7418f6559bb17558932c8e1182f4a16a2cb50495",
       "ssotAssertions": [
         {
           "pointer": "/entries/129/oracle/expected",
@@ -1236,7 +1223,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact seat and 20-session concurrency predicate green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "36ff51789c55a1ab71995bdcd688bbcffcd4af8362d939c32cabd0255a34b4f1",
+      "ssotHash": "e84fed0a26fc75d4ba6dcb0a7418f6559bb17558932c8e1182f4a16a2cb50495",
       "ssotAssertions": [{"pointer":"/entries/142/oracle/expected","expected":"PASS"}]
     },
     {
@@ -1249,7 +1236,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact 20-session concurrency evidence green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "36ff51789c55a1ab71995bdcd688bbcffcd4af8362d939c32cabd0255a34b4f1",
+      "ssotHash": "e84fed0a26fc75d4ba6dcb0a7418f6559bb17558932c8e1182f4a16a2cb50495",
       "ssotAssertions": [{"pointer":"/entries/152/oracle/expected","expected":"PASS"}]
     },
     {

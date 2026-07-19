@@ -9,7 +9,7 @@ The Expo SDK 57 / React Native 0.86 shell consumes `MatchSnapshotV1` from the pu
 <!-- GENERATED:UI_CLIENT:END -->
 
 ## 스택
-Expo, React Native, TypeScript strict, expo-router, Zustand, TanStack Query, Socket.IO Client, Reanimated, Gesture Handler, Sentry. <!-- REQ: SEC-003 -->
+현재 실행 surface는 Expo, React Native, strict TypeScript, expo-router와 Gesture Handler다. Zustand, TanStack Query, Socket.IO Client와 Reanimated의 실제 import 경로는 아직 계획 상태이며, Sentry live/provider 연동은 자격증명이 필요한 외부 단계다. <!-- REQ: SEC-003 -->
 
 ## 구조
 ```text
