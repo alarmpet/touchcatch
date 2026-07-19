@@ -5,9 +5,10 @@
     "config/requirement-evidence.v1.json",
     "config/normative-numeric-approvals.v1.json"
   ],
-  "unverifiedRequirementCount": 26,
+  "unverifiedRequirementCount": 27,
   "unverifiedRequirementIds": [
     "RULE-012",
+    "RULE-013",
     "RULE-014",
     "RULE-015",
     "RULE-016",
@@ -34,8 +35,9 @@
     "DOC-073",
     "DOC-074"
   ],
-  "unapprovedNumericBaselineCount": 8,
+  "unapprovedNumericBaselineCount": 9,
   "unapprovedNumericBaselineIds": [
+    "RULE-013",
     "RULE-015",
     "OBS-015",
     "ENV-001",

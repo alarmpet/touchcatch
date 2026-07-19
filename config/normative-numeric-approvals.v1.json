@@ -2,117 +2,6 @@
   "schemaVersion": 4,
   "entries": [
     {
-      "id": "RULE-006",
-      "approvedTokens": [
-        "1",
-        "1"
-      ],
-      "status": "VERIFIED_LOCAL_SSOT",
-      "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable behavioral predicate green for RULE-006",
-      "ssotPath": "config/rule-runtime-policy.v1.json",
-      "ssotHash": "1b4d94bf66ac7e49e03807fb2d39db2bee8f7746f36b15a8ae76acfbf22b7e47",
-      "ssotAssertions": [
-        {
-          "pointer": "/randomOneVsOnePlayerCount",
-          "expected": 2
-        }
-      ]
-    },
-    {
-      "id": "RULE-007",
-      "approvedTokens": [
-        "0~15",
-        "12"
-      ],
-      "status": "VERIFIED_LOCAL_SSOT",
-      "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable behavioral predicate green for RULE-007",
-      "ssotPath": "config/ruleset.v1.json",
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e",
-      "ssotAssertions": [
-        {
-          "pointer": "/finalChallenge/unlock/atMs",
-          "expected": 12000
-        }
-      ]
-    },
-    {
-      "id": "RULE-008",
-      "approvedTokens": [
-        "16~22"
-      ],
-      "status": "VERIFIED_LOCAL_SSOT",
-      "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable behavioral predicate green for RULE-008",
-      "ssotPath": "config/ruleset.v1.json",
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e",
-      "ssotAssertions": [
-        {
-          "pointer": "/wordHuntSchedule/0/spawnWindowMs",
-          "expected": [
-            16000,
-            22000
-          ]
-        }
-      ]
-    },
-    {
-      "id": "RULE-009",
-      "approvedTokens": [
-        "23~42"
-      ],
-      "status": "VERIFIED_LOCAL_SSOT",
-      "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable behavioral predicate green for RULE-009",
-      "ssotPath": "config/ruleset.v1.json",
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e",
-      "ssotAssertions": [
-        {
-          "pointer": "/wordHuntSchedule/1/spawnWindowMs",
-          "expected": [
-            34000,
-            42000
-          ]
-        }
-      ]
-    },
-    {
-      "id": "RULE-010",
-      "approvedTokens": [
-        "12"
-      ],
-      "status": "VERIFIED_LOCAL_SSOT",
-      "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable behavioral predicate green for RULE-010",
-      "ssotPath": "config/ruleset.v1.json",
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e",
-      "ssotAssertions": [
-        {
-          "pointer": "/finalChallenge/unlock/atMs",
-          "expected": 12000
-        },
-        {
-          "pointer": "/finalChallenge/unlock/onDifferenceClaim",
-          "expected": true
-        },
-        {
-          "pointer": "/finalChallenge/unlock/onWordHuntClaim",
-          "expected": true
-        }
-      ]
-    },
-    {
       "id": "RULE-011",
       "approvedTokens": [
         "60~75"
@@ -141,19 +30,13 @@
         "1",
         "1"
       ],
-      "status": "VERIFIED_LOCAL_SSOT",
+      "status": "UNAPPROVED_BASELINE",
       "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable behavioral predicate green for RULE-013",
-      "ssotPath": "config/rule-runtime-policy.v1.json",
-      "ssotHash": "1b4d94bf66ac7e49e03807fb2d39db2bee8f7746f36b15a8ae76acfbf22b7e47",
-      "ssotAssertions": [
-        {
-          "pointer": "/randomOneVsOnePlayerCount",
-          "expected": 2
-        }
-      ]
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "matchmaking",
+      "closureCondition": "Implement production random 1:1 matchmaking",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_PRODUCTION_MATCHMAKING_PATH",
+      "sourceHash": "8f7776fd8e0cc8fd3a347e44c76a42e1dd9cbe6dbfcb8be0e782368c1f11ac3a"
     },
     {
       "id": "RULE-015",
@@ -161,7 +44,7 @@
         "2",
         "2"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNAPPROVED_BASELINE",
       "sourcePath": "01_GAME_DESIGN_OVERVIEW.md",
       "sourceHash": "8f7776fd8e0cc8fd3a347e44c76a42e1dd9cbe6dbfcb8be0e782368c1f11ac3a",
       "lifecycle": "PLANNED",
@@ -216,7 +99,7 @@
       "evidenceOwner": "rules",
       "closureCondition": "Keep exact executable behavioral predicate green for RULE-022",
       "ssotPath": "config/rule-runtime-policy.v1.json",
-      "ssotHash": "1b4d94bf66ac7e49e03807fb2d39db2bee8f7746f36b15a8ae76acfbf22b7e47",
+      "ssotHash": "8ea602db88334e0ade169448c2d3c70bd2ebfbaefe9cbbdb426abe573f904bea",
       "ssotAssertions": [
         {
           "pointer": "/minimumMatchDurationMs",
@@ -442,11 +325,11 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
       "closureCondition": "Keep exact executable behavioral predicate green for RULE-035",
-      "ssotPath": "config/rule-runtime-policy.v1.json",
-      "ssotHash": "1b4d94bf66ac7e49e03807fb2d39db2bee8f7746f36b15a8ae76acfbf22b7e47",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e",
       "ssotAssertions": [
         {
-          "pointer": "/wordHuntRewardSelectionCount",
+          "pointer": "/hint/creditsPerWordHuntWin",
           "expected": 1
         }
       ]
@@ -1214,7 +1097,7 @@
         "400",
         "30"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNAPPROVED_BASELINE",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "6dc38a7f24607b39d1f9ce7f36da32ae51c2eb0af29fc13acbcf39b2ee6d0826",
       "lifecycle": "EXTERNAL",
@@ -1233,10 +1116,10 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact repository-local 1:1 revision projection oracle green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "b4e929cba8dde872f89987d21a3c1cdf4f7bb30ff95c318ae25a31f872f1ea6c",
+      "ssotHash": "e7040cdbecfa31c8cbe7527b43b784f0dc2c36ac8351c56b69326ac77cf234cc",
       "ssotAssertions": [
         {
-          "pointer": "/entries/117/oracle/expected",
+          "pointer": "/entries/112/oracle/expected",
           "expected": "PASS"
         }
       ]
@@ -1253,10 +1136,10 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact seat and 20-session concurrency predicate green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "b4e929cba8dde872f89987d21a3c1cdf4f7bb30ff95c318ae25a31f872f1ea6c",
+      "ssotHash": "e7040cdbecfa31c8cbe7527b43b784f0dc2c36ac8351c56b69326ac77cf234cc",
       "ssotAssertions": [
         {
-          "pointer": "/entries/130/oracle/expected",
+          "pointer": "/entries/125/oracle/expected",
           "expected": "PASS"
         }
       ]
@@ -1271,10 +1154,10 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact 20-session concurrency evidence green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "b4e929cba8dde872f89987d21a3c1cdf4f7bb30ff95c318ae25a31f872f1ea6c",
+      "ssotHash": "e7040cdbecfa31c8cbe7527b43b784f0dc2c36ac8351c56b69326ac77cf234cc",
       "ssotAssertions": [
         {
-          "pointer": "/entries/140/oracle/expected",
+          "pointer": "/entries/135/oracle/expected",
           "expected": "PASS"
         }
       ]
@@ -1334,7 +1217,7 @@
       "approvedTokens": [
         "3"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNAPPROVED_BASELINE",
       "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
       "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
       "lifecycle": "PLANNED",
@@ -1347,7 +1230,7 @@
       "approvedTokens": [
         "2"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNAPPROVED_BASELINE",
       "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
       "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
       "lifecycle": "PLANNED",
@@ -1360,7 +1243,7 @@
       "approvedTokens": [
         "3"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNAPPROVED_BASELINE",
       "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
       "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
       "lifecycle": "PLANNED",
@@ -1373,7 +1256,7 @@
       "approvedTokens": [
         "50"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNAPPROVED_BASELINE",
       "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
       "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
       "lifecycle": "PLANNED",
@@ -1387,7 +1270,7 @@
         "1",
         "6~10"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNAPPROVED_BASELINE",
       "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
       "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
       "lifecycle": "PLANNED",
@@ -1401,7 +1284,7 @@
         "2",
         "4~7"
       ],
-      "status": "UNAPPROVED_EXTERNAL_BLOCKER",
+      "status": "UNAPPROVED_BASELINE",
       "sourcePath": "12_IMPLEMENTATION_ROADMAP.md",
       "sourceHash": "c64465cd4b43fc718e9f808c644b6ce94aef59469c12e52652a60012e95dbb64",
       "lifecycle": "PLANNED",
@@ -1412,7 +1295,7 @@
   ],
   "status": "MIXED_VERIFIED_AND_UNAPPROVED",
   "summary": {
-    "verifiedLocalSsot": 61,
-    "unapproved": 8
+    "verifiedLocalSsot": 55,
+    "unapproved": 9
   }
 }

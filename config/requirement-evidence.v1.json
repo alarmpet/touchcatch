@@ -23,81 +23,6 @@
       "closureCondition": "Keep exact executable oracle green"
     },
     {
-      "id": "RULE-006",
-      "evidenceKind": "RULESET_PARSE",
-      "oracle": {
-        "kind": "RULESET_PARSE",
-        "expected": "PASS",
-        "input": "config/ruleset.v1.json"
-      },
-      "testCase": "RULE-006 executes RULESET_PARSE",
-      "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable behavioral predicate green for RULE-006"
-    },
-    {
-      "id": "RULE-007",
-      "evidenceKind": "RULESET_PARSE",
-      "oracle": {
-        "kind": "RULESET_PARSE",
-        "expected": "PASS",
-        "input": "config/ruleset.v1.json"
-      },
-      "testCase": "RULE-007 executes RULESET_PARSE",
-      "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable behavioral predicate green for RULE-007"
-    },
-    {
-      "id": "RULE-008",
-      "evidenceKind": "RULESET_PARSE",
-      "oracle": {
-        "kind": "RULESET_PARSE",
-        "expected": "PASS",
-        "input": "config/ruleset.v1.json"
-      },
-      "testCase": "RULE-008 executes RULESET_PARSE",
-      "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable behavioral predicate green for RULE-008"
-    },
-    {
-      "id": "RULE-009",
-      "evidenceKind": "RULESET_PARSE",
-      "oracle": {
-        "kind": "RULESET_PARSE",
-        "expected": "PASS",
-        "input": "config/ruleset.v1.json"
-      },
-      "testCase": "RULE-009 executes RULESET_PARSE",
-      "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable behavioral predicate green for RULE-009"
-    },
-    {
-      "id": "RULE-010",
-      "evidenceKind": "RULESET_PARSE",
-      "oracle": {
-        "kind": "RULESET_PARSE",
-        "expected": "PASS",
-        "input": "config/ruleset.v1.json"
-      },
-      "testCase": "RULE-010 executes RULESET_PARSE",
-      "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable behavioral predicate green for RULE-010"
-    },
-    {
       "id": "RULE-011",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
@@ -135,15 +60,18 @@
       "evidenceKind": "RULESET_PARSE",
       "oracle": {
         "kind": "RULESET_PARSE",
-        "expected": "PASS",
+        "expected": "BLOCKED",
         "input": "config/ruleset.v1.json"
       },
       "testCase": "RULE-013 executes RULESET_PARSE",
       "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable behavioral predicate green for RULE-013"
+      "lifecycle": "PLANNED",
+      "evidenceOwner": "matchmaking",
+      "phase": "PLANNED",
+      "closureCondition": "Implement a production matchmaking path that invokes random distinct-player pairing",
+      "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_PRODUCTION_MATCHMAKING_PATH",
+      "closureArtifact": "apps/server/src/matchmaking/random-one-v-one.ts",
+      "closureArtifactState": "ABSENT"
     },
     {
       "id": "RULE-014",

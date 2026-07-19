@@ -1,37 +1,29 @@
 import {describe,expect,it} from 'vitest';
-import {MINIMUM_MATCH_DURATION_MS,RANDOM_ONE_V_ONE_PLAYER_COUNT,WORD_HUNT_REWARD_SELECTION_COUNT,chooseRandomOneVsOne,hasMinimumMatchDuration,isTimedInputLocked,parseWordHuntRewardChoice,shouldKeepInputLocked} from './rule-contracts.js';
+import {MINIMUM_MATCH_DURATION_MS,hasMinimumMatchDuration,isTimedInputLocked,shouldKeepInputLocked} from './rule-contracts.js';
+import {createTestingReplayBundle,testingRules} from './testing-fixtures.js';
+import {reduceMatch} from './reducer.js';
+import type {MatchStateV1} from '../../contracts/src/match.js';
 
-it('loads numeric rule contracts from the runtime policy SSOT',()=>{
- expect(RANDOM_ONE_V_ONE_PLAYER_COUNT).toBe(2);
- expect(MINIMUM_MATCH_DURATION_MS).toBe(15_000);
- expect(WORD_HUNT_REWARD_SELECTION_COUNT).toBe(1);
-});
-
-describe('RULE-013 random 1v1',()=>{
- it('selects exactly two distinct queued players using the supplied random draw',()=>{
-  const queue=[{ticketId:'t1',playerId:'p1'},{ticketId:'t2',playerId:'p2'},{ticketId:'t3',playerId:'p3'}] as const;
-  expect(chooseRandomOneVsOne(queue,()=>0)).toEqual([queue[0],queue[1]]);
-  expect(chooseRandomOneVsOne(queue,()=>0.999999)).toEqual([queue[2],queue[1]]);
- });
- it('does not form a match with fewer than two distinct players',()=>{
-  expect(chooseRandomOneVsOne([{ticketId:'t1',playerId:'p1'}],()=>0)).toBeNull();
-  expect(chooseRandomOneVsOne([{ticketId:'t1',playerId:'p1'},{ticketId:'t2',playerId:'p1'}],()=>0)).toBeNull();
- });
-});
+it('loads the 15-second minimum from runtime policy SSOT',()=>{expect(MINIMUM_MATCH_DURATION_MS).toBe(15_000);});
 
 describe('RULE-022 minimum match duration',()=>{
  it('permits completion only at or after 15 seconds from match start',()=>{
   expect(hasMinimumMatchDuration(10_000,24_999)).toBe(false);
   expect(hasMinimumMatchDuration(10_000,25_000)).toBe(true);
  });
+ it('does not finish an authoritative score-target command before 15 seconds',()=>{
+  const bundle=createTestingReplayBundle(),state:MatchStateV1=structuredClone(bundle.initialState);state.phase='PLAYING';state.startedAtMs=0;state.gameplayClosesAtMs=75_000;state.settlementCapAtMs=80_000;state.players[0].score=99;
+  const requestId='00000000-0000-4000-8000-000000000777';
+  const early=reduceMatch(state,{source:'PLAYER',commandId:`${state.matchId}:player:p1:${requestId}`,matchId:state.matchId,commandSeq:1,receivedAtMs:14_999,requestId,playerId:'p1',expectedRevision:0,payload:{type:'TAP_IMAGE',imageSide:'A',x:.1,y:.2}},testingRules);
+  expect(early.state.phase).toBe('PLAYING');expect(early.state.endReason).toBeNull();expect(early.events.some(e=>e.type==='MATCH_FINISHED')).toBe(false);
+ });
 });
 
-describe('RULE-035 word-hunt reward choice',()=>{
- it.each(['HINT','NEXT_DIFFERENCE_BONUS','FINAL_CHARACTER_REVEAL','OPPONENT_HINT_LOCK'] as const)('accepts %s as exactly one reward',choice=>{
-  expect(parseWordHuntRewardChoice(choice)).toBe(choice);
- });
- it.each([null,[],['HINT','FINAL_CHARACTER_REVEAL'],'SCORE_BONUS'])('rejects missing, multiple, and unknown rewards',choice=>{
-  expect(()=>parseWordHuntRewardChoice(choice)).toThrow(/reward choice/);
+describe('RULE-035 word-hunt hint credit',()=>{
+ it('awards exactly one hint credit through the authoritative reducer',()=>{
+  const bundle=createTestingReplayBundle(),state:MatchStateV1=structuredClone(bundle.initialState);state.phase='PLAYING';state.startedAtMs=0;state.gameplayClosesAtMs=75_000;state.settlementCapAtMs=80_000;state.activeMission={missionId:'w1',kind:'NORMAL',publicPrompt:'one',startedAtMs:16_000,endsAtMs:21_000};
+  const requestId='00000000-0000-4000-8000-000000000778',result=reduceMatch(state,{source:'PLAYER',commandId:`${state.matchId}:player:p1:${requestId}`,matchId:state.matchId,commandSeq:1,receivedAtMs:17_200,requestId,playerId:'p1',expectedRevision:0,payload:{type:'TAP_IMAGE',imageSide:'A',x:.2,y:.8}},testingRules);
+  expect(result.state.players[0].hintCredits).toBe(1);expect(result.events).toContainEqual(expect.objectContaining({type:'HINT_CREDIT_CHANGED',payload:{playerId:'p1',delta:1,absoluteCredits:1}}));
  });
 });
 

@@ -6,4 +6,6 @@ No retired ID is renamed. New requirements must receive new IDs; retired IDs mus
 
 Stage 9 retires `RULE-002` through `RULE-005`, `RULE-051`, and `ECON-001` through `ECON-007` as descriptive pillars, taxonomy labels, feature lists, or illustrative arithmetic. These IDs remain permanently reserved and are not reassigned. Surviving RULE IDs retain their original identity; lifecycle changes do not renumber them.
 
+The v10 exactness review additionally retires descriptive `RULE-006` through `RULE-010` without reuse. `RULE-013` keeps its stable ID but returns to `PLANNED` until a production matchmaking path invokes the pairing policy; a standalone helper is not implementation evidence.
+
 Stage 8C additionally retires `DOC-075` through `DOC-087`: the individual README links duplicated the retained inventory contract. `DOC-088` remains the single active inventory/registry requirement.
