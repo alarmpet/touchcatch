@@ -7,7 +7,20 @@ paths:
     get:
       operationId: getMe
       summary: Get the authenticated profile
-      responses: { "200": { $ref: "#/components/responses/MeResponse" }, "401": { $ref: "#/components/responses/MeError" } }
+      responses: { "200": { $ref: "#/components/responses/MeResponse" }, "401": { $ref: "#/components/responses/MeError" }, "403": { $ref: "#/components/responses/MeForbiddenError" }, "503": { $ref: "#/components/responses/AccountSetupError" } }
+    patch:
+      operationId: updateMe
+      summary: Update the authenticated profile
+      parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
+      requestBody: { $ref: "#/components/requestBodies/UpdateMeRequest" }
+      responses: { "200": { $ref: "#/components/responses/MeResponse" }, "400": { $ref: "#/components/responses/ValidationError" }, "401": { $ref: "#/components/responses/MeError" }, "403": { $ref: "#/components/responses/MeForbiddenError" }, "429": { $ref: "#/components/responses/RateLimitError" }, "503": { $ref: "#/components/responses/AccountSetupError" } }
+  /v1/learning/progress/merge:
+    post:
+      operationId: mergeLearningProgress
+      summary: Merge non-economic guest learning progress
+      parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
+      requestBody: { $ref: "#/components/requestBodies/LearningProgressMergeRequest" }
+      responses: { "200": { $ref: "#/components/responses/LearningProgressMergeResponse" }, "400": { $ref: "#/components/responses/ValidationError" }, "401": { $ref: "#/components/responses/MeError" }, "403": { $ref: "#/components/responses/MeForbiddenError" }, "409": { $ref: "#/components/responses/ProgressConflictError" }, "503": { $ref: "#/components/responses/AccountSetupError" } }
   /v1/pets:
     get:
       operationId: listPets
@@ -88,12 +101,18 @@ components:
     RoomCode: { name: roomCode, in: path, required: true, schema: { type: string, pattern: "^[A-Z0-9]{6,12}$" } }
     IdempotencyKey: { name: Idempotency-Key, in: header, required: true, schema: { type: string, pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89aAbB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$" } }
   requestBodies:
+    UpdateMeRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/UpdateMeRequest" } } } }
+    LearningProgressMergeRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/LearningProgressMergeRequest" } } } }
     LockPetRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/LockPetRequest" } } } }
     FusionRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/FusionRequest" } } } }
     QueueCreateRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/QueueCreateRequest" } } } }
     FriendRoomCreateRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomCreateRequest" } } } }
     FriendRoomJoinRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomJoinRequest" } } } }
   schemas:
+    UpdateMeRequest: { type: object, additionalProperties: false, required: [nickname], properties: { nickname: { type: string, minLength: 1, maxLength: 40 } } }
+    LearningProgressEvent: { type: object, additionalProperties: false, required: [deviceEventId, contentKey, contentRevision, completedAt], properties: { deviceEventId: { type: string, format: uuid, pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89aAbB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$" }, contentKey: { type: string, minLength: 1, maxLength: 128 }, contentRevision: { type: string, minLength: 1, maxLength: 128 }, completedAt: { type: string, format: date-time } } }
+    LearningProgressMergeRequest: { type: object, additionalProperties: false, required: [schemaVersion, events], properties: { schemaVersion: { const: "1" }, events: { type: array, minItems: 1, maxItems: 100, items: { $ref: "#/components/schemas/LearningProgressEvent" } } } }
+    LearningProgressMergeResponse: { type: object, additionalProperties: false, required: [acceptedEventIds, rejected], properties: { acceptedEventIds: { type: array, items: { type: string, format: uuid } }, rejected: { type: array, items: { type: object, additionalProperties: false, required: [deviceEventId, code], properties: { deviceEventId: { type: string, format: uuid }, code: { enum: [UNKNOWN_CONTENT, REVISION_MISMATCH] } } } } } }
     LockPetRequest: { type: object, additionalProperties: false, required: [locked], properties: { locked: { type: boolean } } }
     FusionRequest: { type: object, additionalProperties: false, required: [materials], properties: { materials: { type: array, minItems: 1, maxItems: 5, x-runtime-validation: { exactCountSum: 5, uniqueBy: userPetId }, items: { type: object, additionalProperties: false, required: [userPetId, count], properties: { userPetId: { type: string, format: uuid }, count: { type: integer, minimum: 1, maximum: 5 } } } } } }
     QueueCreateRequest: { type: object, additionalProperties: false, maxProperties: 0 }
@@ -111,6 +130,11 @@ components:
     FriendRoomResponse: { type: object, additionalProperties: false, required: [roomCode, memberCount], properties: { roomCode: { type: string }, memberCount: { type: integer, minimum: 1, maximum: 2 } } }
     FriendRoomLeaveResponse: { type: object, additionalProperties: false, required: [left], properties: { left: { const: true } } }
     MeError: &unauthorized { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [UNAUTHORIZED] } } }
+    MeForbiddenError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [ANONYMOUS_FORBIDDEN] } } }
+    AccountSetupError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [ACCOUNT_SETUP_FAILED] } } }
+    ValidationError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [VALIDATION_FAILED] } } }
+    RateLimitError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [RATE_LIMITED] } } }
+    ProgressConflictError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [IDEMPOTENCY_CONFLICT] } } }
     PetsError: *unauthorized
     SelectPetNotOwnedError: &notOwnedError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [NOT_OWNED] } } }
     SelectPetConflictError: &idempotencyError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [IDEMPOTENCY_CONFLICT] } } }
@@ -138,6 +162,12 @@ components:
     FriendRoomResponse: { description: Friend room, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomResponse" } } } }
     FriendRoomLeaveResponse: { description: Friend-room departure, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomLeaveResponse" } } } }
     MeError: &meError { description: Unauthorized, content: { application/json: { schema: { $ref: "#/components/schemas/MeError" } } } }
+    MeForbiddenError: { description: Anonymous identities are forbidden, content: { application/json: { schema: { $ref: "#/components/schemas/MeForbiddenError" } } } }
+    AccountSetupError: { description: Account bootstrap did not complete, content: { application/json: { schema: { $ref: "#/components/schemas/AccountSetupError" } } } }
+    ValidationError: { description: Invalid request, content: { application/json: { schema: { $ref: "#/components/schemas/ValidationError" } } } }
+    RateLimitError: { description: Rate limited, content: { application/json: { schema: { $ref: "#/components/schemas/RateLimitError" } } } }
+    ProgressConflictError: { description: Idempotency conflict, content: { application/json: { schema: { $ref: "#/components/schemas/ProgressConflictError" } } } }
+    LearningProgressMergeResponse: { description: Progress merge result, content: { application/json: { schema: { $ref: "#/components/schemas/LearningProgressMergeResponse" } } } }
     PetsError: { description: Unauthorized, content: { application/json: { schema: { $ref: "#/components/schemas/PetsError" } } } }
     SelectPetNotOwnedError: { description: Pet is not owned, content: { application/json: { schema: { $ref: "#/components/schemas/SelectPetNotOwnedError" } } } }
     SelectPetConflictError: { description: Idempotency conflict, content: { application/json: { schema: { $ref: "#/components/schemas/SelectPetConflictError" } } } }

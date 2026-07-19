@@ -15,7 +15,9 @@ type Schema = {
 type Document = { openapi: string; security: unknown; paths: Record<string, Record<string, Operation>>; components: { schemas: Record<string, Schema> } };
 const document = parse(readFileSync(new URL("../openapi.yaml", import.meta.url), "utf8")) as Document;
 const expected = {
-  "GET /v1/me": { request: null, statuses: ["200", "401"], response: "MeResponse", errors: ["UNAUTHORIZED"] },
+  "GET /v1/me": { request: null, statuses: ["200", "401", "403", "503"], response: "MeResponse", errors: ["UNAUTHORIZED", "ANONYMOUS_FORBIDDEN", "ACCOUNT_SETUP_FAILED"] },
+  "PATCH /v1/me": { request: "UpdateMeRequest", statuses: ["200", "400", "401", "403", "429", "503"], response: "MeResponse", errors: ["VALIDATION_FAILED", "UNAUTHORIZED", "ANONYMOUS_FORBIDDEN", "RATE_LIMITED", "ACCOUNT_SETUP_FAILED"] },
+  "POST /v1/learning/progress/merge": { request: "LearningProgressMergeRequest", statuses: ["200", "400", "401", "403", "409", "503"], response: "LearningProgressMergeResponse", errors: ["VALIDATION_FAILED", "UNAUTHORIZED", "ANONYMOUS_FORBIDDEN", "IDEMPOTENCY_CONFLICT", "ACCOUNT_SETUP_FAILED"] },
   "GET /v1/pets": { request: null, statuses: ["200", "401"], response: "PetsResponse", errors: ["UNAUTHORIZED"] },
   "POST /v1/pets/{id}/select": { request: null, statuses: ["200", "404", "409"], response: "SelectPetResponse", errors: ["NOT_OWNED", "IDEMPOTENCY_CONFLICT"] },
   "POST /v1/pets/{id}/lock": { request: "LockPetRequest", statuses: ["200", "404", "409"], response: "LockPetResponse", errors: ["NOT_OWNED", "IDEMPOTENCY_CONFLICT"] },
@@ -38,7 +40,7 @@ const economyStatusErrors = {
 
 describe("OpenAPI semantic contract", () => {
   it("pins the exact path and method set", () => {
-    const actual = Object.entries(document.paths).flatMap(([path, item]) => Object.keys(item).filter((m) => ["get", "post", "delete"].includes(m)).map((m) => `${m.toUpperCase()} ${path}`));
+    const actual = Object.entries(document.paths).flatMap(([path, item]) => Object.keys(item).filter((m) => ["get", "post", "patch", "delete"].includes(m)).map((m) => `${m.toUpperCase()} ${path}`));
     expect(actual.sort()).toEqual(Object.keys(expected).sort());
   });
   it("enforces auth, GET header policy, and mutation idempotency", () => {

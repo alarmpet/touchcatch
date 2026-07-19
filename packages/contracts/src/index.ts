@@ -16,6 +16,7 @@ export * from './integration-evidence.js';
 export * from './analytics.js';
 export * from './economy.js';
 export * from './ui.js';
+export * from './auth.js';
 export * from './economy.schema.js';
 export * from './pet-catalog.js';
 export {
