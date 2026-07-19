@@ -1,4 +1,4 @@
-import { buildDemoEntry, type Bundle } from './data.js';
+import { buildDemoEntry, type Bundle } from './data';
 
 declare const require: (path: string) => number;
 

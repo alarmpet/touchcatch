@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Image, Pressable, ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { createDemoState, reduceDemoState, type Circle, type DemoState } from './controller.js';
+import { createDemoState, reduceDemoState, type Circle, type DemoState } from './controller';
 
 export type LearningDemoEntry = Readonly<{
   key: string;

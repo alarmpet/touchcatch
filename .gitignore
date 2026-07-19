@@ -8,6 +8,7 @@ node_modules/
 apps/*/.env
 apps/*/.env.*
 !apps/*/.env.example
+apps/*/.expo/
 supabase/.temp/
 supabase/.branches/
 artifacts/

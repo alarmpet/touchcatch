@@ -1,4 +1,4 @@
-import type { LearningDemoEntry } from './LearningDemoScreen.js';
+import type { LearningDemoEntry } from './LearningDemoScreen';
 
 export type Bundle = Readonly<{
   publicContent: Readonly<{ theme: string }>;
