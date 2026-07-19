@@ -243,21 +243,6 @@
       "closureCondition": "Keep exact executable oracle green"
     },
     {
-      "id": "RULE-022",
-      "evidenceKind": "RULESET_PARSE",
-      "oracle": {
-        "kind": "RULESET_PARSE",
-        "expected": "PASS",
-        "input": "config/ruleset.v1.json"
-      },
-      "testCase": "RULE-022 executes RULESET_PARSE",
-      "metric": "release_requirement_gate_status",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "rules",
-      "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact executable behavioral predicate green for RULE-022"
-    },
-    {
       "id": "RULE-023",
       "evidenceKind": "RULESET_PARSE",
       "oracle": {

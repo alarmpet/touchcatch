@@ -36,6 +36,12 @@
       "from": 6,
       "to": 10,
       "reason": "Descriptive pacing and genre prose retired after exactness review; IDs reserved without reuse"
+    },
+    {
+      "family": "RULE",
+      "from": 22,
+      "to": 22,
+      "reason": "Frozen ruleset has immediate score-target termination; unsupported 15-second minimum retired without reuse"
     }
   ],
   "overrides": {
@@ -84,11 +90,6 @@
       "lifecycle": "PLANNED",
       "evidenceOwner": "matchmaking",
       "closureCondition": "Implement a production matchmaking path that invokes random distinct-player pairing"
-    },
-    "RULE-022": {
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable behavioral predicate green for RULE-022"
     },
     "RULE-035": {
       "lifecycle": "CURRENT",

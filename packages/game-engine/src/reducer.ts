@@ -3,7 +3,7 @@ import { normalizeFinalAnswer } from '../../contracts/src/answer-normalization.j
 import { deriveTimerId, parseMatchCommandV1, parseMatchInitialStateV1, parseMatchStateV1, validatePrivateSolutionLanguage } from '../../contracts/src/match.schema.js';
 import type { CreateMatchInitialStateInput, DomainDecision, MatchCommand, MatchEndReason, MatchEvent, MatchInitialStateV1, MatchStateV1, ReduceResult, TimerCommandPayload, TimerIntent } from '../../contracts/src/match.js';
 import type { RulesetV1 } from '../../contracts/src/rules.js';
-import {hasMinimumMatchDuration,isTimedInputLocked} from './rule-contracts.js';
+import {isTimedInputLocked} from './rule-contracts.js';
 
 export function createMatchInitialState(input:CreateMatchInitialStateInput,rules:RulesetV1) {
  if(!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/.test(input.matchId)||input.playerIds.some(x=>!/^[\x21-\x7e]{1,128}$/.test(x)))throw Error('invalid match or player id');
@@ -46,7 +46,7 @@ function reduceOther(state:MatchStateV1,command:MatchCommand,rules:RulesetV1):Re
  if(command.source==='PLAYER'&&command.expectedRevision>state.stateRevision)return rejected(state,'REVISION_AHEAD');
  const next=structuredClone(state) as MatchStateV1;const at=command.source==='TIMER'?command.dueAtMs:command.receivedAtMs;type PendingEvent=MatchEvent extends infer E?E extends MatchEvent?Pick<E,'type'|'payload'>:never:never;const raw:PendingEvent[]=[];const intents:TimerIntent[]=[];
  const emit=(type:string,payload:Record<string,unknown>)=>raw.push({type,payload} as PendingEvent);const schedule=(_type:string,_scope:string,dueAtMs:number,payload:TimerCommandPayload)=>intents.push({kind:'SCHEDULE',timerId:deriveTimerId(state.matchId,payload as unknown as Record<string,unknown>),dueAtMs,payload});
- const finish=(winner:string|null,reason:MatchEndReason)=>{if(reason==='SCORE_TARGET'&&(next.startedAtMs===null||!hasMinimumMatchDuration(next.startedAtMs,at)))return;next.winnerPlayerId=winner;next.endReason=reason;next.phase=reason==='NO_CONTEST'||reason==='NO_CONTEST_ASSET_LOAD'?'CANCELLED':'FINISHED';emit('MATCH_FINISHED',{winnerPlayerId:winner,endReason:reason});};
+ const finish=(winner:string|null,reason:MatchEndReason)=>{next.winnerPlayerId=winner;next.endReason=reason;next.phase=reason==='NO_CONTEST'||reason==='NO_CONTEST_ASSET_LOAD'?'CANCELLED':'FINISHED';emit('MATCH_FINISHED',{winnerPlayerId:winner,endReason:reason});};
  if(command.source==='PLAYER'){
   const p=next.players.find(x=>x.playerId===command.playerId);if(!p)return rejected(state,'NOT_A_PARTICIPANT');const q=command.payload;
   if(q.type==='REPORT_ASSET_LOAD_FAILURE'){if(next.phase!=='WAITING_FOR_ASSETS'||p.assetLoadStatus!=='PENDING'||!next.expectedAssets.some(a=>a.sha256===q.assetHash))return rejected(state,'INPUT_LOCKED');p.assetLoadStatus='FAILED';p.assetFailure={reason:'FETCH_FAILED',assetHash:q.assetHash,attempts:2};intents.push({kind:'CANCEL',timerId:deriveTimerId(state.matchId,{type:'ASSET_LOAD_TIMEOUT'})});finish(null,'NO_CONTEST_ASSET_LOAD');}

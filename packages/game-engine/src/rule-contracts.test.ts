@@ -1,21 +1,17 @@
 import {describe,expect,it} from 'vitest';
-import {MINIMUM_MATCH_DURATION_MS,hasMinimumMatchDuration,isTimedInputLocked,shouldKeepInputLocked} from './rule-contracts.js';
+import {isTimedInputLocked,shouldKeepInputLocked} from './rule-contracts.js';
 import {createTestingReplayBundle,testingRules} from './testing-fixtures.js';
 import {reduceMatch} from './reducer.js';
 import type {MatchStateV1} from '../../contracts/src/match.js';
 
-it('loads the 15-second minimum from runtime policy SSOT',()=>{expect(MINIMUM_MATCH_DURATION_MS).toBe(15_000);});
-
-describe('RULE-022 minimum match duration',()=>{
- it('permits completion only at or after 15 seconds from match start',()=>{
-  expect(hasMinimumMatchDuration(10_000,24_999)).toBe(false);
-  expect(hasMinimumMatchDuration(10_000,25_000)).toBe(true);
- });
- it('does not finish an authoritative score-target command before 15 seconds',()=>{
+describe('frozen score-target terminal semantics',()=>{
+ it('finishes on the first score target even before 15 seconds and freezes the winner',()=>{
   const bundle=createTestingReplayBundle(),state:MatchStateV1=structuredClone(bundle.initialState);state.phase='PLAYING';state.startedAtMs=0;state.gameplayClosesAtMs=75_000;state.settlementCapAtMs=80_000;state.players[0].score=99;
   const requestId='00000000-0000-4000-8000-000000000777';
   const early=reduceMatch(state,{source:'PLAYER',commandId:`${state.matchId}:player:p1:${requestId}`,matchId:state.matchId,commandSeq:1,receivedAtMs:14_999,requestId,playerId:'p1',expectedRevision:0,payload:{type:'TAP_IMAGE',imageSide:'A',x:.1,y:.2}},testingRules);
-  expect(early.state.phase).toBe('PLAYING');expect(early.state.endReason).toBeNull();expect(early.events.some(e=>e.type==='MATCH_FINISHED')).toBe(false);
+  expect(early.state).toMatchObject({phase:'FINISHED',endReason:'SCORE_TARGET',winnerPlayerId:'p1'});expect(early.events).toContainEqual(expect.objectContaining({type:'MATCH_FINISHED',payload:{winnerPlayerId:'p1',endReason:'SCORE_TARGET'}}));
+  const laterId='00000000-0000-4000-8000-000000000779',later=reduceMatch(early.state,{source:'PLAYER',commandId:`${state.matchId}:player:p2:${laterId}`,matchId:state.matchId,commandSeq:2,receivedAtMs:15_000,requestId:laterId,playerId:'p2',expectedRevision:early.state.stateRevision,payload:{type:'TAP_IMAGE',imageSide:'A',x:.15,y:.2}},testingRules);
+  expect(later.decision).toEqual({status:'REJECTED',reason:'MATCH_INPUT_CLOSED'});expect(later.state.winnerPlayerId).toBe('p1');expect(later.events).toEqual([]);
  });
 });
 

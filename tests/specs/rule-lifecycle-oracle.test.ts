@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { evaluateRuleRequirement } from "../../tools/requirement-oracle.js";
 
 const rules = JSON.parse(readFileSync("config/ruleset.v1.json", "utf8"));
-const current = ["RULE-011", "RULE-022", "RULE-035", "RULE-050"] as const;
+const current = ["RULE-011", "RULE-035", "RULE-050"] as const;
 
 describe("current rule lifecycle predicates", () => {
   it.each(current)("%s has executable ruleset and reducer evidence", (id) => {

@@ -8,4 +8,6 @@ Stage 9 retires `RULE-002` through `RULE-005`, `RULE-051`, and `ECON-001` throug
 
 The v10 exactness review additionally retires descriptive `RULE-006` through `RULE-010` without reuse. `RULE-013` keeps its stable ID but returns to `PLANNED` until a production matchmaking path invokes the pairing policy; a standalone helper is not implementation evidence.
 
+The frozen-ruleset correction retires `RULE-022` without reuse. Its unsupported 15-second minimum contradicted authoritative immediate `SCORE_TARGET` termination and therefore cannot remain a runtime requirement.
+
 Stage 8C additionally retires `DOC-075` through `DOC-087`: the individual README links duplicated the retained inventory contract. `DOC-088` remains the single active inventory/registry requirement.

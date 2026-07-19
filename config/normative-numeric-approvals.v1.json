@@ -89,25 +89,6 @@
       "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
-      "id": "RULE-022",
-      "approvedTokens": [
-        "15"
-      ],
-      "status": "VERIFIED_LOCAL_SSOT",
-      "sourcePath": "02_CORE_RULES_AND_BALANCE.md",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable behavioral predicate green for RULE-022",
-      "ssotPath": "config/rule-runtime-policy.v1.json",
-      "ssotHash": "8ea602db88334e0ade169448c2d3c70bd2ebfbaefe9cbbdb426abe573f904bea",
-      "ssotAssertions": [
-        {
-          "pointer": "/minimumMatchDurationMs",
-          "expected": 15000
-        }
-      ]
-    },
-    {
       "id": "RULE-026",
       "approvedTokens": [
         "10"
@@ -1116,10 +1097,10 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact repository-local 1:1 revision projection oracle green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "e7040cdbecfa31c8cbe7527b43b784f0dc2c36ac8351c56b69326ac77cf234cc",
+      "ssotHash": "f0c1a78841706540a8849ca0e9dd53f715fb861f8f3ebf61120548a52852fb60",
       "ssotAssertions": [
         {
-          "pointer": "/entries/112/oracle/expected",
+          "pointer": "/entries/111/oracle/expected",
           "expected": "PASS"
         }
       ]
@@ -1136,10 +1117,10 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact seat and 20-session concurrency predicate green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "e7040cdbecfa31c8cbe7527b43b784f0dc2c36ac8351c56b69326ac77cf234cc",
+      "ssotHash": "f0c1a78841706540a8849ca0e9dd53f715fb861f8f3ebf61120548a52852fb60",
       "ssotAssertions": [
         {
-          "pointer": "/entries/125/oracle/expected",
+          "pointer": "/entries/124/oracle/expected",
           "expected": "PASS"
         }
       ]
@@ -1154,10 +1135,10 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact 20-session concurrency evidence green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "e7040cdbecfa31c8cbe7527b43b784f0dc2c36ac8351c56b69326ac77cf234cc",
+      "ssotHash": "f0c1a78841706540a8849ca0e9dd53f715fb861f8f3ebf61120548a52852fb60",
       "ssotAssertions": [
         {
-          "pointer": "/entries/135/oracle/expected",
+          "pointer": "/entries/134/oracle/expected",
           "expected": "PASS"
         }
       ]
@@ -1295,7 +1276,7 @@
   ],
   "status": "MIXED_VERIFIED_AND_UNAPPROVED",
   "summary": {
-    "verifiedLocalSsot": 55,
+    "verifiedLocalSsot": 54,
     "unapproved": 9
   }
 }

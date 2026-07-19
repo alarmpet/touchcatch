@@ -219,24 +219,6 @@
       "linkageProof": "0eccaa055e5159dbffd7ff742d3ad153f14b76c056b7a594c347c83102bcf298"
     },
     {
-      "id": "RULE-022",
-      "source": "02_CORE_RULES_AND_BALANCE.md",
-      "sourceLine": 7,
-      "section": "승리 조건",
-      "text": "최소 경기 보장시간 15초",
-      "fingerprint": "d1c0eed16b33beeed4de5b7312bbcc5648b36c0c18ce950d98ad0ff9dd2b1e45",
-      "schema": "packages/contracts/src/rules.schema.ts",
-      "phase": "IMPLEMENTED",
-      "test": "tests/specs/generated-requirement-coverage.test.ts",
-      "metric": "release_requirement_gate_status",
-      "evidenceKind": "RULESET_PARSE",
-      "oracle": "RULE-022:RULESET_PARSE:PASS",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable behavioral predicate green for RULE-022",
-      "linkageProof": "457af13761fddd8f377b4925c5db8aabf2f585b8245c03bee5ec8990a8021467"
-    },
-    {
       "id": "RULE-023",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 10,
