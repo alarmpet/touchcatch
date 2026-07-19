@@ -1,0 +1,5 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-sustainability-a.png is the edit target.
+Make exactly ten localized changes: change one upper-left solar-panel cell from blue to yellow; change the white recycling symbol on the blue bin to a white leaf icon; change the yellow recycling bin lid to red; change the bicycle front-wheel lamp from white to orange; change the wind turbine from three blades to four; change the mini-bus left headlight from pale blue to yellow; reverse the rain-barrel spigot so its handle points left; change the watering-can sprinkler rose from green to red; change the cap of the yellow reusable bottle to white; remove one orange flower from the lower-left foreground planter.
+Constraints: Preserve exact canvas, camera, composition, students, poses, lighting, and every other object. Exactly ten changes and no others. No written words, letters, numbers, logos, watermark, border, UI, or labels. Keep pixel-level alignment as close as possible outside edit areas.

@@ -1,0 +1,5 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-dilemma-a.png is the edit target.
+Make exactly these ten localized changes: change the robot's two glowing eyes from cyan to yellow; change the robot antenna tip from a sphere to a star; remove one tooth from the large loose gear on the left table; change the drawing compass's blue center ring to red; change the robotic arm claw from two prongs to three; change the top-left blue shape on the abstract canvas to green; remove the rightmost paintbrush from the blue brush cup; change one red paint blob on the palette to purple; add a small green hat to the clay figure; change the hanging purple star decoration to bright yellow.
+Constraints: Preserve exact canvas, camera, composition, student, poses, lighting, booths, and every other object. Exactly ten changes and no others. No written words, letters, numbers, logos, watermark, border, UI, or labels. Keep pixel-level alignment as close as possible outside the edit areas.

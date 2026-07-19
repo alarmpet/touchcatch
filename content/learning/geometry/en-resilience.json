@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 96, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.02 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.488, "cy": 0.766, "r": 0.045 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.286, "cy": 0.472, "r": 0.055 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.417, "cy": 0.622, "r": 0.035 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.493, "cy": 0.108, "r": 0.055 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.907, "cy": 0.381, "r": 0.035 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.382, "cy": 0.733, "r": 0.035 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.478, "cy": 0.929, "r": 0.055 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.121, "cy": 0.856, "r": 0.045 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.533, "cy": 0.350, "r": 0.055 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.901, "cy": 0.827, "r": 0.055 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the broom.", "cx": 0.714, "cy": 0.500, "r": 0.055 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the garden gloves.", "cx": 0.891, "cy": 0.540, "r": 0.045 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the flowerpot.", "cx": 0.540, "cy": 0.665, "r": 0.050 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.285, "cy": 0.130, "r": 0.090 }
+}

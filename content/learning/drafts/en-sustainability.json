@@ -1,0 +1,309 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "204a1f03-2833-4b0c-8ae1-43e557b03c1b",
+    "version": 1,
+    "contentRevisionId": "57e84e35-c492-41f2-86fa-36ead4c97702",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-sustainability",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/15ff015168e3d57c3f528999af9b94fa3a33dc8635be0c476abe9e85690465b1.png",
+      "sha256": "15ff015168e3d57c3f528999af9b94fa3a33dc8635be0c476abe9e85690465b1",
+      "encodedBytes": 2949285,
+      "width": 1536,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/682464c5006d403d84c98b00af2668c2c733cd9d6506fd9e31d0c35c9824976a.png",
+      "sha256": "682464c5006d403d84c98b00af2668c2c733cd9d6506fd9e31d0c35c9824976a",
+      "encodedBytes": 2850804,
+      "width": 1536,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "57e84e35-c492-41f2-86fa-36ead4c97702",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.025,
+            "cy": 0.32,
+            "r": 0.035
+          },
+          "imageB": {
+            "cx": 0.025,
+            "cy": 0.32,
+            "r": 0.035
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.25,
+            "cy": 0.68,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.25,
+            "cy": 0.68,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.365,
+            "cy": 0.65,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.365,
+            "cy": 0.65,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.53,
+            "cy": 0.716,
+            "r": 0.035
+          },
+          "imageB": {
+            "cx": 0.53,
+            "cy": 0.716,
+            "r": 0.035
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.65,
+            "cy": 0.31,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.65,
+            "cy": 0.31,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.71,
+            "cy": 0.385,
+            "r": 0.045
+          },
+          "imageB": {
+            "cx": 0.71,
+            "cy": 0.385,
+            "r": 0.045
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.915,
+            "cy": 0.683,
+            "r": 0.045
+          },
+          "imageB": {
+            "cx": 0.915,
+            "cy": 0.683,
+            "r": 0.045
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.786,
+            "cy": 0.605,
+            "r": 0.075
+          },
+          "imageB": {
+            "cx": 0.786,
+            "cy": 0.605,
+            "r": 0.075
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.891,
+            "cy": 0.75,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.891,
+            "cy": 0.75,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.06,
+            "cy": 0.75,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.06,
+            "cy": 0.75,
+            "r": 0.06
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the green canopy.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.135,
+            "cy": 0.235,
+            "r": 0.1
+          },
+          "imageB": {
+            "cx": 0.135,
+            "cy": 0.235,
+            "r": 0.1
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the bicycle frame.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.47,
+            "cy": 0.56,
+            "r": 0.075
+          },
+          "imageB": {
+            "cx": 0.47,
+            "cy": 0.56,
+            "r": 0.075
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the school windows.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.35,
+            "cy": 0.205,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.35,
+            "cy": 0.205,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.463,
+          "cy": 0.315,
+          "r": 0.06
+        },
+        "imageB": {
+          "cx": 0.463,
+          "cy": 0.315,
+          "r": 0.06
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "sustainability",
+      "aliases": [],
+      "hintUnits": [
+        "s",
+        "u",
+        "s",
+        "t",
+        "a",
+        "i",
+        "n",
+        "a",
+        "b",
+        "i",
+        "l",
+        "i",
+        "t",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What does sustainability mean?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "환경과 자원을 오래 유지하는 방식"
+          },
+          {
+            "id": "option_2",
+            "label": "한 번 쓰고 버리는 방식"
+          },
+          {
+            "id": "option_3",
+            "label": "빠른 소비 경쟁"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "5cbad79d993a92bf278f5d0b120c00f7d8cd986f3608bea97c557eb79c494bbc"
+  },
+  "assetFiles": {
+    "15ff015168e3d57c3f528999af9b94fa3a33dc8635be0c476abe9e85690465b1": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\en-sustainability-a.png",
+    "682464c5006d403d84c98b00af2668c2c733cd9d6506fd9e31d0c35c9824976a": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\en-sustainability-b.png"
+  }
+}

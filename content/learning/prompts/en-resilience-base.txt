@@ -1,0 +1,10 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Create a polished bright 2D educational game illustration that visually teaches resilience: after a storm, a diverse group of middle-school students work together to restore their damaged school garden instead of giving up.
+Scene/backdrop: A wide school courtyard garden after rain, with a cracked planter on the left, a student holding a watering can, a small sprout bed, a central wooden trowel, a right-side tool cabinet, a compost bin, a bench, and a greenhouse entrance in the background. A faint rainbow appears through clearing clouds.
+Subject: Four middle-school students calmly repairing the planter, replanting flowers, sweeping fallen leaves, and supporting one another.
+Style/medium: Bright clean 2D educational game illustration, crisp outlines, softly shaded flat colors, age-appropriate, detailed but uncluttered.
+Composition/framing: 3:2 landscape, fixed straight-on wide view. Keep the key objects clearly separated across left, center, right, foreground, and background so each can support a circular game hitbox.
+Lighting/mood: Fresh light after rain, optimistic and determined.
+Color palette: Sky blue, leaf green, warm yellow, coral, natural wood.
+Constraints: No written words, letters, numbers, signs, logos, brands, speech bubbles, UI, watermark, or border. No object may be cropped. Avoid tiny ambiguous details. Preserve clear visual separation among the planter flower, watering can, trowel, greenhouse entrance, tool cabinet, sprout, bench, compost bin, rainbow, and student shoes.

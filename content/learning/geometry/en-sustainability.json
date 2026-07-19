@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 96, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.02 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.025, "cy": 0.320, "r": 0.035 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.250, "cy": 0.680, "r": 0.055 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.365, "cy": 0.650, "r": 0.055 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.530, "cy": 0.716, "r": 0.035 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.650, "cy": 0.310, "r": 0.080 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.710, "cy": 0.385, "r": 0.045 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.915, "cy": 0.683, "r": 0.045 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.786, "cy": 0.605, "r": 0.075 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.891, "cy": 0.750, "r": 0.030 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.060, "cy": 0.750, "r": 0.060 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the green canopy.", "cx": 0.135, "cy": 0.235, "r": 0.100 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the bicycle frame.", "cx": 0.470, "cy": 0.560, "r": 0.075 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the school windows.", "cx": 0.350, "cy": 0.205, "r": 0.085 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.463, "cy": 0.315, "r": 0.060 }
+}

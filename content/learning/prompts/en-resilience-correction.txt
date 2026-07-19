@@ -1,0 +1,6 @@
+Use case: precise-object-edit
+Asset type: correction pass for spot-the-difference source image B
+Input image: the first en-resilience B candidate is the edit target.
+Preserve the five existing changes: yellow center flower, added cloud, orange far-right tool handle, diamond greenhouse door pane, and two compost vents.
+Add only these five localized changes: recolor the watering-can handle bright red; remove one orange leaf below the watering-can student; add one leaf to the smallest front-left sprout; make the loose trowel blade rounded-square; add one yellow bolt to the top bench slat.
+Constraints: Preserve exact canvas, camera, composition, people, lighting, existing five changes, and every other object. No text, letters, numbers, logos, watermark, border, UI, or labels.

@@ -1,0 +1,9 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Create a polished bright 2D educational game illustration that visually teaches dilemma: a middle-school student at a school project fair must choose between joining a robotics science project on the left and a mural art project on the right, and both choices are appealing.
+Scene/backdrop: Wide indoor school fair hall split naturally into two booths. Left booth has a friendly small robot, gears, circuit parts, a compass, and a triangular science poster with no text. Right booth has an easel, colorful abstract canvas, paintbrushes, palette, clay model, and hanging decorations. A thoughtful student with a backpack stands centered, looking between both booths.
+Style/medium: Bright clean 2D educational game illustration, crisp outlines, softly shaded flat colors, age-appropriate, detailed but uncluttered.
+Composition/framing: 3:2 landscape, straight-on fixed wide view. Distribute distinct objects across the full canvas with clear space for circular hitboxes.
+Lighting/mood: Welcoming school event, curious and thoughtfully uncertain rather than distressed.
+Color palette: Science side teal and blue; art side coral, violet, and warm yellow; balanced neutral center.
+Constraints: No written words, letters, numbers, signs, logos, brands, speech bubbles, UI, watermark, or border. Do not crop objects. Avoid tiny ambiguous details.

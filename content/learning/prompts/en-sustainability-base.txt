@@ -1,0 +1,10 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Create a polished bright 2D educational game illustration that visually teaches sustainability: middle-school students actively explore renewable energy, recycling, water saving, and low-carbon transport at a cheerful school eco festival.
+Scene/backdrop: Wide outdoor school courtyard with a solar-panel demonstration on the left, color-coded recycling bins, a bicycle-powered generator in the center, a small wind-turbine model, a rain barrel, seedling table, reusable bottle station, and an electric mini-bus display in the background.
+Subject: Four students testing the bicycle generator, sorting cans, examining a solar panel, and watering seedlings.
+Style/medium: Bright clean 2D educational game illustration, crisp outlines, softly shaded flat colors, age-appropriate, detailed but uncluttered.
+Composition/framing: 3:2 landscape, straight-on fixed wide view. Keep important objects separated for circular hitboxes.
+Lighting/mood: Sunny, energetic, hopeful, practical environmental action.
+Color palette: Leaf green, solar blue, sunflower yellow, coral accents, natural wood.
+Constraints: No written words, letters, numbers, signs, logos, brands, speech bubbles, UI, watermark, or border. Do not crop objects. Avoid tiny ambiguous details.

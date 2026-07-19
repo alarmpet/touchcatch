@@ -1,0 +1,302 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "f97068ec-055f-495c-88da-81ce80d6212c",
+    "version": 1,
+    "contentRevisionId": "4072ed00-604e-4d26-857a-38dfeacc4d8c",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-dilemma",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/0c17694fcc0669ac5acd679d9d6afbb9d4d1b4f3d075fbabed511205d6ba8f02.png",
+      "sha256": "0c17694fcc0669ac5acd679d9d6afbb9d4d1b4f3d075fbabed511205d6ba8f02",
+      "encodedBytes": 2654448,
+      "width": 1536,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/d442821e226bd7e3680ee3f20a6fcbc82a0289cf5eaade1bc897e63437c08ee0.png",
+      "sha256": "d442821e226bd7e3680ee3f20a6fcbc82a0289cf5eaade1bc897e63437c08ee0",
+      "encodedBytes": 2499858,
+      "width": 1536,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "4072ed00-604e-4d26-857a-38dfeacc4d8c",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.116,
+            "cy": 0.356,
+            "r": 0.04
+          },
+          "imageB": {
+            "cx": 0.116,
+            "cy": 0.356,
+            "r": 0.04
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.106,
+            "cy": 0.278,
+            "r": 0.025
+          },
+          "imageB": {
+            "cx": 0.106,
+            "cy": 0.278,
+            "r": 0.025
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.26,
+            "cy": 0.519,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.26,
+            "cy": 0.519,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.203,
+            "cy": 0.483,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.203,
+            "cy": 0.483,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.374,
+            "cy": 0.431,
+            "r": 0.04
+          },
+          "imageB": {
+            "cx": 0.374,
+            "cy": 0.431,
+            "r": 0.04
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.672,
+            "cy": 0.339,
+            "r": 0.065
+          },
+          "imageB": {
+            "cx": 0.672,
+            "cy": 0.339,
+            "r": 0.065
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.856,
+            "cy": 0.438,
+            "r": 0.035
+          },
+          "imageB": {
+            "cx": 0.856,
+            "cy": 0.438,
+            "r": 0.035
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.73,
+            "cy": 0.6,
+            "r": 0.03
+          },
+          "imageB": {
+            "cx": 0.73,
+            "cy": 0.6,
+            "r": 0.03
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.902,
+            "cy": 0.47,
+            "r": 0.035
+          },
+          "imageB": {
+            "cx": 0.902,
+            "cy": 0.47,
+            "r": 0.035
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.814,
+            "cy": 0.19,
+            "r": 0.04
+          },
+          "imageB": {
+            "cx": 0.814,
+            "cy": 0.19,
+            "r": 0.04
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the circuit board.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.3,
+            "cy": 0.63,
+            "r": 0.04
+          },
+          "imageB": {
+            "cx": 0.3,
+            "cy": 0.63,
+            "r": 0.04
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the backpack.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.44,
+            "cy": 0.55,
+            "r": 0.04
+          },
+          "imageB": {
+            "cx": 0.44,
+            "cy": 0.55,
+            "r": 0.04
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the paint bottles.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.885,
+            "cy": 0.9,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.885,
+            "cy": 0.9,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.958,
+          "cy": 0.08,
+          "r": 0.055
+        },
+        "imageB": {
+          "cx": 0.958,
+          "cy": 0.08,
+          "r": 0.055
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "dilemma",
+      "aliases": [],
+      "hintUnits": [
+        "d",
+        "i",
+        "l",
+        "e",
+        "m",
+        "m",
+        "a"
+      ],
+      "meaning": {
+        "prompt": "What does dilemma mean?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "선택하기 어려운 상황"
+          },
+          {
+            "id": "option_2",
+            "label": "명확한 정답"
+          },
+          {
+            "id": "option_3",
+            "label": "즐거운 휴식"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "1c372528217a841d77fab2ad7be195159abeffefadee08081ef9236a2e3acb63"
+  },
+  "assetFiles": {
+    "0c17694fcc0669ac5acd679d9d6afbb9d4d1b4f3d075fbabed511205d6ba8f02": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\en-dilemma-a.png",
+    "d442821e226bd7e3680ee3f20a6fcbc82a0289cf5eaade1bc897e63437c08ee0": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\en-dilemma-b.png"
+  }
+}

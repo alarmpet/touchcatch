@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 96, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.02 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.116, "cy": 0.356, "r": 0.040 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.106, "cy": 0.278, "r": 0.025 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.260, "cy": 0.519, "r": 0.055 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.203, "cy": 0.483, "r": 0.030 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.374, "cy": 0.431, "r": 0.040 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.672, "cy": 0.339, "r": 0.065 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.856, "cy": 0.438, "r": 0.035 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.730, "cy": 0.600, "r": 0.030 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.902, "cy": 0.470, "r": 0.035 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.814, "cy": 0.190, "r": 0.040 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the circuit board.", "cx": 0.300, "cy": 0.630, "r": 0.040 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the backpack.", "cx": 0.440, "cy": 0.550, "r": 0.040 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the paint bottles.", "cx": 0.885, "cy": 0.900, "r": 0.085 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.958, "cy": 0.080, "r": 0.055 }
+}

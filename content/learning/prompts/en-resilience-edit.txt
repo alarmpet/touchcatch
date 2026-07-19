@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-resilience-a.png is the edit target.
+Primary request: Preserve the source image's exact canvas, camera, composition, characters, poses, faces, clothing, lighting, background, and drawing style. Make exactly these ten localized visual changes and no others:
+1. Change only the large purple flower near the lower center of the sprout bed to bright yellow.
+2. Reverse only the curved handle of the turquoise watering can held by the student in yellow.
+3. Remove only the single orange fallen leaf directly below the watering can student.
+4. Add one small white cloud in the clear blue sky immediately to the right of the rainbow.
+5. Change only the far-right blue-handled garden tool in the cabinet to an orange handle.
+6. Add one extra leaf to the smallest sprout at the front-left corner of the central sprout bed.
+7. Change only the blade of the loose foreground trowel from a pointed shape to a rounded square shape.
+8. Reverse the diagonal direction of only the top wooden slat on the foreground bench.
+9. Change only the greenhouse entrance door window from a rectangle to a diamond-shaped pane.
+10. Change only the compost bin's lower front ventilation opening from one long opening to two short openings.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels. Keep pixel-level alignment as close to the source as possible outside the ten edit areas.
