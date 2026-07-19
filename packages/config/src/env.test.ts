@@ -12,7 +12,7 @@ const mobile = {
 const server = {
   PORT: '3000',
   SUPABASE_URL: 'https://project.supabase.co',
-  SUPABASE_SECRET_KEY: 'secret',
+  SUPABASE_PUBLISHABLE_KEY: 'publishable',
   DATABASE_URL: 'postgresql://user:pass@db.example.test/db',
   REDIS_URL: 'redis://redis.example.test:6379',
   SENTRY_DSN: 'https://private@sentry.example.test/1',
@@ -48,6 +48,11 @@ describe('application environment boundaries', () => {
     expect(() => parseAdminServerEnv({ ...admin, NEXT_PUBLIC_SUPABASE_URL: 'http://0.0.0.0:54321' }, 'production')).toThrow(/loopback/i);
   });
 
+  it('requires HTTPS service origins in production', () => {
+    expect(() => parseMobileEnv({ ...mobile, EXPO_PUBLIC_API_ORIGIN: 'http://api.example.test' }, 'production')).toThrow(/https/i);
+    expect(() => parseServerEnv({ ...server, SUPABASE_URL: 'http://project.supabase.co' }, 'production')).toThrow(/https/i);
+  });
+
   it.each([
     'http://[::ffff:127.0.0.1]:3000',
     'http://[::ffff:7f00:1]:3000',
@@ -69,5 +74,6 @@ describe('application environment boundaries', () => {
     expect(() => parseMobileEnv({ ...mobile, DATABASE_URL: server.DATABASE_URL })).toThrow(/unknown.*DATABASE_URL/i);
     expect(projectAdminPublicEnv(parseAdminServerEnv(admin))).not.toHaveProperty('SUPABASE_SECRET_KEY');
     expect(() => parseAdminServerEnv({ ...admin, SUPABASE_SECRET_KEY: 'secret' })).toThrow(/unknown.*SUPABASE_SECRET_KEY/i);
+    expect(() => parseServerEnv({ ...server, SUPABASE_SECRET_KEY: 'secret' })).toThrow(/unknown.*SUPABASE_SECRET_KEY/i);
   });
 });

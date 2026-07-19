@@ -14,5 +14,5 @@
     "skipLibCheck": true,
     "types": ["node", "vitest/globals"]
   },
-  "include": ["apps/mobile/src/**/*.ts", "apps/mobile/src/**/*.tsx", "packages/**/*.ts", "tests/**/*.ts", "vitest*.ts"]
+  "include": ["apps/mobile/src/**/*.ts", "apps/mobile/src/**/*.tsx", "apps/server/src/**/*.ts", "packages/**/*.ts", "tests/**/*.ts", "vitest*.ts"]
 }

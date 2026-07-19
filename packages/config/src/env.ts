@@ -7,7 +7,7 @@ const mobileKeys = [
   'EXPO_PUBLIC_POSTHOG_KEY',
   'EXPO_PUBLIC_SENTRY_DSN',
 ] as const;
-const serverKeys = ['PORT', 'SUPABASE_URL', 'SUPABASE_SECRET_KEY', 'DATABASE_URL', 'REDIS_URL', 'SENTRY_DSN'] as const;
+const serverKeys = ['PORT', 'SUPABASE_URL', 'SUPABASE_PUBLISHABLE_KEY', 'DATABASE_URL', 'REDIS_URL', 'SENTRY_DSN'] as const;
 const adminKeys = ['NEXT_PUBLIC_SUPABASE_URL', 'NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY'] as const;
 
 type MobileEnv = Record<(typeof mobileKeys)[number], string>;
@@ -46,15 +46,28 @@ function rejectProductionLoopback(values: RawEnv, environment: Environment, urlK
   }
 }
 
+function requireProductionHttps(values: RawEnv, environment: Environment, urlKeys: readonly string[]): void {
+  if (environment !== 'production') return;
+  for (const key of urlKeys) {
+    const value = values[key];
+    if (!value) continue;
+    let protocol: string;
+    try { protocol = new URL(value).protocol; } catch { throw new Error(`${key} must be a valid URL`); }
+    if (protocol !== 'https:') throw new Error(`${key} must use HTTPS in production`);
+  }
+}
+
 export function parseMobileEnv(raw: RawEnv, environment: Environment = 'development'): MobileEnv {
   const parsed = parseExact(raw, mobileKeys);
   rejectProductionLoopback(parsed, environment, ['EXPO_PUBLIC_API_ORIGIN', 'EXPO_PUBLIC_SUPABASE_URL']);
+  requireProductionHttps(parsed, environment, ['EXPO_PUBLIC_API_ORIGIN', 'EXPO_PUBLIC_SUPABASE_URL']);
   return parsed;
 }
 
 export function parseServerEnv(raw: RawEnv, environment: Environment = 'development'): ServerEnv {
   const parsed = parseExact(raw, serverKeys);
   rejectProductionLoopback(parsed, environment, ['SUPABASE_URL', 'DATABASE_URL', 'REDIS_URL']);
+  requireProductionHttps(parsed, environment, ['SUPABASE_URL']);
   const port = Number(parsed.PORT);
   if (!Number.isInteger(port) || port < 1 || port > 65_535) throw new Error('PORT must be an integer from 1 to 65535');
   return { ...parsed, PORT: port };
@@ -63,6 +76,7 @@ export function parseServerEnv(raw: RawEnv, environment: Environment = 'developm
 export function parseAdminServerEnv(raw: RawEnv, environment: Environment = 'development'): AdminServerEnv {
   const parsed = parseExact(raw, adminKeys);
   rejectProductionLoopback(parsed, environment, ['NEXT_PUBLIC_SUPABASE_URL']);
+  requireProductionHttps(parsed, environment, ['NEXT_PUBLIC_SUPABASE_URL']);
   return parsed;
 }
 
