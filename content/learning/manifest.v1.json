@@ -1,0 +1,257 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "entries": [
+    {
+      "key": "en-resilience",
+      "category": "ENGLISH",
+      "contentId": "a913582e-ad85-4687-8d07-0891a60cc415",
+      "contentRevisionId": "0d3be4b8-7e50-4682-81bd-904300a54abf",
+      "bundle": "drafts/en-resilience.json",
+      "evidence": "evidence/en-resilience.visual-delta.json",
+      "images": [
+        "source/en-resilience-a.png",
+        "source/en-resilience-b.png"
+      ],
+      "imageHashes": [
+        "5e86119dc48e3f7d008f6aa9ab8cb615e32ba797468ac570c612af78b770d4e1",
+        "6c92a8d24904c92039b9acc44438f74f953f58d409fcf50e0879e5f914c0aadf"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-resilience-base.txt",
+          "sha256": "f1dc49de847869c9d94b7389b5ceb4ab95103e4454f57d8d74880a5f8b105565"
+        },
+        {
+          "file": "prompts/en-resilience-correction.txt",
+          "sha256": "ebe0d353c794a0125552e2adc5cb627a8637bd00816d97dfca5a864d87c9b97f"
+        },
+        {
+          "file": "prompts/en-resilience-edit.txt",
+          "sha256": "b9b040883534a3e9f40ae4fcf7f4392a16e1dea66f47fbf89f71edcd60030d2d"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-dilemma",
+      "category": "ENGLISH",
+      "contentId": "f97068ec-055f-495c-88da-81ce80d6212c",
+      "contentRevisionId": "4072ed00-604e-4d26-857a-38dfeacc4d8c",
+      "bundle": "drafts/en-dilemma.json",
+      "evidence": "evidence/en-dilemma.visual-delta.json",
+      "images": [
+        "source/en-dilemma-a.png",
+        "source/en-dilemma-b.png"
+      ],
+      "imageHashes": [
+        "0c17694fcc0669ac5acd679d9d6afbb9d4d1b4f3d075fbabed511205d6ba8f02",
+        "d442821e226bd7e3680ee3f20a6fcbc82a0289cf5eaade1bc897e63437c08ee0"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-dilemma-base.txt",
+          "sha256": "2ac84e9e7ff3b3499c808954c904239c33b953b254f4728b324e0146ef134f8c"
+        },
+        {
+          "file": "prompts/en-dilemma-edit.txt",
+          "sha256": "152a067ebe623c6e37f02d2b95e3dff71afe7f056f4a55f7104a3b90e5eb624a"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-sustainability",
+      "category": "ENGLISH",
+      "contentId": "204a1f03-2833-4b0c-8ae1-43e557b03c1b",
+      "contentRevisionId": "57e84e35-c492-41f2-86fa-36ead4c97702",
+      "bundle": "drafts/en-sustainability.json",
+      "evidence": "evidence/en-sustainability.visual-delta.json",
+      "images": [
+        "source/en-sustainability-a.png",
+        "source/en-sustainability-b.png"
+      ],
+      "imageHashes": [
+        "15ff015168e3d57c3f528999af9b94fa3a33dc8635be0c476abe9e85690465b1",
+        "682464c5006d403d84c98b00af2668c2c733cd9d6506fd9e31d0c35c9824976a"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-sustainability-base.txt",
+          "sha256": "ba4ab3d5e71237c9750fe5a6e5e3f760f3047e192c91e17825fb4eb567dc512d"
+        },
+        {
+          "file": "prompts/en-sustainability-edit.txt",
+          "sha256": "12fd9a2c3aad47dfe9b6a0b0dfe27325056563d81641c1330955cf543f3bb40f"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "ko-proverb-dark-under-lamp",
+      "category": "PROVERB",
+      "contentId": "38c312af-4b10-4ccc-863d-2da2f4cc4ac7",
+      "contentRevisionId": "8054cb25-3c50-4cff-83c5-0ab479e53ee7",
+      "bundle": "drafts/ko-proverb-dark-under-lamp.json",
+      "evidence": "evidence/ko-proverb-dark-under-lamp.visual-delta.json",
+      "images": [
+        "source/ko-proverb-dark-under-lamp-a.png",
+        "source/ko-proverb-dark-under-lamp-b.png"
+      ],
+      "imageHashes": [
+        "95c0084320de9e387105ba296217c377b4f2e2fd7b1d4c6fa05371d611c38402",
+        "c63e9428001f7b96464014c7edf4dd34316744fbc0585ceebef76f28964b445e"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/ko-proverb-dark-under-lamp-base.txt",
+          "sha256": "a88180115b1bccd4384084588b27488b39fa99a06bfc59ebf16a7b304c618fd0"
+        },
+        {
+          "file": "prompts/ko-proverb-dark-under-lamp-edit.txt",
+          "sha256": "e943b0f8e4544c6f525bcc8febe26810bf4f83ab7bdb020779b9f0383310a432"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "ko-proverb-seeing-is-believing",
+      "category": "PROVERB",
+      "contentId": "03e72cd5-fd13-4e9b-85cf-7f6b23e5a5d2",
+      "contentRevisionId": "9558ceee-d1fd-41ad-87f4-6173f09732cb",
+      "bundle": "drafts/ko-proverb-seeing-is-believing.json",
+      "evidence": "evidence/ko-proverb-seeing-is-believing.visual-delta.json",
+      "images": [
+        "source/ko-proverb-seeing-is-believing-a.png",
+        "source/ko-proverb-seeing-is-believing-b.png"
+      ],
+      "imageHashes": [
+        "a242905347538545291777abe43e127c759f6aff6ddc73027799416780954311",
+        "60602814202a4dff87420e8f2d7f594c274733bb734590107b3fb40a0815fb84"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/ko-proverb-seeing-is-believing-base.txt",
+          "sha256": "2005dc4a0753dbe92509165e3c77ec830968b5240c2ca89fd23ec27ac931f40d"
+        },
+        {
+          "file": "prompts/ko-proverb-seeing-is-believing-edit.txt",
+          "sha256": "be9bd8efb1449ca8fdf7a6e162d4ef2b20b8b8ac58a05385d6b9c6895e37acd2"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "ko-proverb-kind-words-return",
+      "category": "PROVERB",
+      "contentId": "29a97946-d408-49ed-84f1-b7a948cb1ce9",
+      "contentRevisionId": "537f5965-6da9-49b2-8b93-2f1372ac581a",
+      "bundle": "drafts/ko-proverb-kind-words-return.json",
+      "evidence": "evidence/ko-proverb-kind-words-return.visual-delta.json",
+      "images": [
+        "source/ko-proverb-kind-words-return-a.png",
+        "source/ko-proverb-kind-words-return-b.png"
+      ],
+      "imageHashes": [
+        "b8858205d9dafded1307dd651d8b8c40e66d8970e43c4e9614112ad2da6a139c",
+        "5a97bfefca375c1ee810f93a2be1504b7100e457d30b5e8f4727087b9ee3d8f5"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/ko-proverb-kind-words-return-base.txt",
+          "sha256": "a85e2f95c9d3353f8961b4dbcca585e65f5f3573cd0ccaf2d16c3a1c9dace835"
+        },
+        {
+          "file": "prompts/ko-proverb-kind-words-return-correction.txt",
+          "sha256": "8e4d8bfb35c5e344744b29208977dccf8d320b61a3b40e27b00ccbfa8fd0bc39"
+        },
+        {
+          "file": "prompts/ko-proverb-kind-words-return-edit.txt",
+          "sha256": "46ec5ecdc67a0e88fbf6693732f8717616a3997930794f6836f80e9628bd7320"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "ko-idiom-turn-misfortune",
+      "category": "IDIOM",
+      "contentId": "a456f270-5396-4d7b-8dde-905c465657b3",
+      "contentRevisionId": "df75bad8-08e7-4e90-88d0-bad0fa6df46b",
+      "bundle": "drafts/ko-idiom-turn-misfortune.json",
+      "evidence": "evidence/ko-idiom-turn-misfortune.visual-delta.json",
+      "images": [
+        "source/ko-idiom-turn-misfortune-a.png",
+        "source/ko-idiom-turn-misfortune-b.png"
+      ],
+      "imageHashes": [
+        "9bff7dbd76f19a2c0fec8eed9ac754c9ada3d241afd035c89a6dd348cd273bf8",
+        "c472823b7ce3418908c6a42f12d9c9fc7834239b993303b951c1f5c2fc64e076"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/ko-idiom-turn-misfortune-base.txt",
+          "sha256": "36b001ce8d9d4e27c4c6b0325fb0172610301e6a5bf57cf083f15b7ec16f0d07"
+        },
+        {
+          "file": "prompts/ko-idiom-turn-misfortune-edit.txt",
+          "sha256": "1bac6fcda1b10b7474691856467060582da2fcf1001979e0a3d36be5a96a44fb"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "ko-idiom-prepare-ahead",
+      "category": "IDIOM",
+      "contentId": "a05608c2-7737-40f0-8116-d1eefc9bf3f7",
+      "contentRevisionId": "2ed283a1-d81c-4052-868f-6a2a5f1bc97f",
+      "bundle": "drafts/ko-idiom-prepare-ahead.json",
+      "evidence": "evidence/ko-idiom-prepare-ahead.visual-delta.json",
+      "images": [
+        "source/ko-idiom-prepare-ahead-a.png",
+        "source/ko-idiom-prepare-ahead-b.png"
+      ],
+      "imageHashes": [
+        "fea2f58b2c3603dbdf5a1ad68bdf52807c79d5f54fcd872738099e1d5c8fbf46",
+        "02a616a84a402e017037f4bd5be99ed1701c7b059b004a63c33b0e86a86c4ccf"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/ko-idiom-prepare-ahead-base.txt",
+          "sha256": "ed234c664a756a7f3359d4798a62d5fbf8b11cbc561d1ac07b953a834fb4a88e"
+        },
+        {
+          "file": "prompts/ko-idiom-prepare-ahead-edit.txt",
+          "sha256": "8826ee37c40aaeec3f935e2f9250b39538d8473091d692f494040e98cbb2fd4b"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "ko-idiom-perspective",
+      "category": "IDIOM",
+      "contentId": "050caabc-d151-4f1a-86ee-80a163dfa185",
+      "contentRevisionId": "868ee043-4c0a-4f6e-8f75-65c66951e7c1",
+      "bundle": "drafts/ko-idiom-perspective.json",
+      "evidence": "evidence/ko-idiom-perspective.visual-delta.json",
+      "images": [
+        "source/ko-idiom-perspective-a.png",
+        "source/ko-idiom-perspective-b.png"
+      ],
+      "imageHashes": [
+        "d37c123580152a6a1552054e4ec6e171af7bfea77b299c2c1234f9e7fb51cf18",
+        "d3c5f45583c4166854b90cc0c675c1dad5347ee2290e10862ead0afec923e5b9"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/ko-idiom-perspective-base.txt",
+          "sha256": "0e8c1ee64b1ff7e5f85ae0dce24a89ec374afd58ee773a04ff231d4fbc9a80ce"
+        },
+        {
+          "file": "prompts/ko-idiom-perspective-edit.txt",
+          "sha256": "3b8cf2baea59b5cdd0b62ae7810547b55d04980be9de042cae73506e15b57ab8"
+        }
+      ],
+      "publishBlocked": true
+    }
+  ]
+}

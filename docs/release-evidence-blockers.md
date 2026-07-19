@@ -9,6 +9,7 @@ Code gates are separate from deployment evidence. A local PASS must never be pro
 | production DB, backup, PITR and restore | BLOCKED_EXTERNAL | operator drill and approval |
 | CDN/storage credentials and rights/legal approval | BLOCKED_EXTERNAL | credentialed environment plus owner/legal decision |
 | physical iOS/Android goldens and accessibility | BLOCKED_EXTERNAL | actual devices and approved capture set |
+| nine-pack generated learning content rights and education approval | BLOCKED_EXTERNAL | authorized human review using `content/learning/review-checklist.md`; local visual-delta PASS is not publication approval |
 | Sentry/PostHog delivery, redaction and deletion | BLOCKED_EXTERNAL | production-like provider evidence |
 | target-region 200-match/400-socket 30-minute soak | BLOCKED_EXTERNAL | server vertical slice and load environment |
 
