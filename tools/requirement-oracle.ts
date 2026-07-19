@@ -27,7 +27,7 @@ export function evaluateRuleRequirement(id:string,provided?:unknown){const value
 type OpenApiOperation={parameters?:Array<{$ref:string}>;requestBody?:{$ref:string};responses:Record<string,{$ref:string}>};
 type OpenApiDocument={security?:unknown;paths:Record<string,Record<string,OpenApiOperation>>;components:{schemas:Record<string,{properties?:{code?:{enum?:string[]}}}>}};
 const REST_REQUIREMENTS:Record<string,{method:'get'|'post';path:string;request:null|string;success:string;statuses:string[];errors:string[]}>= {
- 'API-001':{method:'get',path:'/v1/me',request:null,success:'MeResponse',statuses:['200','401'],errors:['UNAUTHORIZED']},
+ 'API-001':{method:'get',path:'/v1/me',request:null,success:'MeResponse',statuses:['200','401','403','503'],errors:['UNAUTHORIZED','ANONYMOUS_FORBIDDEN','ACCOUNT_SETUP_FAILED']},
  'API-002':{method:'get',path:'/v1/pets',request:null,success:'PetsResponse',statuses:['200','401'],errors:['UNAUTHORIZED']},
  'API-003':{method:'post',path:'/v1/pets/{id}/lock',request:'LockPetRequest',success:'LockPetResponse',statuses:['200','404','409'],errors:['NOT_OWNED','IDEMPOTENCY_CONFLICT']},
  'API-004':{method:'post',path:'/v1/pets/{id}/select',request:null,success:'SelectPetResponse',statuses:['200','404','409'],errors:['NOT_OWNED','IDEMPOTENCY_CONFLICT']},
