@@ -45,7 +45,7 @@ select is((select count(*)::int from pg_proc where prosecdef and pronamespace in
   'private.select_pet_v1(uuid,uuid,text,uuid)'::regprocedure,
   'private.set_pet_lock_v1(uuid,uuid,text,uuid,boolean)'::regprocedure
   ,'private.apply_match_command_g3(uuid,uuid,text,bigint,jsonb,jsonb,text,bigint,text,text)'::regprocedure,
-  'private.acquire_match_lease_g3(uuid,uuid)'::regprocedure
+  'private.acquire_match_lease_g3(uuid,uuid,uuid,bigint,integer)'::regprocedure
 )), 0, 'no unexpected security definer functions');
 select is((select count(*)::int from pg_default_acl d cross join lateral aclexplode(d.defaclacl) a where d.defaclnamespace in ('public'::regnamespace, 'private'::regnamespace) and d.defaclrole in ((select oid from pg_roles where rolname='postgres'), (select oid from pg_roles where rolname='game_security_owner')) and a.grantee in (0, (select oid from pg_roles where rolname='anon'), (select oid from pg_roles where rolname='authenticated'), (select oid from pg_roles where rolname='service_role'))), 0, 'future object default ACLs do not expose client/service roles');
 
