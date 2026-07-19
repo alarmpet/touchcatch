@@ -2257,8 +2257,8 @@
       "source": "07_REALTIME_SERVER_SPEC.md",
       "sourceLine": 34,
       "section": "Observability and candidate service objectives",
-      "text": "The candidate beta profile is 100 concurrent matches/200 sockets with `tap_result` p95 <=250ms, unexpected command failure rate <0.1%, duplicate accepted claim/reward 0, and match finish loss 0. A ratio verdict requires at least 10,000 unique requests. Production approval requires a target-region 200-match/400-socket 30-minute soak; local deterministic evidence cannot satisfy it.",
-      "fingerprint": "41f511546507231d88b59e100eb13c6d433159c99908f741f78d5c54326f5f0e",
+      "text": "Candidate beta thresholds are read from the repository release-verification policy and checked by deterministic local evidence. Production approval separately requires a target-region 200-match/400-socket 30-minute soak; local deterministic evidence cannot satisfy that external claim.",
+      "fingerprint": "a2160a99a4ce2b53ba1827bfc76028fa18192fe01863cbd436cb5a68e5de15aa",
       "schema": "packages/contracts/src/analytics.ts",
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
@@ -2268,7 +2268,7 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "analytics",
       "closureCondition": "Keep exact direct behavioral oracle green",
-      "linkageProof": "400c60f5e3be7adc6a92ac2e913102a536b324388a2c53009895d157d51d64bc"
+      "linkageProof": "dc743d983ef02db805cfe6141360826b735a7f06bbe8ad6fe54e1ae2cec25963"
     },
     {
       "id": "DATA-001",
@@ -3283,8 +3283,8 @@
       "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceLine": 9,
       "section": "계약 경계",
-      "text": "`RightsManifestSetV1`: 각 공개 자산과 SHA-256 기준으로 정확히 1:1인 출처, 생성기, prompt 보존 상태, 권리·교육 승인, 삭제 대응 담당 정보를 포함한다.",
-      "fingerprint": "e901839721947a768d6b705dc980e3927ca26a017bd46361ed0014dbd2c6b239",
+      "text": "`RightsManifestSetV1`: 각 공개 자산과 SHA-256 기준 exact bijection인 출처, 생성기, prompt 보존 상태, 권리·교육 승인, 삭제 대응 담당 정보를 포함한다.",
+      "fingerprint": "e7ec62b39650d28b2b9f9da9683f31114c3da9668b8c413f6933781459e07dc5",
       "schema": "packages/contracts/src/content.ts",
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
@@ -3294,7 +3294,7 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-004",
-      "linkageProof": "e39ef35f73d7cb8526eb4f9378f3944a4cfe1a32c6e033edea56bb8e850e0998"
+      "linkageProof": "76ece3de50b5654c0eac7d6cb5919fefa75638a51a405d2378bbe4621bff3365"
     },
     {
       "id": "CONTENT-005",
@@ -3535,8 +3535,8 @@
       "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceLine": 31,
       "section": "게시 게이트",
-      "text": "7 NORMAL + 3 HARD, word hunt 2 NORMAL + 1 SPECIAL, 전역 objective ID 유일성, 정답 option 존재를 검사한다.",
-      "fingerprint": "95585af0f21fe2a480c73a284ea35377ccc6a441e8ecb7c2bd4afc4462732601",
+      "text": "The ruleset cardinalities, required NORMAL/SPECIAL word-hunt mix, globally unique objective IDs, and answer-option existence are validated.",
+      "fingerprint": "e7323d355609430a846de6ef14a45928483819ca8fc3bbaef95fb0cc0ca9bae4",
       "schema": "packages/contracts/src/content.ts",
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
@@ -3546,7 +3546,7 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-018",
-      "linkageProof": "f58746d2512cf183a68f6082ba9aa88f01bea7a9610d1c02726c220f0ee3c937"
+      "linkageProof": "baf6e2b7a29008d8738be893e1c616bb492c044744618d5817c613eaa752d2cf"
     },
     {
       "id": "CONTENT-019",

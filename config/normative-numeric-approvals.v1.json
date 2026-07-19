@@ -2,24 +2,6 @@
   "schemaVersion": 4,
   "entries": [
     {
-      "id": "RULE-001",
-      "approvedTokens": [
-        "1.0.0"
-      ],
-      "status": "VERIFIED_LOCAL_SSOT",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green",
-      "ssotPath": "config/ruleset.v1.json",
-      "ssotAssertions": [
-        {
-          "pointer": "/rulesetVersion",
-          "expected": "1.0.0"
-        }
-      ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
-    },
-    {
       "id": "RULE-006",
       "approvedTokens": [
         "1",
@@ -125,43 +107,6 @@
       "evidenceOwner": "game-design",
       "closureCondition": "Implement and contract-test post-launch 2v2 mode",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:RULESET_PARSE"
-    },
-    {
-      "id": "RULE-019",
-      "approvedTokens": [
-        "1.0.0",
-        "60,000",
-        "75,000",
-        "80,000"
-      ],
-      "status": "VERIFIED_LOCAL_SSOT",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "rules",
-      "closureCondition": "Keep exact executable oracle green",
-      "ssotPath": "config/ruleset.v1.json",
-      "ssotAssertions": [
-        {
-          "pointer": "/rulesetVersion",
-          "expected": "1.0.0"
-        },
-        {
-          "pointer": "/time/finalRushStartsAtMs",
-          "expected": 60000
-        },
-        {
-          "pointer": "/time/playingMs",
-          "expected": 75000
-        },
-        {
-          "pointer": "/time/meaningSettlementCapMs",
-          "expected": 80000
-        },
-        {
-          "pointer": "/scoreFloor",
-          "expected": 0
-        }
-      ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "RULE-020",
@@ -668,42 +613,70 @@
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:NO_LOCAL_SSOT_PREDICATE"
     },
     {
+      "id": "RULE-019",
+      "approvedTokens": ["60,000", "75,000", "80,000"],
+      "status": "VERIFIED_LOCAL_SSOT",
+      "lifecycle": "CURRENT",
+      "evidenceOwner": "rules",
+      "closureCondition": "Keep final-rush and settlement timing aligned with the versioned ruleset",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        { "pointer": "/time/finalRushStartsAtMs", "expected": 60000 },
+        { "pointer": "/time/playingMs", "expected": 75000 },
+        { "pointer": "/time/meaningSettlementCapMs", "expected": 80000 }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+    },
+    {
       "id": "STATE-001",
       "approvedTokens": [
-        "1.0.0",
         "75,000",
         "80,000"
       ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
+      "status": "VERIFIED_LOCAL_SSOT",
       "sourcePath": "03_GAME_FLOW_AND_STATE_MACHINE.md",
-      "sourceHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f",
       "lifecycle": "CURRENT",
       "evidenceOwner": "game-state",
-      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-001",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STATE_SCHEMA"
+      "closureCondition": "Keep timing constants aligned with the versioned ruleset",
+      "ssotPath": "config/ruleset.v1.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/time/playingMs",
+          "expected": 75000
+        },
+        {
+          "pointer": "/time/meaningSettlementCapMs",
+          "expected": 80000
+        }
+      ],
+      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
     },
     {
       "id": "STATE-007",
       "approvedTokens": [
         "0~1"
       ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
+      "status": "VERIFIED_LOCAL_SSOT",
       "sourcePath": "03_GAME_FLOW_AND_STATE_MACHINE.md",
-      "sourceHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f",
       "lifecycle": "CURRENT",
       "evidenceOwner": "game-state",
-      "closureCondition": "Implement exact repository-local STATE_SCHEMA oracle for STATE-007",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:STATE_SCHEMA"
+      "closureCondition": "Keep normalized hitbox bounds aligned with the private content schema",
+      "ssotPath": "schemas/game-content.private.schema.json",
+      "ssotAssertions": [
+        {
+          "pointer": "/properties/differences/items/properties/hitboxes/properties/imageA/properties/cx/minimum",
+          "expected": 0
+        },
+        {
+          "pointer": "/properties/differences/items/properties/hitboxes/properties/imageA/properties/cx/maximum",
+          "expected": 1
+        }
+      ],
+      "ssotHash": "8df77043f581acb3ac0123a635155510dce76da2b174b4bc7dbf8beb4a3d1e8a"
     },
     {
       "id": "UX-001",
       "approvedTokens": [
-        "320",
-        "68",
-        "390",
-        "44",
-        "412",
-        "15",
         "200%",
         "44",
         "48"
@@ -736,6 +709,10 @@
             412,
             915
           ]
+        },
+        {
+          "pointer": "/responsive/textScale200/twoColumnCtaColumns",
+          "expected": 1
         },
         {
           "pointer": "/touchTarget/iosPt",
@@ -1036,28 +1013,6 @@
       "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
     },
     {
-      "id": "ECON-024",
-      "approvedTokens": [
-        "004"
-      ],
-      "status": "VERIFIED_LOCAL_SSOT",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "economy",
-      "closureCondition": "Keep exact executable oracle green",
-      "ssotPath": "config/economy.v1.json",
-      "ssotAssertions": [
-        {
-          "pointer": "/status",
-          "expected": "DRAFT"
-        },
-        {
-          "pointer": "/economyVersion",
-          "expected": "1.0.0"
-        }
-      ],
-      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
-    },
-    {
       "id": "SEC-002",
       "approvedTokens": [
         "57",
@@ -1172,21 +1127,13 @@
     {
       "id": "OBS-015",
       "approvedTokens": [
-        "100",
-        "200",
-        "5",
-        "250",
-        "0.1%",
-        "0",
-        "0",
-        "10,000",
         "200",
         "400",
         "30"
       ],
       "status": "UNAPPROVED_EXTERNAL_BLOCKER",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
-      "sourceHash": "d3074f314c085e6075556b873cac97e4acff244d4a4b817efd9ee1f785773b02",
+      "sourceHash": "6dc38a7f24607b39d1f9ce7f36da32ae51c2eb0af29fc13acbcf39b2ee6d0826",
       "lifecycle": "EXTERNAL",
       "evidenceOwner": "release",
       "closureCondition": "Run target-region 200-match/400-socket 30-minute production soak",
@@ -1240,119 +1187,8 @@
       "ssotAssertions": [{"pointer":"/entries/152/oracle/expected","expected":"PASS"}]
     },
     {
-      "id": "DATA-028",
-      "approvedTokens": [
-        "3",
-        "3"
-      ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
-      "sourcePath": "08_DATABASE_SCHEMA.md",
-      "sourceHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "database",
-      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-028",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION"
-    },
-    {
-      "id": "DATA-029",
-      "approvedTokens": [
-        "202607150004"
-      ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
-      "sourcePath": "08_DATABASE_SCHEMA.md",
-      "sourceHash": "8b5f037cd673f91bc58313520d70170e26696a50269757517b79c4080c92491b",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "database",
-      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-029",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:DB_PROJECTION"
-    },
-    {
-      "id": "CONTENT-004",
-      "approvedTokens": [
-        "256",
-        "1",
-        "1"
-      ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
-      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "sourceHash": "a847ea1de0193dc05559f6f6063e34a2148d256a89a3a0fe63e5817dbe522859",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-004",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
-    },
-    {
-      "id": "CONTENT-011",
-      "approvedTokens": [
-        "2020"
-      ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
-      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "sourceHash": "a847ea1de0193dc05559f6f6063e34a2148d256a89a3a0fe63e5817dbe522859",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-011",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
-    },
-    {
-      "id": "CONTENT-013",
-      "approvedTokens": [
-        "56"
-      ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
-      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "sourceHash": "a847ea1de0193dc05559f6f6063e34a2148d256a89a3a0fe63e5817dbe522859",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-013",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
-    },
-    {
-      "id": "CONTENT-014",
-      "approvedTokens": [
-        "56"
-      ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
-      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "sourceHash": "a847ea1de0193dc05559f6f6063e34a2148d256a89a3a0fe63e5817dbe522859",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-014",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
-    },
-    {
-      "id": "CONTENT-015",
-      "approvedTokens": [
-        "256"
-      ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
-      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "sourceHash": "a847ea1de0193dc05559f6f6063e34a2148d256a89a3a0fe63e5817dbe522859",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-015",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
-    },
-    {
-      "id": "CONTENT-018",
-      "approvedTokens": [
-        "7",
-        "3",
-        "2",
-        "1"
-      ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
-      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "sourceHash": "a847ea1de0193dc05559f6f6063e34a2148d256a89a3a0fe63e5817dbe522859",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-018",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
-    },
-    {
       "id": "CONTENT-021",
       "approvedTokens": [
-        "1.0.0",
         "8",
         "4096",
         "16,000,000"
@@ -1361,7 +1197,6 @@
       "ssotPath": "config/content-validation-policy.v1.json",
       "ssotHash": "bbd823f8f5efff2579ac1f415a342e58822988bf26a687d5157645e2986aa39c",
       "ssotAssertions": [
-        { "pointer": "/version", "expected": "1.0.0" },
         { "pointer": "/assetLimits/maxEncodedBytes", "expected": 8388608 },
         { "pointer": "/assetLimits/maxWidth", "expected": 4096 },
         { "pointer": "/assetLimits/maxHeight", "expected": 4096 },

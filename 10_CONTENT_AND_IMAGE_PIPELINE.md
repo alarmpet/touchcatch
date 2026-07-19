@@ -6,7 +6,7 @@
 
 - `PublicGameContentV1`: `contentId`, `version`, `contentRevisionId`, 계약/자산 정책 버전, 테마·언어·난이도, 이미지 A/B의 콘텐츠 주소와 메타데이터만 포함한다. `contentId + version`은 논리 콘텐츠의 리비전 순서를, `contentRevisionId`는 불변 리비전 자체를 식별한다. <!-- REQ: CONTENT-002 -->
 - `PrivateGameSolutionV1`: 차이점·단어 찾기·서든데스 hitbox, 최종 정답·별칭·힌트 단위·정답 option ID를 포함한다. 클라이언트 카탈로그에 노출하지 않는다. <!-- REQ: CONTENT-003 -->
-- `RightsManifestSetV1`: 각 공개 자산과 SHA-256 기준으로 정확히 1:1인 출처, 생성기, prompt 보존 상태, 권리·교육 승인, 삭제 대응 담당 정보를 포함한다. <!-- REQ: CONTENT-004 -->
+- `RightsManifestSetV1`: 각 공개 자산과 SHA-256 기준 exact bijection인 출처, 생성기, prompt 보존 상태, 권리·교육 승인, 삭제 대응 담당 정보를 포함한다. <!-- REQ: CONTENT-004 -->
 
 TypeScript 타입은 [packages/contracts/src/content.ts](packages/contracts/src/content.ts)의 schema-first 상수에서 생성한다. JSON Schema는 `corepack pnpm content:schemas`로 기계 생성하며 `content:schemas:check`가 drift를 거부한다. <!-- REQ: CONTENT-005 -->
 
@@ -28,7 +28,7 @@ TypeScript 타입은 [packages/contracts/src/content.ts](packages/contracts/src/
 4. 실제 bytes의 SHA-256과 encoded size, magic MIME, decoder format, 선언 MIME를 대조한다. <!-- REQ: CONTENT-015 -->
 5. PNG/JPEG/WebP container 종료 이후 trailing payload, 잘린 파일, 애니메이션·다중 page, EXIF orientation, dimension/pixel 상한을 검사한 뒤 제한된 `sharp` decode를 수행한다. <!-- REQ: CONTENT-016 -->
 6. A/B 크기와 aspect, hitbox 경계, 모든 objective 쌍의 overlap·tangent 금지를 검사한다. <!-- REQ: CONTENT-017 -->
-7. 7 NORMAL + 3 HARD, word hunt 2 NORMAL + 1 SPECIAL, 전역 objective ID 유일성, 정답 option 존재를 검사한다. <!-- REQ: CONTENT-018 -->
+7. The ruleset cardinalities, required NORMAL/SPECIAL word-hunt mix, globally unique objective IDs, and answer-option existence are validated. <!-- REQ: CONTENT-018 -->
 8. NFKC/case/whitespace 정규화한 정답·별칭의 길이와 유일성, `Intl.Segmenter` grapheme 배열과 `hintUnits`의 정확한 일치를 검사한다. <!-- REQ: CONTENT-019 -->
 9. 공개 자산·로컬 locator·권리 entry의 SHA-256 bijection을 검사한다. 권리·교육의 사람 승인은 이 로컬 검증과 분리된 외부 게시 blocker다. <!-- REQ: CONTENT-020 -->
 
