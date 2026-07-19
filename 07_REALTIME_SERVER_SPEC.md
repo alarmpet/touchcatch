@@ -13,8 +13,8 @@ Resolve the verified token subject through server-owned membership to an opaque 
 ## 치팅 방지
 - 초당 터치 최대 8회 <!-- REQ: OBS-004 -->
 - 좌표 서버 검증 <!-- REQ: OBS-005 -->
-- 같은 좌표 연타 탐지 <!-- REQ: OBS-006 -->
-- 비정상 정답 반응속도 기록 <!-- REQ: OBS-007 -->
+- Detect repeated same-coordinate bursts using privacy-safe normalized cell, count, and duration buckets. This signal is observation-only until a separately approved threshold and enforcement ADR exists; raw coordinates and timestamps are forbidden. <!-- REQ: RISK-01 -->
+- Record suspicious answer-reaction timing only as a predeclared duration bucket. This signal is observation-only until false-positive, fairness, privacy, and enforcement review is approved; answer text, correctness, and exact timestamps are forbidden. <!-- REQ: RISK-02 -->
 - 클라이언트 점수 무시 <!-- REQ: OBS-008 -->
 
 ## 연결 끊김
