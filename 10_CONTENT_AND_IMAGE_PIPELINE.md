@@ -30,7 +30,7 @@ TypeScript 타입은 [packages/contracts/src/content.ts](packages/contracts/src/
 6. A/B 크기와 aspect, hitbox 경계, 모든 objective 쌍의 overlap·tangent 금지를 검사한다. <!-- REQ: CONTENT-017 -->
 7. 7 NORMAL + 3 HARD, word hunt 2 NORMAL + 1 SPECIAL, 전역 objective ID 유일성, 정답 option 존재를 검사한다. <!-- REQ: CONTENT-018 -->
 8. NFKC/case/whitespace 정규화한 정답·별칭의 길이와 유일성, `Intl.Segmenter` grapheme 배열과 `hintUnits`의 정확한 일치를 검사한다. <!-- REQ: CONTENT-019 -->
-9. 공개 자산과 권리 entry의 SHA-256 bijection 및 권리·교육의 승인 상태를 검사한다. <!-- REQ: CONTENT-020 -->
+9. 공개 자산·로컬 locator·권리 entry의 SHA-256 bijection을 검사한다. 권리·교육의 사람 승인은 이 로컬 검증과 분리된 외부 게시 blocker다. <!-- REQ: CONTENT-020 -->
 
 자산 정책 `1.0.0`은 파일당 8 MiB 이하, width/height 각각 4096 이하, decoded pixel 16,000,000 이하이다. 이미지 정규화가 필요하면 게시 전에 새 bytes를 만들고 새 raw hash와 메타데이터를 부여한다. 검증 뒤 원본 bytes를 바꾸면 안 된다. <!-- REQ: CONTENT-021 -->
 
@@ -43,7 +43,7 @@ TypeScript 타입은 [packages/contracts/src/content.ts](packages/contracts/src/
 - hash-pinned bytes: `content/fixtures/assets` <!-- REQ: CONTENT-025 -->
 
 <!-- GENERATED:UI_ASSETS:START -->
-`UiRuntimeAssetManifestV1` is an empty strict DRAFT manifest. `ui:assets:check` rejects approval forgery and any unapproved beta asset. Publish verifies immutable bytes and the exact `(rightsRecordId, assetSha256)` pair; rollback selects an earlier approved immutable manifest; takedown blocks the hash at CDN and admission layers. Concept references are never runtime assets or visual goldens. <!-- REQ: CONTENT-026 -->
+`UiRuntimeAssetManifestV1` is an empty strict DRAFT manifest. `ui:assets:check` rejects approval forgery and any unapproved beta asset. 로컬 수명주기는 immutable bytes와 exact `(rightsRecordId, assetSha256)` pair를 검증하고, 실제 사람의 시각 승인과 CDN 차단 자격증명은 외부 blocker로 유지한다. Concept references are never runtime assets or visual goldens. <!-- REQ: CONTENT-026 -->
 <!-- GENERATED:UI_ASSETS:END -->
 
 ```powershell
@@ -52,4 +52,4 @@ corepack pnpm content:validate
 corepack pnpm vitest run packages/contracts/src/canonical-json.test.ts packages/contracts/src/content.test.ts packages/content-validator/src/validate-content.test.ts
 ```
 
-게시 작업은 위 검증을 통과한 번들만 `private.publish_content_revision_v1`에 전달한다. legacy 결합 JSON은 자동 승인하거나 자동 게시하지 않는다. <!-- REQ: CONTENT-027 -->
+게시 작업은 위 검증을 통과한 번들만 exact asset origin projection과 함께 `private.publish_content_revision_v1`에 전달한다. legacy 결합 JSON은 자동 승인·게시하지 않고 quarantine 정책 입력 없이는 처리하지 않는다. 법률·backup/WAL/PITR 승인은 외부 blocker다. <!-- REQ: CONTENT-027 -->

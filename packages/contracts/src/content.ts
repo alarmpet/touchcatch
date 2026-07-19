@@ -1,5 +1,6 @@
 import type { FromSchema } from 'json-schema-to-ts';
 import frozenRuleset from '../../../config/ruleset.v1.json' with { type: 'json' };
+import contentValidationPolicy from '../../../config/content-validation-policy.v1.json' with { type: 'json' };
 
 export const CONTENT_CARDINALITY_V1 = frozenRuleset.content;
 
@@ -19,11 +20,8 @@ export function isWithinContentTextLimits(value: string): boolean {
 }
 
 export const ASSET_PUBLISH_LIMITS_V1 = {
-  version: '1.0.0',
-  maxEncodedBytes: 8 * 1024 * 1024,
-  maxWidth: 4096,
-  maxHeight: 4096,
-  maxDecodedPixels: 16_000_000,
+  version: contentValidationPolicy.version,
+  ...contentValidationPolicy.assetLimits,
 } as const;
 
 const idPattern = '^[a-z0-9][a-z0-9_-]{0,127}$';

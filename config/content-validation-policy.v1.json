@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "assetLimits": {
+    "maxEncodedBytes": 8388608,
+    "maxWidth": 4096,
+    "maxHeight": 4096,
+    "maxDecodedPixels": 16000000
+  },
+  "validFixtureMatrixCount": 3
+}

@@ -3607,7 +3607,7 @@
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-019"
       },
       "testCase": "CONTENT-019 executes CONTENT_SCHEMA",
@@ -3615,14 +3615,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-019"
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-019"
     },
     {
       "id": "CONTENT-020",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-020"
       },
       "testCase": "CONTENT-020 executes CONTENT_SCHEMA",
@@ -3630,14 +3630,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-020"
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-020"
     },
     {
       "id": "CONTENT-021",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-021"
       },
       "testCase": "CONTENT-021 executes CONTENT_SCHEMA",
@@ -3645,14 +3645,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-021"
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-021"
     },
     {
       "id": "CONTENT-022",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-022"
       },
       "testCase": "CONTENT-022 executes CONTENT_SCHEMA",
@@ -3660,14 +3660,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-022"
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-022"
     },
     {
       "id": "CONTENT-023",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-023"
       },
       "testCase": "CONTENT-023 executes CONTENT_SCHEMA",
@@ -3675,14 +3675,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-023"
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-023"
     },
     {
       "id": "CONTENT-024",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-024"
       },
       "testCase": "CONTENT-024 executes CONTENT_SCHEMA",
@@ -3690,14 +3690,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-024"
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-024"
     },
     {
       "id": "CONTENT-025",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-025"
       },
       "testCase": "CONTENT-025 executes CONTENT_SCHEMA",
@@ -3705,14 +3705,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-025"
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-025"
     },
     {
       "id": "CONTENT-026",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-026"
       },
       "testCase": "CONTENT-026 executes CONTENT_SCHEMA",
@@ -3720,14 +3720,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-026"
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-026"
     },
     {
       "id": "CONTENT-027",
       "evidenceKind": "CONTENT_SCHEMA",
       "oracle": {
         "kind": "CONTENT_SCHEMA",
-        "expected": "FAIL",
+        "expected": "PASS",
         "input": "CONTENT-027"
       },
       "testCase": "CONTENT-027 executes CONTENT_SCHEMA",
@@ -3735,7 +3735,7 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-027"
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-027"
     },
     {
       "id": "QA-001",

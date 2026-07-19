@@ -3560,29 +3560,29 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-019:CONTENT_SCHEMA:FAIL",
+      "oracle": "CONTENT-019:CONTENT_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-019",
-      "linkageProof": "0375f856f34ccae8e4343819672d79f7ba1f38e4a99f0a8c6377b50646a603db"
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-019",
+      "linkageProof": "c9323f577a3373f85b98e7e6ede1dd9e0209e2e558538a382288fc09a2727dc3"
     },
     {
       "id": "CONTENT-020",
       "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceLine": 33,
       "section": "게시 게이트",
-      "text": "공개 자산과 권리 entry의 SHA-256 bijection 및 권리·교육의 승인 상태를 검사한다.",
-      "fingerprint": "6ff685e4383db370e0d40e4d7413247f875faad40a33384f3b20dfa5ecb763c9",
+      "text": "공개 자산·로컬 locator·권리 entry의 SHA-256 bijection을 검사한다. 권리·교육의 사람 승인은 이 로컬 검증과 분리된 외부 게시 blocker다.",
+      "fingerprint": "3c1936845663202c3fb0e3a22c1e07ac2c8aeff5e7a998ac6cbab1fd55a77b75",
       "schema": "packages/contracts/src/content.ts",
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-020:CONTENT_SCHEMA:FAIL",
+      "oracle": "CONTENT-020:CONTENT_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-020",
-      "linkageProof": "3558296eb55353dbf7d21c4fd7eade29c6876b443434ecd371688509a539cef6"
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-020",
+      "linkageProof": "6d78585439092f0b8080bfe3f65106c85e58eb797a028caad2bd75cd605946ec"
     },
     {
       "id": "CONTENT-021",
@@ -3596,11 +3596,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-021:CONTENT_SCHEMA:FAIL",
+      "oracle": "CONTENT-021:CONTENT_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-021",
-      "linkageProof": "7f69e7c8d9cf1720cff91c14f2109e5ec3c4cbb16d7d7ac6b3f168aab7b64a19"
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-021",
+      "linkageProof": "3281d0784fc83a6f00a02eabe61eee89feba2657a13583d58cbfc9c68d8f2159"
     },
     {
       "id": "CONTENT-022",
@@ -3614,11 +3614,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-022:CONTENT_SCHEMA:FAIL",
+      "oracle": "CONTENT-022:CONTENT_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-022",
-      "linkageProof": "2276028986c8565b9b210e1a7bfd56dba944b03957621d035a3ac26ca1b1ff84"
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-022",
+      "linkageProof": "77de0d97f32d517295183eaab43592ed4a055f542b372957161bc679ea1af0d3"
     },
     {
       "id": "CONTENT-023",
@@ -3632,11 +3632,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-023:CONTENT_SCHEMA:FAIL",
+      "oracle": "CONTENT-023:CONTENT_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-023",
-      "linkageProof": "2fb1126cbf5d55dec658078fe072bbdfea320177d4c4d048f024a9c8f906e16e"
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-023",
+      "linkageProof": "8851f6d5a0144eaf38e3ecc0134c79d029e4626ef2edca9ebdc8e1e074d9cd58"
     },
     {
       "id": "CONTENT-024",
@@ -3650,11 +3650,11 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-024:CONTENT_SCHEMA:FAIL",
+      "oracle": "CONTENT-024:CONTENT_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-024",
-      "linkageProof": "e6b7a7856be19dc534effef8e1f35ae65eb75a3efb5e4b355ca0c956c8d4cf84"
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-024",
+      "linkageProof": "908166441741d5011ecdad60659547e3d37cdba2691d4fb519abb4664dc6c50b"
     },
     {
       "id": "CONTENT-025",
@@ -3668,47 +3668,47 @@
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-025:CONTENT_SCHEMA:FAIL",
+      "oracle": "CONTENT-025:CONTENT_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-025",
-      "linkageProof": "d36c3d27f22ab2197cb23e067fed1eecb802f693ed9de928b6b1b9c85d2a9053"
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-025",
+      "linkageProof": "72e1ef7648bd94eb699c9524069449bb1c06854d5b4321ab3d6b8071b1d4d84b"
     },
     {
       "id": "CONTENT-026",
       "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceLine": 46,
       "section": "fixture와 실행",
-      "text": "`UiRuntimeAssetManifestV1` is an empty strict DRAFT manifest. `ui:assets:check` rejects approval forgery and any unapproved beta asset. Publish verifies immutable bytes and the exact `(rightsRecordId, assetSha256)` pair; rollback selects an earlier approved immutable manifest; takedown blocks the hash at CDN and admission layers. Concept references are never runtime assets or visual goldens.",
-      "fingerprint": "d667561e552d06a325d3034a84004629b5dcabca4690475bfa91fd5d4a207e88",
+      "text": "`UiRuntimeAssetManifestV1` is an empty strict DRAFT manifest. `ui:assets:check` rejects approval forgery and any unapproved beta asset. 로컬 수명주기는 immutable bytes와 exact `(rightsRecordId, assetSha256)` pair를 검증하고, 실제 사람의 시각 승인과 CDN 차단 자격증명은 외부 blocker로 유지한다. Concept references are never runtime assets or visual goldens.",
+      "fingerprint": "a67e60ff8ea12c703fefc6f4b8ee17999f229e355e27119096662956eb3ba2c6",
       "schema": "packages/contracts/src/content.ts",
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-026:CONTENT_SCHEMA:FAIL",
+      "oracle": "CONTENT-026:CONTENT_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-026",
-      "linkageProof": "74376d6985192d8daa0d35bd69cce032395f5f0a92ab77f551ec5284a06e5bcc"
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-026",
+      "linkageProof": "bb5fce5468b5d7fdff66c05f1912bdcf5fb06b3ea7e16a7dfa1d0d1283085fd9"
     },
     {
       "id": "CONTENT-027",
       "source": "10_CONTENT_AND_IMAGE_PIPELINE.md",
       "sourceLine": 55,
       "section": "fixture와 실행",
-      "text": "게시 작업은 위 검증을 통과한 번들만 `private.publish_content_revision_v1`에 전달한다. legacy 결합 JSON은 자동 승인하거나 자동 게시하지 않는다.",
-      "fingerprint": "32971616fdd14bac234378873334a3b2155faf7126a19efe45c52edf9c612b3b",
+      "text": "게시 작업은 위 검증을 통과한 번들만 exact asset origin projection과 함께 `private.publish_content_revision_v1`에 전달한다. legacy 결합 JSON은 자동 승인·게시하지 않고 quarantine 정책 입력 없이는 처리하지 않는다. 법률·backup/WAL/PITR 승인은 외부 blocker다.",
+      "fingerprint": "fabd5e43c059f02e2344939a6c870e3922761fd94e2e6cdc2d4148adb21208a9",
       "schema": "packages/contracts/src/content.ts",
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
       "evidenceKind": "CONTENT_SCHEMA",
-      "oracle": "CONTENT-027:CONTENT_SCHEMA:FAIL",
+      "oracle": "CONTENT-027:CONTENT_SCHEMA:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-027",
-      "linkageProof": "4c828d928aa418e2b14ae540fa587e778de567de839f7aec37ab4adda88d084d"
+      "closureCondition": "Keep exact repository-local lifecycle predicates and mutations green for CONTENT-027",
+      "linkageProof": "0048b0f1f8fc4f776472561f50330f551996e9fb1363f32e623353fe5d54bae7"
     },
     {
       "id": "QA-001",

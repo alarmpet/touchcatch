@@ -1216,7 +1216,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact repository-local 1:1 revision projection oracle green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "b12cc5aa294d22df722829532d6dda34e0a4d6a0f15c86249fee6aa8cd8d02d4",
+      "ssotHash": "002c951f6b6308fefcb3bfb5f07c1c19f8ff59cb5cf5a834b36299e4530c832e",
       "ssotAssertions": [
         {
           "pointer": "/entries/129/oracle/expected",
@@ -1236,7 +1236,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact seat and 20-session concurrency predicate green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "b12cc5aa294d22df722829532d6dda34e0a4d6a0f15c86249fee6aa8cd8d02d4",
+      "ssotHash": "002c951f6b6308fefcb3bfb5f07c1c19f8ff59cb5cf5a834b36299e4530c832e",
       "ssotAssertions": [{"pointer":"/entries/142/oracle/expected","expected":"PASS"}]
     },
     {
@@ -1249,7 +1249,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact 20-session concurrency evidence green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "b12cc5aa294d22df722829532d6dda34e0a4d6a0f15c86249fee6aa8cd8d02d4",
+      "ssotHash": "002c951f6b6308fefcb3bfb5f07c1c19f8ff59cb5cf5a834b36299e4530c832e",
       "ssotAssertions": [{"pointer":"/entries/152/oracle/expected","expected":"PASS"}]
     },
     {
@@ -1288,7 +1288,7 @@
       ],
       "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "sourceHash": "4722a5c0a7b9eb469a3702cccd24bfa02ae0539937aa166a7a9eecf8beee000c",
+      "sourceHash": "a847ea1de0193dc05559f6f6063e34a2148d256a89a3a0fe63e5817dbe522859",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-004",
@@ -1301,7 +1301,7 @@
       ],
       "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "sourceHash": "4722a5c0a7b9eb469a3702cccd24bfa02ae0539937aa166a7a9eecf8beee000c",
+      "sourceHash": "a847ea1de0193dc05559f6f6063e34a2148d256a89a3a0fe63e5817dbe522859",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-011",
@@ -1314,7 +1314,7 @@
       ],
       "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "sourceHash": "4722a5c0a7b9eb469a3702cccd24bfa02ae0539937aa166a7a9eecf8beee000c",
+      "sourceHash": "a847ea1de0193dc05559f6f6063e34a2148d256a89a3a0fe63e5817dbe522859",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-013",
@@ -1327,7 +1327,7 @@
       ],
       "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "sourceHash": "4722a5c0a7b9eb469a3702cccd24bfa02ae0539937aa166a7a9eecf8beee000c",
+      "sourceHash": "a847ea1de0193dc05559f6f6063e34a2148d256a89a3a0fe63e5817dbe522859",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-014",
@@ -1340,7 +1340,7 @@
       ],
       "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "sourceHash": "4722a5c0a7b9eb469a3702cccd24bfa02ae0539937aa166a7a9eecf8beee000c",
+      "sourceHash": "a847ea1de0193dc05559f6f6063e34a2148d256a89a3a0fe63e5817dbe522859",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-015",
@@ -1356,23 +1356,10 @@
       ],
       "status": "UNRESOLVED_CURRENT_FAIL",
       "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "sourceHash": "4722a5c0a7b9eb469a3702cccd24bfa02ae0539937aa166a7a9eecf8beee000c",
+      "sourceHash": "a847ea1de0193dc05559f6f6063e34a2148d256a89a3a0fe63e5817dbe522859",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
       "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-018",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
-    },
-    {
-      "id": "CONTENT-020",
-      "approvedTokens": [
-        "256"
-      ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
-      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "sourceHash": "4722a5c0a7b9eb469a3702cccd24bfa02ae0539937aa166a7a9eecf8beee000c",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-020",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
     },
     {
@@ -1383,53 +1370,34 @@
         "4096",
         "16,000,000"
       ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
-      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "sourceHash": "4722a5c0a7b9eb469a3702cccd24bfa02ae0539937aa166a7a9eecf8beee000c",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-021",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
-    },
-    {
-      "id": "CONTENT-022",
-      "approvedTokens": [
-        "256",
-        "256"
+      "status": "VERIFIED_LOCAL_SSOT",
+      "ssotPath": "config/content-validation-policy.v1.json",
+      "ssotHash": "bbd823f8f5efff2579ac1f415a342e58822988bf26a687d5157645e2986aa39c",
+      "ssotAssertions": [
+        { "pointer": "/version", "expected": "1.0.0" },
+        { "pointer": "/assetLimits/maxEncodedBytes", "expected": 8388608 },
+        { "pointer": "/assetLimits/maxWidth", "expected": 4096 },
+        { "pointer": "/assetLimits/maxHeight", "expected": 4096 },
+        { "pointer": "/assetLimits/maxDecodedPixels", "expected": 16000000 }
       ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
-      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "sourceHash": "4722a5c0a7b9eb469a3702cccd24bfa02ae0539937aa166a7a9eecf8beee000c",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-022",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
+      "closureCondition": "Keep asset limit SSOT and boundary oracle green"
     },
     {
       "id": "CONTENT-023",
       "approvedTokens": [
         "3"
       ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
-      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "sourceHash": "4722a5c0a7b9eb469a3702cccd24bfa02ae0539937aa166a7a9eecf8beee000c",
-      "lifecycle": "CURRENT",
-      "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-023",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
-    },
-    {
-      "id": "CONTENT-026",
-      "approvedTokens": [
-        "56"
+      "status": "VERIFIED_LOCAL_SSOT",
+      "ssotPath": "config/content-validation-policy.v1.json",
+      "ssotHash": "bbd823f8f5efff2579ac1f415a342e58822988bf26a687d5157645e2986aa39c",
+      "ssotAssertions": [
+        { "pointer": "/validFixtureMatrixCount", "expected": 3 }
       ],
-      "status": "UNRESOLVED_CURRENT_FAIL",
-      "sourcePath": "10_CONTENT_AND_IMAGE_PIPELINE.md",
-      "sourceHash": "4722a5c0a7b9eb469a3702cccd24bfa02ae0539937aa166a7a9eecf8beee000c",
       "lifecycle": "CURRENT",
       "evidenceOwner": "content",
-      "closureCondition": "Implement exact repository-local CONTENT_SCHEMA oracle for CONTENT-026",
-      "blockerReason": "PLANNED_NOT_IMPLEMENTED:CONTENT_SCHEMA"
+      "closureCondition": "Keep the three-language valid fixture matrix green"
     },
     {
       "id": "QA-001",
