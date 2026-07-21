@@ -1,17 +1,42 @@
 import fs from 'node:fs';
 import { expect, it } from 'vitest';
-import { evaluateSecurityRequirement, executeRequirementOracle } from '../../tools/requirement-oracle.js';
+import { evaluateSecurityRequirement, executeRequirementOracle, type Sec001ProbeResult } from '../../tools/requirement-oracle.js';
 
-const read = (file: string) => fs.readFileSync(file, 'utf8');
-const sec001Evidence = () => ({
-  jwtVerifierSource: read('apps/server/src/auth/verify.ts'),
-  jwtVerifierTest: read('apps/server/src/auth/verify.test.ts'),
-  httpIngressSource: read('apps/server/src/http/router.ts'),
-  httpIngressTest: read('apps/server/src/http/router.test.ts'),
-  socketIngressSource: read('apps/server/src/socket/authenticate.ts'),
-  socketIngressTest: read('apps/server/src/socket/authenticate.test.ts'),
-  authUuidBoundaryTest: read('supabase/tests/database/invariants.test.sql'),
-  replayDeliveryTest: read('packages/contracts/src/delivery-policy.test.ts'),
+const passingProbe = (): Sec001ProbeResult => ({
+  jwtVerifier: {
+    valid: 'ACCEPTED',
+    badIssuer: 'REJECTED',
+    badAudience: 'REJECTED',
+    expired: 'REJECTED',
+    badSignature: 'REJECTED',
+    badAlgorithm: 'REJECTED',
+    rotatedKey: 'ACCEPTED',
+    rotatedJwksLoads: 2,
+  },
+  restSocketParity: {
+    restStatus: 200,
+    socketAuthenticated: true,
+    sharedVerifierCallCount: 2,
+    sharedVerifierInputsMatch: true,
+    accountGateSubjects: ['auth-subject', 'auth-subject'],
+    missingRestStatus: 401,
+    anonymousRestStatus: 403,
+    missingSocketError: 'UNAUTHORIZED',
+    anonymousSocketError: 'ANONYMOUS_FORBIDDEN',
+    inactiveSocketError: 'ACCOUNT_DELETING',
+  },
+  authUuidExposure: {
+    resolvedParticipantKey: 'participant-opaque',
+    participantMatchesAuthSub: false,
+    publicResponseContainsAuthSub: false,
+  },
+  replayDelivery: {
+    incompatibleAdmission: 'UPDATE_REQUIRED',
+    requestEnvelopeAccepted: true,
+    gap: 'REQUEST_REPLAY',
+    stale: 'IGNORE_STALE',
+    replayUnavailable: 'REPLACE_SNAPSHOT',
+  },
 });
 
 it('executes exact authenticated delivery, public client, authority and preload predicates', () => {
@@ -24,39 +49,52 @@ it('executes exact authenticated delivery, public client, authority and preload 
 it.each([
   {
     failure: 'SEC001_JWT_VERIFIER',
-    mutate: (evidence: ReturnType<typeof sec001Evidence>) => ({
-      ...evidence,
-      jwtVerifierSource: evidence.jwtVerifierSource.replace("audience: 'authenticated'", "audience: 'service_role'"),
+    mutate: (probe: Sec001ProbeResult) => ({
+      ...probe,
+      jwtVerifier: { ...probe.jwtVerifier, badIssuer: 'ACCEPTED' as const },
     }),
   },
   {
     failure: 'SEC001_REST_SOCKET_PARITY',
-    mutate: (evidence: ReturnType<typeof sec001Evidence>) => ({
-      ...evidence,
-      socketIngressSource: evidence.socketIngressSource.replace('verifyAccessToken(handshake.accessToken)', "verifyAccessToken('different-token')"),
+    mutate: (probe: Sec001ProbeResult) => ({
+      ...probe,
+      restSocketParity: { ...probe.restSocketParity, sharedVerifierCallCount: 1 },
     }),
   },
   {
     failure: 'SEC001_AUTH_UUID_EXPOSURE',
-    mutate: (evidence: ReturnType<typeof sec001Evidence>) => ({
-      ...evidence,
-      authUuidBoundaryTest: evidence.authUuidBoundaryTest.replace(
-        "'10000000-0000-4000-8000-000000000001','10000000-0000-4000-8000-000000000001'",
-        "'40000000-0000-4000-8000-000000000009','10000000-0000-4000-8000-000000000001'",
-      ),
+    mutate: (probe: Sec001ProbeResult) => ({
+      ...probe,
+      authUuidExposure: { ...probe.authUuidExposure, participantMatchesAuthSub: true },
     }),
   },
   {
     failure: 'SEC001_REPLAY_DELIVERY',
-    mutate: (evidence: ReturnType<typeof sec001Evidence>) => ({
-      ...evidence,
-      replayDeliveryTest: evidence.replayDeliveryTest.replace("toBe('REQUEST_REPLAY')", "toBe('APPLY_EVENT')"),
+    mutate: (probe: Sec001ProbeResult) => ({
+      ...probe,
+      replayDelivery: { ...probe.replayDelivery, replayUnavailable: 'APPLY_EVENT' as const },
     }),
   },
-])('SEC-001 reports $failure for its behavior-bearing evidence mutation', ({ failure, mutate }) => {
-  const evidence = sec001Evidence();
-  expect(evaluateSecurityRequirement('SEC-001', evidence)).toBe(true);
-  expect(() => evaluateSecurityRequirement('SEC-001', mutate(evidence))).toThrow(new RegExp(`^${failure}$`, 'u'));
+])('SEC-001 reports $failure for its semantic probe mutation', ({ failure, mutate }) => {
+  const probe = passingProbe();
+  expect(evaluateSecurityRequirement('SEC-001', probe)).toBe(true);
+  expect(() => evaluateSecurityRequirement('SEC-001', mutate(probe) as Sec001ProbeResult)).toThrow(new RegExp(`^${failure}$`, 'u'));
+});
+
+it('rejects a safe-looking ingress result when one path short-circuits the shared verifier', () => {
+  const probe = passingProbe();
+  const shortCircuited = { ...probe, restSocketParity: { ...probe.restSocketParity, sharedVerifierCallCount: 1 } };
+  expect(() => evaluateSecurityRequirement('SEC-001', shortCircuited)).toThrow(/^SEC001_REST_SOCKET_PARITY$/u);
+});
+
+it('binds the SEC-001 evidence claim to the runtime probe entry', () => {
+  const registry = JSON.parse(fs.readFileSync('docs/requirements-registry.v1.json', 'utf8'));
+  const evidence = JSON.parse(fs.readFileSync('config/requirement-evidence.v1.json', 'utf8'));
+  const row = registry.requirements.find((x: { id: string }) => x.id === 'SEC-001');
+  const claim = evidence.entries.find((x: { id: string }) => x.id === 'SEC-001');
+  expect(claim.oracle.input).toBe('tools/sec001-runtime-probe.ts');
+  const badClaim = { ...claim, oracle: { ...claim.oracle, input: 'tools/missing-sec001-runtime-probe.ts' } };
+  expect(executeRequirementOracle(process.cwd(), row, badClaim).status).toBe('FAIL');
 });
 
 it.each(['SEC-001', 'SEC-002', 'SEC-004', 'SEC-005', 'SEC-006', 'SEC-007'])('%s binds its exact source row and rejects mutation', (id) => {

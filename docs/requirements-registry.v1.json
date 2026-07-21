@@ -1565,7 +1565,7 @@
       "oracle": "SEC-001:PRIVACY_CONTRACT:PASS",
       "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
-      "closureCondition": "Keep exact repository-local JWT verifier, REST/Socket parity, auth UUID boundary, and replay delivery oracle green",
+      "closureCondition": "Keep the deterministic repository-local SEC-001 runtime probe and semantic-result mutations green",
       "linkageProof": "494252179a845a1e848d195251a01a363058c1b7b30eca9b27c314e120eb2463"
     },
     {

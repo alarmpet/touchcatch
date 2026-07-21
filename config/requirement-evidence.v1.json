@@ -1844,14 +1844,14 @@
       "oracle": {
         "kind": "PRIVACY_CONTRACT",
         "expected": "PASS",
-        "input": "SEC-001"
+        "input": "tools/sec001-runtime-probe.ts"
       },
-      "testCase": "SEC-001 executes JWT verifier, REST/Socket parity, auth UUID non-exposure, and replay delivery mutations",
+      "testCase": "SEC-001 runtime probe executes exact JWT verifier, REST/Socket parity, auth UUID non-exposure, and replay delivery results",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Keep exact repository-local JWT verifier, REST/Socket parity, auth UUID boundary, and replay delivery oracle green"
+      "closureCondition": "Keep the deterministic repository-local SEC-001 runtime probe and semantic-result mutations green"
     },
     {
       "id": "SEC-002",

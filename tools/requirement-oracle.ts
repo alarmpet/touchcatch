@@ -1,4 +1,5 @@
 import fs from'node:fs';import path from'node:path';import{createHash}from'node:crypto';
+import{spawnSync}from'node:child_process';
 import{parse as parseYaml}from'yaml';
 import{parseRuleset}from'../packages/contracts/src/rules.schema.js';
 import{parseEconomy}from'../packages/contracts/src/economy.schema.js';
@@ -9,7 +10,7 @@ import releasePolicy from'../config/release-verification-policy.v1.json'with{typ
 import{validateUiReferenceBundle}from'../packages/contracts/src/ui.js';
 import{createTestingReplayBundle,testingRules}from'../packages/game-engine/src/testing-fixtures.js';import{reduceMatch}from'../packages/game-engine/src/reducer.js';import{replayMatch}from'../packages/game-engine/src/replay.js';
 import{isTimedInputLocked,shouldKeepInputLocked}from'../packages/game-engine/src/rule-contracts.js';
-import{clientCommandEnvelopeSchema,negotiateCompatibility,resolveAuthenticatedParticipant}from'../packages/contracts/src/socket.schema.js';import{decideDelivery,decideReconnect}from'../packages/contracts/src/delivery-policy.js';import{projectSnapshot}from'../packages/contracts/src/projection.js';import{ASSET_PUBLISH_LIMITS_V1,CONTENT_TEXT_LIMITS_V1,isWithinContentTextLimits,RECOMMENDED_IMAGE_LONG_EDGE_PX}from'../packages/contracts/src/content.js';import{canonicalJson,canonicalJsonSha256}from'../packages/contracts/src/canonical-json.js';import{normalizeFinalAnswer}from'../packages/contracts/src/answer-normalization.js';import{parseContentAssetOrigins}from'../packages/contracts/src/integration-evidence.js';import{scanNestedPii}from'../packages/contracts/src/quarantine.js';import{reconnectOverlayForElapsed}from'../packages/game-engine/src/input-projection.js';import{adaptMatchSnapshot,createTapIntent}from'../apps/mobile/src/ui/battle-shell.js';import type{MatchStateV1}from'../packages/contracts/src/match.js';
+import{clientCommandEnvelopeSchema,resolveAuthenticatedParticipant}from'../packages/contracts/src/socket.schema.js';import{decideDelivery,decideReconnect}from'../packages/contracts/src/delivery-policy.js';import{projectSnapshot}from'../packages/contracts/src/projection.js';import{ASSET_PUBLISH_LIMITS_V1,CONTENT_TEXT_LIMITS_V1,isWithinContentTextLimits,RECOMMENDED_IMAGE_LONG_EDGE_PX}from'../packages/contracts/src/content.js';import{canonicalJson,canonicalJsonSha256}from'../packages/contracts/src/canonical-json.js';import{normalizeFinalAnswer}from'../packages/contracts/src/answer-normalization.js';import{parseContentAssetOrigins}from'../packages/contracts/src/integration-evidence.js';import{scanNestedPii}from'../packages/contracts/src/quarantine.js';import{reconnectOverlayForElapsed}from'../packages/game-engine/src/input-projection.js';import{adaptMatchSnapshot,createTapIntent}from'../apps/mobile/src/ui/battle-shell.js';import type{MatchStateV1}from'../packages/contracts/src/match.js';
 import{MATCH_DB_PROJECTION_V1}from'../packages/contracts/src/match.js';import{deriveTerminalConstraintProjection}from'../packages/contracts/src/integration-evidence.js';
 import{matchSnapshotV1Schema}from'../packages/contracts/src/socket.schema.js';
 import{serverEventEnvelopeSchema,commandAckSchema}from'../packages/contracts/src/socket.schema.js';import{projectMatchEvent}from'../packages/contracts/src/projection.js';
@@ -109,50 +110,35 @@ export function evaluatePureGameRequirement(id:string){
  throw Error('unsupported pure game requirement');
 }
 const readyPayload={type:'READY' as const,contentRevisionId:'00000000-0000-4000-8000-000000000010',contentHash:'d'.repeat(64),assetHashes:['a'.repeat(64),'c'.repeat(64)]as[string,string],decodedDimensions:[{assetHash:'a'.repeat(64),width:1,height:1},{assetHash:'c'.repeat(64),width:1,height:1}]as[{assetHash:string;width:number;height:number},{assetHash:string;width:number;height:number}]};
-export type Sec001Evidence=Readonly<{
- jwtVerifierSource:string;jwtVerifierTest:string;
- httpIngressSource:string;httpIngressTest:string;
- socketIngressSource:string;socketIngressTest:string;
- authUuidBoundaryTest:string;replayDeliveryTest:string;
+type ProbeDisposition='ACCEPTED'|'REJECTED';
+export type Sec001ProbeResult=Readonly<{
+ jwtVerifier:Readonly<{valid:ProbeDisposition;badIssuer:ProbeDisposition;badAudience:ProbeDisposition;expired:ProbeDisposition;badSignature:ProbeDisposition;badAlgorithm:ProbeDisposition;rotatedKey:ProbeDisposition;rotatedJwksLoads:number}>;
+ restSocketParity:Readonly<{restStatus:number;socketAuthenticated:boolean;sharedVerifierCallCount:number;sharedVerifierInputsMatch:boolean;accountGateSubjects:readonly string[];missingRestStatus:number;anonymousRestStatus:number;missingSocketError:string;anonymousSocketError:string;inactiveSocketError:string}>;
+ authUuidExposure:Readonly<{resolvedParticipantKey:string;participantMatchesAuthSub:boolean;publicResponseContainsAuthSub:boolean}>;
+ replayDelivery:Readonly<{incompatibleAdmission:string;requestEnvelopeAccepted:boolean;gap:string;stale:string;replayUnavailable:string}>;
 }>;
-const readSec001Evidence=():Sec001Evidence=>({
- jwtVerifierSource:fs.readFileSync(path.resolve('apps/server/src/auth/verify.ts'),'utf8'),jwtVerifierTest:fs.readFileSync(path.resolve('apps/server/src/auth/verify.test.ts'),'utf8'),
- httpIngressSource:fs.readFileSync(path.resolve('apps/server/src/http/router.ts'),'utf8'),httpIngressTest:fs.readFileSync(path.resolve('apps/server/src/http/router.test.ts'),'utf8'),
- socketIngressSource:fs.readFileSync(path.resolve('apps/server/src/socket/authenticate.ts'),'utf8'),socketIngressTest:fs.readFileSync(path.resolve('apps/server/src/socket/authenticate.test.ts'),'utf8'),
- authUuidBoundaryTest:fs.readFileSync(path.resolve('supabase/tests/database/invariants.test.sql'),'utf8'),replayDeliveryTest:fs.readFileSync(path.resolve('packages/contracts/src/delivery-policy.test.ts'),'utf8'),
-});
-const includesEvery=(source:string,needles:readonly string[])=>needles.every(needle=>source.includes(needle));
-const assertSec001JwtVerifier=(evidence:Sec001Evidence)=>{
- const implementation=includesEvery(evidence.jwtVerifierSource,["const ALGORITHMS = ['ES256', 'RS256'] as const","ALGORITHMS.includes","algorithms: [...ALGORITHMS]","audience: 'authenticated'","clockTolerance: 30",'error instanceof errors.JWKSNoMatchingKey','verify(token, true)']);
- const executableTests=includesEvery(evidence.jwtVerifierTest,['accepts an ES256 token with exact issuer and audience','https://attacker.test/auth/v1',"{ aud: 'service_role' }",'refreshes JWKS once for a previously unknown key','expect(calls).toBe(2)','rejects algorithms outside the exact asymmetric allow-list before key lookup',"{ alg: 'HS256', kid: 'legacy' }"]);
- if(!implementation||!executableTests)throw Error('SEC001_JWT_VERIFIER');
+const expectedSec001Probe={
+ jwtVerifier:{valid:'ACCEPTED',badIssuer:'REJECTED',badAudience:'REJECTED',expired:'REJECTED',badSignature:'REJECTED',badAlgorithm:'REJECTED',rotatedKey:'ACCEPTED',rotatedJwksLoads:2},
+ restSocketParity:{restStatus:200,socketAuthenticated:true,sharedVerifierCallCount:2,sharedVerifierInputsMatch:true,accountGateSubjects:['auth-subject','auth-subject'],missingRestStatus:401,anonymousRestStatus:403,missingSocketError:'UNAUTHORIZED',anonymousSocketError:'ANONYMOUS_FORBIDDEN',inactiveSocketError:'ACCOUNT_DELETING'},
+ authUuidExposure:{resolvedParticipantKey:'participant-opaque',participantMatchesAuthSub:false,publicResponseContainsAuthSub:false},
+ replayDelivery:{incompatibleAdmission:'UPDATE_REQUIRED',requestEnvelopeAccepted:true,gap:'REQUEST_REPLAY',stale:'IGNORE_STALE',replayUnavailable:'REPLACE_SNAPSHOT'},
+}as const satisfies Sec001ProbeResult;
+const exactProbeGroup=(actual:unknown,expected:unknown)=>JSON.stringify(actual)===JSON.stringify(expected);
+const sec001ProbeEntry='tools/sec001-runtime-probe.ts';
+const runSec001RuntimeProbe=(probeEntry:string):Sec001ProbeResult=>{
+ if(probeEntry!==sec001ProbeEntry)throw new Error('SEC001_RUNTIME_PROBE_ENTRY_INVALID');
+ const result=spawnSync(process.execPath,[path.resolve('node_modules/tsx/dist/cli.mjs'),path.resolve(probeEntry)],{cwd:process.cwd(),encoding:'utf8',timeout:15000,maxBuffer:1024*1024,windowsHide:true});
+ if(result.error||result.status!==0||result.signal!==null)throw new Error('SEC001_RUNTIME_PROBE_EXECUTION_FAILED');
+ try{return JSON.parse(result.stdout.trim())as Sec001ProbeResult;}catch{throw new Error('SEC001_RUNTIME_PROBE_OUTPUT_INVALID');}
 };
-const assertSec001RestSocketParity=(evidence:Sec001Evidence)=>{
- const httpImplementation=includesEvery(evidence.httpIngressSource,["import type { VerifiedIdentity } from '../auth/verify.js'",'verifyAccessToken(token: string): Promise<VerifiedIdentity>','identity = await dependencies.verifyAccessToken(match[1]!)','if (identity.isAnonymous)']);
- const socketImplementation=includesEvery(evidence.socketIngressSource,["import type { VerifiedIdentity } from '../auth/verify.js'",'verifyAccessToken: (token: string) => Promise<VerifiedIdentity>','await verifyAccessToken(handshake.accessToken)','if (identity.isAnonymous)']);
- const httpTests=includesEvery(evidence.httpIngressTest,['verifies bearer, bootstraps, and serves authoritative /v1/me',"expect(calls).toEqual(['verify:valid-token', 'ensure:auth-sub', 'read:auth-sub'])",'fails closed before account access for missing or anonymous bearer','expect(accountCalls).toBe(0)']);
- const socketTests=includesEvery(evidence.socketIngressTest,['uses the shared verifier and returns only auth context',"authSub: `verified:${token}`",'rejects missing and anonymous access tokens','rejects an already-issued token when the DB account gate is no longer active']);
- if(!httpImplementation||!socketImplementation||!httpTests||!socketTests)throw Error('SEC001_REST_SOCKET_PARITY');
+const assertSec001Probe=(probe:Sec001ProbeResult)=>{
+ if(!exactProbeGroup(probe.jwtVerifier,expectedSec001Probe.jwtVerifier))throw Error('SEC001_JWT_VERIFIER');
+ if(!exactProbeGroup(probe.restSocketParity,expectedSec001Probe.restSocketParity))throw Error('SEC001_REST_SOCKET_PARITY');
+ if(!exactProbeGroup(probe.authUuidExposure,expectedSec001Probe.authUuidExposure))throw Error('SEC001_AUTH_UUID_EXPOSURE');
+ if(!exactProbeGroup(probe.replayDelivery,expectedSec001Probe.replayDelivery))throw Error('SEC001_REPLAY_DELIVERY');
 };
-const assertSec001AuthUuidBoundary=(evidence:Sec001Evidence)=>{
- const boundary=includesEvery(evidence.authUuidBoundaryTest,[
-  "private.join_match_participant_v1('30000000-0000-4000-8000-000000000001','10000000-0000-4000-8000-000000000001','10000000-0000-4000-8000-000000000001')",
-  "raise exception 'AUTH_UUID_ACCEPTED_AS_PARTICIPANT_KEY'","sqlerrm <> 'PARTICIPANT_KEY_INVALID'","select pass('auth UUID cannot be reused as participant key')",
-  "null::uuid, 'account deletion nulls participant auth mapping'","'winner remains replayable by participant key'","persisted event payload contains neither deleted auth UUID nor nickname",
- ]);
- if(!boundary)throw Error('SEC001_AUTH_UUID_EXPOSURE');
-};
-const assertSec001ReplayDelivery=(m:string,evidence:Sec001Evidence)=>{
- try{
-  const pinned={protocolVersion:1 as const,engineVersion:'1',rulesetVersion:'1.0.0' as const,rulesetHash:'a'.repeat(64),contentRevisionId:readyPayload.contentRevisionId,contentHash:'d'.repeat(64)};
-  if(negotiateCompatibility({protocolVersion:1,supportedEngineVersions:['2'],supportedRulesetVersions:['1.0.0']},pinned).accepted!==false)throw Error('update admission');
-  clientCommandEnvelopeSchema.parse({protocolVersion:1,requestId:'00000000-0000-4000-8000-000000000991',matchId:m,expectedRevision:0,clientSeq:0,payload:{type:'USE_HINT'}});
-  if(decideDelivery({lastEventSeq:2,stateRevision:2},{kind:'EVENT',eventSeq:4,stateRevision:3})!=='REQUEST_REPLAY')throw Error('journal gap');
-  if(!includesEvery(evidence.replayDeliveryTest,["toBe('IGNORE_STALE')","toBe('REQUEST_REPLAY')","{kind:'REPLAY_UNAVAILABLE'})).toBe('REPLACE_SNAPSHOT')"]))throw Error('delivery behavior test drift');
- }catch(cause){throw new Error('SEC001_REPLAY_DELIVERY',{cause});}
-};
-export function evaluateSecurityRequirement(id:string,provided?:Sec001Evidence){const bundle=createTestingReplayBundle(),state:MatchStateV1=structuredClone(bundle.initialState),m=state.matchId;const command=(playerId:string,seq:number)=>{const requestId=`00000000-0000-4000-8000-${String(990+seq).padStart(12,'0')}`;return{source:'PLAYER' as const,commandId:`${m}:player:${playerId}:${requestId}`,matchId:m,commandSeq:seq,receivedAtMs:1000,requestId,playerId,expectedRevision:state.stateRevision,payload:readyPayload};};
- if(id==='SEC-001'){const evidence=provided??readSec001Evidence();assertSec001JwtVerifier(evidence);assertSec001RestSocketParity(evidence);assertSec001AuthUuidBoundary(evidence);assertSec001ReplayDelivery(m,evidence);return true;}
+export function evaluateSecurityRequirement(id:string,provided?:Sec001ProbeResult,probeEntry=sec001ProbeEntry){const bundle=createTestingReplayBundle(),state:MatchStateV1=structuredClone(bundle.initialState),m=state.matchId;const command=(playerId:string,seq:number)=>{const requestId=`00000000-0000-4000-8000-${String(990+seq).padStart(12,'0')}`;return{source:'PLAYER' as const,commandId:`${m}:player:${playerId}:${requestId}`,matchId:m,commandSeq:seq,receivedAtMs:1000,requestId,playerId,expectedRevision:state.stateRevision,payload:readyPayload};};
+ if(id==='SEC-001'){let probe:Sec001ProbeResult;try{probe=provided??runSec001RuntimeProbe(probeEntry);}catch(cause){throw new Error('SEC001_JWT_VERIFIER',{cause});}assertSec001Probe(probe);return true;}
  if(id==='SEC-002'){const pkg=JSON.parse(fs.readFileSync(path.resolve('apps/mobile/package.json'),'utf8'));if(pkg.dependencies.expo!=='57.0.1'||pkg.dependencies['react-native']!=='0.86.0')throw Error('mobile stack drift');const snapshot=projectSnapshot(state,'p1',0),vm=adaptMatchSnapshot(snapshot,{pendingIntentId:'pending',connection:'CONNECTED'});if(createTapIntent(vm,{side:'A',x:.1,y:.2})!==null||JSON.stringify(snapshot).includes('privateSolution'))throw Error('public fail closed');return true;}
  if(id==='SEC-004'){let accepted=true;try{clientCommandEnvelopeSchema.parse({protocolVersion:1,requestId:'00000000-0000-4000-8000-000000000991',matchId:m,expectedRevision:0,clientSeq:0,payload:{type:'TAP_IMAGE',imageSide:'A',x:.1,y:.2,score:1}});}catch{accepted=false;}if(accepted)throw Error('client score authority');return true;}
  if(id==='SEC-005'){const snapshot=projectSnapshot(state,'p1',0);if(state.startedAtMs!==null||snapshot.preload.assets.length!==2||snapshot.phase!=='WAITING_FOR_ASSETS')throw Error('preload ordering');return true;}
@@ -193,7 +179,7 @@ export function executeRequirementOracle(root:string,row:Row,claim:Claim){
    if(!validateNonCurrentEvidence(root,claim))throw Error('invalid lifecycle closure evidence');status='BLOCKED';
   }else switch(claim.oracle.kind){
    case'STATE_SCHEMA':evaluatePureGameRequirement(row.id);status='PASS';break;
-   case'PRIVACY_CONTRACT':evaluateSecurityRequirement(row.id);status='PASS';break;
+   case'PRIVACY_CONTRACT':evaluateSecurityRequirement(row.id,undefined,claim.oracle.input);status='PASS';break;
    case'ANALYTICS_CONTRACT':if(['OBS-001','OBS-003','OBS-005','OBS-008','OBS-009','OBS-011','OBS-012','OBS-013'].includes(row.id))evaluatePureGameRequirement(row.id);else evaluateAnalyticsRequirement(row.id);status='PASS';break;
    case'RULESET_PARSE':{if(['RULE-011','RULE-035','RULE-050'].includes(row.id))evaluateRuleRequirement(row.id);else{const value=JSON.parse(fs.readFileSync(path.join(root,claim.oracle.input??'config/ruleset.v1.json'),'utf8'));parseRuleset(value);assertExact(value,claim.oracle.assertions);}status='PASS';break;}
    case'ECONOMY_PARSE':{const value=JSON.parse(fs.readFileSync(path.join(root,claim.oracle.input??'config/economy.v1.json'),'utf8'));parseEconomy(value);assertExact(value,claim.oracle.assertions);status='PASS';break;}
