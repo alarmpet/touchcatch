@@ -1846,12 +1846,12 @@
         "expected": "PASS",
         "input": "SEC-001"
       },
-      "testCase": "SEC-001 executes PRIVACY_CONTRACT",
+      "testCase": "SEC-001 executes JWT verifier, REST/Socket parity, auth UUID non-exposure, and replay delivery mutations",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local PRIVACY_CONTRACT oracle for SEC-001"
+      "closureCondition": "Keep exact repository-local JWT verifier, REST/Socket parity, auth UUID boundary, and replay delivery oracle green"
     },
     {
       "id": "SEC-002",

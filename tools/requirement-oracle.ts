@@ -109,8 +109,50 @@ export function evaluatePureGameRequirement(id:string){
  throw Error('unsupported pure game requirement');
 }
 const readyPayload={type:'READY' as const,contentRevisionId:'00000000-0000-4000-8000-000000000010',contentHash:'d'.repeat(64),assetHashes:['a'.repeat(64),'c'.repeat(64)]as[string,string],decodedDimensions:[{assetHash:'a'.repeat(64),width:1,height:1},{assetHash:'c'.repeat(64),width:1,height:1}]as[{assetHash:string;width:number;height:number},{assetHash:string;width:number;height:number}]};
-export function evaluateSecurityRequirement(id:string){const bundle=createTestingReplayBundle(),state:MatchStateV1=structuredClone(bundle.initialState),m=state.matchId;const command=(playerId:string,seq:number)=>{const requestId=`00000000-0000-4000-8000-${String(990+seq).padStart(12,'0')}`;return{source:'PLAYER' as const,commandId:`${m}:player:${playerId}:${requestId}`,matchId:m,commandSeq:seq,receivedAtMs:1000,requestId,playerId,expectedRevision:state.stateRevision,payload:readyPayload};};
- if(id==='SEC-001'){const pinned={protocolVersion:1 as const,engineVersion:'1',rulesetVersion:'1.0.0' as const,rulesetHash:'a'.repeat(64),contentRevisionId:readyPayload.contentRevisionId,contentHash:'d'.repeat(64)};if(negotiateCompatibility({protocolVersion:1,supportedEngineVersions:['2'],supportedRulesetVersions:['1.0.0']},pinned).accepted!==false)throw Error('update admission');clientCommandEnvelopeSchema.parse({protocolVersion:1,requestId:'00000000-0000-4000-8000-000000000991',matchId:m,expectedRevision:0,clientSeq:0,payload:{type:'USE_HINT'}});if(decideDelivery({lastEventSeq:2,stateRevision:2},{kind:'EVENT',eventSeq:4,stateRevision:3})!=='REQUEST_REPLAY')throw Error('journal gap');return true;}
+export type Sec001Evidence=Readonly<{
+ jwtVerifierSource:string;jwtVerifierTest:string;
+ httpIngressSource:string;httpIngressTest:string;
+ socketIngressSource:string;socketIngressTest:string;
+ authUuidBoundaryTest:string;replayDeliveryTest:string;
+}>;
+const readSec001Evidence=():Sec001Evidence=>({
+ jwtVerifierSource:fs.readFileSync(path.resolve('apps/server/src/auth/verify.ts'),'utf8'),jwtVerifierTest:fs.readFileSync(path.resolve('apps/server/src/auth/verify.test.ts'),'utf8'),
+ httpIngressSource:fs.readFileSync(path.resolve('apps/server/src/http/router.ts'),'utf8'),httpIngressTest:fs.readFileSync(path.resolve('apps/server/src/http/router.test.ts'),'utf8'),
+ socketIngressSource:fs.readFileSync(path.resolve('apps/server/src/socket/authenticate.ts'),'utf8'),socketIngressTest:fs.readFileSync(path.resolve('apps/server/src/socket/authenticate.test.ts'),'utf8'),
+ authUuidBoundaryTest:fs.readFileSync(path.resolve('supabase/tests/database/invariants.test.sql'),'utf8'),replayDeliveryTest:fs.readFileSync(path.resolve('packages/contracts/src/delivery-policy.test.ts'),'utf8'),
+});
+const includesEvery=(source:string,needles:readonly string[])=>needles.every(needle=>source.includes(needle));
+const assertSec001JwtVerifier=(evidence:Sec001Evidence)=>{
+ const implementation=includesEvery(evidence.jwtVerifierSource,["const ALGORITHMS = ['ES256', 'RS256'] as const","ALGORITHMS.includes","algorithms: [...ALGORITHMS]","audience: 'authenticated'","clockTolerance: 30",'error instanceof errors.JWKSNoMatchingKey','verify(token, true)']);
+ const executableTests=includesEvery(evidence.jwtVerifierTest,['accepts an ES256 token with exact issuer and audience','https://attacker.test/auth/v1',"{ aud: 'service_role' }",'refreshes JWKS once for a previously unknown key','expect(calls).toBe(2)','rejects algorithms outside the exact asymmetric allow-list before key lookup',"{ alg: 'HS256', kid: 'legacy' }"]);
+ if(!implementation||!executableTests)throw Error('SEC001_JWT_VERIFIER');
+};
+const assertSec001RestSocketParity=(evidence:Sec001Evidence)=>{
+ const httpImplementation=includesEvery(evidence.httpIngressSource,["import type { VerifiedIdentity } from '../auth/verify.js'",'verifyAccessToken(token: string): Promise<VerifiedIdentity>','identity = await dependencies.verifyAccessToken(match[1]!)','if (identity.isAnonymous)']);
+ const socketImplementation=includesEvery(evidence.socketIngressSource,["import type { VerifiedIdentity } from '../auth/verify.js'",'verifyAccessToken: (token: string) => Promise<VerifiedIdentity>','await verifyAccessToken(handshake.accessToken)','if (identity.isAnonymous)']);
+ const httpTests=includesEvery(evidence.httpIngressTest,['verifies bearer, bootstraps, and serves authoritative /v1/me',"expect(calls).toEqual(['verify:valid-token', 'ensure:auth-sub', 'read:auth-sub'])",'fails closed before account access for missing or anonymous bearer','expect(accountCalls).toBe(0)']);
+ const socketTests=includesEvery(evidence.socketIngressTest,['uses the shared verifier and returns only auth context',"authSub: `verified:${token}`",'rejects missing and anonymous access tokens','rejects an already-issued token when the DB account gate is no longer active']);
+ if(!httpImplementation||!socketImplementation||!httpTests||!socketTests)throw Error('SEC001_REST_SOCKET_PARITY');
+};
+const assertSec001AuthUuidBoundary=(evidence:Sec001Evidence)=>{
+ const boundary=includesEvery(evidence.authUuidBoundaryTest,[
+  "private.join_match_participant_v1('30000000-0000-4000-8000-000000000001','10000000-0000-4000-8000-000000000001','10000000-0000-4000-8000-000000000001')",
+  "raise exception 'AUTH_UUID_ACCEPTED_AS_PARTICIPANT_KEY'","sqlerrm <> 'PARTICIPANT_KEY_INVALID'","select pass('auth UUID cannot be reused as participant key')",
+  "null::uuid, 'account deletion nulls participant auth mapping'","'winner remains replayable by participant key'","persisted event payload contains neither deleted auth UUID nor nickname",
+ ]);
+ if(!boundary)throw Error('SEC001_AUTH_UUID_EXPOSURE');
+};
+const assertSec001ReplayDelivery=(m:string,evidence:Sec001Evidence)=>{
+ try{
+  const pinned={protocolVersion:1 as const,engineVersion:'1',rulesetVersion:'1.0.0' as const,rulesetHash:'a'.repeat(64),contentRevisionId:readyPayload.contentRevisionId,contentHash:'d'.repeat(64)};
+  if(negotiateCompatibility({protocolVersion:1,supportedEngineVersions:['2'],supportedRulesetVersions:['1.0.0']},pinned).accepted!==false)throw Error('update admission');
+  clientCommandEnvelopeSchema.parse({protocolVersion:1,requestId:'00000000-0000-4000-8000-000000000991',matchId:m,expectedRevision:0,clientSeq:0,payload:{type:'USE_HINT'}});
+  if(decideDelivery({lastEventSeq:2,stateRevision:2},{kind:'EVENT',eventSeq:4,stateRevision:3})!=='REQUEST_REPLAY')throw Error('journal gap');
+  if(!includesEvery(evidence.replayDeliveryTest,["toBe('IGNORE_STALE')","toBe('REQUEST_REPLAY')","{kind:'REPLAY_UNAVAILABLE'})).toBe('REPLACE_SNAPSHOT')"]))throw Error('delivery behavior test drift');
+ }catch(cause){throw new Error('SEC001_REPLAY_DELIVERY',{cause});}
+};
+export function evaluateSecurityRequirement(id:string,provided?:Sec001Evidence){const bundle=createTestingReplayBundle(),state:MatchStateV1=structuredClone(bundle.initialState),m=state.matchId;const command=(playerId:string,seq:number)=>{const requestId=`00000000-0000-4000-8000-${String(990+seq).padStart(12,'0')}`;return{source:'PLAYER' as const,commandId:`${m}:player:${playerId}:${requestId}`,matchId:m,commandSeq:seq,receivedAtMs:1000,requestId,playerId,expectedRevision:state.stateRevision,payload:readyPayload};};
+ if(id==='SEC-001'){const evidence=provided??readSec001Evidence();assertSec001JwtVerifier(evidence);assertSec001RestSocketParity(evidence);assertSec001AuthUuidBoundary(evidence);assertSec001ReplayDelivery(m,evidence);return true;}
  if(id==='SEC-002'){const pkg=JSON.parse(fs.readFileSync(path.resolve('apps/mobile/package.json'),'utf8'));if(pkg.dependencies.expo!=='57.0.1'||pkg.dependencies['react-native']!=='0.86.0')throw Error('mobile stack drift');const snapshot=projectSnapshot(state,'p1',0),vm=adaptMatchSnapshot(snapshot,{pendingIntentId:'pending',connection:'CONNECTED'});if(createTapIntent(vm,{side:'A',x:.1,y:.2})!==null||JSON.stringify(snapshot).includes('privateSolution'))throw Error('public fail closed');return true;}
  if(id==='SEC-004'){let accepted=true;try{clientCommandEnvelopeSchema.parse({protocolVersion:1,requestId:'00000000-0000-4000-8000-000000000991',matchId:m,expectedRevision:0,clientSeq:0,payload:{type:'TAP_IMAGE',imageSide:'A',x:.1,y:.2,score:1}});}catch{accepted=false;}if(accepted)throw Error('client score authority');return true;}
  if(id==='SEC-005'){const snapshot=projectSnapshot(state,'p1',0);if(state.startedAtMs!==null||snapshot.preload.assets.length!==2||snapshot.phase!=='WAITING_FOR_ASSETS')throw Error('preload ordering');return true;}

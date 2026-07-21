@@ -18,6 +18,14 @@
 - production 게스트는 공개 샘플 팩만 사용하며 DEV registry/private solution을 import하지 않는다.
 - Google/Kakao credential, legal retention 승인, 실제 iOS/Android golden은 외부 blocker다.
 
+## 2026-07-22 완료 이력 판정
+
+- `[x]`는 구현 커밋(`8c08d6b`, `6eafeba`, `951b25b`, `f19d236`, `518c0ad`, `4f05b85`, `45cb910`)과 현재 pinned Node `24.18.0` focused evidence가 함께 확인한 항목에만 사용한다.
+- 과거 RED 실행 로그가 보존되지 않은 항목과 현재 DB focused gate를 다시 실행하지 않은 항목은 구현 파일이 있어도 `[ ]`로 유지한다.
+- focused auth suite는 23 files / 103 tests가 PASS했지만 `packages/contracts/src/openapi.test.ts`의 Task 7 이후 기대값 drift 2건이 남아 있으므로 전체 focused PASS로 기록하지 않는다.
+- SEC-001 targeted generated coverage는 PASS다. 전체 generated coverage의 기존 `OBS-002`, `DATA-012`, `API-005`, `API-001` 4건과 docs check의 기존 numeric approval drift `DATA-004`, `DATA-017`, `DATA-027`은 이 완료 이력에서 PASS로 승격하지 않는다.
+- aggregate `check`/`verify`는 PASS로 주장하지 않는다. 마지막 실행은 Windows Turbopack의 `node_modules/pg` junction-point 오류에서 중단되었으므로 aggregate는 pending이다.
+
 ---
 
 ## File map
@@ -51,7 +59,7 @@
 - [ ] **Step 2: RED 확인** — `corepack pnpm vitest run tests/contracts/auth-contract.test.ts tests/contracts/openapi.test.ts`; 새 export/path가 없어서 FAIL이어야 한다.
 - [ ] **Step 3: 최소 schema/OpenAPI 구현** — `schemaVersion: '1'`, 최대 100 events, ISO timestamp, `Idempotency-Key` 재사용, accepted/rejected 응답을 선언한다. `/v1/me`는 200 ready response와 401/403/503 discriminated errors를 exact status별로 명시하고 구현 gate와 동일 enum을 공유한다.
 - [ ] **Step 4: GREEN 및 회귀** — 같은 focused 명령 후 `corepack pnpm check`; 모두 PASS여야 한다.
-- [ ] **Step 5: 커밋** — `git add packages/contracts tests/contracts && git commit -m "feat(auth): define account and progress contracts"`.
+- [x] **Step 5: 커밋** — `git add packages/contracts tests/contracts && git commit -m "feat(auth): define account and progress contracts"`.
 
 ### Task 2: 공용 JWT verifier와 gate matrix
 
@@ -71,10 +79,10 @@
 - Produces: `verifyAccessToken(token): Promise<VerifiedIdentity>`, `authorize(identity, capability): AuthDecision`, `createHttpRouter(deps)`, `authenticateSocket(handshake)`; `VerifiedIdentity={authSub,isAnonymous}`. Email verification pending은 bearer가 없는 signup UX state이며 서버 JWT gate 상태가 아니다.
 
 - [ ] **Step 1: RED verifier 테스트 작성** — 허용 algorithm exact set, rotated JWKS fixture 성공, unknown `kid` 1회 refresh 후 성공/실패, expired/bad signature/bad issuer/bad audience, 30초 초과 skew 실패를 고정한다. production env는 normalized HTTPS Supabase URL만 허용하고 local/test에만 HTTP loopback 예외를 둔다.
-- [ ] **Step 2: RED gate table 작성** — guest/invalid 401, anonymous 403, bootstrap failure 503, ready 허용을 table test로 만든다. Confirm Email이 켜진 email signup의 미검증 사용자는 JWT가 없으므로 모바일 `VERIFICATION_PENDING`으로만 테스트한다.
+- [x] **Step 2: RED gate table 작성** — guest/invalid 401, anonymous 403, bootstrap failure 503, ready 허용을 table test로 만든다. Confirm Email이 켜진 email signup의 미검증 사용자는 JWT가 없으므로 모바일 `VERIFICATION_PENDING`으로만 테스트한다.
 - [ ] **Step 3: RED 확인** — `corepack pnpm --filter @spot-learn/server test`; 모듈 부재로 FAIL이어야 한다.
 - [ ] **Step 4: 최소 구현** — remote JWKS verifier 한 개를 주입 가능하게 만들고 algorithm/issuer/audience/expiry를 라이브러리에 위임한다. email 검증은 JWT payload 추측이 아니라 주입된 trusted user lookup 결과로 채운다.
-- [ ] **Step 5: 실제 ingress와 secret 경계 검사 추가** — `/v1/me` route와 Socket handshake가 동일 verifier를 호출하는 executable test를 추가한다. 일반 server env에서 `SUPABASE_SECRET_KEY`를 제거하고 `SUPABASE_PUBLISHABLE_KEY`만 허용하며 deletion worker 외부의 secret import를 boundary test로 거절한다.
+- [x] **Step 5: 실제 ingress와 secret 경계 검사 추가** — `/v1/me` route와 Socket handshake가 동일 verifier를 호출하는 executable test를 추가한다. 일반 server env에서 `SUPABASE_SECRET_KEY`를 제거하고 `SUPABASE_PUBLISHABLE_KEY`만 허용하며 deletion worker 외부의 secret import를 boundary test로 거절한다.
 - [ ] **Step 6: build gate 연결** — root TypeScript include와 `server:typecheck`/`check` script에 새 server를 연결해 파일이 검사 밖으로 빠지지 않게 한다.
 - [ ] **Step 7: GREEN/회귀/커밋** — focused test와 `corepack pnpm check` 후 `git commit -m "feat(server): verify Supabase access tokens"`.
 
@@ -116,9 +124,9 @@
 - Produces: singleton `getAuthClient()`, `restoreSession()`, `subscribeAuthState()`, `signOut()`; 화면에는 typed facade만 export.
 
 - [ ] **Step 1: dependency 호환 확인** — `corepack pnpm --dir apps/mobile exec expo install --check`; Expo 57 호환 범위를 기록하고 임의 latest 설치를 금지한다.
-- [ ] **Step 2: RED 테스트 작성** — env 누락 fail closed, singleton, AsyncStorage persistence, `flowType:'pkce'`, `detectSessionInUrl:false`, process lock, foreground refresh, logout cache purge를 fake adapter로 검증한다.
+- [x] **Step 2: RED 테스트 작성** — env 누락 fail closed, singleton, AsyncStorage persistence, `flowType:'pkce'`, `detectSessionInUrl:false`, process lock, foreground refresh, logout cache purge를 fake adapter로 검증한다.
 - [ ] **Step 3: RED 확인** — `corepack pnpm vitest run apps/mobile/src/auth/client.test.ts apps/mobile/src/auth/session.test.ts`; FAIL이어야 한다.
-- [ ] **Step 4: 의존성과 최소 구현** — Expo install로 `@supabase/supabase-js`, AsyncStorage, `expo-web-browser`, `expo-linking`을 pin하고 SDK를 `src/auth` 밖에서 import하지 못하게 boundary test를 추가한다.
+- [x] **Step 4: 의존성과 최소 구현** — Expo install로 `@supabase/supabase-js`, AsyncStorage, `expo-web-browser`, `expo-linking`을 pin하고 SDK를 `src/auth` 밖에서 import하지 못하게 boundary test를 추가한다.
 - [ ] **Step 5: GREEN/회귀/커밋** — focused test, `corepack pnpm typecheck`, `corepack pnpm check` 후 `git commit -m "feat(mobile): add persistent Supabase session"`.
 
 ### Task 5: Email과 Google/Kakao PKCE UI
@@ -137,10 +145,10 @@
 **Interfaces:**
 - Produces: `signUpEmail`, `signInEmail`, `resendVerification`, `requestPasswordReset`, `completePasswordRecovery`, `startOAuth(provider)`, `completeOAuth(url)`.
 
-- [ ] **Step 1: RED callback 테스트** — exact scheme/path, persisted verifier/state, one-shot completion fence, code-only exchange를 허용하고 fragment token, replay, mismatch, provider error를 거절한다. WebBrowser result, cold-start initial URL, live Linking event가 동시에 도착해도 하나의 coordinator가 정확히 한 번 완료하고 app restart 뒤 pending flow를 복구해야 한다.
-- [ ] **Step 2: RED email 테스트** — Confirm Email signup은 session 없이 `VERIFICATION_PENDING`, generalized resend/reset response, recovery callback의 one-shot code exchange와 `updateUser({password})`, verified 뒤 bootstrap 호출, `ACCOUNT_SETUP_FAILED` 보존을 검증한다.
+- [x] **Step 1: RED callback 테스트** — exact scheme/path, persisted verifier/state, one-shot completion fence, code-only exchange를 허용하고 fragment token, replay, mismatch, provider error를 거절한다. WebBrowser result, cold-start initial URL, live Linking event가 동시에 도착해도 하나의 coordinator가 정확히 한 번 완료하고 app restart 뒤 pending flow를 복구해야 한다.
+- [x] **Step 2: RED email 테스트** — Confirm Email signup은 session 없이 `VERIFICATION_PENDING`, generalized resend/reset response, recovery callback의 one-shot code exchange와 `updateUser({password})`, verified 뒤 bootstrap 호출, `ACCOUNT_SETUP_FAILED` 보존을 검증한다.
 - [ ] **Step 3: local config RED** — config test가 exact callback과 `enable_manual_linking=true`를 요구하도록 만들고 FAIL을 확인한다.
-- [ ] **Step 4: 최소 구현** — WebBrowser auth session을 열고 반환 code만 `exchangeCodeForSession`에 넘긴다. callback URL/token/email 전체를 로그하지 않는다.
+- [x] **Step 4: 최소 구현** — WebBrowser auth session을 열고 반환 code만 `exchangeCodeForSession`에 넘긴다. callback URL/token/email 전체를 로그하지 않는다.
 - [ ] **Step 5: config와 Inbucket 연결** — `additional_redirect_urls=["spotlearn://auth/callback","spotlearn://auth/recovery"]`, `[auth.email] enable_confirmations=true`를 설정하고 로컬 email confirm/recovery 절차를 operations 문서에 기록한다.
 - [ ] **Step 6: GREEN/회귀/커밋** — focused tests와 `corepack pnpm check` 후 `git commit -m "feat(mobile): add PKCE and email authentication"`.
 
@@ -159,10 +167,10 @@
 **Interfaces:**
 - Produces: public sample registry와 `mergeLearningProgress(identity, idempotencyKey, body)`.
 
-- [ ] **Step 1: RED boundary 테스트** — production graph에 DEV registry/private solution이 없고 공개 sample manifest만 포함되는지 검사한다.
-- [ ] **Step 2: RED merge 테스트** — published revision만 수용, extra/economy fields 전체 요청 거절, batch replay가 원 응답을 재현, 같은 key/different hash conflict, batch 내부 duplicate event, 같은 device event/changed payload conflict, partial accepted/rejected 응답을 고정한다.
+- [x] **Step 1: RED boundary 테스트** — production graph에 DEV registry/private solution이 없고 공개 sample manifest만 포함되는지 검사한다.
+- [x] **Step 2: RED merge 테스트** — published revision만 수용, extra/economy fields 전체 요청 거절, batch replay가 원 응답을 재현, 같은 key/different hash conflict, batch 내부 duplicate event, 같은 device event/changed payload conflict, partial accepted/rejected 응답을 고정한다.
 - [ ] **Step 3: 최소 DB/server 구현** — dedicated learning owner의 security-definer projection으로 published revision을 검증해 app_server direct SELECT를 피한다. auth UUID 대신 api subject FK와 `(subject_key,device_event_id)` event receipt, `(subject_key,idempotency_key,request_hash,response,status)` batch receipt를 원자적으로 claim/complete하고 권위 보상 함수를 호출하지 않는다.
-- [ ] **Step 4: 모바일 pending lifecycle** — receipt 전 pending 유지, accepted만 제거, rejected 이유 보존, login 후 explicit merge를 구현한다.
+- [x] **Step 4: 모바일 pending lifecycle** — receipt 전 pending 유지, accepted만 제거, rejected 이유 보존, login 후 explicit merge를 구현한다.
 - [ ] **Step 5: GREEN/회귀/커밋** — focused tests, `corepack pnpm check`, `corepack pnpm check:db` 후 `git commit -m "feat(learning): merge safe guest progress"`.
 
 ### Task 7: Identity 관리, nickname, 계정 삭제
@@ -182,10 +190,10 @@
 **Interfaces:**
 - Produces: explicit reauth/link/unlink facade, `PATCH /v1/me`, `DELETE /v1/me` job entrypoint.
 
-- [ ] **Step 1: RED identity 테스트** — Supabase automatic same-email linking을 앱 데이터 merge로 오해하지 않으며, manual link는 recent reauth, unlink는 검증된 identities 2개 이상을 요구한다.
-- [ ] **Step 2: RED nickname 테스트** — 1~40자, normalized text, rate limit, 금칙어와 provider metadata 미사용을 검증한다.
+- [x] **Step 1: RED identity 테스트** — Supabase automatic same-email linking을 앱 데이터 merge로 오해하지 않으며, manual link는 recent reauth, unlink는 검증된 identities 2개 이상을 요구한다.
+- [x] **Step 2: RED nickname 테스트** — 1~40자, normalized text, rate limit, 금칙어와 provider metadata 미사용을 검증한다.
 - [ ] **Step 3: RED deletion 테스트** — durable `ACTIVE→DELETING→DELETED` lifecycle, bootstrap-vs-delete 동시성, admission 차단→queue cancel→outbox claim→Auth Admin delete→개인 진행/profile 삭제→economy mapping null 순서, worker crash/restart와 retry idempotency를 검증한다. `ensureAccount`는 DELETING/DELETED tombstone을 보고 재생성을 거절한다.
-- [ ] **Step 4: 최소 구현** — 일반 API process에는 secret이 없고 deletion job은 opaque job payload로 별도 account worker에 전달한다. worker의 secret-key method allow-list를 `deleteUser`/global sign-out으로 고정하고 다른 admin method 접근 test를 실패시킨다.
+- [x] **Step 4: 최소 구현** — 일반 API process에는 secret이 없고 deletion job은 opaque job payload로 별도 account worker에 전달한다. worker의 secret-key method allow-list를 `deleteUser`/global sign-out으로 고정하고 다른 admin method 접근 test를 실패시킨다.
 - [ ] **Step 5: GREEN/회귀/커밋** — focused tests와 `corepack pnpm verify` 후 `git commit -m "feat(auth): manage identities and account lifecycle"`.
 
 ### Task 8: 추적성, 통합 검증, 외부 handoff
