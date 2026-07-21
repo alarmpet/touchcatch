@@ -22,9 +22,9 @@
     "content:learning:draft": "vitest run packages/content-validator/src/validate-learning-draft.test.ts",
     "openapi:lint": "redocly lint packages/contracts/openapi.yaml",
     "admin:typecheck": "tsc -p apps/admin/tsconfig.json --noEmit",
-    "admin:build": "pnpm --dir apps/admin build",
+    "admin:build": "node tools/run-pnpm.mjs --dir apps/admin build",
     "admin:client-secret-check": "node tools/check-admin-client-boundary.mjs",
-    "admin:check": "pnpm admin:typecheck && pnpm admin:build && pnpm admin:client-secret-check",
+    "admin:check": "node tools/run-pnpm.mjs admin:typecheck && node tools/run-pnpm.mjs admin:build && node tools/run-pnpm.mjs admin:client-secret-check",
     "ui:reference:check": "node tools/check-ui-reference.mjs",
     "ui:assets:check": "node tools/check-ui-assets.mjs --target contract",
     "ui:assets:beta": "node tools/check-ui-assets.mjs --target beta",
@@ -39,9 +39,9 @@
     "release:balance": "tsx tools/write-release-reports.ts --check",
     "db:start": "supabase start",
     "test:db:concurrency": "vitest run --config vitest.db.config.ts --sequence.concurrent=false",
-    "check:db": "corepack pnpm ruleset:projections:check && supabase db reset --local && supabase db lint --local --fail-on error && supabase test db --local && corepack pnpm test:db:concurrency",
-    "check": "corepack pnpm check:runtime && corepack pnpm admin:check && corepack pnpm ruleset:projections:check && corepack pnpm content:schemas:check && corepack pnpm ui:schemas:check && corepack pnpm ui:docs:check && corepack pnpm ui:reference:check && corepack pnpm ui:assets:check && corepack pnpm ui:acceptance:check && corepack pnpm lint && corepack pnpm typecheck && corepack pnpm test && corepack pnpm openapi:lint && corepack pnpm docs:check && corepack pnpm release:reports:check && corepack pnpm content:validate && corepack pnpm secret:scan",
-    "verify": "pnpm check && pnpm check:db"
+    "check:db": "node tools/run-pnpm.mjs ruleset:projections:check && supabase db reset --local && supabase db lint --local --fail-on error && supabase test db --local && node tools/run-pnpm.mjs test:db:concurrency",
+    "check": "node tools/run-pnpm.mjs check:runtime && node tools/run-pnpm.mjs admin:check && node tools/run-pnpm.mjs ruleset:projections:check && node tools/run-pnpm.mjs content:schemas:check && node tools/run-pnpm.mjs ui:schemas:check && node tools/run-pnpm.mjs ui:docs:check && node tools/run-pnpm.mjs ui:reference:check && node tools/run-pnpm.mjs ui:assets:check && node tools/run-pnpm.mjs ui:acceptance:check && node tools/run-pnpm.mjs lint && node tools/run-pnpm.mjs typecheck && node tools/run-pnpm.mjs test && node tools/run-pnpm.mjs openapi:lint && node tools/run-pnpm.mjs docs:check && node tools/run-pnpm.mjs release:reports:check && node tools/run-pnpm.mjs content:validate && node tools/run-pnpm.mjs secret:scan",
+    "verify": "node tools/run-pnpm.mjs check && node tools/run-pnpm.mjs check:db"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
