@@ -111,34 +111,40 @@ export function evaluatePureGameRequirement(id:string){
 }
 const readyPayload={type:'READY' as const,contentRevisionId:'00000000-0000-4000-8000-000000000010',contentHash:'d'.repeat(64),assetHashes:['a'.repeat(64),'c'.repeat(64)]as[string,string],decodedDimensions:[{assetHash:'a'.repeat(64),width:1,height:1},{assetHash:'c'.repeat(64),width:1,height:1}]as[{assetHash:string;width:number;height:number},{assetHash:string;width:number;height:number}]};
 type ProbeDisposition='ACCEPTED'|'REJECTED';
+type ProbeGroup<T extends object>=Readonly<T>|Readonly<{error:string}>;
 export type Sec001ProbeResult=Readonly<{
- jwtVerifier:Readonly<{valid:ProbeDisposition;badIssuer:ProbeDisposition;badAudience:ProbeDisposition;expired:ProbeDisposition;badSignature:ProbeDisposition;badAlgorithm:ProbeDisposition;rotatedKey:ProbeDisposition;rotatedJwksLoads:number}>;
- restSocketParity:Readonly<{restStatus:number;socketAuthenticated:boolean;sharedVerifierCallCount:number;sharedVerifierInputsMatch:boolean;accountGateSubjects:readonly string[];missingRestStatus:number;anonymousRestStatus:number;missingSocketError:string;anonymousSocketError:string;inactiveSocketError:string}>;
- authUuidExposure:Readonly<{resolvedParticipantKey:string;participantMatchesAuthSub:boolean;publicResponseContainsAuthSub:boolean}>;
- replayDelivery:Readonly<{incompatibleAdmission:string;requestEnvelopeAccepted:boolean;gap:string;stale:string;replayUnavailable:string}>;
+ jwtVerifier:ProbeGroup<{valid:ProbeDisposition;badIssuer:ProbeDisposition;badAudience:ProbeDisposition;expired:ProbeDisposition;badSignature:ProbeDisposition;badAlgorithm:ProbeDisposition;rotatedKey:ProbeDisposition;rotatedJwksLoads:number}>;
+ restSocketParity:ProbeGroup<{restStatus:number;socketAuthenticated:boolean;sharedVerifierCallCount:number;sharedVerifierInputsMatch:boolean;accountGateCallCount:number;accountGateSubjectsMatch:boolean;missingRestStatus:number;anonymousRestStatus:number;missingSocketError:string;anonymousSocketError:string;inactiveSocketError:string}>;
+ authUuidExposure:ProbeGroup<{restStatus:number;safeParticipantKey:string;safeParticipantMatchesAuthSub:boolean;authUuidParticipantRejected:boolean;publicResponseContainsAuthSub:boolean}>;
+ replayDelivery:ProbeGroup<{incompatibleAdmission:string;requestEnvelopeAccepted:boolean;gap:string;stale:string;replayUnavailable:string}>;
 }>;
 const expectedSec001Probe={
  jwtVerifier:{valid:'ACCEPTED',badIssuer:'REJECTED',badAudience:'REJECTED',expired:'REJECTED',badSignature:'REJECTED',badAlgorithm:'REJECTED',rotatedKey:'ACCEPTED',rotatedJwksLoads:2},
- restSocketParity:{restStatus:200,socketAuthenticated:true,sharedVerifierCallCount:2,sharedVerifierInputsMatch:true,accountGateSubjects:['auth-subject','auth-subject'],missingRestStatus:401,anonymousRestStatus:403,missingSocketError:'UNAUTHORIZED',anonymousSocketError:'ANONYMOUS_FORBIDDEN',inactiveSocketError:'ACCOUNT_DELETING'},
- authUuidExposure:{resolvedParticipantKey:'participant-opaque',participantMatchesAuthSub:false,publicResponseContainsAuthSub:false},
+ restSocketParity:{restStatus:200,socketAuthenticated:true,sharedVerifierCallCount:2,sharedVerifierInputsMatch:true,accountGateCallCount:2,accountGateSubjectsMatch:true,missingRestStatus:401,anonymousRestStatus:403,missingSocketError:'UNAUTHORIZED',anonymousSocketError:'ANONYMOUS_FORBIDDEN',inactiveSocketError:'ACCOUNT_DELETING'},
+ authUuidExposure:{restStatus:200,safeParticipantKey:'participant-opaque',safeParticipantMatchesAuthSub:false,authUuidParticipantRejected:true,publicResponseContainsAuthSub:false},
  replayDelivery:{incompatibleAdmission:'UPDATE_REQUIRED',requestEnvelopeAccepted:true,gap:'REQUEST_REPLAY',stale:'IGNORE_STALE',replayUnavailable:'REPLACE_SNAPSHOT'},
 }as const satisfies Sec001ProbeResult;
 const exactProbeGroup=(actual:unknown,expected:unknown)=>JSON.stringify(actual)===JSON.stringify(expected);
 const sec001ProbeEntry='tools/sec001-runtime-probe.ts';
-const runSec001RuntimeProbe=(probeEntry:string):Sec001ProbeResult=>{
- if(probeEntry!==sec001ProbeEntry)throw new Error('SEC001_RUNTIME_PROBE_ENTRY_INVALID');
- const result=spawnSync(process.execPath,[path.resolve('node_modules/tsx/dist/cli.mjs'),path.resolve(probeEntry)],{cwd:process.cwd(),encoding:'utf8',timeout:15000,maxBuffer:1024*1024,windowsHide:true});
- if(result.error||result.status!==0||result.signal!==null)throw new Error('SEC001_RUNTIME_PROBE_EXECUTION_FAILED');
- try{return JSON.parse(result.stdout.trim())as Sec001ProbeResult;}catch{throw new Error('SEC001_RUNTIME_PROBE_OUTPUT_INVALID');}
+export const resolveSec001ProbeLaunch=(root:string,probeEntry=sec001ProbeEntry)=>{
+ if(probeEntry!==sec001ProbeEntry)throw new Error('SEC001_RUNTIME_PROBE_EXECUTION_FAILED');
+ const cwd=path.resolve(root);
+ return{cwd,tsxEntry:path.join(cwd,'node_modules/tsx/dist/cli.mjs'),probeEntry:path.join(cwd,probeEntry)};
 };
-const assertSec001Probe=(probe:Sec001ProbeResult)=>{
+const executeSec001RuntimeProbe=(root:string,probeEntry:string):Sec001ProbeResult=>{
+ const launch=resolveSec001ProbeLaunch(root,probeEntry);
+ const result=spawnSync(process.execPath,[launch.tsxEntry,launch.probeEntry],{cwd:launch.cwd,encoding:'utf8',timeout:15000,maxBuffer:1024*1024,windowsHide:true});
+ if(result.error||result.status!==0||result.signal!==null)throw new Error('SEC001_RUNTIME_PROBE_EXECUTION_FAILED');
+ try{return JSON.parse(result.stdout.trim())as Sec001ProbeResult;}catch{throw new Error('SEC001_RUNTIME_PROBE_EXECUTION_FAILED');}
+};
+export const assertSec001ProbeResult=(probe:Sec001ProbeResult)=>{
  if(!exactProbeGroup(probe.jwtVerifier,expectedSec001Probe.jwtVerifier))throw Error('SEC001_JWT_VERIFIER');
  if(!exactProbeGroup(probe.restSocketParity,expectedSec001Probe.restSocketParity))throw Error('SEC001_REST_SOCKET_PARITY');
  if(!exactProbeGroup(probe.authUuidExposure,expectedSec001Probe.authUuidExposure))throw Error('SEC001_AUTH_UUID_EXPOSURE');
  if(!exactProbeGroup(probe.replayDelivery,expectedSec001Probe.replayDelivery))throw Error('SEC001_REPLAY_DELIVERY');
 };
-export function evaluateSecurityRequirement(id:string,provided?:Sec001ProbeResult,probeEntry=sec001ProbeEntry){const bundle=createTestingReplayBundle(),state:MatchStateV1=structuredClone(bundle.initialState),m=state.matchId;const command=(playerId:string,seq:number)=>{const requestId=`00000000-0000-4000-8000-${String(990+seq).padStart(12,'0')}`;return{source:'PLAYER' as const,commandId:`${m}:player:${playerId}:${requestId}`,matchId:m,commandSeq:seq,receivedAtMs:1000,requestId,playerId,expectedRevision:state.stateRevision,payload:readyPayload};};
- if(id==='SEC-001'){let probe:Sec001ProbeResult;try{probe=provided??runSec001RuntimeProbe(probeEntry);}catch(cause){throw new Error('SEC001_JWT_VERIFIER',{cause});}assertSec001Probe(probe);return true;}
+export function evaluateSecurityRequirement(id:string,root=process.cwd(),probeEntry=sec001ProbeEntry){const bundle=createTestingReplayBundle(),state:MatchStateV1=structuredClone(bundle.initialState),m=state.matchId;const command=(playerId:string,seq:number)=>{const requestId=`00000000-0000-4000-8000-${String(990+seq).padStart(12,'0')}`;return{source:'PLAYER' as const,commandId:`${m}:player:${playerId}:${requestId}`,matchId:m,commandSeq:seq,receivedAtMs:1000,requestId,playerId,expectedRevision:state.stateRevision,payload:readyPayload};};
+ if(id==='SEC-001'){const probe=executeSec001RuntimeProbe(root,probeEntry);assertSec001ProbeResult(probe);return true;}
  if(id==='SEC-002'){const pkg=JSON.parse(fs.readFileSync(path.resolve('apps/mobile/package.json'),'utf8'));if(pkg.dependencies.expo!=='57.0.1'||pkg.dependencies['react-native']!=='0.86.0')throw Error('mobile stack drift');const snapshot=projectSnapshot(state,'p1',0),vm=adaptMatchSnapshot(snapshot,{pendingIntentId:'pending',connection:'CONNECTED'});if(createTapIntent(vm,{side:'A',x:.1,y:.2})!==null||JSON.stringify(snapshot).includes('privateSolution'))throw Error('public fail closed');return true;}
  if(id==='SEC-004'){let accepted=true;try{clientCommandEnvelopeSchema.parse({protocolVersion:1,requestId:'00000000-0000-4000-8000-000000000991',matchId:m,expectedRevision:0,clientSeq:0,payload:{type:'TAP_IMAGE',imageSide:'A',x:.1,y:.2,score:1}});}catch{accepted=false;}if(accepted)throw Error('client score authority');return true;}
  if(id==='SEC-005'){const snapshot=projectSnapshot(state,'p1',0);if(state.startedAtMs!==null||snapshot.preload.assets.length!==2||snapshot.phase!=='WAITING_FOR_ASSETS')throw Error('preload ordering');return true;}
@@ -179,7 +185,7 @@ export function executeRequirementOracle(root:string,row:Row,claim:Claim){
    if(!validateNonCurrentEvidence(root,claim))throw Error('invalid lifecycle closure evidence');status='BLOCKED';
   }else switch(claim.oracle.kind){
    case'STATE_SCHEMA':evaluatePureGameRequirement(row.id);status='PASS';break;
-   case'PRIVACY_CONTRACT':evaluateSecurityRequirement(row.id,undefined,claim.oracle.input);status='PASS';break;
+   case'PRIVACY_CONTRACT':evaluateSecurityRequirement(row.id,root,claim.oracle.input);status='PASS';break;
    case'ANALYTICS_CONTRACT':if(['OBS-001','OBS-003','OBS-005','OBS-008','OBS-009','OBS-011','OBS-012','OBS-013'].includes(row.id))evaluatePureGameRequirement(row.id);else evaluateAnalyticsRequirement(row.id);status='PASS';break;
    case'RULESET_PARSE':{if(['RULE-011','RULE-035','RULE-050'].includes(row.id))evaluateRuleRequirement(row.id);else{const value=JSON.parse(fs.readFileSync(path.join(root,claim.oracle.input??'config/ruleset.v1.json'),'utf8'));parseRuleset(value);assertExact(value,claim.oracle.assertions);}status='PASS';break;}
    case'ECONOMY_PARSE':{const value=JSON.parse(fs.readFileSync(path.join(root,claim.oracle.input??'config/economy.v1.json'),'utf8'));parseEconomy(value);assertExact(value,claim.oracle.assertions);status='PASS';break;}

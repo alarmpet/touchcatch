@@ -515,6 +515,7 @@ export function resolveAuthenticatedParticipant(
     (x) => x.authSubject === subject && x.matchId === matchId,
   );
   if (!row) throw Error("FORBIDDEN");
+  if (row.participantKey === subject) throw Error("INVALID_PARTICIPANT_MAPPING");
   if (!/^[\x21-\x7e]{1,128}$/.test(row.participantKey))
     throw Error("INVALID_PARTICIPANT_MAPPING");
   return row.participantKey;
