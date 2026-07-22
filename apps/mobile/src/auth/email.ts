@@ -59,20 +59,20 @@ export function createEmailAuth(dependencies: Readonly<{ auth: EmailAuthClient; 
       return bootstrap();
     },
     async signInEmail(email: string, password: string): Promise<GateResult> {
-      const result = await requireMethod(dependencies.auth.signInWithPassword, 'signInWithPassword')({ email, password });
+      const result = await requireMethod(dependencies.auth.signInWithPassword, 'signInWithPassword').call(dependencies.auth, { email, password });
       throwAuthError(result);
       return bootstrap();
     },
     async resendVerification(email: string) {
       await dependencies.storage.setItem(pendingKey, JSON.stringify({ kind: 'email-confirmation', stage: 'authorization-pending' }));
-      await requireMethod(dependencies.auth.resend, 'resend')({ type: 'signup', email, options: { emailRedirectTo: emailCallback } });
+      await requireMethod(dependencies.auth.resend, 'resend').call(dependencies.auth, { type: 'signup', email, options: { emailRedirectTo: emailCallback } });
       return { accepted: true as const };
     },
     async requestPasswordReset(email: string) {
       const current = await dependencies.auth.getSession?.();
       const previousSessionId = current?.data?.session?.user?.id ?? null;
       await dependencies.storage.setItem(pendingKey, JSON.stringify({ kind: 'recovery', stage: 'authorization-pending', previousSessionId }));
-      await requireMethod(dependencies.auth.resetPasswordForEmail, 'resetPasswordForEmail')(email, { redirectTo: recoveryCallback });
+      await requireMethod(dependencies.auth.resetPasswordForEmail, 'resetPasswordForEmail').call(dependencies.auth, email, { redirectTo: recoveryCallback });
       return { accepted: true as const };
     },
     async completePasswordRecovery(url: string | null, password: string): Promise<GateResult> {
@@ -87,11 +87,11 @@ export function createEmailAuth(dependencies: Readonly<{ auth: EmailAuthClient; 
         if (stage !== 'recovery-session-ready') {
           if (!url) throw new Error('Password recovery callback missing');
           await dependencies.storage.setItem(pendingKey, JSON.stringify({ kind: 'recovery', stage: 'exchanging', previousSessionId: transaction.previousSessionId ?? null }));
-          const exchanged = await requireMethod(dependencies.auth.exchangeCodeForSession, 'exchangeCodeForSession')(recoveryCode(url));
+          const exchanged = await requireMethod(dependencies.auth.exchangeCodeForSession, 'exchangeCodeForSession').call(dependencies.auth, recoveryCode(url));
           throwAuthError(exchanged);
           await dependencies.storage.setItem(pendingKey, JSON.stringify({ kind: 'recovery', stage: 'recovery-session-ready', previousSessionId: transaction.previousSessionId ?? null }));
         }
-        const updated = await requireMethod(dependencies.auth.updateUser, 'updateUser')({ password });
+        const updated = await requireMethod(dependencies.auth.updateUser, 'updateUser').call(dependencies.auth, { password });
         throwAuthError(updated);
         await dependencies.storage.removeItem(pendingKey);
         return bootstrap();

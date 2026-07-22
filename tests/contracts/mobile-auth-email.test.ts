@@ -4,6 +4,20 @@ import { createEmailAuth } from '../../apps/mobile/src/auth/email.js';
 const user = { id: '00000000-0000-4000-8000-000000000001' };
 function memoryStore() { const values = new Map<string, string>(); return { values, getItem: async (key: string) => values.get(key) ?? null, setItem: async (key: string, value: string) => { values.set(key, value); }, removeItem: async (key: string) => { values.delete(key); } }; }
 
+class ReceiverSensitiveEmailAuth {
+  readonly calls: string[] = [];
+
+  private requireReceiver() {
+    if (!(this instanceof ReceiverSensitiveEmailAuth)) throw new Error('Auth method receiver was lost');
+  }
+
+  async signInWithPassword() { this.requireReceiver(); this.calls.push('sign-in'); return { data: { session: {} }, error: null }; }
+  async resend() { this.requireReceiver(); this.calls.push('resend'); return { data: {}, error: null }; }
+  async resetPasswordForEmail() { this.requireReceiver(); this.calls.push('reset'); return { data: {}, error: null }; }
+  async exchangeCodeForSession() { this.requireReceiver(); this.calls.push('exchange'); return { data: { session: {} }, error: null }; }
+  async updateUser() { this.requireReceiver(); this.calls.push('update'); return { data: { user }, error: null }; }
+}
+
 describe('mobile email authentication', () => {
   it('keeps confirm-email signups pending until a session exists', async () => {
     const ensureAccount = vi.fn();
@@ -25,6 +39,50 @@ describe('mobile email authentication', () => {
 
     const failed = createEmailAuth({ auth, ensureAccount: vi.fn(async () => { throw new Error('offline'); }), storage: memoryStore() });
     await expect(failed.signInEmail('player@example.com', 'password123')).resolves.toEqual({ state: 'ACCOUNT_SETUP_FAILED' });
+  });
+
+  it('preserves the Auth receiver for password sign-in', async () => {
+    const auth = new ReceiverSensitiveEmailAuth();
+    const email = createEmailAuth({ auth, ensureAccount: vi.fn(async () => undefined), storage: memoryStore() });
+
+    await expect(email.signInEmail('player@example.com', 'password123')).resolves.toEqual({ state: 'READY' });
+    expect(auth.calls).toEqual(['sign-in']);
+  });
+
+  it('preserves the Auth receiver when resending verification', async () => {
+    const auth = new ReceiverSensitiveEmailAuth();
+    const email = createEmailAuth({ auth, ensureAccount: vi.fn(), storage: memoryStore() });
+
+    await expect(email.resendVerification('player@example.com')).resolves.toEqual({ accepted: true });
+    expect(auth.calls).toEqual(['resend']);
+  });
+
+  it('preserves the Auth receiver when requesting a password reset', async () => {
+    const auth = new ReceiverSensitiveEmailAuth();
+    const email = createEmailAuth({ auth, ensureAccount: vi.fn(), storage: memoryStore() });
+
+    await expect(email.requestPasswordReset('player@example.com')).resolves.toEqual({ accepted: true });
+    expect(auth.calls).toEqual(['reset']);
+  });
+
+  it('preserves the Auth receiver while exchanging a recovery callback', async () => {
+    const auth = new ReceiverSensitiveEmailAuth();
+    const storage = memoryStore();
+    await storage.setItem('touchcatch.auth.pkce.pending', JSON.stringify({ kind: 'recovery', stage: 'authorization-pending' }));
+    const email = createEmailAuth({ auth, ensureAccount: vi.fn(async () => undefined), storage });
+
+    await expect(email.completePasswordRecovery('spotlearn://auth/recovery?code=recovery-code', 'new-password123')).resolves.toEqual({ state: 'READY' });
+    expect(auth.calls).toEqual(['exchange', 'update']);
+  });
+
+  it('preserves the Auth receiver while updating a recovered password', async () => {
+    const auth = new ReceiverSensitiveEmailAuth();
+    const storage = memoryStore();
+    await storage.setItem('touchcatch.auth.pkce.pending', JSON.stringify({ kind: 'recovery', stage: 'recovery-session-ready' }));
+    const email = createEmailAuth({ auth, ensureAccount: vi.fn(async () => undefined), storage });
+
+    await expect(email.completePasswordRecovery(null, 'new-password123')).resolves.toEqual({ state: 'READY' });
+    expect(auth.calls).toEqual(['update']);
   });
 
   it('uses non-enumerating resend/reset results and completes recovery in order', async () => {

@@ -6,6 +6,26 @@ function memoryStore() {
   return { getItem: async (key: string) => values.get(key) ?? null, setItem: async (key: string, value: string) => { values.set(key, value); }, removeItem: async (key: string) => { values.delete(key); } };
 }
 
+class ReceiverSensitiveOAuthAuth {
+  readonly calls: string[] = [];
+
+  private requireReceiver() {
+    if (!(this instanceof ReceiverSensitiveOAuthAuth)) throw new Error('Auth method receiver was lost');
+  }
+
+  async signInWithOAuth() {
+    this.requireReceiver();
+    this.calls.push('start');
+    return { data: { url: 'https://project.supabase.co/auth/v1/authorize' }, error: null };
+  }
+
+  async exchangeCodeForSession() {
+    this.requireReceiver();
+    this.calls.push('exchange');
+    return { error: null };
+  }
+}
+
 describe('mobile OAuth PKCE coordinator', () => {
   it('opens only a generated PKCE URL and exchanges a code from the exact callback', async () => {
     const exchange = vi.fn(async () => ({ data: { session: {} }, error: null }));
@@ -16,6 +36,28 @@ describe('mobile OAuth PKCE coordinator', () => {
     });
     await expect(coordinator.startOAuth('google')).resolves.toEqual({ state: 'READY' });
     expect(exchange).toHaveBeenCalledWith('abc');
+  });
+
+  it('preserves the Auth receiver when starting OAuth', async () => {
+    const auth = new ReceiverSensitiveOAuthAuth();
+    const coordinator = createOAuthCoordinator({
+      auth,
+      browser: { openAuthSessionAsync: vi.fn(async () => ({ type: 'success', url: 'spotlearn://auth/callback?code=oauth-code' })) },
+      storage: memoryStore(), ensureAccount: vi.fn(async () => undefined),
+    });
+
+    await expect(coordinator.startOAuth('google')).resolves.toEqual({ state: 'READY' });
+    expect(auth.calls).toEqual(['start', 'exchange']);
+  });
+
+  it('preserves the Auth receiver when exchanging an OAuth callback', async () => {
+    const auth = new ReceiverSensitiveOAuthAuth();
+    const storage = memoryStore();
+    await storage.setItem('touchcatch.auth.pkce.pending', JSON.stringify({ kind: 'oauth', stage: 'authorization-pending' }));
+    const coordinator = createOAuthCoordinator({ auth, browser: {}, storage, ensureAccount: vi.fn(async () => undefined) });
+
+    await expect(coordinator.completeOAuth('spotlearn://auth/callback?code=oauth-code')).resolves.toEqual({ state: 'READY' });
+    expect(auth.calls).toEqual(['exchange']);
   });
 
   it('rejects fragments, foreign callbacks, provider errors, and callback replay', async () => {

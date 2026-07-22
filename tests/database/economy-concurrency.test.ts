@@ -1,12 +1,11 @@
-import { execFileSync } from 'node:child_process';
 import { randomUUID } from 'node:crypto';
-import { resolve } from 'node:path';
 import { Pool, type PoolClient } from 'pg';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { loadTestEconomyFixture } from '../helpers/load-test-economy-fixture.js';
 import { canonicalJsonSha256 } from '../../packages/contracts/src/canonical-json.js';
+import { loadLocalDatabaseUrl } from '../support/local-supabase-status.js';
 
-function databaseUrl():string { const explicit=process.env.TEST_DATABASE_URL; const output=explicit??execFileSync(process.execPath,[resolve('D:/touchcatch/node_modules/supabase/dist/supabase.js'),'status','-o','env'],{encoding:'utf8'}); const raw=explicit??/^DB_URL=(?:"([^"]+)"|([^\r\n]+))$/mu.exec(output)?.slice(1).find(Boolean); if(!raw)throw new Error('local DB required');const url=new URL(raw);if(!['127.0.0.1','localhost','::1'].includes(url.hostname))throw new Error('loopback required');return url.toString(); }
+function databaseUrl():string { return loadLocalDatabaseUrl().toString(); }
 const pool=new Pool({connectionString:databaseUrl(),max:25});
 let fixture:Awaited<ReturnType<typeof loadTestEconomyFixture>>;
 let economy:Awaited<ReturnType<typeof loadTestEconomyFixture>>['publishInput']['economy'];let catalog:Awaited<ReturnType<typeof loadTestEconomyFixture>>['publishInput']['catalog'];

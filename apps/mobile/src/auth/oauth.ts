@@ -67,7 +67,7 @@ export function createOAuthCoordinator(dependencies: Readonly<{
       await dependencies.storage.setItem(pendingKey, JSON.stringify({ kind: 'oauth', provider, stage: 'authorization-pending', previousSessionId }));
       let callbackUrl: string;
       try {
-        const result = await signIn({ provider, options: { redirectTo: CALLBACK, skipBrowserRedirect: true } });
+        const result = await signIn.call(dependencies.auth, { provider, options: { redirectTo: CALLBACK, skipBrowserRedirect: true } });
         if (result.error) throw result.error;
         if (!result.data?.url) throw new Error('OAuth authorization URL missing');
         const browserResult = await open(result.data.url, CALLBACK);

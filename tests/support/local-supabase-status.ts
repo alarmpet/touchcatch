@@ -1,9 +1,10 @@
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 
-const repositoryRoot = resolve(import.meta.dirname, '../../..');
-const STATUS_TIMEOUT_MS = 10_000;
-const STATUS_MAX_BUFFER = 1024 * 1024;
+const repositoryRoot = resolve(import.meta.dirname, '../..');
+const statusTimeoutMs = 10_000;
+const statusMaxBuffer = 1024 * 1024;
+const fixedHealthUrl = 'http://127.0.0.1:55321/auth/v1/health';
 
 export type LocalSupabaseStatus = Readonly<{
   apiUrl: string;
@@ -41,6 +42,28 @@ function parseEnv(text: string): Map<string, string> {
   return fields;
 }
 
+function loopbackUrl(raw: string): URL {
+  const url = new URL(raw);
+  if (!['127.0.0.1', 'localhost', '::1'].includes(url.hostname)) throw new Error('non-loopback status');
+  return url;
+}
+
+function statusOutput(env: Readonly<Record<string, string | undefined>>, runStatus: StatusCommand): Map<string, string> {
+  const stdout = runStatus({
+    executable: process.execPath,
+    args: [resolve(repositoryRoot, 'node_modules/supabase/dist/supabase.js'), 'status', '-o', 'env'],
+    options: {
+      cwd: repositoryRoot,
+      encoding: 'utf8',
+      env: { ...process.env, ...env, SUPABASE_TELEMETRY_DISABLED: '1', DO_NOT_TRACK: '1' },
+      timeout: statusTimeoutMs,
+      maxBuffer: statusMaxBuffer,
+      windowsHide: true,
+    },
+  });
+  return parseEnv(stdout);
+}
+
 function validate(fields: Readonly<Record<string, string | undefined>>): LocalSupabaseStatus {
   const apiUrl = fields.API_URL;
   const dbUrl = fields.DB_URL;
@@ -48,10 +71,7 @@ function validate(fields: Readonly<Record<string, string | undefined>>): LocalSu
   const publishableKey = fields.PUBLISHABLE_KEY;
   const cleanupKey = fields.SECRET_KEY;
   if (!apiUrl || !dbUrl || !mailpitUrl || !publishableKey || !cleanupKey) throw new Error('invalid status');
-  for (const raw of [apiUrl, dbUrl, mailpitUrl]) {
-    const hostname = new URL(raw).hostname;
-    if (!['127.0.0.1', 'localhost', '::1'].includes(hostname)) throw new Error('non-loopback status');
-  }
+  for (const raw of [apiUrl, dbUrl, mailpitUrl]) loopbackUrl(raw);
   return {
     apiUrl: apiUrl.replace(/\/+$/u, ''),
     dbUrl,
@@ -59,6 +79,21 @@ function validate(fields: Readonly<Record<string, string | undefined>>): LocalSu
     publishableKey,
     cleanupKey,
   };
+}
+
+export function loadLocalDatabaseUrl(options: Readonly<{
+  env?: Readonly<Record<string, string | undefined>>;
+  runStatus?: StatusCommand;
+}> = {}): URL {
+  const env = options.env ?? process.env;
+  try {
+    const explicit = env.TEST_DATABASE_URL;
+    const raw = explicit || statusOutput(env, options.runStatus ?? runProjectStatus).get('DB_URL');
+    if (!raw) throw new Error('missing database status');
+    return loopbackUrl(raw);
+  } catch {
+    throw new Error('LOCAL_SUPABASE_UNAVAILABLE');
+  }
 }
 
 export function loadLocalSupabaseStatus(options: Readonly<{
@@ -76,19 +111,7 @@ export function loadLocalSupabaseStatus(options: Readonly<{
     };
     if (Object.values(explicit).every((value) => typeof value === 'string' && value.length > 0)) return validate(explicit);
 
-    const stdout = (options.runStatus ?? runProjectStatus)({
-      executable: process.execPath,
-      args: [resolve(repositoryRoot, 'node_modules/supabase/dist/supabase.js'), 'status', '-o', 'env'],
-      options: {
-        cwd: repositoryRoot,
-        encoding: 'utf8',
-        env: { ...process.env, ...env, SUPABASE_TELEMETRY_DISABLED: '1', DO_NOT_TRACK: '1' },
-        timeout: STATUS_TIMEOUT_MS,
-        maxBuffer: STATUS_MAX_BUFFER,
-        windowsHide: true,
-      },
-    });
-    const fields = parseEnv(stdout);
+    const fields = statusOutput(env, options.runStatus ?? runProjectStatus);
     return validate({
       API_URL: fields.get('API_URL'),
       DB_URL: fields.get('DB_URL'),
@@ -96,6 +119,21 @@ export function loadLocalSupabaseStatus(options: Readonly<{
       PUBLISHABLE_KEY: fields.get('PUBLISHABLE_KEY') ?? fields.get('ANON_KEY'),
       SECRET_KEY: fields.get('SECRET_KEY') ?? fields.get('SERVICE_ROLE_KEY'),
     });
+  } catch {
+    throw new Error('LOCAL_SUPABASE_UNAVAILABLE');
+  }
+}
+
+export async function loadHealthyLocalSupabaseStatus(options: Readonly<{
+  fetchHealth?: (input: string | URL, init?: RequestInit) => Promise<Pick<Response, 'ok'>>;
+  loadStatus?: () => LocalSupabaseStatus;
+  timeoutSignal?: (milliseconds: number) => AbortSignal;
+}> = {}): Promise<LocalSupabaseStatus> {
+  try {
+    const signal = (options.timeoutSignal ?? AbortSignal.timeout)(2_000);
+    const response = await (options.fetchHealth ?? fetch)(fixedHealthUrl, { method: 'GET', signal });
+    if (!response.ok) throw new Error('unhealthy');
+    return (options.loadStatus ?? loadLocalSupabaseStatus)();
   } catch {
     throw new Error('LOCAL_SUPABASE_UNAVAILABLE');
   }

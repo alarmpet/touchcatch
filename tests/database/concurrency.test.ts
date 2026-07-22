@@ -1,4 +1,3 @@
-import { execFileSync } from 'node:child_process';
 import { randomUUID } from 'node:crypto';
 import { resolve } from 'node:path';
 import { Pool, type PoolClient } from 'pg';
@@ -6,18 +5,10 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { validateFixtureFile } from '../../packages/content-validator/src/validate-content.js';
 import { parseContentAssetOrigins } from '../../packages/contracts/src/integration-evidence.js';
 import { canonicalJson, canonicalJsonSha256 } from '../../packages/contracts/src/canonical-json.js';
+import { loadLocalDatabaseUrl } from '../support/local-supabase-status.js';
 
 function localDatabaseUrl(): string {
-  const explicit = process.env.TEST_DATABASE_URL;
-  const output = explicit ?? execFileSync(
-    process.execPath,
-    [resolve('node_modules/supabase/dist/supabase.js'), 'status', '-o', 'env'],
-    { encoding: 'utf8', windowsHide: true },
-  );
-  const match = explicit ? explicit : /^DB_URL=(?:"([^"]+)"|([^\r\n]+))$/mu.exec(output)?.slice(1).find(Boolean);
-  if (!match) throw new Error('TEST_DATABASE_URL or local Supabase DB_URL is required');
-  const url = new URL(match);
-  if (!['127.0.0.1', 'localhost', '::1'].includes(url.hostname)) throw new Error('database concurrency tests only run against loopback');
+  const url = loadLocalDatabaseUrl();
   if (url.pathname !== '/postgres') throw new Error('database concurrency tests require the local postgres database');
   return url.toString();
 }

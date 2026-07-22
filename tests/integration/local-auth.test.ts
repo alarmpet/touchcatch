@@ -11,14 +11,14 @@ import { createOAuthCoordinator } from '../../apps/mobile/src/auth/oauth.js';
 import { createAccessTokenVerifier, type VerifiedIdentity } from '../../apps/server/src/auth/verify.js';
 import { createNodeServer } from '../../apps/server/src/http/node-adapter.js';
 import { createAppServerDatabase, createServerRuntime } from '../../apps/server/src/runtime.js';
-import { loadLocalSupabaseStatus, type LocalSupabaseStatus as LocalStatus } from './support/local-supabase-status.js';
+import { loadHealthyLocalSupabaseStatus, type LocalSupabaseStatus as LocalStatus } from '../support/local-supabase-status.js';
+import { findMailpitMessagesByRecipient, type MailSummary } from './support/mailpit-messages.js';
+import { confirmOwnedAuthUserAbsent } from './support/owned-auth-cleanup.js';
 
 const HTTP_TIMEOUT_MS = 2_000;
 const POLL_ATTEMPTS = 20;
 const POLL_INTERVAL_MS = 250;
 const UUID_PATTERN = /\b[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\b/iu;
-type MailAddress = Readonly<{ Address?: string }>;
-type MailSummary = Readonly<{ ID?: string; Created?: string; To?: MailAddress[] }>;
 type MailDetail = Readonly<{ HTML?: string; Text?: string }>;
 
 async function http(input: string | URL, init: RequestInit = {}): Promise<Response> {
@@ -61,10 +61,7 @@ function restrictedDbUrl(adminUrl: string): string {
 
 async function waitForOwnedMessage(status: LocalStatus, recipient: string, ownedIds: Set<string>): Promise<MailSummary> {
   for (let attempt = 1; attempt <= POLL_ATTEMPTS; attempt++) {
-    const response = await http(`${status.mailpitUrl}/api/v1/messages?start=0&limit=100`);
-    if (!response.ok) throw new Error('LOCAL_SUPABASE_UNAVAILABLE');
-    const payload = await response.json() as { messages?: MailSummary[] };
-    const matches = (payload.messages ?? []).filter((message) => message.To?.some((address) => address.Address === recipient));
+    const matches = await findMailpitMessagesByRecipient(status.mailpitUrl, recipient);
     for (const message of matches) if (message.ID) ownedIds.add(message.ID);
     if (matches.length > 0) {
       matches.sort((left, right) => String(right.Created).localeCompare(String(left.Created)));
@@ -73,15 +70,6 @@ async function waitForOwnedMessage(status: LocalStatus, recipient: string, owned
     if (attempt < POLL_ATTEMPTS) await new Promise((resolveDelay) => setTimeout(resolveDelay, POLL_INTERVAL_MS));
   }
   throw new Error('MAILPIT_CONFIRMATION_NOT_DELIVERED');
-}
-
-async function findOwnedMessageIds(status: LocalStatus, recipient: string): Promise<string[]> {
-  const response = await http(`${status.mailpitUrl}/api/v1/messages?start=0&limit=100`);
-  if (!response.ok) throw new Error('LOCAL_AUTH_CLEANUP_FAILED');
-  const payload = await response.json() as { messages?: MailSummary[] };
-  return (payload.messages ?? [])
-    .filter((message) => message.To?.some((address) => address.Address === recipient))
-    .flatMap((message) => message.ID ? [message.ID] : []);
 }
 
 function confirmationUrl(detail: MailDetail, apiUrl: string): URL {
@@ -126,16 +114,15 @@ describe.sequential('actual local Supabase authentication', () => {
   const password = `${randomBytes(24).toString('base64url')}aA1!`;
 
   beforeAll(async () => {
-    status = loadLocalSupabaseStatus();
+    status = await loadHealthyLocalSupabaseStatus();
     adminPool = new Pool({ connectionString: status.dbUrl, connectionTimeoutMillis: HTTP_TIMEOUT_MS, query_timeout: HTTP_TIMEOUT_MS, max: 2 });
     try {
-      const [health, mailpit, settings] = await Promise.all([
-        http(`${status.apiUrl}/auth/v1/health`),
+      const [mailpit, settings] = await Promise.all([
         http(`${status.mailpitUrl}/api/v1/info`),
         http(`${status.apiUrl}/auth/v1/settings`, { headers: { apikey: status.publishableKey } }),
         adminPool.query('select 1'),
       ]);
-      if (!health.ok || !mailpit.ok || !settings.ok) throw new Error('LOCAL_SUPABASE_UNAVAILABLE');
+      if (!mailpit.ok || !settings.ok) throw new Error('LOCAL_SUPABASE_UNAVAILABLE');
       const authSettings = await settings.json() as { mailer_autoconfirm?: boolean };
       if (authSettings.mailer_autoconfirm !== false) throw new Error('LOCAL_SUPABASE_UNAVAILABLE');
     } catch { throw new Error('LOCAL_SUPABASE_UNAVAILABLE'); }
@@ -209,10 +196,16 @@ describe.sequential('actual local Supabase authentication', () => {
         for (let page = 1; page <= 10 && !removed; page++) {
           const users = await admin.auth.admin.listUsers({ page, perPage: 100 });
           if (users.error) throw new Error('cleanup');
-          const owned = users.data.users.find((user) => user.email === recipient);
+          const owned = (users.data.users as ReadonlyArray<{ id: string; email?: string }>).find((user) => user.email === recipient);
           if (owned) {
             const deletion = await admin.auth.admin.deleteUser(owned.id);
             if (deletion.error) throw new Error('cleanup');
+            await confirmOwnedAuthUserAbsent(
+              (text, values) => adminPool.query(text, values),
+              owned.id,
+              recipient,
+              { timeoutMs: HTTP_TIMEOUT_MS },
+            );
             removed = true;
           }
           if (users.data.users.length < 100) break;
@@ -220,7 +213,9 @@ describe.sequential('actual local Supabase authentication', () => {
         if (signupCreatedUser && !removed) failures.push('auth-user');
       } catch { failures.push('auth-user'); }
       try {
-        for (const id of await findOwnedMessageIds(status, recipient)) ownedMailIds.add(id);
+        for (const message of await findMailpitMessagesByRecipient(status.mailpitUrl, recipient)) {
+          if (message.ID) ownedMailIds.add(message.ID);
+        }
         if (ownedMailIds.size > 0) {
           const response = await http(`${status.mailpitUrl}/api/v1/messages`, { method: 'DELETE', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ IDs: [...ownedMailIds] }) });
           if (!response.ok) throw new Error('cleanup');
