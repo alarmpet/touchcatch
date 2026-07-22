@@ -1868,7 +1868,8 @@
         ],
         "nativeEvidenceSources": [
           "docs/operations/supabase-auth-provider-handoff.md",
-          "tests/contracts/auth-device-goldens.test.ts"
+          "tests/contracts/auth-device-goldens.test.ts",
+          "config/auth-device-reviewer-keys.v1.json"
         ]
       }
     },

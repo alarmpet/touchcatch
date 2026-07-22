@@ -9,7 +9,8 @@
   ],
   "evidenceSources": [
     "docs/operations/supabase-auth-provider-handoff.md",
-    "tests/contracts/auth-device-goldens.test.ts"
+    "tests/contracts/auth-device-goldens.test.ts",
+    "config/auth-device-reviewer-keys.v1.json"
   ],
   "platforms": [
     {
@@ -21,6 +22,7 @@
       "result": "BLOCKED",
       "capturedAt": null,
       "reviewer": null,
+      "attestation": null,
       "blockerCodes": [
         "PROVIDER_CREDENTIALS_PREVIEW",
         "ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN"
@@ -44,6 +46,7 @@
       "result": "BLOCKED",
       "capturedAt": null,
       "reviewer": null,
+      "attestation": null,
       "blockerCodes": [
         "PROVIDER_CREDENTIALS_PREVIEW",
         "IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN",

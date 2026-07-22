@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "BLOCKED_NO_TRUSTED_REVIEWER_KEYS",
+  "registryOwner": "SECURITY_OPERATIONS_JOINT",
+  "changeControl": "TWO_PARTY_REVIEW_REQUIRED",
+  "changeAuthority": [
+    "SECURITY",
+    "OPERATIONS"
+  ],
+  "reviewers": []
+}

@@ -1,5 +1,6 @@
 import fs from 'node:fs';
-import { createHash } from 'node:crypto';
+import path from 'node:path';
+import { createHash, generateKeyPairSync, sign, verify, type KeyObject } from 'node:crypto';
 import { describe, expect, it } from 'vitest';
 
 const artifactPath = 'docs/testing/reports/auth-device-goldens.v1.json';
@@ -16,11 +17,43 @@ const forbiddenKey = /(?:token|authorizationCode|refresh|session|secret|serviceK
 const expectedSources = [
   'docs/operations/supabase-auth-provider-handoff.md',
   'tests/contracts/auth-device-goldens.test.ts',
+  'config/auth-device-reviewer-keys.v1.json',
 ];
 
 type JsonRecord = Record<string, unknown>;
+type Reviewer = { owner: string; publicKey: KeyObject | string };
+type EvidenceDeps = {
+  loadEvidence: (file: string) => string;
+  inspectEvidence: (file: string) => { regular: boolean; symlink: boolean; realPath: string };
+  trustedReviewers: Map<string, Reviewer>;
+};
 
-function validate(value: unknown, loadEvidence: (path: string) => string = path => fs.readFileSync(path, 'utf8')): string[] {
+const canonicalPlatform = (record: JsonRecord): string => JSON.stringify({
+  platform: record.platform,
+  appBuildHash: record.appBuildHash,
+  osDevice: record.osDevice,
+  provider: record.provider,
+  callbackMode: record.callbackMode,
+  result: record.result,
+  capturedAt: record.capturedAt,
+  reviewer: record.reviewer,
+  evidence: (record.scenarios as JsonRecord[]).map(scenario => ({ id: scenario.id, path: (scenario.evidenceReference as JsonRecord).path, sha256: (scenario.evidenceReference as JsonRecord).sha256 })),
+});
+
+const defaultDeps = (): EvidenceDeps => {
+  const registry = JSON.parse(fs.readFileSync('config/auth-device-reviewer-keys.v1.json', 'utf8')) as { reviewers: Array<{ keyId: string; owner: string; publicKeyPem: string }> };
+  return {
+    loadEvidence: file => fs.readFileSync(file, 'utf8'),
+    inspectEvidence: file => {
+      const absolute = path.resolve(file);
+      const stat = fs.lstatSync(absolute);
+      return { regular: stat.isFile(), symlink: stat.isSymbolicLink(), realPath: fs.realpathSync.native(absolute) };
+    },
+    trustedReviewers: new Map(registry.reviewers.map(reviewer => [reviewer.keyId, { owner: reviewer.owner, publicKey: reviewer.publicKeyPem }])),
+  };
+};
+
+function validate(value: unknown, dependencies: EvidenceDeps = defaultDeps()): string[] {
   const errors: string[] = [];
   if (!value || typeof value !== 'object' || Array.isArray(value)) return ['root'];
   if (Buffer.byteLength(JSON.stringify(value), 'utf8') > 262_144) return ['artifact too large'];
@@ -45,7 +78,10 @@ function validate(value: unknown, loadEvidence: (path: string) => string = path 
     if (Array.isArray(node)) return node.forEach((item, index) => visit(item, `${path}/${index}`));
     if (!node || typeof node !== 'object') return;
     for (const [key, child] of Object.entries(node as JsonRecord)) {
-      if (decodedVariants(key).some(candidate => forbiddenKey.test(candidate))) errors.push(`${path}/${key}: forbidden key`);
+      const keyVariants = decodedVariants(key);
+      if (keyVariants.some(candidate => /%(?![0-9a-f]{2})/iu.test(candidate))) errors.push(`${path}/${key}: malformed encoded key`);
+      if (/%[0-9a-f]{2}/iu.test(keyVariants.at(-1) as string)) errors.push(`${path}/${key}: encoded key depth exceeded`);
+      if (keyVariants.some(candidate => forbiddenKey.test(candidate))) errors.push(`${path}/${key}: forbidden key`);
       if (typeof child === 'string') {
         const variants = decodedVariants(child);
         if (variants.some(candidate => /%(?![0-9a-f]{2})/iu.test(candidate))) errors.push(`${path}/${key}: malformed percent encoding`);
@@ -63,7 +99,7 @@ function validate(value: unknown, loadEvidence: (path: string) => string = path 
       continue;
     }
     const record = candidate as JsonRecord;
-    for (const field of ['platform', 'appBuildHash', 'osDevice', 'provider', 'callbackMode', 'result', 'capturedAt', 'reviewer']) {
+    for (const field of ['platform', 'appBuildHash', 'osDevice', 'provider', 'callbackMode', 'result', 'capturedAt', 'reviewer', 'attestation']) {
       if (!(field in record)) errors.push(`${String(record.platform)}/${field}: missing`);
     }
     if (!['android', 'ios'].includes(String(record.platform))) errors.push('platform value');
@@ -86,6 +122,7 @@ function validate(value: unknown, loadEvidence: (path: string) => string = path 
       const required = ['PROVIDER_CREDENTIALS_PREVIEW', deviceBlocker, ...(record.platform === 'ios' ? ['IOS_GUIDELINE_4_8_REVIEW'] : [])]
         .filter(code => scenarioBlockers.includes(code) || code === 'IOS_GUIDELINE_4_8_REVIEW');
       if (!Array.isArray(record.blockerCodes) || record.blockerCodes.join('|') !== required.join('|')) errors.push(`${String(record.platform)}/blockerCodes: incomplete`);
+      if (record.attestation !== null) errors.push(`${String(record.platform)}/attestation: forbidden for BLOCKED`);
     }
     if (!Array.isArray(record.scenarios) || record.scenarios.map(item => (item as JsonRecord).id).join('|') !== scenarios.join('|')) {
       errors.push(`${String(record.platform)}/scenarios`);
@@ -100,7 +137,11 @@ function validate(value: unknown, loadEvidence: (path: string) => string = path 
         let passedScenario = scenario.result === 'PASS' && scenario.blockerCode === undefined && reference?.path === passPath && /^sha256:[a-f0-9]{64}$/u.test(String(reference?.sha256));
         if (passedScenario) {
           try {
-            const raw = loadEvidence(passPath);
+            const inspection = dependencies.inspectEvidence(passPath);
+            const expectedAbsolute = path.resolve(passPath);
+            const root = `${path.resolve('.')}${path.sep}`;
+            if (!inspection.regular || inspection.symlink || inspection.realPath !== expectedAbsolute || !inspection.realPath.startsWith(root)) throw new Error('unsafe evidence file');
+            const raw = dependencies.loadEvidence(passPath);
             if (Buffer.byteLength(raw, 'utf8') > 65_536) throw new Error('evidence too large');
             const expected = { schemaVersion: '1.0.0', platform: record.platform, scenarioId: scenario.id, result: 'PASS', appBuildHash: record.appBuildHash, osDevice: record.osDevice, provider: record.provider, callbackMode: record.callbackMode, capturedAt: record.capturedAt, reviewer: record.reviewer };
             const actual = JSON.parse(raw) as JsonRecord;
@@ -116,6 +157,19 @@ function validate(value: unknown, loadEvidence: (path: string) => string = path 
           errors.push(`${String(record.platform)}/${String(scenario.id)}: evidence invalid`);
         }
       }
+    }
+    if (isPass) {
+      const attestation = record.attestation as JsonRecord | undefined;
+      const trusted = attestation && dependencies.trustedReviewers.get(String(attestation.keyId));
+      const signature = typeof attestation?.signature === 'string' && /^[A-Za-z0-9+/]+={0,2}$/u.test(attestation.signature) ? Buffer.from(attestation.signature, 'base64') : undefined;
+      const signatureCanonical = signature && signature.toString('base64') === attestation?.signature;
+      let valid = false;
+      try {
+        valid = Boolean(trusted?.owner === record.reviewer && signatureCanonical && verify(null, Buffer.from(canonicalPlatform(record)), trusted.publicKey, signature));
+      } catch {
+        valid = false;
+      }
+      if (!valid) errors.push(`${String(record.platform)}/attestation: invalid or untrusted`);
     }
   }
 
@@ -135,7 +189,7 @@ function validate(value: unknown, loadEvidence: (path: string) => string = path 
   return errors;
 }
 
-function promote(record: JsonRecord, evidence: Map<string, string>): void {
+function promote(record: JsonRecord, evidence: Map<string, string>, privateKey: KeyObject, keyId = 'test-reviewer'): void {
   record.appBuildHash = 'sha256:0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef';
   record.osDevice = record.platform === 'android' ? 'Android 16 / Pixel 9' : 'iOS 19.0 / iPhone 16';
   record.provider = 'GOOGLE';
@@ -150,7 +204,15 @@ function promote(record: JsonRecord, evidence: Map<string, string>): void {
     evidence.set(path, raw);
     return { id: scenario.id, result: 'PASS', evidenceReference: { path, sha256: `sha256:${createHash('sha256').update(raw).digest('hex')}` } };
   });
+  record.attestation = { keyId, signature: sign(null, Buffer.from(canonicalPlatform(record)), privateKey).toString('base64') };
 }
+
+const fixtureDeps = (evidence: Map<string, string>, publicKey: KeyObject, overrides: Partial<EvidenceDeps> = {}): EvidenceDeps => ({
+  loadEvidence: file => { const raw = evidence.get(file); if (!raw) throw new Error('missing'); return raw; },
+  inspectEvidence: file => ({ regular: true, symlink: false, realPath: path.resolve(file) }),
+  trustedReviewers: new Map([['test-reviewer', { owner: 'release-reviewer', publicKey }]]),
+  ...overrides,
+});
 
 describe('native authentication golden evidence contract', () => {
   it('records complete Android and iOS scenario sets without fabricating a device run', () => {
@@ -182,21 +244,40 @@ describe('native authentication golden evidence contract', () => {
     const artifact = JSON.parse(fs.readFileSync(artifactPath, 'utf8')) as JsonRecord;
     const passed = structuredClone(artifact) as JsonRecord;
     const evidence = new Map<string, string>();
+    const keys = generateKeyPairSync('ed25519');
     passed.status = 'PASS';
     (passed.releaseScope as JsonRecord).iosGuideline48 = 'PASS';
     passed.blockerCodes = [];
-    for (const record of passed.platforms as JsonRecord[]) promote(record, evidence);
-    const load = (path: string): string => { const raw = evidence.get(path); if (!raw) throw new Error('missing'); return raw; };
-    expect(validate(passed, load)).toEqual([]);
+    for (const record of passed.platforms as JsonRecord[]) promote(record, evidence, keys.privateKey);
+    const deps = fixtureDeps(evidence, keys.publicKey);
+    expect(validate(passed, deps)).toEqual([]);
     const passWithBlocker = structuredClone(passed) as JsonRecord;
     passWithBlocker.blockerCodes = ['PROVIDER_CREDENTIALS_PREVIEW'];
-    expect(validate(passWithBlocker, load)).toContain('root blockers: forbidden for PASS');
+    expect(validate(passWithBlocker, deps)).toContain('root blockers: forbidden for PASS');
     expect(validate(passed)).toContain('android/EMAIL_CONFIRMATION: evidence invalid');
     const hashMismatch = structuredClone(passed) as JsonRecord;
     ((((hashMismatch.platforms as JsonRecord[])[0].scenarios as JsonRecord[])[0].evidenceReference) as JsonRecord).sha256 = `sha256:${'0'.repeat(64)}`;
-    expect(validate(hashMismatch, load)).toContain('android/EMAIL_CONFIRMATION: evidence invalid');
+    expect(validate(hashMismatch, deps)).toContain('android/EMAIL_CONFIRMATION: evidence invalid');
+    expect(validate(hashMismatch, deps)).toContain('android/attestation: invalid or untrusted');
+    const alteredEvidence = new Map(evidence);
+    const firstEvidencePath = [...alteredEvidence.keys()][0];
+    alteredEvidence.set(firstEvidencePath, (alteredEvidence.get(firstEvidencePath) as string).replace('Pixel 9', 'Pixel X'));
+    expect(validate(passed, fixtureDeps(alteredEvidence, keys.publicKey))).toContain('android/EMAIL_CONFIRMATION: evidence invalid');
+    const badSignature = structuredClone(passed) as JsonRecord;
+    ((badSignature.platforms as JsonRecord[])[0].attestation as JsonRecord).signature = Buffer.alloc(64).toString('base64');
+    expect(validate(badSignature, deps)).toContain('android/attestation: invalid or untrusted');
+    expect(validate(passed, { ...deps, trustedReviewers: new Map() })).toContain('android/attestation: invalid or untrusted');
+    const untrustedReviewer = structuredClone(passed) as JsonRecord;
+    (untrustedReviewer.platforms as JsonRecord[])[0].reviewer = 'untrusted-reviewer';
+    expect(validate(untrustedReviewer, deps)).toContain('android/attestation: invalid or untrusted');
+    const metadataMutation = structuredClone(passed) as JsonRecord;
+    (metadataMutation.platforms as JsonRecord[])[0].osDevice = 'Android 16 / different device';
+    expect(validate(metadataMutation, deps)).toContain('android/attestation: invalid or untrusted');
+    expect(validate(passed, { ...deps, inspectEvidence: file => ({ regular: true, symlink: true, realPath: path.resolve(file) }) })).toContain('android/EMAIL_CONFIRMATION: evidence invalid');
+    expect(validate(passed, { ...deps, inspectEvidence: file => ({ regular: false, symlink: false, realPath: path.resolve(file) }) })).toContain('android/EMAIL_CONFIRMATION: evidence invalid');
+    expect(validate(passed, { ...deps, inspectEvidence: () => ({ regular: true, symlink: false, realPath: path.resolve('..', 'outside.json') }) })).toContain('android/EMAIL_CONFIRMATION: evidence invalid');
     (passed.platforms as JsonRecord[])[0].reviewer = null;
-    expect(validate(passed, load)).toContain('android/reviewer: required for PASS');
+    expect(validate(passed, deps)).toContain('android/reviewer: required for PASS');
   });
 
   it('requires exactly one Android and one iOS record', () => {
@@ -225,6 +306,8 @@ describe('native authentication golden evidence contract', () => {
     expect(external.nativeGoldenStatus).toBe(artifact.status);
     expect(external.nativeBlockerCodes).toEqual(artifact.blockerCodes);
     expect(external.nativeEvidenceSources).toEqual(artifact.evidenceSources);
+    const reviewers = JSON.parse(fs.readFileSync('config/auth-device-reviewer-keys.v1.json', 'utf8')) as JsonRecord;
+    expect(reviewers).toMatchObject({ status: 'BLOCKED_NO_TRUSTED_REVIEWER_KEYS', registryOwner: 'SECURITY_OPERATIONS_JOINT', changeControl: 'TWO_PARTY_REVIEW_REQUIRED', changeAuthority: ['SECURITY', 'OPERATIONS'], reviewers: [] });
   });
 
   it('rejects an arbitrary scenario blocker', () => {
@@ -249,13 +332,31 @@ describe('native authentication golden evidence contract', () => {
   it('accepts honest Android PASS plus iOS BLOCKED as PARTIAL', () => {
     const artifact = JSON.parse(fs.readFileSync(artifactPath, 'utf8')) as JsonRecord;
     const evidence = new Map<string, string>();
+    const keys = generateKeyPairSync('ed25519');
     artifact.status = 'PARTIAL';
-    promote((artifact.platforms as JsonRecord[])[0], evidence);
+    promote((artifact.platforms as JsonRecord[])[0], evidence, keys.privateKey);
     const ios = (artifact.platforms as JsonRecord[])[1];
     ((ios.scenarios as JsonRecord[]).find(scenario => scenario.id === 'CONFIGURED_GOOGLE_OR_KAKAO_PROVIDER') as JsonRecord).blockerCode = 'IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN';
     ios.blockerCodes = ['IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN', 'IOS_GUIDELINE_4_8_REVIEW'];
     artifact.blockerCodes = ['IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN', 'IOS_GUIDELINE_4_8_REVIEW'];
-    const load = (path: string): string => { const raw = evidence.get(path); if (!raw) throw new Error('missing'); return raw; };
-    expect(validate(artifact, load)).toEqual([]);
+    expect(validate(artifact, fixtureDeps(evidence, keys.publicKey))).toEqual([]);
+  });
+
+  it('rejects self-attestation on a BLOCKED platform', () => {
+    const artifact = JSON.parse(fs.readFileSync(artifactPath, 'utf8')) as JsonRecord;
+    (artifact.platforms as JsonRecord[])[0].attestation = { keyId: 'self', signature: 'forged' };
+    expect(validate(artifact)).toContain('android/attestation: forbidden for BLOCKED');
+  });
+
+  it('fails closed for deeply encoded and malformed object keys', () => {
+    const artifact = JSON.parse(fs.readFileSync(artifactPath, 'utf8')) as JsonRecord;
+    let deep = '%61uthorizationCode';
+    for (let index = 0; index < 8; index += 1) deep = deep.replaceAll('%', '%25');
+    (artifact.platforms as JsonRecord[])[0][deep] = 'opaque';
+    (artifact.platforms as JsonRecord[])[0]['%ZZauthorizationCode'] = 'opaque';
+    expect(validate(artifact)).toEqual(expect.arrayContaining([
+      `/platforms/0/${deep}: encoded key depth exceeded`,
+      '/platforms/0/%ZZauthorizationCode: malformed encoded key',
+    ]));
   });
 });
