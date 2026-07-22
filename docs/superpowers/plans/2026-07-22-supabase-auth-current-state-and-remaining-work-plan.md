@@ -188,7 +188,7 @@
 - [x] **Step 1: 전체 로컬 gate 시도** — exact Node `24.18.0`/pnpm `11.13.0`의 `verify`는 runtime과 admin typecheck 통과 후 Windows Turbopack `node_modules/pg` junction 오류로 중단됐다. aggregate는 FAIL/pending이며 PASS로 승격하지 않는다.
 - [x] **Step 2: secret/PII scan** — scoped secretlint는 PASS했다. `rg`의 일치 항목은 코드 식별자와 명시적으로 가짜인 callback fixture뿐이며 실제 secret/token/raw 운영 callback 값은 발견되지 않았다.
 - [x] **Step 3: boundary 회귀** — JWT algorithm/issuer/audience/expiry, REST/Socket 동일 verifier, auth UUID 비노출, guest production bundle, deletion retry/fencing/cascade, PKCE restart recovery, provider/device evidence 계약은 15 files/89 tests 및 local DB 2 files/4 tests PASS했다.
-- [ ] **Step 4: 읽기 전용 리뷰** — 별도 reviewer가 고정 diff에서 Blocker/Important만 보고하게 하고 지적은 각 항목별 RED test 후 수정·재리뷰한다.
+- [x] **Step 4: 읽기 전용 리뷰** — `2d0ab62` 반영 후 고정 diff 재리뷰에서 Blocker/Important 0건을 확인했다.
 - [x] **Step 5: 계획 상태 갱신** — 실행한 검증만 갱신했다. provider credentials, Android/iOS device golden, iOS 4.8, trusted reviewer governance는 계속 `BLOCKED`다.
 - [x] **Step 6: 커밋** — `1d80bc1` (`docs(auth): close integration evidence`).
 
