@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { createHash, generateKeyPairSync, sign, verify, type KeyObject } from 'node:crypto';
+import { createHash, createPublicKey, generateKeyPairSync, sign, verify, type KeyObject } from 'node:crypto';
 import { describe, expect, it } from 'vitest';
 
 const artifactPath = 'docs/testing/reports/auth-device-goldens.v1.json';
@@ -27,6 +27,56 @@ type EvidenceDeps = {
   inspectEvidence: (file: string) => { regular: boolean; symlink: boolean; realPath: string };
   trustedReviewers: Map<string, Reviewer>;
 };
+type GovernanceKeys = Map<'SECURITY' | 'OPERATIONS', KeyObject>;
+
+const reviewerRegistryHash = (reviewers: JsonRecord[]): string => `sha256:${createHash('sha256').update(JSON.stringify([...reviewers].sort((a, b) => String(a.keyId).localeCompare(String(b.keyId))))).digest('hex')}`;
+
+function validateReviewerRegistry(value: unknown, governanceKeys: GovernanceKeys = new Map()): { errors: string[]; trusted: Map<string, Reviewer> } {
+  const errors: string[] = [];
+  const trusted = new Map<string, Reviewer>();
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return { errors: ['registry root'], trusted };
+  const registry = value as JsonRecord;
+  if (Object.keys(registry).sort().join('|') !== ['schemaVersion', 'status', 'registryOwner', 'changeControl', 'changeAuthority', 'reviewers', 'approvalReceipts'].sort().join('|')) errors.push('registry schema');
+  if (registry.schemaVersion !== '1.0.0' || registry.registryOwner !== 'SECURITY_OPERATIONS_JOINT' || registry.changeControl !== 'TWO_PARTY_REVIEW_REQUIRED' || JSON.stringify(registry.changeAuthority) !== JSON.stringify(['SECURITY', 'OPERATIONS'])) errors.push('registry governance');
+  if (!Array.isArray(registry.reviewers) || !Array.isArray(registry.approvalReceipts)) return { errors: [...errors, 'registry arrays'], trusted };
+  const reviewers = registry.reviewers as JsonRecord[];
+  const receipts = registry.approvalReceipts as JsonRecord[];
+  if (new Set(reviewers.map(reviewer => reviewer.keyId)).size !== reviewers.length) errors.push('duplicate reviewer keyId');
+  for (const reviewer of reviewers) {
+    if (Object.keys(reviewer).sort().join('|') !== ['authority', 'keyId', 'owner', 'publicKeyPem'].sort().join('|') || !/^[a-z0-9][a-z0-9._-]{2,63}$/u.test(String(reviewer.keyId)) || !/^[a-z0-9][a-z0-9._ -]{2,79}$/iu.test(String(reviewer.owner)) || reviewer.authority !== 'DEVICE_AUTH_REVIEWER') {
+      errors.push(`reviewer schema:${String(reviewer.keyId)}`);
+      continue;
+    }
+    try {
+      const publicKey = createPublicKey(String(reviewer.publicKeyPem));
+      if (publicKey.asymmetricKeyType !== 'ed25519') throw new Error('wrong key type');
+      trusted.set(String(reviewer.keyId), { owner: String(reviewer.owner), publicKey });
+    } catch {
+      errors.push(`reviewer key:${String(reviewer.keyId)}`);
+    }
+  }
+  if (reviewers.length === 0) {
+    if (registry.status !== 'BLOCKED_NO_TRUSTED_REVIEWER_KEYS' || receipts.length !== 0) errors.push('empty registry status');
+  } else {
+    if (registry.status !== 'ACTIVE') errors.push('active registry status');
+    const hash = reviewerRegistryHash(reviewers);
+    const roles = receipts.map(receipt => receipt.role).sort().join('|');
+    const distinctApprovers = new Set(receipts.map(receipt => receipt.approverId)).size === 2;
+    if (receipts.length !== 2 || roles !== 'OPERATIONS|SECURITY' || !distinctApprovers) errors.push('approval receipt roles');
+    for (const receipt of receipts) {
+      const role = receipt.role as 'SECURITY' | 'OPERATIONS';
+      const key = governanceKeys.get(role);
+      const message = `${role}|${String(receipt.approverId)}|${hash}`;
+      const exact = Object.keys(receipt).sort().join('|') === ['role', 'approverId', 'registryHash', 'signature'].sort().join('|');
+      const signature = typeof receipt.signature === 'string' && /^[A-Za-z0-9+/]+={0,2}$/u.test(receipt.signature) ? Buffer.from(receipt.signature, 'base64') : undefined;
+      let valid = exact && /^[a-z0-9][a-z0-9._-]{2,79}$/u.test(String(receipt.approverId)) && receipt.registryHash === hash && signature?.toString('base64') === receipt.signature;
+      try { valid = Boolean(valid && key && signature && verify(null, Buffer.from(message), key, signature)); } catch { valid = false; }
+      if (!valid) errors.push(`approval receipt:${role}`);
+    }
+  }
+  if (errors.length > 0) trusted.clear();
+  return { errors, trusted };
+}
 
 const canonicalPlatform = (record: JsonRecord): string => JSON.stringify({
   platform: record.platform,
@@ -41,7 +91,9 @@ const canonicalPlatform = (record: JsonRecord): string => JSON.stringify({
 });
 
 const defaultDeps = (): EvidenceDeps => {
-  const registry = JSON.parse(fs.readFileSync('config/auth-device-reviewer-keys.v1.json', 'utf8')) as { reviewers: Array<{ keyId: string; owner: string; publicKeyPem: string }> };
+  const registry = JSON.parse(fs.readFileSync('config/auth-device-reviewer-keys.v1.json', 'utf8')) as unknown;
+  const validated = validateReviewerRegistry(registry);
+  if (validated.errors.length > 0) throw new Error(`reviewer registry invalid: ${validated.errors.join(',')}`);
   return {
     loadEvidence: file => fs.readFileSync(file, 'utf8'),
     inspectEvidence: file => {
@@ -49,7 +101,7 @@ const defaultDeps = (): EvidenceDeps => {
       const stat = fs.lstatSync(absolute);
       return { regular: stat.isFile(), symlink: stat.isSymbolicLink(), realPath: fs.realpathSync.native(absolute) };
     },
-    trustedReviewers: new Map(registry.reviewers.map(reviewer => [reviewer.keyId, { owner: reviewer.owner, publicKey: reviewer.publicKeyPem }])),
+    trustedReviewers: validated.trusted,
   };
 };
 
@@ -119,8 +171,8 @@ function validate(value: unknown, dependencies: EvidenceDeps = defaultDeps()): s
       }
       const scenarioBlockers = Array.isArray(record.scenarios) ? (record.scenarios as JsonRecord[]).map(scenario => String(scenario.blockerCode)) : [];
       const deviceBlocker = record.platform === 'android' ? 'ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN' : 'IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN';
-      const required = ['PROVIDER_CREDENTIALS_PREVIEW', deviceBlocker, ...(record.platform === 'ios' ? ['IOS_GUIDELINE_4_8_REVIEW'] : [])]
-        .filter(code => scenarioBlockers.includes(code) || code === 'IOS_GUIDELINE_4_8_REVIEW');
+      const required = ['PROVIDER_CREDENTIALS_PREVIEW', deviceBlocker, ...(record.platform === 'ios' ? ['IOS_GUIDELINE_4_8_REVIEW'] : []), ...(dependencies.trustedReviewers.size === 0 ? ['NO_TRUSTED_REVIEWER_KEYS'] : [])]
+        .filter(code => scenarioBlockers.includes(code) || code === 'IOS_GUIDELINE_4_8_REVIEW' || code === 'NO_TRUSTED_REVIEWER_KEYS');
       if (!Array.isArray(record.blockerCodes) || record.blockerCodes.join('|') !== required.join('|')) errors.push(`${String(record.platform)}/blockerCodes: incomplete`);
       if (record.attestation !== null) errors.push(`${String(record.platform)}/attestation: forbidden for BLOCKED`);
     }
@@ -182,7 +234,8 @@ function validate(value: unknown, dependencies: EvidenceDeps = defaultDeps()): s
   if (releaseScope?.iosGuideline48 !== expectedIosPolicy || releaseScope?.android !== 'NOT_BLOCKED_BY_IOS_GUIDELINE_4_8' || releaseScope?.guestGamePlay !== 'NOT_BLOCKED_BY_IOS_GUIDELINE_4_8') {
     errors.push('release scope');
   }
-  const derivedBlockers = [...new Set(root.platforms.flatMap(item => Array.isArray((item as JsonRecord).blockerCodes) ? (item as JsonRecord).blockerCodes as string[] : []))];
+  const unresolved = new Set(root.platforms.flatMap(item => Array.isArray((item as JsonRecord).blockerCodes) ? (item as JsonRecord).blockerCodes as string[] : []));
+  const derivedBlockers = ['PROVIDER_CREDENTIALS_PREVIEW', 'ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN', 'IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN', 'IOS_GUIDELINE_4_8_REVIEW', 'NO_TRUSTED_REVIEWER_KEYS'].filter(code => unresolved.has(code));
   if (JSON.stringify(root.blockerCodes) !== JSON.stringify(derivedBlockers)) errors.push(root.status === 'PASS' ? 'root blockers: forbidden for PASS' : 'root blockers');
   if (JSON.stringify(root.evidenceSources) !== JSON.stringify(expectedSources)) errors.push('evidence sources');
   if (root.expoGoVersionMismatchPolicy !== 'INFRASTRUCTURE_ONLY_UNTIL_DEVELOPMENT_BUILD_REPRODUCTION') errors.push('Expo Go policy');
@@ -307,7 +360,9 @@ describe('native authentication golden evidence contract', () => {
     expect(external.nativeBlockerCodes).toEqual(artifact.blockerCodes);
     expect(external.nativeEvidenceSources).toEqual(artifact.evidenceSources);
     const reviewers = JSON.parse(fs.readFileSync('config/auth-device-reviewer-keys.v1.json', 'utf8')) as JsonRecord;
-    expect(reviewers).toMatchObject({ status: 'BLOCKED_NO_TRUSTED_REVIEWER_KEYS', registryOwner: 'SECURITY_OPERATIONS_JOINT', changeControl: 'TWO_PARTY_REVIEW_REQUIRED', changeAuthority: ['SECURITY', 'OPERATIONS'], reviewers: [] });
+    expect(artifact.blockerCodes).toContain('NO_TRUSTED_REVIEWER_KEYS');
+    expect((external.nativeBlockerCodes as string[])).toContain('NO_TRUSTED_REVIEWER_KEYS');
+    expect(reviewers).toMatchObject({ status: 'BLOCKED_NO_TRUSTED_REVIEWER_KEYS', registryOwner: 'SECURITY_OPERATIONS_JOINT', changeControl: 'TWO_PARTY_REVIEW_REQUIRED', changeAuthority: ['SECURITY', 'OPERATIONS'], reviewers: [], approvalReceipts: [] });
   });
 
   it('rejects an arbitrary scenario blocker', () => {
@@ -358,5 +413,33 @@ describe('native authentication golden evidence contract', () => {
       `/platforms/0/${deep}: encoded key depth exceeded`,
       '/platforms/0/%ZZauthorizationCode: malformed encoded key',
     ]));
+  });
+
+  it('validates empty and two-authority-approved ACTIVE reviewer registries', () => {
+    const empty = JSON.parse(fs.readFileSync('config/auth-device-reviewer-keys.v1.json', 'utf8')) as JsonRecord;
+    expect(validateReviewerRegistry(empty).errors).toEqual([]);
+    const reviewerKey = generateKeyPairSync('ed25519');
+    const securityKey = generateKeyPairSync('ed25519');
+    const operationsKey = generateKeyPairSync('ed25519');
+    const reviewers: JsonRecord[] = [{ keyId: 'reviewer-1', owner: 'release-reviewer', authority: 'DEVICE_AUTH_REVIEWER', publicKeyPem: reviewerKey.publicKey.export({ type: 'spki', format: 'pem' }).toString() }];
+    const hash = reviewerRegistryHash(reviewers);
+    const receipt = (role: 'SECURITY' | 'OPERATIONS', approverId: string, privateKey: KeyObject): JsonRecord => ({
+      role,
+      approverId,
+      registryHash: hash,
+      signature: sign(null, Buffer.from(`${role}|${approverId}|${hash}`), privateKey).toString('base64'),
+    });
+    const active: JsonRecord = { ...empty, status: 'ACTIVE', reviewers, approvalReceipts: [receipt('SECURITY', 'security-approver', securityKey.privateKey), receipt('OPERATIONS', 'operations-approver', operationsKey.privateKey)] };
+    const governance = new Map<'SECURITY' | 'OPERATIONS', KeyObject>([['SECURITY', securityKey.publicKey], ['OPERATIONS', operationsKey.publicKey]]);
+    expect(validateReviewerRegistry(active, governance).errors).toEqual([]);
+    expect(validateReviewerRegistry({ ...active, reviewers: [...reviewers, reviewers[0]] }, governance).errors).toContain('duplicate reviewer keyId');
+    expect(validateReviewerRegistry({ ...active, approvalReceipts: (active.approvalReceipts as JsonRecord[]).map(receiptValue => ({ ...receiptValue, approverId: 'same-approver' })) }, governance).errors).toContain('approval receipt roles');
+    expect(validateReviewerRegistry(active).errors).toEqual(expect.arrayContaining(['approval receipt:SECURITY', 'approval receipt:OPERATIONS']));
+    const wrongStatus = { ...active, status: 'BLOCKED_NO_TRUSTED_REVIEWER_KEYS' };
+    expect(validateReviewerRegistry(wrongStatus, governance).errors).toContain('active registry status');
+    const rsa = generateKeyPairSync('rsa', { modulusLength: 2048 });
+    const wrongKey = structuredClone(active) as JsonRecord;
+    (wrongKey.reviewers as JsonRecord[])[0].publicKeyPem = rsa.publicKey.export({ type: 'spki', format: 'pem' }).toString();
+    expect(validateReviewerRegistry(wrongKey, governance).errors).toContain('reviewer key:reviewer-1');
   });
 });

@@ -1864,7 +1864,8 @@
           "PROVIDER_CREDENTIALS_PREVIEW",
           "ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN",
           "IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN",
-          "IOS_GUIDELINE_4_8_REVIEW"
+          "IOS_GUIDELINE_4_8_REVIEW",
+          "NO_TRUSTED_REVIEWER_KEYS"
         ],
         "nativeEvidenceSources": [
           "docs/operations/supabase-auth-provider-handoff.md",

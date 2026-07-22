@@ -5,7 +5,8 @@
     "PROVIDER_CREDENTIALS_PREVIEW",
     "ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN",
     "IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN",
-    "IOS_GUIDELINE_4_8_REVIEW"
+    "IOS_GUIDELINE_4_8_REVIEW",
+    "NO_TRUSTED_REVIEWER_KEYS"
   ],
   "evidenceSources": [
     "docs/operations/supabase-auth-provider-handoff.md",
@@ -25,7 +26,8 @@
       "attestation": null,
       "blockerCodes": [
         "PROVIDER_CREDENTIALS_PREVIEW",
-        "ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN"
+        "ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN",
+        "NO_TRUSTED_REVIEWER_KEYS"
       ],
       "scenarios": [
         { "id": "EMAIL_CONFIRMATION", "result": "BLOCKED", "blockerCode": "ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN" },
@@ -50,7 +52,8 @@
       "blockerCodes": [
         "PROVIDER_CREDENTIALS_PREVIEW",
         "IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN",
-        "IOS_GUIDELINE_4_8_REVIEW"
+        "IOS_GUIDELINE_4_8_REVIEW",
+        "NO_TRUSTED_REVIEWER_KEYS"
       ],
       "scenarios": [
         { "id": "EMAIL_CONFIRMATION", "result": "BLOCKED", "blockerCode": "IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN" },
