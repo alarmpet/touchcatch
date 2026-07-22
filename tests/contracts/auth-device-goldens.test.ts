@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import { describe, expect, it } from 'vitest';
 
 const artifactPath = 'docs/testing/reports/auth-device-goldens.v1.json';
@@ -12,12 +13,6 @@ const scenarios = [
   'ACCOUNT_DELETION',
 ] as const;
 const forbiddenKey = /(?:token|authorizationCode|refresh|session|secret|serviceKey)/iu;
-const expectedBlockers = [
-  'PROVIDER_CREDENTIALS_PREVIEW',
-  'ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN',
-  'IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN',
-  'IOS_GUIDELINE_4_8_REVIEW',
-];
 const expectedSources = [
   'docs/operations/supabase-auth-provider-handoff.md',
   'tests/contracts/auth-device-goldens.test.ts',
@@ -25,25 +20,23 @@ const expectedSources = [
 
 type JsonRecord = Record<string, unknown>;
 
-function validate(value: unknown): string[] {
+function validate(value: unknown, loadEvidence: (path: string) => string = path => fs.readFileSync(path, 'utf8')): string[] {
   const errors: string[] = [];
   if (!value || typeof value !== 'object' || Array.isArray(value)) return ['root'];
+  if (Buffer.byteLength(JSON.stringify(value), 'utf8') > 262_144) return ['artifact too large'];
   const root = value as JsonRecord;
-  if (root.schemaVersion !== '1.0.0' || !['BLOCKED', 'PASS'].includes(String(root.status))) errors.push('root status');
+  if (root.schemaVersion !== '1.0.0' || !['BLOCKED', 'PARTIAL', 'PASS'].includes(String(root.status))) errors.push('root status');
   if (!Array.isArray(root.platforms)) return [...errors, 'platforms'];
   if (root.platforms.length !== 2) errors.push('platform count');
   if (root.platforms.map(item => String((item as JsonRecord)?.platform)).sort().join('|') !== 'android|ios') errors.push('platform set');
 
   const decodedVariants = (input: string): string[] => {
-    const variants = [input.slice(0, 4096)];
+    const variants = [input];
     for (let depth = 0; depth < 8; depth += 1) {
-      try {
-        const decoded = decodeURIComponent(variants.at(-1) as string);
-        if (decoded === variants.at(-1)) break;
-        variants.push(decoded.slice(0, 4096));
-      } catch {
-        break;
-      }
+      const current = variants.at(-1) as string;
+      const decoded = current.replace(/%([0-9a-f]{2})/giu, (_, hex: string) => String.fromCharCode(Number.parseInt(hex, 16)));
+      if (decoded === current) break;
+      variants.push(decoded);
     }
     return variants;
   };
@@ -53,8 +46,11 @@ function validate(value: unknown): string[] {
     if (!node || typeof node !== 'object') return;
     for (const [key, child] of Object.entries(node as JsonRecord)) {
       if (decodedVariants(key).some(candidate => forbiddenKey.test(candidate))) errors.push(`${path}/${key}: forbidden key`);
-      if (typeof child === 'string' && decodedVariants(child).some(candidate => /(?:^[a-z][a-z0-9+.-]*:\/\/[^\s]*[?#]|(?:^|[?&#])(?:code|authorization_code|access_token|refresh_token|session|service_key)=)/iu.test(candidate))) {
-        errors.push(`${path}/${key}: raw callback data`);
+      if (typeof child === 'string') {
+        const variants = decodedVariants(child);
+        if (variants.some(candidate => /%(?![0-9a-f]{2})/iu.test(candidate))) errors.push(`${path}/${key}: malformed percent encoding`);
+        if (/%[0-9a-f]{2}/iu.test(variants.at(-1) as string)) errors.push(`${path}/${key}: encoded depth exceeded`);
+        if (variants.some(candidate => /(?:[a-z][a-z0-9+.-]*:\/\/[^\s]*[?#]|(?:^|[?&#])(?:code|authorization_code|access_token|refresh_token|session|service_key)=)/iu.test(candidate))) errors.push(`${path}/${key}: raw callback data`);
       }
       visit(child, `${path}/${key}`);
     }
@@ -72,7 +68,7 @@ function validate(value: unknown): string[] {
     }
     if (!['android', 'ios'].includes(String(record.platform))) errors.push('platform value');
     const isPass = record.result === 'PASS';
-    if (record.result !== root.status) errors.push(`${String(record.platform)}/result`);
+    if (!['PASS', 'BLOCKED'].includes(String(record.result))) errors.push(`${String(record.platform)}/result`);
     if (isPass) {
       if (!/^sha256:[a-f0-9]{64}$/u.test(String(record.appBuildHash))) errors.push(`${String(record.platform)}/appBuildHash: required for PASS`);
       if (typeof record.osDevice !== 'string' || record.osDevice.length < 3) errors.push(`${String(record.platform)}/osDevice: required for PASS`);
@@ -85,9 +81,10 @@ function validate(value: unknown): string[] {
       for (const field of ['appBuildHash', 'osDevice', 'provider', 'callbackMode', 'capturedAt', 'reviewer']) {
         if (record[field] !== null) errors.push(`${String(record.platform)}/${field}: fabricated run value`);
       }
-      const required = record.platform === 'android'
-        ? ['PROVIDER_CREDENTIALS_PREVIEW', 'ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN']
-        : ['PROVIDER_CREDENTIALS_PREVIEW', 'IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN', 'IOS_GUIDELINE_4_8_REVIEW'];
+      const scenarioBlockers = Array.isArray(record.scenarios) ? (record.scenarios as JsonRecord[]).map(scenario => String(scenario.blockerCode)) : [];
+      const deviceBlocker = record.platform === 'android' ? 'ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN' : 'IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN';
+      const required = ['PROVIDER_CREDENTIALS_PREVIEW', deviceBlocker, ...(record.platform === 'ios' ? ['IOS_GUIDELINE_4_8_REVIEW'] : [])]
+        .filter(code => scenarioBlockers.includes(code) || code === 'IOS_GUIDELINE_4_8_REVIEW');
       if (!Array.isArray(record.blockerCodes) || record.blockerCodes.join('|') !== required.join('|')) errors.push(`${String(record.platform)}/blockerCodes: incomplete`);
     }
     if (!Array.isArray(record.scenarios) || record.scenarios.map(item => (item as JsonRecord).id).join('|') !== scenarios.join('|')) {
@@ -95,25 +92,64 @@ function validate(value: unknown): string[] {
     } else {
       for (const scenario of record.scenarios as JsonRecord[]) {
         const blockedScenario = scenario.result === 'BLOCKED' && /^[A-Z][A-Z0-9_]+$/u.test(String(scenario.blockerCode)) && scenario.evidenceReference === undefined;
-        const passReference = `evidence/external/auth/device/${String(record.platform)}/${String(scenario.id).toLowerCase()}.json`;
-        const passedScenario = scenario.result === 'PASS' && scenario.evidenceReference === passReference && scenario.blockerCode === undefined;
+        const deviceBlocker = record.platform === 'android' ? 'ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN' : 'IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN';
+        const allowedBlockers = scenario.id === 'CONFIGURED_GOOGLE_OR_KAKAO_PROVIDER' ? ['PROVIDER_CREDENTIALS_PREVIEW', deviceBlocker] : [deviceBlocker];
+        if (!isPass && !allowedBlockers.includes(String(scenario.blockerCode))) errors.push(`${String(record.platform)}/${String(scenario.id)}: blocker mismatch`);
+        const passPath = `evidence/external/auth/device/${String(record.platform)}/${String(scenario.id).toLowerCase()}.json`;
+        const reference = scenario.evidenceReference as JsonRecord | undefined;
+        let passedScenario = scenario.result === 'PASS' && scenario.blockerCode === undefined && reference?.path === passPath && /^sha256:[a-f0-9]{64}$/u.test(String(reference?.sha256));
+        if (passedScenario) {
+          try {
+            const raw = loadEvidence(passPath);
+            if (Buffer.byteLength(raw, 'utf8') > 65_536) throw new Error('evidence too large');
+            const expected = { schemaVersion: '1.0.0', platform: record.platform, scenarioId: scenario.id, result: 'PASS', appBuildHash: record.appBuildHash, osDevice: record.osDevice, provider: record.provider, callbackMode: record.callbackMode, capturedAt: record.capturedAt, reviewer: record.reviewer };
+            const actual = JSON.parse(raw) as JsonRecord;
+            const exactKeys = Object.keys(actual).sort().join('|') === Object.keys(expected).sort().join('|');
+            const bound = Object.entries(expected).every(([key, expectedValue]) => actual[key] === expectedValue);
+            const digest = `sha256:${createHash('sha256').update(raw).digest('hex')}`;
+            passedScenario = exactKeys && bound && reference?.sha256 === digest;
+          } catch {
+            passedScenario = false;
+          }
+        }
         if (isPass ? !passedScenario : !blockedScenario) {
-          errors.push(`${String(record.platform)}/${String(scenario.id)}`);
+          errors.push(`${String(record.platform)}/${String(scenario.id)}: evidence invalid`);
         }
       }
     }
   }
 
   const releaseScope = root.releaseScope as JsonRecord | undefined;
-  const expectedIosPolicy = root.status === 'PASS' ? 'PASS' : 'BLOCKED';
+  const platformResults = root.platforms.map(item => (item as JsonRecord).result);
+  const derivedStatus = platformResults.every(result => result === 'PASS') ? 'PASS' : platformResults.every(result => result === 'BLOCKED') ? 'BLOCKED' : 'PARTIAL';
+  if (root.status !== derivedStatus) errors.push('root status derivation');
+  const ios = root.platforms.find(item => (item as JsonRecord).platform === 'ios') as JsonRecord | undefined;
+  const expectedIosPolicy = ios?.result === 'PASS' ? 'PASS' : 'BLOCKED';
   if (releaseScope?.iosGuideline48 !== expectedIosPolicy || releaseScope?.android !== 'NOT_BLOCKED_BY_IOS_GUIDELINE_4_8' || releaseScope?.guestGamePlay !== 'NOT_BLOCKED_BY_IOS_GUIDELINE_4_8') {
     errors.push('release scope');
   }
-  if (root.status === 'BLOCKED' && JSON.stringify(root.blockerCodes) !== JSON.stringify(expectedBlockers)) errors.push('root blockers');
-  if (root.status === 'PASS' && (!Array.isArray(root.blockerCodes) || root.blockerCodes.length !== 0)) errors.push('root blockers: forbidden for PASS');
+  const derivedBlockers = [...new Set(root.platforms.flatMap(item => Array.isArray((item as JsonRecord).blockerCodes) ? (item as JsonRecord).blockerCodes as string[] : []))];
+  if (JSON.stringify(root.blockerCodes) !== JSON.stringify(derivedBlockers)) errors.push(root.status === 'PASS' ? 'root blockers: forbidden for PASS' : 'root blockers');
   if (JSON.stringify(root.evidenceSources) !== JSON.stringify(expectedSources)) errors.push('evidence sources');
   if (root.expoGoVersionMismatchPolicy !== 'INFRASTRUCTURE_ONLY_UNTIL_DEVELOPMENT_BUILD_REPRODUCTION') errors.push('Expo Go policy');
   return errors;
+}
+
+function promote(record: JsonRecord, evidence: Map<string, string>): void {
+  record.appBuildHash = 'sha256:0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef';
+  record.osDevice = record.platform === 'android' ? 'Android 16 / Pixel 9' : 'iOS 19.0 / iPhone 16';
+  record.provider = 'GOOGLE';
+  record.callbackMode = 'DEVELOPMENT_BUILD';
+  record.result = 'PASS';
+  record.capturedAt = '2026-07-22T12:00:00.000Z';
+  record.reviewer = 'release-reviewer';
+  record.blockerCodes = [];
+  record.scenarios = (record.scenarios as JsonRecord[]).map(scenario => {
+    const path = `evidence/external/auth/device/${String(record.platform)}/${String(scenario.id).toLowerCase()}.json`;
+    const raw = JSON.stringify({ schemaVersion: '1.0.0', platform: record.platform, scenarioId: scenario.id, result: 'PASS', appBuildHash: record.appBuildHash, osDevice: record.osDevice, provider: record.provider, callbackMode: record.callbackMode, capturedAt: record.capturedAt, reviewer: record.reviewer });
+    evidence.set(path, raw);
+    return { id: scenario.id, result: 'PASS', evidenceReference: { path, sha256: `sha256:${createHash('sha256').update(raw).digest('hex')}` } };
+  });
 }
 
 describe('native authentication golden evidence contract', () => {
@@ -145,30 +181,22 @@ describe('native authentication golden evidence contract', () => {
   it('accepts complete reviewed PASS evidence but rejects incomplete PASS evidence', () => {
     const artifact = JSON.parse(fs.readFileSync(artifactPath, 'utf8')) as JsonRecord;
     const passed = structuredClone(artifact) as JsonRecord;
+    const evidence = new Map<string, string>();
     passed.status = 'PASS';
     (passed.releaseScope as JsonRecord).iosGuideline48 = 'PASS';
     passed.blockerCodes = [];
-    for (const record of passed.platforms as JsonRecord[]) {
-      record.appBuildHash = 'sha256:0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef';
-      record.osDevice = record.platform === 'android' ? 'Android 16 / Pixel 9' : 'iOS 19.0 / iPhone 16';
-      record.provider = 'GOOGLE';
-      record.callbackMode = 'DEVELOPMENT_BUILD';
-      record.result = 'PASS';
-      record.capturedAt = '2026-07-22T12:00:00.000Z';
-      record.reviewer = 'release-reviewer';
-      record.blockerCodes = [];
-      record.scenarios = (record.scenarios as JsonRecord[]).map(scenario => ({
-        id: scenario.id,
-        result: 'PASS',
-        evidenceReference: `evidence/external/auth/device/${String(record.platform)}/${String(scenario.id).toLowerCase()}.json`,
-      }));
-    }
-    expect(validate(passed)).toEqual([]);
+    for (const record of passed.platforms as JsonRecord[]) promote(record, evidence);
+    const load = (path: string): string => { const raw = evidence.get(path); if (!raw) throw new Error('missing'); return raw; };
+    expect(validate(passed, load)).toEqual([]);
     const passWithBlocker = structuredClone(passed) as JsonRecord;
     passWithBlocker.blockerCodes = ['PROVIDER_CREDENTIALS_PREVIEW'];
-    expect(validate(passWithBlocker)).toContain('root blockers: forbidden for PASS');
+    expect(validate(passWithBlocker, load)).toContain('root blockers: forbidden for PASS');
+    expect(validate(passed)).toContain('android/EMAIL_CONFIRMATION: evidence invalid');
+    const hashMismatch = structuredClone(passed) as JsonRecord;
+    ((((hashMismatch.platforms as JsonRecord[])[0].scenarios as JsonRecord[])[0].evidenceReference) as JsonRecord).sha256 = `sha256:${'0'.repeat(64)}`;
+    expect(validate(hashMismatch, load)).toContain('android/EMAIL_CONFIRMATION: evidence invalid');
     (passed.platforms as JsonRecord[])[0].reviewer = null;
-    expect(validate(passed)).toContain('android/reviewer: required for PASS');
+    expect(validate(passed, load)).toContain('android/reviewer: required for PASS');
   });
 
   it('requires exactly one Android and one iOS record', () => {
@@ -197,5 +225,37 @@ describe('native authentication golden evidence contract', () => {
     expect(external.nativeGoldenStatus).toBe(artifact.status);
     expect(external.nativeBlockerCodes).toEqual(artifact.blockerCodes);
     expect(external.nativeEvidenceSources).toEqual(artifact.evidenceSources);
+  });
+
+  it('rejects an arbitrary scenario blocker', () => {
+    const artifact = JSON.parse(fs.readFileSync(artifactPath, 'utf8')) as JsonRecord;
+    ((artifact.platforms as JsonRecord[])[0].scenarios as JsonRecord[])[0].blockerCode = 'ARBITRARY_BLOCKER';
+    expect(validate(artifact)).toContain('android/EMAIL_CONFIRMATION: blocker mismatch');
+  });
+
+  it('fails closed for long-prefix, malformed, and oversized encoded material', () => {
+    const artifact = JSON.parse(fs.readFileSync(artifactPath, 'utf8')) as JsonRecord;
+    const long = structuredClone(artifact) as JsonRecord;
+    (long.platforms as JsonRecord[])[0].callback = `${'a'.repeat(5_000)}spotlearn%3A%2F%2Fauth%2Fcallback%3Fcode%3Dopaque`;
+    const malformed = structuredClone(artifact) as JsonRecord;
+    (malformed.platforms as JsonRecord[])[0].callback = '%ZZspotlearn%3A%2F%2Fauth%2Fcallback%3Fcode%3Dopaque';
+    const oversized = structuredClone(artifact) as JsonRecord;
+    oversized.padding = 'a'.repeat(300_000);
+    expect(validate(long)).toContain('/platforms/0/callback: raw callback data');
+    expect(validate(malformed)).toEqual(expect.arrayContaining(['/platforms/0/callback: malformed percent encoding', '/platforms/0/callback: raw callback data']));
+    expect(validate(oversized)).toContain('artifact too large');
+  });
+
+  it('accepts honest Android PASS plus iOS BLOCKED as PARTIAL', () => {
+    const artifact = JSON.parse(fs.readFileSync(artifactPath, 'utf8')) as JsonRecord;
+    const evidence = new Map<string, string>();
+    artifact.status = 'PARTIAL';
+    promote((artifact.platforms as JsonRecord[])[0], evidence);
+    const ios = (artifact.platforms as JsonRecord[])[1];
+    ((ios.scenarios as JsonRecord[]).find(scenario => scenario.id === 'CONFIGURED_GOOGLE_OR_KAKAO_PROVIDER') as JsonRecord).blockerCode = 'IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN';
+    ios.blockerCodes = ['IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN', 'IOS_GUIDELINE_4_8_REVIEW'];
+    artifact.blockerCodes = ['IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN', 'IOS_GUIDELINE_4_8_REVIEW'];
+    const load = (path: string): string => { const raw = evidence.get(path); if (!raw) throw new Error('missing'); return raw; };
+    expect(validate(artifact, load)).toEqual([]);
   });
 });

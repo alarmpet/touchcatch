@@ -46,3 +46,5 @@ The checked-in manifest at `docs/testing/reports/auth-device-goldens.v1.json` is
 6. Keep each unmet dependency as its non-secret blocker code: `PROVIDER_CREDENTIALS_PREVIEW`, `ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN`, `IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN`, or `IOS_GUIDELINE_4_8_REVIEW`.
 
 An Expo Go version mismatch is infrastructure evidence only. It must not be classified as an application defect unless the same behavior is reproduced in a development build. The iOS Guideline 4.8 review remains iOS-only and cannot block Android or guest game play.
+
+Each promoted scenario points to its exact in-repository JSON evidence file and records that file's SHA-256 digest. The contract verifies file existence, the safe platform/scenario path, the digest, and exact build/device/provider/callback/capture/reviewer binding. A filename or screenshot reference alone is not PASS evidence. Platform results are independent: one platform may be `PASS` while the other remains `BLOCKED`, in which case the manifest is `PARTIAL` and retains only the unresolved platform blocker codes.
