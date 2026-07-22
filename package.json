@@ -38,8 +38,9 @@
     "release:fault": "tsx -e \"import {runDeterministicFaultHarness} from './tools/release-evidence.ts'; void runDeterministicFaultHarness(20260719).then(x=>console.log(JSON.stringify(x,null,2)))\"",
     "release:balance": "tsx tools/write-release-reports.ts --check",
     "db:start": "supabase start",
-    "test:db:concurrency": "vitest run --config vitest.db.config.ts --sequence.concurrent=false",
-    "check:db": "node tools/run-pnpm.mjs ruleset:projections:check && supabase db reset --local && supabase db lint --local --fail-on error && supabase test db --local && node tools/run-pnpm.mjs test:db:concurrency",
+    "test:auth:local": "vitest run --config vitest.db.config.ts tests/integration",
+    "test:db:concurrency": "vitest run --config vitest.db.config.ts tests/database --sequence.concurrent=false",
+    "check:db": "node tools/run-pnpm.mjs ruleset:projections:check && supabase db reset --local && supabase db lint --local --fail-on error && supabase test db --local && node tools/run-pnpm.mjs test:auth:local && node tools/run-pnpm.mjs test:db:concurrency",
     "check": "node tools/run-pnpm.mjs check:runtime && node tools/run-pnpm.mjs admin:check && node tools/run-pnpm.mjs ruleset:projections:check && node tools/run-pnpm.mjs content:schemas:check && node tools/run-pnpm.mjs ui:schemas:check && node tools/run-pnpm.mjs ui:docs:check && node tools/run-pnpm.mjs ui:reference:check && node tools/run-pnpm.mjs ui:assets:check && node tools/run-pnpm.mjs ui:acceptance:check && node tools/run-pnpm.mjs lint && node tools/run-pnpm.mjs typecheck && node tools/run-pnpm.mjs test && node tools/run-pnpm.mjs openapi:lint && node tools/run-pnpm.mjs docs:check && node tools/run-pnpm.mjs release:reports:check && node tools/run-pnpm.mjs content:validate && node tools/run-pnpm.mjs secret:scan",
     "verify": "node tools/run-pnpm.mjs check && node tools/run-pnpm.mjs check:db"
   },

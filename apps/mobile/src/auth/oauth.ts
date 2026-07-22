@@ -38,7 +38,7 @@ export function createOAuthCoordinator(dependencies: Readonly<{
       await dependencies.storage.setItem(pendingKey, JSON.stringify({ kind, stage: 'exchanging', previousSessionId: pendingTransaction.previousSessionId ?? null }));
       const exchange = dependencies.auth.exchangeCodeForSession;
       if (!exchange) throw new Error('Auth client does not implement exchangeCodeForSession');
-      const result = await exchange(code);
+      const result = await exchange.call(dependencies.auth, code);
       if (result.error) throw result.error;
       await dependencies.storage.setItem(pendingKey, JSON.stringify({ kind, stage: 'bootstrap-pending' }));
       try { await dependencies.ensureAccount(); await dependencies.storage.removeItem(pendingKey); return { state: 'READY' as const }; }

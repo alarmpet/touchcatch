@@ -48,7 +48,7 @@ export function createEmailAuth(dependencies: Readonly<{ auth: EmailAuthClient; 
       await dependencies.storage.setItem(pendingKey, JSON.stringify({ kind: 'email-confirmation', stage: 'authorization-pending' }));
       let result: AuthResult;
       try {
-        result = await requireMethod(dependencies.auth.signUp, 'signUp')({ email, password, options: { emailRedirectTo: emailCallback } });
+        result = await requireMethod(dependencies.auth.signUp, 'signUp').call(dependencies.auth, { email, password, options: { emailRedirectTo: emailCallback } });
         throwAuthError(result);
       } catch (error) {
         await dependencies.storage.removeItem(pendingKey);

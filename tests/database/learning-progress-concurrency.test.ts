@@ -5,9 +5,10 @@ import { Pool } from 'pg';
 import { afterAll, beforeAll, expect, it } from 'vitest';
 
 function localDatabaseUrl(): URL {
-  const output = execFileSync(process.execPath, [resolve('node_modules/supabase/dist/supabase.js'), 'status', '-o', 'env'], { encoding: 'utf8', windowsHide: true });
-  const raw = /^DB_URL=(?:"([^"]+)"|([^\r\n]+))$/mu.exec(output)?.slice(1).find(Boolean);
-  if (!raw) throw new Error('local DB_URL required');
+  const explicit = process.env.TEST_DATABASE_URL;
+  const output = explicit ?? execFileSync(process.execPath, [resolve('node_modules/supabase/dist/supabase.js'), 'status', '-o', 'env'], { encoding: 'utf8', windowsHide: true });
+  const raw = explicit ?? /^DB_URL=(?:"([^"]+)"|([^\r\n]+))$/mu.exec(output)?.slice(1).find(Boolean);
+  if (!raw) throw new Error('TEST_DATABASE_URL or local Supabase DB_URL is required');
   const url = new URL(raw); if (!['127.0.0.1', 'localhost', '::1'].includes(url.hostname)) throw new Error('loopback database required'); return url;
 }
 
