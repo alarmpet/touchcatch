@@ -1,6 +1,6 @@
 begin;
 create extension if not exists pgtap with schema extensions;
-select plan(30);
+select plan(32);
 
 select has_column('private','api_subjects','account_state','account state is DB authoritative');
 select has_table('private','account_deletion_jobs','durable deletion jobs exist');
@@ -18,17 +18,20 @@ select extensions.is((private.update_profile_v1('10000000-0000-4000-8000-0000000
 select extensions.throws_ok($$select private.update_profile_v1('10000000-0000-4000-8000-000000000778','20000000-0000-4000-8000-000000000002','')$$,'VALIDATION_FAILED'::text,'empty nickname rejected in DB'::text);
 select extensions.is((private.request_account_deletion_v1('10000000-0000-4000-8000-000000000778','20000000-0000-4000-8000-000000000003')->>'status')::text,'DELETING'::text,'deletion moves admission state'::text);
 select extensions.is((private.request_account_deletion_v1('10000000-0000-4000-8000-000000000778','20000000-0000-4000-8000-000000000003')->>'status')::text,'DELETING'::text,'same request replays'::text);
+select extensions.is((private.request_account_deletion_v1('10000000-0000-4000-8000-000000000778','20000000-0000-4000-8000-000000000003')->>'policyPending')::text,'false'::text,'configured hard policy is not pending'::text);
+select extensions.is((private.request_account_deletion_v1('10000000-0000-4000-8000-000000000778','20000000-0000-4000-8000-000000000003')->>'jobId')::text,(private.request_account_deletion_v1('10000000-0000-4000-8000-000000000778','20000000-0000-4000-8000-000000000003')->>'jobId')::text,'same idempotency key returns the same job'::text);
 select extensions.throws_ok($$select private.request_account_deletion_v1('10000000-0000-4000-8000-000000000778','20000000-0000-4000-8000-000000000004')$$,'IDEMPOTENCY_CONFLICT'::text,'different deletion key conflicts'::text);
 select extensions.throws_ok($$select private.ensure_account_v1('10000000-0000-4000-8000-000000000778')$$,'ACCOUNT_DELETING'::text,'bootstrap cannot resurrect deleting account'::text);
 select extensions.throws_ok($$select private.read_me_v1('10000000-0000-4000-8000-000000000778')$$,'ACCOUNT_DELETING'::text,'issued-token read is blocked'::text);
 select extensions.throws_ok($$select private.merge_learning_progress_v1('10000000-0000-4000-8000-000000000778','20000000-0000-4000-8000-000000000005',repeat('a',64),'[{"deviceEventId":"20000000-0000-4000-8000-000000000006","contentKey":"public-sample-english","contentRevision":"1","completedAt":"2026-07-20T00:00:00Z"}]')$$,'ACCOUNT_DELETING'::text,'mutation cannot race past deletion admission'::text);
-select extensions.ok(exists(select 1 from pg_catalog.pg_constraint where conrelid='private.account_deletion_jobs'::regclass and pg_catalog.pg_get_constraintdef(oid) like '%status <> ''WAITING_FOR_POLICY''%deletion_mode IS NOT NULL%'),'policy-unapproved job cannot advance'::text);
+select extensions.ok(exists(select 1 from pg_catalog.pg_constraint where conrelid='private.account_deletion_jobs'::regclass and pg_catalog.pg_get_constraintdef(oid) like '%deletion_mode = ''HARD''%'),'only approved hard deletion can advance'::text);
 reset role;
 
 select is((select account_state from private.api_subjects where user_id='10000000-0000-4000-8000-000000000778'),'DELETING','state transition is durable');
-select is((select status from private.account_deletion_jobs where auth_sub='10000000-0000-4000-8000-000000000778'),'WAITING_FOR_POLICY','hard versus soft deletion remains policy blocked');
+select is((select status from private.account_deletion_jobs where auth_sub='10000000-0000-4000-8000-000000000778'),'READY','approved hard deletion is immediately ready');
+select is((select deletion_mode from private.account_deletion_jobs where auth_sub='10000000-0000-4000-8000-000000000778'),'HARD','approved deletion mode is hard');
 select is((select count(*)::int from private.account_deletion_jobs where auth_sub='10000000-0000-4000-8000-000000000778'),1,'one opaque job exists');
-select has_function('private','approve_account_deletion_policy_v1',array['uuid','text'],'policy approval projection exists');
+select hasnt_function('private','approve_account_deletion_policy_v1',array['uuid','text'],'manual policy approval is removed');
 select has_function('private','claim_account_deletion_job_v1',array['uuid','integer'],'worker lease claim exists');
 select has_function('private','checkpoint_account_auth_deleted_v1',array['uuid','uuid','integer'],'fenced Auth checkpoint exists');
 select has_function('private','finalize_account_deletion_v1',array['uuid'],'terminal finalizer exists');
@@ -37,12 +40,6 @@ select ok((select not rolcanlogin and not rolinherit from pg_roles where rolname
 select ok(not has_table_privilege('account_worker','private.account_deletion_jobs','SELECT'),'worker cannot read jobs directly');
 
 grant usage on schema extensions to account_worker,account_deletion_policy_role;
-create temporary table job_to_approve(job_id uuid);
-insert into job_to_approve select job_id from private.account_deletion_jobs where subject_key=(select subject_key from private.api_subjects where user_id='10000000-0000-4000-8000-000000000778');
-grant select on job_to_approve to account_deletion_policy_role;
-set local role account_deletion_policy_role;
-select extensions.ok(private.approve_account_deletion_policy_v1((select job_id from job_to_approve),'HARD'),'explicit policy approval advances one job');
-reset role;
 create temporary table claimed_lease(value jsonb);
 grant all on claimed_lease to account_worker;
 set local role account_worker;

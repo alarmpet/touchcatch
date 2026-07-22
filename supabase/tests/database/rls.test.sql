@@ -26,7 +26,7 @@ select ok(not pg_has_role('app_server','deployment_role','MEMBER') and not pg_ha
 select is((select array_agg(routine_name::text order by routine_name) from information_schema.role_routine_grants where routine_schema='private' and grantee='deployment_role'),array['publish_content_revision_v1']::text[],'deployment role exact function set');
 select is((select array_agg(routine_name::text order by routine_name) from information_schema.role_routine_grants where routine_schema='private' and grantee='app_server'),array['acquire_match_lease_g3','apply_match_command_g3','ensure_account_v1','join_match_participant_v1','merge_learning_progress_v1','read_me_v1','request_account_deletion_v1','update_profile_v1']::text[],'app server exact function set');
 select is((select array_agg(routine_name::text order by routine_name) from information_schema.role_routine_grants where routine_schema='private' and grantee='account_worker'),array['checkpoint_account_auth_deleted_v1','claim_account_deletion_job_v1','finalize_account_deletion_v1']::text[],'account worker exact function set');
-select is((select array_agg(routine_name::text order by routine_name) from information_schema.role_routine_grants where routine_schema='private' and grantee='account_deletion_policy_role'),array['approve_account_deletion_policy_v1']::text[],'account deletion policy exact function set');
+select is((select array_agg(routine_name::text order by routine_name) from information_schema.role_routine_grants where routine_schema='private' and grantee='account_deletion_policy_role'),null::text[],'obsolete account deletion policy role has no function surface');
 select ok(not has_schema_privilege('game_security_owner','public','CREATE'), 'security owner cannot create arbitrary public objects after migration');
 select ok((select proconfig = array['search_path=pg_catalog'] from pg_proc where oid='private.publish_content_revision_v1(jsonb,jsonb,jsonb,text,text,text,text)'::regprocedure), 'publish definer pins exact search_path');
 select ok((select proowner = (select oid from pg_roles where rolname='game_security_owner') from pg_proc where oid='private.publish_content_revision_v1(jsonb,jsonb,jsonb,text,text,text,text)'::regprocedure), 'publish definer has dedicated owner');
@@ -54,7 +54,6 @@ select is((select count(*)::int from pg_proc where prosecdef and pronamespace in
   'private.reject_inactive_learning_mutation_v1()'::regprocedure,
   'private.update_profile_v1(uuid,uuid,text)'::regprocedure,
   'private.request_account_deletion_v1(uuid,uuid)'::regprocedure,
-  'private.approve_account_deletion_policy_v1(uuid,text)'::regprocedure,
   'private.claim_account_deletion_job_v1(uuid,integer)'::regprocedure,
   'private.checkpoint_account_auth_deleted_v1(uuid,uuid,integer)'::regprocedure,
   'private.finalize_account_deletion_v1(uuid)'::regprocedure,

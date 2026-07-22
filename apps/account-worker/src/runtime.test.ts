@@ -6,7 +6,7 @@ const lease = { jobId: '00000000-0000-4000-8000-000000000001', authSub: '0000000
 it('deletes Auth, then checkpoints without retaining an access JWT', async () => {
   const deleteUser = vi.fn(async () => ({ error: null })); const checkpoint = vi.fn(async () => undefined);
   await processDeletionLease(lease, { deleteUser }, { checkpoint });
-  expect(deleteUser).toHaveBeenCalledWith(lease.authSub, false);
+  expect(deleteUser).toHaveBeenCalledWith(lease.authSub);
   expect(checkpoint).toHaveBeenCalledWith({ jobId: lease.jobId, leaseToken: lease.leaseToken, leaseGeneration: 1 });
   expect(deleteUser.mock.invocationCallOrder[0]).toBeLessThan(checkpoint.mock.invocationCallOrder[0]!);
 });
@@ -29,7 +29,7 @@ it('exposes only deleteUser from the Supabase Admin client', async () => {
   const rawAdmin = { deleteUser, listUsers: vi.fn(), updateUserById: vi.fn() };
   const adapter = createDeletionAuthAdmin(rawAdmin);
   expect(Object.keys(adapter)).toEqual(['deleteUser']);
-  await adapter.deleteUser(lease.authSub, false);
+  await adapter.deleteUser(lease.authSub);
   expect(deleteUser).toHaveBeenCalledWith(lease.authSub, false);
 });
 
@@ -64,10 +64,9 @@ it('uses only fenced DB projections to claim, checkpoint and finalize jobs', asy
   ]);
 });
 
-it('uses Supabase soft deletion only for an explicitly SOFT lease', async () => {
-  const deleteUser = vi.fn(async () => ({ error: null }));
-  await processDeletionLease({ ...lease, deletionMode: 'SOFT' }, { deleteUser }, { checkpoint: async () => undefined });
-  expect(deleteUser).toHaveBeenCalledWith(lease.authSub, true);
+it('rejects a SOFT lease at the worker boundary', async () => {
+  const query = vi.fn(async () => ({ rows: [{ value: { ...lease, deletionMode: 'SOFT' } }] }));
+  await expect(createDeletionJobStore({ query }).claim(crypto.randomUUID(), 30_000)).rejects.toThrow(/INVALID_DELETION_LEASE/);
 });
 
 it('treats an already missing Auth user as retry success but preserves other failures', async () => {

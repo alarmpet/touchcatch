@@ -1,4 +1,4 @@
-export type DeletionLease = Readonly<{ jobId: string; authSub: string; deletionMode: 'HARD' | 'SOFT'; leaseToken: string; leaseGeneration: number }>;
+export type DeletionLease = Readonly<{ jobId: string; authSub: string; deletionMode: 'HARD'; leaseToken: string; leaseGeneration: number }>;
 export type AccountWorkerEnv = Readonly<{ DATABASE_URL: string; SUPABASE_URL: string; SUPABASE_SECRET_KEY: string; ACCOUNT_WORKER_ID: string }>;
 const uuidV4 = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/iu;
 export function parseAccountWorkerEnv(raw: Readonly<Record<string, string | undefined>>): AccountWorkerEnv {
@@ -8,7 +8,7 @@ export function parseAccountWorkerEnv(raw: Readonly<Record<string, string | unde
   return { DATABASE_URL, SUPABASE_URL: SUPABASE_URL.replace(/\/$/u, ''), SUPABASE_SECRET_KEY, ACCOUNT_WORKER_ID };
 }
 type AuthAdmin = Readonly<{
-  deleteUser(userId: string, shouldSoftDelete: boolean): Promise<{ error: null | { code?: string | undefined; message?: string | undefined } }>;
+  deleteUser(userId: string): Promise<{ error: null | { code?: string | undefined; message?: string | undefined } }>;
 }>;
 type Store = Readonly<{ checkpoint(input: Readonly<{ jobId: string; leaseToken: string; leaseGeneration: number }>): Promise<void> }>;
 type Database = Readonly<{ query(text: string, values: readonly unknown[]): Promise<{ rows: Array<{ value: unknown }> }> }>;
@@ -20,11 +20,11 @@ export function createAccountWorkerDatabase(pool: Readonly<{ connect(): Promise<
 function failure(error: { code?: string | undefined; message?: string | undefined }): Error { return new Error(error.code ?? error.message ?? 'AUTH_ADMIN_FAILED'); }
 
 export function createDeletionAuthAdmin(admin: Readonly<{ deleteUser(userId: string, shouldSoftDelete: boolean): Promise<{ error: null | { code?: string | undefined; message?: string | undefined } }> }>): AuthAdmin {
-  return { deleteUser: (userId, shouldSoftDelete) => admin.deleteUser(userId, shouldSoftDelete) };
+  return { deleteUser: (userId) => admin.deleteUser(userId, false) };
 }
 
 export async function processDeletionLease(lease: DeletionLease, auth: AuthAdmin, store: Store): Promise<void> {
-  const deleted = await auth.deleteUser(lease.authSub, lease.deletionMode === 'SOFT');
+  const deleted = await auth.deleteUser(lease.authSub);
   if (deleted.error && deleted.error.code !== 'user_not_found') throw failure(deleted.error);
   await store.checkpoint({ jobId: lease.jobId, leaseToken: lease.leaseToken, leaseGeneration: lease.leaseGeneration });
 }
@@ -35,7 +35,7 @@ export function createDeletionJobStore(database: Database) {
       const value = (await database.query('select private.claim_account_deletion_job_v1($1::uuid,$2::integer) as value', [workerId, leaseMs])).rows[0]?.value;
       if (value === null || value === undefined) return null;
       const lease = value as Partial<DeletionLease>;
-      if (typeof lease.jobId !== 'string' || typeof lease.authSub !== 'string' || !['HARD', 'SOFT'].includes(String(lease.deletionMode)) || typeof lease.leaseToken !== 'string' || !Number.isInteger(lease.leaseGeneration)) throw new Error('INVALID_DELETION_LEASE');
+      if (typeof lease.jobId !== 'string' || typeof lease.authSub !== 'string' || lease.deletionMode !== 'HARD' || typeof lease.leaseToken !== 'string' || !Number.isInteger(lease.leaseGeneration)) throw new Error('INVALID_DELETION_LEASE');
       return lease as DeletionLease;
     },
     async checkpoint(input: Readonly<{ jobId: string; leaseToken: string; leaseGeneration: number }>): Promise<void> {

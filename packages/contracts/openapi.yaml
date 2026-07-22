@@ -16,7 +16,7 @@ paths:
       responses: { "200": { $ref: "#/components/responses/MeResponse" }, "400": { $ref: "#/components/responses/ValidationError" }, "401": { $ref: "#/components/responses/MeError" }, "403": { $ref: "#/components/responses/MeForbiddenError" }, "429": { $ref: "#/components/responses/RateLimitError" }, "503": { $ref: "#/components/responses/AccountSetupError" } }
     delete:
       operationId: deleteMe
-      summary: Enter the fail-closed account deletion lifecycle; external Auth deletion remains policy pending
+      summary: Enter the fail-closed HARD account deletion lifecycle
       parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
       responses: { "202": { $ref: "#/components/responses/AccountDeletionResponse" }, "400": { $ref: "#/components/responses/ValidationError" }, "401": { $ref: "#/components/responses/MeError" }, "403": { $ref: "#/components/responses/MeForbiddenError" }, "409": { $ref: "#/components/responses/AccountDeletionConflictError" } }
   /v1/learning/progress/merge:
@@ -124,7 +124,7 @@ components:
     FriendRoomCreateRequest: { type: object, additionalProperties: false, maxProperties: 0 }
     FriendRoomJoinRequest: { type: object, additionalProperties: false, maxProperties: 0 }
     MeResponse: { type: object, additionalProperties: false, required: [profile, points], properties: { profile: { type: object, additionalProperties: false, required: [displayName], properties: { displayName: { type: string } } }, points: { type: integer, minimum: 0 } } }
-    AccountDeletionResponse: { type: object, additionalProperties: false, required: [jobId, status, policyPending], properties: { jobId: { type: string, format: uuid }, status: { const: DELETING }, policyPending: { const: true } } }
+    AccountDeletionResponse: { type: object, additionalProperties: false, required: [jobId, status, policyPending], properties: { jobId: { type: string, format: uuid }, status: { const: DELETING }, policyPending: { const: false } } }
     AccountDeletionConflictError: { type: object, additionalProperties: false, required: [code], properties: { code: { const: IDEMPOTENCY_CONFLICT } } }
     PetsResponse: { type: object, additionalProperties: false, required: [items, nextCursor], properties: { items: { type: array, items: { $ref: "#/components/schemas/Pet" } }, nextCursor: { type: [string, "null"], maxLength: 512 } } }
     Pet: { type: object, additionalProperties: false, required: [id, catalogId, level, exp, copies, selected, locked], properties: { id: { type: string }, catalogId: { type: string }, level: { type: integer, minimum: 1 }, exp: { type: integer, minimum: 0 }, copies: { type: integer, minimum: 1 }, selected: { type: boolean }, locked: { type: boolean } } }
@@ -159,7 +159,7 @@ components:
     FriendRoomLeaveError: *cancelError
   responses:
     MeResponse: &meResponse { description: Profile, content: { application/json: { schema: { $ref: "#/components/schemas/MeResponse" } } } }
-    AccountDeletionResponse: { description: Account access is blocked while the hard/soft Auth deletion policy remains pending, content: { application/json: { schema: { $ref: "#/components/schemas/AccountDeletionResponse" } } } }
+    AccountDeletionResponse: { description: Account access is blocked while the configured HARD deletion job runs, content: { application/json: { schema: { $ref: "#/components/schemas/AccountDeletionResponse" } } } }
     AccountDeletionConflictError: { description: Deletion idempotency conflict, content: { application/json: { schema: { $ref: "#/components/schemas/AccountDeletionConflictError" } } } }
     PetsResponse: { description: Pets, content: { application/json: { schema: { $ref: "#/components/schemas/PetsResponse" } } } }
     SelectPetResponse: { description: Selected pet, content: { application/json: { schema: { $ref: "#/components/schemas/SelectPetResponse" } } } }
