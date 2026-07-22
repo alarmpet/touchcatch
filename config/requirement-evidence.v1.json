@@ -1851,7 +1851,14 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "privacy",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Keep the deterministic repository-local SEC-001 runtime probe and semantic-result mutations green"
+      "closureCondition": "Keep the deterministic repository-local SEC-001 runtime probe and semantic-result mutations green",
+      "externalEvidence": {
+        "status": "BLOCKED",
+        "externalKind": "PROVIDER_CREDENTIALS",
+        "evidencePath": "docs/operations/supabase-auth-provider-handoff.md",
+        "closureCondition": "Verify redacted preview and production provider-console and Supabase redirect configuration evidence",
+        "localEvidenceScope": "LOCAL_AUTH_CODE_AND_INTEGRATION"
+      }
     },
     {
       "id": "SEC-002",

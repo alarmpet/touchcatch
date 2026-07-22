@@ -2489,7 +2489,7 @@
     {
       "id": "API-001",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 8,
+      "sourceLine": 10,
       "section": "REST",
       "text": "GET /v1/me",
       "fingerprint": "a2209ffe9c43f7fcf73a17659369638a510e8f26124ce30f43afece516ac0a27",
@@ -2507,7 +2507,7 @@
     {
       "id": "API-002",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 9,
+      "sourceLine": 11,
       "section": "REST",
       "text": "GET /v1/pets",
       "fingerprint": "0955ff223423efa9fb54fce923816572aaa1e93d158e8c94655ee20f95836998",
@@ -2525,7 +2525,7 @@
     {
       "id": "API-003",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 10,
+      "sourceLine": 12,
       "section": "REST",
       "text": "POST /v1/pets/:id/lock",
       "fingerprint": "eb2fc7afcc1a6ff94f82578ad273b5c86a0f011f0fc444cd60108a1da5044e4e",
@@ -2543,7 +2543,7 @@
     {
       "id": "API-004",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 11,
+      "sourceLine": 13,
       "section": "REST",
       "text": "POST /v1/pets/:id/select",
       "fingerprint": "7c7e7c2f37ff8e48ab05f70a23bb1f403a67224a5733fe876ce3b8b135a891dd",
@@ -2561,7 +2561,7 @@
     {
       "id": "API-006",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 12,
+      "sourceLine": 14,
       "section": "REST",
       "text": "POST /v1/gacha/draw",
       "fingerprint": "c89ff06cb2a3f69cd620dfb23f59bf72087d74f1c4430a7c4ce81c3aae94be76",
@@ -2579,7 +2579,7 @@
     {
       "id": "API-007",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 13,
+      "sourceLine": 15,
       "section": "REST",
       "text": "POST /v1/fusion",
       "fingerprint": "6e04785fe529eebee5aff5874e1a2dd4f788c47981c5581737d4eb41be2f8be2",
@@ -2597,7 +2597,7 @@
     {
       "id": "API-008",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 14,
+      "sourceLine": 16,
       "section": "REST",
       "text": "POST /v1/matches/queue",
       "fingerprint": "b8b3310d9d805ff6752da77edab89bce2e325a5c94a7f2858b1cbe6e6e801c58",
@@ -2615,7 +2615,7 @@
     {
       "id": "API-009",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 15,
+      "sourceLine": 17,
       "section": "REST",
       "text": "POST /v1/matches/friend-room",
       "fingerprint": "6f3ff8aa62df704541191842d9e2939e8e275d4dae2326ee3f2c819477a5b30e",
@@ -2633,7 +2633,7 @@
     {
       "id": "API-010",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 18,
+      "sourceLine": 20,
       "section": "Client → Server",
       "text": "ready",
       "fingerprint": "1d2f98405eda4a1b343b9ce736c8b1804809a0ba62febbd85a8597c01b00f3fe",
@@ -2651,7 +2651,7 @@
     {
       "id": "API-011",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 19,
+      "sourceLine": 21,
       "section": "Client → Server",
       "text": "tap_image",
       "fingerprint": "7b80094e3e1eedfd6f1fc1a8280b07fcf38c0c37409d595e81b9ce5a9407c6e4",
@@ -2669,7 +2669,7 @@
     {
       "id": "API-012",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 20,
+      "sourceLine": 22,
       "section": "Client → Server",
       "text": "submit_final_answer",
       "fingerprint": "7ed1cf1e9daeda4001a0ecdeeeb0a57ef2f3bcdd68a122e453caa6c8889d9789",
@@ -2687,7 +2687,7 @@
     {
       "id": "API-013",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 21,
+      "sourceLine": 23,
       "section": "Client → Server",
       "text": "submit_meaning",
       "fingerprint": "6e5d00b046fab378a30ee0bcd8a2c7c02c2eaf9d6682c2d75e090539678aa0e5",
@@ -2705,7 +2705,7 @@
     {
       "id": "API-014",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 22,
+      "sourceLine": 24,
       "section": "Client → Server",
       "text": "use_hint",
       "fingerprint": "40a4c9fbbc5723f51273565fc6e1af97f67a1451194292a098742e0fe803e4b9",
@@ -2723,7 +2723,7 @@
     {
       "id": "API-015",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 25,
+      "sourceLine": 27,
       "section": "Server → Client",
       "text": "match_snapshot",
       "fingerprint": "e277727f5e6d03b3932b18fbd541163bf3487a4979e3abf58e2f90e08dbee609",
@@ -2741,7 +2741,7 @@
     {
       "id": "API-016",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 26,
+      "sourceLine": 28,
       "section": "Server → Client",
       "text": "match_started",
       "fingerprint": "f98f593f81b256deea64a6d67adeca44b8dc0c6164f7849889fe00bc2bb9d6d7",
@@ -2759,7 +2759,7 @@
     {
       "id": "API-017",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 27,
+      "sourceLine": 29,
       "section": "Server → Client",
       "text": "tap_result",
       "fingerprint": "601f81bccb017eef9b50f7a3c8522dec9680c5097b3d102b764041041aebb8c1",
@@ -2777,7 +2777,7 @@
     {
       "id": "API-018",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 28,
+      "sourceLine": 30,
       "section": "Server → Client",
       "text": "difference_claimed",
       "fingerprint": "de20287ab2979243d17a932e7ab7e066b2bbf46a0812a9e1b3ba5382eb7c8505",
@@ -2795,7 +2795,7 @@
     {
       "id": "API-019",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 29,
+      "sourceLine": 31,
       "section": "Server → Client",
       "text": "word_hunt_started",
       "fingerprint": "a9e43cb26cbdafaf4f0b310fa5133200a544d0203f8e4d084fb055494c9ee620",
@@ -2813,7 +2813,7 @@
     {
       "id": "API-020",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 30,
+      "sourceLine": 32,
       "section": "Server → Client",
       "text": "word_hunt_won",
       "fingerprint": "110b794801b7833c4671f4e80ce9a6bd29e8470d61730737050f2e4b8fe4d08f",
@@ -2831,7 +2831,7 @@
     {
       "id": "API-021",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 31,
+      "sourceLine": 33,
       "section": "Server → Client",
       "text": "score_changed",
       "fingerprint": "0de844ed580f81522b21ba3dc302d4de7076b88f838c027d72c5c51fc67e221f",
@@ -2849,7 +2849,7 @@
     {
       "id": "API-022",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 32,
+      "sourceLine": 34,
       "section": "Server → Client",
       "text": "final_rush_started",
       "fingerprint": "5f1942150433cbe8bea3f50970817c1b29db7c2ac55bb6c9c80b6670128e9e84",
@@ -2867,7 +2867,7 @@
     {
       "id": "API-023",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 33,
+      "sourceLine": 35,
       "section": "Server → Client",
       "text": "meaning_quiz_started",
       "fingerprint": "8335bf76c6bd8ef3a0d45e582f40e02fff34d23d76fcd3c55028cfa087d5b98f",
@@ -2885,7 +2885,7 @@
     {
       "id": "API-024",
       "source": "09_API_AND_SOCKET_EVENTS.md",
-      "sourceLine": 34,
+      "sourceLine": 36,
       "section": "Server → Client",
       "text": "match_finished",
       "fingerprint": "8b5d88fbf4ff7ceeea122660537c71ddcfe5eeded20b430725457cfce48f143c",

@@ -4,6 +4,8 @@
 
 All routes use Bearer authentication. State-changing POST and DELETE operations require UUIDv4 `Idempotency-Key`; GET operations do not. Rejected Socket commands return only an ack. Private viewer events become `state_advanced` at the same cursor. Canonical answers, aliases, `correctOptionId`, undiscovered hitboxes, auth UUIDs, raw JWTs, and private attestation or failure detail are forbidden. <!-- REQ: API-005 -->
 
+## Auth provider operations: `docs/operations/supabase-auth-provider-handoff.md`; `spotlearn://auth/callback`; `spotlearn://auth/recovery`
+
 ## REST
 - GET /v1/me <!-- REQ: API-001 -->
 - GET /v1/pets <!-- REQ: API-002 -->
