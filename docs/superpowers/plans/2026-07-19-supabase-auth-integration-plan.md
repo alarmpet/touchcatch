@@ -22,9 +22,10 @@
 
 - `[x]`는 구현 커밋(`8c08d6b`, `6eafeba`, `951b25b`, `f19d236`, `518c0ad`, `4f05b85`, `45cb910`)과 현재 pinned Node `24.18.0` focused evidence가 함께 확인한 항목에만 사용한다.
 - 과거 RED 실행 로그가 보존되지 않은 항목과 현재 DB focused gate를 다시 실행하지 않은 항목은 구현 파일이 있어도 `[ ]`로 유지한다.
-- focused auth suite는 23 files / 103 tests가 PASS했지만 `packages/contracts/src/openapi.test.ts`의 Task 7 이후 기대값 drift 2건이 남아 있으므로 전체 focused PASS로 기록하지 않는다.
-- SEC-001 targeted generated coverage는 PASS다. 전체 generated coverage의 기존 `OBS-002`, `DATA-012`, `API-005`, `API-001` 4건과 docs check의 기존 numeric approval drift `DATA-004`, `DATA-017`, `DATA-027`은 이 완료 이력에서 PASS로 승격하지 않는다.
-- aggregate `check`/`verify`는 PASS로 주장하지 않는다. 마지막 실행은 Windows Turbopack의 `node_modules/pg` junction-point 오류에서 중단되었으므로 aggregate는 pending이다.
+- Task 7 재검증에서 JWT/REST·Socket/auth UUID/guest/deletion/PKCE/provider·device 계약 focused suite는 **15 files / 89 tests PASS**, 실제 local deletion cascade/concurrency는 **2 files / 4 tests PASS**했다.
+- 전체 generated coverage는 **221/226 PASS**이며 `OBS-002`, `DATA-012`, `DATA-027`, `API-005`, `API-001` 5건은 Task 7 기준 커밋 `78b6614`에서 재현되는 기존 oracle 불일치다. docs check도 구조·추적성 drift는 0건이지만 numeric approval drift `DATA-004`, `DATA-017`, `DATA-027` 3건 때문에 FAIL이다.
+- exact Node `24.18.0`/pnpm `11.13.0` aggregate `verify`는 runtime과 admin typecheck를 통과한 뒤 Windows Turbopack가 worktree의 `node_modules/pg` junction을 만들지 못해 중단됐다. 따라서 aggregate PASS는 주장하지 않는다.
+- root `typecheck`도 기준 커밋에서 재현되는 workspace 오류가 있어 FAIL이다. OpenAPI lint와 scoped secretlint는 PASS했다.
 
 ---
 
@@ -212,12 +213,12 @@
 - [ ] **Step 1: 규범 문장과 oracle RED** — 기존 SEC-001을 확장할 수 있으면 새 ID를 만들지 않고 schema/test/metric을 연결한다. 별도 의미일 때만 다음 미사용 AUTH/SEC ID를 generator 규칙으로 발급한다.
 - [ ] **Step 2: local integration 작성** — Inbucket email confirm, PKCE exchange, `/v1/me`, forged/expired JWT, bootstrap replay, redaction을 실제 local Supabase에 검증한다.
 - [ ] **Step 3: operations handoff 작성** — Google/Kakao callback, exact app redirect, secret 위치, Apple 4.8, privacy/retention, Android/iOS development-build golden을 체크박스로 기록하고 미승인 항목은 `BLOCKED`로 둔다.
-- [ ] **Step 4: 전체 검증** — `corepack pnpm verify`; expected PASS. `rg -n "access_token|refresh_token|service_role|SUPABASE_SECRET_KEY" apps/mobile docs/operations` 결과에 실제 secret 값이 없어야 한다.
+- [ ] **Step 4: 전체 검증** — exact pinned runtime의 `pnpm verify`는 Windows Turbopack junction 오류로 FAIL했다. focused auth 89/89, local deletion 4/4, OpenAPI lint와 scoped secretlint는 PASS했으며, generated coverage 5건·docs numeric approval 3건·root typecheck는 기준 커밋 결함으로 별도 기록했다.
 - [ ] **Step 5: 읽기 전용 최종 리뷰** — 고정 diff를 별도 reviewer에게 주고 JWT 경계, auth UUID 유출, guest bundle, deletion retry를 검토받아 Important 이상을 모두 닫는다.
 - [ ] **Step 6: 커밋** — `git add 06_CLIENT_ARCHITECTURE.md 09_API_AND_SOCKET_EVENTS.md docs config tests/integration && git commit -m "docs(auth): bind integration evidence and handoff"`.
 
 ## 완료 판정
 
-- 코드 완료: `corepack pnpm verify`와 읽기 전용 diff review가 통과하고 실제 secret/token/UUID 유출이 0건이다.
+- 코드 완료: focused 보안·인증·삭제 경계와 scoped secret scan은 통과했지만 aggregate `verify`, generated coverage, docs check, root typecheck가 아직 실패하므로 완료로 승격하지 않는다.
 - 로컬 통합 완료: Supabase reset 뒤 email confirm→bootstrap→`/v1/me`→merge→delete가 재현된다.
 - production 준비 완료: 코드 완료만으로 승격하지 않는다. Google/Kakao credential, retention/legal, Apple 정책 판단, 실제 Android/iOS golden이 모두 승인되어야 한다.
