@@ -190,7 +190,7 @@
 - [x] **Step 3: boundary 회귀** — JWT algorithm/issuer/audience/expiry, REST/Socket 동일 verifier, auth UUID 비노출, guest production bundle, deletion retry/fencing/cascade, PKCE restart recovery, provider/device evidence 계약은 15 files/89 tests 및 local DB 2 files/4 tests PASS했다.
 - [ ] **Step 4: 읽기 전용 리뷰** — 별도 reviewer가 고정 diff에서 Blocker/Important만 보고하게 하고 지적은 각 항목별 RED test 후 수정·재리뷰한다.
 - [x] **Step 5: 계획 상태 갱신** — 실행한 검증만 갱신했다. provider credentials, Android/iOS device golden, iOS 4.8, trusted reviewer governance는 계속 `BLOCKED`다.
-- [ ] **Step 6: 커밋** — `git commit -m "docs(auth): close integration evidence"`.
+- [x] **Step 6: 커밋** — `1d80bc1` (`docs(auth): close integration evidence`).
 
 ### Task 8: dirty main을 보존하는 통합
 
