@@ -1,6 +1,16 @@
 {
   "schemaVersion": "1.0.0",
   "status": "BLOCKED",
+  "blockerCodes": [
+    "PROVIDER_CREDENTIALS_PREVIEW",
+    "ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN",
+    "IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN",
+    "IOS_GUIDELINE_4_8_REVIEW"
+  ],
+  "evidenceSources": [
+    "docs/operations/supabase-auth-provider-handoff.md",
+    "tests/contracts/auth-device-goldens.test.ts"
+  ],
   "platforms": [
     {
       "platform": "android",
