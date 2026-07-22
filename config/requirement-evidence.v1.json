@@ -1857,7 +1857,15 @@
         "externalKind": "PROVIDER_CREDENTIALS",
         "evidencePath": "docs/operations/supabase-auth-provider-handoff.md",
         "closureCondition": "Verify redacted preview and production provider-console and Supabase redirect configuration evidence",
-        "localEvidenceScope": "LOCAL_AUTH_CODE_AND_INTEGRATION"
+        "localEvidenceScope": "LOCAL_AUTH_CODE_AND_INTEGRATION",
+        "nativeGoldenManifest": "docs/testing/reports/auth-device-goldens.v1.json",
+        "nativeGoldenStatus": "BLOCKED",
+        "nativeBlockerCodes": [
+          "PROVIDER_CREDENTIALS_PREVIEW",
+          "ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN",
+          "IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN",
+          "IOS_GUIDELINE_4_8_REVIEW"
+        ]
       }
     },
     {

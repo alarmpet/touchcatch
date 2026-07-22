@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "BLOCKED",
+  "platforms": [
+    {
+      "platform": "android",
+      "appBuildHash": null,
+      "osDevice": null,
+      "provider": null,
+      "callbackMode": null,
+      "result": "BLOCKED",
+      "capturedAt": null,
+      "reviewer": null,
+      "blockerCodes": [
+        "PROVIDER_CREDENTIALS_PREVIEW",
+        "ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN"
+      ],
+      "scenarios": [
+        { "id": "EMAIL_CONFIRMATION", "result": "BLOCKED", "blockerCode": "ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN" },
+        { "id": "CONFIGURED_GOOGLE_OR_KAKAO_PROVIDER", "result": "BLOCKED", "blockerCode": "PROVIDER_CREDENTIALS_PREVIEW" },
+        { "id": "COLD_START_CALLBACK", "result": "BLOCKED", "blockerCode": "ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN" },
+        { "id": "LIVE_CALLBACK", "result": "BLOCKED", "blockerCode": "ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN" },
+        { "id": "RESTART_RECOVERY", "result": "BLOCKED", "blockerCode": "ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN" },
+        { "id": "LOGOUT", "result": "BLOCKED", "blockerCode": "ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN" },
+        { "id": "ACCOUNT_DELETION", "result": "BLOCKED", "blockerCode": "ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN" }
+      ]
+    },
+    {
+      "platform": "ios",
+      "appBuildHash": null,
+      "osDevice": null,
+      "provider": null,
+      "callbackMode": null,
+      "result": "BLOCKED",
+      "capturedAt": null,
+      "reviewer": null,
+      "blockerCodes": [
+        "PROVIDER_CREDENTIALS_PREVIEW",
+        "IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN",
+        "IOS_GUIDELINE_4_8_REVIEW"
+      ],
+      "scenarios": [
+        { "id": "EMAIL_CONFIRMATION", "result": "BLOCKED", "blockerCode": "IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN" },
+        { "id": "CONFIGURED_GOOGLE_OR_KAKAO_PROVIDER", "result": "BLOCKED", "blockerCode": "PROVIDER_CREDENTIALS_PREVIEW" },
+        { "id": "COLD_START_CALLBACK", "result": "BLOCKED", "blockerCode": "IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN" },
+        { "id": "LIVE_CALLBACK", "result": "BLOCKED", "blockerCode": "IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN" },
+        { "id": "RESTART_RECOVERY", "result": "BLOCKED", "blockerCode": "IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN" },
+        { "id": "LOGOUT", "result": "BLOCKED", "blockerCode": "IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN" },
+        { "id": "ACCOUNT_DELETION", "result": "BLOCKED", "blockerCode": "IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN" }
+      ]
+    }
+  ],
+  "releaseScope": {
+    "iosGuideline48": "BLOCKED",
+    "android": "NOT_BLOCKED_BY_IOS_GUIDELINE_4_8",
+    "guestGamePlay": "NOT_BLOCKED_BY_IOS_GUIDELINE_4_8"
+  },
+  "expoGoVersionMismatchPolicy": "INFRASTRUCTURE_ONLY_UNTIL_DEVELOPMENT_BUILD_REPRODUCTION"
+}

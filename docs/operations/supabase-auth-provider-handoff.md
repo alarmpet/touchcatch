@@ -33,3 +33,16 @@ The project reference is selected from the target environment's approved Supabas
 When Google or Kakao is offered as a primary account login, the iOS release verifier checks the equivalent-login conditions in Apple App Review Guideline 4.8 before release and records that decision under the production evidence path. With no review evidence, `iOS release: BLOCKED`.
 
 This iOS policy gate is platform-specific: `Android release: not blocked by the iOS policy gate`, and `guest game play: not blocked by the iOS policy gate`. Their own independent release gates still apply.
+
+## Native development-build golden handoff
+
+The checked-in manifest at `docs/testing/reports/auth-device-goldens.v1.json` is the native authentication evidence contract, not evidence that a run occurred. Android and iOS remain `BLOCKED` until a human runner completes the following steps on an actual development build. A web run, source review, or Expo Go run cannot promote a native scenario to `PASS`.
+
+1. Obtain the preview build and provider access through the approved out-of-repository secret manager. Never paste credentials into the manifest, terminal transcript, screenshots, or issue text.
+2. Record the immutable application build hash and the exact OS/device description before testing. Use an Android record only for Android evidence and an iOS record only for iOS evidence.
+3. Exercise, in manifest order, email confirmation, one configured Google or Kakao provider, a callback received after a cold start, a callback received while the app is live, restart/recovery, logout, and account deletion.
+4. For callback evidence, retain only the callback mode and outcome. Remove the entire query and fragment before capturing or transcribing a URL. Never retain authorization codes or credential/session material.
+5. Have a named human reviewer compare the evidence to the exact build, device, and scenario list. Only then replace the applicable scenario and platform `BLOCKED` values with reviewed results and real UTC capture metadata.
+6. Keep each unmet dependency as its non-secret blocker code: `PROVIDER_CREDENTIALS_PREVIEW`, `ANDROID_DEVELOPMENT_BUILD_DEVICE_GOLDEN`, `IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN`, or `IOS_GUIDELINE_4_8_REVIEW`.
+
+An Expo Go version mismatch is infrastructure evidence only. It must not be classified as an application defect unless the same behavior is reproduced in a development build. The iOS Guideline 4.8 review remains iOS-only and cannot block Android or guest game play.
