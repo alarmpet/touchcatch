@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-paradox-labyrinth-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized subtle Advanced-level differences:
+1. Change the traveler's cloak color from dark blue to crimson red.
+2. Recolor the lantern glow from warm yellow to bright teal blue.
+3. Change the impossible cube face color from silver to gold.
+4. Remove one small floating stone crystal near the upper arch.
+5. Recolor the portal glow ring from violet to orange.
+6. Change the floating compass needle color from red to white.
+7. Remove one small stair step from the upside-down staircase.
+8. Recolor the polyhedral crystal from cyan to magenta.
+9. Add one extra small glowing orb floating near the traveler's shoulder.
+10. Remove the small key emblem carved on the stone pillar.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

@@ -1,0 +1,293 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "f8d8b966-0b85-4db4-8633-847ea608a7b3",
+    "version": 1,
+    "contentRevisionId": "e9ef2b41-b3d9-49af-89f7-f20bb1550637",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-equilibrium-cliff",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/5a27e5ca600d2b8441bb84f92505c08758d3a88654a91fa2f8ca033acc2c3b57.png",
+      "sha256": "5a27e5ca600d2b8441bb84f92505c08758d3a88654a91fa2f8ca033acc2c3b57",
+      "encodedBytes": 1679063,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/58d094521ee79d41e45449e76a99d70d55cad2833ccea9224f506c8643a146c6.png",
+      "sha256": "58d094521ee79d41e45449e76a99d70d55cad2833ccea9224f506c8643a146c6",
+      "encodedBytes": 1875169,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "e9ef2b41-b3d9-49af-89f7-f20bb1550637",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.348,
+            "cy": 0.671,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.348,
+            "cy": 0.671,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.234,
+            "cy": 0.673,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.234,
+            "cy": 0.673,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.454,
+            "cy": 0.619,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.454,
+            "cy": 0.619,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.075,
+            "cy": 0.711,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.075,
+            "cy": 0.711,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.766,
+            "cy": 0.697,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.766,
+            "cy": 0.697,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.186,
+            "cy": 0.557,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.186,
+            "cy": 0.557,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.343,
+            "cy": 0.822,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.343,
+            "cy": 0.822,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.636,
+            "cy": 0.574,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.636,
+            "cy": 0.574,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.061,
+            "cy": 0.534,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.061,
+            "cy": 0.534,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-equilibrium-cliff",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.348,
+            "cy": 0.671,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.348,
+            "cy": 0.671,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-equilibrium-cliff",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.234,
+            "cy": 0.673,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.234,
+            "cy": 0.673,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-equilibrium-cliff",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.454,
+            "cy": 0.619,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.454,
+            "cy": 0.619,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.348,
+          "cy": 0.671,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.348,
+          "cy": 0.671,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "equilibrium",
+      "aliases": [
+        "balance",
+        "harmony"
+      ],
+      "hintUnits": [
+        "e",
+        "q",
+        "u",
+        "i",
+        "l",
+        "i",
+        "b",
+        "r",
+        "i",
+        "u",
+        "m"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '평형'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Equilibrium"
+          },
+          {
+            "id": "option_2",
+            "label": "Equipment"
+          },
+          {
+            "id": "option_3",
+            "label": "Equivalent"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "57d8136a6e0f1de43c890c2e4447c0d0dcac7e47a03002c17689984aecf33dfb"
+  },
+  "assetFiles": {
+    "5a27e5ca600d2b8441bb84f92505c08758d3a88654a91fa2f8ca033acc2c3b57": "D:\\touchcatch\\content\\learning\\source\\en-equilibrium-cliff-a.png",
+    "58d094521ee79d41e45449e76a99d70d55cad2833ccea9224f506c8643a146c6": "D:\\touchcatch\\content\\learning\\source\\en-equilibrium-cliff-b.png"
+  }
+}

@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of a mystical celestial laboratory showcasing the ultimate pure essence of nature for English vocabulary learning (Quintessence).
+Scene/backdrop: In a grand glass dome observatory at night under glowing constellations, a young female alchemist-astronomer floats a crystal orb containing the Fifth Element (a shimmering star-like core of pure light surrounded by fire, water, earth, and air motes). Ornate brass astrolabes, glowing alchemical flasks, starry charts, hovering ether crystals, and celestial globes surround the pedestal.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

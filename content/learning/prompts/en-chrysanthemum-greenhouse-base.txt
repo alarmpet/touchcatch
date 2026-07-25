@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of a magnificent royal imperial greenhouse showcasing golden chrysanthemum blooms for English vocabulary learning (Chrysanthemum).
+Scene/backdrop: In a sunlit Victorian glass pavilion, a young female master florist tends to glowing golden-yellow and crimson chrysanthemum flowers in ceramic vases. Intricate flower displays, brass watering cans, porcelain pots, carved stone arches, hanging flower baskets, and a central marble fountain with floating petals fill the pavilion.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

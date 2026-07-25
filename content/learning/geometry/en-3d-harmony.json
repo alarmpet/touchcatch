@@ -1,0 +1,111 @@
+{
+  "policy": {
+    "pixelThreshold": 60,
+    "minChangedPixelsPerRegion": 24,
+    "maxOutsideChangedRatio": 0.15
+  },
+  "differences": [
+    {
+      "id": "difference_1",
+      "tier": "NORMAL",
+      "cx": 0.967,
+      "cy": 0.047,
+      "r": 0.055
+    },
+    {
+      "id": "difference_2",
+      "tier": "NORMAL",
+      "cx": 0.032,
+      "cy": 0.06,
+      "r": 0.055
+    },
+    {
+      "id": "difference_3",
+      "tier": "NORMAL",
+      "cx": 0.97,
+      "cy": 0.159,
+      "r": 0.055
+    },
+    {
+      "id": "difference_4",
+      "tier": "NORMAL",
+      "cx": 0.027,
+      "cy": 0.174,
+      "r": 0.055
+    },
+    {
+      "id": "difference_5",
+      "tier": "NORMAL",
+      "cx": 0.111,
+      "cy": 0.246,
+      "r": 0.055
+    },
+    {
+      "id": "difference_6",
+      "tier": "NORMAL",
+      "cx": 0.517,
+      "cy": 0.571,
+      "r": 0.055
+    },
+    {
+      "id": "difference_7",
+      "tier": "NORMAL",
+      "cx": 0.983,
+      "cy": 0.276,
+      "r": 0.055
+    },
+    {
+      "id": "difference_8",
+      "tier": "HARD",
+      "cx": 0.327,
+      "cy": 0.679,
+      "r": 0.055
+    },
+    {
+      "id": "difference_9",
+      "tier": "HARD",
+      "cx": 0.874,
+      "cy": 0.374,
+      "r": 0.055
+    },
+    {
+      "id": "difference_10",
+      "tier": "HARD",
+      "cx": 0.811,
+      "cy": 0.241,
+      "r": 0.055
+    }
+  ],
+  "wordHunts": [
+    {
+      "id": "word_1",
+      "kind": "NORMAL",
+      "publicPrompt": "Find item 1 in en-3d-harmony",
+      "cx": 0.967,
+      "cy": 0.047,
+      "r": 0.06
+    },
+    {
+      "id": "word_2",
+      "kind": "NORMAL",
+      "publicPrompt": "Find item 2 in en-3d-harmony",
+      "cx": 0.032,
+      "cy": 0.06,
+      "r": 0.055
+    },
+    {
+      "id": "word_3",
+      "kind": "SPECIAL",
+      "publicPrompt": "Find item 3 in en-3d-harmony",
+      "cx": 0.97,
+      "cy": 0.159,
+      "r": 0.055
+    }
+  ],
+  "suddenDeath": {
+    "id": "sudden_1",
+    "cx": 0.967,
+    "cy": 0.047,
+    "r": 0.065
+  }
+}

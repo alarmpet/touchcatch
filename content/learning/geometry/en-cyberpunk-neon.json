@@ -1,0 +1,111 @@
+{
+  "policy": {
+    "pixelThreshold": 60,
+    "minChangedPixelsPerRegion": 24,
+    "maxOutsideChangedRatio": 0.15
+  },
+  "differences": [
+    {
+      "id": "difference_1",
+      "tier": "NORMAL",
+      "cx": 0.856,
+      "cy": 0.688,
+      "r": 0.055
+    },
+    {
+      "id": "difference_2",
+      "tier": "NORMAL",
+      "cx": 0.699,
+      "cy": 0.714,
+      "r": 0.055
+    },
+    {
+      "id": "difference_3",
+      "tier": "NORMAL",
+      "cx": 0.642,
+      "cy": 0.613,
+      "r": 0.055
+    },
+    {
+      "id": "difference_4",
+      "tier": "NORMAL",
+      "cx": 0.326,
+      "cy": 0.726,
+      "r": 0.055
+    },
+    {
+      "id": "difference_5",
+      "tier": "NORMAL",
+      "cx": 0.162,
+      "cy": 0.731,
+      "r": 0.055
+    },
+    {
+      "id": "difference_6",
+      "tier": "NORMAL",
+      "cx": 0.496,
+      "cy": 0.746,
+      "r": 0.055
+    },
+    {
+      "id": "difference_7",
+      "tier": "NORMAL",
+      "cx": 0.547,
+      "cy": 0.098,
+      "r": 0.055
+    },
+    {
+      "id": "difference_8",
+      "tier": "HARD",
+      "cx": 0.155,
+      "cy": 0.867,
+      "r": 0.055
+    },
+    {
+      "id": "difference_9",
+      "tier": "HARD",
+      "cx": 0.503,
+      "cy": 0.886,
+      "r": 0.055
+    },
+    {
+      "id": "difference_10",
+      "tier": "HARD",
+      "cx": 0.07,
+      "cy": 0.531,
+      "r": 0.055
+    }
+  ],
+  "wordHunts": [
+    {
+      "id": "word_1",
+      "kind": "NORMAL",
+      "publicPrompt": "Find item 1 in en-cyberpunk-neon",
+      "cx": 0.856,
+      "cy": 0.688,
+      "r": 0.06
+    },
+    {
+      "id": "word_2",
+      "kind": "NORMAL",
+      "publicPrompt": "Find item 2 in en-cyberpunk-neon",
+      "cx": 0.699,
+      "cy": 0.714,
+      "r": 0.055
+    },
+    {
+      "id": "word_3",
+      "kind": "SPECIAL",
+      "publicPrompt": "Find item 3 in en-cyberpunk-neon",
+      "cx": 0.642,
+      "cy": 0.613,
+      "r": 0.055
+    }
+  ],
+  "suddenDeath": {
+    "id": "sudden_1",
+    "cx": 0.856,
+    "cy": 0.688,
+    "r": 0.065
+  }
+}

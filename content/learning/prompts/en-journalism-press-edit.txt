@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-journalism-press-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized Intermediate-level differences:
+1. Change the news anchor's jacket color from dark blue to crimson red.
+2. Recolor the broadcast camera housing from black to silver grey.
+3. Change the studio spotlight housing color from grey to yellow.
+4. Remove the desk microphone on the anchor table.
+5. Recolor the reporter's jacket from beige to dark green.
+6. Change one wall clock time hand position from 3 o'clock to 6 o'clock.
+7. Remove one broadcast monitor screen from the wall array.
+8. Add one extra coffee mug on the anchor desk.
+9. Recolor the press podium front emblem from blue to gold.
+10. Remove the ON AIR red light sign on the wall.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

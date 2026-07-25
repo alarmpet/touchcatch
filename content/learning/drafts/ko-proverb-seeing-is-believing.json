@@ -6,31 +6,31 @@
   "publicContent": {
     "contentId": "03e72cd5-fd13-4e9b-85cf-7f6b23e5a5d2",
     "version": 1,
-    "contentRevisionId": "9558ceee-d1fd-41ad-87f4-6173f09732cb",
+    "contentRevisionId": "1aea2997-0944-493c-8739-acd0c27af4ac",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "ko-proverb-seeing-is-believing",
     "language": "ko",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/a242905347538545291777abe43e127c759f6aff6ddc73027799416780954311.png",
-      "sha256": "a242905347538545291777abe43e127c759f6aff6ddc73027799416780954311",
-      "encodedBytes": 2268173,
+      "url": "https://cdn.spot-learn.test/assets/340f4b221ce65d4443157444b7919ff727132815c47cf7c2f57871fa84daf29a.png",
+      "sha256": "340f4b221ce65d4443157444b7919ff727132815c47cf7c2f57871fa84daf29a",
+      "encodedBytes": 3441684,
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/60602814202a4dff87420e8f2d7f594c274733bb734590107b3fb40a0815fb84.png",
-      "sha256": "60602814202a4dff87420e8f2d7f594c274733bb734590107b3fb40a0815fb84",
-      "encodedBytes": 2203707,
+      "url": "https://cdn.spot-learn.test/assets/cfdf2fbf64b3f9cd226b81242ee893545b698afd74bc23598d5b756b857aaa3b.png",
+      "sha256": "cfdf2fbf64b3f9cd226b81242ee893545b698afd74bc23598d5b756b857aaa3b",
+      "encodedBytes": 3413886,
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "9558ceee-d1fd-41ad-87f4-6173f09732cb",
+    "contentRevisionId": "1aea2997-0944-493c-8739-acd0c27af4ac",
     "schemaVersion": "1.0.0",
     "differences": [
       {
@@ -38,14 +38,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.478,
-            "cy": 0.535,
-            "r": 0.07
+            "cx": 0.23,
+            "cy": 0.439,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.478,
-            "cy": 0.535,
-            "r": 0.07
+            "cx": 0.23,
+            "cy": 0.439,
+            "r": 0.05
           }
         }
       },
@@ -54,14 +54,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.23,
-            "cy": 0.45,
-            "r": 0.07
+            "cx": 0.924,
+            "cy": 0.288,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.23,
-            "cy": 0.45,
-            "r": 0.07
+            "cx": 0.924,
+            "cy": 0.288,
+            "r": 0.05
           }
         }
       },
@@ -70,14 +70,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.195,
-            "cy": 0.75,
-            "r": 0.025
+            "cx": 0.083,
+            "cy": 0.625,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.195,
-            "cy": 0.75,
-            "r": 0.025
+            "cx": 0.083,
+            "cy": 0.625,
+            "r": 0.05
           }
         }
       },
@@ -86,13 +86,13 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.45,
-            "cy": 0.79,
+            "cx": 0.878,
+            "cy": 0.654,
             "r": 0.05
           },
           "imageB": {
-            "cx": 0.45,
-            "cy": 0.79,
+            "cx": 0.878,
+            "cy": 0.654,
             "r": 0.05
           }
         }
@@ -102,14 +102,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.75,
-            "cy": 0.7,
-            "r": 0.07
+            "cx": 0.73,
+            "cy": 0.694,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.75,
-            "cy": 0.7,
-            "r": 0.07
+            "cx": 0.73,
+            "cy": 0.694,
+            "r": 0.05
           }
         }
       },
@@ -118,14 +118,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.88,
-            "cy": 0.63,
-            "r": 0.06
+            "cx": 0.054,
+            "cy": 0.525,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.88,
-            "cy": 0.63,
-            "r": 0.06
+            "cx": 0.054,
+            "cy": 0.525,
+            "r": 0.05
           }
         }
       },
@@ -134,14 +134,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.72,
-            "cy": 0.08,
-            "r": 0.06
+            "cx": 0.483,
+            "cy": 0.593,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.72,
-            "cy": 0.08,
-            "r": 0.06
+            "cx": 0.483,
+            "cy": 0.593,
+            "r": 0.05
           }
         }
       },
@@ -150,14 +150,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.79,
-            "cy": 0.11,
-            "r": 0.035
+            "cx": 0.775,
+            "cy": 0.102,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.79,
-            "cy": 0.11,
-            "r": 0.035
+            "cx": 0.775,
+            "cy": 0.102,
+            "r": 0.05
           }
         }
       },
@@ -166,13 +166,13 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.92,
-            "cy": 0.28,
+            "cx": 0.455,
+            "cy": 0.774,
             "r": 0.05
           },
           "imageB": {
-            "cx": 0.92,
-            "cy": 0.28,
+            "cx": 0.455,
+            "cy": 0.774,
             "r": 0.05
           }
         }
@@ -182,14 +182,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.07,
-            "cy": 0.58,
-            "r": 0.07
+            "cx": 0.724,
+            "cy": 0.797,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.07,
-            "cy": 0.58,
-            "r": 0.07
+            "cx": 0.724,
+            "cy": 0.797,
+            "r": 0.05
           }
         }
       }
@@ -294,10 +294,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "596f81ccb0878d0a440a3d160bb49d69aaedaac6eb77425eb7313a2fa182eb55"
+    "privateSolutionHash": "eb30e84e203ad6b24ac68a31f35da2d913ccf617e85ee9014ef7fb4c72c3bae5"
   },
   "assetFiles": {
-    "a242905347538545291777abe43e127c759f6aff6ddc73027799416780954311": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\ko-proverb-seeing-is-believing-a.png",
-    "60602814202a4dff87420e8f2d7f594c274733bb734590107b3fb40a0815fb84": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\ko-proverb-seeing-is-believing-b.png"
+    "340f4b221ce65d4443157444b7919ff727132815c47cf7c2f57871fa84daf29a": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-seeing-is-believing-a.png",
+    "cfdf2fbf64b3f9cd226b81242ee893545b698afd74bc23598d5b756b857aaa3b": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-seeing-is-believing-b.png"
   }
 }

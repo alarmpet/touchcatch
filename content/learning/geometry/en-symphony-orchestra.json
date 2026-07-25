@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.895, "cy": 0.483, "r": 0.070 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.732, "cy": 0.464, "r": 0.070 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.680, "cy": 0.242, "r": 0.070 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.502, "cy": 0.086, "r": 0.070 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.592, "cy": 0.469, "r": 0.070 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.808, "cy": 0.176, "r": 0.070 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.949, "cy": 0.129, "r": 0.070 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.256, "cy": 0.852, "r": 0.070 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.370, "cy": 0.576, "r": 0.070 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.976, "cy": 0.517, "r": 0.070 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the conductor.", "cx": 0.592, "cy": 0.469, "r": 0.075 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the grand piano.", "cx": 0.895, "cy": 0.483, "r": 0.075 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the crystal chandelier.", "cx": 0.502, "cy": 0.086, "r": 0.070 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.592, "cy": 0.469, "r": 0.080 }
+}

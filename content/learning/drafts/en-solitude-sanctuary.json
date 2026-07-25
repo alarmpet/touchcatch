@@ -1,0 +1,226 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "ccd07ed6-fdf5-4f9b-8023-4680e3b0ea2a",
+    "version": 1,
+    "contentRevisionId": "f40296b7-14b6-47f3-8d93-7eb498514cc6",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-solitude-sanctuary",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/1f535d1d1f3e52a7ca080e1f6cff25a6267e59bc021766844ee3d41260d05668.png",
+      "sha256": "1f535d1d1f3e52a7ca080e1f6cff25a6267e59bc021766844ee3d41260d05668",
+      "encodedBytes": 1789495,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/9d6b7786c537279d3cd1182737e7b819d96ac3d6debb9bfbbcc3e208d5618d9f.png",
+      "sha256": "9d6b7786c537279d3cd1182737e7b819d96ac3d6debb9bfbbcc3e208d5618d9f",
+      "encodedBytes": 1936736,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "f40296b7-14b6-47f3-8d93-7eb498514cc6",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.759,
+            "cy": 0.61,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.759,
+            "cy": 0.61,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.883,
+            "cy": 0.537,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.883,
+            "cy": 0.537,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.498,
+            "cy": 0.568,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.498,
+            "cy": 0.568,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.487,
+            "cy": 0.446,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.487,
+            "cy": 0.446,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.941,
+            "cy": 0.968,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.941,
+            "cy": 0.968,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-solitude-sanctuary",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.759,
+            "cy": 0.61,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.759,
+            "cy": 0.61,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-solitude-sanctuary",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.883,
+            "cy": 0.537,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.883,
+            "cy": 0.537,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-solitude-sanctuary",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.498,
+            "cy": 0.568,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.498,
+            "cy": 0.568,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.759,
+          "cy": 0.61,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.759,
+          "cy": 0.61,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "solitude",
+      "aliases": [
+        "peace",
+        "sanctuary"
+      ],
+      "hintUnits": [
+        "s",
+        "o",
+        "l",
+        "i",
+        "t",
+        "u",
+        "d",
+        "e"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '고독'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Solitude"
+          },
+          {
+            "id": "option_2",
+            "label": "Solidarity"
+          },
+          {
+            "id": "option_3",
+            "label": "Solicitation"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "bc34563c19be27e8ad06cd78e3b8500b0430267fb7d85fa0823488e7e25274fd"
+  },
+  "assetFiles": {
+    "1f535d1d1f3e52a7ca080e1f6cff25a6267e59bc021766844ee3d41260d05668": "D:\\touchcatch\\content\\learning\\source\\en-solitude-sanctuary-a.png",
+    "9d6b7786c537279d3cd1182737e7b819d96ac3d6debb9bfbbcc3e208d5618d9f": "D:\\touchcatch\\content\\learning\\source\\en-solitude-sanctuary-b.png"
+  }
+}

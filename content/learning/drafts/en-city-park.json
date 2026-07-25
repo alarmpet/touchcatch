@@ -1,0 +1,302 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "6d79ca99-25c0-4331-8041-66e1e4c708d9",
+    "version": 1,
+    "contentRevisionId": "228cf169-9768-4afd-8ce5-16b24ec772eb",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-city-park",
+    "language": "en",
+    "difficulty": "BEGINNER",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/092de8b30a04700e1056842311976d46310dcac4dfa88c305c235c6ecc3beefb.png",
+      "sha256": "092de8b30a04700e1056842311976d46310dcac4dfa88c305c235c6ecc3beefb",
+      "encodedBytes": 1726009,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/f6d920c5acb3d2ea25fbd9914cf1d03b7d95f950eba8e59840f0990a671d6b02.png",
+      "sha256": "f6d920c5acb3d2ea25fbd9914cf1d03b7d95f950eba8e59840f0990a671d6b02",
+      "encodedBytes": 1895533,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "228cf169-9768-4afd-8ce5-16b24ec772eb",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.856,
+            "cy": 0.237,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.856,
+            "cy": 0.237,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.619,
+            "cy": 0.103,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.619,
+            "cy": 0.103,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.754,
+            "cy": 0.14,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.754,
+            "cy": 0.14,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.501,
+            "cy": 0.12,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.501,
+            "cy": 0.12,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.907,
+            "cy": 0.599,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.907,
+            "cy": 0.599,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.409,
+            "cy": 0.608,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.409,
+            "cy": 0.608,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.19,
+            "cy": 0.707,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.19,
+            "cy": 0.707,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.462,
+            "cy": 0.685,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.462,
+            "cy": 0.685,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.098,
+            "cy": 0.605,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.098,
+            "cy": 0.605,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.893,
+            "cy": 0.31,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.893,
+            "cy": 0.31,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the slide.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.856,
+            "cy": 0.237,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.856,
+            "cy": 0.237,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the bench.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.409,
+            "cy": 0.608,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.409,
+            "cy": 0.608,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the duck pond.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.19,
+            "cy": 0.707,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.19,
+            "cy": 0.707,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.856,
+          "cy": 0.237,
+          "r": 0.09
+        },
+        "imageB": {
+          "cx": 0.856,
+          "cy": 0.237,
+          "r": 0.09
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "park",
+      "aliases": [
+        "garden",
+        "playground"
+      ],
+      "hintUnits": [
+        "p",
+        "a",
+        "r",
+        "k"
+      ],
+      "meaning": {
+        "prompt": "What is this outdoor area called?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Park"
+          },
+          {
+            "id": "option_2",
+            "label": "Forest"
+          },
+          {
+            "id": "option_3",
+            "label": "Desert"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "1bdd01977f772b9338ba8ceaa47a03d219b17901cf57cd5057e977ba73445e00"
+  },
+  "assetFiles": {
+    "092de8b30a04700e1056842311976d46310dcac4dfa88c305c235c6ecc3beefb": "D:\\touchcatch\\content\\learning\\source\\en-city-park-a.png",
+    "f6d920c5acb3d2ea25fbd9914cf1d03b7d95f950eba8e59840f0990a671d6b02": "D:\\touchcatch\\content\\learning\\source\\en-city-park-b.png"
+  }
+}

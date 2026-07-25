@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-happy-family-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized Beginner-level differences:
+1. Change the sofa color from orange to blue.
+2. Recolor the pet cat from ginger to black and white.
+3. Change the rug pattern from circles to stripes.
+4. Remove the tea cup on the left side of the coffee table.
+5. Change the floor lamp shade color from yellow to red.
+6. Add one extra photo frame on the wall near the fireplace.
+7. Recolor the window curtains from green to yellow.
+8. Change the wooden cabinet under the TV from brown to white.
+9. Remove the cushion on the right corner of the sofa.
+10. Recolor the teapot on the coffee table from blue to green.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

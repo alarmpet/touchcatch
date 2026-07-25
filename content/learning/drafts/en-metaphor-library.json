@@ -1,0 +1,306 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "4c4cdc2d-214c-440e-8d70-35466cb15f7b",
+    "version": 1,
+    "contentRevisionId": "4ff4f419-0d8e-4b94-869e-44b9c7d3cc94",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-metaphor-library",
+    "language": "en",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/4ddefe8b390e9a758120cd44050dbcb3f36d7bb526b3f7b32a35a6fb389a368e.png",
+      "sha256": "4ddefe8b390e9a758120cd44050dbcb3f36d7bb526b3f7b32a35a6fb389a368e",
+      "encodedBytes": 1876739,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/ec6af23e2e1acbb6735723235a9dde7751f9708415fe5ddb7ba0d43a0aeae911.png",
+      "sha256": "ec6af23e2e1acbb6735723235a9dde7751f9708415fe5ddb7ba0d43a0aeae911",
+      "encodedBytes": 1991696,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "4ff4f419-0d8e-4b94-869e-44b9c7d3cc94",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.815,
+            "cy": 0.496,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.815,
+            "cy": 0.496,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.737,
+            "cy": 0.618,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.737,
+            "cy": 0.618,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.82,
+            "cy": 0.166,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.82,
+            "cy": 0.166,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.292,
+            "cy": 0.515,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.292,
+            "cy": 0.515,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.651,
+            "cy": 0.66,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.651,
+            "cy": 0.66,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.177,
+            "cy": 0.477,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.177,
+            "cy": 0.477,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.807,
+            "cy": 0.677,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.807,
+            "cy": 0.677,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.139,
+            "cy": 0.202,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.139,
+            "cy": 0.202,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.241,
+            "cy": 0.211,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.241,
+            "cy": 0.211,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.88,
+            "cy": 0.555,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.88,
+            "cy": 0.555,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the writer at the desk.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.737,
+            "cy": 0.618,
+            "r": 0.075
+          },
+          "imageB": {
+            "cx": 0.737,
+            "cy": 0.618,
+            "r": 0.075
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the feather quill.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.815,
+            "cy": 0.496,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.815,
+            "cy": 0.496,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the glowing hourglass.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.651,
+            "cy": 0.66,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.651,
+            "cy": 0.66,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.737,
+          "cy": 0.618,
+          "r": 0.08
+        },
+        "imageB": {
+          "cx": 0.737,
+          "cy": 0.618,
+          "r": 0.08
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "metaphor",
+      "aliases": [
+        "simile",
+        "figure of speech"
+      ],
+      "hintUnits": [
+        "m",
+        "e",
+        "t",
+        "a",
+        "p",
+        "h",
+        "o",
+        "r"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '은유'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Metaphor"
+          },
+          {
+            "id": "option_2",
+            "label": "Metaphysics"
+          },
+          {
+            "id": "option_3",
+            "label": "Metronome"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "bb0214dd6cf913d04e265f2c80de11c63edaeb747e2463cdf4d7f1507f32045f"
+  },
+  "assetFiles": {
+    "4ddefe8b390e9a758120cd44050dbcb3f36d7bb526b3f7b32a35a6fb389a368e": "D:\\touchcatch\\content\\learning\\source\\en-metaphor-library-a.png",
+    "ec6af23e2e1acbb6735723235a9dde7751f9708415fe5ddb7ba0d43a0aeae911": "D:\\touchcatch\\content\\learning\\source\\en-metaphor-library-b.png"
+  }
+}

@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-sustainability-greenhouse-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized Intermediate-level differences:
+1. Change the watering can color from green to orange.
+2. Change the rainwater barrel color from blue to dark grey.
+3. Recolor the wheelbarrow tray from red to yellow.
+4. Remove one solar panel module from the glass roof.
+5. Add one extra potted orchid flower on the potting bench.
+6. Change the student's hat color from beige to blue.
+7. Reverse the thermometer needle direction from hot to cool.
+8. Recolor the soil bag in the wheelbarrow from brown to green.
+9. Remove one seed packet lying on the wooden bench.
+10. Recolor the hydroponic tower frame from white to silver.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

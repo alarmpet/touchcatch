@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-serendipity-garden-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized subtle Advanced-level differences:
+1. Change the girl's dress color from pastel pink to lavender purple.
+2. Recolor the glowing clover petal light from gold to aqua blue.
+3. Change the antique watering can color from copper to yellow.
+4. Remove one lotus flower floating on the crystal pond.
+5. Recolor the peacock neck feathers from blue to emerald green.
+6. Change the firefly lantern frame color from dark iron to gold.
+7. Remove one butterfly resting on the iron gate arch.
+8. Recolor the marble bench cushion from teal to rose red.
+9. Add one extra small dragonfly hovering near the fountain spray.
+10. Remove the carved star emblem on the garden gate post.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

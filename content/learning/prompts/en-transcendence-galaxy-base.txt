@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of a transcendent cosmic orchard floating in deep space where trees sprout glowing stardust fruit across cosmic nebulae for English vocabulary learning (Transcendence).
+Scene/backdrop: An ethereal astronaut floating weightlessly reaches for a glowing crystal star-apple from a floating island orchard, surrounded by swirling purple and magenta nebulae, a glowing hourglass drifting in space, an ancient brass armillary sphere, a comet trailing blue light, Saturn with golden rings, a floating stone archway, and glowing stardust fireflies.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

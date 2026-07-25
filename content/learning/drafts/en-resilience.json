@@ -6,31 +6,31 @@
   "publicContent": {
     "contentId": "a913582e-ad85-4687-8d07-0891a60cc415",
     "version": 1,
-    "contentRevisionId": "0d3be4b8-7e50-4682-81bd-904300a54abf",
+    "contentRevisionId": "6abea107-ace8-4bdb-872b-7d165bc26dbe",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "en-resilience",
     "language": "en",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/5e86119dc48e3f7d008f6aa9ab8cb615e32ba797468ac570c612af78b770d4e1.png",
-      "sha256": "5e86119dc48e3f7d008f6aa9ab8cb615e32ba797468ac570c612af78b770d4e1",
-      "encodedBytes": 3121756,
+      "url": "https://cdn.spot-learn.test/assets/cb29e67a65ed7a192a81c3eb5fd00bbbdc58c14085c60b5405a8a19ab1d74669.png",
+      "sha256": "cb29e67a65ed7a192a81c3eb5fd00bbbdc58c14085c60b5405a8a19ab1d74669",
+      "encodedBytes": 4281243,
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/6c92a8d24904c92039b9acc44438f74f953f58d409fcf50e0879e5f914c0aadf.png",
-      "sha256": "6c92a8d24904c92039b9acc44438f74f953f58d409fcf50e0879e5f914c0aadf",
-      "encodedBytes": 2833216,
+      "url": "https://cdn.spot-learn.test/assets/41c330b7546190bbc6c16712786f8b6b8631536010d8a6cf263cee39e7f88e57.png",
+      "sha256": "41c330b7546190bbc6c16712786f8b6b8631536010d8a6cf263cee39e7f88e57",
+      "encodedBytes": 4232442,
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "0d3be4b8-7e50-4682-81bd-904300a54abf",
+    "contentRevisionId": "6abea107-ace8-4bdb-872b-7d165bc26dbe",
     "schemaVersion": "1.0.0",
     "differences": [
       {
@@ -38,14 +38,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.488,
-            "cy": 0.766,
-            "r": 0.045
+            "cx": 0.561,
+            "cy": 0.098,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.488,
-            "cy": 0.766,
-            "r": 0.045
+            "cx": 0.561,
+            "cy": 0.098,
+            "r": 0.05
           }
         }
       },
@@ -54,14 +54,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.286,
-            "cy": 0.472,
-            "r": 0.055
+            "cx": 0.534,
+            "cy": 0.341,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.286,
-            "cy": 0.472,
-            "r": 0.055
+            "cx": 0.534,
+            "cy": 0.341,
+            "r": 0.05
           }
         }
       },
@@ -70,14 +70,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.417,
-            "cy": 0.622,
-            "r": 0.035
+            "cx": 0.13,
+            "cy": 0.855,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.417,
-            "cy": 0.622,
-            "r": 0.035
+            "cx": 0.13,
+            "cy": 0.855,
+            "r": 0.05
           }
         }
       },
@@ -86,14 +86,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.493,
-            "cy": 0.108,
-            "r": 0.055
+            "cx": 0.252,
+            "cy": 0.444,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.493,
-            "cy": 0.108,
-            "r": 0.055
+            "cx": 0.252,
+            "cy": 0.444,
+            "r": 0.05
           }
         }
       },
@@ -102,14 +102,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.907,
-            "cy": 0.381,
-            "r": 0.035
+            "cx": 0.891,
+            "cy": 0.384,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.907,
-            "cy": 0.381,
-            "r": 0.035
+            "cx": 0.891,
+            "cy": 0.384,
+            "r": 0.05
           }
         }
       },
@@ -118,14 +118,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.382,
-            "cy": 0.733,
-            "r": 0.035
+            "cx": 0.637,
+            "cy": 0.405,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.382,
-            "cy": 0.733,
-            "r": 0.035
+            "cx": 0.637,
+            "cy": 0.405,
+            "r": 0.05
           }
         }
       },
@@ -134,14 +134,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.478,
-            "cy": 0.929,
-            "r": 0.055
+            "cx": 0.05,
+            "cy": 0.559,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.478,
-            "cy": 0.929,
-            "r": 0.055
+            "cx": 0.05,
+            "cy": 0.559,
+            "r": 0.05
           }
         }
       },
@@ -150,14 +150,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.121,
-            "cy": 0.856,
-            "r": 0.045
+            "cx": 0.717,
+            "cy": 0.344,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.121,
-            "cy": 0.856,
-            "r": 0.045
+            "cx": 0.717,
+            "cy": 0.344,
+            "r": 0.05
           }
         }
       },
@@ -166,14 +166,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.533,
-            "cy": 0.35,
-            "r": 0.055
+            "cx": 0.687,
+            "cy": 0.682,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.533,
-            "cy": 0.35,
-            "r": 0.055
+            "cx": 0.687,
+            "cy": 0.682,
+            "r": 0.05
           }
         }
       },
@@ -182,14 +182,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.901,
-            "cy": 0.827,
-            "r": 0.055
+            "cx": 0.507,
+            "cy": 0.762,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.901,
-            "cy": 0.827,
-            "r": 0.055
+            "cx": 0.507,
+            "cy": 0.762,
+            "r": 0.05
           }
         }
       }
@@ -298,10 +298,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "34ff0814681a7e8274ece47d66ec6db960998d8d9ec330cf9356387442609105"
+    "privateSolutionHash": "e4e2dce7f6a8328529cb310bd8fac0d0e93d8c7b967312900f22f08257262cf4"
   },
   "assetFiles": {
-    "5e86119dc48e3f7d008f6aa9ab8cb615e32ba797468ac570c612af78b770d4e1": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\en-resilience-a.png",
-    "6c92a8d24904c92039b9acc44438f74f953f58d409fcf50e0879e5f914c0aadf": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\en-resilience-b.png"
+    "cb29e67a65ed7a192a81c3eb5fd00bbbdc58c14085c60b5405a8a19ab1d74669": "D:\\touchcatch\\content\\learning\\source\\en-resilience-a.png",
+    "41c330b7546190bbc6c16712786f8b6b8631536010d8a6cf263cee39e7f88e57": "D:\\touchcatch\\content\\learning\\source\\en-resilience-b.png"
   }
 }

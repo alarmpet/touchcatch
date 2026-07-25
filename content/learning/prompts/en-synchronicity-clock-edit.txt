@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-synchronicity-clock-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A (en_synchronicity_clock_a). Preserve exact same camera angle, composition, background, clock tower, gears, and drawing style. Make 10 localized subtle Advanced-level differences on specific objects:
+1. Change the horologist's vest color from dark brown to cobalt blue.
+2. Recolor the left giant pendulum bob disc from brass gold to silver steel.
+3. Change the center clock face numerals color from black to bright ruby red.
+4. Remove one copper oil lamp hanging on the gear frame beam.
+5. Recolor the horologist's pocket watch chain from golden yellow to magenta pink.
+6. Change the pipe valve handle color on the right from red to emerald green.
+7. Remove one small gear sprocket resting on the worktable.
+8. Recolor the horologist's visor loupe band from black to yellow.
+9. Add one extra small brass oil bottle resting beside the pocket watch on the table.
+10. Remove the wall pressure gauge meter on the copper pipe column.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

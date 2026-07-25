@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-chrysanthemum-greenhouse-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A (en_chrysanthemum_greenhouse_a). Preserve exact same camera angle, composition, background, pavilion, and drawing style. Make 10 localized subtle Advanced-level differences on specific objects:
+1. Change the florist's apron color from sage green to lavender purple.
+2. Recolor the main golden chrysanthemum petals in the center vase from yellow to magenta pink.
+3. Recolor the brass watering can on the table from golden brass to polished silver.
+4. Remove one hanging flower basket from the left glass ceiling arch.
+5. Recolor the porcelain pot on the right stand from cobalt blue to terracotta orange.
+6. Change the floating petals color in the marble fountain from pink to white.
+7. Remove one small pruning shears tool resting on the worktable.
+8. Recolor the florist's ribbon hair tie from yellow to ruby red.
+9. Add one extra small clay flowerpot resting beside the fountain base.
+10. Remove the wall thermometer gauge on the pavilion stone pillar.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

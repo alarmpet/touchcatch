@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.094, "cy": 0.630, "r": 0.070 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.832, "cy": 0.707, "r": 0.070 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.131, "cy": 0.679, "r": 0.070 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.437, "cy": 0.622, "r": 0.070 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.585, "cy": 0.273, "r": 0.070 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.742, "cy": 0.690, "r": 0.070 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.381, "cy": 0.473, "r": 0.070 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.626, "cy": 0.540, "r": 0.070 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.772, "cy": 0.444, "r": 0.070 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.498, "cy": 0.497, "r": 0.070 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the watering can.", "cx": 0.437, "cy": 0.622, "r": 0.070 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the solar panels.", "cx": 0.585, "cy": 0.273, "r": 0.070 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the wheelbarrow.", "cx": 0.832, "cy": 0.707, "r": 0.075 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.437, "cy": 0.622, "r": 0.080 }
+}

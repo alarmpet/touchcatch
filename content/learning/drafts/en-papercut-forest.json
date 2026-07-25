@@ -1,0 +1,307 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "38de2fa9-8fc2-4689-8dea-aeed1c6e23a1",
+    "version": 1,
+    "contentRevisionId": "03d180a2-c587-45f3-8a06-43080abdf810",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-papercut-forest",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/3b54cb409aae67872aa5173e7204a5e33e75961b85ede4613b721a71b1031d38.png",
+      "sha256": "3b54cb409aae67872aa5173e7204a5e33e75961b85ede4613b721a71b1031d38",
+      "encodedBytes": 2850111,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/8209c01bcf8922d8fd152489ca224dac1d9c548dc986ec50b455fee488f1c245.png",
+      "sha256": "8209c01bcf8922d8fd152489ca224dac1d9c548dc986ec50b455fee488f1c245",
+      "encodedBytes": 2851005,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "03d180a2-c587-45f3-8a06-43080abdf810",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.664,
+            "cy": 0.583,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.664,
+            "cy": 0.583,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.93,
+            "cy": 0.35,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.93,
+            "cy": 0.35,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.533,
+            "cy": 0.856,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.533,
+            "cy": 0.856,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.555,
+            "cy": 0.479,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.555,
+            "cy": 0.479,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.676,
+            "cy": 0.8,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.676,
+            "cy": 0.8,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.361,
+            "cy": 0.778,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.361,
+            "cy": 0.778,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.91,
+            "cy": 0.609,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.91,
+            "cy": 0.609,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.793,
+            "cy": 0.143,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.793,
+            "cy": 0.143,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.937,
+            "cy": 0.493,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.937,
+            "cy": 0.493,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.924,
+            "cy": 0.237,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.924,
+            "cy": 0.237,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-papercut-forest",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.664,
+            "cy": 0.583,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.664,
+            "cy": 0.583,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-papercut-forest",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.93,
+            "cy": 0.35,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.93,
+            "cy": 0.35,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-papercut-forest",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.533,
+            "cy": 0.856,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.533,
+            "cy": 0.856,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.664,
+          "cy": 0.583,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.664,
+          "cy": 0.583,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "serenity",
+      "aliases": [
+        "forest",
+        "deer",
+        "papercut"
+      ],
+      "hintUnits": [
+        "s",
+        "e",
+        "r",
+        "e",
+        "n",
+        "i",
+        "t",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '평정' or '고요함'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Serenity"
+          },
+          {
+            "id": "option_2",
+            "label": "Severity"
+          },
+          {
+            "id": "option_3",
+            "label": "Scarcity"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "3c3cf70dbf24d3c5b4aca88c31f58b7794cd9421bc0554d93fd01323525a1256"
+  },
+  "assetFiles": {
+    "3b54cb409aae67872aa5173e7204a5e33e75961b85ede4613b721a71b1031d38": "D:\\touchcatch\\content\\learning\\source\\en-papercut-forest-a.png",
+    "8209c01bcf8922d8fd152489ca224dac1d9c548dc986ec50b455fee488f1c245": "D:\\touchcatch\\content\\learning\\source\\en-papercut-forest-b.png"
+  }
+}

@@ -1,0 +1,312 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "f97ba7a4-9f6d-4e4d-82b6-1b07723042e4",
+    "version": 1,
+    "contentRevisionId": "9fea7882-c424-47dc-84a4-a123cf4dc49b",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-sustainability-greenhouse",
+    "language": "en",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/6084022ab0a85c76a9bd317fb53334d1bbcc5d58bc9ca68db8de6d5c5c2cabb9.png",
+      "sha256": "6084022ab0a85c76a9bd317fb53334d1bbcc5d58bc9ca68db8de6d5c5c2cabb9",
+      "encodedBytes": 2046472,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/4dcc43517215a9bc897b47a4b48fcbea84eb66d5f4e04f1a84cc316b7f061915.png",
+      "sha256": "4dcc43517215a9bc897b47a4b48fcbea84eb66d5f4e04f1a84cc316b7f061915",
+      "encodedBytes": 2225046,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "9fea7882-c424-47dc-84a4-a123cf4dc49b",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.094,
+            "cy": 0.63,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.094,
+            "cy": 0.63,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.832,
+            "cy": 0.707,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.832,
+            "cy": 0.707,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.131,
+            "cy": 0.679,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.131,
+            "cy": 0.679,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.437,
+            "cy": 0.622,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.437,
+            "cy": 0.622,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.585,
+            "cy": 0.273,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.585,
+            "cy": 0.273,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.742,
+            "cy": 0.69,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.742,
+            "cy": 0.69,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.381,
+            "cy": 0.473,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.381,
+            "cy": 0.473,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.626,
+            "cy": 0.54,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.626,
+            "cy": 0.54,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.772,
+            "cy": 0.444,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.772,
+            "cy": 0.444,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.498,
+            "cy": 0.497,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.498,
+            "cy": 0.497,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the watering can.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.437,
+            "cy": 0.622,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.437,
+            "cy": 0.622,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the solar panels.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.585,
+            "cy": 0.273,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.585,
+            "cy": 0.273,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the wheelbarrow.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.832,
+            "cy": 0.707,
+            "r": 0.075
+          },
+          "imageB": {
+            "cx": 0.832,
+            "cy": 0.707,
+            "r": 0.075
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.437,
+          "cy": 0.622,
+          "r": 0.08
+        },
+        "imageB": {
+          "cx": 0.437,
+          "cy": 0.622,
+          "r": 0.08
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "sustainability",
+      "aliases": [
+        "eco",
+        "green"
+      ],
+      "hintUnits": [
+        "s",
+        "u",
+        "s",
+        "t",
+        "a",
+        "i",
+        "n",
+        "a",
+        "b",
+        "i",
+        "l",
+        "i",
+        "t",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '지속가능성'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Sustainability"
+          },
+          {
+            "id": "option_2",
+            "label": "Destruction"
+          },
+          {
+            "id": "option_3",
+            "label": "Waste"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "70c06ca79140d6359076ba514abcf7396b38da7f71359ee291f68e949e847b07"
+  },
+  "assetFiles": {
+    "6084022ab0a85c76a9bd317fb53334d1bbcc5d58bc9ca68db8de6d5c5c2cabb9": "D:\\touchcatch\\content\\learning\\source\\en-sustainability-greenhouse-a.png",
+    "4dcc43517215a9bc897b47a4b48fcbea84eb66d5f4e04f1a84cc316b7f061915": "D:\\touchcatch\\content\\learning\\source\\en-sustainability-greenhouse-b.png"
+  }
+}

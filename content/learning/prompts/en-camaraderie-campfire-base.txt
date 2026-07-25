@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of a warm forest campfire gathering showcasing deep friendship and camaraderie for English vocabulary learning (Camaraderie).
+Scene/backdrop: Around a crackling stone campfire at dusk under starry pine woods, a diverse group of young scouts and campers laugh and share stories, roasting marshmallows on wooden sticks, strumming an acoustic guitar, drinking warm cocoa from mugs, with tents and lanterns in the background.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

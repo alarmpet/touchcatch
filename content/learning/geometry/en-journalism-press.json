@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.073, "cy": 0.617, "r": 0.070 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.777, "cy": 0.546, "r": 0.070 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.113, "cy": 0.147, "r": 0.070 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.639, "cy": 0.563, "r": 0.070 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.947, "cy": 0.408, "r": 0.070 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.304, "cy": 0.653, "r": 0.070 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.853, "cy": 0.500, "r": 0.070 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.114, "cy": 0.679, "r": 0.070 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.716, "cy": 0.611, "r": 0.070 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.993, "cy": 0.487, "r": 0.070 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the news anchor.", "cx": 0.639, "cy": 0.563, "r": 0.075 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the broadcast camera.", "cx": 0.304, "cy": 0.653, "r": 0.075 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the ON AIR light.", "cx": 0.113, "cy": 0.147, "r": 0.070 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.639, "cy": 0.563, "r": 0.080 }
+}

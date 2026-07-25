@@ -1,0 +1,301 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "b3c387b1-0060-4f96-8044-2be9e11f7f26",
+    "version": 1,
+    "contentRevisionId": "33ecc8ea-a41c-403e-873d-9e4961a26d75",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-yellow-bus",
+    "language": "en",
+    "difficulty": "BEGINNER",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/c4210f59cdb937587bbb162db0cfc2538fa65a0f6541e5339fa8c92e5bffaf38.png",
+      "sha256": "c4210f59cdb937587bbb162db0cfc2538fa65a0f6541e5339fa8c92e5bffaf38",
+      "encodedBytes": 1605040,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/d97ad27c14cc1d11d8df6e8af00921d4d6ee889f3fe045ff7988b317662fc3d2.png",
+      "sha256": "d97ad27c14cc1d11d8df6e8af00921d4d6ee889f3fe045ff7988b317662fc3d2",
+      "encodedBytes": 1789536,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "33ecc8ea-a41c-403e-873d-9e4961a26d75",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.709,
+            "cy": 0.097,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.709,
+            "cy": 0.097,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.184,
+            "cy": 0.552,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.184,
+            "cy": 0.552,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.479,
+            "cy": 0.346,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.479,
+            "cy": 0.346,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.323,
+            "cy": 0.314,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.323,
+            "cy": 0.314,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.051,
+            "cy": 0.538,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.051,
+            "cy": 0.538,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.603,
+            "cy": 0.12,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.603,
+            "cy": 0.12,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.182,
+            "cy": 0.319,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.182,
+            "cy": 0.319,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.783,
+            "cy": 0.414,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.783,
+            "cy": 0.414,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.836,
+            "cy": 0.696,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.836,
+            "cy": 0.696,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.406,
+            "cy": 0.639,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.406,
+            "cy": 0.639,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the yellow school bus.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.479,
+            "cy": 0.346,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.479,
+            "cy": 0.346,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the bus stop sign.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.184,
+            "cy": 0.552,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.184,
+            "cy": 0.552,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the fire hydrant.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.051,
+            "cy": 0.538,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.051,
+            "cy": 0.538,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.479,
+          "cy": 0.346,
+          "r": 0.09
+        },
+        "imageB": {
+          "cx": 0.479,
+          "cy": 0.346,
+          "r": 0.09
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "bus",
+      "aliases": [
+        "school bus",
+        "yellow bus"
+      ],
+      "hintUnits": [
+        "b",
+        "u",
+        "s"
+      ],
+      "meaning": {
+        "prompt": "What is this vehicle called?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Bus"
+          },
+          {
+            "id": "option_2",
+            "label": "Train"
+          },
+          {
+            "id": "option_3",
+            "label": "Car"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "6c298ff82dbf775828c1b3be7e5c4c0d38858b6d196c8671b828831b61a72c8a"
+  },
+  "assetFiles": {
+    "c4210f59cdb937587bbb162db0cfc2538fa65a0f6541e5339fa8c92e5bffaf38": "D:\\touchcatch\\content\\learning\\source\\en-yellow-bus-a.png",
+    "d97ad27c14cc1d11d8df6e8af00921d4d6ee889f3fe045ff7988b317662fc3d2": "D:\\touchcatch\\content\\learning\\source\\en-yellow-bus-b.png"
+  }
+}

@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-nostalgia-attic-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized subtle Advanced-level differences:
+1. Change the girl's sweater color from cream yellow to pastel purple.
+2. Recolor the gramophone horn from brass gold to copper red.
+3. Change the rocking horse saddle color from red to forest green.
+4. Remove one old photo album resting beside the memory chest.
+5. Recolor the teddy bear bow tie from blue to yellow.
+6. Change the oil lantern glass glow from amber gold to cool blue.
+7. Remove one hanging bundle of dried lavender near the window beam.
+8. Recolor the globe stand base from dark wood to silver.
+9. Add one small vintage brass key resting on top of the chest lid.
+10. Remove the carved heart symbol on the rocking horse side panel.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

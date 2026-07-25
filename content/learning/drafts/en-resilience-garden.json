@@ -1,0 +1,260 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "b441c41f-26e2-45b5-8e2e-46cc0a79b579",
+    "version": 1,
+    "contentRevisionId": "47eb839a-51bc-459b-8ac3-d57ce3944b54",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-resilience-garden",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/b425fd79d5c90efd520e660aceb002b2ccf1adc705d9cea106ac6af9fc1b8be9.png",
+      "sha256": "b425fd79d5c90efd520e660aceb002b2ccf1adc705d9cea106ac6af9fc1b8be9",
+      "encodedBytes": 2255923,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/bb58f697c1604996e27530da835b56ffda21c0427cc79a6fbd80b1cffa97ed8d.png",
+      "sha256": "bb58f697c1604996e27530da835b56ffda21c0427cc79a6fbd80b1cffa97ed8d",
+      "encodedBytes": 2406173,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "47eb839a-51bc-459b-8ac3-d57ce3944b54",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.558,
+            "cy": 0.654,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.558,
+            "cy": 0.654,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.288,
+            "cy": 0.658,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.288,
+            "cy": 0.658,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.538,
+            "cy": 0.802,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.538,
+            "cy": 0.802,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.694,
+            "cy": 0.434,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.694,
+            "cy": 0.434,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.718,
+            "cy": 0.797,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.718,
+            "cy": 0.797,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.843,
+            "cy": 0.624,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.843,
+            "cy": 0.624,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.904,
+            "cy": 0.524,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.904,
+            "cy": 0.524,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-resilience-garden",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.558,
+            "cy": 0.654,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.558,
+            "cy": 0.654,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-resilience-garden",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.288,
+            "cy": 0.658,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.288,
+            "cy": 0.658,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-resilience-garden",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.538,
+            "cy": 0.802,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.538,
+            "cy": 0.802,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.558,
+          "cy": 0.654,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.558,
+          "cy": 0.654,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "resilience",
+      "aliases": [
+        "recovery",
+        "bouncing back"
+      ],
+      "hintUnits": [
+        "r",
+        "e",
+        "s",
+        "i",
+        "l",
+        "i",
+        "e",
+        "n",
+        "c",
+        "e"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '회복탄력성'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Resilience"
+          },
+          {
+            "id": "option_2",
+            "label": "Resistance"
+          },
+          {
+            "id": "option_3",
+            "label": "Resolution"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "609e9a393c318a307ba4507a8de2c9c443f5d70a9b72004dff762a8667ca5ff3"
+  },
+  "assetFiles": {
+    "b425fd79d5c90efd520e660aceb002b2ccf1adc705d9cea106ac6af9fc1b8be9": "D:\\touchcatch\\content\\learning\\source\\en-resilience-garden-a.png",
+    "bb58f697c1604996e27530da835b56ffda21c0427cc79a6fbd80b1cffa97ed8d": "D:\\touchcatch\\content\\learning\\source\\en-resilience-garden-b.png"
+  }
+}

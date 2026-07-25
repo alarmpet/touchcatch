@@ -1,0 +1,291 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "c2e78295-9ba5-4036-82e0-b1faf8746a24",
+    "version": 1,
+    "contentRevisionId": "d46fb09c-f6fa-414a-8433-eff0c0580536",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-3d-serenity",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/4a5ee9cbc20c1626e3a97c8bc923fc5ac859b4fe77e10bcc42d7d9b527b52c16.png",
+      "sha256": "4a5ee9cbc20c1626e3a97c8bc923fc5ac859b4fe77e10bcc42d7d9b527b52c16",
+      "encodedBytes": 2278963,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/0f6e5e1ffbb2c2bc10926fa86daec44b64af9a4ca8e804ed92e0f3fc29b3f180.png",
+      "sha256": "0f6e5e1ffbb2c2bc10926fa86daec44b64af9a4ca8e804ed92e0f3fc29b3f180",
+      "encodedBytes": 2341860,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "d46fb09c-f6fa-414a-8433-eff0c0580536",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.52,
+            "cy": 0.551,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.52,
+            "cy": 0.551,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.106,
+            "cy": 0.404,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.106,
+            "cy": 0.404,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.86,
+            "cy": 0.377,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.86,
+            "cy": 0.377,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.358,
+            "cy": 0.594,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.358,
+            "cy": 0.594,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.256,
+            "cy": 0.405,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.256,
+            "cy": 0.405,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.333,
+            "cy": 0.318,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.333,
+            "cy": 0.318,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.737,
+            "cy": 0.564,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.737,
+            "cy": 0.564,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.734,
+            "cy": 0.399,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.734,
+            "cy": 0.399,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.537,
+            "cy": 0.276,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.537,
+            "cy": 0.276,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-3d-serenity",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.52,
+            "cy": 0.551,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.52,
+            "cy": 0.551,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-3d-serenity",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.106,
+            "cy": 0.404,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.106,
+            "cy": 0.404,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-3d-serenity",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.86,
+            "cy": 0.377,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.86,
+            "cy": 0.377,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.52,
+          "cy": 0.551,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.52,
+          "cy": 0.551,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "serenity",
+      "aliases": [
+        "serene",
+        "tranquility",
+        "peace"
+      ],
+      "hintUnits": [
+        "s",
+        "e",
+        "r",
+        "e",
+        "n",
+        "i",
+        "t",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '평정' or '고요함'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Serenity"
+          },
+          {
+            "id": "option_2",
+            "label": "Severity"
+          },
+          {
+            "id": "option_3",
+            "label": "Scarcity"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "954ad28f1f278e7bf395dc6280194214f7a95d396bf1ed6d0ce161b15c21dba4"
+  },
+  "assetFiles": {
+    "4a5ee9cbc20c1626e3a97c8bc923fc5ac859b4fe77e10bcc42d7d9b527b52c16": "D:\\touchcatch\\content\\learning\\source\\en-3d-serenity-a.png",
+    "0f6e5e1ffbb2c2bc10926fa86daec44b64af9a4ca8e804ed92e0f3fc29b3f180": "D:\\touchcatch\\content\\learning\\source\\en-3d-serenity-b.png"
+  }
+}

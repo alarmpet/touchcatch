@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of a magnificent night-sky celestial observatory showcasing starry constellations for English vocabulary learning (Constellation).
+Scene/backdrop: Inside an open-domed observatory on a starry mountain top, a young female astronomer looks through a giant brass refractor telescope at glowing constellation lines in the night sky (Ursa Major, Orion, Cassiopeia). Star charts, brass globes, celestial maps, glowing lanterns, and starry projections fill the room.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

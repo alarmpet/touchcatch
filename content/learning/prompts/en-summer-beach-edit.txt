@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-summer-beach-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized Beginner-level differences:
+1. Change the beach umbrella stripes from red and yellow to blue and white.
+2. Recolor the surfboard from orange to bright green.
+3. Remove the red flag on top of the sandcastle.
+4. Change the beach ball pattern from star to stripes.
+5. Recolor the lounge chair towel from blue to pink.
+6. Remove one coconut from the palm tree cluster.
+7. Change the cooler box color from red to blue.
+8. Recolor the sailboat hull from white to yellow.
+9. Add one extra seagull flying in the sky.
+10. Remove the sun from the top corner of the sky.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

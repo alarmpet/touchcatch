@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "601bf8cc-e62d-4416-89ea-ec8ecbfab4f5",
+    "version": 1,
+    "contentRevisionId": "e8a5d227-346b-4e22-80bd-d0c396f57063",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-clay-zoo",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/ceaa7090a62b58f58d66e47a49e77bacce791366d788bedb4d272f97d920d252.png",
+      "sha256": "ceaa7090a62b58f58d66e47a49e77bacce791366d788bedb4d272f97d920d252",
+      "encodedBytes": 2686689,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/c5dc7dff110a97e2813a1e5429929f23591f7b88961c59d4339b2ab33644b5ae.png",
+      "sha256": "c5dc7dff110a97e2813a1e5429929f23591f7b88961c59d4339b2ab33644b5ae",
+      "encodedBytes": 2757865,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "e8a5d227-346b-4e22-80bd-d0c396f57063",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.535,
+            "cy": 0.163,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.535,
+            "cy": 0.163,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.607,
+            "cy": 0.044,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.607,
+            "cy": 0.044,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.214,
+            "cy": 0.704,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.214,
+            "cy": 0.704,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.552,
+            "cy": 0.522,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.552,
+            "cy": 0.522,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.496,
+            "cy": 0.041,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.496,
+            "cy": 0.041,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.613,
+            "cy": 0.313,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.613,
+            "cy": 0.313,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.371,
+            "cy": 0.725,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.371,
+            "cy": 0.725,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.385,
+            "cy": 0.236,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.385,
+            "cy": 0.236,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.142,
+            "cy": 0.24,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.142,
+            "cy": 0.24,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.35,
+            "cy": 0.589,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.35,
+            "cy": 0.589,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-clay-zoo",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.535,
+            "cy": 0.163,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.535,
+            "cy": 0.163,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-clay-zoo",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.607,
+            "cy": 0.044,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.607,
+            "cy": 0.044,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-clay-zoo",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.214,
+            "cy": 0.704,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.214,
+            "cy": 0.704,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.535,
+          "cy": 0.163,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.535,
+          "cy": 0.163,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "camaraderie",
+      "aliases": [
+        "zoo",
+        "zookeeper",
+        "clay"
+      ],
+      "hintUnits": [
+        "c",
+        "a",
+        "m",
+        "a",
+        "r",
+        "a",
+        "d",
+        "e",
+        "r",
+        "i",
+        "e"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '우정' or '동료애'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Camaraderie"
+          },
+          {
+            "id": "option_2",
+            "label": "Catastrophe"
+          },
+          {
+            "id": "option_3",
+            "label": "Chivalry"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "dc2c6a14172193c9de4865bfb13caa85c086c40359e116a88abd11266ff4402c"
+  },
+  "assetFiles": {
+    "ceaa7090a62b58f58d66e47a49e77bacce791366d788bedb4d272f97d920d252": "D:\\touchcatch\\content\\learning\\source\\en-clay-zoo-a.png",
+    "c5dc7dff110a97e2813a1e5429929f23591f7b88961c59d4339b2ab33644b5ae": "D:\\touchcatch\\content\\learning\\source\\en-clay-zoo-b.png"
+  }
+}

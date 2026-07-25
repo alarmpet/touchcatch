@@ -6,31 +6,31 @@
   "publicContent": {
     "contentId": "050caabc-d151-4f1a-86ee-80a163dfa185",
     "version": 1,
-    "contentRevisionId": "868ee043-4c0a-4f6e-8f75-65c66951e7c1",
+    "contentRevisionId": "d6675c1e-ca02-49d5-8eb6-0526d9dff213",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "ko-idiom-perspective",
     "language": "ko",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/d37c123580152a6a1552054e4ec6e171af7bfea77b299c2c1234f9e7fb51cf18.png",
-      "sha256": "d37c123580152a6a1552054e4ec6e171af7bfea77b299c2c1234f9e7fb51cf18",
-      "encodedBytes": 2756860,
+      "url": "https://cdn.spot-learn.test/assets/1308c5d9ba9a022994579736578fe48130f12279ca52a8428710fc45af927229.png",
+      "sha256": "1308c5d9ba9a022994579736578fe48130f12279ca52a8428710fc45af927229",
+      "encodedBytes": 3976938,
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/d3c5f45583c4166854b90cc0c675c1dad5347ee2290e10862ead0afec923e5b9.png",
-      "sha256": "d3c5f45583c4166854b90cc0c675c1dad5347ee2290e10862ead0afec923e5b9",
-      "encodedBytes": 2696269,
+      "url": "https://cdn.spot-learn.test/assets/d873e9da75e8267589be4d5b1238c5277b38ad8ae346f2ebec7c70edf3c1c40f.png",
+      "sha256": "d873e9da75e8267589be4d5b1238c5277b38ad8ae346f2ebec7c70edf3c1c40f",
+      "encodedBytes": 3900361,
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "868ee043-4c0a-4f6e-8f75-65c66951e7c1",
+    "contentRevisionId": "d6675c1e-ca02-49d5-8eb6-0526d9dff213",
     "schemaVersion": "1.0.0",
     "differences": [
       {
@@ -38,13 +38,13 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.045,
-            "cy": 0.16,
+            "cx": 0.11,
+            "cy": 0.784,
             "r": 0.05
           },
           "imageB": {
-            "cx": 0.045,
-            "cy": 0.16,
+            "cx": 0.11,
+            "cy": 0.784,
             "r": 0.05
           }
         }
@@ -54,14 +54,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.398,
-            "cy": 0.105,
-            "r": 0.045
+            "cx": 0.085,
+            "cy": 0.929,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.398,
-            "cy": 0.105,
-            "r": 0.045
+            "cx": 0.085,
+            "cy": 0.929,
+            "r": 0.05
           }
         }
       },
@@ -70,14 +70,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.46,
-            "cy": 0.4,
-            "r": 0.045
+            "cx": 0.913,
+            "cy": 0.717,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.46,
-            "cy": 0.4,
-            "r": 0.045
+            "cx": 0.913,
+            "cy": 0.717,
+            "r": 0.05
           }
         }
       },
@@ -86,14 +86,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.545,
-            "cy": 0.4,
-            "r": 0.045
+            "cx": 0.884,
+            "cy": 0.619,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.545,
-            "cy": 0.4,
-            "r": 0.045
+            "cx": 0.884,
+            "cy": 0.619,
+            "r": 0.05
           }
         }
       },
@@ -102,14 +102,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.46,
-            "cy": 0.77,
-            "r": 0.06
+            "cx": 0.051,
+            "cy": 0.186,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.46,
-            "cy": 0.77,
-            "r": 0.06
+            "cx": 0.051,
+            "cy": 0.186,
+            "r": 0.05
           }
         }
       },
@@ -118,14 +118,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.1,
-            "cy": 0.86,
-            "r": 0.1
+            "cx": 0.449,
+            "cy": 0.762,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.1,
-            "cy": 0.86,
-            "r": 0.1
+            "cx": 0.449,
+            "cy": 0.762,
+            "r": 0.05
           }
         }
       },
@@ -134,14 +134,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.32,
-            "cy": 0.92,
-            "r": 0.06
+            "cx": 0.386,
+            "cy": 0.109,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.32,
-            "cy": 0.92,
-            "r": 0.06
+            "cx": 0.386,
+            "cy": 0.109,
+            "r": 0.05
           }
         }
       },
@@ -150,14 +150,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.89,
-            "cy": 0.7,
-            "r": 0.11
+            "cx": 0.847,
+            "cy": 0.882,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.89,
-            "cy": 0.7,
-            "r": 0.11
+            "cx": 0.847,
+            "cy": 0.882,
+            "r": 0.05
           }
         }
       },
@@ -166,14 +166,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.83,
-            "cy": 0.88,
-            "r": 0.055
+            "cx": 0.456,
+            "cy": 0.394,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.83,
-            "cy": 0.88,
-            "r": 0.055
+            "cx": 0.456,
+            "cy": 0.394,
+            "r": 0.05
           }
         }
       },
@@ -182,13 +182,13 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.91,
-            "cy": 0.12,
+            "cx": 0.358,
+            "cy": 0.905,
             "r": 0.05
           },
           "imageB": {
-            "cx": 0.91,
-            "cy": 0.12,
+            "cx": 0.358,
+            "cy": 0.905,
             "r": 0.05
           }
         }
@@ -290,10 +290,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "bc2c3622df6ee8e75babf9e0fe0d64ac93066a9ba36cf9fc1890862e04321078"
+    "privateSolutionHash": "1406aa3adbcd348a5e81051dbcce5e68227510b12c272bb92119b4ef3e9b22f1"
   },
   "assetFiles": {
-    "d37c123580152a6a1552054e4ec6e171af7bfea77b299c2c1234f9e7fb51cf18": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\ko-idiom-perspective-a.png",
-    "d3c5f45583c4166854b90cc0c675c1dad5347ee2290e10862ead0afec923e5b9": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\ko-idiom-perspective-b.png"
+    "1308c5d9ba9a022994579736578fe48130f12279ca52a8428710fc45af927229": "D:\\touchcatch\\content\\learning\\source\\ko-idiom-perspective-a.png",
+    "d873e9da75e8267589be4d5b1238c5277b38ad8ae346f2ebec7c70edf3c1c40f": "D:\\touchcatch\\content\\learning\\source\\ko-idiom-perspective-b.png"
   }
 }

@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: ko-proverb-cow-barn-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, characters, background, composition, and drawing style. Make 10 localized differences:
+1. Change the farmer's vest color from blue to green.
+2. Change the bucket at the well from wood to metal.
+3. Recolor the small dog's fur from brown to white.
+4. Add one extra clay pot on the kimchee pot terrace.
+5. Remove the hammer from the farmer's hand.
+6. Change the rubber shoes (Gomusin) color from white to black.
+7. Reverse the diagonal roof beam direction on the cow barn gate.
+8. Add a bird perched on the stone wall.
+9. Recolor the straw on the wooden cart from yellow to green.
+10. Remove one cloud from the sky above the green hills.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

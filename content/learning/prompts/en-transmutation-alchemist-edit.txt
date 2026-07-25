@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-transmutation-alchemist-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized subtle Advanced-level differences:
+1. Change the wizard's starry robe color from deep violet to emerald green.
+2. Recolor the glowing magic wand tip spark from golden yellow to magenta pink.
+3. Change the transmuted liquid inside the glass alembic flask from gold to cyan blue.
+4. Remove one potion bottle from the potion shelf.
+5. Recolor the cat's collar ribbon from red to gold.
+6. Change the spellbook cover leather color from brown to crimson red.
+7. Remove one hanging brass astrolabe ring.
+8. Recolor the mortar and pestle bowl from grey stone to white marble.
+9. Add one extra small glowing crystal gem resting on the alchemist's table.
+10. Remove the carved crescent moon emblem on the wizard's pointed hat.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

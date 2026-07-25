@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-equilibrium-cliff-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized subtle Advanced-level differences:
+1. Change the monk's robe color from bright orange to maroon purple.
+2. Recolor the top stone on the balanced cairn stack from dark grey to turquoise blue.
+3. Change the crystal feather on the balance scale from yellow to magenta red.
+4. Remove one soaring white seagull from the sky.
+5. Recolor the stone lantern candle glow from warm yellow to cool white.
+6. Change the bamboo water fountain tube from natural green to dark brown.
+7. Remove one falling cherry blossom petal near the bench.
+8. Recolor the wooden bench legs from brown to silver grey.
+9. Add one extra small smooth white pebble resting near the monk's feet.
+10. Remove the carved yin-yang symbol on the wooden balance scale base.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

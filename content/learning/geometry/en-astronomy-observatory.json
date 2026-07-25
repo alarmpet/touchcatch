@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.139, "cy": 0.681, "r": 0.070 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.452, "cy": 0.339, "r": 0.070 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.575, "cy": 0.420, "r": 0.070 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.089, "cy": 0.852, "r": 0.070 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.875, "cy": 0.664, "r": 0.070 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.285, "cy": 0.339, "r": 0.070 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.397, "cy": 0.832, "r": 0.070 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.068, "cy": 0.723, "r": 0.070 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.531, "cy": 0.561, "r": 0.070 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.645, "cy": 0.464, "r": 0.070 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the optical telescope.", "cx": 0.452, "cy": 0.339, "r": 0.075 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find Saturn's rings.", "cx": 0.285, "cy": 0.339, "r": 0.070 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the astronomer.", "cx": 0.575, "cy": 0.420, "r": 0.070 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.452, "cy": 0.339, "r": 0.080 }
+}

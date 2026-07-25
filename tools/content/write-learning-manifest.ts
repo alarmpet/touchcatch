@@ -6,7 +6,7 @@ const root = resolve(import.meta.dirname, '../..');
 const learning = resolve(root, 'content/learning');
 const catalog = JSON.parse(await readFile(resolve(learning, 'catalog.v1.json'), 'utf8')) as { entries: Array<{ key: string; category: string }> };
 const draftFiles = (await readdir(resolve(learning, 'drafts'))).filter((file) => file.endsWith('.json')).sort();
-if (draftFiles.length !== 9) throw new Error(`EXPECTED_NINE_DRAFTS:${draftFiles.length}`);
+if (draftFiles.length < catalog.entries.length) throw new Error(`MISSING_DRAFT_FILES:${draftFiles.length}/${catalog.entries.length}`);
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const entries = [];
 for (const catalogEntry of catalog.entries) {

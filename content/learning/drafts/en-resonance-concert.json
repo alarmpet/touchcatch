@@ -1,0 +1,308 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "cc8961c3-25de-4be9-8749-c0dfa05594c9",
+    "version": 1,
+    "contentRevisionId": "f91b6e59-5c71-4ddc-87c5-382e494d2e8e",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-resonance-concert",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/b5b82a1923db3e91b3d32b508072f03e58c79c14d35cec96712f7e945bda8cab.png",
+      "sha256": "b5b82a1923db3e91b3d32b508072f03e58c79c14d35cec96712f7e945bda8cab",
+      "encodedBytes": 1931858,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/4bf33ead82ad4f931635ad7fc4f8ba24b6f1fcd4933dec1620fa22e1db17ba63.png",
+      "sha256": "4bf33ead82ad4f931635ad7fc4f8ba24b6f1fcd4933dec1620fa22e1db17ba63",
+      "encodedBytes": 2163481,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "f91b6e59-5c71-4ddc-87c5-382e494d2e8e",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.449,
+            "cy": 0.592,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.449,
+            "cy": 0.592,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.372,
+            "cy": 0.513,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.372,
+            "cy": 0.513,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.497,
+            "cy": 0.486,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.497,
+            "cy": 0.486,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.268,
+            "cy": 0.627,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.268,
+            "cy": 0.627,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.695,
+            "cy": 0.466,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.695,
+            "cy": 0.466,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.61,
+            "cy": 0.364,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.61,
+            "cy": 0.364,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.666,
+            "cy": 0.804,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.666,
+            "cy": 0.804,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.398,
+            "cy": 0.369,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.398,
+            "cy": 0.369,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.358,
+            "cy": 0.698,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.358,
+            "cy": 0.698,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.821,
+            "cy": 0.523,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.821,
+            "cy": 0.523,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-resonance-concert",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.449,
+            "cy": 0.592,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.449,
+            "cy": 0.592,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-resonance-concert",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.372,
+            "cy": 0.513,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.372,
+            "cy": 0.513,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-resonance-concert",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.497,
+            "cy": 0.486,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.497,
+            "cy": 0.486,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.449,
+          "cy": 0.592,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.449,
+          "cy": 0.592,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "resonance",
+      "aliases": [
+        "resonate",
+        "sound wave",
+        "concert"
+      ],
+      "hintUnits": [
+        "r",
+        "e",
+        "s",
+        "o",
+        "n",
+        "a",
+        "n",
+        "c",
+        "e"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '공명' or '울림'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Resonance"
+          },
+          {
+            "id": "option_2",
+            "label": "Resistance"
+          },
+          {
+            "id": "option_3",
+            "label": "Resignation"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "89fc9687f6473fce7814eeb0ceb9cf62d631e3c747cc7c447a7cf1d3a9c783f9"
+  },
+  "assetFiles": {
+    "b5b82a1923db3e91b3d32b508072f03e58c79c14d35cec96712f7e945bda8cab": "D:\\touchcatch\\content\\learning\\source\\en-resonance-concert-a.png",
+    "4bf33ead82ad4f931635ad7fc4f8ba24b6f1fcd4933dec1620fa22e1db17ba63": "D:\\touchcatch\\content\\learning\\source\\en-resonance-concert-b.png"
+  }
+}

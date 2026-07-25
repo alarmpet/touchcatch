@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-archipelago-island-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A (en_archipelago_island_a). Preserve exact same camera angle, composition, background, islands, ocean, and drawing style. Make 10 localized subtle Advanced-level differences on specific objects:
+1. Change the geographer's shirt color from khaki yellow to ocean blue.
+2. Recolor the brass spyglass telescope on the tripod from brass gold to silver steel.
+3. Recolor the outrigger canoe sail in the lagoon from white to bright orange.
+4. Remove one flying sea hawk soaring above the island peak.
+5. Recolor the watchtower wooden railing trim from dark brown to coral red.
+6. Change the geographer's sun hat color from beige to bright yellow.
+7. Remove one small wooden barrel resting beside the watchtower post.
+8. Recolor the map scroll container on the table from leather brown to emerald green.
+9. Add one extra small brass nautical compass resting on the watchtower table.
+10. Remove the wall lantern hanging on the watchtower pillar.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

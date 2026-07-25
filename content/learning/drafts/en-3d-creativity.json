@@ -1,0 +1,309 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "3454d50c-4cdb-43d4-8139-e0bce4e16a88",
+    "version": 1,
+    "contentRevisionId": "d9397ef8-fc32-46ec-81c0-c4fafc2a5cb3",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-3d-creativity",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/fb45d1041654683b779ff2eb1cc305e79d22f246b5abd697199ab44be1fceabd.png",
+      "sha256": "fb45d1041654683b779ff2eb1cc305e79d22f246b5abd697199ab44be1fceabd",
+      "encodedBytes": 2446005,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/fd6334d9ba446dc61b6a8dacdcd488580d6a352a6e16622924d011a993cd3d1a.png",
+      "sha256": "fd6334d9ba446dc61b6a8dacdcd488580d6a352a6e16622924d011a993cd3d1a",
+      "encodedBytes": 2519693,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "d9397ef8-fc32-46ec-81c0-c4fafc2a5cb3",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.719,
+            "cy": 0.372,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.719,
+            "cy": 0.372,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.933,
+            "cy": 0.241,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.933,
+            "cy": 0.241,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.499,
+            "cy": 0.636,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.499,
+            "cy": 0.636,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.923,
+            "cy": 0.507,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.923,
+            "cy": 0.507,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.838,
+            "cy": 0.419,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.838,
+            "cy": 0.419,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.157,
+            "cy": 0.209,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.157,
+            "cy": 0.209,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.349,
+            "cy": 0.667,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.349,
+            "cy": 0.667,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.677,
+            "cy": 0.55,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.677,
+            "cy": 0.55,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.606,
+            "cy": 0.11,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.606,
+            "cy": 0.11,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.227,
+            "cy": 0.655,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.227,
+            "cy": 0.655,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-3d-creativity",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.719,
+            "cy": 0.372,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.719,
+            "cy": 0.372,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-3d-creativity",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.933,
+            "cy": 0.241,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.933,
+            "cy": 0.241,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-3d-creativity",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.499,
+            "cy": 0.636,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.499,
+            "cy": 0.636,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.719,
+          "cy": 0.372,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.719,
+          "cy": 0.372,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "creativity",
+      "aliases": [
+        "creative",
+        "invent",
+        "design"
+      ],
+      "hintUnits": [
+        "c",
+        "r",
+        "e",
+        "a",
+        "t",
+        "i",
+        "v",
+        "i",
+        "t",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '창의성' or '창작력'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Creativity"
+          },
+          {
+            "id": "option_2",
+            "label": "Calculus"
+          },
+          {
+            "id": "option_3",
+            "label": "Constraint"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "dd318c4caa9014b44a21ddb0ec701645c6829a2763d71a1c1b555cb072fd2e2e"
+  },
+  "assetFiles": {
+    "fb45d1041654683b779ff2eb1cc305e79d22f246b5abd697199ab44be1fceabd": "D:\\touchcatch\\content\\learning\\source\\en-3d-creativity-a.png",
+    "fd6334d9ba446dc61b6a8dacdcd488580d6a352a6e16622924d011a993cd3d1a": "D:\\touchcatch\\content\\learning\\source\\en-3d-creativity-b.png"
+  }
+}

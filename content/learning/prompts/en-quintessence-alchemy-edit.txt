@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-quintessence-alchemy-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A (en_quintessence_alchemy_a). Preserve exact same camera angle, composition, background, constellations, dome, and drawing style. Make 10 localized subtle Advanced-level differences on specific objects:
+1. Change the alchemist's robe trim color from celestial blue to magenta pink.
+2. Recolor the Fifth Element crystal orb core glow from golden white to violet purple.
+3. Change the large brass astrolabe ring color from antique brass to polished silver.
+4. Remove one hovering ether crystal floating on the left side of the pedestal.
+5. Recolor the celestial globe stand from dark mahogany to emerald green.
+6. Change the liquid color in the large alchemical flask on the right from glowing cyan to amber orange.
+7. Remove one constellation star marker pin on the starry wall chart.
+8. Recolor the alchemist's pointed hat band from gold to ruby red.
+9. Add one extra small glowing ether vial resting on the pedestal table.
+10. Remove the hanging brass sun-pendant ornament on the dome pillar.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

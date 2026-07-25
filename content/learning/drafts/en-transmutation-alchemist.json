@@ -1,0 +1,295 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "a0f8f7b7-4c22-450d-8e0c-ebda2ab86d24",
+    "version": 1,
+    "contentRevisionId": "02fc24a2-dd77-4721-82c7-2575a19df786",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-transmutation-alchemist",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/fb13f1be669e55637091fb17604f74888a7f8e40995afedaaeb3bb18b2380f38.png",
+      "sha256": "fb13f1be669e55637091fb17604f74888a7f8e40995afedaaeb3bb18b2380f38",
+      "encodedBytes": 1932622,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/8c3e042b7c3c51af87ba5cf63766a54db3ea53b845e0d4378f1aaae0997c4452.png",
+      "sha256": "8c3e042b7c3c51af87ba5cf63766a54db3ea53b845e0d4378f1aaae0997c4452",
+      "encodedBytes": 2114522,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "02fc24a2-dd77-4721-82c7-2575a19df786",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.766,
+            "cy": 0.714,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.766,
+            "cy": 0.714,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.701,
+            "cy": 0.624,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.701,
+            "cy": 0.624,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.701,
+            "cy": 0.855,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.701,
+            "cy": 0.855,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.732,
+            "cy": 0.473,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.732,
+            "cy": 0.473,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.726,
+            "cy": 0.291,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.726,
+            "cy": 0.291,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.506,
+            "cy": 0.349,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.506,
+            "cy": 0.349,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.53,
+            "cy": 0.601,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.53,
+            "cy": 0.601,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.509,
+            "cy": 0.463,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.509,
+            "cy": 0.463,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.435,
+            "cy": 0.877,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.435,
+            "cy": 0.877,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-transmutation-alchemist",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.766,
+            "cy": 0.714,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.766,
+            "cy": 0.714,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-transmutation-alchemist",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.701,
+            "cy": 0.624,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.701,
+            "cy": 0.624,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-transmutation-alchemist",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.701,
+            "cy": 0.855,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.701,
+            "cy": 0.855,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.766,
+          "cy": 0.714,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.766,
+          "cy": 0.714,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "transmutation",
+      "aliases": [
+        "alchemy",
+        "transformation"
+      ],
+      "hintUnits": [
+        "t",
+        "r",
+        "a",
+        "n",
+        "s",
+        "m",
+        "u",
+        "t",
+        "a",
+        "t",
+        "i",
+        "o",
+        "n"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '연금술적 변형'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Transmutation"
+          },
+          {
+            "id": "option_2",
+            "label": "Transportation"
+          },
+          {
+            "id": "option_3",
+            "label": "Transaction"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "8b26b693cdbc3f520e5f0813be1507c8e57b1bc97720c1d8d2098d5a2af959f6"
+  },
+  "assetFiles": {
+    "fb13f1be669e55637091fb17604f74888a7f8e40995afedaaeb3bb18b2380f38": "D:\\touchcatch\\content\\learning\\source\\en-transmutation-alchemist-a.png",
+    "8c3e042b7c3c51af87ba5cf63766a54db3ea53b845e0d4378f1aaae0997c4452": "D:\\touchcatch\\content\\learning\\source\\en-transmutation-alchemist-b.png"
+  }
+}

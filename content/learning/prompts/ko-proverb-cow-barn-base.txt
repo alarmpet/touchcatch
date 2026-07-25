@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of a traditional Korean folk story setting depicting the proverb 'Fixing the barn after losing the cow' (소 잃고 외양간 고치기).
+Scene/backdrop: In a sunny Joseon dynasty traditional village, there is a wooden cow barn with a broken wooden gate on the left, a worried farmer holding a hammer and wooden plank, a straw-roofed house in the background, a small dog barking near a stone wall, a clay kimchee pot terrace, a wooden cart with straw, a well with a bucket, a pair of rubber shoes (Gomusin) on a wooden deck, and green hills in the distance.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

@@ -614,6 +614,5000 @@
         "editPromptSha256": null,
         "generatedAt": null
       }
+    },
+    {
+      "key": "en-phonics-apple",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "BEGINNER",
+      "status": "DRAFT",
+      "canonicalAnswer": "apple",
+      "aliases": [
+        "fruit",
+        "red fruit"
+      ],
+      "meaning": {
+        "prompt": "What is this fruit called in English?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Apple"
+          },
+          {
+            "id": "option_2",
+            "label": "Orange"
+          },
+          {
+            "id": "option_3",
+            "label": "Grape"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Phonics apple fruit learning scene",
+      "changes": [
+        "Color changes on apple",
+        "Leaf shape",
+        "Basket color change",
+        "Background fruit removed",
+        "Bowl color",
+        "Shadow removed",
+        "Stem length",
+        "Worm added",
+        "Tag removed",
+        "Shine spot"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "사과를 찾으세요",
+          "object": "apple"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "과일 바구니를 찾으세요",
+          "object": "fruit basket"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "나뭇잎을 찾으세요",
+          "object": "leaf"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "빨간 사과를 찾으세요",
+        "object": "red apple"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "gk-space-rover",
+      "category": "GENERAL_KNOWLEDGE",
+      "language": "en",
+      "difficulty": "INTERMEDIATE",
+      "status": "DRAFT",
+      "canonicalAnswer": "space rover",
+      "aliases": [
+        "mars rover",
+        "space vehicle"
+      ],
+      "meaning": {
+        "prompt": "What is this vehicle called?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Space Rover"
+          },
+          {
+            "id": "option_2",
+            "label": "Submarine"
+          },
+          {
+            "id": "option_3",
+            "label": "Airplane"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Space rover on Mars surface exploring scene",
+      "changes": [
+        "Rover color",
+        "Antenna shape",
+        "Flag removed",
+        "Solar panel color",
+        "Wheel count",
+        "Camera lens",
+        "Crater removed",
+        "Rock added",
+        "Signal light color",
+        "Astronaut removed"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "화성 탐사선을 찾으세요",
+          "object": "space rover"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "태양광 패널을 찾으세요",
+          "object": "solar panel"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "분화구를 찾으세요",
+          "object": "crater"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "탐사선을 찾으세요",
+        "object": "space rover"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "ko-proverb-cow-barn",
+      "category": "PROVERB",
+      "language": "ko",
+      "difficulty": "INTERMEDIATE",
+      "status": "DRAFT",
+      "canonicalAnswer": "소 잃고 외양간 고친다",
+      "aliases": [
+        "소 잃고",
+        "외양간"
+      ],
+      "meaning": {
+        "prompt": "이 속담의 의미는?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "일이 일어난 후에 대비함"
+          },
+          {
+            "id": "option_2",
+            "label": "미리 잘 준비함"
+          },
+          {
+            "id": "option_3",
+            "label": "남의 일에 참견함"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "소가 도망간 후 외양간을 고치는 농부 씬",
+      "changes": [
+        "농부 옷 색상",
+        "외양간 문 색상",
+        "닭 제거 요소 변경",
+        "지붕 색상",
+        "소 색상 요소 변경",
+        "도구 추가",
+        "울타리 제거",
+        "나무 추가",
+        "등불 색상",
+        "구름 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "농부를 찾으세요",
+          "object": "farmer"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "외양간을 찾으세요",
+          "object": "cattle barn"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "도망간 소를 찾으세요",
+          "object": "cow running away"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "외양간을 고치는 농부를 찾으세요",
+        "object": "farmer fixing barn"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "ko-idiom-birds-one-stone",
+      "category": "IDIOM",
+      "language": "ko",
+      "difficulty": "INTERMEDIATE",
+      "status": "DRAFT",
+      "canonicalAnswer": "일석이조",
+      "aliases": [
+        "一石二鳥",
+        "일거양득"
+      ],
+      "meaning": {
+        "prompt": "일석이조의 의미는?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "한 가지로 두 가지를 얻음"
+          },
+          {
+            "id": "option_2",
+            "label": "두 번 실패함"
+          },
+          {
+            "id": "option_3",
+            "label": "새를 잡음"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "돌 하나로 새 두 마리를 잡는 일석이조 씬",
+      "changes": [
+        "돌 색상 요소 변경",
+        "새 위치 요소 변경",
+        "나뭇잎 색상",
+        "구름 제거",
+        "나무 색상",
+        "새 제거 요소 변경",
+        "풀 색상 요소 변경",
+        "구름 추가",
+        "돌 크기 요소 변경",
+        "나무 추가"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "돌을 찾으세요",
+          "object": "stone"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "새를 찾으세요",
+          "object": "birds"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "돌을 던지는 손을 찾으세요",
+          "object": "hand throwing stone"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "날아가는 새 두 마리를 찾으세요",
+        "object": "two birds"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-school-classroom",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "BEGINNER",
+      "status": "DRAFT",
+      "canonicalAnswer": "classroom",
+      "aliases": [
+        "school",
+        "class"
+      ],
+      "meaning": {
+        "prompt": "What is this place called in English?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Classroom"
+          },
+          {
+            "id": "option_2",
+            "label": "Library"
+          },
+          {
+            "id": "option_3",
+            "label": "Kitchen"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Busy elementary school classroom learning scene",
+      "changes": [
+        "Blackboard color",
+        "Chair color",
+        "Teacher outfit",
+        "Plant removed",
+        "Clock hands",
+        "Poster removed",
+        "Student hat",
+        "Pencil color",
+        "Bag added",
+        "Window blinds"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "선생님을 찾으세요",
+          "object": "teacher"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "칠판을 찾으세요",
+          "object": "blackboard"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "시계를 찾으세요",
+          "object": "clock"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "교실 칠판을 찾으세요",
+        "object": "blackboard"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-happy-family",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "BEGINNER",
+      "status": "DRAFT",
+      "canonicalAnswer": "family",
+      "aliases": [
+        "parents",
+        "home"
+      ],
+      "meaning": {
+        "prompt": "What is this group of people called?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Family"
+          },
+          {
+            "id": "option_2",
+            "label": "Team"
+          },
+          {
+            "id": "option_3",
+            "label": "Crowd"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Happy family picnic in a sunny park scene",
+      "changes": [
+        "Dad's shirt color",
+        "Mom's dress color",
+        "Kid's balloon color",
+        "Dog removed",
+        "Picnic blanket",
+        "Food basket color",
+        "Hat removed",
+        "Kite color",
+        "Tree fruit",
+        "Bench added"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "가족을 찾으세요",
+          "object": "family"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "풍선을 찾으세요",
+          "object": "balloon"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "개를 찾으세요",
+          "object": "dog"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "행복한 가족을 찾으세요",
+        "object": "happy family"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-curiosity-lab",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "INTERMEDIATE",
+      "status": "DRAFT",
+      "canonicalAnswer": "curiosity",
+      "aliases": [
+        "curious",
+        "wonder"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '호기심'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Curiosity"
+          },
+          {
+            "id": "option_2",
+            "label": "Boredom"
+          },
+          {
+            "id": "option_3",
+            "label": "Anxiety"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Curiosity science lab with excited young researchers scene",
+      "changes": [
+        "Lab coat color",
+        "Flask liquid color",
+        "Microscope color",
+        "Chart removed",
+        "Beaker added",
+        "Goggles color",
+        "Plant color",
+        "Robot toy",
+        "Book color",
+        "Window sticker removed"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "과학자를 찾으세요",
+          "object": "scientist"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "현미경을 찾으세요",
+          "object": "microscope"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "시험관을 찾으세요",
+          "object": "test tube"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "연구실 플라스크를 찾으세요",
+        "object": "flask"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-ambiguity-gallery",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "INTERMEDIATE",
+      "status": "DRAFT",
+      "canonicalAnswer": "ambiguity",
+      "aliases": [
+        "ambiguous",
+        "unclear"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '모호함'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Ambiguity"
+          },
+          {
+            "id": "option_2",
+            "label": "Clarity"
+          },
+          {
+            "id": "option_3",
+            "label": "Certainty"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Art gallery with optical illusion artworks showing ambiguity scene",
+      "changes": [
+        "Frame color",
+        "Painting content",
+        "Visitor outfit",
+        "Sculpture removed",
+        "Lighting color",
+        "Bench color",
+        "Exit sign removed",
+        "Painting added",
+        "Vase color",
+        "Curtain color"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "관람객을 찾으세요",
+          "object": "art visitor"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "그림 액자를 찾으세요",
+          "object": "painting frame"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "착시 그림을 찾으세요",
+          "object": "optical illusion painting"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "갤러리 조각품을 찾으세요",
+        "object": "sculpture"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-toy-hospital",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "BEGINNER",
+      "status": "DRAFT",
+      "canonicalAnswer": "hospital",
+      "aliases": [
+        "doctor",
+        "clinic"
+      ],
+      "meaning": {
+        "prompt": "What is this place called?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Hospital"
+          },
+          {
+            "id": "option_2",
+            "label": "School"
+          },
+          {
+            "id": "option_3",
+            "label": "Market"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Cute toy hospital with teddy bear patients scene",
+      "changes": [
+        "Doctor coat color",
+        "Patient bear color",
+        "Stethoscope color",
+        "Medicine bottle",
+        "Bandage color",
+        "Thermometer removed",
+        "Nurse hat",
+        "Bed color",
+        "Chart added",
+        "Plant removed"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "의사를 찾으세요",
+          "object": "doctor"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "곰인형 환자를 찾으세요",
+          "object": "teddy bear patient"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "청진기를 찾으세요",
+          "object": "stethoscope"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "병원 침대를 찾으세요",
+        "object": "hospital bed"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-city-park",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "BEGINNER",
+      "status": "DRAFT",
+      "canonicalAnswer": "park",
+      "aliases": [
+        "garden",
+        "playground"
+      ],
+      "meaning": {
+        "prompt": "What is this outdoor area called?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Park"
+          },
+          {
+            "id": "option_2",
+            "label": "Forest"
+          },
+          {
+            "id": "option_3",
+            "label": "Desert"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Colorful city park with children playing scene",
+      "changes": [
+        "Slide color",
+        "Swing color",
+        "Duck removed",
+        "Bench color",
+        "Kite color",
+        "Tree flowers",
+        "Dog color",
+        "Fountain removed",
+        "Balloon added",
+        "Lamp color"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "미끄럼틀을 찾으세요",
+          "object": "slide"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "그네를 찾으세요",
+          "object": "swing"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "오리를 찾으세요",
+          "object": "duck"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "공원 벤치를 찾으세요",
+        "object": "park bench"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-yellow-bus",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "BEGINNER",
+      "status": "DRAFT",
+      "canonicalAnswer": "bus",
+      "aliases": [
+        "school bus",
+        "yellow bus"
+      ],
+      "meaning": {
+        "prompt": "What is this vehicle called?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Bus"
+          },
+          {
+            "id": "option_2",
+            "label": "Train"
+          },
+          {
+            "id": "option_3",
+            "label": "Car"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Yellow school bus at school gate with children scene",
+      "changes": [
+        "Bus window color",
+        "Driver hat",
+        "Student uniform",
+        "Stop sign color",
+        "Wheel color",
+        "Backpack color",
+        "Bird removed",
+        "Fence color",
+        "Cloud added",
+        "Flower removed"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "노란 스쿨버스를 찾으세요",
+          "object": "yellow school bus"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "버스 기사를 찾으세요",
+          "object": "bus driver"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "정류장 표지판을 찾으세요",
+          "object": "stop sign"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "노란 버스를 찾으세요",
+        "object": "yellow bus"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-funny-zoo",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "BEGINNER",
+      "status": "DRAFT",
+      "canonicalAnswer": "zoo",
+      "aliases": [
+        "animals",
+        "wildlife park"
+      ],
+      "meaning": {
+        "prompt": "What is this place called?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Zoo"
+          },
+          {
+            "id": "option_2",
+            "label": "Farm"
+          },
+          {
+            "id": "option_3",
+            "label": "Museum"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Fun cartoon zoo with funny animal characters scene",
+      "changes": [
+        "Giraffe spot color",
+        "Elephant hat",
+        "Monkey tail",
+        "Lion mane color",
+        "Zoo gate color",
+        "Bird color",
+        "Cage color",
+        "Sign removed",
+        "Ice cream color",
+        "Staff uniform"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "기린을 찾으세요",
+          "object": "giraffe"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "코끼리를 찾으세요",
+          "object": "elephant"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "사자를 찾으세요",
+          "object": "lion"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "동물원 입구를 찾으세요",
+        "object": "zoo entrance"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-sweet-bakery",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "BEGINNER",
+      "status": "DRAFT",
+      "canonicalAnswer": "bakery",
+      "aliases": [
+        "bread",
+        "cake shop"
+      ],
+      "meaning": {
+        "prompt": "What is this shop called?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Bakery"
+          },
+          {
+            "id": "option_2",
+            "label": "Library"
+          },
+          {
+            "id": "option_3",
+            "label": "Pharmacy"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Sweet colorful bakery shop with pastries and cakes scene",
+      "changes": [
+        "Cake frosting color",
+        "Bread loaf",
+        "Cookie removed",
+        "Baker hat color",
+        "Display case color",
+        "Cupcake topping",
+        "Sign color",
+        "Flower added",
+        "Window color",
+        "Tray shape"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "제빵사를 찾으세요",
+          "object": "baker"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "케이크를 찾으세요",
+          "object": "cake"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "진열대를 찾으세요",
+          "object": "display case"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "달콤한 케이크를 찾으세요",
+        "object": "cake"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-summer-beach",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "BEGINNER",
+      "status": "DRAFT",
+      "canonicalAnswer": "beach",
+      "aliases": [
+        "ocean",
+        "seaside"
+      ],
+      "meaning": {
+        "prompt": "What is this place called?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Beach"
+          },
+          {
+            "id": "option_2",
+            "label": "Mountain"
+          },
+          {
+            "id": "option_3",
+            "label": "Desert"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Sunny summer beach with swimmers and sand castles scene",
+      "changes": [
+        "Umbrella color",
+        "Ball color",
+        "Surfboard",
+        "Seashell removed",
+        "Lifeguard tower color",
+        "Swimsuit color",
+        "Crab added",
+        "Bucket color",
+        "Wave color",
+        "Bird removed"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "비치 파라솔을 찾으세요",
+          "object": "beach umbrella"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "모래성을 찾으세요",
+          "object": "sand castle"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "파도를 찾으세요",
+          "object": "wave"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "해변 파라솔을 찾으세요",
+        "object": "beach umbrella"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-space-rocket",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "BEGINNER",
+      "status": "DRAFT",
+      "canonicalAnswer": "rocket",
+      "aliases": [
+        "spacecraft",
+        "spaceship"
+      ],
+      "meaning": {
+        "prompt": "What is this vehicle called?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Rocket"
+          },
+          {
+            "id": "option_2",
+            "label": "Airplane"
+          },
+          {
+            "id": "option_3",
+            "label": "Helicopter"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Space rocket launch at night with stars scene",
+      "changes": [
+        "Rocket body color",
+        "Flame color",
+        "Star pattern",
+        "Moon shape",
+        "Astronaut suit",
+        "Launch pad color",
+        "Satellite removed",
+        "Flag color",
+        "Booster removed",
+        "Window added"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "로켓을 찾으세요",
+          "object": "rocket"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "발사대를 찾으세요",
+          "object": "launch pad"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "달을 찾으세요",
+          "object": "moon"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "우주 로켓을 찾으세요",
+        "object": "space rocket"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-sustainability-greenhouse",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "INTERMEDIATE",
+      "status": "DRAFT",
+      "canonicalAnswer": "sustainability",
+      "aliases": [
+        "eco",
+        "green"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '지속가능성'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Sustainability"
+          },
+          {
+            "id": "option_2",
+            "label": "Destruction"
+          },
+          {
+            "id": "option_3",
+            "label": "Waste"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Eco-friendly greenhouse with solar panels and organic plants scene",
+      "changes": [
+        "Solar panel color",
+        "Plant color",
+        "Watering can color",
+        "Recycling bin removed",
+        "Worker outfit",
+        "Butterfly added",
+        "Compost bin color",
+        "Roof color",
+        "Sprinkler removed",
+        "Sunlight ray"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "온실을 찾으세요",
+          "object": "greenhouse"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "태양광 패널을 찾으세요",
+          "object": "solar panel"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "재활용 쓰레기통을 찾으세요",
+          "object": "recycling bin"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "친환경 온실을 찾으세요",
+        "object": "eco greenhouse"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-architecture-studio",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "INTERMEDIATE",
+      "status": "DRAFT",
+      "canonicalAnswer": "architecture",
+      "aliases": [
+        "architect",
+        "design"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '건축'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Architecture"
+          },
+          {
+            "id": "option_2",
+            "label": "Agriculture"
+          },
+          {
+            "id": "option_3",
+            "label": "Chemistry"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Architect studio with building blueprints and models scene",
+      "changes": [
+        "Blueprint color",
+        "Building model color",
+        "Desk lamp",
+        "Scale ruler removed",
+        "Pencil color",
+        "Chair color",
+        "Computer screen",
+        "Plant added",
+        "Hard hat color",
+        "Window removed"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "건축가를 찾으세요",
+          "object": "architect"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "건물 모형을 찾으세요",
+          "object": "building model"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "청사진을 찾으세요",
+          "object": "blueprint"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "건축 설계 스튜디오를 찾으세요",
+        "object": "architecture studio"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-ecosystem-coral",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "INTERMEDIATE",
+      "status": "DRAFT",
+      "canonicalAnswer": "ecosystem",
+      "aliases": [
+        "coral reef",
+        "marine"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '생태계'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Ecosystem"
+          },
+          {
+            "id": "option_2",
+            "label": "Economy"
+          },
+          {
+            "id": "option_3",
+            "label": "Electricity"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Colorful coral reef ecosystem with tropical fish scene",
+      "changes": [
+        "Coral color",
+        "Fish species",
+        "Sea turtle removed",
+        "Jellyfish color",
+        "Anemone added",
+        "Diver suit color",
+        "Seaweed color",
+        "Shell removed",
+        "Bubble pattern",
+        "Starfish color"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "산호초를 찾으세요",
+          "object": "coral reef"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "열대어를 찾으세요",
+          "object": "tropical fish"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "바다거북을 찾으세요",
+          "object": "sea turtle"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "바닷속 산호초를 찾으세요",
+        "object": "coral reef"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-astronomy-observatory",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "INTERMEDIATE",
+      "status": "DRAFT",
+      "canonicalAnswer": "observatory",
+      "aliases": [
+        "telescope",
+        "stargazing"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '천문대'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Observatory"
+          },
+          {
+            "id": "option_2",
+            "label": "Laboratory"
+          },
+          {
+            "id": "option_3",
+            "label": "Dormitory"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Night sky astronomy observatory with telescope scene",
+      "changes": [
+        "Telescope color",
+        "Dome color",
+        "Star pattern",
+        "Astronomer coat",
+        "Planet poster",
+        "Eyepiece color",
+        "Chart removed",
+        "Chair color",
+        "Lantern added",
+        "Moon position"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "천문대를 찾으세요",
+          "object": "observatory"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "망원경을 찾으세요",
+          "object": "telescope"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "돔 지붕을 찾으세요",
+          "object": "dome roof"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "천문 관측소를 찾으세요",
+        "object": "astronomy observatory"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-archaeology-dig",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "INTERMEDIATE",
+      "status": "DRAFT",
+      "canonicalAnswer": "archaeology",
+      "aliases": [
+        "excavation",
+        "fossil"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '고고학'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Archaeology"
+          },
+          {
+            "id": "option_2",
+            "label": "Architecture"
+          },
+          {
+            "id": "option_3",
+            "label": "Accountancy"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Archaeological dig site with fossil discovery scene",
+      "changes": [
+        "Archaeologist hat",
+        "Brush color",
+        "Fossil shape",
+        "Tent color",
+        "Tool removed",
+        "Artifact added",
+        "Grid rope color",
+        "Sign color",
+        "Shovel color",
+        "Sun hat removed"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "고고학자를 찾으세요",
+          "object": "archaeologist"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "발굴 현장을 찾으세요",
+          "object": "dig site"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "화석을 찾으세요",
+          "object": "fossil"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "고고학 발굴 현장을 찾으세요",
+        "object": "archaeology dig"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-symphony-orchestra",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "INTERMEDIATE",
+      "status": "DRAFT",
+      "canonicalAnswer": "symphony",
+      "aliases": [
+        "orchestra",
+        "classical music"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '교향곡'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Symphony"
+          },
+          {
+            "id": "option_2",
+            "label": "Symphony"
+          },
+          {
+            "id": "option_3",
+            "label": "Synonym"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Grand symphony orchestra performance on concert stage scene",
+      "changes": [
+        "Conductor baton color",
+        "Violin color",
+        "Cello bow",
+        "Music stand color",
+        "Stage curtain",
+        "Horn color",
+        "Dress color",
+        "Sheet music",
+        "Spotlight color",
+        "Piano added"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "지휘자를 찾으세요",
+          "object": "conductor"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "바이올린을 찾으세요",
+          "object": "violin"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "첼로를 찾으세요",
+          "object": "cello"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "교향악단 무대를 찾으세요",
+        "object": "orchestra stage"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-hypothesis-lab",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "INTERMEDIATE",
+      "status": "DRAFT",
+      "canonicalAnswer": "hypothesis",
+      "aliases": [
+        "theory",
+        "experiment"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '가설'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Hypothesis"
+          },
+          {
+            "id": "option_2",
+            "label": "Hypnosis"
+          },
+          {
+            "id": "option_3",
+            "label": "Hyena"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Science lab with hypothesis testing and experiments scene",
+      "changes": [
+        "Lab coat color",
+        "Chemical color",
+        "Whiteboard text",
+        "Beaker removed",
+        "Safety goggle color",
+        "Plant experiment",
+        "Notebook added",
+        "Timer color",
+        "Microscope lens",
+        "Chart color"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "과학 실험실을 찾으세요",
+          "object": "science lab"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "비커를 찾으세요",
+          "object": "beaker"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "가설 칠판을 찾으세요",
+          "object": "hypothesis whiteboard"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "실험실 안전고글을 찾으세요",
+        "object": "safety goggles"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-journalism-press",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "INTERMEDIATE",
+      "status": "DRAFT",
+      "canonicalAnswer": "journalism",
+      "aliases": [
+        "reporter",
+        "news"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '저널리즘'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Journalism"
+          },
+          {
+            "id": "option_2",
+            "label": "Geography"
+          },
+          {
+            "id": "option_3",
+            "label": "Geometry"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Journalism press newsroom with reporters and cameras scene",
+      "changes": [
+        "Reporter jacket",
+        "Camera color",
+        "Microphone color",
+        "Desk color",
+        "Monitor removed",
+        "Notepad added",
+        "Map background",
+        "Light color",
+        "Press badge color",
+        "Clock removed"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "기자를 찾으세요",
+          "object": "reporter"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "방송 카메라를 찾으세요",
+          "object": "broadcast camera"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "마이크를 찾으세요",
+          "object": "microphone"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "뉴스룸을 찾으세요",
+        "object": "newsroom"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-metaphor-library",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "INTERMEDIATE",
+      "status": "DRAFT",
+      "canonicalAnswer": "metaphor",
+      "aliases": [
+        "simile",
+        "figure of speech"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '은유'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Metaphor"
+          },
+          {
+            "id": "option_2",
+            "label": "Metaphysics"
+          },
+          {
+            "id": "option_3",
+            "label": "Metronome"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Surreal fantasy library with floating books and metaphors scene",
+      "changes": [
+        "Book color",
+        "Floating book",
+        "Librarian outfit",
+        "Shelf color",
+        "Reading lamp",
+        "Globe removed",
+        "Magnifier color",
+        "Chair color",
+        "Plant added",
+        "Staircase color"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "도서관을 찾으세요",
+          "object": "library"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "사서를 찾으세요",
+          "object": "librarian"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "공중에 떠있는 책을 찾으세요",
+          "object": "floating book"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "책이 떠있는 도서관을 찾으세요",
+        "object": "metaphor library"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-paradox-labyrinth",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "paradox",
+      "aliases": [
+        "contradiction",
+        "impossible"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '역설'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Paradox"
+          },
+          {
+            "id": "option_2",
+            "label": "Paragraph"
+          },
+          {
+            "id": "option_3",
+            "label": "Parallel"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Escher-like impossible geometric labyrinth maze scene",
+      "changes": [
+        "Staircase direction",
+        "Arch color",
+        "Figure position",
+        "Window removed",
+        "Bridge added",
+        "Pillar color",
+        "Door color",
+        "Light source",
+        "Shadow direction",
+        "Ground pattern"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "미로를 찾으세요",
+          "object": "labyrinth"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "계단을 찾으세요",
+          "object": "staircase"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "역설적인 구조물을 찾으세요",
+          "object": "impossible structure"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "불가능한 기하학 미로를 찾으세요",
+        "object": "impossible labyrinth"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-serendipity-garden",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "serendipity",
+      "aliases": [
+        "luck",
+        "chance discovery"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '뜻밖의 행운'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Serendipity"
+          },
+          {
+            "id": "option_2",
+            "label": "Serenity"
+          },
+          {
+            "id": "option_3",
+            "label": "Sincerity"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Magical four-leaf clover utopia botanical garden scene",
+      "changes": [
+        "Clover color",
+        "Butterfly color",
+        "Fountain color",
+        "Flower removed",
+        "Bench color",
+        "Fairy added",
+        "Gate color",
+        "Rainbow color",
+        "Bird removed",
+        "Mushroom added"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "네잎클로버를 찾으세요",
+          "object": "four-leaf clover"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "마법의 정원을 찾으세요",
+          "object": "magical garden"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "나비를 찾으세요",
+          "object": "butterfly"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "행운의 네잎클로버 정원을 찾으세요",
+        "object": "serendipity garden"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-synergy-cradle",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "synergy",
+      "aliases": [
+        "collaboration",
+        "teamwork"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '시너지'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Synergy"
+          },
+          {
+            "id": "option_2",
+            "label": "Syntax"
+          },
+          {
+            "id": "option_3",
+            "label": "Synonym"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "High-tech design studio showcasing collaborative synergy scene",
+      "changes": [
+        "Screen color",
+        "Desk layout",
+        "Team member outfit",
+        "Robot arm color",
+        "Hologram removed",
+        "Coffee cup added",
+        "Chair color",
+        "Window view",
+        "Plant removed",
+        "Logo color"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "시너지 디자인 스튜디오를 찾으세요",
+          "object": "design studio"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "협업하는 팀원들을 찾으세요",
+          "object": "team members"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "홀로그램 화면을 찾으세요",
+          "object": "hologram screen"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "첨단 스튜디오를 찾으세요",
+        "object": "high-tech studio"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-resilience-garden",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "resilience",
+      "aliases": [
+        "recovery",
+        "bouncing back"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '회복탄력성'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Resilience"
+          },
+          {
+            "id": "option_2",
+            "label": "Resistance"
+          },
+          {
+            "id": "option_3",
+            "label": "Resolution"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Rainbow recovery garden with new growth after rain scene",
+      "changes": [
+        "Rainbow color",
+        "Flower color",
+        "Sprout removed",
+        "Rain puddle",
+        "Bird added",
+        "Butterfly color",
+        "Fence color",
+        "Cloud shape",
+        "Sun position",
+        "Gardener outfit"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "무지개를 찾으세요",
+          "object": "rainbow"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "새싹을 찾으세요",
+          "object": "sprout"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "비 온 뒤 정원사를 찾으세요",
+          "object": "gardener after rain"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "회복의 무지개 정원을 찾으세요",
+        "object": "resilience garden"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-nostalgia-attic",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "nostalgia",
+      "aliases": [
+        "memory",
+        "longing"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '향수(그리움)'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Nostalgia"
+          },
+          {
+            "id": "option_2",
+            "label": "Navigation"
+          },
+          {
+            "id": "option_3",
+            "label": "Narration"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Cozy attic filled with vintage memories and old toys scene",
+      "changes": [
+        "Toy color",
+        "Photo frame",
+        "Trunk color",
+        "Music box",
+        "Lamp color",
+        "Stuffed animal removed",
+        "Letter box color",
+        "Window curtain",
+        "Clock style",
+        "Poster added"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "다락방을 찾으세요",
+          "object": "attic"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "오래된 장난감을 찾으세요",
+          "object": "old toys"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "사진 액자를 찾으세요",
+          "object": "photo frame"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "추억이 담긴 다락방을 찾으세요",
+        "object": "nostalgia attic"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-epiphany-lighthouse",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "epiphany",
+      "aliases": [
+        "revelation",
+        "sudden insight"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '갑작스러운 깨달음'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Epiphany"
+          },
+          {
+            "id": "option_2",
+            "label": "Epidemic"
+          },
+          {
+            "id": "option_3",
+            "label": "Epilogue"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Coastal lighthouse with flash of brilliant insight at night scene",
+      "changes": [
+        "Lighthouse beam color",
+        "Keeper outfit",
+        "Lantern color",
+        "Boat removed",
+        "Rock color",
+        "Wave height",
+        "Star pattern",
+        "Window color",
+        "Bell removed",
+        "Door color"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "등대를 찾으세요",
+          "object": "lighthouse"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "등대지기를 찾으세요",
+          "object": "lighthouse keeper"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "등대 불빛을 찾으세요",
+          "object": "lighthouse beam"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "해안 등대를 찾으세요",
+        "object": "coastal lighthouse"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-equilibrium-cliff",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "equilibrium",
+      "aliases": [
+        "balance",
+        "harmony"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '평형'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Equilibrium"
+          },
+          {
+            "id": "option_2",
+            "label": "Equipment"
+          },
+          {
+            "id": "option_3",
+            "label": "Equivalent"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Perfectly balanced zen cliff with harmony and equilibrium scene",
+      "changes": [
+        "Stone color",
+        "Balance scale",
+        "Cloud position",
+        "Tree shape",
+        "Monk outfit",
+        "Waterfall color",
+        "Bird removed",
+        "Rock stack",
+        "Flower color",
+        "Rope bridge"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "균형잡힌 절벽을 찾으세요",
+          "object": "balanced cliff"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "저울을 찾으세요",
+          "object": "balance scale"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "명상하는 인물을 찾으세요",
+          "object": "meditating figure"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "균형의 절벽을 찾으세요",
+        "object": "equilibrium cliff"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-transmutation-alchemist",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "transmutation",
+      "aliases": [
+        "alchemy",
+        "transformation"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '연금술적 변형'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Transmutation"
+          },
+          {
+            "id": "option_2",
+            "label": "Transportation"
+          },
+          {
+            "id": "option_3",
+            "label": "Transaction"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Mystical alchemist laboratory transforming elements scene",
+      "changes": [
+        "Flask color",
+        "Potion glow",
+        "Element symbol",
+        "Alchemist robe",
+        "Book color",
+        "Cauldron removed",
+        "Gem added",
+        "Smoke color",
+        "Rune pattern",
+        "Table color"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "연금술사를 찾으세요",
+          "object": "alchemist"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "마법의 플라스크를 찾으세요",
+          "object": "alchemical flask"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "원소 변환 부호를 찾으세요",
+          "object": "element symbol"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "연금술 실험실을 찾으세요",
+        "object": "alchemy lab"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-transcendence-galaxy",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "transcendence",
+      "aliases": [
+        "surpassing",
+        "beyond limits"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '초월'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Transcendence"
+          },
+          {
+            "id": "option_2",
+            "label": "Transparency"
+          },
+          {
+            "id": "option_3",
+            "label": "Translation"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Cosmic galaxy transcendence beyond space and time scene",
+      "changes": [
+        "Galaxy color",
+        "Star cluster",
+        "Planet removed",
+        "Astronaut suit",
+        "Nebula color",
+        "Black hole position",
+        "Comet added",
+        "Light ray color",
+        "Space station removed",
+        "Constellation pattern"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "은하를 찾으세요",
+          "object": "galaxy"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "우주 비행사를 찾으세요",
+          "object": "astronaut"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "블랙홀을 찾으세요",
+          "object": "black hole"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "초월적 우주를 찾으세요",
+        "object": "transcendence galaxy"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-phenomenon-lab",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "phenomenon",
+      "aliases": [
+        "natural phenomenon",
+        "wonder"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '현상'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Phenomenon"
+          },
+          {
+            "id": "option_2",
+            "label": "Philosophy"
+          },
+          {
+            "id": "option_3",
+            "label": "Photography"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Natural phenomenon science observation lab with lightning and aurora scene",
+      "changes": [
+        "Aurora color",
+        "Lightning bolt",
+        "Lab coat color",
+        "Monitor display",
+        "Crystal color",
+        "Sensor removed",
+        "Cloud pattern",
+        "Researcher hat",
+        "Antenna color",
+        "Data chart"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "자연 현상 연구자를 찾으세요",
+          "object": "phenomenon researcher"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "오로라를 찾으세요",
+          "object": "aurora"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "번개를 찾으세요",
+          "object": "lightning"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "자연 현상 관측소를 찾으세요",
+        "object": "phenomenon lab"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-juxtaposition-market",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "juxtaposition",
+      "aliases": [
+        "contrast",
+        "side by side"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '병치'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Juxtaposition"
+          },
+          {
+            "id": "option_2",
+            "label": "Justification"
+          },
+          {
+            "id": "option_3",
+            "label": "Jurisdiction"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Steampunk vs Cyberpunk contrasting market stalls juxtaposition scene",
+      "changes": [
+        "Stall color",
+        "Technology item",
+        "Vendor outfit",
+        "Sign color",
+        "Gear removed",
+        "Neon light added",
+        "Market item",
+        "Clock style",
+        "Robot vendor",
+        "Fountain removed"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "스팀펑크 가판대를 찾으세요",
+          "object": "steampunk stall"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "사이버펑크 가판대를 찾으세요",
+          "object": "cyberpunk stall"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "대조적 마켓 입구를 찾으세요",
+          "object": "juxtaposition market"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "대조적인 마켓 씬을 찾으세요",
+        "object": "juxtaposition market"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-kaleidoscope-chamber",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "kaleidoscope",
+      "aliases": [
+        "prism",
+        "colorful pattern"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '만화경'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Kaleidoscope"
+          },
+          {
+            "id": "option_2",
+            "label": "Kangaroo"
+          },
+          {
+            "id": "option_3",
+            "label": "Karate"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Stained glass prism kaleidoscope chamber with rainbow reflections scene",
+      "changes": [
+        "Glass panel color",
+        "Prism shape",
+        "Light ray color",
+        "Mirror removed",
+        "Crystal added",
+        "Chamber door color",
+        "Reflection pattern",
+        "Artist outfit",
+        "Beam color",
+        "Glass removed"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "만화경 방을 찾으세요",
+          "object": "kaleidoscope chamber"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "스테인드 글라스를 찾으세요",
+          "object": "stained glass"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "무지개 반사빛을 찾으세요",
+          "object": "rainbow reflection"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "오색찬란 만화경 방을 찾으세요",
+        "object": "kaleidoscope chamber"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-metamorphosis-cocoon",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "metamorphosis",
+      "aliases": [
+        "transformation",
+        "butterfly"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '변태(탈바꿈)'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Metamorphosis"
+          },
+          {
+            "id": "option_2",
+            "label": "Metabolism"
+          },
+          {
+            "id": "option_3",
+            "label": "Meteorology"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Butterfly chrysalis conservatory with metamorphosis cocoons scene",
+      "changes": [
+        "Cocoon color",
+        "Butterfly color",
+        "Biologist outfit",
+        "Plant color",
+        "Light color",
+        "Chrysalis removed",
+        "Leaf pattern",
+        "Magnifier color",
+        "Jar added",
+        "Window frame"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "나비 변태 온실을 찾으세요",
+          "object": "metamorphosis conservatory"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "번데기 고치를 찾으세요",
+          "object": "chrysalis cocoon"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "나비를 찾으세요",
+          "object": "butterfly"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "변태 과정의 나비를 찾으세요",
+        "object": "metamorphosis butterfly"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-panoramic-observatory",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "panoramic",
+      "aliases": [
+        "panorama",
+        "wide view"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '파노라마의'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Panoramic"
+          },
+          {
+            "id": "option_2",
+            "label": "Pandemic"
+          },
+          {
+            "id": "option_3",
+            "label": "Paranoid"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Mountain summit 360 degree panoramic observatory at sunset scene",
+      "changes": [
+        "Jacket color",
+        "Telescope color",
+        "Binoculars removed",
+        "Railing color",
+        "Hat color",
+        "Map color",
+        "Eagle removed",
+        "Compass added",
+        "Anemometer removed",
+        "Backpack color"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "파노라마 관측대를 찾으세요",
+          "object": "panoramic observatory"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "지리학자를 찾으세요",
+          "object": "geographer"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "설산 전경을 찾으세요",
+          "object": "mountain panorama"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "설산 정상 파노라마 관측대를 찾으세요",
+        "object": "panoramic observatory"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-cataclysm-volcano",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "cataclysm",
+      "aliases": [
+        "disaster",
+        "eruption"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '대재앙'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Cataclysm"
+          },
+          {
+            "id": "option_2",
+            "label": "Catalyst"
+          },
+          {
+            "id": "option_3",
+            "label": "Category"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Volcanic eruption cataclysm geothermal research station scene",
+      "changes": [
+        "Helmet visor color",
+        "Seismic monitor color",
+        "Drill probe color",
+        "Obsidian crystal removed",
+        "Railing color",
+        "Shoulder badge color",
+        "Sensor removed",
+        "Camera color",
+        "Lava container added",
+        "Siren removed"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "화산학자를 찾으세요",
+          "object": "volcanologist"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "관측 데크를 찾으세요",
+          "object": "observation deck"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "지진 모니터를 찾으세요",
+          "object": "seismic monitor"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "화산 관측소의 화산학자를 찾으세요",
+        "object": "volcanologist on deck"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-quintessence-alchemy",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "quintessence",
+      "aliases": [
+        "pure essence",
+        "fifth element"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '정수(제5원소)'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Quintessence"
+          },
+          {
+            "id": "option_2",
+            "label": "Quarantined"
+          },
+          {
+            "id": "option_3",
+            "label": "Questionnaire"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Celestial alchemy lab with Fifth Element crystal orb quintessence scene",
+      "changes": [
+        "Robe trim color",
+        "Crystal orb glow",
+        "Astrolabe color",
+        "Ether crystal removed",
+        "Globe stand color",
+        "Flask liquid color",
+        "Star marker removed",
+        "Hat band color",
+        "Ether vial added",
+        "Sun pendant removed"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "연금술사를 찾으세요",
+          "object": "alchemist"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "제5원소 구체를 찾으세요",
+          "object": "Fifth Element orb"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "황동 아스트롤라베를 찾으세요",
+          "object": "brass astrolabe"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "빛나는 제5원소 구체를 찾으세요",
+        "object": "glowing Fifth Element orb"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-chrysanthemum-greenhouse",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "chrysanthemum",
+      "aliases": [
+        "golden flower",
+        "greenhouse"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '국화'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Chrysanthemum"
+          },
+          {
+            "id": "option_2",
+            "label": "Carnation"
+          },
+          {
+            "id": "option_3",
+            "label": "Camellia"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Royal Victorian greenhouse with golden chrysanthemum blooms scene",
+      "changes": [
+        "Apron color",
+        "Chrysanthemum color",
+        "Watering can color",
+        "Hanging basket removed",
+        "Porcelain pot color",
+        "Fountain petal color",
+        "Pruning shears removed",
+        "Hair ribbon color",
+        "Clay flowerpot added",
+        "Thermometer removed"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "플로리스트를 찾으세요",
+          "object": "master florist"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "황금 국화 화병을 찾으세요",
+          "object": "golden chrysanthemum vase"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "대리석 분수대를 찾으세요",
+          "object": "marble fountain"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "황금 국화 꽃을 찾으세요",
+        "object": "golden chrysanthemum flowers"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-archipelago-island",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "archipelago",
+      "aliases": [
+        "island chain",
+        "lagoon"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '다도해'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Archipelago"
+          },
+          {
+            "id": "option_2",
+            "label": "Architecture"
+          },
+          {
+            "id": "option_3",
+            "label": "Archaeology"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Tropical volcanic island chain archipelago from watchtower scene",
+      "changes": [
+        "Geographer shirt color",
+        "Telescope color",
+        "Canoe sail color",
+        "Sea hawk removed",
+        "Railing color",
+        "Sun hat color",
+        "Barrel removed",
+        "Map container color",
+        "Compass added",
+        "Lantern removed"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "해양 지리학자를 찾으세요",
+          "object": "marine geographer"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "나무 망루를 찾으세요",
+          "object": "wooden watchtower"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "열대 군도를 찾으세요",
+          "object": "tropical island chain"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "망원경을 찾으세요",
+        "object": "spyglass telescope on tripod"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-constellation-astronomy",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "constellation",
+      "aliases": [
+        "star chart",
+        "zodiac"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '별자리'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Constellation"
+          },
+          {
+            "id": "option_2",
+            "label": "Conservation"
+          },
+          {
+            "id": "option_3",
+            "label": "Constitution"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Night sky constellation observatory dome with telescope scene",
+      "changes": [
+        "Sweater color",
+        "Telescope barrel color",
+        "Globe stand color",
+        "Oil lamp removed",
+        "Star map case color",
+        "Hair clip color",
+        "Astrolabe removed",
+        "Frame trim color",
+        "Star globe added",
+        "Thermometer removed"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "천문학자를 찾으세요",
+          "object": "astronomer"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "거대 망원경을 찾으세요",
+          "object": "refractor telescope"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "별자리 선을 찾으세요",
+          "object": "glowing constellation lines"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "천문대 돔의 망원경을 찾으세요",
+        "object": "refractor telescope"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-synchronicity-clock",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "synchronicity",
+      "aliases": [
+        "clockwork",
+        "pendulum"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '동시성'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Synchronicity"
+          },
+          {
+            "id": "option_2",
+            "label": "Symmetry"
+          },
+          {
+            "id": "option_3",
+            "label": "Syndicate"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Clock tower pendulum chamber with twin pendulums in synchronicity scene",
+      "changes": [
+        "Vest color",
+        "Pendulum disc color",
+        "Clock numerals color",
+        "Oil lamp removed",
+        "Pocket watch chain color",
+        "Valve handle color",
+        "Gear sprocket removed",
+        "Loupe band color",
+        "Oil bottle added",
+        "Pressure gauge removed"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "시계공을 찾으세요",
+          "object": "horologist"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "거대 진자를 찾으세요",
+          "object": "giant pendulum"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "거대 기어 구조를 찾으세요",
+          "object": "interlocking gears"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "동시에 움직이는 진자를 찾으세요",
+        "object": "twin swinging pendulums"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-camaraderie-campfire",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "camaraderie",
+      "aliases": [
+        "friendship",
+        "fellowship"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '동료애'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Camaraderie"
+          },
+          {
+            "id": "option_2",
+            "label": "Chivalry"
+          },
+          {
+            "id": "option_3",
+            "label": "Choreography"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Forest campfire gathering with guitar and friends camaraderie scene",
+      "changes": [
+        "Sweater color",
+        "Tent color",
+        "Cocoa mug color",
+        "Lantern removed",
+        "Neckerchief color",
+        "Marshmallow bag color",
+        "Roasting stick removed",
+        "Guitar color",
+        "Enamel mug added",
+        "Flashlight removed"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "통기타 연주자를 찾으세요",
+          "object": "guitar player"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "모닥불을 찾으세요",
+          "object": "campfire"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "숲속 텐트를 찾으세요",
+          "object": "camping tent"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "모닥불 가의 통기타를 찾으세요",
+        "object": "acoustic guitar"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-solitude-sanctuary",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "solitude",
+      "aliases": [
+        "peace",
+        "sanctuary"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '고독'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Solitude"
+          },
+          {
+            "id": "option_2",
+            "label": "Solidarity"
+          },
+          {
+            "id": "option_3",
+            "label": "Solicitation"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "Alpine mountain sanctuary with meditating monk in solitude scene",
+      "changes": [
+        "Monk robe color",
+        "Bronze gong color",
+        "Cushion mat color",
+        "Wind chime removed",
+        "Stone lantern roof color",
+        "Lotus flower color",
+        "Singing bowl removed",
+        "Gong mallet color",
+        "Tea cup added",
+        "Wall scroll removed"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "명상하는 수도승을 찾으세요",
+          "object": "meditating monk"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "청동 징을 찾으세요",
+          "object": "bronze gong"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "연꽃을 찾으세요",
+          "object": "floating lotus flower"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "설산 정자의 수도승을 찾으세요",
+        "object": "meditating monk"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-serenity-lake",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "serenity",
+      "aliases": [
+        "peace",
+        "lake",
+        "canoe"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '평정' or '고요한 평화'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Serenity"
+          },
+          {
+            "id": "option_2",
+            "label": "Severity"
+          },
+          {
+            "id": "option_3",
+            "label": "Security"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "고급 영단어 Serenity 학습을 위한 잔잔하고 평화로운 안개 낀 호수에서 카누를 타고 지도를 탐색하는 씬",
+      "changes": [
+        "지리학자의 자켓 색상을 주황색에서 에메랄드 그린으로 변경",
+        "블루 왜가리의 다리와 부리 색상을 오렌지에서 실버로 변경",
+        "나무 데크 선착장 위에 놓여있던 황동 랜턴 케이스 색상을 황동 골드에서 크림슨 레드로 변경",
+        "카누 보트 왼쪽 물 위에 떠있던 수련 꽃 1개 제거",
+        "지리학자가 쥔 노의 패들 깃 색상을 갈색에서 터콰이즈 블루로 변경",
+        "지리학자의 챙 모자 색상을 베이지에서 밝은 노란색으로 변경",
+        "카누 보트 시트 위에 놓여있던 작은 쌍안경 망원경 1개 제거",
+        "데크 위 가죽 지도 보관함 케이스 색상을 브라운 레더에서 로얄 블루로 변경",
+        "데크 선착장 랜턴 옆에 작게 놓인 금속 머그잔 1개 추가",
+        "데크 기둥 벽면 포스트에 걸려있던 가죽 꼬리표 장식 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "고요한 호수 위에서 카누를 타며 지도를 보는 지리학자를 찾으세요",
+          "object": "geographer in wooden canoe"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "물속 바위 위에 외롭게 서있는 왜가리를 찾으세요",
+          "object": "blue heron standing on rock"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "호수 물 위에 둥둥 떠있는 수련 꽃들을 찾으세요",
+          "object": "water lilies floating on lake"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "호수 위에 떠있는 나무 카누를 찾으세요",
+        "object": "wooden canoe"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-tranquility-tea",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "tranquility",
+      "aliases": [
+        "calm",
+        "peace",
+        "tea house"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '평온' or '고요함'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Tranquility"
+          },
+          {
+            "id": "option_2",
+            "label": "Turbulence"
+          },
+          {
+            "id": "option_3",
+            "label": "Transparency"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "고급 영단어 Tranquility 학습을 위한 대나무 숲과 비단어류 연못에 둘러싸인 정갈한 찻집 마루(툇마루)에서 차를 다도하는 다인 씬",
+      "changes": [
+        "다인의 기모노 드레스 옷 색상을 인디고 블루에서 에메랄드 그린으로 변경",
+        "연못 속 비단어류 잉어의 비늘 색상을 붉은색에서 실버 블루로 변경",
+        "대나무 분수대 시시오도시 통 색상을 다크 그린에서 골든 옐로우로 변경",
+        "비단어류 연못 위에 떠있던 수련 꽃 1개 제거",
+        "다인이 쥔 대나무 국자 손잡이 색상을 나무색에서 다크 마호가니로 변경",
+        "원목 찻상 위에 놓인 도자기 찻잔 색상을 세라믹 화이트에서 매트 블랙으로 변경",
+        "툇마루 기둥 기둥 스탠드에 걸린 종이 랜턴 1개 제거",
+        "다도 짚 방석 방석 시트 색상을 딥 레드에서 소프트 베이지로 변경",
+        "원목 찻상 모서리 끝에 작게 놓인 황동 향로 1개 추가",
+        "처마 밑에 매달려있던 풍경 대나무 종 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "고요함 속에서 차를 따르는 다인을 찾으세요",
+          "object": "tea master pouring matcha tea"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "연못 속을 헤엄치는 비단어류 잉어를 찾으세요",
+          "object": "koi fish swimming in pond"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "물소리가 울리는 대나무 분수대를 찾으세요",
+          "object": "bamboo water fountain"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "찻집 툇마루의 원목 찻상을 찾으세요",
+        "object": "low wooden tea table"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-creativity-workshop",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "creativity",
+      "aliases": [
+        "creative",
+        "art",
+        "workshop"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '창의성' or '독창성'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Creativity"
+          },
+          {
+            "id": "option_2",
+            "label": "Conformity"
+          },
+          {
+            "id": "option_3",
+            "label": "Complexity"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "고급 영단어 Creativity 학습을 위한 이젤 위 성운 캔버스 그림과 조각품이 가득한 화가의 아틀리에 작업실 씬",
+      "changes": [
+        "화가의 베레모 모자 색상을 네이비에서 밝은 루비 레드(진홍색)로 변경",
+        "이젤 위에 그려지던 우주 성운 그림 색상을 에메랄드 터콰이즈로 변경",
+        "앞치마에 튀어있던 물감 자국 메인 색상을 머스터드 노란색으로 변경",
+        "우측 작업대 위 서있던 작은 붓통 용기 1개 제거",
+        "좌측 도예 물레 물레 본체 색상을 테라코타 브라운에서 슬레이트 그레이로 변경",
+        "천장 창문 채광창 프레임 색상을 내추럴 오크에서 매트 블랙으로 변경",
+        "좌측 벽면에 걸려있던 아이디어 스케치 종이 1개 제거",
+        "화가가 든 나무 팔레트 판 색상을 우드 브라운에서 크림 화이트로 변경",
+        "작업대 모서리 끝에 작게 놓인 점토 도자기 화병 1개 추가",
+        "천장 들보 기둥에 매달려있던 펜던트 조명 전구 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "창의성을 발휘해 그림을 그리는 화가를 찾으세요",
+          "object": "artist painting on easel"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "이젤 위에 그려진 성운 캔버스 그림을 찾으세요",
+          "object": "cosmic nebula painting"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "도자기를 빚는 물레를 찾으세요",
+          "object": "pottery wheel"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "화가의 아틀리에 이젤을 찾으세요",
+        "object": "wooden easel"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-illumination-library",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "illumination",
+      "aliases": [
+        "illuminate",
+        "light",
+        "manuscript"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '조명' or '밝게 함(채식 필사본)'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Illumination"
+          },
+          {
+            "id": "option_2",
+            "label": "Illusion"
+          },
+          {
+            "id": "option_3",
+            "label": "Illustration"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "고급 영단어 Illumination 학습을 위한 중세 채식 필사본 서도가 도서관에서 신비로운 등불을 든 학자 수도승 씬",
+      "changes": [
+        "학자 수도승의 가사 로브 옷 색상을 딥 버건디에서 사파이어 블루로 변경",
+        "수도승이 쥔 빛나는 황동 손등불 색상을 실버 크롬으로 변경",
+        "필사본 양장본 책갈피 리본 끈 색상을 크림슨에서 에메랄드 그린으로 변경",
+        "독서대 상단에 놓여있던 깃털 펜과 잉크병 1개 제거",
+        "스테인드글라스 창문으로 들어오는 빛의 주된 색조를 바이올렛 보라색으로 변경",
+        "독서대 아래 놓인 가죽 양장본 책 표지 색상을 브라운에서 로열 퍼플로 변경",
+        "좌측 서가 선반에 놓여있던 작은 모래시계 1개 제거",
+        "나무 독서대에 조각된 문장 문양 형태를 사자에서 독수리로 변경",
+        "독서대 책상 모서리에 작게 놓인 황동 돋보기 렌즈 1개 추가",
+        "돌기둥 벽면에 걸려있던 황동 촛대 등잔 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "등불로 필사본을 밝히는 수도승을 찾으세요",
+          "object": "monk holding glowing lantern"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "화려한 장식이 그려진 고대 필사본을 찾으세요",
+          "object": "illuminated manuscript on lectern"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "빛이 스며드는 스테인드글라스 창문을 찾으세요",
+          "object": "stained glass window"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "필사본이 펼쳐진 오크나무 독서대를 찾으세요",
+        "object": "oak lectern"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-resonance-concert",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "resonance",
+      "aliases": [
+        "resonate",
+        "sound wave",
+        "concert"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '공명' or '울림'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Resonance"
+          },
+          {
+            "id": "option_2",
+            "label": "Resistance"
+          },
+          {
+            "id": "option_3",
+            "label": "Resignation"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "고급 영단어 Resonance 학습을 위한 웅장한 음향 콘서트홀에서 그랜드 피아노 위로 빛나는 음파 공명 파동이 펼쳐지는 피아니스트 연주 씬",
+      "changes": [
+        "피아니스트의 나비넥타이 색상을 블랙에서 크림슨 레드(진홍색)로 변경",
+        "공중으로 퍼져나가던 음파 공명 파동 빛 색상을 골드에서 터콰이즈 블루로 변경",
+        "피아노 의자 벤치 방석 방석 색상을 블랙 벨벳에서 에메랄드 그린으로 변경",
+        "피아노 악보대 스탠드에 부착되어 있던 조명 램프 1개 제거",
+        "음향 방음벽 목재 패널 톤을 내추럴 오크에서 다크 마호가니로 변경",
+        "그랜드 피아노 뚜껑 고정 버팀목 막대 색상을 블랙에서 황동 골드로 변경",
+        "무대 바닥 좌측에 놓여있던 작은 꽃다발 화병 1개 제거",
+        "피아노 악보대 위 펼쳐진 악보 커버 색상을 화이트에서 로열 네이비 블루로 변경",
+        "무대 단상 끝 모서리에 작게 놓인 크리스탈 트로피 상패 1개 추가",
+        "발코니 천장 들보 조명등 스포트라이트 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "공명을 일으키며 피아노를 연주하는 피아니스트를 찾으세요",
+          "object": "maestro pianist playing grand piano"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "공중으로 울려 퍼지는 빛나는 음파 파동을 찾으세요",
+          "object": "glowing sound wave resonance patterns"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "무대 위 웅장한 그랜드 피아노를 찾으세요",
+          "object": "polished black grand piano"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "콘서트홀 무대의 그랜드 피아노를 찾으세요",
+        "object": "grand piano"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-harmony-orchestra",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "harmony",
+      "aliases": [
+        "harmonious",
+        "orchestra",
+        "melody"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '조화' or '화음'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Harmony"
+          },
+          {
+            "id": "option_2",
+            "label": "Hostility"
+          },
+          {
+            "id": "option_3",
+            "label": "Hierarchy"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "고급 영단어 Harmony 학습을 위한 야외 수목원 야외극장 무대에서 노을빛 하늘 아래 화음과 조화를 이루며 연주하는 바이올리니스트 오케스트라 씬",
+      "changes": [
+        "바이올리니스트의 드레스 색상을 에메랄드 실크에서 사파이어 블루로 변경",
+        "바이올린 몸통 바디 색상을 황금빛에서 다크 마호가니로 변경",
+        "공중에 리본처럼 흩날리던 조화의 화음 파동 색상을 루비 레드와 골드로 변경",
+        "무대 좌측에 설치되어 있던 작은 악보대 스탠드 1개 제거",
+        "야외극장 석조 아치 구조물 색상을 베이지 석재에서 마블 화이트로 변경",
+        "바이올린 턱받침 부품 색상을 블랙에서 로즈우드 브라운으로 변경",
+        "무대 단상 모서리에 놓여있던 생화 화병 장식 1개 제거",
+        "노을빛 하늘의 메인 색조를 오렌지 핑크에서 딥 퍼플 노을빛으로 변경",
+        "지휘대 스탠드 받침대 옆에 작게 놓인 미니 청동 하프 모형 1개 추가",
+        "수목원 나뭇가지에 걸려있던 종이 랜턴 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "아름다운 화음을 연주하는 바이올리니스트를 찾으세요",
+          "object": "female violinist playing violin"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "공중으로 흩날리는 조화로운 화음 파동을 찾으세요",
+          "object": "ribbon-like harmony waves"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "야외극장의 웅장한 석조 아치를 찾으세요",
+          "object": "amphitheater stone arch"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "야외극장 무대의 바이올리니스트를 찾으세요",
+        "object": "female violinist"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-eternity-monument",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "eternity",
+      "aliases": [
+        "eternal",
+        "forever",
+        "timeless"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '영원' or '영원함'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Eternity"
+          },
+          {
+            "id": "option_2",
+            "label": "Ephemeral"
+          },
+          {
+            "id": "option_3",
+            "label": "Eccentricity"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "고급 영단어 Eternity 학습을 위한 영원한 오로라 밤하늘과 해안 절벽 위 고대 석조 신전 오벨리스크 모놀리스를 탐구하는 사학자 씬",
+      "changes": [
+        "사학자의 튜닉 허리띠 벨트 색상을 브론즈에서 루비 레드(진홍색)로 변경",
+        "모놀리스 석판에 빛나는 별자리 음각 문양 색상을 골드에서 터콰이즈 블루로 변경",
+        "사학자의 샌들 신발 색상을 내추럴 브라운에서 옵시디언 블랙으로 변경",
+        "석조 제단 책상 위에 놓여있던 황동 등잔 랜턴 1개 제거",
+        "모놀리스 기둥 받침대 테두리 색상을 그레이 화강암에서 마블 화이트로 변경",
+        "사학자의 가죽 족자 케이스 색상을 브라운에서 로열 퍼플로 변경",
+        "절벽 모서리 바위 위에 설치되어 있던 작은 석조 해시계 1개 제거",
+        "사학자의 머리 리본 끈 색상을 화이트에서 에메랄드 그린으로 변경",
+        "제단 책상 모서리 끝에 작게 놓인 청동 나침반 기구 1개 추가",
+        "신전 기둥 입구 근처에 놓여있던 조각 석조 단지 화병 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "영원한 별자리를 연구하는 고대 사학자를 찾으세요",
+          "object": "scholar studying glowing star charts"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "빛나는 성좌가 기입된 영원의 오벨리스크 모놀리스를 찾으세요",
+          "object": "stone obelisk monolith"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "밤하늘을 넘실거리는 영원의 오로라를 찾으세요",
+          "object": "glowing aurora borealis"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "해안 절벽의 석조 모놀리스를 찾으세요",
+        "object": "stone obelisk monolith"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-tranquility-garden",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "tranquility",
+      "aliases": [
+        "peace",
+        "zen",
+        "meditation"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '평온' or '고요한 평화'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Tranquility"
+          },
+          {
+            "id": "option_2",
+            "label": "Turbulence"
+          },
+          {
+            "id": "option_3",
+            "label": "Tension"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "고급 영단어 Tranquility 학습을 위한 황혼녘 젠 정원에서 흰 모래 물결과 석등 조명 아래 명상하는 수도승 씬",
+      "changes": [
+        "수도승의 가사 명상 로브 옷 색상을 사프란 오렌지에서 딥 버건디 레드(자줏빛)로 변경",
+        "석등 갓 안쪽에서 빛나는 등불 조명 색상을 오렌지에서 소프트 시안 블루로 변경",
+        "수도승이 앉아있는 명상 방석 방석 시트 색상을 네이비에서 에메랄드 그린으로 변경",
+        "대나무 분수대 샘터 옆에 놓여있던 작은 대나무 표주박 1개 제거",
+        "나무 명상 데크 마루 마감 색상을 다크 마호가니에서 내추럴 시더 탄으로 변경",
+        "명상 데크 위 놓여있던 찻잔 색상을 도자기 화이트에서 매트 블랙으로 변경",
+        "모래 정원 마당 바닥에 설치되어 있던 작은 석조 연꽃 장식 1개 제거",
+        "수도승이 쥔 염주 목걸이 색상을 우드 브라운에서 돋보이는 앰버 골드로 변경",
+        "나무 명상 데크 모서리 끝에 작게 놓인 황동 싱잉볼 1개 추가",
+        "벚꽃 나뭇가지 끝에 매달려있던 종이 소원 꼬치 장식 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "평온 속에서 명상하는 수도승을 찾으세요",
+          "object": "monk meditating on wooden platform"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "은은한 빛을 발하는 석등을 찾으세요",
+          "object": "glowing stone lantern"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "정갈하게 정리된 모래 정원의 물결을 찾으세요",
+          "object": "raked white sand ripples"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "젠 정원의 명상 수도승을 찾으세요",
+        "object": "meditating monk"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-creativity-studio",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "creativity",
+      "aliases": [
+        "creative",
+        "design",
+        "studio"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '창의성' or '창작력'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Creativity"
+          },
+          {
+            "id": "option_2",
+            "label": "Calculus"
+          },
+          {
+            "id": "option_3",
+            "label": "Constraint"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "고급 영단어 Creativity 학습을 위한 3D 프린터와 홀로그램 청사진이 반짝이는 첨단 산업 디자인 창작 스튜디오 씬",
+      "changes": [
+        "디자이너의 데님 셔츠 옷 색상을 인디고에서 올리브 그린으로 변경",
+        "공중에 부유하는 홀로그램 청사진 조명 색상을 블루에서 따뜻한 앰버 골드로 변경",
+        "사이드 책상 위 3D 프린터 본체 색상을 매트 블랙에서 실버 화이트로 변경",
+        "원목 작업대 위에 놓여있던 커피 머그잔 1개 제거",
+        "조명 모형 갓 소재 색상을 프로스테드 틸에서 루비 레드(진홍색)로 변경",
+        "디자이너가 쥔 디지털 드로잉 펜 색상을 브라운에서 밝은 노란색으로 변경",
+        "우측 벽면 보드에 걸려있던 컬러 스와치 칩 1개 제거",
+        "디자이너의 작업 의자 방석 방석 시트 색상을 다크 그레이에서 오렌지로 변경",
+        "작업대 모서리 끝에 작게 놓인 디지털 캘리퍼스 측정 도구 1개 추가",
+        "코너 테이블 위에 놓여있던 탁상 조명 램프 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "창의성을 발휘해 조명 모형을 제작하는 디자이너를 찾으세요",
+          "object": "industrial designer crafting lamp model"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "공중에 입체로 부유하는 홀로그램 청사진을 찾으세요",
+          "object": "glowing holographic blueprints"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "작품을 출력하는 3D 프린터를 찾으세요",
+          "object": "3D printer on side desk"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "창작 스튜디오의 원목 작업대를 찾으세요",
+        "object": "large wooden workbench"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-resonance-stage",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "resonance",
+      "aliases": [
+        "resonate",
+        "harmonics",
+        "cello"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '공명' or '울림'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Resonance"
+          },
+          {
+            "id": "option_2",
+            "label": "Redundancy"
+          },
+          {
+            "id": "option_3",
+            "label": "Reluctance"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "고급 영단어 Resonance 학습을 위한 음향 스튜디오 무대에서 첼로 연주와 함께 금빛 음파 배음 공명이 소용돌이치는 첼리스트 연주 씬",
+      "changes": [
+        "첼리스트의 이브닝 드레스 옷 색상을 앰버 황금빛에서 에메랄드 그린으로 변경",
+        "공중에 부유하며 소용돌이치던 금빛 음파 배음 공명 파동 색상을 터콰이즈 블루로 변경",
+        "첼로 몸통의 목재 칠 마감 색상을 웜 마호가니에서 다크 로즈우드로 변경",
+        "무대 좌측에 설치되어 있던 작은 악보 스탠드 1개 제거",
+        "첼리스트의 하이힐 구두 색상을 블랙 펌프스에서 실버 새틴 힐로 변경",
+        "악보대 위 펼쳐진 악보 커버 색상을 화이트에서 로열 퍼플로 변경",
+        "무대 우측 바닥에 설치되어 있던 스탠드 마이크 1개 제거",
+        "첼로 하단 테일피스 부품 색상을 블랙에서 광택 나는 황동 골드로 변경",
+        "악보대 받침대 모서리 끝에 작게 놓인 음쇠(Tuning Fork) 1개 추가",
+        "천장 조명 트러스 그리드에 매달려있던 무대 스포트라이트 조명 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "아름다운 공명을 일으키며 첼로를 연주하는 첼리스트를 찾으세요",
+          "object": "female cellist playing cello"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "소용돌이치는 빛나는 음파 배음 파동을 찾으세요",
+          "object": "glowing sound wave harmonics"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "무대 위의 정교한 악보대를 찾으세요",
+          "object": "sheet music stand"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "음향 무대의 첼리스트를 찾으세요",
+        "object": "female cellist"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-serenity-haven",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "serenity",
+      "aliases": [
+        "serene",
+        "haven",
+        "sanctuary"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '평정' or '고요한 안식처'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Serenity"
+          },
+          {
+            "id": "option_2",
+            "label": "Severity"
+          },
+          {
+            "id": "option_3",
+            "label": "Scarcity"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "고급 영단어 Serenity 학습을 위한 폭포수와 연못 속 연꽃이 아련히 빛나는 밀림 안식처 정자 데크에서 명상하는 요가 수행자 씬",
+      "changes": [
+        "요가 수행자의 라벤더 리넨 상의 옷 색상을 터콰이즈 블루로 변경",
+        "연못 위에서 빛나던 연꽃 꽃잎 색상을 핑크에서 골든 앰버로 변경",
+        "정자 데크에 펼쳐진 요가 매트 타월 색상을 민트 그린에서 코랄 오렌지로 변경",
+        "정자 나무 기둥 옆에 놓여있던 작은 석등 1개 제거",
+        "정자 원목 기둥 마감 색상을 다크 마호가니에서 내추럴 라이트 오크로 변경",
+        "데크 위 놓여있던 물병 피처 소재를 화이트 세라믹에서 테라코타 점토로 변경",
+        "연못 좌측 수면에 떠있던 작은 연잎 파판 1개 제거",
+        "수행자의 머리 묶음 끈 색상을 블랙에서 화이트 리본으로 변경",
+        "나무 데크 모서리 끝에 작게 놓인 아로마 디퓨저 기구 1개 추가",
+        "정자 처마 지붕에 걸려있던 열대 꽃 화환 장식 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "평정 속에서 요가를 수행하는 인물을 찾으세요",
+          "object": "yoga practitioner practicing mindfulness"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "연못 위에서 은은하게 빛나는 연꽃을 찾으세요",
+          "object": "glowing lotus flower on pond"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "수정처럼 맑게 쏟아지는 폭포수를 찾으세요",
+          "object": "cascading waterfall"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "안식처 정자의 요가 수행자를 찾으세요",
+        "object": "yoga practitioner"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-solitude-cliff",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "solitude",
+      "aliases": [
+        "solitary",
+        "lonely",
+        "secluded"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '고독' or '홀로 있음'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Solitude"
+          },
+          {
+            "id": "option_2",
+            "label": "Solace"
+          },
+          {
+            "id": "option_3",
+            "label": "Solidarity"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "고급 영단어 Solitude 학습을 위한 구름 바다가 일렁이는 절벽 산사 소나무 아래 벤치에서 홀로 일기를 쓰는 작가 씬",
+      "changes": [
+        "작가의 울 코트 옷 색상을 틸 블루에서 머스터드 옐로우로 변경",
+        "가죽 일기장 커버 색상을 브라운에서 딥 크림슨 레드(진홍색)로 변경",
+        "작가의 머플러 목도리 색상을 크림 화이트에서 로열 네이비 블루로 변경",
+        "벤치 위 작가 옆에 놓여있던 작은 등산 보온병 1개 제거",
+        "원목 벤치 마감 스테인 색상을 내추럴 시더에서 차콜 블랙으로 변경",
+        "작가가 쥔 만년필 펜 펜촉 색상을 골드에서 광택 나는 실버로 변경",
+        "벤치 팔걸이 위에 조각되어 있던 작은 나무 새 모형 1개 제거",
+        "작가의 비니 모자 색상을 다크 그레이에서 버건디로 변경",
+        "원목 벤치 상판 모서리 끝에 작게 놓인 황동 주머니 나침반 1개 추가",
+        "소나무 나뭇가지 밑에 걸려있던 작은 랜턴 등잔 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "고독 속에서 생각을 기록하는 작가를 찾으세요",
+          "object": "solitary writer writing in journal"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "절벽 위 외로이 서있는 솔개 소나무를 찾으세요",
+          "object": "solitary pine tree on cliff"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "발아래 일렁이는 장엄한 운해 구름 바다를 찾으세요",
+          "object": "sea of clouds"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "절벽 벤치의 고독한 작가를 찾으세요",
+        "object": "solitary writer"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-3d-serenity",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "serenity",
+      "aliases": [
+        "serene",
+        "tranquility",
+        "peace"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '평정' or '고요함'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Serenity"
+          },
+          {
+            "id": "option_2",
+            "label": "Severity"
+          },
+          {
+            "id": "option_3",
+            "label": "Scarcity"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "고급 3D 시네마틱 애니메이션 렌더링 스타일로 구현된 공중 섬 부유 신전 연꽃 플랫폼 위 명상하는 3D 수도승 씬",
+      "changes": [
+        "3D 수도승의 명상 가사 로브 옷 색상을 사프란 오렌지에서 딥 사파이어 블루로 변경",
+        "공중 연꽃 데크 플랫폼 재질 색상을 로즈우드에서 광택 나는 마블 화이트로 변경",
+        "수도승이 쥔 염주 알 색상을 다크 브라운에서 빛나는 골든 앰버로 변경",
+        "좌측 석조 테라스 바위 위에 놓여있던 작은 3D 석등 1개 제거",
+        "벚꽃 나뭇가지에서 흩날리는 꽃잎 색상을 핑크에서 은은하게 빛나는 시안 터콰이즈로 변경",
+        "명상 방석 시트 색상을 네이비에서 딥 루비 레드(진홍색)로 변경",
+        "데크 플랫폼 모서리에 설치되어 있던 작은 석조 연꽃 조각품 1개 제거",
+        "데크 위 물병 주전자 소재를 세라믹에서 광택 코퍼 브론즈로 변경",
+        "데크 코너 끝에 작게 놓인 3D 황동 싱잉볼 1개 추가",
+        "하늘 높이 부유하던 종이 등잔 랜턴 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "3D 공중 신전에서 명상하는 수도승을 찾으세요",
+          "object": "3D monk meditating on floating platform"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "부유하는 화려한 3D 연꽃 플랫폼을 찾으세요",
+          "object": "floating lotus platform"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "신비로운 분위기를 연출하는 3D 벚꽃 나무를 찾으세요",
+          "object": "sakura cherry blossom tree"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "3D 공중 섬의 명상 수도승을 찾으세요",
+        "object": "3D meditating monk"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-3d-creativity",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "creativity",
+      "aliases": [
+        "creative",
+        "invent",
+        "design"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '창의성' or '창작력'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Creativity"
+          },
+          {
+            "id": "option_2",
+            "label": "Calculus"
+          },
+          {
+            "id": "option_3",
+            "label": "Constraint"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "고급 3D 시네마틱 애니메이션 렌더링 스타일로 구현된 3D 로봇 동반자 모형과 홀로그램 청사진이 빛나는 엔지니어 창작 스튜디오 씬",
+      "changes": [
+        "3D 아티스트 엔지니어의 멜빵 바지 끈 색상을 데님 블루에서 루비 레드(진홍색)로 변경",
+        "3D 로봇 모형의 가슴 코어 발광 색상을 쿨 블루에서 웜 골든 앰버로 변경",
+        "사이드 선반 위 3D 프린터 본체 색상을 매트 블랙에서 실버 화이트로 변경",
+        "원목 작업대 위에 놓여있던 3D 머그잔 1개 제거",
+        "공중에 부유하는 홀로그램 청사진 빛 색상을 시안에서 마젠타 퍼플로 변경",
+        "엔지니어가 쥔 3D 터치 펜 색상을 브라운에서 밝은 노란색으로 변경",
+        "우측 타공판 벽면에 걸려있던 컬러 칩 스와치 1개 제거",
+        "작업 의자 방석 시트 색상을 네이비에서 에메랄드 그린으로 변경",
+        "작업대 모서리 끝에 작게 놓인 3D 디지털 캘리퍼스 측정 기구 1개 추가",
+        "코너 테이블 위에 놓여있던 탁상 조명 램프 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "3D 창작 스튜디오에서 로봇을 제작하는 엔지니어를 찾으세요",
+          "object": "3D artist engineer crafting robot model"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "공중에 부유하는 3D 홀로그램 청사진을 찾으세요",
+          "object": "3D glowing holographic blueprints"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "정교하게 제작되는 3D 로봇 모형을 찾으세요",
+          "object": "futuristic robot model"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "3D 창작 스튜디오의 엔지니어를 찾으세요",
+        "object": "3D artist engineer"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-3d-harmony",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "harmony",
+      "aliases": [
+        "harmonious",
+        "melody",
+        "violin"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '조화' or '화음'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Harmony"
+          },
+          {
+            "id": "option_2",
+            "label": "Hostility"
+          },
+          {
+            "id": "option_3",
+            "label": "Hierarchy"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "고급 3D 시네마틱 애니메이션 렌더링 스타일로 구현된 수목원 온실 무대에서 무지갯빛 화음 파동과 함께 바이올린을 연주하는 3D 바이올리니스트 씬",
+      "changes": [
+        "3D 바이올리니스트의 드레스 옷 색상을 에메랄드 실크에서 딥 사파이어 블루로 변경",
+        "3D 바이올린 몸통 바디 색상을 골드에서 다크 마호가니 우드로 변경",
+        "공중에 리본처럼 흩날리던 3D 화음 파동 색상을 루비 레드와 골드로 변경",
+        "무대 좌측 바닥에 부착되어 있던 작은 3D 악보대 스탠드 1개 제거",
+        "수목원 석조 아치 테두리 장식 색상을 마블 화이트로 변경",
+        "바이올린 턱받침 부품 색상을 로즈우드 브라운으로 변경",
+        "무대 단상 코너에 놓여있던 생화 화병 장식 1개 제거",
+        "바이올리니스트의 머리 리본 머리끈 색상을 화이트 새틴으로 변경",
+        "지휘대 선반 옆에 작게 놓인 미니 3D 황동 하프 모형 1개 추가",
+        "수목원 아치 기둥에 매달려있던 종이 랜턴 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "3D 온실 무대에서 화음을 연주하는 바이올리니스트를 찾으세요",
+          "object": "3D violinist playing violin"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "공중으로 흩날리는 3D 무지갯빛 화음 파동을 찾으세요",
+          "object": "3D ribbon-like harmony waves"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "아름답게 조율된 3D 바이올린을 찾으세요",
+          "object": "3D golden violin"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "3D 온실 무대의 바이올리니스트를 찾으세요",
+        "object": "3D violinist"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-clay-bakery",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "creativity",
+      "aliases": [
+        "bakery",
+        "baker",
+        "clay"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '창의성' or '창작력'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Creativity"
+          },
+          {
+            "id": "option_2",
+            "label": "Calculus"
+          },
+          {
+            "id": "option_3",
+            "label": "Constraint"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "따뜻한 손맛과 지문 질감이 살아있는 핸드메이드 클레이메이션 스톱모션 스타일로 제작된 생일 케이크 데코레이션 클레이 베이커리 씬",
+      "changes": [
+        "클레이 제빵사의 모자 띠 밴드 색상을 레드에서 스카이 블루로 변경",
+        "케이크 위 클레이 딸기 토핑 색상을 레드에서 골든 옐로우로 변경",
+        "카운터 위 밀대 밀봉 손잡이 마감 색상을 라이트 우드에서 다크 마호가니로 변경",
+        "우측 나무 트레이 위에 올려진 클레이 크루아상 빵 1개 제거",
+        "앞치마 주머니 겉면 색상을 옐로우에서 에메랄드 그린으로 변경",
+        "바닥 밀가루 포대 라벨 문양 색상을 차콜에서 로열 퍼플로 변경",
+        "벽면에 걸려있던 클레이 오븐 장갑 주방 장갑 1개 제거",
+        "제빵사가 쥔 짤주머니 크림 주머니 색상을 화이트에서 밝은 노란색으로 변경",
+        "카운터 상판 모서리 끝에 작게 놓인 클레이 도넛 장식 1개 추가",
+        "선반 위 벽면에 매달려있던 작은 벽시계 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "클레이 베이커리에서 케이크를 데코하는 제빵사를 찾으세요",
+          "object": "clay baker decorating cake"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "화려하게 만들어진 클레이 3단 생일 케이크를 찾으세요",
+          "object": "multi-tiered clay birthday cake"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "갓 구워진 노릇한 클레이 빵 트레이를 찾으세요",
+          "object": "molded clay bread tray"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "클레이 베이커리의 제빵사를 찾으세요",
+        "object": "clay baker"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-papercut-forest",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "serenity",
+      "aliases": [
+        "forest",
+        "deer",
+        "papercut"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '평정' or '고요함'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Serenity"
+          },
+          {
+            "id": "option_2",
+            "label": "Severity"
+          },
+          {
+            "id": "option_3",
+            "label": "Scarcity"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "겹겹이 쌓인 종이 조각의 입체적인 빛과 그림자 레이어가 돋보이는 페이퍼크래프트(Papercut Craft) 공예 스타일의 숲속 사슴 연못 씬",
+      "changes": [
+        "종이 사슴의 털 색상을 골든 브라운에서 터콰이즈 블루로 변경",
+        "연못 위에서 빛나는 종이 연꽃 꽃잎 색상을 핑크에서 웜 앰버로 변경",
+        "우측 종이 나무 줄기 색상을 브라운에서 딥 버건디로 변경",
+        "좌측 이끼 바닥 위에 놓여있던 작은 종이 버섯 1개 제거",
+        "공중에 부유하는 종이 나비 날개 색상을 옐로우에서 루비 레드(진홍색)로 변경",
+        "연못 위 종이 연잎 파판 색상을 민트에서 에메랄드 그린으로 변경",
+        "나뭇가지 위에 앉아있던 작은 종이 새 1개 제거",
+        "배경 종이 달빛 색조를 실버 화이트에서 따뜻한 골든 글루로 변경",
+        "연못 가 바위에 작게 오려붙인 종이 꽃송이 1개 추가",
+        "밤하늘 배경에 걸려있던 종이 별 장식 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "페이퍼크래프트 숲속 연못 가의 종이 사슴을 찾으세요",
+          "object": "papercut deer next to pond"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "은은하게 빛나는 종이 조각 연꽃을 찾으세요",
+          "object": "glowing paper lotus"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "공중에 부유하는 섬세한 종이 나비를 찾으세요",
+          "object": "floating paper butterfly"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "페이퍼크래프트 숲의 종이 사슴을 찾으세요",
+        "object": "papercut deer"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-cyberpunk-space",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "illumination",
+      "aliases": [
+        "cyberpunk",
+        "space",
+        "observatory"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '조명' or '밝게 함'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Illumination"
+          },
+          {
+            "id": "option_2",
+            "label": "Illusion"
+          },
+          {
+            "id": "option_3",
+            "label": "Illustration"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "화려한 네온 레이저와 부유하는 입체 홀로그램 성도가 빛나는 미래형 사이버펑크(Cyberpunk Synthwave) 우주 관측소 씬",
+      "changes": [
+        "3D 우주비행사 바이저 헬멧의 발광 악센트 색상을 시안에서 루비 레드(진홍색)로 변경",
+        "공중에 부유하는 홀로그램 성도 천문도 색상을 네온 블루에서 웜 골든 앰버로 변경",
+        "우측 제어 콘솔의 네온 레이저 빔 조명 색상을 바이올렛에서 에메랄드 그린으로 변경",
+        "좌측 선반 위에 놓여있던 작은 네온 배터리 파워 팩 1개 제거",
+        "강화 엑소스트 어깨 패드 테두리 색상을 시안에서 밝은 노란색으로 변경",
+        "홀로그램 행성 고리 링 색상을 블루에서 마젠타 퍼플로 변경",
+        "망원경 본체 윗면에 장착되어 있던 작은 수신 안테나 1개 제거",
+        "조종 콘솔 버튼 그리드 조명 색상을 블루에서 화이트 LED로 변경",
+        "콘솔 책상 모서리 끝에 작게 놓인 사이버네틱 데이터 칩 드라이브 1개 추가",
+        "천장 구조물에 천장 구조물에 매달려있던 케이블 선 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "사이버펑크 관측소에서 콘솔을 조율하는 우주비행사를 찾으세요",
+          "object": "cybernetic astronaut adjusting console"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "빛나는 사이버펑크 입체 홀로그램 성도를 찾으세요",
+          "object": "glowing holographic star map"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "미래형 우주 망원경 콘솔을 찾으세요",
+          "object": "holographic telescope console"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "사이버펑크 관측소의 우주비행사를 찾으세요",
+        "object": "cybernetic astronaut"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-clay-zoo",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "camaraderie",
+      "aliases": [
+        "zoo",
+        "zookeeper",
+        "clay"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '우정' or '동료애'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Camaraderie"
+          },
+          {
+            "id": "option_2",
+            "label": "Catastrophe"
+          },
+          {
+            "id": "option_3",
+            "label": "Chivalry"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "따뜻한 손맛과 아기자기한 점토 질감이 돋보이는 핸드메이드 클레이메이션 스톱모션 스타일로 연출된 사육사와 판다 곰의 우정 씬",
+      "changes": [
+        "클레이 사육사의 탐험 모자 띠 밴드 색상을 브라운에서 루비 레드(진홍색)로 변경",
+        "사육사가 전달하는 클레이 대나무 잎 색상을 그린에서 골든 옐로우로 변경",
+        "클레이 판다 곰의 목 넥타이 나비넥타이 색상을 로열 사파이어 블루로 변경",
+        "울타리 기둥 끝에 앉아있던 작은 클레이 새 1개 제거",
+        "사육사 조끼 가슴 주머니 색상을 브라운에서 에메랄드 그린으로 변경",
+        "바닥 모서리에 놓여있던 클레이 양동이 물통 색상을 테라코타 오렌지로 변경",
+        "먹이 바구니 안에서 작게 놓여있던 클레이 사과 1개 제거",
+        "사육사의 작업 부츠 신발 색상을 다크 브라운에서 차콜 블랙으로 변경",
+        "연못 바위 가에 작게 빚어놓은 클레이 거북이 1개 추가",
+        "나무 줄기에 걸려있던 작은 표지판 장식 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "클레이 동물원에서 판다에게 먹이를 주는 사육사를 찾으세요",
+          "object": "clay zookeeper feeding panda"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "귀엽게 먹이를 받아먹는 클레이 판다 곰을 찾으세요",
+          "object": "friendly clay panda bear"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "아기자기한 점토 나무 울타리를 찾으세요",
+          "object": "molded clay wooden fence"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "클레이 동물원의 사육사를 찾으세요",
+        "object": "clay zookeeper"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-papercut-sakura",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "tranquility",
+      "aliases": [
+        "sakura",
+        "pagoda",
+        "papercut"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '평온' or '고요한 평화'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Tranquility"
+          },
+          {
+            "id": "option_2",
+            "label": "Turbulence"
+          },
+          {
+            "id": "option_3",
+            "label": "Tension"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "섬세한 종이 오림 레이어의 아티스틱 빛과 그림자가 돋보이는 페이퍼크래프트(Papercut Craft) 스타일의 봄밤 벚꽃 탑 정원 다리 씬",
+      "changes": [
+        "종이 기모노 의상 색상을 핑크에서 로열 사파이어 블루로 변경",
+        "종이 손등불 발광 색상을 따뜻한 골드에서 시안 블루로 변경",
+        "종이 다리 난간 마감 색상을 다크 우드에서 다크 로즈우드로 변경",
+        "다리 바닥 표면에 놓여있던 작은 종이 우산 장식 1개 제거",
+        "종이 목조 탑 지붕 테두리 조각 색상을 차콜에서 마블 화이트로 변경",
+        "머리 기모노 핀 종이 꽃장식 색상을 화이트에서 루비 레드(진홍색)로 변경",
+        "다리 기둥 옆 연못 가에 설치되어 있던 작은 종이 석등 1개 제거",
+        "손에 쥐고 있던 종이 부채 색상을 핑크에서 골든 옐로우로 변경",
+        "연못 수면 바위에 작게 오려붙인 종이 연꽃 장식 1개 추가",
+        "목조 탑 처마 밑에 걸려있던 종이 랜턴 등잔 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "페이퍼크래프트 벚꽃 정원 다리 위의 기모노 소녀를 찾으세요",
+          "object": "papercut girl holding lantern"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "빛나는 종이 조각 탑 지붕을 찾으세요",
+          "object": "papercut Japanese pagoda"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "흩날리는 벚꽃 나무 종이 조각을 찾으세요",
+          "object": "paper-carved cherry blossom tree"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "페이퍼크래프트 정원의 등불을 든 소녀를 찾으세요",
+        "object": "papercut girl"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-cyberpunk-neon",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "resonance",
+      "aliases": [
+        "cyberpunk",
+        "neon",
+        "dj"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '공명' or '울림'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Resonance"
+          },
+          {
+            "id": "option_2",
+            "label": "Redundancy"
+          },
+          {
+            "id": "option_3",
+            "label": "Reluctance"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "화려한 네온 이퀄라이저와 네온 믹싱 콘솔이 돋보이는 미래형 사이버펑크(Cyberpunk Synthwave) 뮤직 스튜디오 DJ 연주 씬",
+      "changes": [
+        "3D 사이버네틱 여성 DJ의 네온 헤드폰 발광 색상을 시안에서 루비 레드(진홍색)로 변경",
+        "홀로그램 신디사이저 건반 라이팅 색상을 블루에서 웜 골든 앰버로 변경",
+        "우측 공간 레이저 음파 빔 색상을 시안에서 에메랄드 그린으로 변경",
+        "좌측 선반 위에 놓여있던 작은 네온 오디오 스피커 1개 제거",
+        "홀로그램 재킷 어깨 테두리 발광 악센트 색상을 옐로우로 변경",
+        "공중에 부유하는 음파 링 파동 색상을 블루에서 마젠타 퍼플로 변경",
+        "믹싱 콘솔 마이크 스탠드 1개 제거",
+        "믹싱 콘솔 노브 슬라이더 LED 조명 색상을 블루에서 화이트로 변경",
+        "믹싱 콘솔 모서리 끝에 작게 놓인 오디오 데이터 드라이브 칩 1개 추가",
+        "천장 구조물에 매달려있던 케이블 선 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "사이버펑크 뮤직 스튜디오에서 믹싱 콘솔을 조율하는 DJ를 찾으세요",
+          "object": "cybernetic female DJ"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "빛나는 사이버펑크 네온 이퀄라이저를 찾으세요",
+          "object": "glowing neon equalizers"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "부유하는 홀로그램 신디사이저 건반을 찾으세요",
+          "object": "holographic synthesizers"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "사이버펑크 스튜디오의 DJ를 찾으세요",
+        "object": "cybernetic female DJ"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-clay-family",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "camaraderie",
+      "aliases": [
+        "family",
+        "fireplace",
+        "clay"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '우정' or '화목한 정'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Camaraderie"
+          },
+          {
+            "id": "option_2",
+            "label": "Catastrophe"
+          },
+          {
+            "id": "option_3",
+            "label": "Chivalry"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "손맛 나는 정겨운 클레이 질감의 핸드메이드 클레이메이션 스톱모션 스타일로 표현된 벽난로 모여 동화책을 읽는 화목한 가족 씬",
+      "changes": [
+        "클레이 아빠의 스웨터 옷 색상을 브라운에서 에메랄드 그린으로 변경",
+        "클레이 엄마의 숄 머플러 색상을 옐로우에서 딥 루비 레드(진홍색)로 변경",
+        "클레이 아이의 비니 모자 색상을 핑크에서 스카이 블루로 변경",
+        "원목 탁자 위에 놓여있던 클레이 찻잔 1개 제거",
+        "벽난로 선반 위 시계 본체 색상을 다크 우드에서 골드로 변경",
+        "엄마가 쥔 동화책 표지 색상을 로열 퍼플로 변경",
+        "벽면에 걸려있던 액자 틀 장식 1개 제거",
+        "강아지의 목걸이 체인 색상을 블루에서 오렌지로 변경",
+        "소파 쿠션에 클레이 쿠션 방석 1개 추가",
+        "벽난로 기둥 벽면에 설치되어 있던 촛대 등잔 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "클레이 거실 벽난로에서 동화책을 읽는 가족을 찾으세요",
+          "object": "clay happy family reading storybook"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "따스하게 타오르는 클레이 벽난로를 찾으세요",
+          "object": "glowing clay fireplace"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "가족 곁에 다정히 앉은 클레이 강아지를 찾으세요",
+          "object": "cute clay dog"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "클레이 거실의 가족을 찾으세요",
+        "object": "clay family"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-papercut-lighthouse",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "epiphany",
+      "aliases": [
+        "lighthouse",
+        "ocean",
+        "papercut"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '깨달음' or '영감의 등대'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Epiphany"
+          },
+          {
+            "id": "option_2",
+            "label": "Eclipse"
+          },
+          {
+            "id": "option_3",
+            "label": "Empathy"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "겹겹이 오려진 종이 레이어의 환상적인 입체 빛과 그림자가 어우러진 페이퍼크래프트(Papercut Craft) 스타일의 해안 절벽 밤바다 등대지기 씬",
+      "changes": [
+        "종이 등대지기의 방수 코트 옷 색상을 우비 옐로우에서 로열 사파이어 블루로 변경",
+        "등대 렌즈 조명 회전광 색상을 따뜻한 골드에서 시안 블루로 변경",
+        "전망대 발코니 난간 마감 색상을 다크 우드에서 다크 마호가니로 변경",
+        "절벽 모서리 바위에 앉아있던 작은 종이 갈매기 1개 제거",
+        "등대 돔 지붕 덮개 색상을 차콜에서 딥 루비 레드(진홍색)로 변경",
+        "멀리 보이는 종이 범선 돛 색상을 옐로우에서 화이트로 변경",
+        "등대 입구 옆 바위에 설치되어 있던 작은 종이 석등 1개 제거",
+        "등대지기가 쥔 종이 망원경 색상을 브라운에서 골든 옐로우로 변경",
+        "발코니 벽면에 작게 오려붙인 종이 구명튜브 링 1개 추가",
+        "등대 입구 현관 처마 밑에 걸려있던 종이 랜턴 등잔 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "페이퍼크래프트 등대 발코니의 등대지기를 찾으세요",
+          "object": "papercut lighthouse keeper holding lantern"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "은은하게 회전하며 빛나는 종이 조각 등대를 찾으세요",
+          "object": "papercut ocean cliff lighthouse"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "절벽 바위에 부딪히는 종이 파도를 찾으세요",
+          "object": "cascading paper ocean waves"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "페이퍼크래프트 등대의 등대지기를 찾으세요",
+        "object": "papercut lighthouse keeper"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
+    },
+    {
+      "key": "en-cyberpunk-city",
+      "category": "ENGLISH",
+      "language": "en",
+      "difficulty": "ADVANCED",
+      "status": "DRAFT",
+      "canonicalAnswer": "juxtaposition",
+      "aliases": [
+        "cyberpunk",
+        "city",
+        "hoverbike"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '병치' or '대조적 배치'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Juxtaposition"
+          },
+          {
+            "id": "option_2",
+            "label": "Jubilation"
+          },
+          {
+            "id": "option_3",
+            "label": "Jurisdiction"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "sceneBrief": "화려한 네온 간판과 부유하는 입체 홀로그램 빌보드가 병치를 이루는 미래형 사이버펑크(Cyberpunk Synthwave) 도심 호버바이크 씬",
+      "changes": [
+        "3D 사이버네틱 배달원의 재킷 의상 색상을 네온 퍼플에서 에메랄드 그린으로 변경",
+        "호버바이크 헤드라이트 네온 발광 색상을 시안에서 웜 골든 앰버로 변경",
+        "빌딩 벽면 네온 빌보드 간판 로고 색상을 블루에서 루비 레드(진홍색)로 변경",
+        "인도 가로변에 설치되어 있던 작은 네온 가로등 기둥 1개 제거",
+        "배달원의 라이딩 장갑 손 색상을 차콜에서 밝은 노란색으로 변경",
+        "공중에 부유하는 홀로그램 광고 링 색상을 블루에서 마젠타 퍼플로 변경",
+        "마천루 빌딩 옥상에 장착되어 있던 작은 안테나 접시 1개 제거",
+        "호버바이크 휠 테두리 LED 조명 색상을 시안에서 화이트로 변경",
+        "호버바이크 뒤쪽 적재함에 작게 놓인 사이버네틱 배달 화물 상자 1개 추가",
+        "공중에 가로지르던 전선 케이블 선 1개 제거"
+      ],
+      "wordHunts": [
+        {
+          "kind": "NORMAL",
+          "prompt": "사이버펑크 도시에서 호버바이크 옆에 서있는 배달원을 찾으세요",
+          "object": "cybernetic courier standing next to hoverbike"
+        },
+        {
+          "kind": "NORMAL",
+          "prompt": "빛나는 사이버펑크 호버바이크를 찾으세요",
+          "object": "sleek futuristic hoverbike"
+        },
+        {
+          "kind": "SPECIAL",
+          "prompt": "공중에 부유하는 입체 네온 홀로그램 빌보드를 찾으세요",
+          "object": "glowing hologram billboard"
+        }
+      ],
+      "suddenDeath": {
+        "prompt": "사이버펑크 도시의 배달원을 찾으세요",
+        "object": "cybernetic courier"
+      },
+      "promptProvenance": {
+        "provider": "OPENAI",
+        "model": "IMAGEGEN",
+        "basePromptSha256": null,
+        "editPromptSha256": null,
+        "generatedAt": null
+      }
     }
   ]
 }

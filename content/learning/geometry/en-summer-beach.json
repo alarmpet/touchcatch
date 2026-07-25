@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.328, "cy": 0.094, "r": 0.085 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.257, "cy": 0.311, "r": 0.085 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.861, "cy": 0.681, "r": 0.085 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.825, "cy": 0.805, "r": 0.085 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.160, "cy": 0.334, "r": 0.085 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.383, "cy": 0.886, "r": 0.085 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.267, "cy": 0.667, "r": 0.085 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.376, "cy": 0.310, "r": 0.085 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.066, "cy": 0.379, "r": 0.085 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.814, "cy": 0.900, "r": 0.085 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the beach umbrella.", "cx": 0.257, "cy": 0.311, "r": 0.085 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the surfboard.", "cx": 0.861, "cy": 0.681, "r": 0.085 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the sandcastle.", "cx": 0.825, "cy": 0.805, "r": 0.085 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.257, "cy": 0.311, "r": 0.090 }
+}

@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.15 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.305, "cy": 0.060, "r": 0.085 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.462, "cy": 0.060, "r": 0.085 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.775, "cy": 0.060, "r": 0.085 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.409, "cy": 0.382, "r": 0.085 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.614, "cy": 0.049, "r": 0.085 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.651, "cy": 0.285, "r": 0.085 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.922, "cy": 0.047, "r": 0.085 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.544, "cy": 0.154, "r": 0.085 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.740, "cy": 0.196, "r": 0.085 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.699, "cy": 0.396, "r": 0.085 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the baker.", "cx": 0.409, "cy": 0.382, "r": 0.085 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the cookies.", "cx": 0.544, "cy": 0.154, "r": 0.085 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the birthday cake.", "cx": 0.651, "cy": 0.285, "r": 0.085 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.544, "cy": 0.154, "r": 0.090 }
+}

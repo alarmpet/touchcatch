@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of a cheerful elementary school classroom for English vocabulary learning (School).
+Scene/backdrop: In the classroom, there is a large green chalkboard on the wall with colorful drawings, a teacher desk with a globe and a stack of books, student desks with backpacks, a large window showing a sunny playground outside, an easel with a painting, a bookshelf filled with books, a clock on the wall showing 10 o'clock, a potted plant on the windowsill, and a colorful alphabet poster.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

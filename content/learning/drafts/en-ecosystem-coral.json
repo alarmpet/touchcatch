@@ -1,0 +1,307 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "86a56029-db4e-453d-8185-2c178644fbf6",
+    "version": 1,
+    "contentRevisionId": "d9e5ae04-81e2-41fd-848e-14a73cd46e9f",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-ecosystem-coral",
+    "language": "en",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/bba499677a92aacfbe5a773717c90e7d6c56f65a292012c68050990cfdd5af92.png",
+      "sha256": "bba499677a92aacfbe5a773717c90e7d6c56f65a292012c68050990cfdd5af92",
+      "encodedBytes": 2129675,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/f03e2f1ac215752f9200d98a8e047942fe85abf8dbc7aa260d0814e3d106e964.png",
+      "sha256": "f03e2f1ac215752f9200d98a8e047942fe85abf8dbc7aa260d0814e3d106e964",
+      "encodedBytes": 2196122,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "d9e5ae04-81e2-41fd-848e-14a73cd46e9f",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.486,
+            "cy": 0.855,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.486,
+            "cy": 0.855,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.161,
+            "cy": 0.674,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.161,
+            "cy": 0.674,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.835,
+            "cy": 0.826,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.835,
+            "cy": 0.826,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.366,
+            "cy": 0.84,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.366,
+            "cy": 0.84,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.343,
+            "cy": 0.32,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.343,
+            "cy": 0.32,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.43,
+            "cy": 0.66,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.43,
+            "cy": 0.66,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.648,
+            "cy": 0.226,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.648,
+            "cy": 0.226,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.736,
+            "cy": 0.569,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.736,
+            "cy": 0.569,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.309,
+            "cy": 0.57,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.309,
+            "cy": 0.57,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.442,
+            "cy": 0.928,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.442,
+            "cy": 0.928,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the sea turtle.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.343,
+            "cy": 0.32,
+            "r": 0.075
+          },
+          "imageB": {
+            "cx": 0.343,
+            "cy": 0.32,
+            "r": 0.075
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the clownfish.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.161,
+            "cy": 0.674,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.161,
+            "cy": 0.674,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the brain coral.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.835,
+            "cy": 0.826,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.835,
+            "cy": 0.826,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.343,
+          "cy": 0.32,
+          "r": 0.08
+        },
+        "imageB": {
+          "cx": 0.343,
+          "cy": 0.32,
+          "r": 0.08
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "ecosystem",
+      "aliases": [
+        "coral reef",
+        "marine"
+      ],
+      "hintUnits": [
+        "e",
+        "c",
+        "o",
+        "s",
+        "y",
+        "s",
+        "t",
+        "e",
+        "m"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '생태계'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Ecosystem"
+          },
+          {
+            "id": "option_2",
+            "label": "Economy"
+          },
+          {
+            "id": "option_3",
+            "label": "Electricity"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "cf8d131a2eafbbcf70c7ad25009c8f2cbab69ef837b25279a2156e4eeb3b1bfb"
+  },
+  "assetFiles": {
+    "bba499677a92aacfbe5a773717c90e7d6c56f65a292012c68050990cfdd5af92": "D:\\touchcatch\\content\\learning\\source\\en-ecosystem-coral-a.png",
+    "f03e2f1ac215752f9200d98a8e047942fe85abf8dbc7aa260d0814e3d106e964": "D:\\touchcatch\\content\\learning\\source\\en-ecosystem-coral-b.png"
+  }
+}

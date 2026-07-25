@@ -1,0 +1,306 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "a525f1c1-45d5-441c-8b12-8e3f9d3fbd5a",
+    "version": 1,
+    "contentRevisionId": "0e61de2b-7019-465f-86aa-1e3ca9c702ce",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-symphony-orchestra",
+    "language": "en",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/7b927ccc1781cd9842b89c811c20032b99cb4efa9957273cf8c3eb9be7adfc8c.png",
+      "sha256": "7b927ccc1781cd9842b89c811c20032b99cb4efa9957273cf8c3eb9be7adfc8c",
+      "encodedBytes": 2260920,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/3007c0e59a83ff0b0b59c07087fc4d6d05992db01e2480b8e7e3e05f11da8979.png",
+      "sha256": "3007c0e59a83ff0b0b59c07087fc4d6d05992db01e2480b8e7e3e05f11da8979",
+      "encodedBytes": 2441084,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "0e61de2b-7019-465f-86aa-1e3ca9c702ce",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.895,
+            "cy": 0.483,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.895,
+            "cy": 0.483,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.732,
+            "cy": 0.464,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.732,
+            "cy": 0.464,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.68,
+            "cy": 0.242,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.68,
+            "cy": 0.242,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.502,
+            "cy": 0.086,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.502,
+            "cy": 0.086,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.592,
+            "cy": 0.469,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.592,
+            "cy": 0.469,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.808,
+            "cy": 0.176,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.808,
+            "cy": 0.176,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.949,
+            "cy": 0.129,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.949,
+            "cy": 0.129,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.256,
+            "cy": 0.852,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.256,
+            "cy": 0.852,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.37,
+            "cy": 0.576,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.37,
+            "cy": 0.576,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.976,
+            "cy": 0.517,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.976,
+            "cy": 0.517,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the conductor.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.592,
+            "cy": 0.469,
+            "r": 0.075
+          },
+          "imageB": {
+            "cx": 0.592,
+            "cy": 0.469,
+            "r": 0.075
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the grand piano.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.895,
+            "cy": 0.483,
+            "r": 0.075
+          },
+          "imageB": {
+            "cx": 0.895,
+            "cy": 0.483,
+            "r": 0.075
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the crystal chandelier.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.502,
+            "cy": 0.086,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.502,
+            "cy": 0.086,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.592,
+          "cy": 0.469,
+          "r": 0.08
+        },
+        "imageB": {
+          "cx": 0.592,
+          "cy": 0.469,
+          "r": 0.08
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "symphony",
+      "aliases": [
+        "orchestra",
+        "classical music"
+      ],
+      "hintUnits": [
+        "s",
+        "y",
+        "m",
+        "p",
+        "h",
+        "o",
+        "n",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '교향곡'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Symphony"
+          },
+          {
+            "id": "option_2",
+            "label": "Symphony"
+          },
+          {
+            "id": "option_3",
+            "label": "Synonym"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "b3db080ea604644a0dc03b696ff1b877e9192827d4d22e94cce4aec37456be2b"
+  },
+  "assetFiles": {
+    "7b927ccc1781cd9842b89c811c20032b99cb4efa9957273cf8c3eb9be7adfc8c": "D:\\touchcatch\\content\\learning\\source\\en-symphony-orchestra-a.png",
+    "3007c0e59a83ff0b0b59c07087fc4d6d05992db01e2480b8e7e3e05f11da8979": "D:\\touchcatch\\content\\learning\\source\\en-symphony-orchestra-b.png"
+  }
+}

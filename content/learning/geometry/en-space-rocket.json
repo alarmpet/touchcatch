@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.753, "cy": 0.154, "r": 0.085 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.861, "cy": 0.339, "r": 0.085 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.413, "cy": 0.664, "r": 0.085 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.438, "cy": 0.521, "r": 0.085 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.521, "cy": 0.239, "r": 0.085 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.376, "cy": 0.355, "r": 0.085 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.533, "cy": 0.380, "r": 0.085 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.369, "cy": 0.128, "r": 0.085 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.563, "cy": 0.709, "r": 0.085 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.543, "cy": 0.563, "r": 0.085 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the space rocket.", "cx": 0.521, "cy": 0.239, "r": 0.085 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the astronaut.", "cx": 0.413, "cy": 0.664, "r": 0.085 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the full moon.", "cx": 0.753, "cy": 0.154, "r": 0.085 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.521, "cy": 0.239, "r": 0.090 }
+}

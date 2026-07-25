@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of a magnificent clock tower pendulum chamber showcasing perfect temporal synchronicity for English vocabulary learning (Synchronicity).
+Scene/backdrop: Inside a glowing gear-filled clockwork sanctuary, a young male horologist inspects twin giant swinging brass pendulums ticking in flawless unison. Interlocking golden gears, luminous clock faces showing identical times, floating gear sprockets, glowing Roman numerals, and polished copper pipes fill the tower.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

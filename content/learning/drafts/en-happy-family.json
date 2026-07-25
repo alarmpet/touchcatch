@@ -1,0 +1,304 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "235a1582-b282-4638-88c2-db56b5e8a1fe",
+    "version": 1,
+    "contentRevisionId": "63ffb4b1-3d5c-416d-8b13-a5894b8e2c78",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-happy-family",
+    "language": "en",
+    "difficulty": "BEGINNER",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/555d7a8c1add5b4e79deca138a1ba986f9d6d92a47830e2f9ec868c247affc27.png",
+      "sha256": "555d7a8c1add5b4e79deca138a1ba986f9d6d92a47830e2f9ec868c247affc27",
+      "encodedBytes": 1772492,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/a8a3870e6123e577899e62395ae83433c61aa974cce1a8c969214412fd009453.png",
+      "sha256": "a8a3870e6123e577899e62395ae83433c61aa974cce1a8c969214412fd009453",
+      "encodedBytes": 2007724,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "63ffb4b1-3d5c-416d-8b13-a5894b8e2c78",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.881,
+            "cy": 0.826,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.881,
+            "cy": 0.826,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.565,
+            "cy": 0.247,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.565,
+            "cy": 0.247,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.886,
+            "cy": 0.248,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.886,
+            "cy": 0.248,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.371,
+            "cy": 0.689,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.371,
+            "cy": 0.689,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.774,
+            "cy": 0.724,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.774,
+            "cy": 0.724,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.777,
+            "cy": 0.876,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.777,
+            "cy": 0.876,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.927,
+            "cy": 0.361,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.927,
+            "cy": 0.361,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.82,
+            "cy": 0.619,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.82,
+            "cy": 0.619,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.509,
+            "cy": 0.884,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.509,
+            "cy": 0.884,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.755,
+            "cy": 0.568,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.755,
+            "cy": 0.568,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the sofa.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.371,
+            "cy": 0.689,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.371,
+            "cy": 0.689,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the photo frame.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.565,
+            "cy": 0.247,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.565,
+            "cy": 0.247,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the pet cat.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.881,
+            "cy": 0.826,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.881,
+            "cy": 0.826,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.371,
+          "cy": 0.689,
+          "r": 0.09
+        },
+        "imageB": {
+          "cx": 0.371,
+          "cy": 0.689,
+          "r": 0.09
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "family",
+      "aliases": [
+        "parents",
+        "home"
+      ],
+      "hintUnits": [
+        "f",
+        "a",
+        "m",
+        "i",
+        "l",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is this group of people called?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Family"
+          },
+          {
+            "id": "option_2",
+            "label": "Team"
+          },
+          {
+            "id": "option_3",
+            "label": "Crowd"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "c4a69f26c59724888473f89fa4d67a19055ceb313903559dd3ad06e40a568021"
+  },
+  "assetFiles": {
+    "555d7a8c1add5b4e79deca138a1ba986f9d6d92a47830e2f9ec868c247affc27": "D:\\touchcatch\\content\\learning\\source\\en-happy-family-a.png",
+    "a8a3870e6123e577899e62395ae83433c61aa974cce1a8c969214412fd009453": "D:\\touchcatch\\content\\learning\\source\\en-happy-family-b.png"
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "09dce5c8-89fa-43ac-805c-fa936998dc57",
+    "version": 1,
+    "contentRevisionId": "385f25d6-b5d8-4cdf-836b-3c67f34c17a9",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-3d-solitude-peak",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/334869b7ab31b836be3dca7b03b18454e52676f1a092ea2a7ea1f2ece2d8cfe0.png",
+      "sha256": "334869b7ab31b836be3dca7b03b18454e52676f1a092ea2a7ea1f2ece2d8cfe0",
+      "encodedBytes": 2290182,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/9257e3bca0dc563fa0b9e310a3d3f5da8f5f4bd6a3960ed8e4b3165970801454.png",
+      "sha256": "9257e3bca0dc563fa0b9e310a3d3f5da8f5f4bd6a3960ed8e4b3165970801454",
+      "encodedBytes": 2364517,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "385f25d6-b5d8-4cdf-836b-3c67f34c17a9",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.628,
+            "cy": 0.538,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.628,
+            "cy": 0.538,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.487,
+            "cy": 0.53,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.487,
+            "cy": 0.53,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.461,
+            "cy": 0.309,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.461,
+            "cy": 0.309,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-3d-solitude-peak",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.628,
+            "cy": 0.538,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.628,
+            "cy": 0.538,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-3d-solitude-peak",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.487,
+            "cy": 0.53,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.487,
+            "cy": 0.53,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-3d-solitude-peak",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.461,
+            "cy": 0.309,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.461,
+            "cy": 0.309,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.628,
+          "cy": 0.538,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.628,
+          "cy": 0.538,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "solitude",
+      "aliases": [
+        "isometric",
+        "solitude",
+        "writer"
+      ],
+      "hintUnits": [
+        "s",
+        "o",
+        "l",
+        "i",
+        "t",
+        "u",
+        "d",
+        "e"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '고독' or '홀로 있음'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Solitude"
+          },
+          {
+            "id": "option_2",
+            "label": "Solace"
+          },
+          {
+            "id": "option_3",
+            "label": "Solidarity"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "2038f1051e28767be769842a1f3e03b745b43f426a924b6f69bc4349ae38f2da"
+  },
+  "assetFiles": {
+    "334869b7ab31b836be3dca7b03b18454e52676f1a092ea2a7ea1f2ece2d8cfe0": "D:\\touchcatch\\content\\learning\\source\\en-3d-solitude-peak-a.png",
+    "9257e3bca0dc563fa0b9e310a3d3f5da8f5f4bd6a3960ed8e4b3165970801454": "D:\\touchcatch\\content\\learning\\source\\en-3d-solitude-peak-b.png"
+  }
+}

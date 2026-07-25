@@ -1,0 +1,307 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "a73b2cf4-bded-4b6f-87a1-aa2319faed9b",
+    "version": 1,
+    "contentRevisionId": "93cbebff-8dd1-4dcd-8dae-02fb1f77cc37",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-nostalgia-attic",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/7e440a46f511fa8669c0f8afa88616c1dbe0a02fa347ba59b3eb4fe77a3c05b1.png",
+      "sha256": "7e440a46f511fa8669c0f8afa88616c1dbe0a02fa347ba59b3eb4fe77a3c05b1",
+      "encodedBytes": 2218394,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/3676e5d5465a432e1cda69f338be30d5f655aa8cbeca9d54aaffa091fa315585.png",
+      "sha256": "3676e5d5465a432e1cda69f338be30d5f655aa8cbeca9d54aaffa091fa315585",
+      "encodedBytes": 2373243,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "93cbebff-8dd1-4dcd-8dae-02fb1f77cc37",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.373,
+            "cy": 0.883,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.373,
+            "cy": 0.883,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.196,
+            "cy": 0.479,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.196,
+            "cy": 0.479,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.535,
+            "cy": 0.625,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.535,
+            "cy": 0.625,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.141,
+            "cy": 0.129,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.141,
+            "cy": 0.129,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.498,
+            "cy": 0.433,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.498,
+            "cy": 0.433,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.269,
+            "cy": 0.936,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.269,
+            "cy": 0.936,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.792,
+            "cy": 0.693,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.792,
+            "cy": 0.693,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.228,
+            "cy": 0.786,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.228,
+            "cy": 0.786,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.681,
+            "cy": 0.749,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.681,
+            "cy": 0.749,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.86,
+            "cy": 0.51,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.86,
+            "cy": 0.51,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-nostalgia-attic",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.373,
+            "cy": 0.883,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.373,
+            "cy": 0.883,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-nostalgia-attic",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.196,
+            "cy": 0.479,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.196,
+            "cy": 0.479,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-nostalgia-attic",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.535,
+            "cy": 0.625,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.535,
+            "cy": 0.625,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.373,
+          "cy": 0.883,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.373,
+          "cy": 0.883,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "nostalgia",
+      "aliases": [
+        "memory",
+        "longing"
+      ],
+      "hintUnits": [
+        "n",
+        "o",
+        "s",
+        "t",
+        "a",
+        "l",
+        "g",
+        "i",
+        "a"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '향수(그리움)'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Nostalgia"
+          },
+          {
+            "id": "option_2",
+            "label": "Navigation"
+          },
+          {
+            "id": "option_3",
+            "label": "Narration"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "16451a4e870c4020414bfe576283e400f7d9422d6a2aa34bfd1235852ef4a73a"
+  },
+  "assetFiles": {
+    "7e440a46f511fa8669c0f8afa88616c1dbe0a02fa347ba59b3eb4fe77a3c05b1": "D:\\touchcatch\\content\\learning\\source\\en-nostalgia-attic-a.png",
+    "3676e5d5465a432e1cda69f338be30d5f655aa8cbeca9d54aaffa091fa315585": "D:\\touchcatch\\content\\learning\\source\\en-nostalgia-attic-b.png"
+  }
+}

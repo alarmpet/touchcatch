@@ -1,0 +1,273 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "ee76f0da-79f7-4235-8943-6398e5ebf708",
+    "version": 1,
+    "contentRevisionId": "e985a196-7af4-46bd-8dfd-8022100fcd4b",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-synergy-cradle",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/48a43efd1e53783936679fa146e58bbbd42aae5741855c873a5b0a37fc62908f.png",
+      "sha256": "48a43efd1e53783936679fa146e58bbbd42aae5741855c873a5b0a37fc62908f",
+      "encodedBytes": 1743258,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/13e5923b0fd66ce094c0079436007a50e54e60994490d132ff15084918f9b456.png",
+      "sha256": "13e5923b0fd66ce094c0079436007a50e54e60994490d132ff15084918f9b456",
+      "encodedBytes": 1963423,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "e985a196-7af4-46bd-8dfd-8022100fcd4b",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.218,
+            "cy": 0.492,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.218,
+            "cy": 0.492,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.469,
+            "cy": 0.505,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.469,
+            "cy": 0.505,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.802,
+            "cy": 0.755,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.802,
+            "cy": 0.755,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.767,
+            "cy": 0.326,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.767,
+            "cy": 0.326,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.653,
+            "cy": 0.586,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.653,
+            "cy": 0.586,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.94,
+            "cy": 0.549,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.94,
+            "cy": 0.549,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.097,
+            "cy": 0.493,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.097,
+            "cy": 0.493,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.253,
+            "cy": 0.656,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.253,
+            "cy": 0.656,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-synergy-cradle",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.218,
+            "cy": 0.492,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.218,
+            "cy": 0.492,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-synergy-cradle",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.469,
+            "cy": 0.505,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.469,
+            "cy": 0.505,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-synergy-cradle",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.802,
+            "cy": 0.755,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.802,
+            "cy": 0.755,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.218,
+          "cy": 0.492,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.218,
+          "cy": 0.492,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "synergy",
+      "aliases": [
+        "collaboration",
+        "teamwork"
+      ],
+      "hintUnits": [
+        "s",
+        "y",
+        "n",
+        "e",
+        "r",
+        "g",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '시너지'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Synergy"
+          },
+          {
+            "id": "option_2",
+            "label": "Syntax"
+          },
+          {
+            "id": "option_3",
+            "label": "Synonym"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "9014b18900c3a9b10ad24ba349cfa65a7c4395514aa92804c1a6e26206c52530"
+  },
+  "assetFiles": {
+    "48a43efd1e53783936679fa146e58bbbd42aae5741855c873a5b0a37fc62908f": "D:\\touchcatch\\content\\learning\\source\\en-synergy-cradle-a.png",
+    "13e5923b0fd66ce094c0079436007a50e54e60994490d132ff15084918f9b456": "D:\\touchcatch\\content\\learning\\source\\en-synergy-cradle-b.png"
+  }
+}

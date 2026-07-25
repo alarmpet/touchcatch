@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of a traditional Korean story setting depicting the four-character idiom 'Il-seok-i-jo' (일석이조 - Killing two birds with one stone).
+Scene/backdrop: In a scenic oriental mountain garden, there is a stone lantern on the left, two colorful magpies flying near a pine tree, a wooden pavilion in the background, a small stream with smooth river stones, a traditional Korean scholar holding a scroll, a stone bench, a lotus flower pond, and a pair of traditional Korean fans resting on a table.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

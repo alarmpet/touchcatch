@@ -1,0 +1,311 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "76eece06-071a-430d-8430-f09652e41bf0",
+    "version": 1,
+    "contentRevisionId": "68627982-e2eb-44f9-8ff0-e17669365098",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-metamorphosis-cocoon",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/a5361098f08f2975091f6595078d3a39c66433194ffd927de2d758f0235d5c39.png",
+      "sha256": "a5361098f08f2975091f6595078d3a39c66433194ffd927de2d758f0235d5c39",
+      "encodedBytes": 2279666,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/da729bf02f3b5f9ce2e468a980337392d0c83566b9818522247e7d14c68a35ec.png",
+      "sha256": "da729bf02f3b5f9ce2e468a980337392d0c83566b9818522247e7d14c68a35ec",
+      "encodedBytes": 2357941,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "68627982-e2eb-44f9-8ff0-e17669365098",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.384,
+            "cy": 0.468,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.384,
+            "cy": 0.468,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.905,
+            "cy": 0.358,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.905,
+            "cy": 0.358,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.902,
+            "cy": 0.177,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.902,
+            "cy": 0.177,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.747,
+            "cy": 0.572,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.747,
+            "cy": 0.572,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.953,
+            "cy": 0.618,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.953,
+            "cy": 0.618,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.085,
+            "cy": 0.842,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.085,
+            "cy": 0.842,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.388,
+            "cy": 0.615,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.388,
+            "cy": 0.615,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.191,
+            "cy": 0.608,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.191,
+            "cy": 0.608,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.361,
+            "cy": 0.744,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.361,
+            "cy": 0.744,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.762,
+            "cy": 0.27,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.762,
+            "cy": 0.27,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-metamorphosis-cocoon",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.384,
+            "cy": 0.468,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.384,
+            "cy": 0.468,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-metamorphosis-cocoon",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.905,
+            "cy": 0.358,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.905,
+            "cy": 0.358,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-metamorphosis-cocoon",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.902,
+            "cy": 0.177,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.902,
+            "cy": 0.177,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.384,
+          "cy": 0.468,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.384,
+          "cy": 0.468,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "metamorphosis",
+      "aliases": [
+        "transformation",
+        "butterfly"
+      ],
+      "hintUnits": [
+        "m",
+        "e",
+        "t",
+        "a",
+        "m",
+        "o",
+        "r",
+        "p",
+        "h",
+        "o",
+        "s",
+        "i",
+        "s"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '변태(탈바꿈)'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Metamorphosis"
+          },
+          {
+            "id": "option_2",
+            "label": "Metabolism"
+          },
+          {
+            "id": "option_3",
+            "label": "Meteorology"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "4fb489541fcb2d603c8410cd1b0331ba3047b81f2cb43e0fc4f9861bc064c88a"
+  },
+  "assetFiles": {
+    "a5361098f08f2975091f6595078d3a39c66433194ffd927de2d758f0235d5c39": "D:\\touchcatch\\content\\learning\\source\\en-metamorphosis-cocoon-a.png",
+    "da729bf02f3b5f9ce2e468a980337392d0c83566b9818522247e7d14c68a35ec": "D:\\touchcatch\\content\\learning\\source\\en-metamorphosis-cocoon-b.png"
+  }
+}

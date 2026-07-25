@@ -1,0 +1,111 @@
+{
+  "policy": {
+    "pixelThreshold": 60,
+    "minChangedPixelsPerRegion": 24,
+    "maxOutsideChangedRatio": 0.15
+  },
+  "differences": [
+    {
+      "id": "difference_1",
+      "tier": "NORMAL",
+      "cx": 0.037,
+      "cy": 0.762,
+      "r": 0.055
+    },
+    {
+      "id": "difference_2",
+      "tier": "NORMAL",
+      "cx": 0.607,
+      "cy": 0.862,
+      "r": 0.055
+    },
+    {
+      "id": "difference_3",
+      "tier": "NORMAL",
+      "cx": 0.962,
+      "cy": 0.769,
+      "r": 0.055
+    },
+    {
+      "id": "difference_4",
+      "tier": "NORMAL",
+      "cx": 0.691,
+      "cy": 0.284,
+      "r": 0.055
+    },
+    {
+      "id": "difference_5",
+      "tier": "NORMAL",
+      "cx": 0.155,
+      "cy": 0.811,
+      "r": 0.055
+    },
+    {
+      "id": "difference_6",
+      "tier": "NORMAL",
+      "cx": 0.82,
+      "cy": 0.13,
+      "r": 0.055
+    },
+    {
+      "id": "difference_7",
+      "tier": "NORMAL",
+      "cx": 0.52,
+      "cy": 0.31,
+      "r": 0.055
+    },
+    {
+      "id": "difference_8",
+      "tier": "HARD",
+      "cx": 0.834,
+      "cy": 0.809,
+      "r": 0.055
+    },
+    {
+      "id": "difference_9",
+      "tier": "HARD",
+      "cx": 0.334,
+      "cy": 0.874,
+      "r": 0.055
+    },
+    {
+      "id": "difference_10",
+      "tier": "HARD",
+      "cx": 0.908,
+      "cy": 0.056,
+      "r": 0.055
+    }
+  ],
+  "wordHunts": [
+    {
+      "id": "word_1",
+      "kind": "NORMAL",
+      "publicPrompt": "Find item 1 in en-harmony-orchestra",
+      "cx": 0.037,
+      "cy": 0.762,
+      "r": 0.06
+    },
+    {
+      "id": "word_2",
+      "kind": "NORMAL",
+      "publicPrompt": "Find item 2 in en-harmony-orchestra",
+      "cx": 0.607,
+      "cy": 0.862,
+      "r": 0.055
+    },
+    {
+      "id": "word_3",
+      "kind": "SPECIAL",
+      "publicPrompt": "Find item 3 in en-harmony-orchestra",
+      "cx": 0.962,
+      "cy": 0.769,
+      "r": 0.055
+    }
+  ],
+  "suddenDeath": {
+    "id": "sudden_1",
+    "cx": 0.037,
+    "cy": 0.762,
+    "r": 0.065
+  }
+}

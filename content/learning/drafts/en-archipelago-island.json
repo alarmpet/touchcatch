@@ -1,0 +1,293 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "bdcf2372-929a-4c4a-8393-c6cd6fb1d1b3",
+    "version": 1,
+    "contentRevisionId": "c234e952-82dc-4f03-84b4-95ccc89dc47a",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-archipelago-island",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/18efd460f50558f7564a04dff155b0718a4c0fdf86edb754796cc8484b464250.png",
+      "sha256": "18efd460f50558f7564a04dff155b0718a4c0fdf86edb754796cc8484b464250",
+      "encodedBytes": 1898827,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/f670f059b6bece6b14a04e88665303cbb0242a529c464f170cc17b22c0e4f0b5.png",
+      "sha256": "f670f059b6bece6b14a04e88665303cbb0242a529c464f170cc17b22c0e4f0b5",
+      "encodedBytes": 2082231,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "c234e952-82dc-4f03-84b4-95ccc89dc47a",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.179,
+            "cy": 0.673,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.179,
+            "cy": 0.673,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.323,
+            "cy": 0.848,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.323,
+            "cy": 0.848,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.335,
+            "cy": 0.584,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.335,
+            "cy": 0.584,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.823,
+            "cy": 0.165,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.823,
+            "cy": 0.165,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.594,
+            "cy": 0.687,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.594,
+            "cy": 0.687,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.748,
+            "cy": 0.427,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.748,
+            "cy": 0.427,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.659,
+            "cy": 0.887,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.659,
+            "cy": 0.887,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.838,
+            "cy": 0.846,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.838,
+            "cy": 0.846,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.461,
+            "cy": 0.483,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.461,
+            "cy": 0.483,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-archipelago-island",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.179,
+            "cy": 0.673,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.179,
+            "cy": 0.673,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-archipelago-island",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.323,
+            "cy": 0.848,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.323,
+            "cy": 0.848,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-archipelago-island",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.335,
+            "cy": 0.584,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.335,
+            "cy": 0.584,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.179,
+          "cy": 0.673,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.179,
+          "cy": 0.673,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "archipelago",
+      "aliases": [
+        "island chain",
+        "lagoon"
+      ],
+      "hintUnits": [
+        "a",
+        "r",
+        "c",
+        "h",
+        "i",
+        "p",
+        "e",
+        "l",
+        "a",
+        "g",
+        "o"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '다도해'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Archipelago"
+          },
+          {
+            "id": "option_2",
+            "label": "Architecture"
+          },
+          {
+            "id": "option_3",
+            "label": "Archaeology"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "230865bf0b638c06c00c6ceec0b0bd0947367a740eef7c85fa9c68296fe38b83"
+  },
+  "assetFiles": {
+    "18efd460f50558f7564a04dff155b0718a4c0fdf86edb754796cc8484b464250": "D:\\touchcatch\\content\\learning\\source\\en-archipelago-island-a.png",
+    "f670f059b6bece6b14a04e88665303cbb0242a529c464f170cc17b22c0e4f0b5": "D:\\touchcatch\\content\\learning\\source\\en-archipelago-island-b.png"
+  }
+}

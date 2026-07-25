@@ -1,0 +1,259 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "b84e622a-e7f5-46f8-84cd-aa1da145b5c6",
+    "version": 1,
+    "contentRevisionId": "f880d2d8-1d01-460d-8813-1820facc9419",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-serenity-lake",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/746942d5480330152582c18832a5c0b3dc21e112f622078403d4827f0af39a7a.png",
+      "sha256": "746942d5480330152582c18832a5c0b3dc21e112f622078403d4827f0af39a7a",
+      "encodedBytes": 1331370,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/ad134fc83a8566ec056a13bf294055b766b54d79847231d18f4348e39b3eaff0.png",
+      "sha256": "ad134fc83a8566ec056a13bf294055b766b54d79847231d18f4348e39b3eaff0",
+      "encodedBytes": 1530245,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "f880d2d8-1d01-460d-8813-1820facc9419",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.273,
+            "cy": 0.688,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.273,
+            "cy": 0.688,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.782,
+            "cy": 0.622,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.782,
+            "cy": 0.622,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.897,
+            "cy": 0.737,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.897,
+            "cy": 0.737,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.09,
+            "cy": 0.855,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.09,
+            "cy": 0.855,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.611,
+            "cy": 0.72,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.611,
+            "cy": 0.72,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.345,
+            "cy": 0.504,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.345,
+            "cy": 0.504,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.046,
+            "cy": 0.657,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.046,
+            "cy": 0.657,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-serenity-lake",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.273,
+            "cy": 0.688,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.273,
+            "cy": 0.688,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-serenity-lake",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.782,
+            "cy": 0.622,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.782,
+            "cy": 0.622,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-serenity-lake",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.897,
+            "cy": 0.737,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.897,
+            "cy": 0.737,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.273,
+          "cy": 0.688,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.273,
+          "cy": 0.688,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "serenity",
+      "aliases": [
+        "peace",
+        "lake",
+        "canoe"
+      ],
+      "hintUnits": [
+        "s",
+        "e",
+        "r",
+        "e",
+        "n",
+        "i",
+        "t",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '평정' or '고요한 평화'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Serenity"
+          },
+          {
+            "id": "option_2",
+            "label": "Severity"
+          },
+          {
+            "id": "option_3",
+            "label": "Security"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "976a108b908a26d01e1d2bdcbd525583e0a337208ee2a9e178ef2c709c4a0ff0"
+  },
+  "assetFiles": {
+    "746942d5480330152582c18832a5c0b3dc21e112f622078403d4827f0af39a7a": "D:\\touchcatch\\content\\learning\\source\\en-serenity-lake-a.png",
+    "ad134fc83a8566ec056a13bf294055b766b54d79847231d18f4348e39b3eaff0": "D:\\touchcatch\\content\\learning\\source\\en-serenity-lake-b.png"
+  }
+}

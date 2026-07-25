@@ -1,0 +1,311 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "00ae802e-f432-44ea-8c84-e003c1cdf2b2",
+    "version": 1,
+    "contentRevisionId": "17b988c1-17f4-4170-8a7e-f7537f5b74a3",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-transcendence-galaxy",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/72768bdd0c5cedb02fedf8ead2f2f5f04fcee62536964f3c46689e409679bdbf.png",
+      "sha256": "72768bdd0c5cedb02fedf8ead2f2f5f04fcee62536964f3c46689e409679bdbf",
+      "encodedBytes": 1932777,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/2c933d0c9b92003385e9bd002684a90b8010092f95b672e712766e9d5bc6306e.png",
+      "sha256": "2c933d0c9b92003385e9bd002684a90b8010092f95b672e712766e9d5bc6306e",
+      "encodedBytes": 2112958,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "17b988c1-17f4-4170-8a7e-f7537f5b74a3",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.464,
+            "cy": 0.45,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.464,
+            "cy": 0.45,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.652,
+            "cy": 0.118,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.652,
+            "cy": 0.118,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.908,
+            "cy": 0.119,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.908,
+            "cy": 0.119,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.813,
+            "cy": 0.188,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.813,
+            "cy": 0.188,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.698,
+            "cy": 0.395,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.698,
+            "cy": 0.395,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.585,
+            "cy": 0.413,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.585,
+            "cy": 0.413,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.152,
+            "cy": 0.796,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.152,
+            "cy": 0.796,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.19,
+            "cy": 0.204,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.19,
+            "cy": 0.204,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.815,
+            "cy": 0.346,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.815,
+            "cy": 0.346,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.544,
+            "cy": 0.766,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.544,
+            "cy": 0.766,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-transcendence-galaxy",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.464,
+            "cy": 0.45,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.464,
+            "cy": 0.45,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-transcendence-galaxy",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.652,
+            "cy": 0.118,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.652,
+            "cy": 0.118,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-transcendence-galaxy",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.908,
+            "cy": 0.119,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.908,
+            "cy": 0.119,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.464,
+          "cy": 0.45,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.464,
+          "cy": 0.45,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "transcendence",
+      "aliases": [
+        "surpassing",
+        "beyond limits"
+      ],
+      "hintUnits": [
+        "t",
+        "r",
+        "a",
+        "n",
+        "s",
+        "c",
+        "e",
+        "n",
+        "d",
+        "e",
+        "n",
+        "c",
+        "e"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '초월'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Transcendence"
+          },
+          {
+            "id": "option_2",
+            "label": "Transparency"
+          },
+          {
+            "id": "option_3",
+            "label": "Translation"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "a05cc0122b41d58d276ac785d98cbd8c847b58f10d46e71ae7b098100c53ac8c"
+  },
+  "assetFiles": {
+    "72768bdd0c5cedb02fedf8ead2f2f5f04fcee62536964f3c46689e409679bdbf": "D:\\touchcatch\\content\\learning\\source\\en-transcendence-galaxy-a.png",
+    "2c933d0c9b92003385e9bd002684a90b8010092f95b672e712766e9d5bc6306e": "D:\\touchcatch\\content\\learning\\source\\en-transcendence-galaxy-b.png"
+  }
+}

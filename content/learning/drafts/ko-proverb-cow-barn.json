@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "8a62ab0d-c122-419c-8129-f3ba724d7924",
+    "version": 1,
+    "contentRevisionId": "c88160aa-eab6-4e4b-80b7-961e47ba2a05",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "ko-proverb-cow-barn",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/e24d504d74ed66554064f7100e218df4c6bf4b35b65988a11810f508a4d52309.png",
+      "sha256": "e24d504d74ed66554064f7100e218df4c6bf4b35b65988a11810f508a4d52309",
+      "encodedBytes": 1565268,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/6a5e60ccc217d12ea23fdf6a9f4980cc89dff071263039e11021d414e8a4f9e2.png",
+      "sha256": "6a5e60ccc217d12ea23fdf6a9f4980cc89dff071263039e11021d414e8a4f9e2",
+      "encodedBytes": 1794730,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "c88160aa-eab6-4e4b-80b7-961e47ba2a05",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.365,
+            "cy": 0.702,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.365,
+            "cy": 0.702,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.858,
+            "cy": 0.652,
+            "r": 0.09
+          },
+          "imageB": {
+            "cx": 0.858,
+            "cy": 0.652,
+            "r": 0.09
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.609,
+            "cy": 0.595,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.609,
+            "cy": 0.595,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.325,
+            "cy": 0.147,
+            "r": 0.09
+          },
+          "imageB": {
+            "cx": 0.325,
+            "cy": 0.147,
+            "r": 0.09
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.403,
+            "cy": 0.496,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.403,
+            "cy": 0.496,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.839,
+            "cy": 0.469,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.839,
+            "cy": 0.469,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.744,
+            "cy": 0.895,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.744,
+            "cy": 0.895,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.642,
+            "cy": 0.583,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.642,
+            "cy": 0.583,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.414,
+            "cy": 0.776,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.414,
+            "cy": 0.776,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.184,
+            "cy": 0.514,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.184,
+            "cy": 0.514,
+            "r": 0.08
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the cow barn.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.184,
+            "cy": 0.514,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.184,
+            "cy": 0.514,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the farmer.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.403,
+            "cy": 0.496,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.403,
+            "cy": 0.496,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the kimchee pots.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.858,
+            "cy": 0.652,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.858,
+            "cy": 0.652,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.325,
+          "cy": 0.147,
+          "r": 0.08
+        },
+        "imageB": {
+          "cx": 0.325,
+          "cy": 0.147,
+          "r": 0.08
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "소 잃고 외양간 고친다",
+      "aliases": [
+        "소 잃고",
+        "외양간"
+      ],
+      "hintUnits": [
+        "소",
+        " ",
+        "잃",
+        "고",
+        " ",
+        "외",
+        "양",
+        "간",
+        " ",
+        "고",
+        "친",
+        "다"
+      ],
+      "meaning": {
+        "prompt": "이 속담의 의미는?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "일이 일어난 후에 대비함"
+          },
+          {
+            "id": "option_2",
+            "label": "미리 잘 준비함"
+          },
+          {
+            "id": "option_3",
+            "label": "남의 일에 참견함"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "7b7df42e5c6caf3694f204aac17ce1b54f27fcbb9a0e4aca9598fe8eb9030425"
+  },
+  "assetFiles": {
+    "e24d504d74ed66554064f7100e218df4c6bf4b35b65988a11810f508a4d52309": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-cow-barn-a.png",
+    "6a5e60ccc217d12ea23fdf6a9f4980cc89dff071263039e11021d414e8a4f9e2": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-cow-barn-b.png"
+  }
+}

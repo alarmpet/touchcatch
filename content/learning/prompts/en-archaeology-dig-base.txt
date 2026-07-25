@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of an archaeological excavation site for English vocabulary learning (Archaeology).
+Scene/backdrop: In a desert canyon dig site under shade canopies, an archaeologist is brushing dust off an ancient golden Egyptian pharaoh amulet, a T-Rex dinosaur fossil skeleton embedded in rock wall, clay pottery amphora jars in wooden crates, magnifying glass, surveying tripod, pickaxe, shovel, and a camel resting near tent.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of a modern architectural design studio for English vocabulary learning (Architecture).
+Scene/backdrop: In the studio, there is an architect working at a drafting table with blue blueprints, a 3D miniature building model on a central table, T-square rulers, desk lamp, bookshelves filled with design books, a laptop with CAD drawings, a coffee mug, and large glass windows overlooking a city skyline.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

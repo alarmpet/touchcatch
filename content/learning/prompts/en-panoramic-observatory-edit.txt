@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-panoramic-observatory-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A (en_panoramic_observatory_a). Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized subtle Advanced-level differences:
+1. Change the geographer's jacket color from royal blue to crimson red.
+2. Recolor the brass binoculars on the tripod from golden yellow to silver steel.
+3. Change the sunset cloud highlight color from peach pink to lavender purple.
+4. Remove one flying eagle soaring near the distant mountain peak.
+5. Recolor the glass balcony railing trim from black to turquoise blue.
+6. Change the autumn pine forest foliage color from golden orange to deep burgundy.
+7. Remove one small sailboat on the distant sea.
+8. Recolor the geographer's wool beanie hat from green to bright yellow.
+9. Add one extra small brass compass resting on the balcony ledge table.
+10. Remove the wall wind anemometer sensor on the outer observatory glass frame.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

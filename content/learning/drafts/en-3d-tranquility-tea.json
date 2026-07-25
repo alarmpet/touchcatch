@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "f998dc9d-e509-4073-89aa-eaf951ec8893",
+    "version": 1,
+    "contentRevisionId": "f007eb92-337c-403f-8d01-6fe3f0a123a8",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-3d-tranquility-tea",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/59b9c303c2c8976aad2a734f3e6be067311fb90e27612ff1479c7515d91c59b2.png",
+      "sha256": "59b9c303c2c8976aad2a734f3e6be067311fb90e27612ff1479c7515d91c59b2",
+      "encodedBytes": 2093594,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/35905718fa9949e406e07f797b5a26f39e262722130b579e2f774bde1ed4f1aa.png",
+      "sha256": "35905718fa9949e406e07f797b5a26f39e262722130b579e2f774bde1ed4f1aa",
+      "encodedBytes": 2122145,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "f007eb92-337c-403f-8d01-6fe3f0a123a8",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.477,
+            "cy": 0.405,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.477,
+            "cy": 0.405,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.374,
+            "cy": 0.457,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.374,
+            "cy": 0.457,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.671,
+            "cy": 0.496,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.671,
+            "cy": 0.496,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.562,
+            "cy": 0.328,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.562,
+            "cy": 0.328,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.749,
+            "cy": 0.617,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.749,
+            "cy": 0.617,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.274,
+            "cy": 0.504,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.274,
+            "cy": 0.504,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.804,
+            "cy": 0.418,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.804,
+            "cy": 0.418,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.322,
+            "cy": 0.603,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.322,
+            "cy": 0.603,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.427,
+            "cy": 0.652,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.427,
+            "cy": 0.652,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.575,
+            "cy": 0.556,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.575,
+            "cy": 0.556,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-3d-tranquility-tea",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.477,
+            "cy": 0.405,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.477,
+            "cy": 0.405,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-3d-tranquility-tea",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.374,
+            "cy": 0.457,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.374,
+            "cy": 0.457,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-3d-tranquility-tea",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.671,
+            "cy": 0.496,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.671,
+            "cy": 0.496,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.477,
+          "cy": 0.405,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.477,
+          "cy": 0.405,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "tranquility",
+      "aliases": [
+        "isometric",
+        "tea",
+        "matcha"
+      ],
+      "hintUnits": [
+        "t",
+        "r",
+        "a",
+        "n",
+        "q",
+        "u",
+        "i",
+        "l",
+        "i",
+        "t",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '평온' or '고요함'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Tranquility"
+          },
+          {
+            "id": "option_2",
+            "label": "Turbulence"
+          },
+          {
+            "id": "option_3",
+            "label": "Tension"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "e0449ff333939e10f6a79ceeccd749bff998ac67878214d073dedfc344973625"
+  },
+  "assetFiles": {
+    "59b9c303c2c8976aad2a734f3e6be067311fb90e27612ff1479c7515d91c59b2": "D:\\touchcatch\\content\\learning\\source\\en-3d-tranquility-tea-a.png",
+    "35905718fa9949e406e07f797b5a26f39e262722130b579e2f774bde1ed4f1aa": "D:\\touchcatch\\content\\learning\\source\\en-3d-tranquility-tea-b.png"
+  }
+}

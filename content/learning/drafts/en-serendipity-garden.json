@@ -1,0 +1,309 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "947e5c47-6cee-4534-8402-ccd554230a43",
+    "version": 1,
+    "contentRevisionId": "e1bb63e1-54ed-4cf2-8515-fd7eb0ebf301",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-serendipity-garden",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/d2a0a42fceba9495ddf3492eeafc05ee6e4288dd11763207c8af05a4471e5340.png",
+      "sha256": "d2a0a42fceba9495ddf3492eeafc05ee6e4288dd11763207c8af05a4471e5340",
+      "encodedBytes": 2596871,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/08d5911eb9203438845af5bda6e15a05842a9c2df09c8b2133ee7c3fc56269aa.png",
+      "sha256": "08d5911eb9203438845af5bda6e15a05842a9c2df09c8b2133ee7c3fc56269aa",
+      "encodedBytes": 2683041,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "e1bb63e1-54ed-4cf2-8515-fd7eb0ebf301",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.542,
+            "cy": 0.69,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.542,
+            "cy": 0.69,
+            "r": 0.05
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.879,
+            "cy": 0.818,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.879,
+            "cy": 0.818,
+            "r": 0.05
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.731,
+            "cy": 0.527,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.731,
+            "cy": 0.527,
+            "r": 0.05
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.86,
+            "cy": 0.622,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.86,
+            "cy": 0.622,
+            "r": 0.05
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.438,
+            "cy": 0.574,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.438,
+            "cy": 0.574,
+            "r": 0.05
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.347,
+            "cy": 0.816,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.347,
+            "cy": 0.816,
+            "r": 0.05
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.16,
+            "cy": 0.679,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.16,
+            "cy": 0.679,
+            "r": 0.05
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.792,
+            "cy": 0.806,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.792,
+            "cy": 0.806,
+            "r": 0.05
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.169,
+            "cy": 0.159,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.169,
+            "cy": 0.159,
+            "r": 0.05
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.606,
+            "cy": 0.117,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.606,
+            "cy": 0.117,
+            "r": 0.05
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the girl discovering clover.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.542,
+            "cy": 0.69,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.542,
+            "cy": 0.69,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the glowing four-leaf clover.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.573,
+            "cy": 0.765,
+            "r": 0.05
+          },
+          "imageB": {
+            "cx": 0.573,
+            "cy": 0.765,
+            "r": 0.05
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the peacock.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.438,
+            "cy": 0.574,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.438,
+            "cy": 0.574,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.542,
+          "cy": 0.69,
+          "r": 0.06
+        },
+        "imageB": {
+          "cx": 0.542,
+          "cy": 0.69,
+          "r": 0.06
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "serendipity",
+      "aliases": [
+        "luck",
+        "chance discovery"
+      ],
+      "hintUnits": [
+        "s",
+        "e",
+        "r",
+        "e",
+        "n",
+        "d",
+        "i",
+        "p",
+        "i",
+        "t",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '뜻밖의 행운'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Serendipity"
+          },
+          {
+            "id": "option_2",
+            "label": "Serenity"
+          },
+          {
+            "id": "option_3",
+            "label": "Sincerity"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "52451acc2eed45eea2032aba571703e9761fbc75a747d160fff160c823fc965d"
+  },
+  "assetFiles": {
+    "d2a0a42fceba9495ddf3492eeafc05ee6e4288dd11763207c8af05a4471e5340": "D:\\touchcatch\\content\\learning\\source\\en-serendipity-garden-a.png",
+    "08d5911eb9203438845af5bda6e15a05842a9c2df09c8b2133ee7c3fc56269aa": "D:\\touchcatch\\content\\learning\\source\\en-serendipity-garden-b.png"
+  }
+}

@@ -1,0 +1,304 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "16acd5c3-9f4a-4e4d-8a05-4fc9d719b5eb",
+    "version": 1,
+    "contentRevisionId": "56f31071-bffa-47c2-86c7-98432ef4b23b",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-sweet-bakery",
+    "language": "en",
+    "difficulty": "BEGINNER",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/1302c300ad7c13d714c7faca22950cd66821eee7c0e6499a5c010de799c81164.png",
+      "sha256": "1302c300ad7c13d714c7faca22950cd66821eee7c0e6499a5c010de799c81164",
+      "encodedBytes": 1631812,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/88d13fcb932e0346c047d9c3f2b2580f35e4d8d04d0274835988b57c75820fce.png",
+      "sha256": "88d13fcb932e0346c047d9c3f2b2580f35e4d8d04d0274835988b57c75820fce",
+      "encodedBytes": 1855024,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "56f31071-bffa-47c2-86c7-98432ef4b23b",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.305,
+            "cy": 0.06,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.305,
+            "cy": 0.06,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.462,
+            "cy": 0.06,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.462,
+            "cy": 0.06,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.775,
+            "cy": 0.06,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.775,
+            "cy": 0.06,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.409,
+            "cy": 0.382,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.409,
+            "cy": 0.382,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.614,
+            "cy": 0.049,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.614,
+            "cy": 0.049,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.651,
+            "cy": 0.285,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.651,
+            "cy": 0.285,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.922,
+            "cy": 0.047,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.922,
+            "cy": 0.047,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.544,
+            "cy": 0.154,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.544,
+            "cy": 0.154,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.74,
+            "cy": 0.196,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.74,
+            "cy": 0.196,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.699,
+            "cy": 0.396,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.699,
+            "cy": 0.396,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the baker.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.409,
+            "cy": 0.382,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.409,
+            "cy": 0.382,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the cookies.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.544,
+            "cy": 0.154,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.544,
+            "cy": 0.154,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the birthday cake.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.651,
+            "cy": 0.285,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.651,
+            "cy": 0.285,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.544,
+          "cy": 0.154,
+          "r": 0.09
+        },
+        "imageB": {
+          "cx": 0.544,
+          "cy": 0.154,
+          "r": 0.09
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "bakery",
+      "aliases": [
+        "bread",
+        "cake shop"
+      ],
+      "hintUnits": [
+        "b",
+        "a",
+        "k",
+        "e",
+        "r",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is this shop called?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Bakery"
+          },
+          {
+            "id": "option_2",
+            "label": "Library"
+          },
+          {
+            "id": "option_3",
+            "label": "Pharmacy"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "c8768e4eb4e14245222abf8ee5f90a65957e076041b2268a9813431296d90c1c"
+  },
+  "assetFiles": {
+    "1302c300ad7c13d714c7faca22950cd66821eee7c0e6499a5c010de799c81164": "D:\\touchcatch\\content\\learning\\source\\en-sweet-bakery-a.png",
+    "88d13fcb932e0346c047d9c3f2b2580f35e4d8d04d0274835988b57c75820fce": "D:\\touchcatch\\content\\learning\\source\\en-sweet-bakery-b.png"
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "f01a6609-5626-4123-822f-c7ed7fa86c23",
+    "version": 1,
+    "contentRevisionId": "494dcb84-9cbb-4160-8eff-e46cb5b45522",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-serenity-haven",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/e738e99fd5a2f6925f529a5122eb26fda1829c3d82a391ca0933f0006942aef4.png",
+      "sha256": "e738e99fd5a2f6925f529a5122eb26fda1829c3d82a391ca0933f0006942aef4",
+      "encodedBytes": 2368174,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/c945b4f3371dae47c04066c4b9344ae1a88e5c7998a9062007b94961a81fb867.png",
+      "sha256": "c945b4f3371dae47c04066c4b9344ae1a88e5c7998a9062007b94961a81fb867",
+      "encodedBytes": 2482887,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "494dcb84-9cbb-4160-8eff-e46cb5b45522",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.521,
+            "cy": 0.64,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.521,
+            "cy": 0.64,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.191,
+            "cy": 0.93,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.191,
+            "cy": 0.93,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.644,
+            "cy": 0.393,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.644,
+            "cy": 0.393,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.374,
+            "cy": 0.392,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.374,
+            "cy": 0.392,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.643,
+            "cy": 0.671,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.643,
+            "cy": 0.671,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.356,
+            "cy": 0.667,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.356,
+            "cy": 0.667,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.379,
+            "cy": 0.946,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.379,
+            "cy": 0.946,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.638,
+            "cy": 0.526,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.638,
+            "cy": 0.526,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.365,
+            "cy": 0.524,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.365,
+            "cy": 0.524,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.27,
+            "cy": 0.586,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.27,
+            "cy": 0.586,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-serenity-haven",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.521,
+            "cy": 0.64,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.521,
+            "cy": 0.64,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-serenity-haven",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.191,
+            "cy": 0.93,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.191,
+            "cy": 0.93,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-serenity-haven",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.644,
+            "cy": 0.393,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.644,
+            "cy": 0.393,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.521,
+          "cy": 0.64,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.521,
+          "cy": 0.64,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "serenity",
+      "aliases": [
+        "serene",
+        "haven",
+        "sanctuary"
+      ],
+      "hintUnits": [
+        "s",
+        "e",
+        "r",
+        "e",
+        "n",
+        "i",
+        "t",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '평정' or '고요한 안식처'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Serenity"
+          },
+          {
+            "id": "option_2",
+            "label": "Severity"
+          },
+          {
+            "id": "option_3",
+            "label": "Scarcity"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "d16f52ce774a6f7e559b9922f14fd27a5937ec303186b513a931753328977b69"
+  },
+  "assetFiles": {
+    "e738e99fd5a2f6925f529a5122eb26fda1829c3d82a391ca0933f0006942aef4": "D:\\touchcatch\\content\\learning\\source\\en-serenity-haven-a.png",
+    "c945b4f3371dae47c04066c4b9344ae1a88e5c7998a9062007b94961a81fb867": "D:\\touchcatch\\content\\learning\\source\\en-serenity-haven-b.png"
+  }
+}

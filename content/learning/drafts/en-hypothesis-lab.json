@@ -1,0 +1,308 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "956b5775-2497-4f37-8ed1-9e5e153d23d4",
+    "version": 1,
+    "contentRevisionId": "1fda99a7-d748-4cf6-88ab-130aa3809f96",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-hypothesis-lab",
+    "language": "en",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/a5da04860df98f117bae7cf8058984d6e7c01fb63c41dd178ac6f2bd998ce456.png",
+      "sha256": "a5da04860df98f117bae7cf8058984d6e7c01fb63c41dd178ac6f2bd998ce456",
+      "encodedBytes": 1570843,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/3c653dc07ec2c8fb69477ea82742b9f70f4893e3a3a87e5c89d7c252ec432e18.png",
+      "sha256": "3c653dc07ec2c8fb69477ea82742b9f70f4893e3a3a87e5c89d7c252ec432e18",
+      "encodedBytes": 1803537,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "1fda99a7-d748-4cf6-88ab-130aa3809f96",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.937,
+            "cy": 0.77,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.937,
+            "cy": 0.77,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.823,
+            "cy": 0.77,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.823,
+            "cy": 0.77,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.933,
+            "cy": 0.577,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.933,
+            "cy": 0.577,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.669,
+            "cy": 0.622,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.669,
+            "cy": 0.622,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.879,
+            "cy": 0.853,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.879,
+            "cy": 0.853,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.757,
+            "cy": 0.81,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.757,
+            "cy": 0.81,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.259,
+            "cy": 0.21,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.259,
+            "cy": 0.21,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.033,
+            "cy": 0.395,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.033,
+            "cy": 0.395,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.96,
+            "cy": 0.892,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.96,
+            "cy": 0.892,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.991,
+            "cy": 0.682,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.991,
+            "cy": 0.682,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the scientist.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.544,
+            "cy": 0.386,
+            "r": 0.075
+          },
+          "imageB": {
+            "cx": 0.544,
+            "cy": 0.386,
+            "r": 0.075
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the bubbling flask.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.669,
+            "cy": 0.622,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.669,
+            "cy": 0.622,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the molecular structure model.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.879,
+            "cy": 0.853,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.879,
+            "cy": 0.853,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.669,
+          "cy": 0.622,
+          "r": 0.08
+        },
+        "imageB": {
+          "cx": 0.669,
+          "cy": 0.622,
+          "r": 0.08
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "hypothesis",
+      "aliases": [
+        "theory",
+        "experiment"
+      ],
+      "hintUnits": [
+        "h",
+        "y",
+        "p",
+        "o",
+        "t",
+        "h",
+        "e",
+        "s",
+        "i",
+        "s"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '가설'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Hypothesis"
+          },
+          {
+            "id": "option_2",
+            "label": "Hypnosis"
+          },
+          {
+            "id": "option_3",
+            "label": "Hyena"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "ecda812327eabb3f3c11af73a70fbf5ba26b474919545b23853dc8d67c536f69"
+  },
+  "assetFiles": {
+    "a5da04860df98f117bae7cf8058984d6e7c01fb63c41dd178ac6f2bd998ce456": "D:\\touchcatch\\content\\learning\\source\\en-hypothesis-lab-a.png",
+    "3c653dc07ec2c8fb69477ea82742b9f70f4893e3a3a87e5c89d7c252ec432e18": "D:\\touchcatch\\content\\learning\\source\\en-hypothesis-lab-b.png"
+  }
+}

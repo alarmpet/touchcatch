@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-resilience-garden-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized subtle Advanced-level differences:
+1. Change the gardener boy's apron color from forest green to bright orange.
+2. Recolor his rubber boots from yellow to navy blue.
+3. Change the vintage rain barrel faucet handle from brass to silver.
+4. Remove one red tulip flower from the tulip garden bed.
+5. Recolor the birdhouse roof from dark brown to cyan blue.
+6. Change the solar garden light bulb glow from warm yellow to cool white.
+7. Remove one small bluebird perched on the greenhouse roof edge.
+8. Recolor the stone fountain water basin rim from grey to terracota red.
+9. Add one extra small garden spade trowel stuck in the soil near the boy.
+10. Remove the carved butterfly emblem on the wooden greenhouse door.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

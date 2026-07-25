@@ -1,0 +1,307 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "56355ac4-ee2d-46e9-8c1c-f102e710370b",
+    "version": 1,
+    "contentRevisionId": "0c7466d2-0fd4-4749-8979-abf1ac20b5de",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-ambiguity-gallery",
+    "language": "en",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/9115763937ea3f88201ca7c22593ce8999b626f3f93e1d6a33c2980c033e1532.png",
+      "sha256": "9115763937ea3f88201ca7c22593ce8999b626f3f93e1d6a33c2980c033e1532",
+      "encodedBytes": 1330395,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/5d65ebda93e7e5a3f8282f15fda5fa5757842d650834ca11eee7a3acaf20feec.png",
+      "sha256": "5d65ebda93e7e5a3f8282f15fda5fa5757842d650834ca11eee7a3acaf20feec",
+      "encodedBytes": 1573133,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "0c7466d2-0fd4-4749-8979-abf1ac20b5de",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.244,
+            "cy": 0.183,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.244,
+            "cy": 0.183,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.222,
+            "cy": 0.514,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.222,
+            "cy": 0.514,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.224,
+            "cy": 0.659,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.224,
+            "cy": 0.659,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.522,
+            "cy": 0.069,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.522,
+            "cy": 0.069,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.295,
+            "cy": 0.665,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.295,
+            "cy": 0.665,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.22,
+            "cy": 0.333,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.22,
+            "cy": 0.333,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.791,
+            "cy": 0.78,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.791,
+            "cy": 0.78,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.371,
+            "cy": 0.068,
+            "r": 0.045
+          },
+          "imageB": {
+            "cx": 0.371,
+            "cy": 0.068,
+            "r": 0.045
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.699,
+            "cy": 0.069,
+            "r": 0.045
+          },
+          "imageB": {
+            "cx": 0.699,
+            "cy": 0.069,
+            "r": 0.045
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.831,
+            "cy": 0.069,
+            "r": 0.045
+          },
+          "imageB": {
+            "cx": 0.831,
+            "cy": 0.069,
+            "r": 0.045
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the abstract painting.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.244,
+            "cy": 0.183,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.244,
+            "cy": 0.183,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the marble sculpture.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.222,
+            "cy": 0.514,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.222,
+            "cy": 0.514,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the catalog display.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.791,
+            "cy": 0.78,
+            "r": 0.075
+          },
+          "imageB": {
+            "cx": 0.791,
+            "cy": 0.78,
+            "r": 0.075
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.244,
+          "cy": 0.183,
+          "r": 0.08
+        },
+        "imageB": {
+          "cx": 0.244,
+          "cy": 0.183,
+          "r": 0.08
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "ambiguity",
+      "aliases": [
+        "ambiguous",
+        "unclear"
+      ],
+      "hintUnits": [
+        "a",
+        "m",
+        "b",
+        "i",
+        "g",
+        "u",
+        "i",
+        "t",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '모호함'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Ambiguity"
+          },
+          {
+            "id": "option_2",
+            "label": "Clarity"
+          },
+          {
+            "id": "option_3",
+            "label": "Certainty"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "5cd7ce87b00386a9e6da8792e999faa08d5aaeb4fad516d2cad643fbe87cb304"
+  },
+  "assetFiles": {
+    "9115763937ea3f88201ca7c22593ce8999b626f3f93e1d6a33c2980c033e1532": "D:\\touchcatch\\content\\learning\\source\\en-ambiguity-gallery-a.png",
+    "5d65ebda93e7e5a3f8282f15fda5fa5757842d650834ca11eee7a3acaf20feec": "D:\\touchcatch\\content\\learning\\source\\en-ambiguity-gallery-b.png"
+  }
+}

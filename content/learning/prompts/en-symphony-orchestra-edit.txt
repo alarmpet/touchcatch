@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-symphony-orchestra-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized Intermediate-level differences:
+1. Change the conductor's bow tie color from black to red.
+2. Recolor the grand piano finish from black to mahogany wood brown.
+3. Change the crystal chandelier glow color from warm yellow to soft blue.
+4. Remove one sheet music book from the music stand near the violin section.
+5. Recolor the timpani drum shell from copper to silver.
+6. Change the theater balcony seat cushion color from red to navy blue.
+7. Remove the harp instrument standing near the back stage.
+8. Recolor the cellist's dress from black to emerald green.
+9. Add one extra bouquet of roses on the stage floor.
+10. Change the baton handle color from white to gold.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

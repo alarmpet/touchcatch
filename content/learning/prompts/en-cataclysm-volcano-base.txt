@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of a dramatic volcanic eruption and geothermal research station showcasing a natural cataclysm for English vocabulary learning (Cataclysm).
+Scene/backdrop: A volcanologist in a silver heat-resistant suit stands on a high steel observation deck. In the distance, a glowing erupting volcano spews bright orange lava geysers and ash plumes against a dark stormy sky, while geothermal probes, seismic monitors, lightning arcs, and obsidian crystal rocks surround the station.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

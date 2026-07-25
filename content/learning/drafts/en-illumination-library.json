@@ -1,0 +1,311 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "b391ec91-226e-49ba-82ba-4df204bdda9f",
+    "version": 1,
+    "contentRevisionId": "d7abe680-090e-4af7-8f05-7d8248f4c339",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-illumination-library",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/8ef8e951c9692e2197e90e2c899c3932e05834cdd628a9883f66ab9b18b4970f.png",
+      "sha256": "8ef8e951c9692e2197e90e2c899c3932e05834cdd628a9883f66ab9b18b4970f",
+      "encodedBytes": 2540535,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/03d5b9e35ba7cd8e77f8e97c7e04eef62a596b82d515b1869f9abab7676e7c47.png",
+      "sha256": "03d5b9e35ba7cd8e77f8e97c7e04eef62a596b82d515b1869f9abab7676e7c47",
+      "encodedBytes": 2637295,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "d7abe680-090e-4af7-8f05-7d8248f4c339",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.505,
+            "cy": 0.162,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.505,
+            "cy": 0.162,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.205,
+            "cy": 0.289,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.205,
+            "cy": 0.289,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.674,
+            "cy": 0.793,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.674,
+            "cy": 0.793,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.514,
+            "cy": 0.292,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.514,
+            "cy": 0.292,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.635,
+            "cy": 0.678,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.635,
+            "cy": 0.678,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.615,
+            "cy": 0.532,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.615,
+            "cy": 0.532,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.477,
+            "cy": 0.687,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.477,
+            "cy": 0.687,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.442,
+            "cy": 0.836,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.442,
+            "cy": 0.836,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.03,
+            "cy": 0.189,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.03,
+            "cy": 0.189,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.567,
+            "cy": 0.862,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.567,
+            "cy": 0.862,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-illumination-library",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.505,
+            "cy": 0.162,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.505,
+            "cy": 0.162,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-illumination-library",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.205,
+            "cy": 0.289,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.205,
+            "cy": 0.289,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-illumination-library",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.674,
+            "cy": 0.793,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.674,
+            "cy": 0.793,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.505,
+          "cy": 0.162,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.505,
+          "cy": 0.162,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "illumination",
+      "aliases": [
+        "illuminate",
+        "light",
+        "manuscript"
+      ],
+      "hintUnits": [
+        "i",
+        "l",
+        "l",
+        "u",
+        "m",
+        "i",
+        "n",
+        "a",
+        "t",
+        "i",
+        "o",
+        "n"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '조명' or '밝게 함(채식 필사본)'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Illumination"
+          },
+          {
+            "id": "option_2",
+            "label": "Illusion"
+          },
+          {
+            "id": "option_3",
+            "label": "Illustration"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "0fe1e6d386e2a1c57b26eb926d9cb1d7e2a152c7301e1e5432cdd3227b63de02"
+  },
+  "assetFiles": {
+    "8ef8e951c9692e2197e90e2c899c3932e05834cdd628a9883f66ab9b18b4970f": "D:\\touchcatch\\content\\learning\\source\\en-illumination-library-a.png",
+    "03d5b9e35ba7cd8e77f8e97c7e04eef62a596b82d515b1869f9abab7676e7c47": "D:\\touchcatch\\content\\learning\\source\\en-illumination-library-b.png"
+  }
+}

@@ -1,0 +1,312 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "013f6886-e5aa-42b6-87c7-38f6dde7712a",
+    "version": 1,
+    "contentRevisionId": "a0583ad7-3b86-4fc9-8a52-1a733c089a98",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-cyberpunk-city",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/7a88dbd4a3819e8ea0c429c7cdf367a15ea8446b238ff2362e7c27d1218aba0c.png",
+      "sha256": "7a88dbd4a3819e8ea0c429c7cdf367a15ea8446b238ff2362e7c27d1218aba0c",
+      "encodedBytes": 2916269,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/845772f733ec89ba0caf71790dccb89443a2cfe4747e1f3e04381d4102652a3f.png",
+      "sha256": "845772f733ec89ba0caf71790dccb89443a2cfe4747e1f3e04381d4102652a3f",
+      "encodedBytes": 2920427,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "a0583ad7-3b86-4fc9-8a52-1a733c089a98",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.262,
+            "cy": 0.176,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.262,
+            "cy": 0.176,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.321,
+            "cy": 0.368,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.321,
+            "cy": 0.368,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.224,
+            "cy": 0.668,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.224,
+            "cy": 0.668,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.571,
+            "cy": 0.603,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.571,
+            "cy": 0.603,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.788,
+            "cy": 0.45,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.788,
+            "cy": 0.45,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.24,
+            "cy": 0.493,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.24,
+            "cy": 0.493,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.67,
+            "cy": 0.396,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.67,
+            "cy": 0.396,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.193,
+            "cy": 0.957,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.193,
+            "cy": 0.957,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.163,
+            "cy": 0.846,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.163,
+            "cy": 0.846,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.553,
+            "cy": 0.904,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.553,
+            "cy": 0.904,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-cyberpunk-city",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.262,
+            "cy": 0.176,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.262,
+            "cy": 0.176,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-cyberpunk-city",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.321,
+            "cy": 0.368,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.321,
+            "cy": 0.368,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-cyberpunk-city",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.224,
+            "cy": 0.668,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.224,
+            "cy": 0.668,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.262,
+          "cy": 0.176,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.262,
+          "cy": 0.176,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "juxtaposition",
+      "aliases": [
+        "cyberpunk",
+        "city",
+        "hoverbike"
+      ],
+      "hintUnits": [
+        "j",
+        "u",
+        "x",
+        "t",
+        "a",
+        "p",
+        "o",
+        "s",
+        "i",
+        "t",
+        "i",
+        "o",
+        "n"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '병치' or '대조적 배치'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Juxtaposition"
+          },
+          {
+            "id": "option_2",
+            "label": "Jubilation"
+          },
+          {
+            "id": "option_3",
+            "label": "Jurisdiction"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "1fa4673be6232a6381ead8af2d0aeb0d06a073c36acfd7f1d8c283e79a368373"
+  },
+  "assetFiles": {
+    "7a88dbd4a3819e8ea0c429c7cdf367a15ea8446b238ff2362e7c27d1218aba0c": "D:\\touchcatch\\content\\learning\\source\\en-cyberpunk-city-a.png",
+    "845772f733ec89ba0caf71790dccb89443a2cfe4747e1f3e04381d4102652a3f": "D:\\touchcatch\\content\\learning\\source\\en-cyberpunk-city-b.png"
+  }
+}

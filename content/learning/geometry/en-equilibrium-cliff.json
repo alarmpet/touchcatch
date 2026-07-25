@@ -1,0 +1,104 @@
+{
+  "policy": {
+    "pixelThreshold": 60,
+    "minChangedPixelsPerRegion": 24,
+    "maxOutsideChangedRatio": 0.05
+  },
+  "differences": [
+    {
+      "id": "difference_1",
+      "tier": "NORMAL",
+      "cx": 0.348,
+      "cy": 0.671,
+      "r": 0.055
+    },
+    {
+      "id": "difference_2",
+      "tier": "NORMAL",
+      "cx": 0.234,
+      "cy": 0.673,
+      "r": 0.055
+    },
+    {
+      "id": "difference_3",
+      "tier": "NORMAL",
+      "cx": 0.454,
+      "cy": 0.619,
+      "r": 0.055
+    },
+    {
+      "id": "difference_4",
+      "tier": "NORMAL",
+      "cx": 0.075,
+      "cy": 0.711,
+      "r": 0.055
+    },
+    {
+      "id": "difference_5",
+      "tier": "NORMAL",
+      "cx": 0.766,
+      "cy": 0.697,
+      "r": 0.055
+    },
+    {
+      "id": "difference_6",
+      "tier": "NORMAL",
+      "cx": 0.186,
+      "cy": 0.557,
+      "r": 0.055
+    },
+    {
+      "id": "difference_7",
+      "tier": "NORMAL",
+      "cx": 0.343,
+      "cy": 0.822,
+      "r": 0.055
+    },
+    {
+      "id": "difference_8",
+      "tier": "HARD",
+      "cx": 0.636,
+      "cy": 0.574,
+      "r": 0.055
+    },
+    {
+      "id": "difference_9",
+      "tier": "HARD",
+      "cx": 0.061,
+      "cy": 0.534,
+      "r": 0.055
+    }
+  ],
+  "wordHunts": [
+    {
+      "id": "word_1",
+      "kind": "NORMAL",
+      "publicPrompt": "Find item 1 in en-equilibrium-cliff",
+      "cx": 0.348,
+      "cy": 0.671,
+      "r": 0.06
+    },
+    {
+      "id": "word_2",
+      "kind": "NORMAL",
+      "publicPrompt": "Find item 2 in en-equilibrium-cliff",
+      "cx": 0.234,
+      "cy": 0.673,
+      "r": 0.055
+    },
+    {
+      "id": "word_3",
+      "kind": "SPECIAL",
+      "publicPrompt": "Find item 3 in en-equilibrium-cliff",
+      "cx": 0.454,
+      "cy": 0.619,
+      "r": 0.055
+    }
+  ],
+  "suddenDeath": {
+    "id": "sudden_1",
+    "cx": 0.348,
+    "cy": 0.671,
+    "r": 0.065
+  }
+}

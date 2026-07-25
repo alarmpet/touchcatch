@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of a tranquil ocean cliffside where a monk balances smooth river stones in perfect equilibrium for English vocabulary learning (Equilibrium).
+Scene/backdrop: On a grassy cliff overlooking a calm turquoise sea, a serene young monk in orange robes stacks balanced cairn stones beside a wooden balance scale holding glowing crystal feathers, a stone lantern with warm candlelight, a bamboo water fountain (shishi-odoshi), a cherry blossom tree shedding pink petals, a soaring white seagull, and a wooden bench.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

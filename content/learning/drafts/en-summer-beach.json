@@ -1,0 +1,303 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "e665d756-6007-4e0d-8f6c-04a7abfb4a84",
+    "version": 1,
+    "contentRevisionId": "c4f2f7ba-5933-456a-88f0-e524dad6f6e8",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-summer-beach",
+    "language": "en",
+    "difficulty": "BEGINNER",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/ae6b504c0bdc5c44e728baeb52dd1abd731d00e128fb8bf3e78b572486fe1378.png",
+      "sha256": "ae6b504c0bdc5c44e728baeb52dd1abd731d00e128fb8bf3e78b572486fe1378",
+      "encodedBytes": 1664003,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/1b0abe96c15615f9da885189bfc6ca4b0e8d7ed1ec26a9376600b7a47b2e3783.png",
+      "sha256": "1b0abe96c15615f9da885189bfc6ca4b0e8d7ed1ec26a9376600b7a47b2e3783",
+      "encodedBytes": 1879819,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "c4f2f7ba-5933-456a-88f0-e524dad6f6e8",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.328,
+            "cy": 0.094,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.328,
+            "cy": 0.094,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.257,
+            "cy": 0.311,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.257,
+            "cy": 0.311,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.861,
+            "cy": 0.681,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.861,
+            "cy": 0.681,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.825,
+            "cy": 0.805,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.825,
+            "cy": 0.805,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.16,
+            "cy": 0.334,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.16,
+            "cy": 0.334,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.383,
+            "cy": 0.886,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.383,
+            "cy": 0.886,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.267,
+            "cy": 0.667,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.267,
+            "cy": 0.667,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.376,
+            "cy": 0.31,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.376,
+            "cy": 0.31,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.066,
+            "cy": 0.379,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.066,
+            "cy": 0.379,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.814,
+            "cy": 0.9,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.814,
+            "cy": 0.9,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the beach umbrella.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.257,
+            "cy": 0.311,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.257,
+            "cy": 0.311,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the surfboard.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.861,
+            "cy": 0.681,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.861,
+            "cy": 0.681,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the sandcastle.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.825,
+            "cy": 0.805,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.825,
+            "cy": 0.805,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.257,
+          "cy": 0.311,
+          "r": 0.09
+        },
+        "imageB": {
+          "cx": 0.257,
+          "cy": 0.311,
+          "r": 0.09
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "beach",
+      "aliases": [
+        "ocean",
+        "seaside"
+      ],
+      "hintUnits": [
+        "b",
+        "e",
+        "a",
+        "c",
+        "h"
+      ],
+      "meaning": {
+        "prompt": "What is this place called?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Beach"
+          },
+          {
+            "id": "option_2",
+            "label": "Mountain"
+          },
+          {
+            "id": "option_3",
+            "label": "Desert"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "551e69705527570e53f2da0b869ed79622c618b9da8d79e8a904471237baed99"
+  },
+  "assetFiles": {
+    "ae6b504c0bdc5c44e728baeb52dd1abd731d00e128fb8bf3e78b572486fe1378": "D:\\touchcatch\\content\\learning\\source\\en-summer-beach-a.png",
+    "1b0abe96c15615f9da885189bfc6ca4b0e8d7ed1ec26a9376600b7a47b2e3783": "D:\\touchcatch\\content\\learning\\source\\en-summer-beach-b.png"
+  }
+}

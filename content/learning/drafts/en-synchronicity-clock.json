@@ -1,0 +1,311 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "78cc41e7-f5e4-412d-8430-f6f1155df005",
+    "version": 1,
+    "contentRevisionId": "c8fb2e16-7695-4f07-851a-5dbb33851da4",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-synchronicity-clock",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/5e2ad80af3a67b819d40511532b9e021d611c9d1f38bbd72ad5feff948f1ab6f.png",
+      "sha256": "5e2ad80af3a67b819d40511532b9e021d611c9d1f38bbd72ad5feff948f1ab6f",
+      "encodedBytes": 2076792,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/7fd634b6fd788c083acffd8de4e5fffcea0ea71495fe1bbddfe37f1c7ba56f3d.png",
+      "sha256": "7fd634b6fd788c083acffd8de4e5fffcea0ea71495fe1bbddfe37f1c7ba56f3d",
+      "encodedBytes": 2215844,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "c8fb2e16-7695-4f07-851a-5dbb33851da4",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.284,
+            "cy": 0.653,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.284,
+            "cy": 0.653,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.658,
+            "cy": 0.655,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.658,
+            "cy": 0.655,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.711,
+            "cy": 0.198,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.711,
+            "cy": 0.198,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.827,
+            "cy": 0.6,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.827,
+            "cy": 0.6,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.123,
+            "cy": 0.817,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.123,
+            "cy": 0.817,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.859,
+            "cy": 0.444,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.859,
+            "cy": 0.444,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.492,
+            "cy": 0.446,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.492,
+            "cy": 0.446,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.574,
+            "cy": 0.521,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.574,
+            "cy": 0.521,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.451,
+            "cy": 0.617,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.451,
+            "cy": 0.617,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.856,
+            "cy": 0.18,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.856,
+            "cy": 0.18,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-synchronicity-clock",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.284,
+            "cy": 0.653,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.284,
+            "cy": 0.653,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-synchronicity-clock",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.658,
+            "cy": 0.655,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.658,
+            "cy": 0.655,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-synchronicity-clock",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.711,
+            "cy": 0.198,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.711,
+            "cy": 0.198,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.284,
+          "cy": 0.653,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.284,
+          "cy": 0.653,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "synchronicity",
+      "aliases": [
+        "clockwork",
+        "pendulum"
+      ],
+      "hintUnits": [
+        "s",
+        "y",
+        "n",
+        "c",
+        "h",
+        "r",
+        "o",
+        "n",
+        "i",
+        "c",
+        "i",
+        "t",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '동시성'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Synchronicity"
+          },
+          {
+            "id": "option_2",
+            "label": "Symmetry"
+          },
+          {
+            "id": "option_3",
+            "label": "Syndicate"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "0eff254c2165e8b7164eb73473d572702335e9010376a056813e195aaced57ae"
+  },
+  "assetFiles": {
+    "5e2ad80af3a67b819d40511532b9e021d611c9d1f38bbd72ad5feff948f1ab6f": "D:\\touchcatch\\content\\learning\\source\\en-synchronicity-clock-a.png",
+    "7fd634b6fd788c083acffd8de4e5fffcea0ea71495fe1bbddfe37f1c7ba56f3d": "D:\\touchcatch\\content\\learning\\source\\en-synchronicity-clock-b.png"
+  }
+}

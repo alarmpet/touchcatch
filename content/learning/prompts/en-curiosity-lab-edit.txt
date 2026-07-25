@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-curiosity-lab-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized Intermediate-level differences:
+1. Recolor the liquid in the main flask from blue to orange.
+2. Change the microscope base color from silver to green.
+3. Change the robotic arm gripper tool from a claw to a laser tip.
+4. Remove the safety goggles hanging on the far-left rack.
+5. Add one extra green plant inside the glass terrarium.
+6. Change the student's lab coat collar color from white to yellow.
+7. Reverse the diagonal arm pose of the skeleton model.
+8. Recolor the computer monitor stand from black to white.
+9. Remove one test tube from the test tube rack on the bench.
+10. Recolor the periodic table chart border from blue to red.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

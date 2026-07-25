@@ -1,0 +1,261 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "b6022722-3234-496e-828a-a6859dfe2c12",
+    "version": 1,
+    "contentRevisionId": "b0c589a6-9455-49d5-877c-e9d4bad03d61",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-camaraderie-campfire",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/fbeec9af7fc24de6e8146708da8686533a77699cb1529b6633e4d0c45ccc6fe0.png",
+      "sha256": "fbeec9af7fc24de6e8146708da8686533a77699cb1529b6633e4d0c45ccc6fe0",
+      "encodedBytes": 2173138,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/21e87f6a13faf0dba4f32e5cd54d58e39fcc154d512011d1cd522e3b5dea2e24.png",
+      "sha256": "21e87f6a13faf0dba4f32e5cd54d58e39fcc154d512011d1cd522e3b5dea2e24",
+      "encodedBytes": 2304694,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "b0c589a6-9455-49d5-877c-e9d4bad03d61",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.268,
+            "cy": 0.553,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.268,
+            "cy": 0.553,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.063,
+            "cy": 0.639,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.063,
+            "cy": 0.639,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.887,
+            "cy": 0.818,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.887,
+            "cy": 0.818,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.862,
+            "cy": 0.614,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.862,
+            "cy": 0.614,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.456,
+            "cy": 0.577,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.456,
+            "cy": 0.577,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.334,
+            "cy": 0.817,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.334,
+            "cy": 0.817,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.623,
+            "cy": 0.695,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.623,
+            "cy": 0.695,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-camaraderie-campfire",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.268,
+            "cy": 0.553,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.268,
+            "cy": 0.553,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-camaraderie-campfire",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.063,
+            "cy": 0.639,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.063,
+            "cy": 0.639,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-camaraderie-campfire",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.887,
+            "cy": 0.818,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.887,
+            "cy": 0.818,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.268,
+          "cy": 0.553,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.268,
+          "cy": 0.553,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "camaraderie",
+      "aliases": [
+        "friendship",
+        "fellowship"
+      ],
+      "hintUnits": [
+        "c",
+        "a",
+        "m",
+        "a",
+        "r",
+        "a",
+        "d",
+        "e",
+        "r",
+        "i",
+        "e"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '동료애'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Camaraderie"
+          },
+          {
+            "id": "option_2",
+            "label": "Chivalry"
+          },
+          {
+            "id": "option_3",
+            "label": "Choreography"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "21301113366da14d10193f09a2aaf6b1589c6d0aa32d73311a1371e57245ffdc"
+  },
+  "assetFiles": {
+    "fbeec9af7fc24de6e8146708da8686533a77699cb1529b6633e4d0c45ccc6fe0": "D:\\touchcatch\\content\\learning\\source\\en-camaraderie-campfire-a.png",
+    "21e87f6a13faf0dba4f32e5cd54d58e39fcc154d512011d1cd522e3b5dea2e24": "D:\\touchcatch\\content\\learning\\source\\en-camaraderie-campfire-b.png"
+  }
+}

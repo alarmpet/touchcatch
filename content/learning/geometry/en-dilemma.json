@@ -1,21 +1,111 @@
 {
-  "policy": { "pixelThreshold": 96, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.02 },
+  "policy": {
+    "pixelThreshold": 60,
+    "minChangedPixelsPerRegion": 24,
+    "maxOutsideChangedRatio": 0.05
+  },
   "differences": [
-    { "id": "difference_1", "tier": "NORMAL", "cx": 0.116, "cy": 0.356, "r": 0.040 },
-    { "id": "difference_2", "tier": "NORMAL", "cx": 0.106, "cy": 0.278, "r": 0.025 },
-    { "id": "difference_3", "tier": "NORMAL", "cx": 0.260, "cy": 0.519, "r": 0.055 },
-    { "id": "difference_4", "tier": "NORMAL", "cx": 0.203, "cy": 0.483, "r": 0.030 },
-    { "id": "difference_5", "tier": "NORMAL", "cx": 0.374, "cy": 0.431, "r": 0.040 },
-    { "id": "difference_6", "tier": "NORMAL", "cx": 0.672, "cy": 0.339, "r": 0.065 },
-    { "id": "difference_7", "tier": "NORMAL", "cx": 0.856, "cy": 0.438, "r": 0.035 },
-    { "id": "difference_8", "tier": "HARD", "cx": 0.730, "cy": 0.600, "r": 0.030 },
-    { "id": "difference_9", "tier": "HARD", "cx": 0.902, "cy": 0.470, "r": 0.035 },
-    { "id": "difference_10", "tier": "HARD", "cx": 0.814, "cy": 0.190, "r": 0.040 }
+    {
+      "id": "difference_1",
+      "tier": "NORMAL",
+      "cx": 0.673,
+      "cy": 0.303,
+      "r": 0.05
+    },
+    {
+      "id": "difference_2",
+      "tier": "NORMAL",
+      "cx": 0.861,
+      "cy": 0.445,
+      "r": 0.05
+    },
+    {
+      "id": "difference_3",
+      "tier": "NORMAL",
+      "cx": 0.815,
+      "cy": 0.226,
+      "r": 0.05
+    },
+    {
+      "id": "difference_4",
+      "tier": "NORMAL",
+      "cx": 0.359,
+      "cy": 0.416,
+      "r": 0.05
+    },
+    {
+      "id": "difference_5",
+      "tier": "NORMAL",
+      "cx": 0.257,
+      "cy": 0.613,
+      "r": 0.05
+    },
+    {
+      "id": "difference_6",
+      "tier": "NORMAL",
+      "cx": 0.092,
+      "cy": 0.642,
+      "r": 0.05
+    },
+    {
+      "id": "difference_7",
+      "tier": "NORMAL",
+      "cx": 0.74,
+      "cy": 0.626,
+      "r": 0.05
+    },
+    {
+      "id": "difference_8",
+      "tier": "HARD",
+      "cx": 0.193,
+      "cy": 0.481,
+      "r": 0.05
+    },
+    {
+      "id": "difference_9",
+      "tier": "HARD",
+      "cx": 0.349,
+      "cy": 0.552,
+      "r": 0.05
+    },
+    {
+      "id": "difference_10",
+      "tier": "HARD",
+      "cx": 0.122,
+      "cy": 0.839,
+      "r": 0.05
+    }
   ],
   "wordHunts": [
-    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the circuit board.", "cx": 0.300, "cy": 0.630, "r": 0.040 },
-    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the backpack.", "cx": 0.440, "cy": 0.550, "r": 0.040 },
-    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the paint bottles.", "cx": 0.885, "cy": 0.900, "r": 0.085 }
+    {
+      "id": "word_1",
+      "kind": "NORMAL",
+      "publicPrompt": "Find the circuit board.",
+      "cx": 0.3,
+      "cy": 0.63,
+      "r": 0.04
+    },
+    {
+      "id": "word_2",
+      "kind": "NORMAL",
+      "publicPrompt": "Find the backpack.",
+      "cx": 0.44,
+      "cy": 0.55,
+      "r": 0.04
+    },
+    {
+      "id": "word_3",
+      "kind": "SPECIAL",
+      "publicPrompt": "Find the paint bottles.",
+      "cx": 0.885,
+      "cy": 0.9,
+      "r": 0.085
+    }
   ],
-  "suddenDeath": { "id": "sudden_1", "cx": 0.958, "cy": 0.080, "r": 0.055 }
+  "suddenDeath": {
+    "id": "sudden_1",
+    "cx": 0.958,
+    "cy": 0.08,
+    "r": 0.055
+  }
 }

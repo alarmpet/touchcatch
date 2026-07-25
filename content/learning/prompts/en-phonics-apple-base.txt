@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of a vibrant sunny apple orchard for children learning Phonics letter A.
+Scene/backdrop: In the garden, there is a large red apple tree with juicy apples, a wooden ladder leaning on the trunk, a cute picnic basket with a red tablecloth on the grass, a watering can, a friendly bird perched on a branch, a wooden sign with an apple icon, a small red ant on a leaf, a garden bench, a barrel of apples, and a colorful kite in the clear blue sky.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

@@ -1,0 +1,304 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "0ac198a3-1c92-4221-8993-e7ded734a48e",
+    "version": 1,
+    "contentRevisionId": "171059c4-593d-4f31-8ed9-ed0b50a045a6",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-space-rocket",
+    "language": "en",
+    "difficulty": "BEGINNER",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/331ba6362bf9fbb866bcf3cd864e94b3893b1aa4f50e3ca04d7c93bd4eedcce3.png",
+      "sha256": "331ba6362bf9fbb866bcf3cd864e94b3893b1aa4f50e3ca04d7c93bd4eedcce3",
+      "encodedBytes": 1626155,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/2abf31ec4c62e33ac77847ca9c74ac068745fe4bb6a52ee24469d8fb258fcb5c.png",
+      "sha256": "2abf31ec4c62e33ac77847ca9c74ac068745fe4bb6a52ee24469d8fb258fcb5c",
+      "encodedBytes": 1787019,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "171059c4-593d-4f31-8ed9-ed0b50a045a6",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.753,
+            "cy": 0.154,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.753,
+            "cy": 0.154,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.861,
+            "cy": 0.339,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.861,
+            "cy": 0.339,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.413,
+            "cy": 0.664,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.413,
+            "cy": 0.664,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.438,
+            "cy": 0.521,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.438,
+            "cy": 0.521,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.521,
+            "cy": 0.239,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.521,
+            "cy": 0.239,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.376,
+            "cy": 0.355,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.376,
+            "cy": 0.355,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.533,
+            "cy": 0.38,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.533,
+            "cy": 0.38,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.369,
+            "cy": 0.128,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.369,
+            "cy": 0.128,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.563,
+            "cy": 0.709,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.563,
+            "cy": 0.709,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.543,
+            "cy": 0.563,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.543,
+            "cy": 0.563,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the space rocket.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.521,
+            "cy": 0.239,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.521,
+            "cy": 0.239,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the astronaut.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.413,
+            "cy": 0.664,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.413,
+            "cy": 0.664,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the full moon.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.753,
+            "cy": 0.154,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.753,
+            "cy": 0.154,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.521,
+          "cy": 0.239,
+          "r": 0.09
+        },
+        "imageB": {
+          "cx": 0.521,
+          "cy": 0.239,
+          "r": 0.09
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "rocket",
+      "aliases": [
+        "spacecraft",
+        "spaceship"
+      ],
+      "hintUnits": [
+        "r",
+        "o",
+        "c",
+        "k",
+        "e",
+        "t"
+      ],
+      "meaning": {
+        "prompt": "What is this vehicle called?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Rocket"
+          },
+          {
+            "id": "option_2",
+            "label": "Airplane"
+          },
+          {
+            "id": "option_3",
+            "label": "Helicopter"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "1d8d07d25e9ca6caa6bf172044ee90b7ecb7f8917f162471df991333d325ab67"
+  },
+  "assetFiles": {
+    "331ba6362bf9fbb866bcf3cd864e94b3893b1aa4f50e3ca04d7c93bd4eedcce3": "D:\\touchcatch\\content\\learning\\source\\en-space-rocket-a.png",
+    "2abf31ec4c62e33ac77847ca9c74ac068745fe4bb6a52ee24469d8fb258fcb5c": "D:\\touchcatch\\content\\learning\\source\\en-space-rocket-b.png"
+  }
+}

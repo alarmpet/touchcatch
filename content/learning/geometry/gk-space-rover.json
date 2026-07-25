@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 96, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.228, "cy": 0.126, "r": 0.065 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.315, "cy": 0.516, "r": 0.065 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.634, "cy": 0.292, "r": 0.065 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.174, "cy": 0.571, "r": 0.065 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.534, "cy": 0.931, "r": 0.065 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.833, "cy": 0.516, "r": 0.065 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.387, "cy": 0.837, "r": 0.065 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.806, "cy": 0.662, "r": 0.065 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.734, "cy": 0.500, "r": 0.065 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.397, "cy": 0.542, "r": 0.065 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the Mars rover.", "cx": 0.315, "cy": 0.516, "r": 0.080 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the astronaut.", "cx": 0.174, "cy": 0.571, "r": 0.070 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the research dome.", "cx": 0.833, "cy": 0.516, "r": 0.080 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.228, "cy": 0.126, "r": 0.080 }
+}

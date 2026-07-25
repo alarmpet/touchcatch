@@ -1,0 +1,292 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "f992d7bb-0643-4f05-8561-96db52635c71",
+    "version": 1,
+    "contentRevisionId": "ca749fef-30db-4a4e-8b77-570ed1bd87e5",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-isometric-lab",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/81b6f9fa91ca76767bd1875f090cd50eacbdc027fe1515c948d82d9400244646.png",
+      "sha256": "81b6f9fa91ca76767bd1875f090cd50eacbdc027fe1515c948d82d9400244646",
+      "encodedBytes": 2151403,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/44db7f8d17bc9a6bbb1fa836fa316ddf1d7664e19e6fb574fb9a0829fffddcc3.png",
+      "sha256": "44db7f8d17bc9a6bbb1fa836fa316ddf1d7664e19e6fb574fb9a0829fffddcc3",
+      "encodedBytes": 2253362,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "ca749fef-30db-4a4e-8b77-570ed1bd87e5",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.664,
+            "cy": 0.658,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.664,
+            "cy": 0.658,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.492,
+            "cy": 0.554,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.492,
+            "cy": 0.554,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.779,
+            "cy": 0.451,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.779,
+            "cy": 0.451,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.551,
+            "cy": 0.353,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.551,
+            "cy": 0.353,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.375,
+            "cy": 0.633,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.375,
+            "cy": 0.633,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.651,
+            "cy": 0.405,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.651,
+            "cy": 0.405,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.457,
+            "cy": 0.291,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.457,
+            "cy": 0.291,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.187,
+            "cy": 0.428,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.187,
+            "cy": 0.428,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.844,
+            "cy": 0.608,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.844,
+            "cy": 0.608,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-isometric-lab",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.664,
+            "cy": 0.658,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.664,
+            "cy": 0.658,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-isometric-lab",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.492,
+            "cy": 0.554,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.492,
+            "cy": 0.554,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-isometric-lab",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.779,
+            "cy": 0.451,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.779,
+            "cy": 0.451,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.664,
+          "cy": 0.658,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.664,
+          "cy": 0.658,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "curiosity",
+      "aliases": [
+        "isometric",
+        "lab",
+        "scientist"
+      ],
+      "hintUnits": [
+        "c",
+        "u",
+        "r",
+        "i",
+        "o",
+        "s",
+        "i",
+        "t",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '호기심' or '탐구심'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Curiosity"
+          },
+          {
+            "id": "option_2",
+            "label": "Conformity"
+          },
+          {
+            "id": "option_3",
+            "label": "Complexity"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "517085a35e5766c37eae48c8ab26c1dbfaa629e52f770b01dd041947e1a7b00c"
+  },
+  "assetFiles": {
+    "81b6f9fa91ca76767bd1875f090cd50eacbdc027fe1515c948d82d9400244646": "D:\\touchcatch\\content\\learning\\source\\en-isometric-lab-a.png",
+    "44db7f8d17bc9a6bbb1fa836fa316ddf1d7664e19e6fb574fb9a0829fffddcc3": "D:\\touchcatch\\content\\learning\\source\\en-isometric-lab-b.png"
+  }
+}

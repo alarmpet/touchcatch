@@ -1,0 +1,111 @@
+{
+  "policy": {
+    "pixelThreshold": 60,
+    "minChangedPixelsPerRegion": 24,
+    "maxOutsideChangedRatio": 0.15
+  },
+  "differences": [
+    {
+      "id": "difference_1",
+      "tier": "NORMAL",
+      "cx": 0.521,
+      "cy": 0.64,
+      "r": 0.055
+    },
+    {
+      "id": "difference_2",
+      "tier": "NORMAL",
+      "cx": 0.191,
+      "cy": 0.93,
+      "r": 0.055
+    },
+    {
+      "id": "difference_3",
+      "tier": "NORMAL",
+      "cx": 0.644,
+      "cy": 0.393,
+      "r": 0.055
+    },
+    {
+      "id": "difference_4",
+      "tier": "NORMAL",
+      "cx": 0.374,
+      "cy": 0.392,
+      "r": 0.055
+    },
+    {
+      "id": "difference_5",
+      "tier": "NORMAL",
+      "cx": 0.643,
+      "cy": 0.671,
+      "r": 0.055
+    },
+    {
+      "id": "difference_6",
+      "tier": "NORMAL",
+      "cx": 0.356,
+      "cy": 0.667,
+      "r": 0.055
+    },
+    {
+      "id": "difference_7",
+      "tier": "NORMAL",
+      "cx": 0.379,
+      "cy": 0.946,
+      "r": 0.055
+    },
+    {
+      "id": "difference_8",
+      "tier": "HARD",
+      "cx": 0.638,
+      "cy": 0.526,
+      "r": 0.055
+    },
+    {
+      "id": "difference_9",
+      "tier": "HARD",
+      "cx": 0.365,
+      "cy": 0.524,
+      "r": 0.055
+    },
+    {
+      "id": "difference_10",
+      "tier": "HARD",
+      "cx": 0.27,
+      "cy": 0.586,
+      "r": 0.055
+    }
+  ],
+  "wordHunts": [
+    {
+      "id": "word_1",
+      "kind": "NORMAL",
+      "publicPrompt": "Find item 1 in en-serenity-haven",
+      "cx": 0.521,
+      "cy": 0.64,
+      "r": 0.06
+    },
+    {
+      "id": "word_2",
+      "kind": "NORMAL",
+      "publicPrompt": "Find item 2 in en-serenity-haven",
+      "cx": 0.191,
+      "cy": 0.93,
+      "r": 0.055
+    },
+    {
+      "id": "word_3",
+      "kind": "SPECIAL",
+      "publicPrompt": "Find item 3 in en-serenity-haven",
+      "cx": 0.644,
+      "cy": 0.393,
+      "r": 0.055
+    }
+  ],
+  "suddenDeath": {
+    "id": "sudden_1",
+    "cx": 0.521,
+    "cy": 0.64,
+    "r": 0.065
+  }
+}

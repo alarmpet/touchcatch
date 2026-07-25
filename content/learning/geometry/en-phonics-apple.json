@@ -1,0 +1,97 @@
+{
+  "policy": {
+    "pixelThreshold": 60,
+    "minChangedPixelsPerRegion": 24,
+    "maxOutsideChangedRatio": 0.05
+  },
+  "differences": [
+    {
+      "id": "difference_1",
+      "tier": "NORMAL",
+      "cx": 0.555,
+      "cy": 0.856,
+      "r": 0.085
+    },
+    {
+      "id": "difference_2",
+      "tier": "NORMAL",
+      "cx": 0.805,
+      "cy": 0.127,
+      "r": 0.085
+    },
+    {
+      "id": "difference_3",
+      "tier": "NORMAL",
+      "cx": 0.152,
+      "cy": 0.695,
+      "r": 0.085
+    },
+    {
+      "id": "difference_4",
+      "tier": "NORMAL",
+      "cx": 0.906,
+      "cy": 0.698,
+      "r": 0.085
+    },
+    {
+      "id": "difference_5",
+      "tier": "NORMAL",
+      "cx": 0.686,
+      "cy": 0.353,
+      "r": 0.085
+    },
+    {
+      "id": "difference_6",
+      "tier": "NORMAL",
+      "cx": 0.541,
+      "cy": 0.56,
+      "r": 0.085
+    },
+    {
+      "id": "difference_7",
+      "tier": "NORMAL",
+      "cx": 0.838,
+      "cy": 0.878,
+      "r": 0.085
+    },
+    {
+      "id": "difference_8",
+      "tier": "HARD",
+      "cx": 0.318,
+      "cy": 0.521,
+      "r": 0.085
+    }
+  ],
+  "wordHunts": [
+    {
+      "id": "word_1",
+      "kind": "NORMAL",
+      "publicPrompt": "Find item 1 in en-phonics-apple",
+      "cx": 0.555,
+      "cy": 0.856,
+      "r": 0.090
+    },
+    {
+      "id": "word_2",
+      "kind": "NORMAL",
+      "publicPrompt": "Find item 2 in en-phonics-apple",
+      "cx": 0.805,
+      "cy": 0.127,
+      "r": 0.085
+    },
+    {
+      "id": "word_3",
+      "kind": "SPECIAL",
+      "publicPrompt": "Find item 3 in en-phonics-apple",
+      "cx": 0.152,
+      "cy": 0.695,
+      "r": 0.085
+    }
+  ],
+  "suddenDeath": {
+    "id": "sudden_1",
+    "cx": 0.555,
+    "cy": 0.856,
+    "r": 0.095
+  }
+}

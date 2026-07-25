@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-serenity-lake-a.png is the edit target.
+Primary request: Ultra precise spot-the-difference edit of image A (en_serenity_lake_a). Keep exact same background mountains, forest, lake water, sky, and canoe structure completely untouched. Make 10 localized subtle edits only on small hand-held or table objects:
+1. Change the geographer's jacket color from orange to emerald green.
+2. Recolor the blue heron's legs or beak from orange to silver.
+3. Change the lantern casing resting on the dock from brass to crimson red.
+4. Remove one water lily floating on the left side of the canoe.
+5. Recolor the paddle blade held by the geographer from brown to turquoise blue.
+6. Change the geographer's sun hat color from beige to bright yellow.
+7. Remove one small telescope binoculars lying on the canoe seat.
+8. Recolor the map scroll container on the dock from brown leather to royal blue.
+9. Add one extra small metal mug resting on the dock beside the lantern.
+10. Remove the hanging tag on the dock pillar post.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

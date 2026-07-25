@@ -6,31 +6,31 @@
   "publicContent": {
     "contentId": "38c312af-4b10-4ccc-863d-2da2f4cc4ac7",
     "version": 1,
-    "contentRevisionId": "8054cb25-3c50-4cff-83c5-0ab479e53ee7",
+    "contentRevisionId": "67849373-b573-46eb-8034-f3fa50c96289",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "ko-proverb-dark-under-lamp",
     "language": "ko",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/95c0084320de9e387105ba296217c377b4f2e2fd7b1d4c6fa05371d611c38402.png",
-      "sha256": "95c0084320de9e387105ba296217c377b4f2e2fd7b1d4c6fa05371d611c38402",
-      "encodedBytes": 2311793,
+      "url": "https://cdn.spot-learn.test/assets/056d847df68c402db04f5ccfbff328e1778d0481c04f7fc8f5e304a0630593cc.png",
+      "sha256": "056d847df68c402db04f5ccfbff328e1778d0481c04f7fc8f5e304a0630593cc",
+      "encodedBytes": 3647684,
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/c63e9428001f7b96464014c7edf4dd34316744fbc0585ceebef76f28964b445e.png",
-      "sha256": "c63e9428001f7b96464014c7edf4dd34316744fbc0585ceebef76f28964b445e",
-      "encodedBytes": 2391849,
+      "url": "https://cdn.spot-learn.test/assets/d18c0ab0556e43e04832d98da3fe30019635d400a034feb5d3544f9c60e2020a.png",
+      "sha256": "d18c0ab0556e43e04832d98da3fe30019635d400a034feb5d3544f9c60e2020a",
+      "encodedBytes": 3729415,
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "8054cb25-3c50-4cff-83c5-0ab479e53ee7",
+    "contentRevisionId": "67849373-b573-46eb-8034-f3fa50c96289",
     "schemaVersion": "1.0.0",
     "differences": [
       {
@@ -38,14 +38,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.435,
-            "cy": 0.635,
-            "r": 0.1
+            "cx": 0.411,
+            "cy": 0.626,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.435,
-            "cy": 0.635,
-            "r": 0.1
+            "cx": 0.411,
+            "cy": 0.626,
+            "r": 0.05
           }
         }
       },
@@ -54,13 +54,13 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.455,
-            "cy": 0.92,
+            "cx": 0.786,
+            "cy": 0.842,
             "r": 0.05
           },
           "imageB": {
-            "cx": 0.455,
-            "cy": 0.92,
+            "cx": 0.786,
+            "cy": 0.842,
             "r": 0.05
           }
         }
@@ -70,13 +70,13 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.61,
-            "cy": 0.74,
+            "cx": 0.93,
+            "cy": 0.764,
             "r": 0.05
           },
           "imageB": {
-            "cx": 0.61,
-            "cy": 0.74,
+            "cx": 0.93,
+            "cy": 0.764,
             "r": 0.05
           }
         }
@@ -86,14 +86,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.31,
-            "cy": 0.92,
-            "r": 0.07
+            "cx": 0.917,
+            "cy": 0.135,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.31,
-            "cy": 0.92,
-            "r": 0.07
+            "cx": 0.917,
+            "cy": 0.135,
+            "r": 0.05
           }
         }
       },
@@ -102,14 +102,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.715,
-            "cy": 0.08,
-            "r": 0.055
+            "cx": 0.717,
+            "cy": 0.063,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.715,
-            "cy": 0.08,
-            "r": 0.055
+            "cx": 0.717,
+            "cy": 0.063,
+            "r": 0.05
           }
         }
       },
@@ -118,13 +118,13 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.615,
-            "cy": 0.605,
+            "cx": 0.329,
+            "cy": 0.921,
             "r": 0.05
           },
           "imageB": {
-            "cx": 0.615,
-            "cy": 0.605,
+            "cx": 0.329,
+            "cy": 0.921,
             "r": 0.05
           }
         }
@@ -134,14 +134,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.92,
-            "cy": 0.12,
-            "r": 0.045
+            "cx": 0.616,
+            "cy": 0.73,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.92,
-            "cy": 0.12,
-            "r": 0.045
+            "cx": 0.616,
+            "cy": 0.73,
+            "r": 0.05
           }
         }
       },
@@ -150,14 +150,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.93,
-            "cy": 0.75,
-            "r": 0.06
+            "cx": 0.454,
+            "cy": 0.921,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.93,
-            "cy": 0.75,
-            "r": 0.06
+            "cx": 0.454,
+            "cy": 0.921,
+            "r": 0.05
           }
         }
       },
@@ -166,14 +166,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.785,
-            "cy": 0.84,
-            "r": 0.055
+            "cx": 0.445,
+            "cy": 0.729,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.785,
-            "cy": 0.84,
-            "r": 0.055
+            "cx": 0.445,
+            "cy": 0.729,
+            "r": 0.05
           }
         }
       },
@@ -182,14 +182,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.32,
-            "cy": 0.57,
-            "r": 0.04
+            "cx": 0.258,
+            "cy": 0.661,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.32,
-            "cy": 0.57,
-            "r": 0.04
+            "cx": 0.258,
+            "cy": 0.661,
+            "r": 0.05
           }
         }
       }
@@ -295,10 +295,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "01415017fd42adbedaac7331bbf00f59b3b57fdf8334641eda6090a7eae854ec"
+    "privateSolutionHash": "eb750a40362586cd839cf30d110bf0908f98a7949956774c3310a553f8fff6f9"
   },
   "assetFiles": {
-    "95c0084320de9e387105ba296217c377b4f2e2fd7b1d4c6fa05371d611c38402": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\ko-proverb-dark-under-lamp-a.png",
-    "c63e9428001f7b96464014c7edf4dd34316744fbc0585ceebef76f28964b445e": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\ko-proverb-dark-under-lamp-b.png"
+    "056d847df68c402db04f5ccfbff328e1778d0481c04f7fc8f5e304a0630593cc": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-dark-under-lamp-a.png",
+    "d18c0ab0556e43e04832d98da3fe30019635d400a034feb5d3544f9c60e2020a": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-dark-under-lamp-b.png"
   }
 }

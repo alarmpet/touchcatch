@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-funny-zoo-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized Beginner-level differences:
+1. Change the popcorn cart umbrella color from red and white to blue and yellow.
+2. Recolor the parrot feathers from red to bright green.
+3. Change the zookeeper's hat color from khaki to navy blue.
+4. Remove the water fountain stream coming from the elephant's trunk.
+5. Add one extra red apple inside the zookeeper's fruit bucket.
+6. Recolor the wooden directional sign board from brown to yellow.
+7. Remove one bamboo stalk held by the panda.
+8. Change the giraffe's spot pattern color from dark brown to orange.
+9. Recolor the stone wall cap from grey to brown.
+10. Remove the sun from the sky.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

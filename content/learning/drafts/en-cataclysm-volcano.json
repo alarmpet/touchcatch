@@ -1,0 +1,259 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "31899ad5-871a-408d-8182-f38553f58049",
+    "version": 1,
+    "contentRevisionId": "82434e24-6e4b-4de1-8edf-5f29b0952c06",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-cataclysm-volcano",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/d2c942429902de90a86e5bcd805c79bed777f15a95e94735eb01e2f2b2a3964c.png",
+      "sha256": "d2c942429902de90a86e5bcd805c79bed777f15a95e94735eb01e2f2b2a3964c",
+      "encodedBytes": 1597550,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/83403c8eac9b9128b046f1f549da121bb0b51dcbc09a9a0094cd0bfb3f34a656.png",
+      "sha256": "83403c8eac9b9128b046f1f549da121bb0b51dcbc09a9a0094cd0bfb3f34a656",
+      "encodedBytes": 1749254,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "82434e24-6e4b-4de1-8edf-5f29b0952c06",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.734,
+            "cy": 0.743,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.734,
+            "cy": 0.743,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.668,
+            "cy": 0.879,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.668,
+            "cy": 0.879,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.819,
+            "cy": 0.318,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.819,
+            "cy": 0.318,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.448,
+            "cy": 0.894,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.448,
+            "cy": 0.894,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.447,
+            "cy": 0.781,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.447,
+            "cy": 0.781,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.919,
+            "cy": 0.457,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.919,
+            "cy": 0.457,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.796,
+            "cy": 0.435,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.796,
+            "cy": 0.435,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-cataclysm-volcano",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.734,
+            "cy": 0.743,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.734,
+            "cy": 0.743,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-cataclysm-volcano",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.668,
+            "cy": 0.879,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.668,
+            "cy": 0.879,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-cataclysm-volcano",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.819,
+            "cy": 0.318,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.819,
+            "cy": 0.318,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.734,
+          "cy": 0.743,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.734,
+          "cy": 0.743,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "cataclysm",
+      "aliases": [
+        "disaster",
+        "eruption"
+      ],
+      "hintUnits": [
+        "c",
+        "a",
+        "t",
+        "a",
+        "c",
+        "l",
+        "y",
+        "s",
+        "m"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '대재앙'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Cataclysm"
+          },
+          {
+            "id": "option_2",
+            "label": "Catalyst"
+          },
+          {
+            "id": "option_3",
+            "label": "Category"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "fffb8129fed09b1699d93667caa4a5c7f3b1c6e70692b66f81749b13f8243bd5"
+  },
+  "assetFiles": {
+    "d2c942429902de90a86e5bcd805c79bed777f15a95e94735eb01e2f2b2a3964c": "D:\\touchcatch\\content\\learning\\source\\en-cataclysm-volcano-a.png",
+    "83403c8eac9b9128b046f1f549da121bb0b51dcbc09a9a0094cd0bfb3f34a656": "D:\\touchcatch\\content\\learning\\source\\en-cataclysm-volcano-b.png"
+  }
+}

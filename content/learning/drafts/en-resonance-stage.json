@@ -1,0 +1,308 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "9c7b2e49-51fc-4c8a-8c88-7db279ebdb5e",
+    "version": 1,
+    "contentRevisionId": "f9f307a8-78af-4be8-8118-5cf0f09fbb68",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-resonance-stage",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/cbd0d589fb055654041b50d486daa68bcdf715b1d7706c9ae3e00eafcf1e1bf5.png",
+      "sha256": "cbd0d589fb055654041b50d486daa68bcdf715b1d7706c9ae3e00eafcf1e1bf5",
+      "encodedBytes": 1889534,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/e3bef2f6504fce15c4b70cf18f781542da157ed7af608b7ea83572ad187b3cf6.png",
+      "sha256": "e3bef2f6504fce15c4b70cf18f781542da157ed7af608b7ea83572ad187b3cf6",
+      "encodedBytes": 2212871,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "f9f307a8-78af-4be8-8118-5cf0f09fbb68",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.61,
+            "cy": 0.711,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.61,
+            "cy": 0.711,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.469,
+            "cy": 0.71,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.469,
+            "cy": 0.71,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.428,
+            "cy": 0.593,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.428,
+            "cy": 0.593,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.513,
+            "cy": 0.837,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.513,
+            "cy": 0.837,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.396,
+            "cy": 0.894,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.396,
+            "cy": 0.894,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.169,
+            "cy": 0.546,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.169,
+            "cy": 0.546,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.685,
+            "cy": 0.808,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.685,
+            "cy": 0.808,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.529,
+            "cy": 0.502,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.529,
+            "cy": 0.502,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.753,
+            "cy": 0.356,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.753,
+            "cy": 0.356,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.808,
+            "cy": 0.231,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.808,
+            "cy": 0.231,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-resonance-stage",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.61,
+            "cy": 0.711,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.61,
+            "cy": 0.711,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-resonance-stage",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.469,
+            "cy": 0.71,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.469,
+            "cy": 0.71,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-resonance-stage",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.428,
+            "cy": 0.593,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.428,
+            "cy": 0.593,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.61,
+          "cy": 0.711,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.61,
+          "cy": 0.711,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "resonance",
+      "aliases": [
+        "resonate",
+        "harmonics",
+        "cello"
+      ],
+      "hintUnits": [
+        "r",
+        "e",
+        "s",
+        "o",
+        "n",
+        "a",
+        "n",
+        "c",
+        "e"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '공명' or '울림'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Resonance"
+          },
+          {
+            "id": "option_2",
+            "label": "Redundancy"
+          },
+          {
+            "id": "option_3",
+            "label": "Reluctance"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "7dc121bfa03ab7a28bf98f998c097d205b56d685bd5b694ff39a2b835470ae50"
+  },
+  "assetFiles": {
+    "cbd0d589fb055654041b50d486daa68bcdf715b1d7706c9ae3e00eafcf1e1bf5": "D:\\touchcatch\\content\\learning\\source\\en-resonance-stage-a.png",
+    "e3bef2f6504fce15c4b70cf18f781542da157ed7af608b7ea83572ad187b3cf6": "D:\\touchcatch\\content\\learning\\source\\en-resonance-stage-b.png"
+  }
+}

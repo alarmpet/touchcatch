@@ -1,0 +1,309 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "ae44a484-6a00-412d-8942-4d5249769b39",
+    "version": 1,
+    "contentRevisionId": "6d51a444-5172-4cdb-826a-5ffe4918345b",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-archaeology-dig",
+    "language": "en",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/968409faee582e53a4ed722f400fea74a1f5e5851004a79afc605b4bfced5d03.png",
+      "sha256": "968409faee582e53a4ed722f400fea74a1f5e5851004a79afc605b4bfced5d03",
+      "encodedBytes": 1968877,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/6905147243a79974d5320123ed829b6f9c540dbdb795cc07a1c859b130a13375.png",
+      "sha256": "6905147243a79974d5320123ed829b6f9c540dbdb795cc07a1c859b130a13375",
+      "encodedBytes": 2215469,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "6d51a444-5172-4cdb-826a-5ffe4918345b",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.583,
+            "cy": 0.073,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.583,
+            "cy": 0.073,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.41,
+            "cy": 0.081,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.41,
+            "cy": 0.081,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.732,
+            "cy": 0.046,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.732,
+            "cy": 0.046,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.258,
+            "cy": 0.066,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.258,
+            "cy": 0.066,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.696,
+            "cy": 0.653,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.696,
+            "cy": 0.653,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.495,
+            "cy": 0.12,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.495,
+            "cy": 0.12,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.679,
+            "cy": 0.487,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.679,
+            "cy": 0.487,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.872,
+            "cy": 0.033,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.872,
+            "cy": 0.033,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.888,
+            "cy": 0.66,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.888,
+            "cy": 0.66,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.338,
+            "cy": 0.122,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.338,
+            "cy": 0.122,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the archaeologist.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.495,
+            "cy": 0.12,
+            "r": 0.075
+          },
+          "imageB": {
+            "cx": 0.495,
+            "cy": 0.12,
+            "r": 0.075
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the dinosaur fossil.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.258,
+            "cy": 0.066,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.258,
+            "cy": 0.066,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the amphora jar.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.696,
+            "cy": 0.653,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.696,
+            "cy": 0.653,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.495,
+          "cy": 0.12,
+          "r": 0.08
+        },
+        "imageB": {
+          "cx": 0.495,
+          "cy": 0.12,
+          "r": 0.08
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "archaeology",
+      "aliases": [
+        "excavation",
+        "fossil"
+      ],
+      "hintUnits": [
+        "a",
+        "r",
+        "c",
+        "h",
+        "a",
+        "e",
+        "o",
+        "l",
+        "o",
+        "g",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '고고학'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Archaeology"
+          },
+          {
+            "id": "option_2",
+            "label": "Architecture"
+          },
+          {
+            "id": "option_3",
+            "label": "Accountancy"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "57f44b0149ea52c023219bee88e59d95022509ae4cbd485bc51fe3ce3d599b95"
+  },
+  "assetFiles": {
+    "968409faee582e53a4ed722f400fea74a1f5e5851004a79afc605b4bfced5d03": "D:\\touchcatch\\content\\learning\\source\\en-archaeology-dig-a.png",
+    "6905147243a79974d5320123ed829b6f9c540dbdb795cc07a1c859b130a13375": "D:\\touchcatch\\content\\learning\\source\\en-archaeology-dig-b.png"
+  }
+}

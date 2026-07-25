@@ -1,0 +1,262 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "81a1bc6b-e8f1-4d6d-8499-dcfba0cff56d",
+    "version": 1,
+    "contentRevisionId": "3fd39cbc-13b1-422d-8250-4df8cc63b19f",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-clay-family",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/2b15e05b41c62136f7bfc11b88015c7965552fbd00f502c1e3f67464f7e695fc.png",
+      "sha256": "2b15e05b41c62136f7bfc11b88015c7965552fbd00f502c1e3f67464f7e695fc",
+      "encodedBytes": 2551773,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/adca95244186c9ce0dda2a48a38301104aaf849d383afdb2d7dd485e639fa755.png",
+      "sha256": "adca95244186c9ce0dda2a48a38301104aaf849d383afdb2d7dd485e639fa755",
+      "encodedBytes": 2543395,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "3fd39cbc-13b1-422d-8250-4df8cc63b19f",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.656,
+            "cy": 0.176,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.656,
+            "cy": 0.176,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.68,
+            "cy": 0.539,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.68,
+            "cy": 0.539,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.506,
+            "cy": 0.252,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.506,
+            "cy": 0.252,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.385,
+            "cy": 0.316,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.385,
+            "cy": 0.316,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.791,
+            "cy": 0.518,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.791,
+            "cy": 0.518,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.964,
+            "cy": 0.598,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.964,
+            "cy": 0.598,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.64,
+            "cy": 0.655,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.64,
+            "cy": 0.655,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-clay-family",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.656,
+            "cy": 0.176,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.656,
+            "cy": 0.176,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-clay-family",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.68,
+            "cy": 0.539,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.68,
+            "cy": 0.539,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-clay-family",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.506,
+            "cy": 0.252,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.506,
+            "cy": 0.252,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.656,
+          "cy": 0.176,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.656,
+          "cy": 0.176,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "camaraderie",
+      "aliases": [
+        "family",
+        "fireplace",
+        "clay"
+      ],
+      "hintUnits": [
+        "c",
+        "a",
+        "m",
+        "a",
+        "r",
+        "a",
+        "d",
+        "e",
+        "r",
+        "i",
+        "e"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '우정' or '화목한 정'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Camaraderie"
+          },
+          {
+            "id": "option_2",
+            "label": "Catastrophe"
+          },
+          {
+            "id": "option_3",
+            "label": "Chivalry"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "f591431fd2a0c15af3971df87ff0a3f4c46a38a314916835e8fbb02e989f3d22"
+  },
+  "assetFiles": {
+    "2b15e05b41c62136f7bfc11b88015c7965552fbd00f502c1e3f67464f7e695fc": "D:\\touchcatch\\content\\learning\\source\\en-clay-family-a.png",
+    "adca95244186c9ce0dda2a48a38301104aaf849d383afdb2d7dd485e639fa755": "D:\\touchcatch\\content\\learning\\source\\en-clay-family-b.png"
+  }
+}

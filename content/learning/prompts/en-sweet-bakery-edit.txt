@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-sweet-bakery-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized Beginner-level differences:
+1. Change the baker apron color from white to yellow.
+2. Recolor the birthday cake frosting from pink to mint green.
+3. Change the coffee machine color from red to black.
+4. Remove the flower vase from the cafe table.
+5. Recolor the wall clock frame from brown to white.
+6. Add one extra donut on the top display tier.
+7. Remove one baguette from the bread basket.
+8. Recolor the baker hat ribbon from blue to red.
+9. Change the striped wallpaper color from pink to light blue.
+10. Remove the cherry from the top of the birthday cake.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

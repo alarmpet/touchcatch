@@ -1,0 +1,35 @@
+{
+  "dimensionsMatch": true,
+  "width": 1024,
+  "height": 1024,
+  "changedRegions": 3,
+  "missingRegions": [],
+  "outsideChangedPixels": 5955,
+  "outsideChangedRatio": 0.005845788970453979,
+  "outsidePolicy": "PASS",
+  "policy": {
+    "pixelThreshold": 60,
+    "minChangedPixelsPerRegion": 24,
+    "maxOutsideChangedRatio": 0.15
+  },
+  "regions": [
+    {
+      "id": "difference_1",
+      "cx": 0.628,
+      "cy": 0.538,
+      "r": 0.055
+    },
+    {
+      "id": "difference_2",
+      "cx": 0.487,
+      "cy": 0.53,
+      "r": 0.055
+    },
+    {
+      "id": "difference_3",
+      "cx": 0.461,
+      "cy": 0.309,
+      "r": 0.055
+    }
+  ]
+}

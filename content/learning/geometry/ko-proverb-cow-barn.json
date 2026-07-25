@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.365, "cy": 0.702, "r": 0.080 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.858, "cy": 0.652, "r": 0.090 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.609, "cy": 0.595, "r": 0.080 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.325, "cy": 0.147, "r": 0.090 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.403, "cy": 0.496, "r": 0.080 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.839, "cy": 0.469, "r": 0.080 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.744, "cy": 0.895, "r": 0.080 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.642, "cy": 0.583, "r": 0.080 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.414, "cy": 0.776, "r": 0.080 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.184, "cy": 0.514, "r": 0.080 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the cow barn.", "cx": 0.184, "cy": 0.514, "r": 0.080 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the farmer.", "cx": 0.403, "cy": 0.496, "r": 0.070 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the kimchee pots.", "cx": 0.858, "cy": 0.652, "r": 0.070 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.325, "cy": 0.147, "r": 0.080 }
+}

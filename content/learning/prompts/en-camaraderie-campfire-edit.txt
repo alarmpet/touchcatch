@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-camaraderie-campfire-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A (en_camaraderie_campfire_a). Preserve exact same camera angle, composition, background, campfire, forest, and drawing style. Make 10 localized subtle Advanced-level differences on specific objects:
+1. Change the guitar player's sweater color from navy blue to mustard yellow.
+2. Recolor the main camping tent in the background from forest green to bright orange.
+3. Recolor the cocoa mug held by the girl from red to turquoise blue.
+4. Remove one hanging lantern hanging on the wooden tripod stand.
+5. Recolor the scout's neckerchief scarf from yellow to magenta pink.
+6. Change the marshmallow bag on the log bench color from white to emerald green.
+7. Remove one small roasting stick leaning against the log bench.
+8. Recolor the acoustic guitar body from honey amber to dark mahogany.
+9. Add one extra small enamel metal mug resting on the log bench beside the guitar.
+10. Remove the wall flashlight sensor sitting on the tree stump.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

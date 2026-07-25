@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.508, "cy": 0.566, "r": 0.070 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.577, "cy": 0.673, "r": 0.070 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.394, "cy": 0.609, "r": 0.070 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.502, "cy": 0.717, "r": 0.070 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.309, "cy": 0.657, "r": 0.070 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.959, "cy": 0.679, "r": 0.070 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.647, "cy": 0.518, "r": 0.070 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.857, "cy": 0.378, "r": 0.070 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.594, "cy": 0.754, "r": 0.070 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.738, "cy": 0.336, "r": 0.070 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the microscope.", "cx": 0.394, "cy": 0.609, "r": 0.070 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the flasks.", "cx": 0.508, "cy": 0.566, "r": 0.070 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the skeleton.", "cx": 0.959, "cy": 0.679, "r": 0.075 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.394, "cy": 0.609, "r": 0.080 }
+}

@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-space-rocket-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized Beginner-level differences:
+1. Change the rocket nose cone color from red to blue.
+2. Change the astronaut's helmet visor reflection color from gold to blue.
+3. Recolor the fuel tank from white to orange.
+4. Remove the radar dish on top of the control room.
+5. Change the gantry tower structure color from red to yellow.
+6. Add one extra shooting star in the night sky.
+7. Remove the full moon from the sky.
+8. Recolor the service crane arm from green to grey.
+9. Remove one spotlight beam illuminating the launchpad.
+10. Recolor the rocket fin wing from black to red.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

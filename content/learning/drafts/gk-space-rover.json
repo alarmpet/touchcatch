@@ -1,0 +1,309 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "2e4f9f07-9b07-4dd1-8d28-21dca394e5f9",
+    "version": 1,
+    "contentRevisionId": "3c7a2d7a-aa14-458d-8763-aa27a882ccd2",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "gk-space-rover",
+    "language": "en",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/d48290312b6a175dd0fe1e8673715e44903e0870c984196ca615d5eae53fbdce.png",
+      "sha256": "d48290312b6a175dd0fe1e8673715e44903e0870c984196ca615d5eae53fbdce",
+      "encodedBytes": 1608691,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/e4ee4948db3fd40813fcbb347cc2573a83d4bb764c1a8a8f3a6a31a13321b849.png",
+      "sha256": "e4ee4948db3fd40813fcbb347cc2573a83d4bb764c1a8a8f3a6a31a13321b849",
+      "encodedBytes": 1863116,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "3c7a2d7a-aa14-458d-8763-aa27a882ccd2",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.228,
+            "cy": 0.126,
+            "r": 0.065
+          },
+          "imageB": {
+            "cx": 0.228,
+            "cy": 0.126,
+            "r": 0.065
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.315,
+            "cy": 0.516,
+            "r": 0.065
+          },
+          "imageB": {
+            "cx": 0.315,
+            "cy": 0.516,
+            "r": 0.065
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.634,
+            "cy": 0.292,
+            "r": 0.065
+          },
+          "imageB": {
+            "cx": 0.634,
+            "cy": 0.292,
+            "r": 0.065
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.174,
+            "cy": 0.571,
+            "r": 0.065
+          },
+          "imageB": {
+            "cx": 0.174,
+            "cy": 0.571,
+            "r": 0.065
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.534,
+            "cy": 0.931,
+            "r": 0.065
+          },
+          "imageB": {
+            "cx": 0.534,
+            "cy": 0.931,
+            "r": 0.065
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.833,
+            "cy": 0.516,
+            "r": 0.065
+          },
+          "imageB": {
+            "cx": 0.833,
+            "cy": 0.516,
+            "r": 0.065
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.387,
+            "cy": 0.837,
+            "r": 0.065
+          },
+          "imageB": {
+            "cx": 0.387,
+            "cy": 0.837,
+            "r": 0.065
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.806,
+            "cy": 0.662,
+            "r": 0.065
+          },
+          "imageB": {
+            "cx": 0.806,
+            "cy": 0.662,
+            "r": 0.065
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.734,
+            "cy": 0.5,
+            "r": 0.065
+          },
+          "imageB": {
+            "cx": 0.734,
+            "cy": 0.5,
+            "r": 0.065
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.397,
+            "cy": 0.542,
+            "r": 0.065
+          },
+          "imageB": {
+            "cx": 0.397,
+            "cy": 0.542,
+            "r": 0.065
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the Mars rover.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.315,
+            "cy": 0.516,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.315,
+            "cy": 0.516,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the astronaut.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.174,
+            "cy": 0.571,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.174,
+            "cy": 0.571,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the research dome.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.833,
+            "cy": 0.516,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.833,
+            "cy": 0.516,
+            "r": 0.08
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.228,
+          "cy": 0.126,
+          "r": 0.08
+        },
+        "imageB": {
+          "cx": 0.228,
+          "cy": 0.126,
+          "r": 0.08
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "space rover",
+      "aliases": [
+        "mars rover",
+        "space vehicle"
+      ],
+      "hintUnits": [
+        "s",
+        "p",
+        "a",
+        "c",
+        "e",
+        " ",
+        "r",
+        "o",
+        "v",
+        "e",
+        "r"
+      ],
+      "meaning": {
+        "prompt": "What is this vehicle called?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Space Rover"
+          },
+          {
+            "id": "option_2",
+            "label": "Submarine"
+          },
+          {
+            "id": "option_3",
+            "label": "Airplane"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "f42a061b93a2640718d3725a12ba4149cf9f73e094d8f7ad4c910605a923038a"
+  },
+  "assetFiles": {
+    "d48290312b6a175dd0fe1e8673715e44903e0870c984196ca615d5eae53fbdce": "D:\\touchcatch\\content\\learning\\source\\gk-space-rover-a.png",
+    "e4ee4948db3fd40813fcbb347cc2573a83d4bb764c1a8a8f3a6a31a13321b849": "D:\\touchcatch\\content\\learning\\source\\gk-space-rover-b.png"
+  }
+}

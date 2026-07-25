@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.486, "cy": 0.855, "r": 0.070 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.161, "cy": 0.674, "r": 0.070 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.835, "cy": 0.826, "r": 0.070 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.366, "cy": 0.840, "r": 0.070 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.343, "cy": 0.320, "r": 0.070 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.430, "cy": 0.660, "r": 0.070 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.648, "cy": 0.226, "r": 0.070 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.736, "cy": 0.569, "r": 0.070 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.309, "cy": 0.570, "r": 0.070 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.442, "cy": 0.928, "r": 0.070 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the sea turtle.", "cx": 0.343, "cy": 0.320, "r": 0.075 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the clownfish.", "cx": 0.161, "cy": 0.674, "r": 0.070 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the brain coral.", "cx": 0.835, "cy": 0.826, "r": 0.070 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.343, "cy": 0.320, "r": 0.080 }
+}

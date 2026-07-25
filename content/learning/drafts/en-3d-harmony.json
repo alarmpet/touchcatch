@@ -1,0 +1,306 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "694ddeed-5046-4f8d-81c0-d812e72deced",
+    "version": 1,
+    "contentRevisionId": "f5f8b165-de64-4790-8118-f8766a3aaa51",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-3d-harmony",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/3e47a09688273e7ed409e20c4ce89281ffc0ebc36b92bb6b1e5b472c778ce7f1.png",
+      "sha256": "3e47a09688273e7ed409e20c4ce89281ffc0ebc36b92bb6b1e5b472c778ce7f1",
+      "encodedBytes": 2807616,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/78e6bc9a9481659f28003f264b8d1b86cfa9edeee0bdaf7e473e041b970a4948.png",
+      "sha256": "78e6bc9a9481659f28003f264b8d1b86cfa9edeee0bdaf7e473e041b970a4948",
+      "encodedBytes": 2820378,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "f5f8b165-de64-4790-8118-f8766a3aaa51",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.967,
+            "cy": 0.047,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.967,
+            "cy": 0.047,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.032,
+            "cy": 0.06,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.032,
+            "cy": 0.06,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.97,
+            "cy": 0.159,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.97,
+            "cy": 0.159,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.027,
+            "cy": 0.174,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.027,
+            "cy": 0.174,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.111,
+            "cy": 0.246,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.111,
+            "cy": 0.246,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.517,
+            "cy": 0.571,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.517,
+            "cy": 0.571,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.983,
+            "cy": 0.276,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.983,
+            "cy": 0.276,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.327,
+            "cy": 0.679,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.327,
+            "cy": 0.679,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.874,
+            "cy": 0.374,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.874,
+            "cy": 0.374,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.811,
+            "cy": 0.241,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.811,
+            "cy": 0.241,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-3d-harmony",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.967,
+            "cy": 0.047,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.967,
+            "cy": 0.047,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-3d-harmony",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.032,
+            "cy": 0.06,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.032,
+            "cy": 0.06,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-3d-harmony",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.97,
+            "cy": 0.159,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.97,
+            "cy": 0.159,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.967,
+          "cy": 0.047,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.967,
+          "cy": 0.047,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "harmony",
+      "aliases": [
+        "harmonious",
+        "melody",
+        "violin"
+      ],
+      "hintUnits": [
+        "h",
+        "a",
+        "r",
+        "m",
+        "o",
+        "n",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '조화' or '화음'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Harmony"
+          },
+          {
+            "id": "option_2",
+            "label": "Hostility"
+          },
+          {
+            "id": "option_3",
+            "label": "Hierarchy"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "4acf4ee95a504fcb9915d54f5faedb15f5265f177c1ab90bfbfc06a7e655bc43"
+  },
+  "assetFiles": {
+    "3e47a09688273e7ed409e20c4ce89281ffc0ebc36b92bb6b1e5b472c778ce7f1": "D:\\touchcatch\\content\\learning\\source\\en-3d-harmony-a.png",
+    "78e6bc9a9481659f28003f264b8d1b86cfa9edeee0bdaf7e473e041b970a4948": "D:\\touchcatch\\content\\learning\\source\\en-3d-harmony-b.png"
+  }
+}

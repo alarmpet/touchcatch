@@ -1,0 +1,260 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "b9ded798-4ee2-4a1a-8a63-201a53ca7c0f",
+    "version": 1,
+    "contentRevisionId": "368c7910-cd53-47de-883e-27ac84630559",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-phenomenon-lab",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/ccccb4cb4cfa059f28c5eae890839325b257aaf80b31e14d99cd56413b4701dd.png",
+      "sha256": "ccccb4cb4cfa059f28c5eae890839325b257aaf80b31e14d99cd56413b4701dd",
+      "encodedBytes": 1692126,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/19119f9798335557331b50bf69b1db0ec226d861810e2b662637246d9b87360d.png",
+      "sha256": "19119f9798335557331b50bf69b1db0ec226d861810e2b662637246d9b87360d",
+      "encodedBytes": 1878558,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "368c7910-cd53-47de-883e-27ac84630559",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.898,
+            "cy": 0.53,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.898,
+            "cy": 0.53,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.786,
+            "cy": 0.541,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.786,
+            "cy": 0.541,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.354,
+            "cy": 0.412,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.354,
+            "cy": 0.412,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.238,
+            "cy": 0.436,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.238,
+            "cy": 0.436,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.743,
+            "cy": 0.373,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.743,
+            "cy": 0.373,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.129,
+            "cy": 0.54,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.129,
+            "cy": 0.54,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.515,
+            "cy": 0.54,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.515,
+            "cy": 0.54,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-phenomenon-lab",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.898,
+            "cy": 0.53,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.898,
+            "cy": 0.53,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-phenomenon-lab",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.786,
+            "cy": 0.541,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.786,
+            "cy": 0.541,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-phenomenon-lab",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.354,
+            "cy": 0.412,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.354,
+            "cy": 0.412,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.898,
+          "cy": 0.53,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.898,
+          "cy": 0.53,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "phenomenon",
+      "aliases": [
+        "natural phenomenon",
+        "wonder"
+      ],
+      "hintUnits": [
+        "p",
+        "h",
+        "e",
+        "n",
+        "o",
+        "m",
+        "e",
+        "n",
+        "o",
+        "n"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '현상'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Phenomenon"
+          },
+          {
+            "id": "option_2",
+            "label": "Philosophy"
+          },
+          {
+            "id": "option_3",
+            "label": "Photography"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "2c16b3d4e34f0426cd44561229016a90c36339ee766b64d897a521d6c195c5c5"
+  },
+  "assetFiles": {
+    "ccccb4cb4cfa059f28c5eae890839325b257aaf80b31e14d99cd56413b4701dd": "D:\\touchcatch\\content\\learning\\source\\en-phenomenon-lab-a.png",
+    "19119f9798335557331b50bf69b1db0ec226d861810e2b662637246d9b87360d": "D:\\touchcatch\\content\\learning\\source\\en-phenomenon-lab-b.png"
+  }
+}

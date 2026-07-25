@@ -1,0 +1,301 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "6ff26934-759a-4478-81b1-dcec0473c2b2",
+    "version": 1,
+    "contentRevisionId": "f6233028-710c-4ed1-83aa-fcfbbfb61726",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-funny-zoo",
+    "language": "en",
+    "difficulty": "BEGINNER",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/c240fded4d8ee0238f9d682b9fd0758f4fbfbb2bf73a6f52b4ad5adc7f55e716.png",
+      "sha256": "c240fded4d8ee0238f9d682b9fd0758f4fbfbb2bf73a6f52b4ad5adc7f55e716",
+      "encodedBytes": 1935678,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/767ce04edd427fbee97c95122f4f28a5da5bc4d2983a47783a8be66f3d456112.png",
+      "sha256": "767ce04edd427fbee97c95122f4f28a5da5bc4d2983a47783a8be66f3d456112",
+      "encodedBytes": 2144179,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "f6233028-710c-4ed1-83aa-fcfbbfb61726",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.192,
+            "cy": 0.822,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.192,
+            "cy": 0.822,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.349,
+            "cy": 0.803,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.349,
+            "cy": 0.803,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.477,
+            "cy": 0.769,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.477,
+            "cy": 0.769,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.875,
+            "cy": 0.653,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.875,
+            "cy": 0.653,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.063,
+            "cy": 0.822,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.063,
+            "cy": 0.822,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.594,
+            "cy": 0.713,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.594,
+            "cy": 0.713,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.65,
+            "cy": 0.579,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.65,
+            "cy": 0.579,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.241,
+            "cy": 0.456,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.241,
+            "cy": 0.456,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.879,
+            "cy": 0.174,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.879,
+            "cy": 0.174,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.079,
+            "cy": 0.493,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.079,
+            "cy": 0.493,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the giraffe.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.241,
+            "cy": 0.456,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.241,
+            "cy": 0.456,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the panda.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.65,
+            "cy": 0.579,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.65,
+            "cy": 0.579,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the elephant.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.875,
+            "cy": 0.653,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.875,
+            "cy": 0.653,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.241,
+          "cy": 0.456,
+          "r": 0.09
+        },
+        "imageB": {
+          "cx": 0.241,
+          "cy": 0.456,
+          "r": 0.09
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "zoo",
+      "aliases": [
+        "animals",
+        "wildlife park"
+      ],
+      "hintUnits": [
+        "z",
+        "o",
+        "o"
+      ],
+      "meaning": {
+        "prompt": "What is this place called?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Zoo"
+          },
+          {
+            "id": "option_2",
+            "label": "Farm"
+          },
+          {
+            "id": "option_3",
+            "label": "Museum"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "4581d56937100dd68619c898fcf2bd2214520517e1b66c03b2226ce0b6b28293"
+  },
+  "assetFiles": {
+    "c240fded4d8ee0238f9d682b9fd0758f4fbfbb2bf73a6f52b4ad5adc7f55e716": "D:\\touchcatch\\content\\learning\\source\\en-funny-zoo-a.png",
+    "767ce04edd427fbee97c95122f4f28a5da5bc4d2983a47783a8be66f3d456112": "D:\\touchcatch\\content\\learning\\source\\en-funny-zoo-b.png"
+  }
+}

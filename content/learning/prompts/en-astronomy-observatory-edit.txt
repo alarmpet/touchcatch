@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-astronomy-observatory-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized Intermediate-level differences:
+1. Change the giant telescope tube color from blue to white.
+2. Change Saturn's ring color from golden yellow to blue.
+3. Recolor the astronomer's lab coat from white to dark navy.
+4. Remove the brass armillary sphere on the shelf.
+5. Change the monitor display content from galaxy spiral to solar flare eclipse.
+6. Recolor the globe stand from brown to gold.
+7. Add one extra red comet in the night sky.
+8. Remove one star chart from the corkboard.
+9. Recolor the control console buttons from blue to red.
+10. Change the desk lamp shade color from green to orange.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

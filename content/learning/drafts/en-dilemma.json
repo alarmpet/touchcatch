@@ -6,31 +6,31 @@
   "publicContent": {
     "contentId": "f97068ec-055f-495c-88da-81ce80d6212c",
     "version": 1,
-    "contentRevisionId": "4072ed00-604e-4d26-857a-38dfeacc4d8c",
+    "contentRevisionId": "f9fcd5e6-f37b-4f0c-8243-8a262dd9af2c",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "en-dilemma",
     "language": "en",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/0c17694fcc0669ac5acd679d9d6afbb9d4d1b4f3d075fbabed511205d6ba8f02.png",
-      "sha256": "0c17694fcc0669ac5acd679d9d6afbb9d4d1b4f3d075fbabed511205d6ba8f02",
-      "encodedBytes": 2654448,
+      "url": "https://cdn.spot-learn.test/assets/ef6ef9e05212f12adcc209168abcfbcf07c8d03a2b937dfcbca07c5664383cf8.png",
+      "sha256": "ef6ef9e05212f12adcc209168abcfbcf07c8d03a2b937dfcbca07c5664383cf8",
+      "encodedBytes": 3915926,
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/d442821e226bd7e3680ee3f20a6fcbc82a0289cf5eaade1bc897e63437c08ee0.png",
-      "sha256": "d442821e226bd7e3680ee3f20a6fcbc82a0289cf5eaade1bc897e63437c08ee0",
-      "encodedBytes": 2499858,
+      "url": "https://cdn.spot-learn.test/assets/090ffdaf91a9d2c2decac61a24109346350100c589d8ff12f6daad7390bb827e.png",
+      "sha256": "090ffdaf91a9d2c2decac61a24109346350100c589d8ff12f6daad7390bb827e",
+      "encodedBytes": 3825587,
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "4072ed00-604e-4d26-857a-38dfeacc4d8c",
+    "contentRevisionId": "f9fcd5e6-f37b-4f0c-8243-8a262dd9af2c",
     "schemaVersion": "1.0.0",
     "differences": [
       {
@@ -38,14 +38,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.116,
-            "cy": 0.356,
-            "r": 0.04
+            "cx": 0.673,
+            "cy": 0.303,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.116,
-            "cy": 0.356,
-            "r": 0.04
+            "cx": 0.673,
+            "cy": 0.303,
+            "r": 0.05
           }
         }
       },
@@ -54,14 +54,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.106,
-            "cy": 0.278,
-            "r": 0.025
+            "cx": 0.861,
+            "cy": 0.445,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.106,
-            "cy": 0.278,
-            "r": 0.025
+            "cx": 0.861,
+            "cy": 0.445,
+            "r": 0.05
           }
         }
       },
@@ -70,14 +70,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.26,
-            "cy": 0.519,
-            "r": 0.055
+            "cx": 0.815,
+            "cy": 0.226,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.26,
-            "cy": 0.519,
-            "r": 0.055
+            "cx": 0.815,
+            "cy": 0.226,
+            "r": 0.05
           }
         }
       },
@@ -86,14 +86,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.203,
-            "cy": 0.483,
-            "r": 0.03
+            "cx": 0.359,
+            "cy": 0.416,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.203,
-            "cy": 0.483,
-            "r": 0.03
+            "cx": 0.359,
+            "cy": 0.416,
+            "r": 0.05
           }
         }
       },
@@ -102,14 +102,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.374,
-            "cy": 0.431,
-            "r": 0.04
+            "cx": 0.257,
+            "cy": 0.613,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.374,
-            "cy": 0.431,
-            "r": 0.04
+            "cx": 0.257,
+            "cy": 0.613,
+            "r": 0.05
           }
         }
       },
@@ -118,14 +118,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.672,
-            "cy": 0.339,
-            "r": 0.065
+            "cx": 0.092,
+            "cy": 0.642,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.672,
-            "cy": 0.339,
-            "r": 0.065
+            "cx": 0.092,
+            "cy": 0.642,
+            "r": 0.05
           }
         }
       },
@@ -134,14 +134,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.856,
-            "cy": 0.438,
-            "r": 0.035
+            "cx": 0.74,
+            "cy": 0.626,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.856,
-            "cy": 0.438,
-            "r": 0.035
+            "cx": 0.74,
+            "cy": 0.626,
+            "r": 0.05
           }
         }
       },
@@ -150,14 +150,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.73,
-            "cy": 0.6,
-            "r": 0.03
+            "cx": 0.193,
+            "cy": 0.481,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.73,
-            "cy": 0.6,
-            "r": 0.03
+            "cx": 0.193,
+            "cy": 0.481,
+            "r": 0.05
           }
         }
       },
@@ -166,14 +166,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.902,
-            "cy": 0.47,
-            "r": 0.035
+            "cx": 0.349,
+            "cy": 0.552,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.902,
-            "cy": 0.47,
-            "r": 0.035
+            "cx": 0.349,
+            "cy": 0.552,
+            "r": 0.05
           }
         }
       },
@@ -182,14 +182,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.814,
-            "cy": 0.19,
-            "r": 0.04
+            "cx": 0.122,
+            "cy": 0.839,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.814,
-            "cy": 0.19,
-            "r": 0.04
+            "cx": 0.122,
+            "cy": 0.839,
+            "r": 0.05
           }
         }
       }
@@ -293,10 +293,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "1c372528217a841d77fab2ad7be195159abeffefadee08081ef9236a2e3acb63"
+    "privateSolutionHash": "b07e77797950f7781cf48699db37bbe45a493490a6a96eeb9b8b2ce2f4e2f989"
   },
   "assetFiles": {
-    "0c17694fcc0669ac5acd679d9d6afbb9d4d1b4f3d075fbabed511205d6ba8f02": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\en-dilemma-a.png",
-    "d442821e226bd7e3680ee3f20a6fcbc82a0289cf5eaade1bc897e63437c08ee0": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\en-dilemma-b.png"
+    "ef6ef9e05212f12adcc209168abcfbcf07c8d03a2b937dfcbca07c5664383cf8": "D:\\touchcatch\\content\\learning\\source\\en-dilemma-a.png",
+    "090ffdaf91a9d2c2decac61a24109346350100c589d8ff12f6daad7390bb827e": "D:\\touchcatch\\content\\learning\\source\\en-dilemma-b.png"
   }
 }

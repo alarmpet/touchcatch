@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of a cozy attic filled with warm nostalgic vintage childhood items for English vocabulary learning (Nostalgia).
+Scene/backdrop: Sunlight streams through a dusty round window onto a young girl looking through an antique wooden memory chest filled with old photo albums, a vintage gramophone playing music, a classic rocking horse, a brass pocket watch, a retro globe, an oil lantern, a teddy bear, and hanging dried lavender bundles.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

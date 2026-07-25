@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of a high-tech science laboratory for English vocabulary learning (Curiosity).
+Scene/backdrop: In the lab, there is a curious middle school student peering into a glowing microscope, colorful liquid flasks and beaker set on a stainless bench, a chalkboard with physics formulas and atom diagrams, a computer monitor displaying a DNA strand, a robotic arm assembling a circuit, a glass terrarium, a safety goggle rack, a model skeleton in the corner, and a periodic table wall chart.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

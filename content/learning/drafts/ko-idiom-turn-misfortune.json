@@ -6,31 +6,31 @@
   "publicContent": {
     "contentId": "a456f270-5396-4d7b-8dde-905c465657b3",
     "version": 1,
-    "contentRevisionId": "df75bad8-08e7-4e90-88d0-bad0fa6df46b",
+    "contentRevisionId": "0acd4bf2-3806-4ee9-8b6f-84f70a62bd8b",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "ko-idiom-turn-misfortune",
     "language": "ko",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/9bff7dbd76f19a2c0fec8eed9ac754c9ada3d241afd035c89a6dd348cd273bf8.png",
-      "sha256": "9bff7dbd76f19a2c0fec8eed9ac754c9ada3d241afd035c89a6dd348cd273bf8",
-      "encodedBytes": 2701508,
+      "url": "https://cdn.spot-learn.test/assets/5156a3c91b47057974df6e635453bd8b167134af3c203c3fb1441b164f9ba052.png",
+      "sha256": "5156a3c91b47057974df6e635453bd8b167134af3c203c3fb1441b164f9ba052",
+      "encodedBytes": 4167075,
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/c472823b7ce3418908c6a42f12d9c9fc7834239b993303b951c1f5c2fc64e076.png",
-      "sha256": "c472823b7ce3418908c6a42f12d9c9fc7834239b993303b951c1f5c2fc64e076",
-      "encodedBytes": 2624260,
+      "url": "https://cdn.spot-learn.test/assets/0f31770df20f766fddda8fd580e23f545210efed3f8cb6bd39761eaef9d6703c.png",
+      "sha256": "0f31770df20f766fddda8fd580e23f545210efed3f8cb6bd39761eaef9d6703c",
+      "encodedBytes": 4135594,
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "df75bad8-08e7-4e90-88d0-bad0fa6df46b",
+    "contentRevisionId": "0acd4bf2-3806-4ee9-8b6f-84f70a62bd8b",
     "schemaVersion": "1.0.0",
     "differences": [
       {
@@ -38,14 +38,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.245,
-            "cy": 0.19,
-            "r": 0.06
+            "cx": 0.089,
+            "cy": 0.705,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.245,
-            "cy": 0.19,
-            "r": 0.06
+            "cx": 0.089,
+            "cy": 0.705,
+            "r": 0.05
           }
         }
       },
@@ -54,14 +54,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.085,
-            "cy": 0.735,
-            "r": 0.055
+            "cx": 0.794,
+            "cy": 0.785,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.085,
-            "cy": 0.735,
-            "r": 0.055
+            "cx": 0.794,
+            "cy": 0.785,
+            "r": 0.05
           }
         }
       },
@@ -71,12 +71,12 @@
         "hitboxes": {
           "imageA": {
             "cx": 0.43,
-            "cy": 0.27,
+            "cy": 0.247,
             "r": 0.05
           },
           "imageB": {
             "cx": 0.43,
-            "cy": 0.27,
+            "cy": 0.247,
             "r": 0.05
           }
         }
@@ -86,13 +86,13 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.68,
-            "cy": 0.4,
+            "cx": 0.445,
+            "cy": 0.608,
             "r": 0.05
           },
           "imageB": {
-            "cx": 0.68,
-            "cy": 0.4,
+            "cx": 0.445,
+            "cy": 0.608,
             "r": 0.05
           }
         }
@@ -102,14 +102,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.526,
-            "cy": 0.094,
-            "r": 0.03
+            "cx": 0.718,
+            "cy": 0.712,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.526,
-            "cy": 0.094,
-            "r": 0.03
+            "cx": 0.718,
+            "cy": 0.712,
+            "r": 0.05
           }
         }
       },
@@ -118,14 +118,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.46,
-            "cy": 0.5,
-            "r": 0.045
+            "cx": 0.836,
+            "cy": 0.15,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.46,
-            "cy": 0.5,
-            "r": 0.045
+            "cx": 0.836,
+            "cy": 0.15,
+            "r": 0.05
           }
         }
       },
@@ -134,14 +134,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.45,
-            "cy": 0.65,
-            "r": 0.065
+            "cx": 0.948,
+            "cy": 0.283,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.45,
-            "cy": 0.65,
-            "r": 0.065
+            "cx": 0.948,
+            "cy": 0.283,
+            "r": 0.05
           }
         }
       },
@@ -150,14 +150,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.71,
-            "cy": 0.72,
-            "r": 0.06
+            "cx": 0.691,
+            "cy": 0.389,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.71,
-            "cy": 0.72,
-            "r": 0.06
+            "cx": 0.691,
+            "cy": 0.389,
+            "r": 0.05
           }
         }
       },
@@ -166,14 +166,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.8,
-            "cy": 0.78,
-            "r": 0.07
+            "cx": 0.229,
+            "cy": 0.127,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.8,
-            "cy": 0.78,
-            "r": 0.07
+            "cx": 0.229,
+            "cy": 0.127,
+            "r": 0.05
           }
         }
       },
@@ -182,14 +182,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.95,
-            "cy": 0.28,
-            "r": 0.045
+            "cx": 0.54,
+            "cy": 0.098,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.95,
-            "cy": 0.28,
-            "r": 0.045
+            "cx": 0.54,
+            "cy": 0.098,
+            "r": 0.05
           }
         }
       }
@@ -290,10 +290,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "cbbaba479275464148423514e26f6972a7775103b56034a7b0667fa6a051a340"
+    "privateSolutionHash": "d4e9d1e79346e783417d02eee4c56d427aa1a4a32dc951c552a7b1ebd2ce262c"
   },
   "assetFiles": {
-    "9bff7dbd76f19a2c0fec8eed9ac754c9ada3d241afd035c89a6dd348cd273bf8": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\ko-idiom-turn-misfortune-a.png",
-    "c472823b7ce3418908c6a42f12d9c9fc7834239b993303b951c1f5c2fc64e076": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\ko-idiom-turn-misfortune-b.png"
+    "5156a3c91b47057974df6e635453bd8b167134af3c203c3fb1441b164f9ba052": "D:\\touchcatch\\content\\learning\\source\\ko-idiom-turn-misfortune-a.png",
+    "0f31770df20f766fddda8fd580e23f545210efed3f8cb6bd39761eaef9d6703c": "D:\\touchcatch\\content\\learning\\source\\ko-idiom-turn-misfortune-b.png"
   }
 }

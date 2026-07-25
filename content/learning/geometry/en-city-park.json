@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.856, "cy": 0.237, "r": 0.085 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.619, "cy": 0.103, "r": 0.085 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.754, "cy": 0.140, "r": 0.085 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.501, "cy": 0.120, "r": 0.085 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.907, "cy": 0.599, "r": 0.085 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.409, "cy": 0.608, "r": 0.085 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.190, "cy": 0.707, "r": 0.085 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.462, "cy": 0.685, "r": 0.085 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.098, "cy": 0.605, "r": 0.085 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.893, "cy": 0.310, "r": 0.085 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the slide.", "cx": 0.856, "cy": 0.237, "r": 0.085 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the bench.", "cx": 0.409, "cy": 0.608, "r": 0.085 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the duck pond.", "cx": 0.190, "cy": 0.707, "r": 0.085 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.856, "cy": 0.237, "r": 0.090 }
+}

@@ -1,0 +1,246 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "9c81697f-6793-4f9e-8e83-c5cf0aefb88e",
+    "version": 1,
+    "contentRevisionId": "01f7dcfc-cb35-4726-8943-8aa41aaf7628",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-tranquility-tea",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/045f1e50b3668ecefbce893130515989f9c1175c30434a22f2e1ce606b0780b5.png",
+      "sha256": "045f1e50b3668ecefbce893130515989f9c1175c30434a22f2e1ce606b0780b5",
+      "encodedBytes": 2414943,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/5c1a630f90ada617771180677cd6cf70643b4595ac0496f46dcfe6859762357d.png",
+      "sha256": "5c1a630f90ada617771180677cd6cf70643b4595ac0496f46dcfe6859762357d",
+      "encodedBytes": 2484729,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "01f7dcfc-cb35-4726-8943-8aa41aaf7628",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.269,
+            "cy": 0.842,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.269,
+            "cy": 0.842,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.142,
+            "cy": 0.507,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.142,
+            "cy": 0.507,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.603,
+            "cy": 0.54,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.603,
+            "cy": 0.54,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.797,
+            "cy": 0.613,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.797,
+            "cy": 0.613,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.159,
+            "cy": 0.685,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.159,
+            "cy": 0.685,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.697,
+            "cy": 0.428,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.697,
+            "cy": 0.428,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-tranquility-tea",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.269,
+            "cy": 0.842,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.269,
+            "cy": 0.842,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-tranquility-tea",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.142,
+            "cy": 0.507,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.142,
+            "cy": 0.507,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-tranquility-tea",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.603,
+            "cy": 0.54,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.603,
+            "cy": 0.54,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.269,
+          "cy": 0.842,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.269,
+          "cy": 0.842,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "tranquility",
+      "aliases": [
+        "calm",
+        "peace",
+        "tea house"
+      ],
+      "hintUnits": [
+        "t",
+        "r",
+        "a",
+        "n",
+        "q",
+        "u",
+        "i",
+        "l",
+        "i",
+        "t",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '평온' or '고요함'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Tranquility"
+          },
+          {
+            "id": "option_2",
+            "label": "Turbulence"
+          },
+          {
+            "id": "option_3",
+            "label": "Transparency"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "e2c08453489cc9340bd5201498890f7795b7f7dd705d39676b367ec69b73f844"
+  },
+  "assetFiles": {
+    "045f1e50b3668ecefbce893130515989f9c1175c30434a22f2e1ce606b0780b5": "D:\\touchcatch\\content\\learning\\source\\en-tranquility-tea-a.png",
+    "5c1a630f90ada617771180677cd6cf70643b4595ac0496f46dcfe6859762357d": "D:\\touchcatch\\content\\learning\\source\\en-tranquility-tea-b.png"
+  }
+}

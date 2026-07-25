@@ -1,0 +1,302 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "dc26779c-6512-4a71-8800-480994c0ec74",
+    "version": 1,
+    "contentRevisionId": "34af5227-b3fd-4b67-8a9a-c5e1f68a883f",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "ko-idiom-birds-one-stone",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/2972ac3742ca74437f92dc203b841785b84bc8aa12be0340c42f7eeebac67c11.png",
+      "sha256": "2972ac3742ca74437f92dc203b841785b84bc8aa12be0340c42f7eeebac67c11",
+      "encodedBytes": 1816642,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/adc3ffe7fa78c9cb45219f09adf41b9eeed5d7b6971b5607ad207e37b5b5c6d1.png",
+      "sha256": "adc3ffe7fa78c9cb45219f09adf41b9eeed5d7b6971b5607ad207e37b5b5c6d1",
+      "encodedBytes": 1988139,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "34af5227-b3fd-4b67-8a9a-c5e1f68a883f",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.3,
+            "cy": 0.642,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.3,
+            "cy": 0.642,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.237,
+            "cy": 0.763,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.237,
+            "cy": 0.763,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.211,
+            "cy": 0.627,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.211,
+            "cy": 0.627,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.793,
+            "cy": 0.026,
+            "r": 0.1
+          },
+          "imageB": {
+            "cx": 0.793,
+            "cy": 0.026,
+            "r": 0.1
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.698,
+            "cy": 0.533,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.698,
+            "cy": 0.533,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.747,
+            "cy": 0.684,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.747,
+            "cy": 0.684,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.688,
+            "cy": 0.069,
+            "r": 0.1
+          },
+          "imageB": {
+            "cx": 0.688,
+            "cy": 0.069,
+            "r": 0.1
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.875,
+            "cy": 0.403,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.875,
+            "cy": 0.403,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.433,
+            "cy": 0.647,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.433,
+            "cy": 0.647,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.826,
+            "cy": 0.876,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.826,
+            "cy": 0.876,
+            "r": 0.08
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the stone lantern.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.3,
+            "cy": 0.642,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.3,
+            "cy": 0.642,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the magpies.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.688,
+            "cy": 0.069,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.688,
+            "cy": 0.069,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the scholar.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.698,
+            "cy": 0.533,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.698,
+            "cy": 0.533,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.793,
+          "cy": 0.026,
+          "r": 0.08
+        },
+        "imageB": {
+          "cx": 0.793,
+          "cy": 0.026,
+          "r": 0.08
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "일석이조",
+      "aliases": [
+        "一石二鳥",
+        "일거양득"
+      ],
+      "hintUnits": [
+        "일",
+        "석",
+        "이",
+        "조"
+      ],
+      "meaning": {
+        "prompt": "일석이조의 의미는?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "한 가지로 두 가지를 얻음"
+          },
+          {
+            "id": "option_2",
+            "label": "두 번 실패함"
+          },
+          {
+            "id": "option_3",
+            "label": "새를 잡음"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "49103de12c393903d0347cd24c92d34c1a1b81ab42bcfbc5e856278f1746390b"
+  },
+  "assetFiles": {
+    "2972ac3742ca74437f92dc203b841785b84bc8aa12be0340c42f7eeebac67c11": "D:\\touchcatch\\content\\learning\\source\\ko-idiom-birds-one-stone-a.png",
+    "adc3ffe7fa78c9cb45219f09adf41b9eeed5d7b6971b5607ad207e37b5b5c6d1": "D:\\touchcatch\\content\\learning\\source\\ko-idiom-birds-one-stone-b.png"
+  }
+}

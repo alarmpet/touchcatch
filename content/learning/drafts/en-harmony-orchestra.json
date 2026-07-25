@@ -1,0 +1,306 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "8ab771d3-69c5-4285-8ec9-2a1fb1e390b0",
+    "version": 1,
+    "contentRevisionId": "986735e7-17bc-41f9-8312-4f56ee03be88",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-harmony-orchestra",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/e47b047e1358433550dcea77d96def4a9b31d25d0ad33333ea58b4dc8469e5d0.png",
+      "sha256": "e47b047e1358433550dcea77d96def4a9b31d25d0ad33333ea58b4dc8469e5d0",
+      "encodedBytes": 2261986,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/39a61853205b9c9dd939dff16576519d473951dcbc01b40e8b194e5042be480f.png",
+      "sha256": "39a61853205b9c9dd939dff16576519d473951dcbc01b40e8b194e5042be480f",
+      "encodedBytes": 2417342,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "986735e7-17bc-41f9-8312-4f56ee03be88",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.037,
+            "cy": 0.762,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.037,
+            "cy": 0.762,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.607,
+            "cy": 0.862,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.607,
+            "cy": 0.862,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.962,
+            "cy": 0.769,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.962,
+            "cy": 0.769,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.691,
+            "cy": 0.284,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.691,
+            "cy": 0.284,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.155,
+            "cy": 0.811,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.155,
+            "cy": 0.811,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.82,
+            "cy": 0.13,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.82,
+            "cy": 0.13,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.52,
+            "cy": 0.31,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.52,
+            "cy": 0.31,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.834,
+            "cy": 0.809,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.834,
+            "cy": 0.809,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.334,
+            "cy": 0.874,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.334,
+            "cy": 0.874,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.908,
+            "cy": 0.056,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.908,
+            "cy": 0.056,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-harmony-orchestra",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.037,
+            "cy": 0.762,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.037,
+            "cy": 0.762,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-harmony-orchestra",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.607,
+            "cy": 0.862,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.607,
+            "cy": 0.862,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-harmony-orchestra",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.962,
+            "cy": 0.769,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.962,
+            "cy": 0.769,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.037,
+          "cy": 0.762,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.037,
+          "cy": 0.762,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "harmony",
+      "aliases": [
+        "harmonious",
+        "orchestra",
+        "melody"
+      ],
+      "hintUnits": [
+        "h",
+        "a",
+        "r",
+        "m",
+        "o",
+        "n",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '조화' or '화음'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Harmony"
+          },
+          {
+            "id": "option_2",
+            "label": "Hostility"
+          },
+          {
+            "id": "option_3",
+            "label": "Hierarchy"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "1074b9b9aba9f413bba4206632754326c92cbf61178354aae4cb295fade5beb7"
+  },
+  "assetFiles": {
+    "e47b047e1358433550dcea77d96def4a9b31d25d0ad33333ea58b4dc8469e5d0": "D:\\touchcatch\\content\\learning\\source\\en-harmony-orchestra-a.png",
+    "39a61853205b9c9dd939dff16576519d473951dcbc01b40e8b194e5042be480f": "D:\\touchcatch\\content\\learning\\source\\en-harmony-orchestra-b.png"
+  }
+}

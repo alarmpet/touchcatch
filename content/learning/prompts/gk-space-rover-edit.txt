@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: gk-space-rover-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, characters, background, and drawing style. Make 10 localized differences:
+1. Change the visor color of the astronaut suit from gold to bright blue.
+2. Change the communications dish color from white to orange.
+3. Add one extra solar panel module to the top of the space rover.
+4. Change the glowing crystals from green to purple.
+5. Recolor the drone wings from silver to red.
+6. Remove the small antenna on the research dome.
+7. Add a small crater on the foreground red soil.
+8. Reverse the solar panel tilt direction on the rover's left wing.
+9. Recolor the rover wheel rim from black to yellow.
+10. Change the planet Earth in the sky to a ringed planet like Saturn.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

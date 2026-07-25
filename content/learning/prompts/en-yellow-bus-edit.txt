@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-yellow-bus-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized Beginner-level differences:
+1. Change the bus hubcap color from silver to orange.
+2. Change the bus stop sign circle color from red to green.
+3. Recolor the fire hydrant on the sidewalk from red to yellow.
+4. Remove the mail box next to the bus stop sign.
+5. Change the crossing guard's hat color from blue to yellow.
+6. Recolor the bus side mirror from black to yellow.
+7. Add one extra pigeon on top of the street lamp.
+8. Recolor the student's backpack from green to purple.
+9. Remove the cloud from the sky.
+10. Recolor the bakery shop awning from blue to red.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.542, "cy": 0.690, "r": 0.050 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.879, "cy": 0.818, "r": 0.050 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.731, "cy": 0.527, "r": 0.050 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.860, "cy": 0.622, "r": 0.050 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.438, "cy": 0.574, "r": 0.050 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.347, "cy": 0.816, "r": 0.050 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.160, "cy": 0.679, "r": 0.050 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.792, "cy": 0.806, "r": 0.050 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.169, "cy": 0.159, "r": 0.050 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.606, "cy": 0.117, "r": 0.050 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the girl discovering clover.", "cx": 0.542, "cy": 0.690, "r": 0.055 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the glowing four-leaf clover.", "cx": 0.573, "cy": 0.765, "r": 0.050 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the peacock.", "cx": 0.438, "cy": 0.574, "r": 0.055 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.542, "cy": 0.690, "r": 0.060 }
+}

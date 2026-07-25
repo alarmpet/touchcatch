@@ -6,7 +6,7 @@
       "key": "en-resilience",
       "category": "ENGLISH",
       "contentId": "a913582e-ad85-4687-8d07-0891a60cc415",
-      "contentRevisionId": "0d3be4b8-7e50-4682-81bd-904300a54abf",
+      "contentRevisionId": "6abea107-ace8-4bdb-872b-7d165bc26dbe",
       "bundle": "drafts/en-resilience.json",
       "evidence": "evidence/en-resilience.visual-delta.json",
       "images": [
@@ -14,21 +14,29 @@
         "source/en-resilience-b.png"
       ],
       "imageHashes": [
-        "5e86119dc48e3f7d008f6aa9ab8cb615e32ba797468ac570c612af78b770d4e1",
-        "6c92a8d24904c92039b9acc44438f74f953f58d409fcf50e0879e5f914c0aadf"
+        "cb29e67a65ed7a192a81c3eb5fd00bbbdc58c14085c60b5405a8a19ab1d74669",
+        "41c330b7546190bbc6c16712786f8b6b8631536010d8a6cf263cee39e7f88e57"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-resilience-base.txt",
-          "sha256": "f1dc49de847869c9d94b7389b5ceb4ab95103e4454f57d8d74880a5f8b105565"
+          "sha256": "901fdb9a9506d6f560f41287c5b3ed62d36de87a90a8fc56c0424837a12d0b6e"
         },
         {
           "file": "prompts/en-resilience-correction.txt",
-          "sha256": "ebe0d353c794a0125552e2adc5cb627a8637bd00816d97dfca5a864d87c9b97f"
+          "sha256": "268ed5538a482fe9897ab25d36c3809bd5bf20cf9f17a209a496156b9c2a0189"
         },
         {
           "file": "prompts/en-resilience-edit.txt",
-          "sha256": "b9b040883534a3e9f40ae4fcf7f4392a16e1dea66f47fbf89f71edcd60030d2d"
+          "sha256": "d083d4bc9d0f6ec56685256ceeb9c3e0a8b93e838499927d56c2e9309bec79b4"
+        },
+        {
+          "file": "prompts/en-resilience-garden-base.txt",
+          "sha256": "1ccab3791d0ea1c764c1b79ad521a7aace10552668dc4df6193a83424877aa76"
+        },
+        {
+          "file": "prompts/en-resilience-garden-edit.txt",
+          "sha256": "6d2e921f2baa3f9a9cafbfa1804e1ba620fdedd52b77f7de73378888ee87a427"
         }
       ],
       "publishBlocked": true
@@ -37,7 +45,7 @@
       "key": "en-dilemma",
       "category": "ENGLISH",
       "contentId": "f97068ec-055f-495c-88da-81ce80d6212c",
-      "contentRevisionId": "4072ed00-604e-4d26-857a-38dfeacc4d8c",
+      "contentRevisionId": "f9fcd5e6-f37b-4f0c-8243-8a262dd9af2c",
       "bundle": "drafts/en-dilemma.json",
       "evidence": "evidence/en-dilemma.visual-delta.json",
       "images": [
@@ -45,17 +53,17 @@
         "source/en-dilemma-b.png"
       ],
       "imageHashes": [
-        "0c17694fcc0669ac5acd679d9d6afbb9d4d1b4f3d075fbabed511205d6ba8f02",
-        "d442821e226bd7e3680ee3f20a6fcbc82a0289cf5eaade1bc897e63437c08ee0"
+        "ef6ef9e05212f12adcc209168abcfbcf07c8d03a2b937dfcbca07c5664383cf8",
+        "090ffdaf91a9d2c2decac61a24109346350100c589d8ff12f6daad7390bb827e"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-dilemma-base.txt",
-          "sha256": "2ac84e9e7ff3b3499c808954c904239c33b953b254f4728b324e0146ef134f8c"
+          "sha256": "0ee8078978300f7e923960b508a997769b8339033aff7334c947ecca64d893a6"
         },
         {
           "file": "prompts/en-dilemma-edit.txt",
-          "sha256": "152a067ebe623c6e37f02d2b95e3dff71afe7f056f4a55f7104a3b90e5eb624a"
+          "sha256": "f5772cf0e69237c86c0c9f6ff1b331d9e0fe295fa70eba22856695bdfa28b0bf"
         }
       ],
       "publishBlocked": true
@@ -64,7 +72,7 @@
       "key": "en-sustainability",
       "category": "ENGLISH",
       "contentId": "204a1f03-2833-4b0c-8ae1-43e557b03c1b",
-      "contentRevisionId": "57e84e35-c492-41f2-86fa-36ead4c97702",
+      "contentRevisionId": "6b655b64-edaa-4c8f-8813-5bc74aba8c91",
       "bundle": "drafts/en-sustainability.json",
       "evidence": "evidence/en-sustainability.visual-delta.json",
       "images": [
@@ -72,17 +80,25 @@
         "source/en-sustainability-b.png"
       ],
       "imageHashes": [
-        "15ff015168e3d57c3f528999af9b94fa3a33dc8635be0c476abe9e85690465b1",
-        "682464c5006d403d84c98b00af2668c2c733cd9d6506fd9e31d0c35c9824976a"
+        "46501fe660ec24256128122c3ed70bb7c571ba84699f338fe9e913411c22f8cf",
+        "47ecbab4b8d49763ebdbe0884476e225a9e1bb011b6f0d2a95dccc30dcbe7e27"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-sustainability-base.txt",
-          "sha256": "ba4ab3d5e71237c9750fe5a6e5e3f760f3047e192c91e17825fb4eb567dc512d"
+          "sha256": "68cbc4ed3ea48f351a837c08d5c0c897cfdd11ee1f3c802e9ceab19cdda7272f"
         },
         {
           "file": "prompts/en-sustainability-edit.txt",
-          "sha256": "12fd9a2c3aad47dfe9b6a0b0dfe27325056563d81641c1330955cf543f3bb40f"
+          "sha256": "de65b09525ab32e87a4665c24d6ea4646fee659bc81a67a7101f42199999b18c"
+        },
+        {
+          "file": "prompts/en-sustainability-greenhouse-base.txt",
+          "sha256": "64c6ccfc96b30d59a6c81798ab8ec645ee88bbb5aca578a9cca3ada157e6d279"
+        },
+        {
+          "file": "prompts/en-sustainability-greenhouse-edit.txt",
+          "sha256": "77404e13f58a43ef3769480a4ef2a19863e9860ebbe98084ea00f16b09a777a2"
         }
       ],
       "publishBlocked": true
@@ -91,7 +107,7 @@
       "key": "ko-proverb-dark-under-lamp",
       "category": "PROVERB",
       "contentId": "38c312af-4b10-4ccc-863d-2da2f4cc4ac7",
-      "contentRevisionId": "8054cb25-3c50-4cff-83c5-0ab479e53ee7",
+      "contentRevisionId": "67849373-b573-46eb-8034-f3fa50c96289",
       "bundle": "drafts/ko-proverb-dark-under-lamp.json",
       "evidence": "evidence/ko-proverb-dark-under-lamp.visual-delta.json",
       "images": [
@@ -99,17 +115,17 @@
         "source/ko-proverb-dark-under-lamp-b.png"
       ],
       "imageHashes": [
-        "95c0084320de9e387105ba296217c377b4f2e2fd7b1d4c6fa05371d611c38402",
-        "c63e9428001f7b96464014c7edf4dd34316744fbc0585ceebef76f28964b445e"
+        "056d847df68c402db04f5ccfbff328e1778d0481c04f7fc8f5e304a0630593cc",
+        "d18c0ab0556e43e04832d98da3fe30019635d400a034feb5d3544f9c60e2020a"
       ],
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-dark-under-lamp-base.txt",
-          "sha256": "a88180115b1bccd4384084588b27488b39fa99a06bfc59ebf16a7b304c618fd0"
+          "sha256": "22eaa9fa4e142506b569d701a3487f7fcb49c8d430555ef9eb6749f4160818e0"
         },
         {
           "file": "prompts/ko-proverb-dark-under-lamp-edit.txt",
-          "sha256": "e943b0f8e4544c6f525bcc8febe26810bf4f83ab7bdb020779b9f0383310a432"
+          "sha256": "791f3879ecdbddfc2941a9619a6fa1d951cf5bc859d86668c2bbbbcc9f251038"
         }
       ],
       "publishBlocked": true
@@ -118,7 +134,7 @@
       "key": "ko-proverb-seeing-is-believing",
       "category": "PROVERB",
       "contentId": "03e72cd5-fd13-4e9b-85cf-7f6b23e5a5d2",
-      "contentRevisionId": "9558ceee-d1fd-41ad-87f4-6173f09732cb",
+      "contentRevisionId": "1aea2997-0944-493c-8739-acd0c27af4ac",
       "bundle": "drafts/ko-proverb-seeing-is-believing.json",
       "evidence": "evidence/ko-proverb-seeing-is-believing.visual-delta.json",
       "images": [
@@ -126,17 +142,17 @@
         "source/ko-proverb-seeing-is-believing-b.png"
       ],
       "imageHashes": [
-        "a242905347538545291777abe43e127c759f6aff6ddc73027799416780954311",
-        "60602814202a4dff87420e8f2d7f594c274733bb734590107b3fb40a0815fb84"
+        "340f4b221ce65d4443157444b7919ff727132815c47cf7c2f57871fa84daf29a",
+        "cfdf2fbf64b3f9cd226b81242ee893545b698afd74bc23598d5b756b857aaa3b"
       ],
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-seeing-is-believing-base.txt",
-          "sha256": "2005dc4a0753dbe92509165e3c77ec830968b5240c2ca89fd23ec27ac931f40d"
+          "sha256": "7e82360481bed452307e111cb7e724c08d0f18d6ac6d433d34664f36645ba8aa"
         },
         {
           "file": "prompts/ko-proverb-seeing-is-believing-edit.txt",
-          "sha256": "be9bd8efb1449ca8fdf7a6e162d4ef2b20b8b8ac58a05385d6b9c6895e37acd2"
+          "sha256": "64501d036999627e5096e1884d9cd79340f22f4355173cb9914e22c51e553905"
         }
       ],
       "publishBlocked": true
@@ -145,7 +161,7 @@
       "key": "ko-proverb-kind-words-return",
       "category": "PROVERB",
       "contentId": "29a97946-d408-49ed-84f1-b7a948cb1ce9",
-      "contentRevisionId": "537f5965-6da9-49b2-8b93-2f1372ac581a",
+      "contentRevisionId": "b3d8c6e0-d825-416e-8122-c140926d7374",
       "bundle": "drafts/ko-proverb-kind-words-return.json",
       "evidence": "evidence/ko-proverb-kind-words-return.visual-delta.json",
       "images": [
@@ -153,21 +169,21 @@
         "source/ko-proverb-kind-words-return-b.png"
       ],
       "imageHashes": [
-        "b8858205d9dafded1307dd651d8b8c40e66d8970e43c4e9614112ad2da6a139c",
-        "5a97bfefca375c1ee810f93a2be1504b7100e457d30b5e8f4727087b9ee3d8f5"
+        "61f564e177adc43fc5ce813ae0dc67641ac8347711aea80b1edfa14c497f8fe8",
+        "5dfe1e8e1d513ba35ebd0b968779bee31297ee8a6aeb44cf21f355958e4f8bb5"
       ],
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-kind-words-return-base.txt",
-          "sha256": "a85e2f95c9d3353f8961b4dbcca585e65f5f3573cd0ccaf2d16c3a1c9dace835"
+          "sha256": "eee485c6c9faafdb3cc4d54f37b5ebe4a89bb4cfb2de4e9c1d86109be8e63486"
         },
         {
           "file": "prompts/ko-proverb-kind-words-return-correction.txt",
-          "sha256": "8e4d8bfb35c5e344744b29208977dccf8d320b61a3b40e27b00ccbfa8fd0bc39"
+          "sha256": "2a94e63fd9a03c31bf6cb22a4a142006198e221948ed618177b7cf6e540c40c4"
         },
         {
           "file": "prompts/ko-proverb-kind-words-return-edit.txt",
-          "sha256": "46ec5ecdc67a0e88fbf6693732f8717616a3997930794f6836f80e9628bd7320"
+          "sha256": "4e53a3060acbcd48b41aff02993f094649cf73eaabca49cb29f5803119b403f3"
         }
       ],
       "publishBlocked": true
@@ -176,7 +192,7 @@
       "key": "ko-idiom-turn-misfortune",
       "category": "IDIOM",
       "contentId": "a456f270-5396-4d7b-8dde-905c465657b3",
-      "contentRevisionId": "df75bad8-08e7-4e90-88d0-bad0fa6df46b",
+      "contentRevisionId": "0acd4bf2-3806-4ee9-8b6f-84f70a62bd8b",
       "bundle": "drafts/ko-idiom-turn-misfortune.json",
       "evidence": "evidence/ko-idiom-turn-misfortune.visual-delta.json",
       "images": [
@@ -184,17 +200,17 @@
         "source/ko-idiom-turn-misfortune-b.png"
       ],
       "imageHashes": [
-        "9bff7dbd76f19a2c0fec8eed9ac754c9ada3d241afd035c89a6dd348cd273bf8",
-        "c472823b7ce3418908c6a42f12d9c9fc7834239b993303b951c1f5c2fc64e076"
+        "5156a3c91b47057974df6e635453bd8b167134af3c203c3fb1441b164f9ba052",
+        "0f31770df20f766fddda8fd580e23f545210efed3f8cb6bd39761eaef9d6703c"
       ],
       "promptEvidence": [
         {
           "file": "prompts/ko-idiom-turn-misfortune-base.txt",
-          "sha256": "36b001ce8d9d4e27c4c6b0325fb0172610301e6a5bf57cf083f15b7ec16f0d07"
+          "sha256": "38fdb5c15edd0e75bfb667e1f9b6d26a5824409996d99e1f54d0ca7d775913c8"
         },
         {
           "file": "prompts/ko-idiom-turn-misfortune-edit.txt",
-          "sha256": "1bac6fcda1b10b7474691856467060582da2fcf1001979e0a3d36be5a96a44fb"
+          "sha256": "bfceca7604ecc1b779c802dca3ceba6b7fbab9e484aa17e698d6ce325b1158c3"
         }
       ],
       "publishBlocked": true
@@ -203,7 +219,7 @@
       "key": "ko-idiom-prepare-ahead",
       "category": "IDIOM",
       "contentId": "a05608c2-7737-40f0-8116-d1eefc9bf3f7",
-      "contentRevisionId": "2ed283a1-d81c-4052-868f-6a2a5f1bc97f",
+      "contentRevisionId": "61a3ee34-75c6-4d55-85d9-7067b05f1d37",
       "bundle": "drafts/ko-idiom-prepare-ahead.json",
       "evidence": "evidence/ko-idiom-prepare-ahead.visual-delta.json",
       "images": [
@@ -211,17 +227,17 @@
         "source/ko-idiom-prepare-ahead-b.png"
       ],
       "imageHashes": [
-        "fea2f58b2c3603dbdf5a1ad68bdf52807c79d5f54fcd872738099e1d5c8fbf46",
-        "02a616a84a402e017037f4bd5be99ed1701c7b059b004a63c33b0e86a86c4ccf"
+        "54b659b40cf0ad23fdf0e374024a5e76cd4c27a1ec2a4c9cc99ef6ea1b8f8531",
+        "8afae4517827c59715702c8901fdf246a96f5dcc9d2f2b1fd70eccc606c2b119"
       ],
       "promptEvidence": [
         {
           "file": "prompts/ko-idiom-prepare-ahead-base.txt",
-          "sha256": "ed234c664a756a7f3359d4798a62d5fbf8b11cbc561d1ac07b953a834fb4a88e"
+          "sha256": "515f3aec19bf8c299169260dc9a406b7f00d5b9ed100d8d023b4212ee1f9c807"
         },
         {
           "file": "prompts/ko-idiom-prepare-ahead-edit.txt",
-          "sha256": "8826ee37c40aaeec3f935e2f9250b39538d8473091d692f494040e98cbb2fd4b"
+          "sha256": "411901a11f066af3ae8359dbe724a25bf7149a00272accfb6e1ddf0229cec056"
         }
       ],
       "publishBlocked": true
@@ -230,7 +246,7 @@
       "key": "ko-idiom-perspective",
       "category": "IDIOM",
       "contentId": "050caabc-d151-4f1a-86ee-80a163dfa185",
-      "contentRevisionId": "868ee043-4c0a-4f6e-8f75-65c66951e7c1",
+      "contentRevisionId": "d6675c1e-ca02-49d5-8eb6-0526d9dff213",
       "bundle": "drafts/ko-idiom-perspective.json",
       "evidence": "evidence/ko-idiom-perspective.visual-delta.json",
       "images": [
@@ -238,17 +254,1903 @@
         "source/ko-idiom-perspective-b.png"
       ],
       "imageHashes": [
-        "d37c123580152a6a1552054e4ec6e171af7bfea77b299c2c1234f9e7fb51cf18",
-        "d3c5f45583c4166854b90cc0c675c1dad5347ee2290e10862ead0afec923e5b9"
+        "1308c5d9ba9a022994579736578fe48130f12279ca52a8428710fc45af927229",
+        "d873e9da75e8267589be4d5b1238c5277b38ad8ae346f2ebec7c70edf3c1c40f"
       ],
       "promptEvidence": [
         {
           "file": "prompts/ko-idiom-perspective-base.txt",
-          "sha256": "0e8c1ee64b1ff7e5f85ae0dce24a89ec374afd58ee773a04ff231d4fbc9a80ce"
+          "sha256": "81ba0d1d724186bdce925217be1a67bd859dc54202f5f0b7d8e5c0a9ab9bb654"
         },
         {
           "file": "prompts/ko-idiom-perspective-edit.txt",
-          "sha256": "3b8cf2baea59b5cdd0b62ae7810547b55d04980be9de042cae73506e15b57ab8"
+          "sha256": "42075c733816fd481da0e4feed3123a82835782422b5d2759a3b0e59399fda06"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-phonics-apple",
+      "category": "ENGLISH",
+      "contentId": "c5745911-5397-48ae-8cd6-1a9d546bf2bd",
+      "contentRevisionId": "7aed0653-a06e-4f37-8d47-b71fde6aa378",
+      "bundle": "drafts/en-phonics-apple.json",
+      "evidence": "evidence/en-phonics-apple.visual-delta.json",
+      "images": [
+        "source/en-phonics-apple-a.png",
+        "source/en-phonics-apple-b.png"
+      ],
+      "imageHashes": [
+        "31e4f0669bb9c90921402cf6a4e979ea53bb588042d9b7da8b44299b323e954b",
+        "45f43584a0908fe07b36be3b72f7448ef300398dbdf59c7074dc0d92cb78300c"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-phonics-apple-base.txt",
+          "sha256": "331d9c1fb1ec175a6e4c9e84d5fe832cc317df555178e7122fa99319e7dc8ee1"
+        },
+        {
+          "file": "prompts/en-phonics-apple-edit.txt",
+          "sha256": "257409431fcbca6b8d3d0a8018b8f49bcc33da7415d0a090c9ccd10c8eb997a3"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "gk-space-rover",
+      "category": "GENERAL_KNOWLEDGE",
+      "contentId": "2e4f9f07-9b07-4dd1-8d28-21dca394e5f9",
+      "contentRevisionId": "3c7a2d7a-aa14-458d-8763-aa27a882ccd2",
+      "bundle": "drafts/gk-space-rover.json",
+      "evidence": "evidence/gk-space-rover.visual-delta.json",
+      "images": [
+        "source/gk-space-rover-a.png",
+        "source/gk-space-rover-b.png"
+      ],
+      "imageHashes": [
+        "d48290312b6a175dd0fe1e8673715e44903e0870c984196ca615d5eae53fbdce",
+        "e4ee4948db3fd40813fcbb347cc2573a83d4bb764c1a8a8f3a6a31a13321b849"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/gk-space-rover-base.txt",
+          "sha256": "37f4d4f047731bc526c0ea31881cdc4e2df86cc4d6c5ded2fe61c892686ab7c9"
+        },
+        {
+          "file": "prompts/gk-space-rover-edit.txt",
+          "sha256": "a33c77be00570b06dbe20671ce969f0b2a89677fad8e0f5f892c8e0c6be2ba16"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "ko-proverb-cow-barn",
+      "category": "PROVERB",
+      "contentId": "8a62ab0d-c122-419c-8129-f3ba724d7924",
+      "contentRevisionId": "c88160aa-eab6-4e4b-80b7-961e47ba2a05",
+      "bundle": "drafts/ko-proverb-cow-barn.json",
+      "evidence": "evidence/ko-proverb-cow-barn.visual-delta.json",
+      "images": [
+        "source/ko-proverb-cow-barn-a.png",
+        "source/ko-proverb-cow-barn-b.png"
+      ],
+      "imageHashes": [
+        "e24d504d74ed66554064f7100e218df4c6bf4b35b65988a11810f508a4d52309",
+        "6a5e60ccc217d12ea23fdf6a9f4980cc89dff071263039e11021d414e8a4f9e2"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/ko-proverb-cow-barn-base.txt",
+          "sha256": "627134d7d0cf390e4a6e6619388679c70edd6a4a40a2c6cec0ec8d6d44a0528f"
+        },
+        {
+          "file": "prompts/ko-proverb-cow-barn-edit.txt",
+          "sha256": "5b916ef4984fba279d8812ec57215519baff9cf66ab0467cac1cd781d97eeea0"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "ko-idiom-birds-one-stone",
+      "category": "IDIOM",
+      "contentId": "dc26779c-6512-4a71-8800-480994c0ec74",
+      "contentRevisionId": "34af5227-b3fd-4b67-8a9a-c5e1f68a883f",
+      "bundle": "drafts/ko-idiom-birds-one-stone.json",
+      "evidence": "evidence/ko-idiom-birds-one-stone.visual-delta.json",
+      "images": [
+        "source/ko-idiom-birds-one-stone-a.png",
+        "source/ko-idiom-birds-one-stone-b.png"
+      ],
+      "imageHashes": [
+        "2972ac3742ca74437f92dc203b841785b84bc8aa12be0340c42f7eeebac67c11",
+        "adc3ffe7fa78c9cb45219f09adf41b9eeed5d7b6971b5607ad207e37b5b5c6d1"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/ko-idiom-birds-one-stone-base.txt",
+          "sha256": "9135f3e8b1165812286c3603674aa7742b660b4c28403cef1fe7b65a3cd4085b"
+        },
+        {
+          "file": "prompts/ko-idiom-birds-one-stone-edit.txt",
+          "sha256": "8d8d0a05b944e102d805d034068eb267eceb635730d9143c5d79cb49a4838c76"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-school-classroom",
+      "category": "ENGLISH",
+      "contentId": "c472b82d-7e97-478a-87ac-580d8b3453ed",
+      "contentRevisionId": "531f8ec6-9e47-4879-8643-826d841b7870",
+      "bundle": "drafts/en-school-classroom.json",
+      "evidence": "evidence/en-school-classroom.visual-delta.json",
+      "images": [
+        "source/en-school-classroom-a.png",
+        "source/en-school-classroom-b.png"
+      ],
+      "imageHashes": [
+        "7c528aad4a5149768ab3b183dfa6532c2a6534bc0b888d0215503c05a1c4afa7",
+        "7b4be0138ef1a2abfa39b6e2b023d4956e5cbe13d5ad7f71f22390cd09e137eb"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-school-classroom-base.txt",
+          "sha256": "376a2b1731966b752c32dff18cb1b0391d0603b466531c632a68a8d4ba948044"
+        },
+        {
+          "file": "prompts/en-school-classroom-edit.txt",
+          "sha256": "b781f57eca0cfa26f1ef00b59d73db44bd841a8cecfe5fac8bb0017ae3fe34e4"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-happy-family",
+      "category": "ENGLISH",
+      "contentId": "235a1582-b282-4638-88c2-db56b5e8a1fe",
+      "contentRevisionId": "63ffb4b1-3d5c-416d-8b13-a5894b8e2c78",
+      "bundle": "drafts/en-happy-family.json",
+      "evidence": "evidence/en-happy-family.visual-delta.json",
+      "images": [
+        "source/en-happy-family-a.png",
+        "source/en-happy-family-b.png"
+      ],
+      "imageHashes": [
+        "555d7a8c1add5b4e79deca138a1ba986f9d6d92a47830e2f9ec868c247affc27",
+        "a8a3870e6123e577899e62395ae83433c61aa974cce1a8c969214412fd009453"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-happy-family-base.txt",
+          "sha256": "51891e3551b0cee329dd7ca631095d95c2a3c50996f03b30cb1653ce19c8c1f3"
+        },
+        {
+          "file": "prompts/en-happy-family-edit.txt",
+          "sha256": "562d2dd20c9e5472625cab47ac4713d82566c00cc76d8d70f44ba0b63459a16f"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-curiosity-lab",
+      "category": "ENGLISH",
+      "contentId": "057869c5-7a3f-4751-8a38-95b21178621d",
+      "contentRevisionId": "c7d11d18-c531-4e17-89c2-bec36041f9cb",
+      "bundle": "drafts/en-curiosity-lab.json",
+      "evidence": "evidence/en-curiosity-lab.visual-delta.json",
+      "images": [
+        "source/en-curiosity-lab-a.png",
+        "source/en-curiosity-lab-b.png"
+      ],
+      "imageHashes": [
+        "e03cc5dfb8bf9020428ba8f5ba5f139b4b1c53f60964196f7c2877a74523bbd3",
+        "554e6a503b4a77d6f8dd8a7034b369f3812ea7b8d5ca86396a16512089701b9d"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-curiosity-lab-base.txt",
+          "sha256": "bc1c543c3c85599222b0e581be44c9bbc8eb5d01a34b61959e15a4d71b36cec1"
+        },
+        {
+          "file": "prompts/en-curiosity-lab-edit.txt",
+          "sha256": "d8fa005b7eed5dc55acf5305c9c9da8c7ed33f64ee50c4b0c701b2232511e3c8"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-ambiguity-gallery",
+      "category": "ENGLISH",
+      "contentId": "56355ac4-ee2d-46e9-8c1c-f102e710370b",
+      "contentRevisionId": "0c7466d2-0fd4-4749-8979-abf1ac20b5de",
+      "bundle": "drafts/en-ambiguity-gallery.json",
+      "evidence": "evidence/en-ambiguity-gallery.visual-delta.json",
+      "images": [
+        "source/en-ambiguity-gallery-a.png",
+        "source/en-ambiguity-gallery-b.png"
+      ],
+      "imageHashes": [
+        "9115763937ea3f88201ca7c22593ce8999b626f3f93e1d6a33c2980c033e1532",
+        "5d65ebda93e7e5a3f8282f15fda5fa5757842d650834ca11eee7a3acaf20feec"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-ambiguity-gallery-base.txt",
+          "sha256": "1d92254051c21efd6ed4b7e37a10a29c9914dd6a5143f963ff38f6cdf95b01ca"
+        },
+        {
+          "file": "prompts/en-ambiguity-gallery-edit.txt",
+          "sha256": "a01c86e47256b7cce1c217518bf893d098b64c648bacd3b432e2925ce5f7d680"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-toy-hospital",
+      "category": "ENGLISH",
+      "contentId": "fbf8d862-0a02-41f0-87c6-aa2337935fb1",
+      "contentRevisionId": "122cf8b4-8850-4a74-8b07-a2377a1ecb54",
+      "bundle": "drafts/en-toy-hospital.json",
+      "evidence": "evidence/en-toy-hospital.visual-delta.json",
+      "images": [
+        "source/en-toy-hospital-a.png",
+        "source/en-toy-hospital-b.png"
+      ],
+      "imageHashes": [
+        "645f0b95b9fa095b019172629927e9c1a7c00ca6360ddb8ed745104397caaba0",
+        "ee1c93a948faf8bd970e4026e475a7d29b53c557095503bf40a28035e4ff13c9"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-toy-hospital-base.txt",
+          "sha256": "5c1b53e785e644b66c2ae521344a1ae7330233248fc689bb99b4526510a547ed"
+        },
+        {
+          "file": "prompts/en-toy-hospital-edit.txt",
+          "sha256": "4ad93da621b1859897f1f114af94ee87c3b7b898c34e2fe5ce8ee8de8f4e90c7"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-city-park",
+      "category": "ENGLISH",
+      "contentId": "6d79ca99-25c0-4331-8041-66e1e4c708d9",
+      "contentRevisionId": "228cf169-9768-4afd-8ce5-16b24ec772eb",
+      "bundle": "drafts/en-city-park.json",
+      "evidence": "evidence/en-city-park.visual-delta.json",
+      "images": [
+        "source/en-city-park-a.png",
+        "source/en-city-park-b.png"
+      ],
+      "imageHashes": [
+        "092de8b30a04700e1056842311976d46310dcac4dfa88c305c235c6ecc3beefb",
+        "f6d920c5acb3d2ea25fbd9914cf1d03b7d95f950eba8e59840f0990a671d6b02"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-city-park-base.txt",
+          "sha256": "4865cfecfbe134477a9030f8686a2235d83021ba56f5aa47ea8e7d1732b8e1b4"
+        },
+        {
+          "file": "prompts/en-city-park-edit.txt",
+          "sha256": "475913ab8dc6f8e4aa73feaa8bd79e2d39b4f2dbb30525b3d868bc79db7ec989"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-yellow-bus",
+      "category": "ENGLISH",
+      "contentId": "b3c387b1-0060-4f96-8044-2be9e11f7f26",
+      "contentRevisionId": "33ecc8ea-a41c-403e-873d-9e4961a26d75",
+      "bundle": "drafts/en-yellow-bus.json",
+      "evidence": "evidence/en-yellow-bus.visual-delta.json",
+      "images": [
+        "source/en-yellow-bus-a.png",
+        "source/en-yellow-bus-b.png"
+      ],
+      "imageHashes": [
+        "c4210f59cdb937587bbb162db0cfc2538fa65a0f6541e5339fa8c92e5bffaf38",
+        "d97ad27c14cc1d11d8df6e8af00921d4d6ee889f3fe045ff7988b317662fc3d2"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-yellow-bus-base.txt",
+          "sha256": "77eaa7c189d18d40aca30579575da9c5ed7f77d2f0c612b3433b80dfdf98c763"
+        },
+        {
+          "file": "prompts/en-yellow-bus-edit.txt",
+          "sha256": "ac32ecaffa971d80359aa74742f51c735f67127e63b70bd6b53ee47fa66414b3"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-funny-zoo",
+      "category": "ENGLISH",
+      "contentId": "6ff26934-759a-4478-81b1-dcec0473c2b2",
+      "contentRevisionId": "f6233028-710c-4ed1-83aa-fcfbbfb61726",
+      "bundle": "drafts/en-funny-zoo.json",
+      "evidence": "evidence/en-funny-zoo.visual-delta.json",
+      "images": [
+        "source/en-funny-zoo-a.png",
+        "source/en-funny-zoo-b.png"
+      ],
+      "imageHashes": [
+        "c240fded4d8ee0238f9d682b9fd0758f4fbfbb2bf73a6f52b4ad5adc7f55e716",
+        "767ce04edd427fbee97c95122f4f28a5da5bc4d2983a47783a8be66f3d456112"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-funny-zoo-base.txt",
+          "sha256": "292c9f57b4018dfdccf3528f724e1bbbb45e9aed9ec88a1e15a00666c5a9b177"
+        },
+        {
+          "file": "prompts/en-funny-zoo-edit.txt",
+          "sha256": "735ded77a72c681390e371bb83501fca2acd45bef4998a1ed2d101a41b83f6ce"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-sweet-bakery",
+      "category": "ENGLISH",
+      "contentId": "16acd5c3-9f4a-4e4d-8a05-4fc9d719b5eb",
+      "contentRevisionId": "56f31071-bffa-47c2-86c7-98432ef4b23b",
+      "bundle": "drafts/en-sweet-bakery.json",
+      "evidence": "evidence/en-sweet-bakery.visual-delta.json",
+      "images": [
+        "source/en-sweet-bakery-a.png",
+        "source/en-sweet-bakery-b.png"
+      ],
+      "imageHashes": [
+        "1302c300ad7c13d714c7faca22950cd66821eee7c0e6499a5c010de799c81164",
+        "88d13fcb932e0346c047d9c3f2b2580f35e4d8d04d0274835988b57c75820fce"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-sweet-bakery-base.txt",
+          "sha256": "1a83bccdbfe1e0681a0fcf173b622aaebec89ed7a8a952d1ca083fc8b29ecb4d"
+        },
+        {
+          "file": "prompts/en-sweet-bakery-edit.txt",
+          "sha256": "60337784ffa9c2d3783bd196d79c6aa0adfd70e1a9c265987afbcebe3e6cedf0"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-summer-beach",
+      "category": "ENGLISH",
+      "contentId": "e665d756-6007-4e0d-8f6c-04a7abfb4a84",
+      "contentRevisionId": "c4f2f7ba-5933-456a-88f0-e524dad6f6e8",
+      "bundle": "drafts/en-summer-beach.json",
+      "evidence": "evidence/en-summer-beach.visual-delta.json",
+      "images": [
+        "source/en-summer-beach-a.png",
+        "source/en-summer-beach-b.png"
+      ],
+      "imageHashes": [
+        "ae6b504c0bdc5c44e728baeb52dd1abd731d00e128fb8bf3e78b572486fe1378",
+        "1b0abe96c15615f9da885189bfc6ca4b0e8d7ed1ec26a9376600b7a47b2e3783"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-summer-beach-base.txt",
+          "sha256": "6e075ce71a07d354a30182b3d14e8cc5b59513f2d4fc37d3dac1ab6a6f4353f4"
+        },
+        {
+          "file": "prompts/en-summer-beach-edit.txt",
+          "sha256": "3fef1574364d869113f7ba82977ef686d18778f4b988384978fce503b48fe4c1"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-space-rocket",
+      "category": "ENGLISH",
+      "contentId": "0ac198a3-1c92-4221-8993-e7ded734a48e",
+      "contentRevisionId": "171059c4-593d-4f31-8ed9-ed0b50a045a6",
+      "bundle": "drafts/en-space-rocket.json",
+      "evidence": "evidence/en-space-rocket.visual-delta.json",
+      "images": [
+        "source/en-space-rocket-a.png",
+        "source/en-space-rocket-b.png"
+      ],
+      "imageHashes": [
+        "331ba6362bf9fbb866bcf3cd864e94b3893b1aa4f50e3ca04d7c93bd4eedcce3",
+        "2abf31ec4c62e33ac77847ca9c74ac068745fe4bb6a52ee24469d8fb258fcb5c"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-space-rocket-base.txt",
+          "sha256": "7e77fd07a1158288800c6e2638249a4313bb8674b6971dd3cc756cf95295e1f4"
+        },
+        {
+          "file": "prompts/en-space-rocket-edit.txt",
+          "sha256": "5b1d6631b20e1ffd1d9de8d8d006ae739612dcb9b099a976ba8e4d468c5a655d"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-sustainability-greenhouse",
+      "category": "ENGLISH",
+      "contentId": "f97ba7a4-9f6d-4e4d-82b6-1b07723042e4",
+      "contentRevisionId": "9fea7882-c424-47dc-84a4-a123cf4dc49b",
+      "bundle": "drafts/en-sustainability-greenhouse.json",
+      "evidence": "evidence/en-sustainability-greenhouse.visual-delta.json",
+      "images": [
+        "source/en-sustainability-greenhouse-a.png",
+        "source/en-sustainability-greenhouse-b.png"
+      ],
+      "imageHashes": [
+        "6084022ab0a85c76a9bd317fb53334d1bbcc5d58bc9ca68db8de6d5c5c2cabb9",
+        "4dcc43517215a9bc897b47a4b48fcbea84eb66d5f4e04f1a84cc316b7f061915"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-sustainability-greenhouse-base.txt",
+          "sha256": "64c6ccfc96b30d59a6c81798ab8ec645ee88bbb5aca578a9cca3ada157e6d279"
+        },
+        {
+          "file": "prompts/en-sustainability-greenhouse-edit.txt",
+          "sha256": "77404e13f58a43ef3769480a4ef2a19863e9860ebbe98084ea00f16b09a777a2"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-architecture-studio",
+      "category": "ENGLISH",
+      "contentId": "1c0af010-5445-46ba-8a6f-14096410edf1",
+      "contentRevisionId": "41d2866a-8874-4770-865f-33bf98094d95",
+      "bundle": "drafts/en-architecture-studio.json",
+      "evidence": "evidence/en-architecture-studio.visual-delta.json",
+      "images": [
+        "source/en-architecture-studio-a.png",
+        "source/en-architecture-studio-b.png"
+      ],
+      "imageHashes": [
+        "b796f328d943134bac3213e378f8d53ed7218f8c14dfc5b70fe2e30dc431e0b4",
+        "1366602af18e863b86ac7ee6d12cc6e047e69f42f868b1bd5667dfc8f7f89c97"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-architecture-studio-base.txt",
+          "sha256": "78960d092cabac153e5fd2208bd57259733bd5676d1bcfc437b229c2d653c62a"
+        },
+        {
+          "file": "prompts/en-architecture-studio-edit.txt",
+          "sha256": "9f004a60645ba46d44701b0ef90fac1fabf7c130e1d7d1f6ebd223590c84f4b5"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-ecosystem-coral",
+      "category": "ENGLISH",
+      "contentId": "86a56029-db4e-453d-8185-2c178644fbf6",
+      "contentRevisionId": "d9e5ae04-81e2-41fd-848e-14a73cd46e9f",
+      "bundle": "drafts/en-ecosystem-coral.json",
+      "evidence": "evidence/en-ecosystem-coral.visual-delta.json",
+      "images": [
+        "source/en-ecosystem-coral-a.png",
+        "source/en-ecosystem-coral-b.png"
+      ],
+      "imageHashes": [
+        "bba499677a92aacfbe5a773717c90e7d6c56f65a292012c68050990cfdd5af92",
+        "f03e2f1ac215752f9200d98a8e047942fe85abf8dbc7aa260d0814e3d106e964"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-ecosystem-coral-base.txt",
+          "sha256": "38f0495e1beaab9a0d5551805375eedad36e4933245bb8d926be1fb002442e76"
+        },
+        {
+          "file": "prompts/en-ecosystem-coral-edit.txt",
+          "sha256": "732a533ffc498ffad477389c30b52ef4bf12a573e3d8ac03abc114bf653a1f1f"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-astronomy-observatory",
+      "category": "ENGLISH",
+      "contentId": "29517bf2-7ccc-47dc-84bb-f0a388ab222c",
+      "contentRevisionId": "530e2611-4c7a-42bd-8a32-4777b1c1842b",
+      "bundle": "drafts/en-astronomy-observatory.json",
+      "evidence": "evidence/en-astronomy-observatory.visual-delta.json",
+      "images": [
+        "source/en-astronomy-observatory-a.png",
+        "source/en-astronomy-observatory-b.png"
+      ],
+      "imageHashes": [
+        "b4dde0cdfad77ccf372d42b13c1c2db1e0858956c80717f811a8bf890b3523b9",
+        "322052fa77f3f126d125afa95ad4062e1a569c21abfba41c68102d4a8ede021d"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-astronomy-observatory-base.txt",
+          "sha256": "e020efc0c9ac2ab8a8f8476f0c100ca8293673f3459d67004f908ba97c6ab57a"
+        },
+        {
+          "file": "prompts/en-astronomy-observatory-edit.txt",
+          "sha256": "28c8a4fe19139d76a0a60c712b820a1c01e8467fdd74f93673ebfc9c9331f68d"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-archaeology-dig",
+      "category": "ENGLISH",
+      "contentId": "ae44a484-6a00-412d-8942-4d5249769b39",
+      "contentRevisionId": "6d51a444-5172-4cdb-826a-5ffe4918345b",
+      "bundle": "drafts/en-archaeology-dig.json",
+      "evidence": "evidence/en-archaeology-dig.visual-delta.json",
+      "images": [
+        "source/en-archaeology-dig-a.png",
+        "source/en-archaeology-dig-b.png"
+      ],
+      "imageHashes": [
+        "968409faee582e53a4ed722f400fea74a1f5e5851004a79afc605b4bfced5d03",
+        "6905147243a79974d5320123ed829b6f9c540dbdb795cc07a1c859b130a13375"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-archaeology-dig-base.txt",
+          "sha256": "b080c68083cdbb5921b820dcba50c990ad5da4eb1628d99b3cc03b96e4562366"
+        },
+        {
+          "file": "prompts/en-archaeology-dig-edit.txt",
+          "sha256": "1df4a04aa882d0edfd731a381b78b9ecc2061cad69418333bfa7fc0a0c7fbe61"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-symphony-orchestra",
+      "category": "ENGLISH",
+      "contentId": "a525f1c1-45d5-441c-8b12-8e3f9d3fbd5a",
+      "contentRevisionId": "0e61de2b-7019-465f-86aa-1e3ca9c702ce",
+      "bundle": "drafts/en-symphony-orchestra.json",
+      "evidence": "evidence/en-symphony-orchestra.visual-delta.json",
+      "images": [
+        "source/en-symphony-orchestra-a.png",
+        "source/en-symphony-orchestra-b.png"
+      ],
+      "imageHashes": [
+        "7b927ccc1781cd9842b89c811c20032b99cb4efa9957273cf8c3eb9be7adfc8c",
+        "3007c0e59a83ff0b0b59c07087fc4d6d05992db01e2480b8e7e3e05f11da8979"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-symphony-orchestra-base.txt",
+          "sha256": "577a7b685b57ff5b8b2af67adec0002b79d794c79d471e53d5a6c5ba8bfaaafc"
+        },
+        {
+          "file": "prompts/en-symphony-orchestra-edit.txt",
+          "sha256": "e20d26a48bf40d1c57bda229806f080d2f51e3267fb04b449e983c5181ace5d8"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-hypothesis-lab",
+      "category": "ENGLISH",
+      "contentId": "956b5775-2497-4f37-8ed1-9e5e153d23d4",
+      "contentRevisionId": "1fda99a7-d748-4cf6-88ab-130aa3809f96",
+      "bundle": "drafts/en-hypothesis-lab.json",
+      "evidence": "evidence/en-hypothesis-lab.visual-delta.json",
+      "images": [
+        "source/en-hypothesis-lab-a.png",
+        "source/en-hypothesis-lab-b.png"
+      ],
+      "imageHashes": [
+        "a5da04860df98f117bae7cf8058984d6e7c01fb63c41dd178ac6f2bd998ce456",
+        "3c653dc07ec2c8fb69477ea82742b9f70f4893e3a3a87e5c89d7c252ec432e18"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-hypothesis-lab-base.txt",
+          "sha256": "d237546831584c8e24aa40807b084e1130681b25171aca0a630a421cd8a76e2a"
+        },
+        {
+          "file": "prompts/en-hypothesis-lab-edit.txt",
+          "sha256": "a6e890daae15dc04080c55954ac8d75e3171d3e762a1a02f024576c75a487548"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-journalism-press",
+      "category": "ENGLISH",
+      "contentId": "4ec07a70-dc45-4097-8c2d-96e0494b3b8d",
+      "contentRevisionId": "930c3a70-9eff-4449-8ff8-415a410259d8",
+      "bundle": "drafts/en-journalism-press.json",
+      "evidence": "evidence/en-journalism-press.visual-delta.json",
+      "images": [
+        "source/en-journalism-press-a.png",
+        "source/en-journalism-press-b.png"
+      ],
+      "imageHashes": [
+        "bb774dd10eefb3fdb8d71304aedb0325ea7ebaf7761577fccadc4005f830c982",
+        "adb00a22cc70c0b66a8fd28eae7431f4c2b2ea3355b338fb66a728d4b1dcaf65"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-journalism-press-base.txt",
+          "sha256": "2b96855a55a50da66d03ad59116725b1466d219873a98f38b3b99805305e207c"
+        },
+        {
+          "file": "prompts/en-journalism-press-edit.txt",
+          "sha256": "449c52472b6faedf7261332ed228910fba964047624f02eb4cb0f22e87dfda3c"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-metaphor-library",
+      "category": "ENGLISH",
+      "contentId": "4c4cdc2d-214c-440e-8d70-35466cb15f7b",
+      "contentRevisionId": "4ff4f419-0d8e-4b94-869e-44b9c7d3cc94",
+      "bundle": "drafts/en-metaphor-library.json",
+      "evidence": "evidence/en-metaphor-library.visual-delta.json",
+      "images": [
+        "source/en-metaphor-library-a.png",
+        "source/en-metaphor-library-b.png"
+      ],
+      "imageHashes": [
+        "4ddefe8b390e9a758120cd44050dbcb3f36d7bb526b3f7b32a35a6fb389a368e",
+        "ec6af23e2e1acbb6735723235a9dde7751f9708415fe5ddb7ba0d43a0aeae911"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-metaphor-library-base.txt",
+          "sha256": "e0f4808b165463c7a9be134ba4363c827e9870d28e05c7e9df66ef9096a5cf14"
+        },
+        {
+          "file": "prompts/en-metaphor-library-edit.txt",
+          "sha256": "902578d5da6b018b7bc59529dd3d6bcedf9a883e0bb519b26a8bef5489c5a4d2"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-paradox-labyrinth",
+      "category": "ENGLISH",
+      "contentId": "686e2052-ff09-4072-89f5-738abaf21f92",
+      "contentRevisionId": "290e6ce6-9794-47f1-86d4-24b9b76f2dcb",
+      "bundle": "drafts/en-paradox-labyrinth.json",
+      "evidence": "evidence/en-paradox-labyrinth.visual-delta.json",
+      "images": [
+        "source/en-paradox-labyrinth-a.png",
+        "source/en-paradox-labyrinth-b.png"
+      ],
+      "imageHashes": [
+        "9c0bae2b4abc26f666792483cc1805149c325a9d4161c8beb803c5bba328e3bf",
+        "bded07a660a10b4442437c3f2c98a06bbc06e431964c8d36c6d19de5f9b70390"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-paradox-labyrinth-base.txt",
+          "sha256": "b8eab4438ef084a66fbe3d07b4cd8def75d6d8aba6f2613879466b0b46ec13b7"
+        },
+        {
+          "file": "prompts/en-paradox-labyrinth-edit.txt",
+          "sha256": "5e11522c87a1a51c3258892e5bd83ce7c862bf1d2332ffb7584c2d7e02a9a05b"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-serendipity-garden",
+      "category": "ENGLISH",
+      "contentId": "947e5c47-6cee-4534-8402-ccd554230a43",
+      "contentRevisionId": "e1bb63e1-54ed-4cf2-8515-fd7eb0ebf301",
+      "bundle": "drafts/en-serendipity-garden.json",
+      "evidence": "evidence/en-serendipity-garden.visual-delta.json",
+      "images": [
+        "source/en-serendipity-garden-a.png",
+        "source/en-serendipity-garden-b.png"
+      ],
+      "imageHashes": [
+        "d2a0a42fceba9495ddf3492eeafc05ee6e4288dd11763207c8af05a4471e5340",
+        "08d5911eb9203438845af5bda6e15a05842a9c2df09c8b2133ee7c3fc56269aa"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-serendipity-garden-base.txt",
+          "sha256": "39a666b81131b146fdf9f49f862355feb12b7ff470aa40d709844e73e3b61b43"
+        },
+        {
+          "file": "prompts/en-serendipity-garden-edit.txt",
+          "sha256": "02455e34deed226b84bb1adb7655d1e17a465d56be77a2c603b5ce60113fe682"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-synergy-cradle",
+      "category": "ENGLISH",
+      "contentId": "ee76f0da-79f7-4235-8943-6398e5ebf708",
+      "contentRevisionId": "e985a196-7af4-46bd-8dfd-8022100fcd4b",
+      "bundle": "drafts/en-synergy-cradle.json",
+      "evidence": "evidence/en-synergy-cradle.visual-delta.json",
+      "images": [
+        "source/en-synergy-cradle-a.png",
+        "source/en-synergy-cradle-b.png"
+      ],
+      "imageHashes": [
+        "48a43efd1e53783936679fa146e58bbbd42aae5741855c873a5b0a37fc62908f",
+        "13e5923b0fd66ce094c0079436007a50e54e60994490d132ff15084918f9b456"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-synergy-cradle-base.txt",
+          "sha256": "cb83be074c5f31af3e579308e0ed8ef7d6e5f04193f5ff10dcd3bfb259b747b2"
+        },
+        {
+          "file": "prompts/en-synergy-cradle-edit.txt",
+          "sha256": "ccbe506afc25ea8d7b3b3500b81c2de9a40c1e5b18c683fb5945ef6299b3c52a"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-resilience-garden",
+      "category": "ENGLISH",
+      "contentId": "b441c41f-26e2-45b5-8e2e-46cc0a79b579",
+      "contentRevisionId": "47eb839a-51bc-459b-8ac3-d57ce3944b54",
+      "bundle": "drafts/en-resilience-garden.json",
+      "evidence": "evidence/en-resilience-garden.visual-delta.json",
+      "images": [
+        "source/en-resilience-garden-a.png",
+        "source/en-resilience-garden-b.png"
+      ],
+      "imageHashes": [
+        "b425fd79d5c90efd520e660aceb002b2ccf1adc705d9cea106ac6af9fc1b8be9",
+        "bb58f697c1604996e27530da835b56ffda21c0427cc79a6fbd80b1cffa97ed8d"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-resilience-garden-base.txt",
+          "sha256": "1ccab3791d0ea1c764c1b79ad521a7aace10552668dc4df6193a83424877aa76"
+        },
+        {
+          "file": "prompts/en-resilience-garden-edit.txt",
+          "sha256": "6d2e921f2baa3f9a9cafbfa1804e1ba620fdedd52b77f7de73378888ee87a427"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-nostalgia-attic",
+      "category": "ENGLISH",
+      "contentId": "a73b2cf4-bded-4b6f-87a1-aa2319faed9b",
+      "contentRevisionId": "93cbebff-8dd1-4dcd-8dae-02fb1f77cc37",
+      "bundle": "drafts/en-nostalgia-attic.json",
+      "evidence": "evidence/en-nostalgia-attic.visual-delta.json",
+      "images": [
+        "source/en-nostalgia-attic-a.png",
+        "source/en-nostalgia-attic-b.png"
+      ],
+      "imageHashes": [
+        "7e440a46f511fa8669c0f8afa88616c1dbe0a02fa347ba59b3eb4fe77a3c05b1",
+        "3676e5d5465a432e1cda69f338be30d5f655aa8cbeca9d54aaffa091fa315585"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-nostalgia-attic-base.txt",
+          "sha256": "dcb417a93e921c137baf3bd82c90366784dccacdc334b1b1d3372a027bc0c56a"
+        },
+        {
+          "file": "prompts/en-nostalgia-attic-edit.txt",
+          "sha256": "6ce4729de51d411a41f57fae3e7593dc3bba3ab61f75bc3c9a9ac0917c2f1bad"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-epiphany-lighthouse",
+      "category": "ENGLISH",
+      "contentId": "35a75ed2-d22f-44db-8c1b-b44cfee4a739",
+      "contentRevisionId": "5aaa666b-234c-449c-82b9-8d5ef11249dc",
+      "bundle": "drafts/en-epiphany-lighthouse.json",
+      "evidence": "evidence/en-epiphany-lighthouse.visual-delta.json",
+      "images": [
+        "source/en-epiphany-lighthouse-a.png",
+        "source/en-epiphany-lighthouse-b.png"
+      ],
+      "imageHashes": [
+        "80d8433f800d34095d26c1976683f1af7375c278377eb8f105ab5e53bca0a46f",
+        "7f1157d880a5022e84dd099ef2d39eada181f9489d329e951595de5139e78b59"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-epiphany-lighthouse-base.txt",
+          "sha256": "84b4b42c25686a7bce8091ad3e7b11befbdef8813e45d185ad864c2dc8e892c6"
+        },
+        {
+          "file": "prompts/en-epiphany-lighthouse-edit.txt",
+          "sha256": "4096de29b01104588e2b9b736230d17d07d9f4d3fde943507c0c420c7c1d6e3d"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-equilibrium-cliff",
+      "category": "ENGLISH",
+      "contentId": "f8d8b966-0b85-4db4-8633-847ea608a7b3",
+      "contentRevisionId": "e9ef2b41-b3d9-49af-89f7-f20bb1550637",
+      "bundle": "drafts/en-equilibrium-cliff.json",
+      "evidence": "evidence/en-equilibrium-cliff.visual-delta.json",
+      "images": [
+        "source/en-equilibrium-cliff-a.png",
+        "source/en-equilibrium-cliff-b.png"
+      ],
+      "imageHashes": [
+        "5a27e5ca600d2b8441bb84f92505c08758d3a88654a91fa2f8ca033acc2c3b57",
+        "58d094521ee79d41e45449e76a99d70d55cad2833ccea9224f506c8643a146c6"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-equilibrium-cliff-base.txt",
+          "sha256": "805c48a8e79dd43cef827ac96a7086d3c2f43768117640e889c2cd511f6f44e4"
+        },
+        {
+          "file": "prompts/en-equilibrium-cliff-edit.txt",
+          "sha256": "080a95068542d6bf2c7770df8435438a7be163a9d4d89d5d164eb7e1e8c9d814"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-transmutation-alchemist",
+      "category": "ENGLISH",
+      "contentId": "a0f8f7b7-4c22-450d-8e0c-ebda2ab86d24",
+      "contentRevisionId": "02fc24a2-dd77-4721-82c7-2575a19df786",
+      "bundle": "drafts/en-transmutation-alchemist.json",
+      "evidence": "evidence/en-transmutation-alchemist.visual-delta.json",
+      "images": [
+        "source/en-transmutation-alchemist-a.png",
+        "source/en-transmutation-alchemist-b.png"
+      ],
+      "imageHashes": [
+        "fb13f1be669e55637091fb17604f74888a7f8e40995afedaaeb3bb18b2380f38",
+        "8c3e042b7c3c51af87ba5cf63766a54db3ea53b845e0d4378f1aaae0997c4452"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-transmutation-alchemist-base.txt",
+          "sha256": "44f79c4e7a750cfbceeddca3e02f0d7801d7cf799de782863d5ff7b9ba8d7551"
+        },
+        {
+          "file": "prompts/en-transmutation-alchemist-edit.txt",
+          "sha256": "9d9777fdf953aefc1624072602fa31144192c2bd69e9affe043df103eb36fe8a"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-transcendence-galaxy",
+      "category": "ENGLISH",
+      "contentId": "00ae802e-f432-44ea-8c84-e003c1cdf2b2",
+      "contentRevisionId": "17b988c1-17f4-4170-8a7e-f7537f5b74a3",
+      "bundle": "drafts/en-transcendence-galaxy.json",
+      "evidence": "evidence/en-transcendence-galaxy.visual-delta.json",
+      "images": [
+        "source/en-transcendence-galaxy-a.png",
+        "source/en-transcendence-galaxy-b.png"
+      ],
+      "imageHashes": [
+        "72768bdd0c5cedb02fedf8ead2f2f5f04fcee62536964f3c46689e409679bdbf",
+        "2c933d0c9b92003385e9bd002684a90b8010092f95b672e712766e9d5bc6306e"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-transcendence-galaxy-base.txt",
+          "sha256": "6266ab03131704035428f38992ebee063e844d10048e79131791e26b9181a984"
+        },
+        {
+          "file": "prompts/en-transcendence-galaxy-edit.txt",
+          "sha256": "325bc9b40005a89f86d710b9c5e265aec00ee49f840eaeb59f3d05aef53498b4"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-phenomenon-lab",
+      "category": "ENGLISH",
+      "contentId": "b9ded798-4ee2-4a1a-8a63-201a53ca7c0f",
+      "contentRevisionId": "368c7910-cd53-47de-883e-27ac84630559",
+      "bundle": "drafts/en-phenomenon-lab.json",
+      "evidence": "evidence/en-phenomenon-lab.visual-delta.json",
+      "images": [
+        "source/en-phenomenon-lab-a.png",
+        "source/en-phenomenon-lab-b.png"
+      ],
+      "imageHashes": [
+        "ccccb4cb4cfa059f28c5eae890839325b257aaf80b31e14d99cd56413b4701dd",
+        "19119f9798335557331b50bf69b1db0ec226d861810e2b662637246d9b87360d"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-phenomenon-lab-base.txt",
+          "sha256": "550d54c98d6d46b01ebde4187b7dbc67c19d33913d1ad004643b99446fdb6eff"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-juxtaposition-market",
+      "category": "ENGLISH",
+      "contentId": "6456971c-f966-4a0d-81d0-56f2e4ddbab9",
+      "contentRevisionId": "c950a6a1-1b4f-42ad-807d-42aba2d6763c",
+      "bundle": "drafts/en-juxtaposition-market.json",
+      "evidence": "evidence/en-juxtaposition-market.visual-delta.json",
+      "images": [
+        "source/en-juxtaposition-market-a.png",
+        "source/en-juxtaposition-market-b.png"
+      ],
+      "imageHashes": [
+        "0107d99f82c6642e1d6278439b0c9d9d6ffd1b8733803ba0ba27b0da4a295bdb",
+        "83c6d217f9567a1bb897e32716935675547987f5eaec3bc415b02a736e1982e0"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-juxtaposition-market-base.txt",
+          "sha256": "c8ad13f2b71948963272331af702e2370f8d89b97b8f7f4959cc6c4354a209aa"
+        },
+        {
+          "file": "prompts/en-juxtaposition-market-edit.txt",
+          "sha256": "c4f571d343c23d490d1499355d7a29d8ebe8792289f94820517a14cab0dc488f"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-kaleidoscope-chamber",
+      "category": "ENGLISH",
+      "contentId": "7ca80062-0e49-47ab-865a-e494135261eb",
+      "contentRevisionId": "4660479b-d113-490c-8723-d4c16bc50700",
+      "bundle": "drafts/en-kaleidoscope-chamber.json",
+      "evidence": "evidence/en-kaleidoscope-chamber.visual-delta.json",
+      "images": [
+        "source/en-kaleidoscope-chamber-a.png",
+        "source/en-kaleidoscope-chamber-b.png"
+      ],
+      "imageHashes": [
+        "68e73ad10040665b617c7cab2196a448dab0971d0c58f011a2f7927b9caabb3f",
+        "71d409d24d7a4b620be10df23955d68e2c1d930511adac3c6815905972a23b54"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-kaleidoscope-chamber-base.txt",
+          "sha256": "b7c58181d173f771342158e664b4330ca972d203eb7350aca105ab4115c9da1f"
+        },
+        {
+          "file": "prompts/en-kaleidoscope-chamber-edit.txt",
+          "sha256": "89868d66fe0b6215b99ea411f87c937fc52156c9e730fb2ac25eeefd4a8de37d"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-metamorphosis-cocoon",
+      "category": "ENGLISH",
+      "contentId": "76eece06-071a-430d-8430-f09652e41bf0",
+      "contentRevisionId": "68627982-e2eb-44f9-8ff0-e17669365098",
+      "bundle": "drafts/en-metamorphosis-cocoon.json",
+      "evidence": "evidence/en-metamorphosis-cocoon.visual-delta.json",
+      "images": [
+        "source/en-metamorphosis-cocoon-a.png",
+        "source/en-metamorphosis-cocoon-b.png"
+      ],
+      "imageHashes": [
+        "a5361098f08f2975091f6595078d3a39c66433194ffd927de2d758f0235d5c39",
+        "da729bf02f3b5f9ce2e468a980337392d0c83566b9818522247e7d14c68a35ec"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-metamorphosis-cocoon-base.txt",
+          "sha256": "6008c0927a5735a82dc4a02cc5a1dfc11a15a20fe3ad791d464fb957326a5c41"
+        },
+        {
+          "file": "prompts/en-metamorphosis-cocoon-edit.txt",
+          "sha256": "2ee6e04bfa8015a6d1693b17f2531c14241cf09054b97304a0fc85a9b9e77dbe"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-panoramic-observatory",
+      "category": "ENGLISH",
+      "contentId": "5aaa9fa9-549e-4ef8-8904-2c05462fc0df",
+      "contentRevisionId": "f02588dd-4d22-4eed-84b7-1dd2b0da018d",
+      "bundle": "drafts/en-panoramic-observatory.json",
+      "evidence": "evidence/en-panoramic-observatory.visual-delta.json",
+      "images": [
+        "source/en-panoramic-observatory-a.png",
+        "source/en-panoramic-observatory-b.png"
+      ],
+      "imageHashes": [
+        "4ca0a0a5d47cbad02ef6ac5ff551e0411ab8f9af4180ed47a31ce017b0a79a94",
+        "959f4ef6a4dac908bf5e5a3c5ae5c5c29d2bc6ada2b62265be114592d47ad68f"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-panoramic-observatory-base.txt",
+          "sha256": "d3a78d7f4f3329580d584c2b09ac0ca7fb0d09dde7e270eeb05a7063bd9c911e"
+        },
+        {
+          "file": "prompts/en-panoramic-observatory-edit.txt",
+          "sha256": "6e0b33d3c859112a821dc37c1f18f0b42e49c8d4cdf56e8e36b1f335686413ad"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-cataclysm-volcano",
+      "category": "ENGLISH",
+      "contentId": "31899ad5-871a-408d-8182-f38553f58049",
+      "contentRevisionId": "82434e24-6e4b-4de1-8edf-5f29b0952c06",
+      "bundle": "drafts/en-cataclysm-volcano.json",
+      "evidence": "evidence/en-cataclysm-volcano.visual-delta.json",
+      "images": [
+        "source/en-cataclysm-volcano-a.png",
+        "source/en-cataclysm-volcano-b.png"
+      ],
+      "imageHashes": [
+        "d2c942429902de90a86e5bcd805c79bed777f15a95e94735eb01e2f2b2a3964c",
+        "83403c8eac9b9128b046f1f549da121bb0b51dcbc09a9a0094cd0bfb3f34a656"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-cataclysm-volcano-base.txt",
+          "sha256": "4412dde31a369f0b000adb6e340f90c0251bb3da901252f4468476ed58605279"
+        },
+        {
+          "file": "prompts/en-cataclysm-volcano-edit.txt",
+          "sha256": "7c21d13c8a9efb6a8fdecf7ce76e109965871c3ad461203a2b46c527294f7387"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-quintessence-alchemy",
+      "category": "ENGLISH",
+      "contentId": "1eb05211-c2d9-4de6-85ab-76d40a45e5d4",
+      "contentRevisionId": "7400bf49-8ff1-4714-84e6-530412be9a82",
+      "bundle": "drafts/en-quintessence-alchemy.json",
+      "evidence": "evidence/en-quintessence-alchemy.visual-delta.json",
+      "images": [
+        "source/en-quintessence-alchemy-a.png",
+        "source/en-quintessence-alchemy-b.png"
+      ],
+      "imageHashes": [
+        "d40d1370d99c3d70bfd57aaa97cda6769397a570fa34be03d909816e038b2897",
+        "1a5817d78e0dae0fb34d3c43d5c03c5760db501ce03083d84fb7c8d709096e6d"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-quintessence-alchemy-base.txt",
+          "sha256": "3b214a0f30857b7cf0a8ff2bcd5c0a665f7e142084160464288a5c1d8b0ea1cf"
+        },
+        {
+          "file": "prompts/en-quintessence-alchemy-edit.txt",
+          "sha256": "e9cde9dedb94075bd27900931e259fc2b116518673bdc6c1c4ed9d66f0db80ca"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-chrysanthemum-greenhouse",
+      "category": "ENGLISH",
+      "contentId": "21806eb8-28f1-403f-83a9-fb22984c8aa8",
+      "contentRevisionId": "453e3025-60a7-4093-83ae-c3e395816822",
+      "bundle": "drafts/en-chrysanthemum-greenhouse.json",
+      "evidence": "evidence/en-chrysanthemum-greenhouse.visual-delta.json",
+      "images": [
+        "source/en-chrysanthemum-greenhouse-a.png",
+        "source/en-chrysanthemum-greenhouse-b.png"
+      ],
+      "imageHashes": [
+        "7c82132148c3cb648396ab2c207c599cd0528a81a359c7080925ce63d61117ae",
+        "422fb41208e1cc3dd6bc4e71a18806b414a97ad51e24c14564a34972931dbfa4"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-chrysanthemum-greenhouse-base.txt",
+          "sha256": "f3faaa08a6d2e30b8609b39f0c0ef96d5489df1a88755192588ff5a64a55ae5a"
+        },
+        {
+          "file": "prompts/en-chrysanthemum-greenhouse-edit.txt",
+          "sha256": "b62ad95ae189d8ec8407999c02117b8426d9e02a6a4217ad9bbbd247c808ab6c"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-archipelago-island",
+      "category": "ENGLISH",
+      "contentId": "bdcf2372-929a-4c4a-8393-c6cd6fb1d1b3",
+      "contentRevisionId": "c234e952-82dc-4f03-84b4-95ccc89dc47a",
+      "bundle": "drafts/en-archipelago-island.json",
+      "evidence": "evidence/en-archipelago-island.visual-delta.json",
+      "images": [
+        "source/en-archipelago-island-a.png",
+        "source/en-archipelago-island-b.png"
+      ],
+      "imageHashes": [
+        "18efd460f50558f7564a04dff155b0718a4c0fdf86edb754796cc8484b464250",
+        "f670f059b6bece6b14a04e88665303cbb0242a529c464f170cc17b22c0e4f0b5"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-archipelago-island-base.txt",
+          "sha256": "357220d4bac78a3febe625a11f8c8681084ff1b97df197bc8cc3453b48f6d9d5"
+        },
+        {
+          "file": "prompts/en-archipelago-island-edit.txt",
+          "sha256": "653f193cd4e198e34a1762fc1c2e2096d5699dd6525232417d7f6185773d48f1"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-constellation-astronomy",
+      "category": "ENGLISH",
+      "contentId": "58a701c3-a427-4c63-873e-5345acd7d973",
+      "contentRevisionId": "a604f109-8da1-4d16-879a-dc1fd317ef79",
+      "bundle": "drafts/en-constellation-astronomy.json",
+      "evidence": "evidence/en-constellation-astronomy.visual-delta.json",
+      "images": [
+        "source/en-constellation-astronomy-a.png",
+        "source/en-constellation-astronomy-b.png"
+      ],
+      "imageHashes": [
+        "ba8c106752ab2c9501bc8c83fcc2facacf77a6d7fa3c45c803bda4f8bb2b3ca8",
+        "5032db03d0fe55e3fb3fcff3320fc23fbef98e0183287807a1c922112224ca4f"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-constellation-astronomy-base.txt",
+          "sha256": "fc16a1b022887ca756e353454e24f3999f1e57dba29c6432c0e19202d2bdd93e"
+        },
+        {
+          "file": "prompts/en-constellation-astronomy-edit.txt",
+          "sha256": "0415023bfc2a8b0c490ac0f5d9fe6441684f9c65da81f72c35add4be2afaf30d"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-synchronicity-clock",
+      "category": "ENGLISH",
+      "contentId": "78cc41e7-f5e4-412d-8430-f6f1155df005",
+      "contentRevisionId": "c8fb2e16-7695-4f07-851a-5dbb33851da4",
+      "bundle": "drafts/en-synchronicity-clock.json",
+      "evidence": "evidence/en-synchronicity-clock.visual-delta.json",
+      "images": [
+        "source/en-synchronicity-clock-a.png",
+        "source/en-synchronicity-clock-b.png"
+      ],
+      "imageHashes": [
+        "5e2ad80af3a67b819d40511532b9e021d611c9d1f38bbd72ad5feff948f1ab6f",
+        "7fd634b6fd788c083acffd8de4e5fffcea0ea71495fe1bbddfe37f1c7ba56f3d"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-synchronicity-clock-base.txt",
+          "sha256": "a61e597b4811a2825c7f14d7ce7638b2c424c1ca13adde20976ce79ca2631534"
+        },
+        {
+          "file": "prompts/en-synchronicity-clock-edit.txt",
+          "sha256": "0402e290c99b4e1e1622d02083a662d81fa12d338ee31a886481d8129abca90f"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-camaraderie-campfire",
+      "category": "ENGLISH",
+      "contentId": "b6022722-3234-496e-828a-a6859dfe2c12",
+      "contentRevisionId": "b0c589a6-9455-49d5-877c-e9d4bad03d61",
+      "bundle": "drafts/en-camaraderie-campfire.json",
+      "evidence": "evidence/en-camaraderie-campfire.visual-delta.json",
+      "images": [
+        "source/en-camaraderie-campfire-a.png",
+        "source/en-camaraderie-campfire-b.png"
+      ],
+      "imageHashes": [
+        "fbeec9af7fc24de6e8146708da8686533a77699cb1529b6633e4d0c45ccc6fe0",
+        "21e87f6a13faf0dba4f32e5cd54d58e39fcc154d512011d1cd522e3b5dea2e24"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-camaraderie-campfire-base.txt",
+          "sha256": "14d15b0844612fb55531482db43788fc89a1c7ddac6ceabbf41363ad06129151"
+        },
+        {
+          "file": "prompts/en-camaraderie-campfire-edit.txt",
+          "sha256": "07c6629fc059be36402ca64702c55d98caab941dd1d9fe7cad81012d568fb5e0"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-solitude-sanctuary",
+      "category": "ENGLISH",
+      "contentId": "ccd07ed6-fdf5-4f9b-8023-4680e3b0ea2a",
+      "contentRevisionId": "f40296b7-14b6-47f3-8d93-7eb498514cc6",
+      "bundle": "drafts/en-solitude-sanctuary.json",
+      "evidence": "evidence/en-solitude-sanctuary.visual-delta.json",
+      "images": [
+        "source/en-solitude-sanctuary-a.png",
+        "source/en-solitude-sanctuary-b.png"
+      ],
+      "imageHashes": [
+        "1f535d1d1f3e52a7ca080e1f6cff25a6267e59bc021766844ee3d41260d05668",
+        "9d6b7786c537279d3cd1182737e7b819d96ac3d6debb9bfbbcc3e208d5618d9f"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-solitude-sanctuary-base.txt",
+          "sha256": "61acffc4b6d5c4a8feae5bb98b651ad00ed12cc8f43615e450752114e75bfd8f"
+        },
+        {
+          "file": "prompts/en-solitude-sanctuary-edit.txt",
+          "sha256": "480965ed12c06c4b1a1219f0702e141859340cad9ac72057deda4f5e69455ebf"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-serenity-lake",
+      "category": "ENGLISH",
+      "contentId": "b84e622a-e7f5-46f8-84cd-aa1da145b5c6",
+      "contentRevisionId": "f880d2d8-1d01-460d-8813-1820facc9419",
+      "bundle": "drafts/en-serenity-lake.json",
+      "evidence": "evidence/en-serenity-lake.visual-delta.json",
+      "images": [
+        "source/en-serenity-lake-a.png",
+        "source/en-serenity-lake-b.png"
+      ],
+      "imageHashes": [
+        "746942d5480330152582c18832a5c0b3dc21e112f622078403d4827f0af39a7a",
+        "ad134fc83a8566ec056a13bf294055b766b54d79847231d18f4348e39b3eaff0"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-serenity-lake-base.txt",
+          "sha256": "44b849ab18e9c6f7602ec6054121c31a80b6ccdddaafea7c6ab3be0985698899"
+        },
+        {
+          "file": "prompts/en-serenity-lake-edit.txt",
+          "sha256": "928263ab84ec3acd61c63cc7593c8e7d98068bff16744c76c190f0db584620e6"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-tranquility-tea",
+      "category": "ENGLISH",
+      "contentId": "9c81697f-6793-4f9e-8e83-c5cf0aefb88e",
+      "contentRevisionId": "01f7dcfc-cb35-4726-8943-8aa41aaf7628",
+      "bundle": "drafts/en-tranquility-tea.json",
+      "evidence": "evidence/en-tranquility-tea.visual-delta.json",
+      "images": [
+        "source/en-tranquility-tea-a.png",
+        "source/en-tranquility-tea-b.png"
+      ],
+      "imageHashes": [
+        "045f1e50b3668ecefbce893130515989f9c1175c30434a22f2e1ce606b0780b5",
+        "5c1a630f90ada617771180677cd6cf70643b4595ac0496f46dcfe6859762357d"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-tranquility-tea-base.txt",
+          "sha256": "e8d737fc3142853a053268dd29efe218ac361b00735cd494ea437b0515e5c77f"
+        },
+        {
+          "file": "prompts/en-tranquility-tea-edit.txt",
+          "sha256": "8d5eb7708d755c3172c878ec1e6a1193c7dc4130b0aa40c0260163a14ee703d7"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-creativity-workshop",
+      "category": "ENGLISH",
+      "contentId": "313d26fe-c80e-41ae-8ed4-928531b31e3d",
+      "contentRevisionId": "23761b41-0582-442d-8605-b5c93f05b48a",
+      "bundle": "drafts/en-creativity-workshop.json",
+      "evidence": "evidence/en-creativity-workshop.visual-delta.json",
+      "images": [
+        "source/en-creativity-workshop-a.png",
+        "source/en-creativity-workshop-b.png"
+      ],
+      "imageHashes": [
+        "05a82de0413020d87b7ac54135799a1db8655fbf5cf1e82ac758969037ec02c1",
+        "82764978e40006f942b0df4753fd111764a7af06e8d0b3d023a00be1a6567869"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-creativity-workshop-base.txt",
+          "sha256": "8b88abd5ef1ea48e35291a566ab594c778745fe9a2edb8344b9165abe8e8a35c"
+        },
+        {
+          "file": "prompts/en-creativity-workshop-edit.txt",
+          "sha256": "787203e687df0968c99aeaf917694681cdc99bc5cdb62bb5f73d0f8bfd1f7fd2"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-illumination-library",
+      "category": "ENGLISH",
+      "contentId": "b391ec91-226e-49ba-82ba-4df204bdda9f",
+      "contentRevisionId": "d7abe680-090e-4af7-8f05-7d8248f4c339",
+      "bundle": "drafts/en-illumination-library.json",
+      "evidence": "evidence/en-illumination-library.visual-delta.json",
+      "images": [
+        "source/en-illumination-library-a.png",
+        "source/en-illumination-library-b.png"
+      ],
+      "imageHashes": [
+        "8ef8e951c9692e2197e90e2c899c3932e05834cdd628a9883f66ab9b18b4970f",
+        "03d5b9e35ba7cd8e77f8e97c7e04eef62a596b82d515b1869f9abab7676e7c47"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-illumination-library-base.txt",
+          "sha256": "6aed0b20a2b7cbb34f33d6ba1a16187a91d59da920c4eb83bf670c9e17aedfa2"
+        },
+        {
+          "file": "prompts/en-illumination-library-edit.txt",
+          "sha256": "9762ef27a152bf173a5d20d56fc82516bfbdcf2a8da5a7d15715a4c350945f3c"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-resonance-concert",
+      "category": "ENGLISH",
+      "contentId": "cc8961c3-25de-4be9-8749-c0dfa05594c9",
+      "contentRevisionId": "f91b6e59-5c71-4ddc-87c5-382e494d2e8e",
+      "bundle": "drafts/en-resonance-concert.json",
+      "evidence": "evidence/en-resonance-concert.visual-delta.json",
+      "images": [
+        "source/en-resonance-concert-a.png",
+        "source/en-resonance-concert-b.png"
+      ],
+      "imageHashes": [
+        "b5b82a1923db3e91b3d32b508072f03e58c79c14d35cec96712f7e945bda8cab",
+        "4bf33ead82ad4f931635ad7fc4f8ba24b6f1fcd4933dec1620fa22e1db17ba63"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-resonance-concert-base.txt",
+          "sha256": "27b8e92aec16d052ca5ca70046bce1e4354529132d8057ccb3c48715af2d063a"
+        },
+        {
+          "file": "prompts/en-resonance-concert-edit.txt",
+          "sha256": "1916abf47561d2d5a2b34f185ded58c245e129dbecfe1fa0f7553a4088033821"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-harmony-orchestra",
+      "category": "ENGLISH",
+      "contentId": "8ab771d3-69c5-4285-8ec9-2a1fb1e390b0",
+      "contentRevisionId": "986735e7-17bc-41f9-8312-4f56ee03be88",
+      "bundle": "drafts/en-harmony-orchestra.json",
+      "evidence": "evidence/en-harmony-orchestra.visual-delta.json",
+      "images": [
+        "source/en-harmony-orchestra-a.png",
+        "source/en-harmony-orchestra-b.png"
+      ],
+      "imageHashes": [
+        "e47b047e1358433550dcea77d96def4a9b31d25d0ad33333ea58b4dc8469e5d0",
+        "39a61853205b9c9dd939dff16576519d473951dcbc01b40e8b194e5042be480f"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-harmony-orchestra-base.txt",
+          "sha256": "0fcdc48c3a36b4f1f6cc96f1a6f58f74bc98e7815b59d595d5364dba335c5fc3"
+        },
+        {
+          "file": "prompts/en-harmony-orchestra-edit.txt",
+          "sha256": "9549af51001c54072c3e54eab81c7dc0b61943b7c3fea5f19172215173a16b9c"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-eternity-monument",
+      "category": "ENGLISH",
+      "contentId": "d6ce69cb-cc9e-4c55-893b-5884264b7152",
+      "contentRevisionId": "4fca89aa-8335-448d-80b4-2166e153755f",
+      "bundle": "drafts/en-eternity-monument.json",
+      "evidence": "evidence/en-eternity-monument.visual-delta.json",
+      "images": [
+        "source/en-eternity-monument-a.png",
+        "source/en-eternity-monument-b.png"
+      ],
+      "imageHashes": [
+        "d5134d0b720cd8f2b331de6ec665cd9bbd2092d41a0dd33149e37e591a07cf2b",
+        "8f149e649a23b4fc6e1e0c13958b1c80e484df849072244bea43cbec9219e0a0"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-eternity-monument-base.txt",
+          "sha256": "3be925f826c4d7f45bcb08d5211b5d032dd7ba691242eb394a376603306947c3"
+        },
+        {
+          "file": "prompts/en-eternity-monument-edit.txt",
+          "sha256": "fefd818aa3bf3ff7931e2c085649cad37aadffa54f68372c8376b0dd81da0988"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-tranquility-garden",
+      "category": "ENGLISH",
+      "contentId": "85ed951d-0b69-40a3-8345-9357eb8c074b",
+      "contentRevisionId": "18c761f8-754e-472c-8ab4-7fec14354c86",
+      "bundle": "drafts/en-tranquility-garden.json",
+      "evidence": "evidence/en-tranquility-garden.visual-delta.json",
+      "images": [
+        "source/en-tranquility-garden-a.png",
+        "source/en-tranquility-garden-b.png"
+      ],
+      "imageHashes": [
+        "748d966eda3ca6a5bce909b9d2c279bb927ab7f1a0dae60122f169ac2d4c05c3",
+        "84247e2659a6b5afe2121c57dd9a42731dc55aad391e3fef1588d341c0f95165"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-tranquility-garden-base.txt",
+          "sha256": "fb7908ffea1272b5c8d76621417bf6fefda41345fcf9215e6491d81c3f90974d"
+        },
+        {
+          "file": "prompts/en-tranquility-garden-edit.txt",
+          "sha256": "125eb474b94b49654af6d5d395e59ac22760ec80254fa690bcacf24b93afa99e"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-creativity-studio",
+      "category": "ENGLISH",
+      "contentId": "02a77503-1b54-4117-85a9-fa1888898d67",
+      "contentRevisionId": "13babd86-7ad1-4e78-8eed-ac8dbe6d9581",
+      "bundle": "drafts/en-creativity-studio.json",
+      "evidence": "evidence/en-creativity-studio.visual-delta.json",
+      "images": [
+        "source/en-creativity-studio-a.png",
+        "source/en-creativity-studio-b.png"
+      ],
+      "imageHashes": [
+        "fb143eb5fef831c2ce52db843dcc71c82c3a8bbf803b7f94782b1b0b4b46a8ac",
+        "625d99af133d8b4913312fb94412a4a5ae0ae07d9d668a18aa5ef8c03143302a"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-creativity-studio-base.txt",
+          "sha256": "17e992d0f5e42379cf839b5964f8b674c3d02926f84868763d225adf21b392ad"
+        },
+        {
+          "file": "prompts/en-creativity-studio-edit.txt",
+          "sha256": "6400eff0a8af415a8bd26e104d56071335c563e2525a69658a8dddf14b81e5f4"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-resonance-stage",
+      "category": "ENGLISH",
+      "contentId": "9c7b2e49-51fc-4c8a-8c88-7db279ebdb5e",
+      "contentRevisionId": "f9f307a8-78af-4be8-8118-5cf0f09fbb68",
+      "bundle": "drafts/en-resonance-stage.json",
+      "evidence": "evidence/en-resonance-stage.visual-delta.json",
+      "images": [
+        "source/en-resonance-stage-a.png",
+        "source/en-resonance-stage-b.png"
+      ],
+      "imageHashes": [
+        "cbd0d589fb055654041b50d486daa68bcdf715b1d7706c9ae3e00eafcf1e1bf5",
+        "e3bef2f6504fce15c4b70cf18f781542da157ed7af608b7ea83572ad187b3cf6"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-resonance-stage-base.txt",
+          "sha256": "ee7dd5c03d89c911b4cf5080fb16f80323356f1a227326952b9b4191a0e76ca4"
+        },
+        {
+          "file": "prompts/en-resonance-stage-edit.txt",
+          "sha256": "8c15c32973102f4eb7f66ec51da8560950fc85e5fa8645344d97597a70e79470"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-serenity-haven",
+      "category": "ENGLISH",
+      "contentId": "f01a6609-5626-4123-822f-c7ed7fa86c23",
+      "contentRevisionId": "494dcb84-9cbb-4160-8eff-e46cb5b45522",
+      "bundle": "drafts/en-serenity-haven.json",
+      "evidence": "evidence/en-serenity-haven.visual-delta.json",
+      "images": [
+        "source/en-serenity-haven-a.png",
+        "source/en-serenity-haven-b.png"
+      ],
+      "imageHashes": [
+        "e738e99fd5a2f6925f529a5122eb26fda1829c3d82a391ca0933f0006942aef4",
+        "c945b4f3371dae47c04066c4b9344ae1a88e5c7998a9062007b94961a81fb867"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-serenity-haven-base.txt",
+          "sha256": "a21be4d917f4488dc3011558d71e117cf2202340ea982aa9abeabad097907fc0"
+        },
+        {
+          "file": "prompts/en-serenity-haven-edit.txt",
+          "sha256": "d629622b1fd3bb7cde52f031b5c37570ce714741d59d7ece95118cf2aa765e92"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-solitude-cliff",
+      "category": "ENGLISH",
+      "contentId": "9a920f74-158e-4ef9-8dfd-e58e9c2e5b71",
+      "contentRevisionId": "400a9dfa-9dcb-4def-8e13-8cd9885758ce",
+      "bundle": "drafts/en-solitude-cliff.json",
+      "evidence": "evidence/en-solitude-cliff.visual-delta.json",
+      "images": [
+        "source/en-solitude-cliff-a.png",
+        "source/en-solitude-cliff-b.png"
+      ],
+      "imageHashes": [
+        "a04fe08aaa2700acc0a9b6271a58bbc9505c272f5795de2c7bde210f87c0778b",
+        "23721dba195673fa979e4960eb0f09c6e54dc9ba6bfca7cede0adda393f1007a"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-solitude-cliff-base.txt",
+          "sha256": "b45ea29dcb2b9578a596af6dce4be9fa51302a3f0c8a5bad9c8af73d4603819f"
+        },
+        {
+          "file": "prompts/en-solitude-cliff-edit.txt",
+          "sha256": "4237f2e001583df64f80fa87b8fffd39e6a9b0395cdc84af62a957bc28b4138d"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-3d-serenity",
+      "category": "ENGLISH",
+      "contentId": "c2e78295-9ba5-4036-82e0-b1faf8746a24",
+      "contentRevisionId": "d46fb09c-f6fa-414a-8433-eff0c0580536",
+      "bundle": "drafts/en-3d-serenity.json",
+      "evidence": "evidence/en-3d-serenity.visual-delta.json",
+      "images": [
+        "source/en-3d-serenity-a.png",
+        "source/en-3d-serenity-b.png"
+      ],
+      "imageHashes": [
+        "4a5ee9cbc20c1626e3a97c8bc923fc5ac859b4fe77e10bcc42d7d9b527b52c16",
+        "0f6e5e1ffbb2c2bc10926fa86daec44b64af9a4ca8e804ed92e0f3fc29b3f180"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-3d-serenity-base.txt",
+          "sha256": "2d1d6716779930c6433ddf867e698f77cdadacd87458d4bdff97297560ad3ceb"
+        },
+        {
+          "file": "prompts/en-3d-serenity-edit.txt",
+          "sha256": "3b536b1bb450492374e40d853d943855e72b7de57de9415c0d47406f043678d2"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-3d-creativity",
+      "category": "ENGLISH",
+      "contentId": "3454d50c-4cdb-43d4-8139-e0bce4e16a88",
+      "contentRevisionId": "d9397ef8-fc32-46ec-81c0-c4fafc2a5cb3",
+      "bundle": "drafts/en-3d-creativity.json",
+      "evidence": "evidence/en-3d-creativity.visual-delta.json",
+      "images": [
+        "source/en-3d-creativity-a.png",
+        "source/en-3d-creativity-b.png"
+      ],
+      "imageHashes": [
+        "fb45d1041654683b779ff2eb1cc305e79d22f246b5abd697199ab44be1fceabd",
+        "fd6334d9ba446dc61b6a8dacdcd488580d6a352a6e16622924d011a993cd3d1a"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-3d-creativity-base.txt",
+          "sha256": "fee3afb46ff594262cc045ffb3d8f1df9be237821c889d81e175d351155dda0e"
+        },
+        {
+          "file": "prompts/en-3d-creativity-edit.txt",
+          "sha256": "adf32bdc953607ec06c7842903afef1af4f832af6ec21934eae5243d84fc903e"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-3d-harmony",
+      "category": "ENGLISH",
+      "contentId": "694ddeed-5046-4f8d-81c0-d812e72deced",
+      "contentRevisionId": "f5f8b165-de64-4790-8118-f8766a3aaa51",
+      "bundle": "drafts/en-3d-harmony.json",
+      "evidence": "evidence/en-3d-harmony.visual-delta.json",
+      "images": [
+        "source/en-3d-harmony-a.png",
+        "source/en-3d-harmony-b.png"
+      ],
+      "imageHashes": [
+        "3e47a09688273e7ed409e20c4ce89281ffc0ebc36b92bb6b1e5b472c778ce7f1",
+        "78e6bc9a9481659f28003f264b8d1b86cfa9edeee0bdaf7e473e041b970a4948"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-3d-harmony-base.txt",
+          "sha256": "67f00d1c72cb0ffb8781eef9987491eaa0961fb636ab492fb0fd456b7f5371b0"
+        },
+        {
+          "file": "prompts/en-3d-harmony-edit.txt",
+          "sha256": "5c92b36d4dde8922938668a12b539c8991a02ab882c84a808e0e47f337d82300"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-clay-bakery",
+      "category": "ENGLISH",
+      "contentId": "7822b9cb-31b5-4024-81ee-cbc35310d344",
+      "contentRevisionId": "f528ad3a-daf3-4475-8ec4-21ad1010321c",
+      "bundle": "drafts/en-clay-bakery.json",
+      "evidence": "evidence/en-clay-bakery.visual-delta.json",
+      "images": [
+        "source/en-clay-bakery-a.png",
+        "source/en-clay-bakery-b.png"
+      ],
+      "imageHashes": [
+        "edd06a8300e16693cd0cd404e90569e13bc5948b9796c171387930860cb126ec",
+        "52b34e5e20288bcd959d49069e998d93a9e0a6d19599ffe24741f565e4f402e7"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-clay-bakery-base.txt",
+          "sha256": "ac522861fdd16c89a9d86ca916afa4afb7b9048f926b42072b732eeb2f5b1ba1"
+        },
+        {
+          "file": "prompts/en-clay-bakery-edit.txt",
+          "sha256": "da5f294cb1d49f0e8b4d73b5d2a562114701dde0e3f1892f6d77456bfb20fe52"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-papercut-forest",
+      "category": "ENGLISH",
+      "contentId": "38de2fa9-8fc2-4689-8dea-aeed1c6e23a1",
+      "contentRevisionId": "03d180a2-c587-45f3-8a06-43080abdf810",
+      "bundle": "drafts/en-papercut-forest.json",
+      "evidence": "evidence/en-papercut-forest.visual-delta.json",
+      "images": [
+        "source/en-papercut-forest-a.png",
+        "source/en-papercut-forest-b.png"
+      ],
+      "imageHashes": [
+        "3b54cb409aae67872aa5173e7204a5e33e75961b85ede4613b721a71b1031d38",
+        "8209c01bcf8922d8fd152489ca224dac1d9c548dc986ec50b455fee488f1c245"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-papercut-forest-base.txt",
+          "sha256": "c3218314d30af072d44a21b3061e68c51a4d6308f4cbaf0cda4a88f4b781cbca"
+        },
+        {
+          "file": "prompts/en-papercut-forest-edit.txt",
+          "sha256": "5a4c26195a90a6ede72c20380bb5f72a6d18232c5e6289312b69627a7347764a"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-cyberpunk-space",
+      "category": "ENGLISH",
+      "contentId": "a5a7013b-bdf9-4c15-8865-630d99c1a9be",
+      "contentRevisionId": "a09c775d-72b2-4fc5-8a5f-4a1fd739143f",
+      "bundle": "drafts/en-cyberpunk-space.json",
+      "evidence": "evidence/en-cyberpunk-space.visual-delta.json",
+      "images": [
+        "source/en-cyberpunk-space-a.png",
+        "source/en-cyberpunk-space-b.png"
+      ],
+      "imageHashes": [
+        "2c47f8c26ea1d7f129283e5e7f3dccfac123c0f1878eabd06353829105e334fe",
+        "1628e7da9340c65a81f684667e14b8903411543e0b3f84b4b9cc8e3e7f9c0649"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-cyberpunk-space-base.txt",
+          "sha256": "8b7e48492982203a76cb0e5ec0582b8f7f22e41c7f5f2f7671d52eab0c5a40e7"
+        },
+        {
+          "file": "prompts/en-cyberpunk-space-edit.txt",
+          "sha256": "a805a47dd2d24a6939ab2e245e1c5ad6e8fffd9d6225d1e18fb68247e0ed256b"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-clay-zoo",
+      "category": "ENGLISH",
+      "contentId": "601bf8cc-e62d-4416-89ea-ec8ecbfab4f5",
+      "contentRevisionId": "e8a5d227-346b-4e22-80bd-d0c396f57063",
+      "bundle": "drafts/en-clay-zoo.json",
+      "evidence": "evidence/en-clay-zoo.visual-delta.json",
+      "images": [
+        "source/en-clay-zoo-a.png",
+        "source/en-clay-zoo-b.png"
+      ],
+      "imageHashes": [
+        "ceaa7090a62b58f58d66e47a49e77bacce791366d788bedb4d272f97d920d252",
+        "c5dc7dff110a97e2813a1e5429929f23591f7b88961c59d4339b2ab33644b5ae"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-clay-zoo-base.txt",
+          "sha256": "2ca3416ba4349f206059c2c625bb2fd32ee4a1aebf0e3401df08165c45437dfe"
+        },
+        {
+          "file": "prompts/en-clay-zoo-edit.txt",
+          "sha256": "2a50808d7707e61ecdf7a548e807bd28301200ad9d429fb4564c0f27d11c6b75"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-papercut-sakura",
+      "category": "ENGLISH",
+      "contentId": "931947f8-d490-4b20-88de-af040b3a178a",
+      "contentRevisionId": "66d9efa1-17eb-47d8-8319-6c59bdb49fc1",
+      "bundle": "drafts/en-papercut-sakura.json",
+      "evidence": "evidence/en-papercut-sakura.visual-delta.json",
+      "images": [
+        "source/en-papercut-sakura-a.png",
+        "source/en-papercut-sakura-b.png"
+      ],
+      "imageHashes": [
+        "9bb1643c0e0299c0855fa46103e7453a8f2825d68f941fa3d7d17830664203dc",
+        "e55b6ef3ef46c3b1c2a40adc5fcb0f86b114a25e1108fdf181210bea7d495dc2"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-papercut-sakura-base.txt",
+          "sha256": "dc09b0647e2c4c11d54c47c02d847dcbedb3f3b787a61491e0074151f89f65e2"
+        },
+        {
+          "file": "prompts/en-papercut-sakura-edit.txt",
+          "sha256": "29a4f279a23ea238e3f83d99e71b0321415acfce82070bddaba6cb2e1e1d7610"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-cyberpunk-neon",
+      "category": "ENGLISH",
+      "contentId": "0829b81b-335b-460f-8881-99cdee136b02",
+      "contentRevisionId": "e9774406-fc5f-49bd-8c97-8fd5487dd570",
+      "bundle": "drafts/en-cyberpunk-neon.json",
+      "evidence": "evidence/en-cyberpunk-neon.visual-delta.json",
+      "images": [
+        "source/en-cyberpunk-neon-a.png",
+        "source/en-cyberpunk-neon-b.png"
+      ],
+      "imageHashes": [
+        "5f782f7668c9288440df76b5eb04bee2416df34561cbecd2ee7cfbe0af4574f2",
+        "111a2fffe544e465642d76b2399762dba07ad51d09f0fdbd3155f300f0d63af1"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-cyberpunk-neon-base.txt",
+          "sha256": "13fbb1119e9cc4d422d8ca1e52e524f58e1c5e177e2324d041b1629945a2c564"
+        },
+        {
+          "file": "prompts/en-cyberpunk-neon-edit.txt",
+          "sha256": "6932ca8d614b328a77a2acbb1dc424bdc2eeb0b1f00c5b6b8c921faa2c892c5c"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-clay-family",
+      "category": "ENGLISH",
+      "contentId": "81a1bc6b-e8f1-4d6d-8499-dcfba0cff56d",
+      "contentRevisionId": "3fd39cbc-13b1-422d-8250-4df8cc63b19f",
+      "bundle": "drafts/en-clay-family.json",
+      "evidence": "evidence/en-clay-family.visual-delta.json",
+      "images": [
+        "source/en-clay-family-a.png",
+        "source/en-clay-family-b.png"
+      ],
+      "imageHashes": [
+        "2b15e05b41c62136f7bfc11b88015c7965552fbd00f502c1e3f67464f7e695fc",
+        "adca95244186c9ce0dda2a48a38301104aaf849d383afdb2d7dd485e639fa755"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-clay-family-base.txt",
+          "sha256": "3cbcdc3f1081c1b9d6109005778ba6feb402c509bf9e3730f34728844b5421e9"
+        },
+        {
+          "file": "prompts/en-clay-family-edit.txt",
+          "sha256": "c238a3c499d815a04a258339b9205202bdd1c691dd392b03f348c284037ef108"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-papercut-lighthouse",
+      "category": "ENGLISH",
+      "contentId": "6f09bc8b-9207-4dcc-8f7a-f0eb62b8c7e5",
+      "contentRevisionId": "2630983a-1628-4b4f-8925-172d3f7693bf",
+      "bundle": "drafts/en-papercut-lighthouse.json",
+      "evidence": "evidence/en-papercut-lighthouse.visual-delta.json",
+      "images": [
+        "source/en-papercut-lighthouse-a.png",
+        "source/en-papercut-lighthouse-b.png"
+      ],
+      "imageHashes": [
+        "716608a78c266990ec455e0918d95e65afa76c0d16db8c4344a9c4605c191ebd",
+        "282259b6e81af5b01202bc2a6c2c7871a630650c149b7c0e9a2dcaeff603a6c2"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-papercut-lighthouse-base.txt",
+          "sha256": "f6fb015fee9f74b94c3f9d579bf3eb22106352c0b334a964037ab7243e31b4fa"
+        },
+        {
+          "file": "prompts/en-papercut-lighthouse-edit.txt",
+          "sha256": "639f46dffea1670c8399977c644c285df706af4cb8b3124046204effdd9f0b91"
+        }
+      ],
+      "publishBlocked": true
+    },
+    {
+      "key": "en-cyberpunk-city",
+      "category": "ENGLISH",
+      "contentId": "013f6886-e5aa-42b6-87c7-38f6dde7712a",
+      "contentRevisionId": "a0583ad7-3b86-4fc9-8a52-1a733c089a98",
+      "bundle": "drafts/en-cyberpunk-city.json",
+      "evidence": "evidence/en-cyberpunk-city.visual-delta.json",
+      "images": [
+        "source/en-cyberpunk-city-a.png",
+        "source/en-cyberpunk-city-b.png"
+      ],
+      "imageHashes": [
+        "7a88dbd4a3819e8ea0c429c7cdf367a15ea8446b238ff2362e7c27d1218aba0c",
+        "845772f733ec89ba0caf71790dccb89443a2cfe4747e1f3e04381d4102652a3f"
+      ],
+      "promptEvidence": [
+        {
+          "file": "prompts/en-cyberpunk-city-base.txt",
+          "sha256": "57150ae36d7d0459b2910da1ed661cf297517d87900978ef5c4f307231ba462f"
+        },
+        {
+          "file": "prompts/en-cyberpunk-city-edit.txt",
+          "sha256": "c4092b9700af82cbb2e09bf3667fc922717fe660ea9b8d7f3586a5616dee606e"
         }
       ],
       "publishBlocked": true

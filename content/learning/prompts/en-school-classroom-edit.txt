@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-school-classroom-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized Beginner-level differences:
+1. Change the globe color on the teacher desk from blue to green.
+2. Change the backpack on the student desk from red to yellow.
+3. Recolor the wall clock frame from white to orange.
+4. Remove the potted plant from the windowsill.
+5. Change the painting on the easel from a sun to a flower.
+6. Add one extra book on the top shelf of the bookshelf.
+7. Recolor the teacher's chair cushion from blue to purple.
+8. Change the color of the chalkboard frame from brown wood to black.
+9. Recolor the trash bin near the desk from grey to green.
+10. Remove the cloud visible outside through the window.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

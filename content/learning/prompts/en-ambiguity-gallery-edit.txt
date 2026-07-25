@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-ambiguity-gallery-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized Advanced-level subtle differences:
+1. Recolor one geometric circle in the abstract painting from blue to purple.
+2. Change the marble sculpture pedestal base from square to octagonal.
+3. Change the velvet rope barrier stanchion top knob from round to square.
+4. Remove one spotlight from the recessed ceiling track.
+5. Add one extra catalog pamphlet on the display stand.
+6. Recolor the visitor's coat collar from dark grey to beige.
+7. Reverse the diagonal tilt of the bench's metal leg.
+8. Change the reflection intensity on the marble floor tile.
+9. Recolor the glass partition frame from silver to gold.
+10. Remove the small wall plaque next to the painting.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

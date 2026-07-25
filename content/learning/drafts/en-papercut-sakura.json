@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "931947f8-d490-4b20-88de-af040b3a178a",
+    "version": 1,
+    "contentRevisionId": "66d9efa1-17eb-47d8-8319-6c59bdb49fc1",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-papercut-sakura",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/9bb1643c0e0299c0855fa46103e7453a8f2825d68f941fa3d7d17830664203dc.png",
+      "sha256": "9bb1643c0e0299c0855fa46103e7453a8f2825d68f941fa3d7d17830664203dc",
+      "encodedBytes": 2679584,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/e55b6ef3ef46c3b1c2a40adc5fcb0f86b114a25e1108fdf181210bea7d495dc2.png",
+      "sha256": "e55b6ef3ef46c3b1c2a40adc5fcb0f86b114a25e1108fdf181210bea7d495dc2",
+      "encodedBytes": 2688135,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "66d9efa1-17eb-47d8-8319-6c59bdb49fc1",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.593,
+            "cy": 0.613,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.593,
+            "cy": 0.613,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.746,
+            "cy": 0.887,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.746,
+            "cy": 0.887,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.887,
+            "cy": 0.607,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.887,
+            "cy": 0.607,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.501,
+            "cy": 0.139,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.501,
+            "cy": 0.139,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.612,
+            "cy": 0.3,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.612,
+            "cy": 0.3,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.378,
+            "cy": 0.409,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.378,
+            "cy": 0.409,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.625,
+            "cy": 0.411,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.625,
+            "cy": 0.411,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.352,
+            "cy": 0.297,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.352,
+            "cy": 0.297,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.465,
+            "cy": 0.703,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.465,
+            "cy": 0.703,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.732,
+            "cy": 0.703,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.732,
+            "cy": 0.703,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-papercut-sakura",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.593,
+            "cy": 0.613,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.593,
+            "cy": 0.613,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-papercut-sakura",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.746,
+            "cy": 0.887,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.746,
+            "cy": 0.887,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-papercut-sakura",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.887,
+            "cy": 0.607,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.887,
+            "cy": 0.607,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.593,
+          "cy": 0.613,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.593,
+          "cy": 0.613,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "tranquility",
+      "aliases": [
+        "sakura",
+        "pagoda",
+        "papercut"
+      ],
+      "hintUnits": [
+        "t",
+        "r",
+        "a",
+        "n",
+        "q",
+        "u",
+        "i",
+        "l",
+        "i",
+        "t",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '평온' or '고요한 평화'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Tranquility"
+          },
+          {
+            "id": "option_2",
+            "label": "Turbulence"
+          },
+          {
+            "id": "option_3",
+            "label": "Tension"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "828e5433172402d0a2d3ce8fdb746bc57524aaeb6b83ca0051026be22c25a623"
+  },
+  "assetFiles": {
+    "9bb1643c0e0299c0855fa46103e7453a8f2825d68f941fa3d7d17830664203dc": "D:\\touchcatch\\content\\learning\\source\\en-papercut-sakura-a.png",
+    "e55b6ef3ef46c3b1c2a40adc5fcb0f86b114a25e1108fdf181210bea7d495dc2": "D:\\touchcatch\\content\\learning\\source\\en-papercut-sakura-b.png"
+  }
+}

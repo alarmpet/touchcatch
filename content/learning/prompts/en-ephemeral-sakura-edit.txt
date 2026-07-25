@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-ephemeral-sakura-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A (en_ephemeral_sakura_a). Preserve exact same camera angle, composition, background, sakura trees, stream, and drawing style. Make 10 localized subtle Advanced-level differences on specific objects:
+1. Change the poet's kimono dress color from soft lavender to sky blue.
+2. Recolor the paper lantern hanging on the branch from white to warm orange-red.
+3. Recolor the wooden tea bench cushion from red to emerald green.
+4. Remove one bamboo water spout tube on the stream bank.
+5. Recolor the poet's parasol umbrella handle from brown wood to gold.
+6. Change the floating wood plate tray color in the stream from black to natural wood brown.
+7. Remove one small stone lantern standing near the bridge.
+8. Recolor the poet's hair ribbon sash from pink to ruby red.
+9. Add one extra small porcelain tea cup resting on the wooden tea bench.
+10. Remove the wall wind chime hanging tag on the paper lantern stand.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of a botanical garden sprouting resilient new blooms after a rainstorm under a glowing double rainbow for English vocabulary learning (Resilience).
+Scene/backdrop: A young gardener boy in rubber boots tends to vibrant green sprouts breaking through fresh soil, surrounded by a rainbow in a clear blue sky, a wooden greenhouse with glass panels, a vintage rain barrel, a solar garden light, a birdhouse on a post, colorful tulips blooming, and a stone fountain.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

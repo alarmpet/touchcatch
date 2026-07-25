@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of a cheerful toy animal hospital for English vocabulary learning (Doctor).
+Scene/backdrop: In the hospital room, there is a friendly vet doctor examining a cute plush teddy bear with a stethoscope, a stainless examination table, a medicine cabinet with colorful bandage boxes, an X-ray viewer showing a toy bone, a stethoscope hanging on a hook, a pet scale, a washing sink, a clock on the wall showing 3 o'clock, and a potted aloe plant.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

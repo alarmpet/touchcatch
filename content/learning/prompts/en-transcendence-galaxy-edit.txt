@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-transcendence-galaxy-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized subtle Advanced-level differences:
+1. Change the astronaut's spacesuit visor reflection from gold to cyan blue.
+2. Recolor the crystal star-apple in the astronaut's hand from yellow to magenta purple.
+3. Change Saturn's planet rings color from gold to silver white.
+4. Remove one glowing hourglass drifting near the floating island.
+5. Recolor the comet tail flame from blue to green.
+6. Change the ancient armillary sphere rings color from brass to copper red.
+7. Remove one stardust firefly near the floating stone archway.
+8. Recolor the floating stone archway runes from blue to yellow.
+9. Add one extra small glowing star gem floating near the astronaut's backpack.
+10. Remove the constellation star pattern etched on Saturn's side.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

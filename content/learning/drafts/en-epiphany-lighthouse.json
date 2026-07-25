@@ -1,0 +1,290 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "35a75ed2-d22f-44db-8c1b-b44cfee4a739",
+    "version": 1,
+    "contentRevisionId": "5aaa666b-234c-449c-82b9-8d5ef11249dc",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-epiphany-lighthouse",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/80d8433f800d34095d26c1976683f1af7375c278377eb8f105ab5e53bca0a46f.png",
+      "sha256": "80d8433f800d34095d26c1976683f1af7375c278377eb8f105ab5e53bca0a46f",
+      "encodedBytes": 1709338,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/7f1157d880a5022e84dd099ef2d39eada181f9489d329e951595de5139e78b59.png",
+      "sha256": "7f1157d880a5022e84dd099ef2d39eada181f9489d329e951595de5139e78b59",
+      "encodedBytes": 1954856,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "5aaa666b-234c-449c-82b9-8d5ef11249dc",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.654,
+            "cy": 0.11,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.654,
+            "cy": 0.11,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.116,
+            "cy": 0.182,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.116,
+            "cy": 0.182,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.435,
+            "cy": 0.178,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.435,
+            "cy": 0.178,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.229,
+            "cy": 0.184,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.229,
+            "cy": 0.184,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.926,
+            "cy": 0.309,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.926,
+            "cy": 0.309,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.11,
+            "cy": 0.505,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.11,
+            "cy": 0.505,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.837,
+            "cy": 0.244,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.837,
+            "cy": 0.244,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.522,
+            "cy": 0.707,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.522,
+            "cy": 0.707,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.713,
+            "cy": 0.29,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.713,
+            "cy": 0.29,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-epiphany-lighthouse",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.654,
+            "cy": 0.11,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.654,
+            "cy": 0.11,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-epiphany-lighthouse",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.116,
+            "cy": 0.182,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.116,
+            "cy": 0.182,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-epiphany-lighthouse",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.435,
+            "cy": 0.178,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.435,
+            "cy": 0.178,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.654,
+          "cy": 0.11,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.654,
+          "cy": 0.11,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "epiphany",
+      "aliases": [
+        "revelation",
+        "sudden insight"
+      ],
+      "hintUnits": [
+        "e",
+        "p",
+        "i",
+        "p",
+        "h",
+        "a",
+        "n",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '갑작스러운 깨달음'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Epiphany"
+          },
+          {
+            "id": "option_2",
+            "label": "Epidemic"
+          },
+          {
+            "id": "option_3",
+            "label": "Epilogue"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "7d846e451186eafa2911c997fce0cab8cdbc424dd541be9ec0b81f51d792f705"
+  },
+  "assetFiles": {
+    "80d8433f800d34095d26c1976683f1af7375c278377eb8f105ab5e53bca0a46f": "D:\\touchcatch\\content\\learning\\source\\en-epiphany-lighthouse-a.png",
+    "7f1157d880a5022e84dd099ef2d39eada181f9489d329e951595de5139e78b59": "D:\\touchcatch\\content\\learning\\source\\en-epiphany-lighthouse-b.png"
+  }
+}

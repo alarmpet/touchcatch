@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-metaphor-library-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized Intermediate-level differences:
+1. Change the feather quill color from white to sapphire blue.
+2. Recolor the velvet armchair upholstery from red to deep emerald green.
+3. Change the brass lamp shade color from yellow to purple glass.
+4. Remove the floating book bird near the bookshelf.
+5. Recolor the hourglass sand from golden yellow to glowing violet.
+6. Change the desk globe stand color from dark wood to bright gold.
+7. Remove one hardbound book from the stack on the desk floor.
+8. Recolor the writer's sweater from brown to teal blue.
+9. Add one extra cup of steaming tea on the desk edge.
+10. Remove the wall clock from above the bookshelf.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

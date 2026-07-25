@@ -1,0 +1,307 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "c472b82d-7e97-478a-87ac-580d8b3453ed",
+    "version": 1,
+    "contentRevisionId": "531f8ec6-9e47-4879-8643-826d841b7870",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-school-classroom",
+    "language": "en",
+    "difficulty": "BEGINNER",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/7c528aad4a5149768ab3b183dfa6532c2a6534bc0b888d0215503c05a1c4afa7.png",
+      "sha256": "7c528aad4a5149768ab3b183dfa6532c2a6534bc0b888d0215503c05a1c4afa7",
+      "encodedBytes": 1688113,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/7b4be0138ef1a2abfa39b6e2b023d4956e5cbe13d5ad7f71f22390cd09e137eb.png",
+      "sha256": "7b4be0138ef1a2abfa39b6e2b023d4956e5cbe13d5ad7f71f22390cd09e137eb",
+      "encodedBytes": 1931760,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "531f8ec6-9e47-4879-8643-826d841b7870",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.917,
+            "cy": 0.645,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.917,
+            "cy": 0.645,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.055,
+            "cy": 0.487,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.055,
+            "cy": 0.487,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.441,
+            "cy": 0.823,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.441,
+            "cy": 0.823,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.453,
+            "cy": 0.464,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.453,
+            "cy": 0.464,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.502,
+            "cy": 0.638,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.502,
+            "cy": 0.638,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.938,
+            "cy": 0.24,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.938,
+            "cy": 0.24,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.273,
+            "cy": 0.461,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.273,
+            "cy": 0.461,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.79,
+            "cy": 0.223,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.79,
+            "cy": 0.223,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.662,
+            "cy": 0.466,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.662,
+            "cy": 0.466,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.818,
+            "cy": 0.377,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.818,
+            "cy": 0.377,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the chalkboard.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.453,
+            "cy": 0.464,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.453,
+            "cy": 0.464,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the globe.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.273,
+            "cy": 0.461,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.273,
+            "cy": 0.461,
+            "r": 0.08
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the bookshelf.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.938,
+            "cy": 0.24,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.938,
+            "cy": 0.24,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.453,
+          "cy": 0.464,
+          "r": 0.09
+        },
+        "imageB": {
+          "cx": 0.453,
+          "cy": 0.464,
+          "r": 0.09
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "classroom",
+      "aliases": [
+        "school",
+        "class"
+      ],
+      "hintUnits": [
+        "c",
+        "l",
+        "a",
+        "s",
+        "s",
+        "r",
+        "o",
+        "o",
+        "m"
+      ],
+      "meaning": {
+        "prompt": "What is this place called in English?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Classroom"
+          },
+          {
+            "id": "option_2",
+            "label": "Library"
+          },
+          {
+            "id": "option_3",
+            "label": "Kitchen"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "0b3f583ed94e0d16f5a784947d3a106b99669e08576803c8f60ccdb1634374a7"
+  },
+  "assetFiles": {
+    "7c528aad4a5149768ab3b183dfa6532c2a6534bc0b888d0215503c05a1c4afa7": "D:\\touchcatch\\content\\learning\\source\\en-school-classroom-a.png",
+    "7b4be0138ef1a2abfa39b6e2b023d4956e5cbe13d5ad7f71f22390cd09e137eb": "D:\\touchcatch\\content\\learning\\source\\en-school-classroom-b.png"
+  }
+}

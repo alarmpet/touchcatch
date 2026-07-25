@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-epiphany-lighthouse-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized subtle Advanced-level differences:
+1. Change the inventor's coat color from dark navy to burgundy red.
+2. Recolor the floating idea lightbulb glow from yellow to cyan blue.
+3. Change the telescope barrel color from brass gold to silver.
+4. Remove one sailboat on the ocean horizon.
+5. Recolor the captain's wheel spokes from brown to black.
+6. Change the lighthouse main beacon beam color from white-yellow to emerald green.
+7. Remove one shooting star streak across the twilight sky.
+8. Recolor the sextant frame from brass to copper.
+9. Add one extra small glowing star spark near the constellation chart.
+10. Remove the carved anchor symbol on the lighthouse stone railing post.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.709, "cy": 0.097, "r": 0.085 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.184, "cy": 0.552, "r": 0.085 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.479, "cy": 0.346, "r": 0.085 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.323, "cy": 0.314, "r": 0.085 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.051, "cy": 0.538, "r": 0.085 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.603, "cy": 0.120, "r": 0.085 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.182, "cy": 0.319, "r": 0.085 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.783, "cy": 0.414, "r": 0.085 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.836, "cy": 0.696, "r": 0.085 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.406, "cy": 0.639, "r": 0.085 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the yellow school bus.", "cx": 0.479, "cy": 0.346, "r": 0.085 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the bus stop sign.", "cx": 0.184, "cy": 0.552, "r": 0.085 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the fire hydrant.", "cx": 0.051, "cy": 0.538, "r": 0.085 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.479, "cy": 0.346, "r": 0.090 }
+}

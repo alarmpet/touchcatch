@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-metamorphosis-cocoon-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A (en_metamorphosis_cocoon_a). Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized subtle Advanced-level differences:
+1. Change the entomologist's shirt color from pastel pink to mint green.
+2. Recolor the main glowing silk cocoon from golden yellow to bright magenta.
+3. Change the swallowtail butterfly wings on the right branch from emerald green to cobalt blue.
+4. Remove one caterpillar feeding on the bottom left leaf branch.
+5. Recolor the nectar crystal vial stand from brass gold to polished silver.
+6. Change the orchid flower petal color on the top right from purple to coral orange.
+7. Remove one small caterpillar silk thread hanging from the wooden beam.
+8. Recolor the entomologist's magnifying lens handle from dark brown to amber yellow.
+9. Add one extra small glowing dewdrop resting on the leaf beside the cocoon.
+10. Remove the wall hygrometer meter hanging on the glasshouse frame.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

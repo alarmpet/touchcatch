@@ -6,31 +6,31 @@
   "publicContent": {
     "contentId": "29a97946-d408-49ed-84f1-b7a948cb1ce9",
     "version": 1,
-    "contentRevisionId": "537f5965-6da9-49b2-8b93-2f1372ac581a",
+    "contentRevisionId": "b3d8c6e0-d825-416e-8122-c140926d7374",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "ko-proverb-kind-words-return",
     "language": "ko",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/b8858205d9dafded1307dd651d8b8c40e66d8970e43c4e9614112ad2da6a139c.png",
-      "sha256": "b8858205d9dafded1307dd651d8b8c40e66d8970e43c4e9614112ad2da6a139c",
-      "encodedBytes": 2507072,
+      "url": "https://cdn.spot-learn.test/assets/61f564e177adc43fc5ce813ae0dc67641ac8347711aea80b1edfa14c497f8fe8.png",
+      "sha256": "61f564e177adc43fc5ce813ae0dc67641ac8347711aea80b1edfa14c497f8fe8",
+      "encodedBytes": 3489038,
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/5a97bfefca375c1ee810f93a2be1504b7100e457d30b5e8f4727087b9ee3d8f5.png",
-      "sha256": "5a97bfefca375c1ee810f93a2be1504b7100e457d30b5e8f4727087b9ee3d8f5",
-      "encodedBytes": 2415734,
+      "url": "https://cdn.spot-learn.test/assets/5dfe1e8e1d513ba35ebd0b968779bee31297ee8a6aeb44cf21f355958e4f8bb5.png",
+      "sha256": "5dfe1e8e1d513ba35ebd0b968779bee31297ee8a6aeb44cf21f355958e4f8bb5",
+      "encodedBytes": 3535812,
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "537f5965-6da9-49b2-8b93-2f1372ac581a",
+    "contentRevisionId": "b3d8c6e0-d825-416e-8122-c140926d7374",
     "schemaVersion": "1.0.0",
     "differences": [
       {
@@ -38,14 +38,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.81,
-            "cy": 0.1,
-            "r": 0.06
+            "cx": 0.151,
+            "cy": 0.88,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.81,
-            "cy": 0.1,
-            "r": 0.06
+            "cx": 0.151,
+            "cy": 0.88,
+            "r": 0.05
           }
         }
       },
@@ -54,14 +54,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.93,
-            "cy": 0.22,
-            "r": 0.06
+            "cx": 0.525,
+            "cy": 0.376,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.93,
-            "cy": 0.22,
-            "r": 0.06
+            "cx": 0.525,
+            "cy": 0.376,
+            "r": 0.05
           }
         }
       },
@@ -70,13 +70,13 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.96,
-            "cy": 0.4,
+            "cx": 0.195,
+            "cy": 0.728,
             "r": 0.05
           },
           "imageB": {
-            "cx": 0.96,
-            "cy": 0.4,
+            "cx": 0.195,
+            "cy": 0.728,
             "r": 0.05
           }
         }
@@ -86,14 +86,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.07,
-            "cy": 0.82,
-            "r": 0.055
+            "cx": 0.935,
+            "cy": 0.203,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.07,
-            "cy": 0.82,
-            "r": 0.055
+            "cx": 0.935,
+            "cy": 0.203,
+            "r": 0.05
           }
         }
       },
@@ -102,14 +102,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.91,
-            "cy": 0.83,
-            "r": 0.055
+            "cx": 0.97,
+            "cy": 0.432,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.91,
-            "cy": 0.83,
-            "r": 0.055
+            "cx": 0.97,
+            "cy": 0.432,
+            "r": 0.05
           }
         }
       },
@@ -118,14 +118,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.145,
-            "cy": 0.86,
-            "r": 0.055
+            "cx": 0.905,
+            "cy": 0.835,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.145,
-            "cy": 0.86,
-            "r": 0.055
+            "cx": 0.905,
+            "cy": 0.835,
+            "r": 0.05
           }
         }
       },
@@ -134,13 +134,13 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.195,
-            "cy": 0.74,
+            "cx": 0.817,
+            "cy": 0.057,
             "r": 0.05
           },
           "imageB": {
-            "cx": 0.195,
-            "cy": 0.74,
+            "cx": 0.817,
+            "cy": 0.057,
             "r": 0.05
           }
         }
@@ -150,14 +150,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.52,
-            "cy": 0.37,
-            "r": 0.06
+            "cx": 0.694,
+            "cy": 0.818,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.52,
-            "cy": 0.37,
-            "r": 0.06
+            "cx": 0.694,
+            "cy": 0.818,
+            "r": 0.05
           }
         }
       },
@@ -166,14 +166,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.376,
-            "cy": 0.94,
-            "r": 0.025
+            "cx": 0.293,
+            "cy": 0.704,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.376,
-            "cy": 0.94,
-            "r": 0.025
+            "cx": 0.293,
+            "cy": 0.704,
+            "r": 0.05
           }
         }
       },
@@ -182,13 +182,13 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.69,
-            "cy": 0.82,
+            "cx": 0.371,
+            "cy": 0.306,
             "r": 0.05
           },
           "imageB": {
-            "cx": 0.69,
-            "cy": 0.82,
+            "cx": 0.371,
+            "cy": 0.306,
             "r": 0.05
           }
         }
@@ -304,10 +304,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "ca4ab1bb70c229850102c817a4475dde282b8ebce8cf52ae9898b97254a8d038"
+    "privateSolutionHash": "bed7c9694a8938b02151a57c7e3c0b15a449730c9afa1f4127c590bbde3881fb"
   },
   "assetFiles": {
-    "b8858205d9dafded1307dd651d8b8c40e66d8970e43c4e9614112ad2da6a139c": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\ko-proverb-kind-words-return-a.png",
-    "5a97bfefca375c1ee810f93a2be1504b7100e457d30b5e8f4727087b9ee3d8f5": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\ko-proverb-kind-words-return-b.png"
+    "61f564e177adc43fc5ce813ae0dc67641ac8347711aea80b1edfa14c497f8fe8": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-kind-words-return-a.png",
+    "5dfe1e8e1d513ba35ebd0b968779bee31297ee8a6aeb44cf21f355958e4f8bb5": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-kind-words-return-b.png"
   }
 }

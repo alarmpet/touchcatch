@@ -1,0 +1,275 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "5aaa9fa9-549e-4ef8-8904-2c05462fc0df",
+    "version": 1,
+    "contentRevisionId": "f02588dd-4d22-4eed-84b7-1dd2b0da018d",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-panoramic-observatory",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/4ca0a0a5d47cbad02ef6ac5ff551e0411ab8f9af4180ed47a31ce017b0a79a94.png",
+      "sha256": "4ca0a0a5d47cbad02ef6ac5ff551e0411ab8f9af4180ed47a31ce017b0a79a94",
+      "encodedBytes": 1857114,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/959f4ef6a4dac908bf5e5a3c5ae5c5c29d2bc6ada2b62265be114592d47ad68f.png",
+      "sha256": "959f4ef6a4dac908bf5e5a3c5ae5c5c29d2bc6ada2b62265be114592d47ad68f",
+      "encodedBytes": 2097160,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "f02588dd-4d22-4eed-84b7-1dd2b0da018d",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.779,
+            "cy": 0.711,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.779,
+            "cy": 0.711,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.69,
+            "cy": 0.499,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.69,
+            "cy": 0.499,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.87,
+            "cy": 0.615,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.87,
+            "cy": 0.615,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.585,
+            "cy": 0.608,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.585,
+            "cy": 0.608,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.95,
+            "cy": 0.792,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.95,
+            "cy": 0.792,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.624,
+            "cy": 0.736,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.624,
+            "cy": 0.736,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.729,
+            "cy": 0.254,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.729,
+            "cy": 0.254,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.213,
+            "cy": 0.349,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.213,
+            "cy": 0.349,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-panoramic-observatory",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.779,
+            "cy": 0.711,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.779,
+            "cy": 0.711,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-panoramic-observatory",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.69,
+            "cy": 0.499,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.69,
+            "cy": 0.499,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-panoramic-observatory",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.87,
+            "cy": 0.615,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.87,
+            "cy": 0.615,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.779,
+          "cy": 0.711,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.779,
+          "cy": 0.711,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "panoramic",
+      "aliases": [
+        "panorama",
+        "wide view"
+      ],
+      "hintUnits": [
+        "p",
+        "a",
+        "n",
+        "o",
+        "r",
+        "a",
+        "m",
+        "i",
+        "c"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '파노라마의'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Panoramic"
+          },
+          {
+            "id": "option_2",
+            "label": "Pandemic"
+          },
+          {
+            "id": "option_3",
+            "label": "Paranoid"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "f08c485bb9770c95bb8e0db2ad9101d65800d8e075dcae3567405404ab4b9801"
+  },
+  "assetFiles": {
+    "4ca0a0a5d47cbad02ef6ac5ff551e0411ab8f9af4180ed47a31ce017b0a79a94": "D:\\touchcatch\\content\\learning\\source\\en-panoramic-observatory-a.png",
+    "959f4ef6a4dac908bf5e5a3c5ae5c5c29d2bc6ada2b62265be114592d47ad68f": "D:\\touchcatch\\content\\learning\\source\\en-panoramic-observatory-b.png"
+  }
+}

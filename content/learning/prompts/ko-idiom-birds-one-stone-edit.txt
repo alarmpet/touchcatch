@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: ko-idiom-birds-one-stone-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, characters, background, composition, and drawing style. Make 10 localized differences:
+1. Change the scholar's robe color from blue to purple.
+2. Change the stone lantern flame glow from yellow to green.
+3. Recolor one magpie's tail feathers from blue to white.
+4. Remove one lotus flower from the lotus pond.
+5. Recolor one traditional fan on the table from red to yellow.
+6. Reverse the diagonal roof tip of the wooden pavilion.
+7. Add a small frog resting on a stone in the stream.
+8. Remove the scroll from the scholar's hand.
+9. Change the stone bench leg shape from square to round.
+10. Recolor pine tree needles on the top branch from dark green to light green.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

@@ -1,0 +1,211 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "9a920f74-158e-4ef9-8dfd-e58e9c2e5b71",
+    "version": 1,
+    "contentRevisionId": "400a9dfa-9dcb-4def-8e13-8cd9885758ce",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-solitude-cliff",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/a04fe08aaa2700acc0a9b6271a58bbc9505c272f5795de2c7bde210f87c0778b.png",
+      "sha256": "a04fe08aaa2700acc0a9b6271a58bbc9505c272f5795de2c7bde210f87c0778b",
+      "encodedBytes": 2094800,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/23721dba195673fa979e4960eb0f09c6e54dc9ba6bfca7cede0adda393f1007a.png",
+      "sha256": "23721dba195673fa979e4960eb0f09c6e54dc9ba6bfca7cede0adda393f1007a",
+      "encodedBytes": 2221192,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "400a9dfa-9dcb-4def-8e13-8cd9885758ce",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.609,
+            "cy": 0.629,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.609,
+            "cy": 0.629,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.749,
+            "cy": 0.596,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.749,
+            "cy": 0.596,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.739,
+            "cy": 0.195,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.739,
+            "cy": 0.195,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.607,
+            "cy": 0.224,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.607,
+            "cy": 0.224,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-solitude-cliff",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.609,
+            "cy": 0.629,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.609,
+            "cy": 0.629,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-solitude-cliff",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.749,
+            "cy": 0.596,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.749,
+            "cy": 0.596,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-solitude-cliff",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.739,
+            "cy": 0.195,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.739,
+            "cy": 0.195,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.609,
+          "cy": 0.629,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.609,
+          "cy": 0.629,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "solitude",
+      "aliases": [
+        "solitary",
+        "lonely",
+        "secluded"
+      ],
+      "hintUnits": [
+        "s",
+        "o",
+        "l",
+        "i",
+        "t",
+        "u",
+        "d",
+        "e"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '고독' or '홀로 있음'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Solitude"
+          },
+          {
+            "id": "option_2",
+            "label": "Solace"
+          },
+          {
+            "id": "option_3",
+            "label": "Solidarity"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "e2ef10a7894e8f26a7ee45420d15a8fdff3f672d73e32d0edccafc3828f69775"
+  },
+  "assetFiles": {
+    "a04fe08aaa2700acc0a9b6271a58bbc9505c272f5795de2c7bde210f87c0778b": "D:\\touchcatch\\content\\learning\\source\\en-solitude-cliff-a.png",
+    "23721dba195673fa979e4960eb0f09c6e54dc9ba6bfca7cede0adda393f1007a": "D:\\touchcatch\\content\\learning\\source\\en-solitude-cliff-b.png"
+  }
+}

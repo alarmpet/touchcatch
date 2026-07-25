@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "1eb05211-c2d9-4de6-85ab-76d40a45e5d4",
+    "version": 1,
+    "contentRevisionId": "7400bf49-8ff1-4714-84e6-530412be9a82",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-quintessence-alchemy",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/d40d1370d99c3d70bfd57aaa97cda6769397a570fa34be03d909816e038b2897.png",
+      "sha256": "d40d1370d99c3d70bfd57aaa97cda6769397a570fa34be03d909816e038b2897",
+      "encodedBytes": 2002412,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/1a5817d78e0dae0fb34d3c43d5c03c5760db501ce03083d84fb7c8d709096e6d.png",
+      "sha256": "1a5817d78e0dae0fb34d3c43d5c03c5760db501ce03083d84fb7c8d709096e6d",
+      "encodedBytes": 2178383,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "7400bf49-8ff1-4714-84e6-530412be9a82",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.497,
+            "cy": 0.497,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.497,
+            "cy": 0.497,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.852,
+            "cy": 0.854,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.852,
+            "cy": 0.854,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.248,
+            "cy": 0.679,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.248,
+            "cy": 0.679,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.228,
+            "cy": 0.475,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.228,
+            "cy": 0.475,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.951,
+            "cy": 0.963,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.951,
+            "cy": 0.963,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.593,
+            "cy": 0.236,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.593,
+            "cy": 0.236,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.662,
+            "cy": 0.771,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.662,
+            "cy": 0.771,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.235,
+            "cy": 0.804,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.235,
+            "cy": 0.804,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.579,
+            "cy": 0.364,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.579,
+            "cy": 0.364,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.74,
+            "cy": 0.577,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.74,
+            "cy": 0.577,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-quintessence-alchemy",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.497,
+            "cy": 0.497,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.497,
+            "cy": 0.497,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-quintessence-alchemy",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.852,
+            "cy": 0.854,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.852,
+            "cy": 0.854,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-quintessence-alchemy",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.248,
+            "cy": 0.679,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.248,
+            "cy": 0.679,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.497,
+          "cy": 0.497,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.497,
+          "cy": 0.497,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "quintessence",
+      "aliases": [
+        "pure essence",
+        "fifth element"
+      ],
+      "hintUnits": [
+        "q",
+        "u",
+        "i",
+        "n",
+        "t",
+        "e",
+        "s",
+        "s",
+        "e",
+        "n",
+        "c",
+        "e"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '정수(제5원소)'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Quintessence"
+          },
+          {
+            "id": "option_2",
+            "label": "Quarantined"
+          },
+          {
+            "id": "option_3",
+            "label": "Questionnaire"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "5129cdbdc1817cc3014fe55031628030e904beb014201d84f08de3b47a0552b1"
+  },
+  "assetFiles": {
+    "d40d1370d99c3d70bfd57aaa97cda6769397a570fa34be03d909816e038b2897": "D:\\touchcatch\\content\\learning\\source\\en-quintessence-alchemy-a.png",
+    "1a5817d78e0dae0fb34d3c43d5c03c5760db501ce03083d84fb7c8d709096e6d": "D:\\touchcatch\\content\\learning\\source\\en-quintessence-alchemy-b.png"
+  }
+}

@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-constellation-astronomy-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A (en_constellation_astronomy_a). Preserve exact same camera angle, composition, background, night sky, constellations, and drawing style. Make 10 localized subtle Advanced-level differences on specific objects:
+1. Change the astronomer's sweater color from navy blue to burgundy red.
+2. Recolor the main telescope barrel from antique brass to polished silver.
+3. Recolor the celestial globe stand on the table from mahogany brown to emerald green.
+4. Remove one glowing brass oil lamp hanging on the dome arch.
+5. Recolor the constellation star map scroll case on the floor from dark brown to cobalt blue.
+6. Change the astronomer's hair clip color from yellow to cyan blue.
+7. Remove one small astrolabe tool resting on the star chart table.
+8. Recolor the star chart wall frame trim from gold to magenta purple.
+9. Add one extra small glowing star globe resting beside the telescope mount.
+10. Remove the wall thermometer gauge on the dome stone pillar.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

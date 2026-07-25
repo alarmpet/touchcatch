@@ -1,0 +1,308 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "4ec07a70-dc45-4097-8c2d-96e0494b3b8d",
+    "version": 1,
+    "contentRevisionId": "930c3a70-9eff-4449-8ff8-415a410259d8",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-journalism-press",
+    "language": "en",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/bb774dd10eefb3fdb8d71304aedb0325ea7ebaf7761577fccadc4005f830c982.png",
+      "sha256": "bb774dd10eefb3fdb8d71304aedb0325ea7ebaf7761577fccadc4005f830c982",
+      "encodedBytes": 2005727,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/adb00a22cc70c0b66a8fd28eae7431f4c2b2ea3355b338fb66a728d4b1dcaf65.png",
+      "sha256": "adb00a22cc70c0b66a8fd28eae7431f4c2b2ea3355b338fb66a728d4b1dcaf65",
+      "encodedBytes": 2152578,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "930c3a70-9eff-4449-8ff8-415a410259d8",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.073,
+            "cy": 0.617,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.073,
+            "cy": 0.617,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.777,
+            "cy": 0.546,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.777,
+            "cy": 0.546,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.113,
+            "cy": 0.147,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.113,
+            "cy": 0.147,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.639,
+            "cy": 0.563,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.639,
+            "cy": 0.563,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.947,
+            "cy": 0.408,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.947,
+            "cy": 0.408,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.304,
+            "cy": 0.653,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.304,
+            "cy": 0.653,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.853,
+            "cy": 0.5,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.853,
+            "cy": 0.5,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.114,
+            "cy": 0.679,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.114,
+            "cy": 0.679,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.716,
+            "cy": 0.611,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.716,
+            "cy": 0.611,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.993,
+            "cy": 0.487,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.993,
+            "cy": 0.487,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the news anchor.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.639,
+            "cy": 0.563,
+            "r": 0.075
+          },
+          "imageB": {
+            "cx": 0.639,
+            "cy": 0.563,
+            "r": 0.075
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the broadcast camera.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.304,
+            "cy": 0.653,
+            "r": 0.075
+          },
+          "imageB": {
+            "cx": 0.304,
+            "cy": 0.653,
+            "r": 0.075
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the ON AIR light.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.113,
+            "cy": 0.147,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.113,
+            "cy": 0.147,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.639,
+          "cy": 0.563,
+          "r": 0.08
+        },
+        "imageB": {
+          "cx": 0.639,
+          "cy": 0.563,
+          "r": 0.08
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "journalism",
+      "aliases": [
+        "reporter",
+        "news"
+      ],
+      "hintUnits": [
+        "j",
+        "o",
+        "u",
+        "r",
+        "n",
+        "a",
+        "l",
+        "i",
+        "s",
+        "m"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '저널리즘'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Journalism"
+          },
+          {
+            "id": "option_2",
+            "label": "Geography"
+          },
+          {
+            "id": "option_3",
+            "label": "Geometry"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "43a5e92558f1023dfba6e17b16301fa38d79c72438987ad2ca530ff1b1495f8c"
+  },
+  "assetFiles": {
+    "bb774dd10eefb3fdb8d71304aedb0325ea7ebaf7761577fccadc4005f830c982": "D:\\touchcatch\\content\\learning\\source\\en-journalism-press-a.png",
+    "adb00a22cc70c0b66a8fd28eae7431f4c2b2ea3355b338fb66a728d4b1dcaf65": "D:\\touchcatch\\content\\learning\\source\\en-journalism-press-b.png"
+  }
+}

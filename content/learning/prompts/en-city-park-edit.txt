@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-city-park-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized Beginner-level differences:
+1. Change the slide color from red to yellow.
+2. Recolor the park bench from brown wood to dark green.
+3. Change the bicycle frame color from blue to orange.
+4. Remove the pet dog near the bench.
+5. Recolor the tulips in the flowerbed from pink to yellow.
+6. Remove one duck from the duck pond.
+7. Recolor the swing seats from blue to red.
+8. Change the trash bin color from green to grey.
+9. Remove the rainbow from the sky.
+10. Add one bird flying above the oak tree.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

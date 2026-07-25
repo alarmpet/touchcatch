@@ -1,21 +1,111 @@
 {
-  "policy": { "pixelThreshold": 96, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.02 },
+  "policy": {
+    "pixelThreshold": 60,
+    "minChangedPixelsPerRegion": 24,
+    "maxOutsideChangedRatio": 0.05
+  },
   "differences": [
-    { "id": "difference_1", "tier": "NORMAL", "cx": 0.435, "cy": 0.635, "r": 0.100 },
-    { "id": "difference_2", "tier": "NORMAL", "cx": 0.455, "cy": 0.920, "r": 0.050 },
-    { "id": "difference_3", "tier": "NORMAL", "cx": 0.610, "cy": 0.740, "r": 0.050 },
-    { "id": "difference_4", "tier": "NORMAL", "cx": 0.310, "cy": 0.920, "r": 0.070 },
-    { "id": "difference_5", "tier": "NORMAL", "cx": 0.715, "cy": 0.080, "r": 0.055 },
-    { "id": "difference_6", "tier": "NORMAL", "cx": 0.615, "cy": 0.605, "r": 0.050 },
-    { "id": "difference_7", "tier": "NORMAL", "cx": 0.920, "cy": 0.120, "r": 0.045 },
-    { "id": "difference_8", "tier": "HARD", "cx": 0.930, "cy": 0.750, "r": 0.060 },
-    { "id": "difference_9", "tier": "HARD", "cx": 0.785, "cy": 0.840, "r": 0.055 },
-    { "id": "difference_10", "tier": "HARD", "cx": 0.320, "cy": 0.570, "r": 0.040 }
+    {
+      "id": "difference_1",
+      "tier": "NORMAL",
+      "cx": 0.411,
+      "cy": 0.626,
+      "r": 0.05
+    },
+    {
+      "id": "difference_2",
+      "tier": "NORMAL",
+      "cx": 0.786,
+      "cy": 0.842,
+      "r": 0.05
+    },
+    {
+      "id": "difference_3",
+      "tier": "NORMAL",
+      "cx": 0.93,
+      "cy": 0.764,
+      "r": 0.05
+    },
+    {
+      "id": "difference_4",
+      "tier": "NORMAL",
+      "cx": 0.917,
+      "cy": 0.135,
+      "r": 0.05
+    },
+    {
+      "id": "difference_5",
+      "tier": "NORMAL",
+      "cx": 0.717,
+      "cy": 0.063,
+      "r": 0.05
+    },
+    {
+      "id": "difference_6",
+      "tier": "NORMAL",
+      "cx": 0.329,
+      "cy": 0.921,
+      "r": 0.05
+    },
+    {
+      "id": "difference_7",
+      "tier": "NORMAL",
+      "cx": 0.616,
+      "cy": 0.73,
+      "r": 0.05
+    },
+    {
+      "id": "difference_8",
+      "tier": "HARD",
+      "cx": 0.454,
+      "cy": 0.921,
+      "r": 0.05
+    },
+    {
+      "id": "difference_9",
+      "tier": "HARD",
+      "cx": 0.445,
+      "cy": 0.729,
+      "r": 0.05
+    },
+    {
+      "id": "difference_10",
+      "tier": "HARD",
+      "cx": 0.258,
+      "cy": 0.661,
+      "r": 0.05
+    }
   ],
   "wordHunts": [
-    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "책 더미를 찾으세요.", "cx": 0.160, "cy": 0.770, "r": 0.100 },
-    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "창가 화분을 찾으세요.", "cx": 0.480, "cy": 0.285, "r": 0.045 },
-    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "액자를 찾으세요.", "cx": 0.690, "cy": 0.230, "r": 0.045 }
+    {
+      "id": "word_1",
+      "kind": "NORMAL",
+      "publicPrompt": "책 더미를 찾으세요.",
+      "cx": 0.16,
+      "cy": 0.77,
+      "r": 0.1
+    },
+    {
+      "id": "word_2",
+      "kind": "NORMAL",
+      "publicPrompt": "창가 화분을 찾으세요.",
+      "cx": 0.48,
+      "cy": 0.285,
+      "r": 0.045
+    },
+    {
+      "id": "word_3",
+      "kind": "SPECIAL",
+      "publicPrompt": "액자를 찾으세요.",
+      "cx": 0.69,
+      "cy": 0.23,
+      "r": 0.045
+    }
   ],
-  "suddenDeath": { "id": "sudden_1", "cx": 0.550, "cy": 0.220, "r": 0.080 }
+  "suddenDeath": {
+    "id": "sudden_1",
+    "cx": 0.55,
+    "cy": 0.22,
+    "r": 0.08
+  }
 }

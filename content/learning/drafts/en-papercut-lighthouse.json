@@ -1,0 +1,259 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "6f09bc8b-9207-4dcc-8f7a-f0eb62b8c7e5",
+    "version": 1,
+    "contentRevisionId": "2630983a-1628-4b4f-8925-172d3f7693bf",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-papercut-lighthouse",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/716608a78c266990ec455e0918d95e65afa76c0d16db8c4344a9c4605c191ebd.png",
+      "sha256": "716608a78c266990ec455e0918d95e65afa76c0d16db8c4344a9c4605c191ebd",
+      "encodedBytes": 2487396,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/282259b6e81af5b01202bc2a6c2c7871a630650c149b7c0e9a2dcaeff603a6c2.png",
+      "sha256": "282259b6e81af5b01202bc2a6c2c7871a630650c149b7c0e9a2dcaeff603a6c2",
+      "encodedBytes": 2485005,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "2630983a-1628-4b4f-8925-172d3f7693bf",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.524,
+            "cy": 0.398,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.524,
+            "cy": 0.398,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.703,
+            "cy": 0.146,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.703,
+            "cy": 0.146,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.548,
+            "cy": 0.512,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.548,
+            "cy": 0.512,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.143,
+            "cy": 0.647,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.143,
+            "cy": 0.647,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.656,
+            "cy": 0.351,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.656,
+            "cy": 0.351,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.677,
+            "cy": 0.475,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.677,
+            "cy": 0.475,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.839,
+            "cy": 0.467,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.839,
+            "cy": 0.467,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-papercut-lighthouse",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.524,
+            "cy": 0.398,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.524,
+            "cy": 0.398,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-papercut-lighthouse",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.703,
+            "cy": 0.146,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.703,
+            "cy": 0.146,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-papercut-lighthouse",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.548,
+            "cy": 0.512,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.548,
+            "cy": 0.512,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.524,
+          "cy": 0.398,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.524,
+          "cy": 0.398,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "epiphany",
+      "aliases": [
+        "lighthouse",
+        "ocean",
+        "papercut"
+      ],
+      "hintUnits": [
+        "e",
+        "p",
+        "i",
+        "p",
+        "h",
+        "a",
+        "n",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '깨달음' or '영감의 등대'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Epiphany"
+          },
+          {
+            "id": "option_2",
+            "label": "Eclipse"
+          },
+          {
+            "id": "option_3",
+            "label": "Empathy"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "7bc49f5797bc14b396cb728694f2711a1a393aef231ff275fb5fa0fd0659f516"
+  },
+  "assetFiles": {
+    "716608a78c266990ec455e0918d95e65afa76c0d16db8c4344a9c4605c191ebd": "D:\\touchcatch\\content\\learning\\source\\en-papercut-lighthouse-a.png",
+    "282259b6e81af5b01202bc2a6c2c7871a630650c149b7c0e9a2dcaeff603a6c2": "D:\\touchcatch\\content\\learning\\source\\en-papercut-lighthouse-b.png"
+  }
+}

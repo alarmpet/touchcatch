@@ -1,0 +1,311 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "58a701c3-a427-4c63-873e-5345acd7d973",
+    "version": 1,
+    "contentRevisionId": "a604f109-8da1-4d16-879a-dc1fd317ef79",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-constellation-astronomy",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/ba8c106752ab2c9501bc8c83fcc2facacf77a6d7fa3c45c803bda4f8bb2b3ca8.png",
+      "sha256": "ba8c106752ab2c9501bc8c83fcc2facacf77a6d7fa3c45c803bda4f8bb2b3ca8",
+      "encodedBytes": 2046025,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/5032db03d0fe55e3fb3fcff3320fc23fbef98e0183287807a1c922112224ca4f.png",
+      "sha256": "5032db03d0fe55e3fb3fcff3320fc23fbef98e0183287807a1c922112224ca4f",
+      "encodedBytes": 2168474,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "a604f109-8da1-4d16-879a-dc1fd317ef79",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.449,
+            "cy": 0.509,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.449,
+            "cy": 0.509,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.538,
+            "cy": 0.434,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.538,
+            "cy": 0.434,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.161,
+            "cy": 0.547,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.161,
+            "cy": 0.547,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.448,
+            "cy": 0.8,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.448,
+            "cy": 0.8,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.136,
+            "cy": 0.972,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.136,
+            "cy": 0.972,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.453,
+            "cy": 0.647,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.453,
+            "cy": 0.647,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.17,
+            "cy": 0.805,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.17,
+            "cy": 0.805,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.206,
+            "cy": 0.672,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.206,
+            "cy": 0.672,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.322,
+            "cy": 0.679,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.322,
+            "cy": 0.679,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.053,
+            "cy": 0.822,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.053,
+            "cy": 0.822,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-constellation-astronomy",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.449,
+            "cy": 0.509,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.449,
+            "cy": 0.509,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-constellation-astronomy",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.538,
+            "cy": 0.434,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.538,
+            "cy": 0.434,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-constellation-astronomy",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.161,
+            "cy": 0.547,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.161,
+            "cy": 0.547,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.449,
+          "cy": 0.509,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.449,
+          "cy": 0.509,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "constellation",
+      "aliases": [
+        "star chart",
+        "zodiac"
+      ],
+      "hintUnits": [
+        "c",
+        "o",
+        "n",
+        "s",
+        "t",
+        "e",
+        "l",
+        "l",
+        "a",
+        "t",
+        "i",
+        "o",
+        "n"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '별자리'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Constellation"
+          },
+          {
+            "id": "option_2",
+            "label": "Conservation"
+          },
+          {
+            "id": "option_3",
+            "label": "Constitution"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "632fdb651fc3bfe6f72fa5213c854a85c5439c0b3cb22cb0ca77f27bca9d9735"
+  },
+  "assetFiles": {
+    "ba8c106752ab2c9501bc8c83fcc2facacf77a6d7fa3c45c803bda4f8bb2b3ca8": "D:\\touchcatch\\content\\learning\\source\\en-constellation-astronomy-a.png",
+    "5032db03d0fe55e3fb3fcff3320fc23fbef98e0183287807a1c922112224ca4f": "D:\\touchcatch\\content\\learning\\source\\en-constellation-astronomy-b.png"
+  }
+}

@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-cataclysm-volcano-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A (en_cataclysm_volcano_a). Preserve exact same camera angle, composition, background, volcano, sky, and drawing style. Make 10 localized subtle Advanced-level differences on specific station objects:
+1. Change the volcanologist's helmet visor trim color from gold to cyan blue.
+2. Recolor the seismic monitor screen display from green to bright magenta.
+3. Recolor the geothermal drill probe from yellow to cobalt blue.
+4. Remove one obsidian crystal spire resting near the deck railing.
+5. Recolor the observation deck safety railing from orange to polished chrome silver.
+6. Change the heat-resistant suit's shoulder badge color from red to neon green.
+7. Remove one small seismic sensor probe stuck in the volcanic rock.
+8. Recolor the volcanologist's thermal camera casing from black to bright yellow.
+9. Add one extra small glowing lava sample container resting on the monitor table.
+10. Remove the wall siren light on the observation deck pillar.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

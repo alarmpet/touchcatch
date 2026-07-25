@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.583, "cy": 0.073, "r": 0.070 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.410, "cy": 0.081, "r": 0.070 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.732, "cy": 0.046, "r": 0.070 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.258, "cy": 0.066, "r": 0.070 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.696, "cy": 0.653, "r": 0.070 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.495, "cy": 0.120, "r": 0.070 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.679, "cy": 0.487, "r": 0.070 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.872, "cy": 0.033, "r": 0.070 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.888, "cy": 0.660, "r": 0.070 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.338, "cy": 0.122, "r": 0.070 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the archaeologist.", "cx": 0.495, "cy": 0.120, "r": 0.075 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the dinosaur fossil.", "cx": 0.258, "cy": 0.066, "r": 0.070 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the amphora jar.", "cx": 0.696, "cy": 0.653, "r": 0.070 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.495, "cy": 0.120, "r": 0.080 }
+}

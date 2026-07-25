@@ -1,0 +1,311 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "a5a7013b-bdf9-4c15-8865-630d99c1a9be",
+    "version": 1,
+    "contentRevisionId": "a09c775d-72b2-4fc5-8a5f-4a1fd739143f",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-cyberpunk-space",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/2c47f8c26ea1d7f129283e5e7f3dccfac123c0f1878eabd06353829105e334fe.png",
+      "sha256": "2c47f8c26ea1d7f129283e5e7f3dccfac123c0f1878eabd06353829105e334fe",
+      "encodedBytes": 2859575,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/1628e7da9340c65a81f684667e14b8903411543e0b3f84b4b9cc8e3e7f9c0649.png",
+      "sha256": "1628e7da9340c65a81f684667e14b8903411543e0b3f84b4b9cc8e3e7f9c0649",
+      "encodedBytes": 2885623,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "a09c775d-72b2-4fc5-8a5f-4a1fd739143f",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.182,
+            "cy": 0.295,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.182,
+            "cy": 0.295,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.631,
+            "cy": 0.45,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.631,
+            "cy": 0.45,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.073,
+            "cy": 0.332,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.073,
+            "cy": 0.332,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.67,
+            "cy": 0.637,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.67,
+            "cy": 0.637,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.17,
+            "cy": 0.494,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.17,
+            "cy": 0.494,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.835,
+            "cy": 0.914,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.835,
+            "cy": 0.914,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.467,
+            "cy": 0.416,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.467,
+            "cy": 0.416,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.367,
+            "cy": 0.519,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.367,
+            "cy": 0.519,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.834,
+            "cy": 0.35,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.834,
+            "cy": 0.35,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.018,
+            "cy": 0.571,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.018,
+            "cy": 0.571,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-cyberpunk-space",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.182,
+            "cy": 0.295,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.182,
+            "cy": 0.295,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-cyberpunk-space",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.631,
+            "cy": 0.45,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.631,
+            "cy": 0.45,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-cyberpunk-space",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.073,
+            "cy": 0.332,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.073,
+            "cy": 0.332,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.182,
+          "cy": 0.295,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.182,
+          "cy": 0.295,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "illumination",
+      "aliases": [
+        "cyberpunk",
+        "space",
+        "observatory"
+      ],
+      "hintUnits": [
+        "i",
+        "l",
+        "l",
+        "u",
+        "m",
+        "i",
+        "n",
+        "a",
+        "t",
+        "i",
+        "o",
+        "n"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '조명' or '밝게 함'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Illumination"
+          },
+          {
+            "id": "option_2",
+            "label": "Illusion"
+          },
+          {
+            "id": "option_3",
+            "label": "Illustration"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "08749810fee55bc92f0698ad986810a19a18b2cfb5d918cc3715b2010b905e0f"
+  },
+  "assetFiles": {
+    "2c47f8c26ea1d7f129283e5e7f3dccfac123c0f1878eabd06353829105e334fe": "D:\\touchcatch\\content\\learning\\source\\en-cyberpunk-space-a.png",
+    "1628e7da9340c65a81f684667e14b8903411543e0b3f84b4b9cc8e3e7f9c0649": "D:\\touchcatch\\content\\learning\\source\\en-cyberpunk-space-b.png"
+  }
+}

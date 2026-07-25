@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-architecture-studio-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized Intermediate-level differences:
+1. Change the desk lamp color from black to yellow.
+2. Change the coffee mug color from white to red.
+3. Recolor the miniature building model roof from white to blue.
+4. Remove the T-square ruler leaning against the table.
+5. Add one extra potted monstera plant beside the bookshelf.
+6. Change the architect's sweater color from navy to burgundy.
+7. Recolor the blueprint paper rolled up in the tube holder from blue to green.
+8. Remove one design book from the top shelf.
+9. Recolor the laptop casing from silver to black.
+10. Remove the clock on the office wall.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

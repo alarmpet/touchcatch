@@ -1,0 +1,306 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "fbf8d862-0a02-41f0-87c6-aa2337935fb1",
+    "version": 1,
+    "contentRevisionId": "122cf8b4-8850-4a74-8b07-a2377a1ecb54",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-toy-hospital",
+    "language": "en",
+    "difficulty": "BEGINNER",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/645f0b95b9fa095b019172629927e9c1a7c00ca6360ddb8ed745104397caaba0.png",
+      "sha256": "645f0b95b9fa095b019172629927e9c1a7c00ca6360ddb8ed745104397caaba0",
+      "encodedBytes": 1385008,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/ee1c93a948faf8bd970e4026e475a7d29b53c557095503bf40a28035e4ff13c9.png",
+      "sha256": "ee1c93a948faf8bd970e4026e475a7d29b53c557095503bf40a28035e4ff13c9",
+      "encodedBytes": 1672429,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "122cf8b4-8850-4a74-8b07-a2377a1ecb54",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5,
+            "cy": 0.474,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.5,
+            "cy": 0.474,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.665,
+            "cy": 0.456,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.665,
+            "cy": 0.456,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.424,
+            "cy": 0.515,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.424,
+            "cy": 0.515,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.618,
+            "cy": 0.544,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.618,
+            "cy": 0.544,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.493,
+            "cy": 0.594,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.493,
+            "cy": 0.594,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.687,
+            "cy": 0.699,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.687,
+            "cy": 0.699,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.782,
+            "cy": 0.151,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.782,
+            "cy": 0.151,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.291,
+            "cy": 0.31,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.291,
+            "cy": 0.31,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.71,
+            "cy": 0.577,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.71,
+            "cy": 0.577,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.94,
+            "cy": 0.423,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.94,
+            "cy": 0.423,
+            "r": 0.085
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the doctor.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5,
+            "cy": 0.474,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.5,
+            "cy": 0.474,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the teddy bear.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.665,
+            "cy": 0.456,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.665,
+            "cy": 0.456,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the X-ray viewer.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.291,
+            "cy": 0.31,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.291,
+            "cy": 0.31,
+            "r": 0.08
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.5,
+          "cy": 0.474,
+          "r": 0.09
+        },
+        "imageB": {
+          "cx": 0.5,
+          "cy": 0.474,
+          "r": 0.09
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "hospital",
+      "aliases": [
+        "doctor",
+        "clinic"
+      ],
+      "hintUnits": [
+        "h",
+        "o",
+        "s",
+        "p",
+        "i",
+        "t",
+        "a",
+        "l"
+      ],
+      "meaning": {
+        "prompt": "What is this place called?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Hospital"
+          },
+          {
+            "id": "option_2",
+            "label": "School"
+          },
+          {
+            "id": "option_3",
+            "label": "Market"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "46cfa486bbf385ec3364bf6a8163c01aa266202b8b82d6a9fcddb4d9ad53d89b"
+  },
+  "assetFiles": {
+    "645f0b95b9fa095b019172629927e9c1a7c00ca6360ddb8ed745104397caaba0": "D:\\touchcatch\\content\\learning\\source\\en-toy-hospital-a.png",
+    "ee1c93a948faf8bd970e4026e475a7d29b53c557095503bf40a28035e4ff13c9": "D:\\touchcatch\\content\\learning\\source\\en-toy-hospital-b.png"
+  }
+}

@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-phonics-apple-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Maintain exact same camera angle, characters, background, composition, and drawing style. Make 10 localized differences:
+1. Recolor the bird on the branch from blue to yellow.
+2. Change the picnic blanket pattern from checkered to stripes.
+3. Remove the kite from the sky.
+4. Change the watering can color from green to purple.
+5. Add one extra apple in the apple barrel.
+6. Change the shape of the wooden sign board.
+7. Reverse the ladder rung direction.
+8. Recolor one apple on the lower left branch from red to green.
+9. Remove the ant on the leaf.
+10. Change the garden bench cushion color to blue.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

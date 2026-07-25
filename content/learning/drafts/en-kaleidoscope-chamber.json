@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "7ca80062-0e49-47ab-865a-e494135261eb",
+    "version": 1,
+    "contentRevisionId": "4660479b-d113-490c-8723-d4c16bc50700",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-kaleidoscope-chamber",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/68e73ad10040665b617c7cab2196a448dab0971d0c58f011a2f7927b9caabb3f.png",
+      "sha256": "68e73ad10040665b617c7cab2196a448dab0971d0c58f011a2f7927b9caabb3f",
+      "encodedBytes": 2885879,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/71d409d24d7a4b620be10df23955d68e2c1d930511adac3c6815905972a23b54.png",
+      "sha256": "71d409d24d7a4b620be10df23955d68e2c1d930511adac3c6815905972a23b54",
+      "encodedBytes": 2907512,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "4660479b-d113-490c-8723-d4c16bc50700",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.494,
+            "cy": 0.762,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.494,
+            "cy": 0.762,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.61,
+            "cy": 0.318,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.61,
+            "cy": 0.318,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.51,
+            "cy": 0.579,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.51,
+            "cy": 0.579,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.125,
+            "cy": 0.444,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.125,
+            "cy": 0.444,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.694,
+            "cy": 0.245,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.694,
+            "cy": 0.245,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.625,
+            "cy": 0.555,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.625,
+            "cy": 0.555,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.431,
+            "cy": 0.258,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.431,
+            "cy": 0.258,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.973,
+            "cy": 0.316,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.973,
+            "cy": 0.316,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.068,
+            "cy": 0.262,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.068,
+            "cy": 0.262,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.947,
+            "cy": 0.681,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.947,
+            "cy": 0.681,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-kaleidoscope-chamber",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.494,
+            "cy": 0.762,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.494,
+            "cy": 0.762,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-kaleidoscope-chamber",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.61,
+            "cy": 0.318,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.61,
+            "cy": 0.318,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-kaleidoscope-chamber",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.51,
+            "cy": 0.579,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.51,
+            "cy": 0.579,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.494,
+          "cy": 0.762,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.494,
+          "cy": 0.762,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "kaleidoscope",
+      "aliases": [
+        "prism",
+        "colorful pattern"
+      ],
+      "hintUnits": [
+        "k",
+        "a",
+        "l",
+        "e",
+        "i",
+        "d",
+        "o",
+        "s",
+        "c",
+        "o",
+        "p",
+        "e"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '만화경'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Kaleidoscope"
+          },
+          {
+            "id": "option_2",
+            "label": "Kangaroo"
+          },
+          {
+            "id": "option_3",
+            "label": "Karate"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "0923fded3e90238ab90e43947daf6870d883dbd0079c031669b67c02827feb05"
+  },
+  "assetFiles": {
+    "68e73ad10040665b617c7cab2196a448dab0971d0c58f011a2f7927b9caabb3f": "D:\\touchcatch\\content\\learning\\source\\en-kaleidoscope-chamber-a.png",
+    "71d409d24d7a4b620be10df23955d68e2c1d930511adac3c6815905972a23b54": "D:\\touchcatch\\content\\learning\\source\\en-kaleidoscope-chamber-b.png"
+  }
+}

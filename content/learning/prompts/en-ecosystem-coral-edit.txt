@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-ecosystem-coral-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized Intermediate-level differences:
+1. Recolor the sea turtle shell from olive green to reddish brown.
+2. Change the clownfish stripes from black and white to blue and white.
+3. Recolor the scuba diver fins from yellow to bright blue.
+4. Remove the starfish on the rock.
+5. Change the sea anemone tentacles from purple to bright pink.
+6. Remove the glowing jellyfish from the upper water column.
+7. Recolor the brain coral from pink to neon yellow.
+8. Add one extra sea shell beside the treasure chest.
+9. Recolor the scuba tank from silver to red.
+10. Remove the stingray swimming near the seabed.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

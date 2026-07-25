@@ -1,0 +1,275 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "bb38df3a-55ac-4240-845f-b76eb034ea88",
+    "version": 1,
+    "contentRevisionId": "92a53c9b-ab5e-4768-82a1-93863fe4ea6c",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-3d-serenity-temple",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/91ff3275f885c3c3cbf9e2a4a1f4c7d5b1fa5ae3f2bc65f043402739a1ed5c7b.png",
+      "sha256": "91ff3275f885c3c3cbf9e2a4a1f4c7d5b1fa5ae3f2bc65f043402739a1ed5c7b",
+      "encodedBytes": 2447350,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/241cc0151b04d9e896630c5a215bf7d4ee2db7803c6c85dfe5910edb819ed3eb.png",
+      "sha256": "241cc0151b04d9e896630c5a215bf7d4ee2db7803c6c85dfe5910edb819ed3eb",
+      "encodedBytes": 2503466,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "92a53c9b-ab5e-4768-82a1-93863fe4ea6c",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.514,
+            "cy": 0.569,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.514,
+            "cy": 0.569,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.382,
+            "cy": 0.572,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.382,
+            "cy": 0.572,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.237,
+            "cy": 0.416,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.237,
+            "cy": 0.416,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.435,
+            "cy": 0.347,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.435,
+            "cy": 0.347,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.777,
+            "cy": 0.505,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.777,
+            "cy": 0.505,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.86,
+            "cy": 0.675,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.86,
+            "cy": 0.675,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.63,
+            "cy": 0.413,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.63,
+            "cy": 0.413,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.148,
+            "cy": 0.655,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.148,
+            "cy": 0.655,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-3d-serenity-temple",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.514,
+            "cy": 0.569,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.514,
+            "cy": 0.569,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-3d-serenity-temple",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.382,
+            "cy": 0.572,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.382,
+            "cy": 0.572,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-3d-serenity-temple",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.237,
+            "cy": 0.416,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.237,
+            "cy": 0.416,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.514,
+          "cy": 0.569,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.514,
+          "cy": 0.569,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "serenity",
+      "aliases": [
+        "serene",
+        "tranquility",
+        "temple"
+      ],
+      "hintUnits": [
+        "s",
+        "e",
+        "r",
+        "e",
+        "n",
+        "i",
+        "t",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '평정' or '고요한 안식처'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Serenity"
+          },
+          {
+            "id": "option_2",
+            "label": "Severity"
+          },
+          {
+            "id": "option_3",
+            "label": "Scarcity"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "81c254d9270df9243971149801d93e2d4c8e54ddcebf833b2d3f23ca3733c2ac"
+  },
+  "assetFiles": {
+    "91ff3275f885c3c3cbf9e2a4a1f4c7d5b1fa5ae3f2bc65f043402739a1ed5c7b": "D:\\touchcatch\\content\\learning\\source\\en-3d-serenity-temple-a.png",
+    "241cc0151b04d9e896630c5a215bf7d4ee2db7803c6c85dfe5910edb819ed3eb": "D:\\touchcatch\\content\\learning\\source\\en-3d-serenity-temple-b.png"
+  }
+}

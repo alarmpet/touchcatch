@@ -1,0 +1,311 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "21806eb8-28f1-403f-83a9-fb22984c8aa8",
+    "version": 1,
+    "contentRevisionId": "453e3025-60a7-4093-83ae-c3e395816822",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-chrysanthemum-greenhouse",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/7c82132148c3cb648396ab2c207c599cd0528a81a359c7080925ce63d61117ae.png",
+      "sha256": "7c82132148c3cb648396ab2c207c599cd0528a81a359c7080925ce63d61117ae",
+      "encodedBytes": 2726674,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/422fb41208e1cc3dd6bc4e71a18806b414a97ad51e24c14564a34972931dbfa4.png",
+      "sha256": "422fb41208e1cc3dd6bc4e71a18806b414a97ad51e24c14564a34972931dbfa4",
+      "encodedBytes": 2782032,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "453e3025-60a7-4093-83ae-c3e395816822",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.402,
+            "cy": 0.692,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.402,
+            "cy": 0.692,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.677,
+            "cy": 0.457,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.677,
+            "cy": 0.457,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.948,
+            "cy": 0.832,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.948,
+            "cy": 0.832,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.779,
+            "cy": 0.647,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.779,
+            "cy": 0.647,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.122,
+            "cy": 0.586,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.122,
+            "cy": 0.586,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.395,
+            "cy": 0.907,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.395,
+            "cy": 0.907,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.623,
+            "cy": 0.859,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.623,
+            "cy": 0.859,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.294,
+            "cy": 0.279,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.294,
+            "cy": 0.279,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.525,
+            "cy": 0.544,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.525,
+            "cy": 0.544,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.582,
+            "cy": 0.678,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.582,
+            "cy": 0.678,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-chrysanthemum-greenhouse",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.402,
+            "cy": 0.692,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.402,
+            "cy": 0.692,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-chrysanthemum-greenhouse",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.677,
+            "cy": 0.457,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.677,
+            "cy": 0.457,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-chrysanthemum-greenhouse",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.948,
+            "cy": 0.832,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.948,
+            "cy": 0.832,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.402,
+          "cy": 0.692,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.402,
+          "cy": 0.692,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "chrysanthemum",
+      "aliases": [
+        "golden flower",
+        "greenhouse"
+      ],
+      "hintUnits": [
+        "c",
+        "h",
+        "r",
+        "y",
+        "s",
+        "a",
+        "n",
+        "t",
+        "h",
+        "e",
+        "m",
+        "u",
+        "m"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '국화'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Chrysanthemum"
+          },
+          {
+            "id": "option_2",
+            "label": "Carnation"
+          },
+          {
+            "id": "option_3",
+            "label": "Camellia"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "86e5d1dabfa421233b2cf60d69708263b81b16e4c50c7e8df392bc5a3de00a5d"
+  },
+  "assetFiles": {
+    "7c82132148c3cb648396ab2c207c599cd0528a81a359c7080925ce63d61117ae": "D:\\touchcatch\\content\\learning\\source\\en-chrysanthemum-greenhouse-a.png",
+    "422fb41208e1cc3dd6bc4e71a18806b414a97ad51e24c14564a34972931dbfa4": "D:\\touchcatch\\content\\learning\\source\\en-chrysanthemum-greenhouse-b.png"
+  }
+}

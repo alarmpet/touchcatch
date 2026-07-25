@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-solitude-sanctuary-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A (en_solitude_sanctuary_a). Preserve exact same camera angle, composition, background, mountain peaks, temple, and drawing style. Make 10 localized subtle Advanced-level differences on specific objects:
+1. Change the monk's meditation robe color from saffron orange to maroon crimson.
+2. Recolor the bronze gong disc hanging on the frame from dark bronze to silver chrome.
+3. Recolor the meditation cushion mat from navy blue to emerald green.
+4. Remove one hanging glass wind chime from the pavilion roof eave.
+5. Recolor the stone lantern roof cap on the left from grey granite to moss green.
+6. Change the floating lotus flower color in the pond from pink to white.
+7. Remove one small singing bowl resting beside the monk on the mat.
+8. Recolor the wooden gong mallet head from brown wood to ruby red.
+9. Add one extra small clay tea cup resting on the wooden deck table.
+10. Remove the wall scroll hanging tag on the pavilion pillar.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

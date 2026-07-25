@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 10, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.300, "cy": 0.642, "r": 0.080 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.237, "cy": 0.763, "r": 0.080 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.211, "cy": 0.627, "r": 0.080 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.793, "cy": 0.026, "r": 0.100 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.698, "cy": 0.533, "r": 0.080 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.747, "cy": 0.684, "r": 0.080 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.688, "cy": 0.069, "r": 0.100 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.875, "cy": 0.403, "r": 0.080 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.433, "cy": 0.647, "r": 0.080 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.826, "cy": 0.876, "r": 0.080 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the stone lantern.", "cx": 0.300, "cy": 0.642, "r": 0.080 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the magpies.", "cx": 0.688, "cy": 0.069, "r": 0.070 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the scholar.", "cx": 0.698, "cy": 0.533, "r": 0.070 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.793, "cy": 0.026, "r": 0.080 }
+}

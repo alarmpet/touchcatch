@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "1c0af010-5445-46ba-8a6f-14096410edf1",
+    "version": 1,
+    "contentRevisionId": "41d2866a-8874-4770-865f-33bf98094d95",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-architecture-studio",
+    "language": "en",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/b796f328d943134bac3213e378f8d53ed7218f8c14dfc5b70fe2e30dc431e0b4.png",
+      "sha256": "b796f328d943134bac3213e378f8d53ed7218f8c14dfc5b70fe2e30dc431e0b4",
+      "encodedBytes": 1952518,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/1366602af18e863b86ac7ee6d12cc6e047e69f42f868b1bd5667dfc8f7f89c97.png",
+      "sha256": "1366602af18e863b86ac7ee6d12cc6e047e69f42f868b1bd5667dfc8f7f89c97",
+      "encodedBytes": 2138281,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "41d2866a-8874-4770-865f-33bf98094d95",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.454,
+            "cy": 0.745,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.454,
+            "cy": 0.745,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.786,
+            "cy": 0.5,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.786,
+            "cy": 0.5,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.539,
+            "cy": 0.447,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.539,
+            "cy": 0.447,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.361,
+            "cy": 0.779,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.361,
+            "cy": 0.779,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.824,
+            "cy": 0.695,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.824,
+            "cy": 0.695,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.451,
+            "cy": 0.852,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.451,
+            "cy": 0.852,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.716,
+            "cy": 0.477,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.716,
+            "cy": 0.477,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.942,
+            "cy": 0.715,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.942,
+            "cy": 0.715,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.719,
+            "cy": 0.607,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.719,
+            "cy": 0.607,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.929,
+            "cy": 0.433,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.929,
+            "cy": 0.433,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the architect.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.454,
+            "cy": 0.745,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.454,
+            "cy": 0.745,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the building model.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.786,
+            "cy": 0.5,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.786,
+            "cy": 0.5,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the blueprint.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.361,
+            "cy": 0.779,
+            "r": 0.075
+          },
+          "imageB": {
+            "cx": 0.361,
+            "cy": 0.779,
+            "r": 0.075
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.786,
+          "cy": 0.5,
+          "r": 0.08
+        },
+        "imageB": {
+          "cx": 0.786,
+          "cy": 0.5,
+          "r": 0.08
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "architecture",
+      "aliases": [
+        "architect",
+        "design"
+      ],
+      "hintUnits": [
+        "a",
+        "r",
+        "c",
+        "h",
+        "i",
+        "t",
+        "e",
+        "c",
+        "t",
+        "u",
+        "r",
+        "e"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '건축'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Architecture"
+          },
+          {
+            "id": "option_2",
+            "label": "Agriculture"
+          },
+          {
+            "id": "option_3",
+            "label": "Chemistry"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "a819a310cdad43f60c18cdc802caf50c09ae855241813305eb3508b442f8b395"
+  },
+  "assetFiles": {
+    "b796f328d943134bac3213e378f8d53ed7218f8c14dfc5b70fe2e30dc431e0b4": "D:\\touchcatch\\content\\learning\\source\\en-architecture-studio-a.png",
+    "1366602af18e863b86ac7ee6d12cc6e047e69f42f868b1bd5667dfc8f7f89c97": "D:\\touchcatch\\content\\learning\\source\\en-architecture-studio-b.png"
+  }
+}

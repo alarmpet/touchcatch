@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-toy-hospital-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized Beginner-level differences:
+1. Change the doctor coat color from white to light mint green.
+2. Change the plush teddy bear color from brown to pink.
+3. Recolor the bandage box on the top shelf from red to blue.
+4. Remove the stethoscope hanging on the wall hook.
+5. Change the wall clock frame from round to square.
+6. Add one extra medical jar on the examination bench.
+7. Recolor the pet scale display from green to red.
+8. Change the aloe plant pot color from yellow to purple.
+9. Remove the faucet tap on the washing sink.
+10. Recolor the X-ray viewer frame from black to white.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

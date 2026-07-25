@@ -1,0 +1,5 @@
+Use case: illustration-story
+Asset type: spot-the-difference educational game source image A
+Primary request: Bright clean 2D educational game illustration of an enchanted botanical garden of happy unexpected discoveries for English vocabulary learning (Serendipity).
+Scene/backdrop: In a vibrant magical glasshouse garden, a young girl discovers a four-leaf clover glowing gold amidst unusual exotic flowers, a rainbow waterfall dropping into a crystal pond, glowing fireflies in glass lanterns, a peacock displaying colorful feathers, carved marble garden bench, antique watering can, and ornate iron arch gate.
+Style/medium: Fixed 3:2 landscape wide view. Crisp outlines, softly shaded flat colors, uncluttered composition with clear visual separation between objects. No text, no letters, no UI, no watermark.

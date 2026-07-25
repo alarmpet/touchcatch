@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.815, "cy": 0.496, "r": 0.070 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.737, "cy": 0.618, "r": 0.070 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.820, "cy": 0.166, "r": 0.070 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.292, "cy": 0.515, "r": 0.070 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.651, "cy": 0.660, "r": 0.070 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.177, "cy": 0.477, "r": 0.070 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.807, "cy": 0.677, "r": 0.070 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.139, "cy": 0.202, "r": 0.070 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.241, "cy": 0.211, "r": 0.070 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.880, "cy": 0.555, "r": 0.070 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the writer at the desk.", "cx": 0.737, "cy": 0.618, "r": 0.075 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the feather quill.", "cx": 0.815, "cy": 0.496, "r": 0.070 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the glowing hourglass.", "cx": 0.651, "cy": 0.660, "r": 0.070 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.737, "cy": 0.618, "r": 0.080 }
+}

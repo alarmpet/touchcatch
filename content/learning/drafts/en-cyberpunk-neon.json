@@ -1,0 +1,308 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "0829b81b-335b-460f-8881-99cdee136b02",
+    "version": 1,
+    "contentRevisionId": "e9774406-fc5f-49bd-8c97-8fd5487dd570",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-cyberpunk-neon",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/5f782f7668c9288440df76b5eb04bee2416df34561cbecd2ee7cfbe0af4574f2.png",
+      "sha256": "5f782f7668c9288440df76b5eb04bee2416df34561cbecd2ee7cfbe0af4574f2",
+      "encodedBytes": 2722108,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/111a2fffe544e465642d76b2399762dba07ad51d09f0fdbd3155f300f0d63af1.png",
+      "sha256": "111a2fffe544e465642d76b2399762dba07ad51d09f0fdbd3155f300f0d63af1",
+      "encodedBytes": 2763741,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "e9774406-fc5f-49bd-8c97-8fd5487dd570",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.856,
+            "cy": 0.688,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.856,
+            "cy": 0.688,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.699,
+            "cy": 0.714,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.699,
+            "cy": 0.714,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.642,
+            "cy": 0.613,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.642,
+            "cy": 0.613,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.326,
+            "cy": 0.726,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.326,
+            "cy": 0.726,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.162,
+            "cy": 0.731,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.162,
+            "cy": 0.731,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.496,
+            "cy": 0.746,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.496,
+            "cy": 0.746,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.547,
+            "cy": 0.098,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.547,
+            "cy": 0.098,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.155,
+            "cy": 0.867,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.155,
+            "cy": 0.867,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.503,
+            "cy": 0.886,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.503,
+            "cy": 0.886,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.07,
+            "cy": 0.531,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.07,
+            "cy": 0.531,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-cyberpunk-neon",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.856,
+            "cy": 0.688,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.856,
+            "cy": 0.688,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-cyberpunk-neon",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.699,
+            "cy": 0.714,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.699,
+            "cy": 0.714,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-cyberpunk-neon",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.642,
+            "cy": 0.613,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.642,
+            "cy": 0.613,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.856,
+          "cy": 0.688,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.856,
+          "cy": 0.688,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "resonance",
+      "aliases": [
+        "cyberpunk",
+        "neon",
+        "dj"
+      ],
+      "hintUnits": [
+        "r",
+        "e",
+        "s",
+        "o",
+        "n",
+        "a",
+        "n",
+        "c",
+        "e"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '공명' or '울림'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Resonance"
+          },
+          {
+            "id": "option_2",
+            "label": "Redundancy"
+          },
+          {
+            "id": "option_3",
+            "label": "Reluctance"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "06ac85e68dfdca5d8714eb59fa1803ed30f6e901fda7d8a4d7f18e08aecee5b7"
+  },
+  "assetFiles": {
+    "5f782f7668c9288440df76b5eb04bee2416df34561cbecd2ee7cfbe0af4574f2": "D:\\touchcatch\\content\\learning\\source\\en-cyberpunk-neon-a.png",
+    "111a2fffe544e465642d76b2399762dba07ad51d09f0fdbd3155f300f0d63af1": "D:\\touchcatch\\content\\learning\\source\\en-cyberpunk-neon-b.png"
+  }
+}

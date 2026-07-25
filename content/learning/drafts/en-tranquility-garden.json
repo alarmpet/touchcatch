@@ -1,0 +1,278 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "85ed951d-0b69-40a3-8345-9357eb8c074b",
+    "version": 1,
+    "contentRevisionId": "18c761f8-754e-472c-8ab4-7fec14354c86",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-tranquility-garden",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/748d966eda3ca6a5bce909b9d2c279bb927ab7f1a0dae60122f169ac2d4c05c3.png",
+      "sha256": "748d966eda3ca6a5bce909b9d2c279bb927ab7f1a0dae60122f169ac2d4c05c3",
+      "encodedBytes": 1639366,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/84247e2659a6b5afe2121c57dd9a42731dc55aad391e3fef1588d341c0f95165.png",
+      "sha256": "84247e2659a6b5afe2121c57dd9a42731dc55aad391e3fef1588d341c0f95165",
+      "encodedBytes": 1906695,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "18c761f8-754e-472c-8ab4-7fec14354c86",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.19,
+            "cy": 0.458,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.19,
+            "cy": 0.458,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.724,
+            "cy": 0.473,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.724,
+            "cy": 0.473,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.798,
+            "cy": 0.682,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.798,
+            "cy": 0.682,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.793,
+            "cy": 0.572,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.793,
+            "cy": 0.572,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.932,
+            "cy": 0.571,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.932,
+            "cy": 0.571,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.582,
+            "cy": 0.616,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.582,
+            "cy": 0.616,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.929,
+            "cy": 0.734,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.929,
+            "cy": 0.734,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.429,
+            "cy": 0.641,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.429,
+            "cy": 0.641,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-tranquility-garden",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.19,
+            "cy": 0.458,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.19,
+            "cy": 0.458,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-tranquility-garden",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.724,
+            "cy": 0.473,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.724,
+            "cy": 0.473,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-tranquility-garden",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.798,
+            "cy": 0.682,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.798,
+            "cy": 0.682,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.19,
+          "cy": 0.458,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.19,
+          "cy": 0.458,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "tranquility",
+      "aliases": [
+        "peace",
+        "zen",
+        "meditation"
+      ],
+      "hintUnits": [
+        "t",
+        "r",
+        "a",
+        "n",
+        "q",
+        "u",
+        "i",
+        "l",
+        "i",
+        "t",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '평온' or '고요한 평화'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Tranquility"
+          },
+          {
+            "id": "option_2",
+            "label": "Turbulence"
+          },
+          {
+            "id": "option_3",
+            "label": "Tension"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "054801a2549d6f20744ba31e529f15cd6132262feda1c14e768ef01747f72836"
+  },
+  "assetFiles": {
+    "748d966eda3ca6a5bce909b9d2c279bb927ab7f1a0dae60122f169ac2d4c05c3": "D:\\touchcatch\\content\\learning\\source\\en-tranquility-garden-a.png",
+    "84247e2659a6b5afe2121c57dd9a42731dc55aad391e3fef1588d341c0f95165": "D:\\touchcatch\\content\\learning\\source\\en-tranquility-garden-b.png"
+  }
+}

@@ -6,31 +6,31 @@
   "publicContent": {
     "contentId": "204a1f03-2833-4b0c-8ae1-43e557b03c1b",
     "version": 1,
-    "contentRevisionId": "57e84e35-c492-41f2-86fa-36ead4c97702",
+    "contentRevisionId": "6b655b64-edaa-4c8f-8813-5bc74aba8c91",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "en-sustainability",
     "language": "en",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/15ff015168e3d57c3f528999af9b94fa3a33dc8635be0c476abe9e85690465b1.png",
-      "sha256": "15ff015168e3d57c3f528999af9b94fa3a33dc8635be0c476abe9e85690465b1",
-      "encodedBytes": 2949285,
+      "url": "https://cdn.spot-learn.test/assets/46501fe660ec24256128122c3ed70bb7c571ba84699f338fe9e913411c22f8cf.png",
+      "sha256": "46501fe660ec24256128122c3ed70bb7c571ba84699f338fe9e913411c22f8cf",
+      "encodedBytes": 4168350,
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/682464c5006d403d84c98b00af2668c2c733cd9d6506fd9e31d0c35c9824976a.png",
-      "sha256": "682464c5006d403d84c98b00af2668c2c733cd9d6506fd9e31d0c35c9824976a",
-      "encodedBytes": 2850804,
+      "url": "https://cdn.spot-learn.test/assets/47ecbab4b8d49763ebdbe0884476e225a9e1bb011b6f0d2a95dccc30dcbe7e27.png",
+      "sha256": "47ecbab4b8d49763ebdbe0884476e225a9e1bb011b6f0d2a95dccc30dcbe7e27",
+      "encodedBytes": 4118348,
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "57e84e35-c492-41f2-86fa-36ead4c97702",
+    "contentRevisionId": "6b655b64-edaa-4c8f-8813-5bc74aba8c91",
     "schemaVersion": "1.0.0",
     "differences": [
       {
@@ -38,14 +38,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.025,
-            "cy": 0.32,
-            "r": 0.035
+            "cx": 0.36,
+            "cy": 0.601,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.025,
-            "cy": 0.32,
-            "r": 0.035
+            "cx": 0.36,
+            "cy": 0.601,
+            "r": 0.05
           }
         }
       },
@@ -54,14 +54,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.25,
-            "cy": 0.68,
-            "r": 0.055
+            "cx": 0.365,
+            "cy": 0.71,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.25,
-            "cy": 0.68,
-            "r": 0.055
+            "cx": 0.365,
+            "cy": 0.71,
+            "r": 0.05
           }
         }
       },
@@ -70,14 +70,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.365,
-            "cy": 0.65,
-            "r": 0.055
+            "cx": 0.069,
+            "cy": 0.955,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.365,
-            "cy": 0.65,
-            "r": 0.055
+            "cx": 0.069,
+            "cy": 0.955,
+            "r": 0.05
           }
         }
       },
@@ -86,14 +86,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.53,
-            "cy": 0.716,
-            "r": 0.035
+            "cx": 0.779,
+            "cy": 0.608,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.53,
-            "cy": 0.716,
-            "r": 0.035
+            "cx": 0.779,
+            "cy": 0.608,
+            "r": 0.05
           }
         }
       },
@@ -102,14 +102,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.65,
-            "cy": 0.31,
-            "r": 0.08
+            "cx": 0.647,
+            "cy": 0.301,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.65,
-            "cy": 0.31,
-            "r": 0.08
+            "cx": 0.647,
+            "cy": 0.301,
+            "r": 0.05
           }
         }
       },
@@ -118,14 +118,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.71,
-            "cy": 0.385,
-            "r": 0.045
+            "cx": 0.036,
+            "cy": 0.748,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.71,
-            "cy": 0.385,
-            "r": 0.045
+            "cx": 0.036,
+            "cy": 0.748,
+            "r": 0.05
           }
         }
       },
@@ -134,14 +134,14 @@
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.915,
-            "cy": 0.683,
-            "r": 0.045
+            "cx": 0.906,
+            "cy": 0.692,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.915,
-            "cy": 0.683,
-            "r": 0.045
+            "cx": 0.906,
+            "cy": 0.692,
+            "r": 0.05
           }
         }
       },
@@ -150,14 +150,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.786,
-            "cy": 0.605,
-            "r": 0.075
+            "cx": 0.648,
+            "cy": 0.419,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.786,
-            "cy": 0.605,
-            "r": 0.075
+            "cx": 0.648,
+            "cy": 0.419,
+            "r": 0.05
           }
         }
       },
@@ -166,14 +166,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.891,
-            "cy": 0.75,
-            "r": 0.03
+            "cx": 0.246,
+            "cy": 0.675,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.891,
-            "cy": 0.75,
-            "r": 0.03
+            "cx": 0.246,
+            "cy": 0.675,
+            "r": 0.05
           }
         }
       },
@@ -182,14 +182,14 @@
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.06,
-            "cy": 0.75,
-            "r": 0.06
+            "cx": 0.023,
+            "cy": 0.312,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.06,
-            "cy": 0.75,
-            "r": 0.06
+            "cx": 0.023,
+            "cy": 0.312,
+            "r": 0.05
           }
         }
       }
@@ -300,10 +300,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "5cbad79d993a92bf278f5d0b120c00f7d8cd986f3608bea97c557eb79c494bbc"
+    "privateSolutionHash": "aed4787b14e0f8aa1e512e756eba52f55ba449cc89da053ce9c1955459191161"
   },
   "assetFiles": {
-    "15ff015168e3d57c3f528999af9b94fa3a33dc8635be0c476abe9e85690465b1": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\en-sustainability-a.png",
-    "682464c5006d403d84c98b00af2668c2c733cd9d6506fd9e31d0c35c9824976a": "D:\\touchcatch\\.worktrees\\learning-content\\content\\learning\\source\\en-sustainability-b.png"
+    "46501fe660ec24256128122c3ed70bb7c571ba84699f338fe9e913411c22f8cf": "D:\\touchcatch\\content\\learning\\source\\en-sustainability-a.png",
+    "47ecbab4b8d49763ebdbe0884476e225a9e1bb011b6f0d2a95dccc30dcbe7e27": "D:\\touchcatch\\content\\learning\\source\\en-sustainability-b.png"
   }
 }

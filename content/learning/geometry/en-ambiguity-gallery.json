@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.244, "cy": 0.183, "r": 0.055 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.222, "cy": 0.514, "r": 0.055 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.224, "cy": 0.659, "r": 0.055 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.522, "cy": 0.069, "r": 0.055 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.295, "cy": 0.665, "r": 0.055 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.220, "cy": 0.333, "r": 0.055 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.791, "cy": 0.780, "r": 0.055 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.371, "cy": 0.068, "r": 0.045 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.699, "cy": 0.069, "r": 0.045 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.831, "cy": 0.069, "r": 0.045 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the abstract painting.", "cx": 0.244, "cy": 0.183, "r": 0.070 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the marble sculpture.", "cx": 0.222, "cy": 0.514, "r": 0.070 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the catalog display.", "cx": 0.791, "cy": 0.780, "r": 0.075 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.244, "cy": 0.183, "r": 0.080 }
+}

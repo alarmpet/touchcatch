@@ -1,0 +1,15 @@
+Use case: precise-object-edit
+Asset type: spot-the-difference educational game source image B
+Input image: en-synergy-cradle-a.png is the edit target.
+Primary request: Precise spot-the-difference edit of image A. Preserve exact same camera angle, composition, background, and drawing style. Make 10 localized subtle Advanced-level differences:
+1. Change the glowing 3D hologram gear puzzle color from cyan blue to orange gold.
+2. Recolor the engineer's jacket from charcoal grey to navy blue.
+3. Change the mini drone propeller light from green to magenta red.
+4. Remove one yellow sticky note from the glass brainstorming wall.
+5. Change the coffee espresso mug color on the bar from red to white.
+6. Recolor the 3D printer filament spool from blue to purple.
+7. Remove one leaf from the potted monstera plant near the window.
+8. Recolor the coder's headset headphones from black to silver.
+9. Add one extra small glowing stylus pen resting on the hologram table.
+10. Remove the wall clock hanging above the coffee bar.
+Constraints: Exactly ten changes. Do not add, remove, recolor, resize, or move anything else. No text, letters, numbers, logos, watermark, border, UI, or labels.

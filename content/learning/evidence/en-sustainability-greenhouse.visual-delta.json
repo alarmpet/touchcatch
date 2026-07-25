@@ -1,0 +1,77 @@
+{
+  "dimensionsMatch": true,
+  "width": 1024,
+  "height": 1024,
+  "changedRegions": 10,
+  "missingRegions": [],
+  "outsideChangedPixels": 3435,
+  "outsideChangedRatio": 0.003818711798985679,
+  "outsidePolicy": "PASS",
+  "policy": {
+    "pixelThreshold": 60,
+    "minChangedPixelsPerRegion": 24,
+    "maxOutsideChangedRatio": 0.05
+  },
+  "regions": [
+    {
+      "id": "difference_1",
+      "cx": 0.094,
+      "cy": 0.63,
+      "r": 0.07
+    },
+    {
+      "id": "difference_2",
+      "cx": 0.832,
+      "cy": 0.707,
+      "r": 0.07
+    },
+    {
+      "id": "difference_3",
+      "cx": 0.131,
+      "cy": 0.679,
+      "r": 0.07
+    },
+    {
+      "id": "difference_4",
+      "cx": 0.437,
+      "cy": 0.622,
+      "r": 0.07
+    },
+    {
+      "id": "difference_5",
+      "cx": 0.585,
+      "cy": 0.273,
+      "r": 0.07
+    },
+    {
+      "id": "difference_6",
+      "cx": 0.742,
+      "cy": 0.69,
+      "r": 0.07
+    },
+    {
+      "id": "difference_7",
+      "cx": 0.381,
+      "cy": 0.473,
+      "r": 0.07
+    },
+    {
+      "id": "difference_8",
+      "cx": 0.626,
+      "cy": 0.54,
+      "r": 0.07
+    },
+    {
+      "id": "difference_9",
+      "cx": 0.772,
+      "cy": 0.444,
+      "r": 0.07
+    },
+    {
+      "id": "difference_10",
+      "cx": 0.498,
+      "cy": 0.497,
+      "r": 0.07
+    }
+  ]
+}

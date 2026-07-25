@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.937, "cy": 0.770, "r": 0.070 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.823, "cy": 0.770, "r": 0.070 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.933, "cy": 0.577, "r": 0.070 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.669, "cy": 0.622, "r": 0.070 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.879, "cy": 0.853, "r": 0.070 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.757, "cy": 0.810, "r": 0.070 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.259, "cy": 0.210, "r": 0.070 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.033, "cy": 0.395, "r": 0.070 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.960, "cy": 0.892, "r": 0.070 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.991, "cy": 0.682, "r": 0.070 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the scientist.", "cx": 0.544, "cy": 0.386, "r": 0.075 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the bubbling flask.", "cx": 0.669, "cy": 0.622, "r": 0.070 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the molecular structure model.", "cx": 0.879, "cy": 0.853, "r": 0.070 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.669, "cy": 0.622, "r": 0.080 }
+}

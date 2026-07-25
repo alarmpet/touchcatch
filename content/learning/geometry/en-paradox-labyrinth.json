@@ -1,0 +1,21 @@
+{
+  "policy": { "pixelThreshold": 60, "minChangedPixelsPerRegion": 24, "maxOutsideChangedRatio": 0.05 },
+  "differences": [
+    { "id": "difference_1", "tier": "NORMAL", "cx": 0.924, "cy": 0.852, "r": 0.050 },
+    { "id": "difference_2", "tier": "NORMAL", "cx": 0.698, "cy": 0.480, "r": 0.050 },
+    { "id": "difference_3", "tier": "NORMAL", "cx": 0.486, "cy": 0.476, "r": 0.050 },
+    { "id": "difference_4", "tier": "NORMAL", "cx": 0.325, "cy": 0.612, "r": 0.050 },
+    { "id": "difference_5", "tier": "NORMAL", "cx": 0.586, "cy": 0.520, "r": 0.050 },
+    { "id": "difference_6", "tier": "NORMAL", "cx": 0.775, "cy": 0.527, "r": 0.050 },
+    { "id": "difference_7", "tier": "NORMAL", "cx": 0.444, "cy": 0.564, "r": 0.050 },
+    { "id": "difference_8", "tier": "HARD", "cx": 0.680, "cy": 0.593, "r": 0.050 },
+    { "id": "difference_9", "tier": "HARD", "cx": 0.601, "cy": 0.633, "r": 0.050 },
+    { "id": "difference_10", "tier": "HARD", "cx": 0.144, "cy": 0.539, "r": 0.050 }
+  ],
+  "wordHunts": [
+    { "id": "word_1", "kind": "NORMAL", "publicPrompt": "Find the hooded traveler.", "cx": 0.698, "cy": 0.480, "r": 0.055 },
+    { "id": "word_2", "kind": "NORMAL", "publicPrompt": "Find the impossible cube.", "cx": 0.486, "cy": 0.476, "r": 0.055 },
+    { "id": "word_3", "kind": "SPECIAL", "publicPrompt": "Find the floating compass.", "cx": 0.586, "cy": 0.520, "r": 0.050 }
+  ],
+  "suddenDeath": { "id": "sudden_1", "cx": 0.698, "cy": 0.480, "r": 0.060 }
+}

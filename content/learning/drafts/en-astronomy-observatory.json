@@ -1,0 +1,309 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "29517bf2-7ccc-47dc-84bb-f0a388ab222c",
+    "version": 1,
+    "contentRevisionId": "530e2611-4c7a-42bd-8a32-4777b1c1842b",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-astronomy-observatory",
+    "language": "en",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/b4dde0cdfad77ccf372d42b13c1c2db1e0858956c80717f811a8bf890b3523b9.png",
+      "sha256": "b4dde0cdfad77ccf372d42b13c1c2db1e0858956c80717f811a8bf890b3523b9",
+      "encodedBytes": 1915172,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/322052fa77f3f126d125afa95ad4062e1a569c21abfba41c68102d4a8ede021d.png",
+      "sha256": "322052fa77f3f126d125afa95ad4062e1a569c21abfba41c68102d4a8ede021d",
+      "encodedBytes": 2079474,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "530e2611-4c7a-42bd-8a32-4777b1c1842b",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "difference_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.139,
+            "cy": 0.681,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.139,
+            "cy": 0.681,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.452,
+            "cy": 0.339,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.452,
+            "cy": 0.339,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.575,
+            "cy": 0.42,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.575,
+            "cy": 0.42,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.089,
+            "cy": 0.852,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.089,
+            "cy": 0.852,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.875,
+            "cy": 0.664,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.875,
+            "cy": 0.664,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.285,
+            "cy": 0.339,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.285,
+            "cy": 0.339,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.397,
+            "cy": 0.832,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.397,
+            "cy": 0.832,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.068,
+            "cy": 0.723,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.068,
+            "cy": 0.723,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.531,
+            "cy": 0.561,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.531,
+            "cy": 0.561,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "difference_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.645,
+            "cy": 0.464,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.645,
+            "cy": 0.464,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find the optical telescope.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.452,
+            "cy": 0.339,
+            "r": 0.075
+          },
+          "imageB": {
+            "cx": 0.452,
+            "cy": 0.339,
+            "r": 0.075
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find Saturn's rings.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.285,
+            "cy": 0.339,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.285,
+            "cy": 0.339,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find the astronomer.",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.575,
+            "cy": 0.42,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.575,
+            "cy": 0.42,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.452,
+          "cy": 0.339,
+          "r": 0.08
+        },
+        "imageB": {
+          "cx": 0.452,
+          "cy": 0.339,
+          "r": 0.08
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "observatory",
+      "aliases": [
+        "telescope",
+        "stargazing"
+      ],
+      "hintUnits": [
+        "o",
+        "b",
+        "s",
+        "e",
+        "r",
+        "v",
+        "a",
+        "t",
+        "o",
+        "r",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '천문대'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Observatory"
+          },
+          {
+            "id": "option_2",
+            "label": "Laboratory"
+          },
+          {
+            "id": "option_3",
+            "label": "Dormitory"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "4696fcb2497396093e11b103f97bc6d27aa17f0c7a9451d25bc1c26769b08fa5"
+  },
+  "assetFiles": {
+    "b4dde0cdfad77ccf372d42b13c1c2db1e0858956c80717f811a8bf890b3523b9": "D:\\touchcatch\\content\\learning\\source\\en-astronomy-observatory-a.png",
+    "322052fa77f3f126d125afa95ad4062e1a569c21abfba41c68102d4a8ede021d": "D:\\touchcatch\\content\\learning\\source\\en-astronomy-observatory-b.png"
+  }
+}
