@@ -52,9 +52,10 @@ destination input bundle differs. Deleting
 The gate takes an exclusive same-worktree lock at
 `.superpowers/evidence/data-027/gate.lock`; run only one gate per worktree at a
 time. It attempts to remove its temporary observation and lock in `finally` on
-every exit. If that cleanup cannot complete, it reports
-`SUPABASE_GATE_FAILED:cleanup`. The receipt and fixed errors avoid credentials,
-connection URLs, raw subprocess output, and personal paths.
+every exit. If cleanup is the only failure and cannot complete, it reports
+`SUPABASE_GATE_FAILED:cleanup`; an earlier primary gate failure retains
+precedence. The receipt and fixed errors avoid credentials, connection URLs,
+raw subprocess output, and personal paths.
 
 ## Expected outcomes and fixed errors
 

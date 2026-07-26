@@ -1,5 +1,7 @@
 import { execFileSync, spawnSync } from 'node:child_process';
-import { resolve } from 'node:path';
+import { copyFileSync, mkdtempSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { describe, expect, it } from 'vitest';
 
@@ -73,6 +75,31 @@ describe('runtime gate', () => {
     } else {
       expect(result.status).toBe(1);
       expect(result.stderr).toContain(`Node ${process.version}; expected v24.18.0`);
+    }
+  });
+
+  it('does not require bundled Corepack when a valid pnpm user agent is present', () => {
+    const directory = mkdtempSync(join(tmpdir(), 'touchcatch-runtime-'));
+    const copiedNode = join(directory, 'node.exe');
+    copyFileSync(process.execPath, copiedNode);
+    try {
+      const result = spawnSync(copiedNode, [resolve('tools/check-runtime.mjs')], {
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          npm_config_user_agent: 'pnpm/11.13.0 npm/? node/v24.18.0 win32 x64',
+        },
+      });
+
+      if (process.version === 'v24.18.0') {
+        expect(result.status).toBe(0);
+        expect(result.stderr).toBe('');
+      } else {
+        expect(result.status).toBe(1);
+        expect(result.stderr).toContain(`Node ${process.version}; expected v24.18.0`);
+      }
+    } finally {
+      rmSync(directory, { recursive: true, force: true });
     }
   });
 });

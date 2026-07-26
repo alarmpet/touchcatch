@@ -48,12 +48,13 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
     const userAgent = process.env.npm_config_user_agent;
     if (userAgent !== undefined) {
       checkRuntime({ nodeVersion: process.version, userAgent, expectedPnpm });
+    } else {
+      checkRuntime({
+        nodeVersion: process.version,
+        userAgent: `pnpm/${corepackPnpmVersion()}`,
+        expectedPnpm,
+      });
     }
-    checkRuntime({
-      nodeVersion: process.version,
-      userAgent: `pnpm/${corepackPnpmVersion()}`,
-      expectedPnpm,
-    });
   } catch (error) {
     console.error(error instanceof Error ? error.message : String(error));
     process.exitCode = 1;
