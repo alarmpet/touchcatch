@@ -29,7 +29,8 @@ const zoneFor = ({ cx, cy }: { cx: number; cy: number }) => 'ABCDEFGHI'[Math.min
 const countBy = (values: string[]) => Object.fromEntries([...new Set(values)].sort().map((value) => [value, values.filter((candidate) => candidate === value).length]));
 const equalJson = (left: unknown, right: unknown) => canonicalJson(left) === canonicalJson(right);
 const completedBy = (reviewer: unknown, reviewedAt: unknown) => typeof reviewer === 'string' && reviewer.trim().length > 0 && typeof reviewedAt === 'string' && !Number.isNaN(Date.parse(reviewedAt));
-const semanticTokens = (value: string) => normalise(value).match(/[\p{L}\p{N}]+/gu)?.filter((token) => token.length >= 2) ?? [];
+const semanticStopwords = new Set(['the', 'a', 'an', 'only', 'change', 'add', 'remove', 'bright', 'to', 'from', 'in', 'on', 'at', 'of', 'and', 'or', 'with', 'for', 'near', 'area', 'scene', 'image', 'source', 'edited', 'original', 'state', 'appearance']);
+const semanticTokens = (value: string) => normalise(value).match(/[\p{L}\p{N}]+/gu)?.filter((token) => token.length >= 3 && !semanticStopwords.has(token)) ?? [];
 function hasGroundedStructuredEvidence(objective: Json) {
   const sourceTokens = new Set(semanticTokens(String(objective.authoringEvidence?.rawInstruction ?? '')));
   return ['target', 'location', 'before', 'after'].every((field) => {

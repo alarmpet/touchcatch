@@ -941,7 +941,7 @@
           "location": "the oval cutout in the wooden chair back",
           "before": "PENDING",
           "after": "a star-shaped cutout",
-          "changeType": "COLOR",
+          "changeType": "SHAPE",
           "zone": "E",
           "authoringEvidence": {
             "status": "PENDING",
@@ -1077,10 +1077,12 @@
             "I": 2
           },
           "changeTypes": [
-            "COLOR"
+            "COLOR",
+            "SHAPE"
           ],
           "changeTypeCounts": {
-            "COLOR": 10
+            "COLOR": 9,
+            "SHAPE": 1
           }
         }
       }
@@ -1290,7 +1292,7 @@
           "location": "the left microscope's two black eyepieces",
           "before": "PENDING",
           "after": "one centered eyepiece",
-          "changeType": "SHAPE",
+          "changeType": "COUNT",
           "zone": "D",
           "authoringEvidence": {
             "status": "PENDING",
@@ -1345,13 +1347,13 @@
           },
           "changeTypes": [
             "COLOR",
-            "REMOVE",
-            "SHAPE"
+            "COUNT",
+            "REMOVE"
           ],
           "changeTypeCounts": {
             "COLOR": 8,
-            "REMOVE": 1,
-            "SHAPE": 1
+            "COUNT": 1,
+            "REMOVE": 1
           }
         }
       }

@@ -105,7 +105,7 @@
         "95c0084320de9e387105ba296217c377b4f2e2fd7b1d4c6fa05371d611c38402",
         "c63e9428001f7b96464014c7edf4dd34316744fbc0585ceebef76f28964b445e"
       ],
-      "qualitySha256": "9f2d46e28d3cdb4410a3e7866433ec3f87eb94cfe7cd4e0d2275628f48159d12",
+      "qualitySha256": "bc2eb54bec733fe8b78c6f7188ba7cd2a308329649486bcd8036d13f09e3cd0c",
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-dark-under-lamp-base.txt",
@@ -133,7 +133,7 @@
         "a242905347538545291777abe43e127c759f6aff6ddc73027799416780954311",
         "60602814202a4dff87420e8f2d7f594c274733bb734590107b3fb40a0815fb84"
       ],
-      "qualitySha256": "479736628c71d26060af4e6535e285db99d501565dc4c608e40cd2377482ab52",
+      "qualitySha256": "bcfacf57182bc252df581e7afe2b41500229f6af5b1617f641b44acc985066c6",
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-seeing-is-believing-base.txt",

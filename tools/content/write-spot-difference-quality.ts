@@ -21,14 +21,15 @@ function objectiveDetails(change: string) {
   const changeMatch = /^change (?:only )?(.+?)(?: from (.+?))? to (.+)$/i.exec(instruction);
   if (changeMatch) {
     const [, target, before, after] = changeMatch;
+    const [beforeTransition = '', afterTransition = ''] = instruction.split(/\bto\b/i, 2);
     const quantity = /\b(one|two|three|four|five|six|seven|eight|nine|ten|\d+)\b/i;
-    const form = /\b(shape|sphere|rectangle|diamond|circle|square|pointed|rounded|eyepiece|prongs|blades?)\b/i;
+    const form = /\b(shape|sphere|star(?:-shaped)?|rectangle|diamond|circle|square|oval|pointed|rounded|eyepiece|prongs|blades?)\b/i;
     return {
       target: target!,
       location: /\b(near|below|above|left|right|lower|upper|foreground|center|front|back)\b/i.test(target!) ? target! : 'PENDING',
       before: before ?? 'PENDING',
       after: after!,
-      changeType: quantity.test(before ?? '') && quantity.test(after ?? '') ? 'COUNT' : form.test(before ?? '') || form.test(after ?? '') ? 'SHAPE' : 'COLOR',
+      changeType: quantity.test(beforeTransition) && quantity.test(afterTransition) ? 'COUNT' : form.test(beforeTransition) && form.test(afterTransition) ? 'SHAPE' : 'COLOR',
     };
   }
   if (/^add /i.test(instruction)) return { target: instruction.replace(/^add (?:one )?/i, ''), location: 'PENDING', before: 'absent from the source image', after: 'present in the edited image', changeType: 'ADD' };

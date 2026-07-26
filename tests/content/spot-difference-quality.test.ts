@@ -117,6 +117,13 @@ describe('spot-difference quality contract', () => {
     expect(packs.find(({ contentKey }) => contentKey === 'ko-proverb-kind-words-return').objectives[8].changeType).toBe('COLOR'); // yellow square button → blue
   });
 
+  it('classifies no-from quantity and form transitions from the full raw instruction', async () => {
+    const quality = await readJson('content/learning/spot-difference-quality.v1.json');
+    const packs = quality.entries as any[];
+    expect(packs.find(({ contentKey }) => contentKey === 'ko-proverb-seeing-is-believing').objectives[9].changeType).toBe('COUNT'); // two eyepieces → one
+    expect(packs.find(({ contentKey }) => contentKey === 'ko-proverb-dark-under-lamp').objectives[5].changeType).toBe('SHAPE'); // oval cutout → star-shaped
+  });
+
   it('rejects meaningless structured fields even when authoring evidence is marked PASS', async () => {
     const [quality, manifest] = await Promise.all([
       readJson('content/learning/spot-difference-quality.v1.json'),
@@ -125,6 +132,20 @@ describe('spot-difference quality contract', () => {
     const objective = (quality.entries as any[])[0].objectives[0];
     Object.assign(objective, {
       target: 'x', location: 'y', before: 'old', after: 'new',
+      authoringEvidence: { status: 'PASS', rawInstruction: objective.authoringEvidence.rawInstruction, blocker: null },
+    });
+
+    expect(await checkSpotDifferenceQuality({ root, quality, manifest, enforceRelease: true })).toContain('en-resilience:release-specificity:difference_1');
+  });
+
+  it('rejects PASS evidence made only of action boilerplate and stopwords', async () => {
+    const [quality, manifest] = await Promise.all([
+      readJson('content/learning/spot-difference-quality.v1.json'),
+      readJson('content/learning/manifest.v1.json'),
+    ]);
+    const objective = (quality.entries as any[])[0].objectives[0];
+    Object.assign(objective, {
+      target: 'the', location: 'only', before: 'change', after: 'bright',
       authoringEvidence: { status: 'PASS', rawInstruction: objective.authoringEvidence.rawInstruction, blocker: null },
     });
 
