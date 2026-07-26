@@ -90,10 +90,10 @@ Run:
 ```powershell
 node --version
 corepack pnpm --version
-node tools/check-runtime.mjs
+corepack pnpm check:runtime
 ```
 
-Expected: `v24.18.0`, `11.13.0`, exit 0.
+Expected: `v24.18.0`, `11.13.0`, and exit 0 from `corepack pnpm check:runtime`.
 
 - [ ] **Step 4: preflight report를 커밋한다**
 

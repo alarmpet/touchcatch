@@ -2,4 +2,4 @@
 
 - Node: `v24.18.0`
 - pnpm: `11.13.0`
-- Runtime gate: PASS (exit code `0`) via `corepack pnpm exec node tools/check-runtime.mjs`.
+- Runtime gate: PASS (exit code `0`) via `corepack pnpm check:runtime`.
