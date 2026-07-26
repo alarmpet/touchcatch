@@ -217,4 +217,3 @@ Docker/local Supabase가 가용한 환경에서 Task 5 bounded gate를 실행한
 - 모든 위조/stale/mutation test가 fail-closed다.
 - receipt에 credential, URL, token, 개인 절대 경로가 없다.
 - generated requirement coverage와 docs gate는 BLOCKED를 정직하게 허용하고 false PASS를 만들지 않는다.
-
