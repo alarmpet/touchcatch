@@ -524,6 +524,16 @@ const releasePublicationLock = (lock) => {
   }
 };
 
+const retainPublicationLock = (lock) => {
+  if (lock === undefined) return true;
+  try {
+    closeSync(lock.descriptor);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
 const writeComplete = (descriptor, text) => {
   const bytes = Buffer.from(text, 'utf8');
   let offset = 0;
@@ -955,6 +965,9 @@ export async function runSupabaseGateCore(overrides = {}) {
   const releaseWorktreePublicationLock =
     overrides.releasePublicationLock
     ?? releasePublicationLock;
+  const retainWorktreePublicationLock =
+    overrides.retainPublicationLock
+    ?? retainPublicationLock;
   let publicationLock;
   try {
     publicationLock = await acquireWorktreePublicationLock(root);
@@ -980,13 +993,18 @@ export async function runSupabaseGateCore(overrides = {}) {
     } catch {
       receiptInvalidated = false;
     }
+    if (!receiptInvalidated) {
+      try {
+        retainWorktreePublicationLock(publicationLock);
+      } catch {
+        // The lock file remains in place, so validation still fails closed.
+      }
+      throw errorCode('SUPABASE_GATE_FAILED:receipt');
+    }
     try {
       releaseWorktreePublicationLock(publicationLock);
     } catch {
       // Preserve the primary fixed failure; the receipt is already invalid.
-    }
-    if (!receiptInvalidated) {
-      throw errorCode('SUPABASE_GATE_FAILED:receipt');
     }
     throw failure;
   }

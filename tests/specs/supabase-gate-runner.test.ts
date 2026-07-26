@@ -1,4 +1,4 @@
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawn } from 'node:child_process';
 import { EventEmitter } from 'node:events';
 import { closeSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir as systemTmpdir } from 'node:os';
@@ -113,6 +113,14 @@ const writeObservation = (temporaryRoot: string, gateRunId: string, value: unkno
   const target = observationPath(temporaryRoot, gateRunId);
   mkdirSync(join(temporaryRoot, 'touchcatch-data-027', gateRunId), { recursive: true });
   writeFileSync(target, JSON.stringify(value));
+};
+
+const waitForPath = async (target: string, timeoutMs = 5_000): Promise<void> => {
+  const deadline = Date.now() + timeoutMs;
+  while (!existsSync(target)) {
+    if (Date.now() >= deadline) throw new Error('timed out waiting for path');
+    await new Promise((resolve) => setTimeout(resolve, 10));
+  }
 };
 
 const createHarness = (input: {
@@ -929,6 +937,173 @@ describe('bounded Supabase gate', () => {
       rmSync(publicationLockPath, { force: true });
     }
   });
+
+  it('retains the publication lock when receipt invalidation cannot be confirmed', async () => {
+    const registry = JSON.parse(
+      readFileSync('docs/requirements-registry.v1.json', 'utf8'),
+    );
+    const evidence = JSON.parse(
+      readFileSync('config/requirement-evidence.v1.json', 'utf8'),
+    );
+    const row = registry.requirements.find(
+      (candidate: { id: string }) => candidate.id === 'DATA-027',
+    );
+    const claim = evidence.entries.find(
+      (candidate: { id: string }) => candidate.id === 'DATA-027',
+    );
+    const root = createData027TestRepository(process.cwd(), row.source);
+    roots.push(root);
+    writeData027ReceiptFixture(root);
+    const harness = createHarness({ root });
+    const publicationLockPath = join(
+      root,
+      '.superpowers',
+      'evidence',
+      'data-027',
+      'publication.lock',
+    );
+
+    try {
+      await expect(runSupabaseGate({
+        ...harness.deps,
+        invalidateData027Receipt: () => false,
+      })).rejects.toThrow('SUPABASE_GATE_FAILED:receipt');
+
+      expect(existsSync(publicationLockPath)).toBe(true);
+      expect(executeRequirementOracle(root, row, claim)).toMatchObject({
+        status: 'BLOCKED',
+        reason: 'LOCAL_DB_EVIDENCE_UNAVAILABLE',
+      });
+    } finally {
+      rmSync(publicationLockPath, { force: true });
+    }
+  });
+
+  it('holds validator publication-lock ownership across manifest hashing before a gate can invalidate', async () => {
+    const root = createData027TestRepository(process.cwd());
+    const controls = createRoot();
+    roots.push(root);
+    writeData027ReceiptFixture(root);
+    const readyPath = join(controls, 'validator-ready');
+    const releasePath = join(controls, 'validator-release');
+    const child = spawn(
+      process.execPath,
+      [
+        join(
+          process.cwd(),
+          'tests',
+          'fixtures',
+          'data-027-paused-validator.mjs',
+        ),
+        root,
+        readyPath,
+        releasePath,
+      ],
+      {
+        cwd: process.cwd(),
+        shell: false,
+        stdio: ['ignore', 'pipe', 'pipe'],
+        windowsHide: true,
+      },
+    );
+    let stdout = '';
+    let stderr = '';
+    child.stdout?.setEncoding('utf8');
+    child.stderr?.setEncoding('utf8');
+    child.stdout?.on('data', (chunk: string) => {
+      stdout += chunk;
+    });
+    child.stderr?.on('data', (chunk: string) => {
+      stderr += chunk;
+    });
+    const childOutcome = new Promise<{
+      signal: NodeJS.Signals | null;
+      status: number | null;
+    }>((resolve) => {
+      child.once('close', (status, signal) => {
+        resolve({ signal, status });
+      });
+    });
+
+    try {
+      await waitForPath(readyPath);
+    } catch (error) {
+      writeFileSync(releasePath, 'release');
+      child.kill();
+      await childOutcome;
+      throw error;
+    }
+
+    const receipt = join(
+      root,
+      '.superpowers',
+      'evidence',
+      'data-027',
+      'receipt.json',
+    );
+    const invalidateReceipt = vi.fn(() => {
+      rmSync(receipt, { force: true });
+      return !existsSync(receipt);
+    });
+    let reportGateWaiting: (() => void) | undefined;
+    const gateWaitingForValidator = new Promise<void>((resolve) => {
+      reportGateWaiting = resolve;
+    });
+    const harness = createHarness({
+      root,
+      resultForStep: (step) => step.name === 'runtime_preflight'
+        ? { status: 1, timedOut: false }
+        : { status: 0, timedOut: false },
+    });
+    const gateOutcome = runSupabaseGate({
+      ...harness.deps,
+      invalidateData027Receipt: invalidateReceipt,
+      publicationLockSetTimeout: (
+        callback: () => void,
+        milliseconds: number,
+      ) => {
+        reportGateWaiting?.();
+        return setTimeout(callback, milliseconds);
+      },
+    }).then(
+      () => 'resolved',
+      (error: unknown) =>
+        error instanceof Error ? error.message : 'unknown',
+    );
+
+    let gateWaitTimeout: NodeJS.Timeout | undefined;
+    let invalidatedBeforeValidatorFinished = false;
+    let receiptPresentBeforeValidatorFinished = false;
+    try {
+      await Promise.race([
+        gateWaitingForValidator,
+        new Promise<never>((_resolve, reject) => {
+          gateWaitTimeout = setTimeout(
+            () => reject(new Error('gate did not observe validator lock')),
+            5_000,
+          );
+        }),
+      ]);
+      invalidatedBeforeValidatorFinished =
+        invalidateReceipt.mock.calls.length > 0;
+      receiptPresentBeforeValidatorFinished = existsSync(receipt);
+    } finally {
+      if (gateWaitTimeout !== undefined) clearTimeout(gateWaitTimeout);
+      writeFileSync(releasePath, 'release');
+    }
+
+    const validation = await childOutcome;
+    const gateResult = await gateOutcome;
+
+    expect(invalidatedBeforeValidatorFinished).toBe(false);
+    expect(receiptPresentBeforeValidatorFinished).toBe(true);
+    expect(validation).toEqual({ signal: null, status: 0 });
+    expect(stderr).toBe('');
+    expect(JSON.parse(stdout)).toEqual({ result: true });
+    expect(gateResult).toBe('SUPABASE_GATE_FAILED:runtime_preflight');
+    expect(invalidateReceipt).toHaveBeenCalledTimes(2);
+    expect(validateData027Receipt(root)).toBe(false);
+  }, 30_000);
 
   it('serializes distinct worktrees that share one canonical Supabase project identity', async () => {
     const firstRoot = createRoot();

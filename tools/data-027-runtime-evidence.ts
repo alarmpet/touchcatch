@@ -1,10 +1,13 @@
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import {
+  closeSync,
   existsSync,
   lstatSync,
+  openSync,
   readFileSync,
   readdirSync,
+  rmSync,
 } from 'node:fs';
 import path from 'node:path';
 import { canonicalJson } from '../packages/contracts/src/canonical-json.js';
@@ -369,49 +372,84 @@ const hasSafeReceiptDirectory = (topLevel: string, target: string): boolean => {
   return path.dirname(target) === current;
 };
 
-const hasPublicationLock = (target: string): boolean => {
+type PublicationLock = Readonly<{
+  descriptor: number;
+  lockPath: string;
+}>;
+
+const acquireValidationPublicationLock = (
+  target: string,
+): PublicationLock | undefined => {
   const lockPath = path.join(
     path.dirname(target),
     path.basename(DATA_027_PUBLICATION_LOCK_RELATIVE_PATH),
   );
   try {
-    lstatSync(lockPath);
-    return true;
-  } catch (error) {
-    return !(
-      error
-      && typeof error === 'object'
-      && 'code' in error
-      && error.code === 'ENOENT'
-    );
+    return {
+      descriptor: openSync(lockPath, 'wx', 0o600),
+      lockPath,
+    };
+  } catch {
+    return undefined;
   }
 };
 
-export function validateData027Receipt(root: string): boolean {
+const releaseValidationPublicationLock = (
+  lock: PublicationLock,
+): boolean => {
   try {
-    const { topLevel, target } = receiptTarget(root);
-    if (!hasSafeReceiptDirectory(topLevel, target)) return false;
-    if (hasPublicationLock(target)) return false;
-    if (!existsSync(target)) return false;
-    const targetStat = lstatSync(target);
-    if (targetStat.isSymbolicLink() || !targetStat.isFile()) return false;
-    const receipt = JSON.parse(readFileSync(target, 'utf8')) as unknown;
-    if (!isData027Receipt(receipt)) return false;
-    if (receipt.receiptSha256 !== hashCanonicalJson(receiptWithoutHash(receipt))) return false;
-    const manifest = buildData027EvidenceManifest(root);
-    if (
-      canonicalJson(receipt.evidenceInputs)
-      !== canonicalJson(manifest.evidenceInputs)
-    ) return false;
-    if (
-      canonicalJson(receipt.runtimeVersions)
-      !== canonicalJson(manifest.runtimeVersions)
-    ) return false;
-    if (receipt.evidenceInputsSha256 !== manifest.evidenceInputsSha256) {
-      return false;
-    }
+    closeSync(lock.descriptor);
+  } catch {
+    return false;
+  }
+  try {
+    rmSync(lock.lockPath);
     return true;
   } catch {
     return false;
   }
+};
+
+const validateData027ReceiptWhileLocked = (
+  root: string,
+  target: string,
+): boolean => {
+  if (!existsSync(target)) return false;
+  const targetStat = lstatSync(target);
+  if (targetStat.isSymbolicLink() || !targetStat.isFile()) return false;
+  const receipt = JSON.parse(readFileSync(target, 'utf8')) as unknown;
+  if (!isData027Receipt(receipt)) return false;
+  if (
+    receipt.receiptSha256
+    !== hashCanonicalJson(receiptWithoutHash(receipt))
+  ) return false;
+  const manifest = buildData027EvidenceManifest(root);
+  if (
+    canonicalJson(receipt.evidenceInputs)
+    !== canonicalJson(manifest.evidenceInputs)
+  ) return false;
+  if (
+    canonicalJson(receipt.runtimeVersions)
+    !== canonicalJson(manifest.runtimeVersions)
+  ) return false;
+  return receipt.evidenceInputsSha256 === manifest.evidenceInputsSha256;
+};
+
+export function validateData027Receipt(root: string): boolean {
+  let lock: PublicationLock | undefined;
+  let valid = false;
+  try {
+    const { topLevel, target } = receiptTarget(root);
+    if (!hasSafeReceiptDirectory(topLevel, target)) return false;
+    lock = acquireValidationPublicationLock(target);
+    if (lock === undefined) return false;
+    valid = validateData027ReceiptWhileLocked(root, target);
+  } catch {
+    valid = false;
+  } finally {
+    if (lock !== undefined && !releaseValidationPublicationLock(lock)) {
+      valid = false;
+    }
+  }
+  return valid;
 }

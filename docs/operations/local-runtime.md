@@ -73,20 +73,26 @@ Deleting
 
 The receipt and publication lock remain worktree-local. Same-worktree gate
 owners queue on
-`.superpowers/evidence/data-027/publication.lock`; the oracle treats any
-existing publication lock as `BLOCKED`, including the interval after atomic
-receipt publication but before lock release. The shared project lock lives
-under the OS temp root and is keyed by the canonical Supabase `project_id`
-and fixed local-port identity, so separate worktrees targeting the same local
-stack cannot overlap their DB/process phases. This coordinates worktrees run
-by the same OS account; it is not a cross-account machine mutex. Observation
-output is derived internally as
+`.superpowers/evidence/data-027/publication.lock`. The validator atomically
+acquires that same lock nonblockingly and holds it through the receipt read,
+receipt-hash verification, and current-manifest comparison. An existing or
+gate-owned lock, lock-acquisition error, or validator lock-release error fails
+closed as `BLOCKED`; validation neither waits for nor removes another owner's
+lock. This includes the interval after atomic receipt publication but before
+the gate releases the lock. The shared project lock lives under the OS temp
+root and is keyed by the canonical Supabase `project_id` and fixed local-port
+identity, so separate worktrees targeting the same local stack cannot overlap
+their DB/process phases. This coordinates worktrees run by the same OS account;
+it is not a cross-account machine mutex. Observation output is derived
+internally as
 `os.tmpdir()/touchcatch-data-027/<gate-run-uuid>/observation.json`; arbitrary
 output-path environment values are ignored, and existing symlink/junction
 components are rejected.
 
 After acquiring the worktree publication lock, the gate invalidates any
-previous receipt before starting. Observation and shared-lock cleanup must
+previous receipt before starting. If it cannot confirm receipt invalidation,
+it closes its descriptor but deliberately retains the lock file so stale
+evidence cannot validate as `PASS`. Observation and shared-lock cleanup must
 complete before publication. The publication lock is released only after
 publication; if that release fails, the new receipt is invalidated and the
 surviving lock independently keeps the oracle `BLOCKED`. Thus every nonzero

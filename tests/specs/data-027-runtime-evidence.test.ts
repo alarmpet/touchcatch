@@ -6,7 +6,10 @@ import { dirname, join } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { canonicalJson } from '../../packages/contracts/src/canonical-json.js';
 
-const observationFsState = vi.hoisted(() => ({ openedPaths: [] as string[] }));
+const observationFsState = vi.hoisted(() => ({
+  failPublicationLockRemoval: false,
+  openedPaths: [] as string[],
+}));
 
 vi.mock('node:fs', async (importOriginal) => {
   const actual = await importOriginal<typeof import('node:fs')>();
@@ -16,6 +19,18 @@ vi.mock('node:fs', async (importOriginal) => {
       observationFsState.openedPaths.push(String(target));
       return (actual.openSync as (...parameters: unknown[]) => number)(target, ...args);
     }) as typeof actual.openSync,
+    rmSync: ((target: Parameters<typeof actual.rmSync>[0], ...args: unknown[]) => {
+      if (
+        observationFsState.failPublicationLockRemoval
+        && String(target).endsWith('publication.lock')
+      ) {
+        throw new Error('simulated publication lock release failure');
+      }
+      return (actual.rmSync as (...parameters: unknown[]) => void)(
+        target,
+        ...args,
+      );
+    }) as typeof actual.rmSync,
   };
 });
 
@@ -204,6 +219,10 @@ const createRepository = (): string => {
 };
 
 const receiptPath = (root: string): string => join(root, ...DATA_027_RECEIPT_RELATIVE_PATH.split('/'));
+const publicationLockPath = (root: string): string => join(
+  dirname(receiptPath(root)),
+  'publication.lock',
+);
 const observationRunDirectory = (runId: string): string =>
   join(tmpdir(), 'touchcatch-data-027', runId);
 const privateObservationPath = (runId: string): string =>
@@ -234,6 +253,7 @@ const rehashReceipt = (receipt: Record<string, unknown>): void => {
 
 afterEach(() => {
   for (const root of roots.splice(0)) rmSync(root, { recursive: true, force: true });
+  observationFsState.failPublicationLockRemoval = false;
   observationFsState.openedPaths.length = 0;
   if (data027GateEnvironment.gateRunId === undefined) delete process.env.TOUCHCATCH_DATA027_GATE_RUN_ID;
   else process.env.TOUCHCATCH_DATA027_GATE_RUN_ID = data027GateEnvironment.gateRunId;
@@ -392,6 +412,49 @@ describe('DATA-027 runtime evidence', () => {
 
     rmSync(publicationLock);
     expect(validateData027Receipt(root)).toBe(true);
+  });
+
+  it.each([
+    ['missing receipt', (root: string) => {
+      mkdirSync(dirname(receiptPath(root)), { recursive: true });
+    }],
+    ['malformed receipt', (root: string) => {
+      mkdirSync(dirname(receiptPath(root)), { recursive: true });
+      writeFileSync(receiptPath(root), '{');
+    }],
+    ['manifest reconstruction exception', (root: string) => {
+      writeData027Receipt(root, validObservation, commitSha);
+      rmSync(join(
+        root,
+        'packages',
+        'contracts',
+        'src',
+        'integration-evidence.ts',
+      ));
+    }],
+  ])('releases validator publication-lock ownership after a %s', (
+    _label,
+    arrange,
+  ) => {
+    const root = createRepository();
+    arrange(root);
+
+    expect(validateData027Receipt(root)).toBe(false);
+    expect(existsSync(publicationLockPath(root))).toBe(false);
+  });
+
+  it('returns false and retains the lock when validator lock release fails', () => {
+    const root = createRepository();
+    writeData027Receipt(root, validObservation, commitSha);
+    observationFsState.failPublicationLockRemoval = true;
+
+    try {
+      expect(validateData027Receipt(root)).toBe(false);
+      expect(existsSync(publicationLockPath(root))).toBe(true);
+    } finally {
+      observationFsState.failPublicationLockRemoval = false;
+      rmSync(publicationLockPath(root), { force: true });
+    }
   });
 
   it('uses an exact worktree-local receipt path and confines fixtures to temp repositories', () => {
