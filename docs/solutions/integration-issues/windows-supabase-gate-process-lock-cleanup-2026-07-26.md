@@ -96,11 +96,14 @@ sanitized `SUPABASE_GATE_FAILED:cleanup` when an otherwise successful run
 cannot clean its owned artifacts.
 
 Focused tests inject the production spawn helper to verify a Windows executable
-path containing spaces and timeout tree termination. A real temporary Git
-repository test starts two gates from different subdirectories and proves that
-the second receives `SUPABASE_GATE_FAILED:lock`. Failure and timeout tests make
-the fake child create an observation before exit so cleanup assertions exercise
-the real lifecycle.
+path containing spaces. Process-tree tests exercise the real termination helper
+while injecting only its destructive primitives: `spawnSync` is observed for
+the exact Windows `taskkill /PID <pid> /T /F` call, and `process.kill` is
+observed for the non-Windows negative process-group `SIGKILL`. A real temporary
+Git repository test starts two gates from different subdirectories and proves
+that the second receives `SUPABASE_GATE_FAILED:lock`. Failure and timeout tests
+make the fake child create an observation before exit so cleanup assertions
+exercise the real lifecycle.
 
 ## Why This Works
 
@@ -119,6 +122,8 @@ exit from claiming a clean bounded run when owned state remains.
 - Do not use global `shell: true` as a cross-platform CLI resolution strategy.
 - Test absolute executable paths containing spaces through the production spawn
   helper.
+- Test termination branches by injecting `spawnSync` and `process.kill`; do not
+  replace the process-tree helper itself.
 - Resolve worktree-scoped locks and evidence from
   `git rev-parse --show-toplevel`, not the caller's current directory.
 - Test concurrent invocations from two different subdirectories of one

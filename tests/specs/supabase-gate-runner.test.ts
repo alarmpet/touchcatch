@@ -6,7 +6,7 @@ import { join } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { validateData027Observation, type Data027Observation } from '../../tools/data-027-runtime-evidence.js';
 // @ts-expect-error The production gate is intentionally plain ESM for direct Node execution.
-import { createDefaultSpawnStep, runSupabaseGate } from '../../tools/run-supabase-gate.mjs';
+import { createDefaultSpawnStep, runSupabaseGate, terminateProcessTree } from '../../tools/run-supabase-gate.mjs';
 
 type GateStep = Readonly<{
   name: string;
@@ -100,6 +100,34 @@ afterEach(() => {
 });
 
 describe('bounded Supabase gate', () => {
+  it('terminates a Windows child tree through taskkill without a command shell', () => {
+    const spawnSyncProcess = vi.fn();
+    const child = { pid: 2468, kill: vi.fn() };
+
+    terminateProcessTree(child, 'win32', { spawnSyncProcess });
+
+    expect(spawnSyncProcess).toHaveBeenCalledWith(
+      'taskkill',
+      ['/PID', '2468', '/T', '/F'],
+      {
+        shell: false,
+        stdio: 'ignore',
+        windowsHide: true,
+      },
+    );
+    expect(child.kill).not.toHaveBeenCalled();
+  });
+
+  it('terminates a non-Windows detached child through its negative process group', () => {
+    const killProcess = vi.fn();
+    const child = { pid: 1357, kill: vi.fn() };
+
+    terminateProcessTree(child, 'linux', { killProcess });
+
+    expect(killProcess).toHaveBeenCalledWith(-1357, 'SIGKILL');
+    expect(child.kill).not.toHaveBeenCalled();
+  });
+
   it('spawns an absolute Windows Node path with spaces without a command shell', async () => {
     const child = Object.assign(new EventEmitter(), { pid: 1234, kill: vi.fn() });
     const spawnProcess = vi.fn(() => {
@@ -112,7 +140,6 @@ describe('bounded Supabase gate', () => {
       platform: 'win32',
       setTimeout,
       spawnProcess,
-      terminateProcessTree: vi.fn(),
     });
 
     await expect(spawnStep({
@@ -134,7 +161,7 @@ describe('bounded Supabase gate', () => {
   it('terminates the complete child tree when the production step timeout fires', async () => {
     const child = Object.assign(new EventEmitter(), { pid: 4321, kill: vi.fn() });
     const spawnProcess = vi.fn(() => child);
-    const terminateTree = vi.fn();
+    const killProcess = vi.fn();
     let timeoutCallback!: () => void;
     const clearTimer = vi.fn();
     const spawnStep = createDefaultSpawnStep({
@@ -146,7 +173,7 @@ describe('bounded Supabase gate', () => {
         return 99;
       },
       spawnProcess,
-      terminateProcessTree: terminateTree,
+      killProcess,
     });
 
     const result = spawnStep({
@@ -160,7 +187,7 @@ describe('bounded Supabase gate', () => {
     timeoutCallback();
 
     await expect(result).resolves.toMatchObject({ status: null, timedOut: true });
-    expect(terminateTree).toHaveBeenCalledWith(child, 'linux');
+    expect(killProcess).toHaveBeenCalledWith(-4321, 'SIGKILL');
     expect(clearTimer).toHaveBeenCalledWith(99);
   });
 

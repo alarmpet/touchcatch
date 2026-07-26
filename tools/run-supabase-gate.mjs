@@ -60,17 +60,24 @@ const defaultResolveSupabaseCliEntry = () => {
   return entryPath;
 };
 
-const terminateProcessTree = (child, platform) => {
+export const terminateProcessTree = (child, platform, overrides = {}) => {
+  const spawnSyncProcess = overrides.spawnSyncProcess ?? spawnSync;
+  const killProcess = overrides.killProcess ?? process.kill;
   if (!Number.isSafeInteger(child.pid) || child.pid <= 0) return;
   if (platform === 'win32') {
-    spawnSync('taskkill', ['/PID', String(child.pid), '/T', '/F'], {
-      stdio: 'ignore',
-      windowsHide: true,
-    });
+    try {
+      spawnSyncProcess('taskkill', ['/PID', String(child.pid), '/T', '/F'], {
+        shell: false,
+        stdio: 'ignore',
+        windowsHide: true,
+      });
+    } catch {
+      // The caller reports only the fixed timeout taxonomy.
+    }
     return;
   }
   try {
-    process.kill(-child.pid, 'SIGKILL');
+    killProcess(-child.pid, 'SIGKILL');
   } catch {
     try {
       child.kill('SIGKILL');
@@ -86,7 +93,8 @@ export const createDefaultSpawnStep = ({
   platform,
   setTimeout: setTimer,
   spawnProcess = spawn,
-  terminateProcessTree: terminateTree = terminateProcessTree,
+  spawnSyncProcess = spawnSync,
+  killProcess = process.kill,
 }) => (step) => new Promise((resolve) => {
   const startedAtMs = now();
   let finished = false;
@@ -107,7 +115,7 @@ export const createDefaultSpawnStep = ({
   };
   timer = setTimer(() => {
     try {
-      terminateTree(child, platform);
+      terminateProcessTree(child, platform, { killProcess, spawnSyncProcess });
     } finally {
       finish({ status: null, timedOut: true });
     }
