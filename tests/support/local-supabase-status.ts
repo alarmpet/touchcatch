@@ -55,7 +55,12 @@ function statusOutput(env: Readonly<Record<string, string | undefined>>, runStat
     options: {
       cwd: repositoryRoot,
       encoding: 'utf8',
-      env: { ...process.env, ...env, SUPABASE_TELEMETRY_DISABLED: '1', DO_NOT_TRACK: '1' },
+      env: {
+        ...env,
+        NODE_ENV: env.NODE_ENV === 'development' || env.NODE_ENV === 'production' ? env.NODE_ENV : 'test',
+        SUPABASE_TELEMETRY_DISABLED: '1',
+        DO_NOT_TRACK: '1',
+      },
       timeout: statusTimeoutMs,
       maxBuffer: statusMaxBuffer,
       windowsHide: true,

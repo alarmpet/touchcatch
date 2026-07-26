@@ -1,12 +1,24 @@
 import { execFileSync } from 'node:child_process';
 import { EventEmitter } from 'node:events';
-import { closeSync, existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { closeSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir as systemTmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { validateData027Observation, type Data027Observation } from '../../tools/data-027-runtime-evidence.js';
-// @ts-expect-error The production gate is intentionally plain ESM for direct Node execution.
-import { createDefaultSpawnStep, runSupabaseGate, terminateProcessTree } from '../../tools/run-supabase-gate.mjs';
+import { canonicalJson } from '../../packages/contracts/src/canonical-json.js';
+import {
+  validateData027Observation,
+  validateData027Receipt,
+  type Data027Observation,
+} from '../../tools/data-027-runtime-evidence.js';
+import { executeRequirementOracle } from '../../tools/requirement-oracle.js';
+import {
+  createData027TestRepository,
+  writeData027ReceiptFixture,
+} from '../support/data-027-receipt-fixture.js';
+// @ts-expect-error The internal gate core is intentionally plain ESM.
+import { createDefaultSpawnStep, runSupabaseGateCore, terminateProcessTree } from '../../tools/internal/run-supabase-gate-core.mjs';
+
+const runSupabaseGate = runSupabaseGateCore;
 
 type GateStep = Readonly<{
   name: string;
@@ -20,10 +32,33 @@ type GateStep = Readonly<{
 type StepResult = Readonly<{
   status: number | null;
   timedOut: boolean;
+  terminationConfirmed?: boolean;
 }>;
 
 const roots: string[] = [];
 const commitSha = 'a'.repeat(40);
+const runA = '00000000-0000-4000-8000-000000000001';
+const runB = '00000000-0000-4000-8000-000000000002';
+const evidenceManifest = Object.freeze({
+  evidenceInputs: Object.freeze([
+    Object.freeze({
+      path: 'package.json',
+      sha256: `sha256:${'a'.repeat(64)}`,
+    }),
+  ]),
+  evidenceInputsSha256: `sha256:${'b'.repeat(64)}`,
+  runtimeVersions: Object.freeze({
+    node: 'v24.18.0',
+    pnpm: '11.13.0',
+  }),
+});
+const sharedProjectIdentity = Object.freeze({
+  projectId: 'touchcatch',
+  ports: Object.freeze([
+    Object.freeze({ path: 'api.port', value: 55321 }),
+    Object.freeze({ path: 'db.port', value: 55322 }),
+  ]),
+});
 
 const validObservation = (gateRunId: string): Data027Observation => ({
   schemaVersion: 1,
@@ -42,12 +77,40 @@ const createRoot = (): string => {
   return root;
 };
 
+const writeProjectConfig = (
+  root: string,
+  projectId = 'touchcatch',
+  apiPort = 55_321,
+  databasePort = 55_322,
+): void => {
+  const target = join(root, 'supabase', 'config.toml');
+  mkdirSync(join(root, 'supabase'), { recursive: true });
+  writeFileSync(
+    target,
+    [
+      `project_id = "${projectId}"`,
+      '',
+      '[api]',
+      `port = ${apiPort}`,
+      '',
+      '[db]',
+      `port = ${databasePort}`,
+      'shadow_port = 55320',
+    ].join('\n'),
+  );
+};
+
 const observationPath = (temporaryRoot: string, gateRunId: string): string =>
-  join(temporaryRoot, 'touchcatch-data-027', `${gateRunId}.json`);
+  join(
+    temporaryRoot,
+    'touchcatch-data-027',
+    gateRunId,
+    'observation.json',
+  );
 
 const writeObservation = (temporaryRoot: string, gateRunId: string, value: unknown): void => {
   const target = observationPath(temporaryRoot, gateRunId);
-  mkdirSync(join(temporaryRoot, 'touchcatch-data-027'), { recursive: true });
+  mkdirSync(join(temporaryRoot, 'touchcatch-data-027', gateRunId), { recursive: true });
   writeFileSync(target, JSON.stringify(value));
 };
 
@@ -63,9 +126,11 @@ const createHarness = (input: {
 } = {}) => {
   const root = input.root ?? createRoot();
   const temporaryRoot = input.temporaryRoot ?? createRoot();
-  const gateRunId = input.gateRunId ?? 'run-a';
+  const gateRunId = input.gateRunId ?? runA;
   const steps: GateStep[] = [];
   const writeReceipt = input.writeReceipt ?? vi.fn();
+  const invalidateReceipt = vi.fn(() => true);
+  const buildEvidenceManifest = vi.fn(() => evidenceManifest);
   const getCommitSha = vi.fn(() => commitSha);
   const spawnStep = vi.fn(async (step: GateStep): Promise<StepResult> => {
     steps.push(step);
@@ -88,11 +153,30 @@ const createHarness = (input: {
     supabaseExecutable: 'supabase-test',
     nodeExecutable: 'node-test',
     validateData027Observation,
-    writeData027Receipt: writeReceipt,
+    buildData027EvidenceManifest: buildEvidenceManifest,
+    publishData027Receipt: writeReceipt,
+    invalidateData027Receipt: invalidateReceipt,
+    evidenceTools: {
+      buildData027EvidenceManifest: buildEvidenceManifest,
+      canonicalJson,
+      validateData027Observation,
+    },
+    projectIdentity: sharedProjectIdentity,
     getCommitSha,
     ...(input.useDefaultRepositoryRoot ? {} : { resolveRepositoryRoot: () => root }),
   };
-  return { deps, gateRunId, getCommitSha, root, spawnStep, steps, temporaryRoot, writeReceipt };
+  return {
+    buildEvidenceManifest,
+    deps,
+    gateRunId,
+    getCommitSha,
+    invalidateReceipt,
+    root,
+    spawnStep,
+    steps,
+    temporaryRoot,
+    writeReceipt,
+  };
 };
 
 afterEach(() => {
@@ -100,8 +184,19 @@ afterEach(() => {
 });
 
 describe('bounded Supabase gate', () => {
+  it('keeps dependency injection out of the production CLI module surface', async () => {
+    // @ts-expect-error The production entry is intentionally plain ESM.
+    const productionEntry = await import('../../tools/run-supabase-gate.mjs');
+
+    expect(Object.keys(productionEntry)).toEqual([]);
+  });
+
   it('terminates a Windows child tree through taskkill without a command shell', () => {
-    const spawnSyncProcess = vi.fn();
+    const spawnSyncProcess = vi.fn(() => ({
+      error: undefined,
+      signal: null,
+      status: 0,
+    }));
     const child = { pid: 2468, kill: vi.fn() };
 
     terminateProcessTree(child, 'win32', { spawnSyncProcess });
@@ -112,10 +207,30 @@ describe('bounded Supabase gate', () => {
       {
         shell: false,
         stdio: 'ignore',
+        timeout: 10_000,
         windowsHide: true,
       },
     );
     expect(child.kill).not.toHaveBeenCalled();
+  });
+
+  it('rejects a nonzero or timed-out Windows taskkill result', () => {
+    const child = { pid: 2468, kill: vi.fn() };
+
+    expect(terminateProcessTree(child, 'win32', {
+      spawnSyncProcess: vi.fn(() => ({
+        error: undefined,
+        signal: null,
+        status: 1,
+      })),
+    })).toBe(false);
+    expect(terminateProcessTree(child, 'win32', {
+      spawnSyncProcess: vi.fn(() => ({
+        error: new Error('timed out'),
+        signal: 'SIGTERM',
+        status: null,
+      })),
+    })).toBe(false);
   });
 
   it('terminates a non-Windows detached child through its negative process group', () => {
@@ -185,10 +300,60 @@ describe('bounded Supabase gate', () => {
       env: {},
     });
     timeoutCallback();
+    let settled = false;
+    void result.then(() => {
+      settled = true;
+    });
+    await Promise.resolve();
+    expect(settled).toBe(false);
+    child.emit('close', null);
 
-    await expect(result).resolves.toMatchObject({ status: null, timedOut: true });
+    await expect(result).resolves.toMatchObject({
+      status: null,
+      timedOut: true,
+      terminationConfirmed: true,
+    });
     expect(killProcess).toHaveBeenCalledWith(-4321, 'SIGKILL');
     expect(clearTimer).toHaveBeenCalledWith(99);
+  });
+
+  it('reports unconfirmed termination after taskkill fails even when the child closes', async () => {
+    const child = Object.assign(new EventEmitter(), {
+      pid: 4321,
+      kill: vi.fn(),
+    });
+    let timeoutCallback!: () => void;
+    const spawnStep = createDefaultSpawnStep({
+      clearTimeout: vi.fn(),
+      now: () => 1_000,
+      platform: 'win32',
+      setTimeout: (callback: () => void) => {
+        timeoutCallback = callback;
+        return 99;
+      },
+      spawnProcess: vi.fn(() => child),
+      spawnSyncProcess: vi.fn(() => ({
+        error: undefined,
+        signal: null,
+        status: 1,
+      })),
+    });
+
+    const result = spawnStep({
+      name: 'db_reset',
+      executable: 'supabase.exe',
+      args: ['db', 'reset', '--local'],
+      timeoutMs: 600_000,
+      cwd: 'C:\\repo',
+      env: {},
+    });
+    timeoutCallback();
+    child.emit('close', null);
+
+    await expect(result).resolves.toMatchObject({
+      timedOut: true,
+      terminationConfirmed: false,
+    });
   });
 
   it('maps an unavailable Docker preflight and stops before later steps', async () => {
@@ -200,7 +365,27 @@ describe('bounded Supabase gate', () => {
 
     await expect(runSupabaseGate(harness.deps)).rejects.toThrow('SUPABASE_GATE_DOCKER_UNAVAILABLE');
 
-    expect(harness.steps.map((step) => step.name)).toEqual(['docker_preflight']);
+    expect(harness.steps.map((step) => step.name)).toEqual([
+      'runtime_preflight',
+      'docker_preflight',
+    ]);
+    expect(harness.writeReceipt).not.toHaveBeenCalled();
+  });
+
+  it('cannot reach Docker or publish when exact-runtime preflight fails', async () => {
+    const harness = createHarness({
+      resultForStep: (step) => step.name === 'runtime_preflight'
+        ? { status: 1, timedOut: false }
+        : { status: 0, timedOut: false },
+    });
+
+    await expect(runSupabaseGate(harness.deps)).rejects.toThrow(
+      'SUPABASE_GATE_FAILED:runtime_preflight',
+    );
+
+    expect(harness.steps.map((step) => step.name)).toEqual([
+      'runtime_preflight',
+    ]);
     expect(harness.writeReceipt).not.toHaveBeenCalled();
   });
 
@@ -213,7 +398,38 @@ describe('bounded Supabase gate', () => {
 
     await expect(runSupabaseGate(harness.deps)).rejects.toThrow('SUPABASE_GATE_TIMEOUT:db_reset');
 
-    expect(harness.steps.map((step) => step.name)).toEqual(['docker_preflight', 'db_reset']);
+    expect(harness.steps.map((step) => step.name)).toEqual([
+      'runtime_preflight',
+      'docker_preflight',
+      'db_reset',
+    ]);
+    expect(harness.writeReceipt).not.toHaveBeenCalled();
+  });
+
+  it('retains the shared lock when process-tree death cannot be confirmed', async () => {
+    const harness = createHarness({
+      resultForStep: (step) => step.name === 'db_reset'
+        ? {
+            status: null,
+            timedOut: true,
+            terminationConfirmed: false,
+          }
+        : { status: 0, timedOut: false },
+    });
+    const lock = { descriptor: 123, lockPath: 'retained.lock' };
+    const acquireGateLock = vi.fn(() => lock);
+    const releaseGateLock = vi.fn(() => true);
+    const retainGateLock = vi.fn(() => true);
+
+    await expect(runSupabaseGate({
+      ...harness.deps,
+      acquireGateLock,
+      releaseGateLock,
+      retainGateLock,
+    })).rejects.toThrow('SUPABASE_GATE_FAILED:termination');
+
+    expect(retainGateLock).toHaveBeenCalledWith(lock);
+    expect(releaseGateLock).not.toHaveBeenCalled();
     expect(harness.writeReceipt).not.toHaveBeenCalled();
   });
 
@@ -227,6 +443,7 @@ describe('bounded Supabase gate', () => {
     await expect(runSupabaseGate(harness.deps)).rejects.toThrow('SUPABASE_GATE_FAILED:pg_tap');
 
     expect(harness.steps.map((step) => step.name)).toEqual([
+      'runtime_preflight',
       'docker_preflight',
       'db_reset',
       'db_lint',
@@ -237,12 +454,25 @@ describe('bounded Supabase gate', () => {
 
   it('runs only the allow-listed bounded sequence and scopes observation env to concurrency', async () => {
     const harness = createHarness({
-      observationForStep: () => validObservation('run-a'),
+      observationForStep: () => validObservation(runA),
+    });
+    const hostileEnvironment = {
+      PATH: 'safe-path',
+      SUPABASE_WORKDIR: 'C:\\other-project',
+      TEST_DATABASE_URL:
+        'postgresql://postgres:postgres@127.0.0.1:59999/postgres',
+      LOCAL_SUPABASE_API_URL: 'http://127.0.0.1:59998',
+      local_mailpit_url: 'http://127.0.0.1:59997',
+      TOUCHCATCH_DATA027_OBSERVATION_PATH: 'C:\\redirected.json',
+    };
+
+    await runSupabaseGate({
+      ...harness.deps,
+      environment: hostileEnvironment,
     });
 
-    await runSupabaseGate(harness.deps);
-
     expect(harness.steps.map(({ name, executable, args, timeoutMs }) => [name, executable, args, timeoutMs])).toEqual([
+      ['runtime_preflight', 'node-test', ['tools/check-runtime.mjs'], 10_000],
       ['docker_preflight', 'docker-test', ['info'], 10_000],
       ['db_reset', 'supabase-test', ['db', 'reset', '--local'], 600_000],
       ['db_lint', 'supabase-test', ['db', 'lint', '--local', '--fail-on', 'error'], 120_000],
@@ -254,22 +484,109 @@ describe('bounded Supabase gate', () => {
       expect(step.env.TOUCHCATCH_DATA027_GATE_RUN_ID).toBeUndefined();
       expect(step.env.TOUCHCATCH_DATA027_OBSERVATION_PATH).toBeUndefined();
     }
+    for (const step of harness.steps) {
+      expect(
+        Object.keys(step.env).map((key) => key.toLowerCase()),
+      ).not.toEqual(expect.arrayContaining([
+        'local_mailpit_url',
+        'local_supabase_api_url',
+        'supabase_workdir',
+        'test_database_url',
+        'touchcatch_data027_observation_path',
+      ]));
+      expect(step.env.PATH).toBe('safe-path');
+    }
     expect(harness.steps.at(-1)?.env).toMatchObject({
-      TOUCHCATCH_DATA027_GATE_RUN_ID: 'run-a',
-      TOUCHCATCH_DATA027_OBSERVATION_PATH: observationPath(harness.temporaryRoot, 'run-a'),
+      TOUCHCATCH_DATA027_GATE_RUN_ID: runA,
     });
     expect(harness.writeReceipt).toHaveBeenCalledOnce();
     expect(harness.writeReceipt).toHaveBeenCalledWith(
-      harness.root,
-      validObservation('run-a'),
-      commitSha,
+      expect.objectContaining({
+        observation: validObservation(runA),
+        commitSha,
+        manifest: evidenceManifest,
+        root: harness.root,
+      }),
     );
-    expect(existsSync(observationPath(harness.temporaryRoot, 'run-a'))).toBe(false);
+    expect(existsSync(observationPath(harness.temporaryRoot, runA))).toBe(false);
+  });
+
+  it('rejects a repository mutation between the pre-run and post-run manifests', async () => {
+    const changedManifest = {
+      ...evidenceManifest,
+      evidenceInputsSha256: `sha256:${'c'.repeat(64)}`,
+    };
+    const buildEvidenceManifest = vi.fn()
+      .mockReturnValueOnce(evidenceManifest)
+      .mockReturnValue(changedManifest);
+    const harness = createHarness({
+      observationForStep: () => validObservation(runA),
+    });
+
+    await expect(runSupabaseGate({
+      ...harness.deps,
+      buildData027EvidenceManifest: buildEvidenceManifest,
+    })).rejects.toThrow('SUPABASE_GATE_FAILED:evidence_changed');
+
+    expect(buildEvidenceManifest).toHaveBeenCalledTimes(2);
+    expect(harness.writeReceipt).not.toHaveBeenCalled();
+  });
+
+  it('rechecks the frozen pre-run manifest after cleanup and before publication', async () => {
+    const changedManifest = {
+      ...evidenceManifest,
+      evidenceInputsSha256: `sha256:${'d'.repeat(64)}`,
+    };
+    const buildEvidenceManifest = vi.fn()
+      .mockReturnValueOnce(evidenceManifest)
+      .mockReturnValueOnce(evidenceManifest)
+      .mockReturnValueOnce(changedManifest);
+    const harness = createHarness({
+      observationForStep: () => validObservation(runA),
+    });
+
+    await expect(runSupabaseGate({
+      ...harness.deps,
+      buildData027EvidenceManifest: buildEvidenceManifest,
+    })).rejects.toThrow('SUPABASE_GATE_FAILED:evidence_changed');
+
+    expect(harness.writeReceipt).not.toHaveBeenCalled();
+  });
+
+  it('orders observation cleanup and lock release before receipt publication', async () => {
+    const events: string[] = [];
+    const harness = createHarness({
+      observationForStep: () => validObservation(runA),
+      writeReceipt: vi.fn(() => {
+        events.push('publish');
+      }),
+    });
+    const lock = { descriptor: 123, lockPath: 'test.lock' };
+
+    await runSupabaseGate({
+      ...harness.deps,
+      acquireGateLock: () => lock,
+      cleanupObservationRun: (run: { directory: string }) => {
+        events.push('observation_cleanup');
+        rmSync(run.directory, { recursive: true, force: true });
+        return true;
+      },
+      releaseGateLock: () => {
+        events.push('lock_release');
+        return true;
+      },
+    });
+
+    expect(events).toEqual([
+      'observation_cleanup',
+      'lock_release',
+      'publish',
+    ]);
   });
 
   it('uses a shell-free Node wrapper for the Windows Supabase CLI shim', async () => {
     const harness = createHarness({
-      observationForStep: () => validObservation('run-a'),
+      observationForStep: () => validObservation(runA),
     });
     const supabaseCliEntry = 'C:\\repo with spaces\\node_modules\\supabase\\dist\\supabase.js';
     const deps = {
@@ -290,20 +607,20 @@ describe('bounded Supabase gate', () => {
     expect(harness.steps.find((step) => step.name === 'docker_preflight')?.executable).toBe('docker-test');
   });
 
-  it('removes a stale run file before concurrency and rejects a missing observation', async () => {
+  it('rejects a pre-existing private run directory before spawning', async () => {
     const harness = createHarness();
-    writeObservation(harness.temporaryRoot, harness.gateRunId, validObservation('old-run'));
+    writeObservation(harness.temporaryRoot, harness.gateRunId, validObservation(runB));
 
-    await expect(runSupabaseGate(harness.deps)).rejects.toThrow('DATA_027_OBSERVATION_MISSING');
+    await expect(runSupabaseGate(harness.deps)).rejects.toThrow('SUPABASE_GATE_FAILED:runner');
 
     expect(harness.writeReceipt).not.toHaveBeenCalled();
-    expect(existsSync(observationPath(harness.temporaryRoot, harness.gateRunId))).toBe(false);
+    expect(harness.spawnStep).not.toHaveBeenCalled();
   });
 
   it.each([
-    ['an old run id', validObservation('old-run')],
+    ['an old run id', validObservation(runB)],
     ['malformed JSON', '{not-json'],
-    ['unexpected fields', { ...validObservation('run-a'), credential: 'must-not-pass' }],
+    ['unexpected fields', { ...validObservation(runA), credential: 'must-not-pass' }],
   ])('rejects %s and cleans the observation', async (_label, observation) => {
     const harness = createHarness({
       observationForStep: () => observation,
@@ -334,7 +651,7 @@ describe('bounded Supabase gate', () => {
       resultForStep: (step) => step.name === 'data_027_concurrency'
         ? result
         : { status: 0, timedOut: false },
-      observationForStep: () => validObservation('run-a'),
+      observationForStep: () => validObservation(runA),
     });
 
     await expect(runSupabaseGate(harness.deps)).rejects.toThrow(errorCode);
@@ -348,7 +665,7 @@ describe('bounded Supabase gate', () => {
       throw new Error('sensitive writer detail');
     });
     const harness = createHarness({
-      observationForStep: () => validObservation('run-a'),
+      observationForStep: () => validObservation(runA),
       writeReceipt,
     });
 
@@ -359,26 +676,24 @@ describe('bounded Supabase gate', () => {
 
   it('fails closed when successful observation cleanup fails', async () => {
     const harness = createHarness({
-      observationForStep: () => validObservation('run-a'),
+      observationForStep: () => validObservation(runA),
     });
-    let removalCount = 0;
-    const removeObservationFile = vi.fn((target: string, options: { force: boolean }) => {
-      removalCount += 1;
-      if (removalCount === 2) throw new Error('sensitive cleanup detail');
-      rmSync(target, options);
+    const cleanupObservationRun = vi.fn((run: { directory: string }) => {
+      rmSync(run.directory, { recursive: true, force: true });
+      return false;
     });
 
     await expect(runSupabaseGate({
       ...harness.deps,
-      removeObservationFile,
+      cleanupObservationRun,
     })).rejects.toThrow('SUPABASE_GATE_FAILED:cleanup');
 
-    expect(harness.writeReceipt).toHaveBeenCalledOnce();
+    expect(harness.writeReceipt).not.toHaveBeenCalled();
   });
 
   it('fails closed when successful lock cleanup fails', async () => {
     const harness = createHarness({
-      observationForStep: () => validObservation('run-a'),
+      observationForStep: () => validObservation(runA),
     });
     const releaseGateLock = vi.fn((lock: { descriptor: number; lockPath: string }) => {
       closeSync(lock.descriptor);
@@ -391,11 +706,78 @@ describe('bounded Supabase gate', () => {
       releaseGateLock,
     })).rejects.toThrow('SUPABASE_GATE_FAILED:cleanup');
 
-    expect(harness.writeReceipt).toHaveBeenCalledOnce();
+    expect(harness.writeReceipt).not.toHaveBeenCalled();
   });
 
-  it('admits only one same-worktree gate and never steals its active lock', async () => {
-    const root = createRoot();
+  it('leaves the real oracle BLOCKED when cleanup fails after invalidating an old PASS', async () => {
+    const registry = JSON.parse(
+      readFileSync('docs/requirements-registry.v1.json', 'utf8'),
+    );
+    const evidence = JSON.parse(
+      readFileSync('config/requirement-evidence.v1.json', 'utf8'),
+    );
+    const row = registry.requirements.find(
+      (candidate: { id: string }) => candidate.id === 'DATA-027',
+    );
+    const claim = evidence.entries.find(
+      (candidate: { id: string }) => candidate.id === 'DATA-027',
+    );
+    const root = createData027TestRepository(process.cwd(), row.source);
+    roots.push(root);
+    writeData027ReceiptFixture(root);
+    expect(executeRequirementOracle(root, row, claim).status).toBe('PASS');
+    const harness = createHarness({
+      root,
+      observationForStep: () => validObservation(runA),
+    });
+    const {
+      invalidateData027Receipt: _injectedInvalidator,
+      ...depsWithRealInvalidation
+    } = harness.deps;
+
+    await expect(runSupabaseGate({
+      ...depsWithRealInvalidation,
+      cleanupObservationRun: (run: { directory: string }) => {
+        rmSync(run.directory, { recursive: true, force: true });
+        return false;
+      },
+    })).rejects.toThrow('SUPABASE_GATE_FAILED:cleanup');
+
+    expect(harness.writeReceipt).not.toHaveBeenCalled();
+    expect(executeRequirementOracle(root, row, claim)).toMatchObject({
+      status: 'BLOCKED',
+      reason: 'LOCAL_DB_EVIDENCE_UNAVAILABLE',
+    });
+  });
+
+  it('publishes a validator-accepted receipt only after the production cleanup path', async () => {
+    const root = createData027TestRepository(process.cwd());
+    roots.push(root);
+    const harness = createHarness({
+      root,
+      observationForStep: () => validObservation(runA),
+    });
+    const {
+      buildData027EvidenceManifest: _injectedBuilder,
+      evidenceTools: _injectedEvidenceTools,
+      invalidateData027Receipt: _injectedInvalidator,
+      publishData027Receipt: _injectedPublisher,
+      ...productionReceiptDeps
+    } = harness.deps;
+
+    await runSupabaseGate(productionReceiptDeps);
+
+    expect(validateData027Receipt(root)).toBe(true);
+    expect(
+      existsSync(observationPath(harness.temporaryRoot, runA)),
+    ).toBe(false);
+  });
+
+  it('serializes distinct worktrees that share one canonical Supabase project identity', async () => {
+    const firstRoot = createRoot();
+    const secondRoot = createRoot();
+    writeProjectConfig(firstRoot);
+    writeProjectConfig(secondRoot);
     const temporaryRoot = createRoot();
     let releaseDocker!: () => void;
     const dockerStarted = new Promise<void>((resolve) => {
@@ -406,10 +788,10 @@ describe('bounded Supabase gate', () => {
       markDockerStarted = resolve;
     });
     const first = createHarness({
-      root,
+      root: firstRoot,
       temporaryRoot,
-      gateRunId: 'run-a',
-      observationForStep: () => validObservation('run-a'),
+      gateRunId: runA,
+      observationForStep: () => validObservation(runA),
       resultForStep: async (step) => {
         if (step.name === 'docker_preflight') {
           markDockerStarted();
@@ -419,21 +801,68 @@ describe('bounded Supabase gate', () => {
       },
     });
     const second = createHarness({
-      root,
+      root: secondRoot,
       temporaryRoot,
-      gateRunId: 'run-b',
-      observationForStep: () => validObservation('run-b'),
+      gateRunId: runB,
+      observationForStep: () => validObservation(runB),
     });
+    const { projectIdentity: _firstIdentity, ...firstDeps } = first.deps;
+    const { projectIdentity: _secondIdentity, ...secondDeps } = second.deps;
 
-    const firstRun = runSupabaseGate(first.deps);
+    const firstRun = runSupabaseGate(firstDeps);
     await waitForDocker;
-    await expect(runSupabaseGate(second.deps)).rejects.toThrow('SUPABASE_GATE_FAILED:lock');
+    await expect(runSupabaseGate(secondDeps)).rejects.toThrow('SUPABASE_GATE_FAILED:lock');
     expect(second.spawnStep).not.toHaveBeenCalled();
     releaseDocker();
     await firstRun;
 
     expect(first.writeReceipt).toHaveBeenCalledOnce();
     expect(second.writeReceipt).not.toHaveBeenCalled();
+  });
+
+  it('does not collide independent Supabase project identities', async () => {
+    const firstRoot = createRoot();
+    const secondRoot = createRoot();
+    writeProjectConfig(firstRoot, 'touchcatch-a', 55_321, 55_322);
+    writeProjectConfig(secondRoot, 'touchcatch-b', 56_321, 56_322);
+    const temporaryRoot = createRoot();
+    let releaseDocker!: () => void;
+    const holdDocker = new Promise<void>((resolve) => {
+      releaseDocker = resolve;
+    });
+    let markDockerStarted!: () => void;
+    const dockerStarted = new Promise<void>((resolve) => {
+      markDockerStarted = resolve;
+    });
+    const first = createHarness({
+      root: firstRoot,
+      temporaryRoot,
+      gateRunId: runA,
+      observationForStep: () => validObservation(runA),
+      resultForStep: async (step) => {
+        if (step.name === 'docker_preflight') {
+          markDockerStarted();
+          await holdDocker;
+        }
+        return { status: 0, timedOut: false };
+      },
+    });
+    const second = createHarness({
+      root: secondRoot,
+      temporaryRoot,
+      gateRunId: runB,
+      observationForStep: () => validObservation(runB),
+    });
+    const { projectIdentity: _firstIdentity, ...firstDeps } = first.deps;
+    const { projectIdentity: _secondIdentity, ...secondDeps } = second.deps;
+
+    const firstRun = runSupabaseGate(firstDeps);
+    await dockerStarted;
+    await expect(runSupabaseGate(secondDeps)).resolves.toBeUndefined();
+    releaseDocker();
+    await firstRun;
+
+    expect(second.writeReceipt).toHaveBeenCalledOnce();
   });
 
   it('canonicalizes two invocation subdirectories to one worktree lock and cwd', async () => {
@@ -456,8 +885,8 @@ describe('bounded Supabase gate', () => {
       root,
       startPath: firstDirectory,
       temporaryRoot,
-      gateRunId: 'run-a',
-      observationForStep: () => validObservation('run-a'),
+      gateRunId: runA,
+      observationForStep: () => validObservation(runA),
       useDefaultRepositoryRoot: true,
       resultForStep: async (step) => {
         if (step.name === 'docker_preflight') {
@@ -471,8 +900,8 @@ describe('bounded Supabase gate', () => {
       root,
       startPath: secondDirectory,
       temporaryRoot,
-      gateRunId: 'run-b',
-      observationForStep: () => validObservation('run-b'),
+      gateRunId: runB,
+      observationForStep: () => validObservation(runB),
       useDefaultRepositoryRoot: true,
     });
 
@@ -488,6 +917,12 @@ describe('bounded Supabase gate', () => {
     expect(secondOutcome).toBe('SUPABASE_GATE_FAILED:lock');
     expect(first.steps.every((step) => step.cwd === root)).toBe(true);
     expect(first.getCommitSha).toHaveBeenCalledWith(root);
-    expect(first.writeReceipt).toHaveBeenCalledWith(root, validObservation('run-a'), commitSha);
+    expect(first.writeReceipt).toHaveBeenCalledWith(
+      expect.objectContaining({
+        root,
+        observation: validObservation(runA),
+        commitSha,
+      }),
+    );
   });
 });

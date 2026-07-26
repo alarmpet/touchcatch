@@ -1,54 +1,52 @@
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { canonicalJson } from '../../packages/contracts/src/canonical-json.js';
 
-const fsMockState = vi.hoisted(() => ({ shortWrites: false }));
+const observationFsState = vi.hoisted(() => ({ openedPaths: [] as string[] }));
 
 vi.mock('node:fs', async (importOriginal) => {
   const actual = await importOriginal<typeof import('node:fs')>();
   return {
     ...actual,
-    writeSync: ((descriptor: number, value: string | Uint8Array, ...args: unknown[]) => {
-      if (!fsMockState.shortWrites) return (actual.writeSync as (...parameters: unknown[]) => number)(descriptor, value, ...args);
-      if (typeof value === 'string') {
-        const bytes = Buffer.from(value, 'utf8').subarray(0, 1);
-        return actual.writeSync(descriptor, bytes, 0, bytes.length);
-      }
-      const [offset = 0, length = value.byteLength - Number(offset), position] = args;
-      return actual.writeSync(descriptor, value, Number(offset), Math.min(Number(length), 1), position as number | null | undefined);
-    }) as typeof actual.writeSync,
+    openSync: ((target: Parameters<typeof actual.openSync>[0], ...args: unknown[]) => {
+      observationFsState.openedPaths.push(String(target));
+      return (actual.openSync as (...parameters: unknown[]) => number)(target, ...args);
+    }) as typeof actual.openSync,
   };
 });
+
 import {
   DATA_027_RECEIPT_RELATIVE_PATH,
+  buildData027EvidenceManifest,
   buildEvidenceInputs,
   validateData027Observation,
   validateData027Receipt,
-  writeData027Receipt,
   type Data027Observation,
 } from '../../tools/data-027-runtime-evidence.js';
 import { maybeWriteData027Observation } from '../support/data-027-observation.js';
+import { writeData027ReceiptFixture } from '../support/data-027-receipt-fixture.js';
 
 const roots: string[] = [];
 const data027GateEnvironment = {
   gateRunId: process.env.TOUCHCATCH_DATA027_GATE_RUN_ID,
   observationPath: process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH,
 };
+const gateRunId = '00000000-0000-4000-8000-000000000001';
 
 const runtimeObservationInput = {
   sessionsAttempted: 20,
   successfulSeats: 2,
   verifiedRoles: Array.from({ length: 20 }, () => 'app_server'),
-  databaseUrl: 'postgresql://postgres:postgres@127.0.0.1:54322/postgres',
+  databaseUrl: 'postgresql://postgres:postgres@127.0.0.1:55322/postgres',
 };
 
 const validObservation: Data027Observation = {
   schemaVersion: 1,
-  gateRunId: 'run-a',
+  gateRunId,
   requirementId: 'DATA-027',
   sessionsAttempted: 20,
   successfulSeats: 2,
@@ -58,6 +56,13 @@ const validObservation: Data027Observation = {
 };
 
 const commitSha = 'a'.repeat(40);
+const writeData027Receipt = (
+  root: string,
+  _observation: Data027Observation,
+  provenanceSha: string,
+): void => {
+  writeData027ReceiptFixture(root, provenanceSha);
+};
 
 const write = (root: string, relativePath: string, content = relativePath): void => {
   const target = join(root, ...relativePath.split('/'));
@@ -71,17 +76,43 @@ const createRepository = (): string => {
   execFileSync('git', ['init', '--quiet', root]);
   write(root, 'supabase/migrations/202607260001_schema.sql', 'create table evidence ();');
   write(root, 'supabase/migrations/202607260010_schema.sql', 'create table evidence_more ();');
+  write(root, 'supabase/tests/database/runtime.test.sql', 'select 1;');
+  write(root, 'supabase/tests/database/support/runtime.inc', '\\set fixture 1');
   for (const file of [
+    'packages/contracts/src/canonical-json.ts',
+    'supabase/config.toml',
+    'supabase/roles.sql',
     'tests/database/concurrency.test.ts',
+    'tests/support/data-027-observation.ts',
+    'tests/support/local-supabase-status.ts',
     'vitest.db.config.ts',
+    'tools/check-runtime.mjs',
+    'tools/internal/run-supabase-gate-core.mjs',
     'tools/run-supabase-gate.mjs',
+    'tools/run-pnpm.mjs',
     'tools/data-027-runtime-evidence.ts',
     'tools/requirement-oracle.ts',
+    'pnpm-lock.yaml',
   ]) write(root, file);
+  write(root, 'package.json', JSON.stringify({
+    packageManager: 'pnpm@11.13.0',
+    engines: { node: '24.18.0', pnpm: '11.13.0' },
+  }));
   return root;
 };
 
 const receiptPath = (root: string): string => join(root, ...DATA_027_RECEIPT_RELATIVE_PATH.split('/'));
+const observationRunDirectory = (runId: string): string =>
+  join(tmpdir(), 'touchcatch-data-027', runId);
+const privateObservationPath = (runId: string): string =>
+  join(observationRunDirectory(runId), 'observation.json');
+const prepareObservationRun = (runId = gateRunId): string => {
+  const directory = observationRunDirectory(runId);
+  mkdirSync(dirname(directory), { recursive: true });
+  mkdirSync(directory);
+  roots.push(directory);
+  return privateObservationPath(runId);
+};
 
 const readReceipt = (root: string): Record<string, unknown> => JSON.parse(readFileSync(receiptPath(root), 'utf8')) as Record<string, unknown>;
 
@@ -91,13 +122,17 @@ const hashCanonicalJson = (value: unknown): `sha256:${string}` =>
   `sha256:${createHash('sha256').update(canonicalJson(value), 'utf8').digest('hex')}`;
 
 const rehashReceipt = (receipt: Record<string, unknown>): void => {
-  receipt.evidenceInputsSha256 = hashCanonicalJson(receipt.evidenceInputs);
+  receipt.evidenceInputsSha256 = hashCanonicalJson({
+    evidenceInputs: receipt.evidenceInputs,
+    runtimeVersions: receipt.runtimeVersions,
+  });
   const { receiptSha256: _receiptSha256, ...payload } = receipt;
   receipt.receiptSha256 = hashCanonicalJson(payload);
 };
 
 afterEach(() => {
   for (const root of roots.splice(0)) rmSync(root, { recursive: true, force: true });
+  observationFsState.openedPaths.length = 0;
   if (data027GateEnvironment.gateRunId === undefined) delete process.env.TOUCHCATCH_DATA027_GATE_RUN_ID;
   else process.env.TOUCHCATCH_DATA027_GATE_RUN_ID = data027GateEnvironment.gateRunId;
   if (data027GateEnvironment.observationPath === undefined) delete process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH;
@@ -105,53 +140,112 @@ afterEach(() => {
 });
 
 describe('DATA-027 runtime evidence', () => {
-  it('does not write an observation without DATA-027 gate environment values', () => {
-    const root = mkdtempSync(join(tmpdir(), 'data-027-observation-'));
-    roots.push(root);
+  it('keeps synthetic publication out of the production evidence contract', async () => {
+    const evidenceContract = await import('../../tools/data-027-runtime-evidence.js');
+
+    expect(evidenceContract).not.toHaveProperty('writeData027Receipt');
+
+    const root = createRepository();
+    expect(() => writeData027ReceiptFixture(root)).not.toThrow();
+    expect(validateData027Receipt(root)).toBe(true);
+  });
+
+  it('binds the complete trust path and exact runtime fields into one manifest', () => {
+    const root = createRepository();
+    const manifest = buildData027EvidenceManifest(root);
+
+    expect(manifest.runtimeVersions).toEqual({
+      node: 'v24.18.0',
+      pnpm: '11.13.0',
+    });
+    expect(manifest.evidenceInputs.map((input) => input.path)).toEqual([
+      'package.json',
+      'packages/contracts/src/canonical-json.ts',
+      'pnpm-lock.yaml',
+      'supabase/config.toml',
+      'supabase/migrations/202607260001_schema.sql',
+      'supabase/migrations/202607260010_schema.sql',
+      'supabase/roles.sql',
+      'supabase/tests/database/runtime.test.sql',
+      'supabase/tests/database/support/runtime.inc',
+      'tests/database/concurrency.test.ts',
+      'tests/support/data-027-observation.ts',
+      'tests/support/local-supabase-status.ts',
+      'tools/check-runtime.mjs',
+      'tools/data-027-runtime-evidence.ts',
+      'tools/internal/run-supabase-gate-core.mjs',
+      'tools/requirement-oracle.ts',
+      'tools/run-pnpm.mjs',
+      'tools/run-supabase-gate.mjs',
+      'vitest.db.config.ts',
+    ]);
+    expect(manifest.evidenceInputsSha256).toMatch(/^sha256:[a-f0-9]{64}$/u);
+  });
+
+  it('performs no observation filesystem write without a DATA-027 gate run', () => {
     delete process.env.TOUCHCATCH_DATA027_GATE_RUN_ID;
     delete process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH;
+    observationFsState.openedPaths.length = 0;
 
     maybeWriteData027Observation(runtimeObservationInput);
 
-    expect(readdirSync(root)).toEqual([]);
+    expect(observationFsState.openedPaths).toEqual([]);
   });
 
-  it('rejects an incomplete DATA-027 gate environment', () => {
+  it('rejects a non-UUID gate run and never trusts an arbitrary output environment path', () => {
+    const arbitraryPath = join(mkdtempSync(join(tmpdir(), 'data-027-arbitrary-')), 'redirected.json');
+    roots.push(dirname(arbitraryPath));
     process.env.TOUCHCATCH_DATA027_GATE_RUN_ID = 'run-a';
-    delete process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH;
+    process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH = arbitraryPath;
 
     expect(() => maybeWriteData027Observation(runtimeObservationInput)).toThrow('DATA_027_OBSERVATION_INVALID');
-
-    delete process.env.TOUCHCATCH_DATA027_GATE_RUN_ID;
-    process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH = join(tmpdir(), 'data-027-observation.json');
-    expect(() => maybeWriteData027Observation(runtimeObservationInput)).toThrow('DATA_027_OBSERVATION_INVALID');
+    expect(existsSync(arbitraryPath)).toBe(false);
   });
 
-  it('rejects a non-loopback database URL before writing an observation', () => {
-    const root = mkdtempSync(join(tmpdir(), 'data-027-observation-'));
-    roots.push(root);
-    process.env.TOUCHCATCH_DATA027_GATE_RUN_ID = 'run-a';
-    process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH = join(root, 'observation.json');
+  it('rejects a remote or different-loopback database before writing an observation', () => {
+    const observationPath = prepareObservationRun();
+    process.env.TOUCHCATCH_DATA027_GATE_RUN_ID = gateRunId;
 
     expect(() => maybeWriteData027Observation({ ...runtimeObservationInput, databaseUrl: 'postgresql://db.example.test/postgres' }))
       .toThrow('DATA_027_OBSERVATION_INVALID');
-    expect(existsSync(process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH)).toBe(false);
+    expect(existsSync(observationPath)).toBe(false);
+
+    expect(() => maybeWriteData027Observation({
+      ...runtimeObservationInput,
+      databaseUrl: 'postgresql://postgres:postgres@127.0.0.1:59999/postgres',
+    })).toThrow('DATA_027_OBSERVATION_INVALID');
+    expect(existsSync(observationPath)).toBe(false);
   });
 
-  it('writes the exact observation from twenty verified app_server sessions and two successes', () => {
-    const root = mkdtempSync(join(tmpdir(), 'data-027-observation-'));
-    roots.push(root);
-    const observationPath = join(root, 'observation.json');
-    process.env.TOUCHCATCH_DATA027_GATE_RUN_ID = 'run-a';
-    process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH = observationPath;
+  it('writes only to the private run directory and ignores an arbitrary path override', () => {
+    const observationPath = prepareObservationRun();
+    const arbitraryPath = join(mkdtempSync(join(tmpdir(), 'data-027-arbitrary-')), 'redirected.json');
+    roots.push(dirname(arbitraryPath));
+    process.env.TOUCHCATCH_DATA027_GATE_RUN_ID = gateRunId;
+    process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH = arbitraryPath;
 
     maybeWriteData027Observation(runtimeObservationInput);
 
     expect(JSON.parse(readFileSync(observationPath, 'utf8'))).toEqual(validObservation);
+    expect(existsSync(arbitraryPath)).toBe(false);
+  });
+
+  it('rejects a junction-redirection attempt in the private run path', () => {
+    const runDirectory = observationRunDirectory(gateRunId);
+    const external = mkdtempSync(join(tmpdir(), 'data-027-external-'));
+    roots.push(runDirectory, external);
+    mkdirSync(dirname(runDirectory), { recursive: true });
+    symlinkSync(external, runDirectory, 'junction');
+    process.env.TOUCHCATCH_DATA027_GATE_RUN_ID = gateRunId;
+
+    expect(() => maybeWriteData027Observation(runtimeObservationInput)).toThrow(
+      'DATA_027_OBSERVATION_INVALID',
+    );
+    expect(readdirSync(external)).toEqual([]);
   });
 
   it('accepts only the exact runtime observation contract', () => {
-    expect(() => validateData027Observation(validObservation, 'run-a')).not.toThrow();
+    expect(() => validateData027Observation(validObservation, gateRunId)).not.toThrow();
 
     const mutations: readonly [string, unknown][] = [
       ['missing key', (() => { const { testStatus: _unused, ...value } = validObservation; return value; })()],
@@ -167,7 +261,7 @@ describe('DATA-027 runtime evidence', () => {
     ];
 
     for (const [_label, value] of mutations) {
-      expect(() => validateData027Observation(value, 'run-a')).toThrow('DATA_027_OBSERVATION_INVALID');
+      expect(() => validateData027Observation(value, gateRunId)).toThrow('DATA_027_OBSERVATION_INVALID');
     }
   });
 
@@ -179,7 +273,7 @@ describe('DATA-027 runtime evidence', () => {
     const receipt = readReceipt(root);
     expect(Object.keys(receipt).sort()).toEqual([
       'commitSha', 'databaseOrigin', 'evidenceInputs', 'evidenceInputsSha256', 'receiptSha256',
-      'requiredRole', 'requirementId', 'schemaVersion', 'scope', 'sessionsAttempted',
+      'requiredRole', 'requirementId', 'runtimeVersions', 'schemaVersion', 'scope', 'sessionsAttempted',
       'successfulSeats', 'testStatus',
     ]);
     expect(receipt).not.toHaveProperty('gateRunId');
@@ -198,23 +292,15 @@ describe('DATA-027 runtime evidence', () => {
     expect(validateData027Receipt(root)).toBe(true);
   });
 
-  it('writes only beneath the caller repository Git top-level', () => {
-    const root = createRepository();
-    const nestedPath = join(root, 'nested', 'caller-path');
-    mkdirSync(nestedPath, { recursive: true });
-
-    writeData027Receipt(nestedPath, validObservation, commitSha);
-
-    expect(existsSync(receiptPath(root))).toBe(true);
-    expect(existsSync(join(nestedPath, ...DATA_027_RECEIPT_RELATIVE_PATH.split('/')))).toBe(false);
-  });
-
-  it('uses an exact receipt path that cannot escape its Git top-level', () => {
+  it('uses an exact worktree-local receipt path and confines fixtures to temp repositories', () => {
     const root = createRepository();
     expect(DATA_027_RECEIPT_RELATIVE_PATH).toBe('.superpowers/evidence/data-027/receipt.json');
     expect(DATA_027_RECEIPT_RELATIVE_PATH.split('/')).not.toContain('..');
     writeData027Receipt(root, validObservation, commitSha);
     expect(existsSync(receiptPath(root))).toBe(true);
+    expect(() => writeData027ReceiptFixture(process.cwd())).toThrow(
+      'DATA_027_TEST_FIXTURE_REQUIRES_TEMP_REPOSITORY',
+    );
   });
 
   it.each([
@@ -236,6 +322,9 @@ describe('DATA-027 runtime evidence', () => {
     ['reordered manifest', (receipt: Record<string, unknown>) => { (receipt.evidenceInputs as unknown[]).reverse(); }],
     ['missing manifest entry', (receipt: Record<string, unknown>) => { (receipt.evidenceInputs as unknown[]).pop(); }],
     ['extra manifest entry', (receipt: Record<string, unknown>) => { (receipt.evidenceInputs as unknown[]).push({ path: 'extra.ts', sha256: `sha256:${'0'.repeat(64)}` }); }],
+    ['different runtime version', (receipt: Record<string, unknown>) => {
+      receipt.runtimeVersions = { node: 'v24.17.0', pnpm: '11.13.0' };
+    }],
   ])('rejects a %s even when its hashes are internally valid', (_label, mutate) => {
     const root = createRepository();
     writeData027Receipt(root, validObservation, commitSha);
@@ -244,11 +333,6 @@ describe('DATA-027 runtime evidence', () => {
     rehashReceipt(receipt);
     overwriteReceipt(root, receipt);
     expect(validateData027Receipt(root)).toBe(false);
-  });
-
-  it.each(['A'.repeat(40), 'a'.repeat(39), 'a'.repeat(41), 'z'.repeat(40)])('rejects invalid commitSha %s when writing a receipt', (invalidCommitSha) => {
-    const root = createRepository();
-    expect(() => writeData027Receipt(root, validObservation, invalidCommitSha)).toThrow('DATA_027_RECEIPT_INVALID');
   });
 
   it.each(['A'.repeat(40), 'a'.repeat(39), 'a'.repeat(41), 'z'.repeat(40)])('rejects an internally rehashed receipt with invalid commitSha %s', (invalidCommitSha) => {
@@ -265,11 +349,23 @@ describe('DATA-027 runtime evidence', () => {
     const root = createRepository();
     const inputs = buildEvidenceInputs(root);
     expect(inputs.map((input) => input.path)).toEqual([
+      'package.json',
+      'packages/contracts/src/canonical-json.ts',
+      'pnpm-lock.yaml',
+      'supabase/config.toml',
       'supabase/migrations/202607260001_schema.sql',
       'supabase/migrations/202607260010_schema.sql',
+      'supabase/roles.sql',
+      'supabase/tests/database/runtime.test.sql',
+      'supabase/tests/database/support/runtime.inc',
       'tests/database/concurrency.test.ts',
+      'tests/support/data-027-observation.ts',
+      'tests/support/local-supabase-status.ts',
+      'tools/check-runtime.mjs',
       'tools/data-027-runtime-evidence.ts',
+      'tools/internal/run-supabase-gate-core.mjs',
       'tools/requirement-oracle.ts',
+      'tools/run-pnpm.mjs',
       'tools/run-supabase-gate.mjs',
       'vitest.db.config.ts',
     ]);
@@ -277,31 +373,20 @@ describe('DATA-027 runtime evidence', () => {
     for (const input of inputs) {
       writeData027Receipt(root, validObservation, commitSha);
       const target = join(root, ...input.path.split('/'));
-      writeFileSync(target, `${readFileSync(target, 'utf8')}!`);
-      expect(validateData027Receipt(root)).toBe(false);
+      const original = readFileSync(target);
+      try {
+        writeFileSync(target, Buffer.concat([original, Buffer.from('!')]));
+        expect(validateData027Receipt(root)).toBe(false);
+      } finally {
+        writeFileSync(target, original);
+      }
     }
-  });
+  }, 30_000);
 
   it('rejects a missing allow-listed input', () => {
     const root = createRepository();
     rmSync(join(root, 'tools', 'run-supabase-gate.mjs'));
     expect(() => buildEvidenceInputs(root)).toThrow('DATA_027_EVIDENCE_INPUTS_INVALID');
-  });
-
-  it('rejects a symlink in every existing receipt-directory component', () => {
-    const root = createRepository();
-    const components = ['.superpowers', 'evidence', 'data-027'];
-    for (let index = 0; index < components.length; index += 1) {
-      const parent = join(root, ...components.slice(0, index));
-      mkdirSync(parent, { recursive: true });
-      const link = join(parent, components[index]!);
-      const target = join(root, `outside-${index}`);
-      mkdirSync(target);
-      symlinkSync(target, link, 'junction');
-      expect(() => writeData027Receipt(root, validObservation, commitSha)).toThrow('DATA_027_RECEIPT_PATH_INVALID');
-      expect(lstatSync(link).isSymbolicLink()).toBe(true);
-      rmSync(join(root, '.superpowers'), { recursive: true, force: true });
-    }
   });
 
   it('does not validate a receipt reached through a symlinked directory', () => {
@@ -316,43 +401,4 @@ describe('DATA-027 runtime evidence', () => {
     expect(validateData027Receipt(root)).toBe(false);
   });
 
-  it('atomically replaces an existing receipt and leaves no partial temporary file', () => {
-    const root = createRepository();
-    const directory = dirname(receiptPath(root));
-    mkdirSync(directory, { recursive: true });
-    writeFileSync(receiptPath(root), 'incomplete');
-
-    writeData027Receipt(root, validObservation, commitSha);
-
-    expect(validateData027Receipt(root)).toBe(true);
-    expect(existsSync(receiptPath(root))).toBe(true);
-    expect(readdirSync(directory).some((entry) => entry.includes('data-027-receipt-'))).toBe(false);
-  });
-
-  it('completes short writes before atomically publishing the receipt', () => {
-    const root = createRepository();
-    fsMockState.shortWrites = true;
-    try {
-      writeData027Receipt(root, validObservation, commitSha);
-      expect(validateData027Receipt(root)).toBe(true);
-    } finally {
-      fsMockState.shortWrites = false;
-    }
-  });
-
-  it('cleans up a partial temporary file when atomic replacement fails', () => {
-    const root = createRepository();
-    const directory = dirname(receiptPath(root));
-    mkdirSync(receiptPath(root), { recursive: true });
-
-    let failure: unknown;
-    try {
-      writeData027Receipt(root, validObservation, commitSha);
-    } catch (error) {
-      failure = error;
-    }
-    expect(failure).toEqual(new Error('DATA_027_RECEIPT_WRITE_FAILED'));
-    expect((failure as Error).message).not.toContain(root);
-    expect(readdirSync(directory).some((entry) => entry.includes('data-027-receipt-'))).toBe(false);
-  });
 });

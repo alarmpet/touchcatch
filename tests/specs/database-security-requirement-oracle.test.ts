@@ -5,9 +5,8 @@ import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import {
   DATA_027_RECEIPT_RELATIVE_PATH,
-  writeData027Receipt,
-  type Data027Observation,
 } from '../../tools/data-027-runtime-evidence.js';
+import { writeData027ReceiptFixture } from '../support/data-027-receipt-fixture.js';
 import {
   evaluateDatabaseRequirement,
   executeRequirementOracle,
@@ -30,17 +29,6 @@ const evidence = JSON.parse(fs.readFileSync(`${root}/config/requirement-evidence
 const data027Row = registry.requirements.find((row: { id: string }) => row.id === 'DATA-027');
 const data027Claim = evidence.entries.find((claim: { id: string }) => claim.id === 'DATA-027');
 const runtimeRoots: string[] = [];
-const observation: Data027Observation = {
-  schemaVersion: 1,
-  gateRunId: 'oracle-test',
-  requirementId: 'DATA-027',
-  sessionsAttempted: 20,
-  successfulSeats: 2,
-  requiredRole: 'app_server',
-  databaseOrigin: 'LOOPBACK_LOCAL_SUPABASE',
-  testStatus: 'PASS',
-};
-
 const write = (targetRoot: string, relativePath: string, content: string): void => {
   const target = path.join(targetRoot, ...relativePath.split('/'));
   fs.mkdirSync(path.dirname(target), { recursive: true });
@@ -53,13 +41,27 @@ const createRuntimeRoot = (): string => {
   execFileSync('git', ['init', '--quiet', targetRoot]);
   write(targetRoot, data027Row.source, fs.readFileSync(path.join(root, data027Row.source), 'utf8'));
   write(targetRoot, 'supabase/migrations/202607260001_schema.sql', 'create table evidence ();');
+  write(targetRoot, 'supabase/tests/database/runtime.test.sql', 'select 1;');
   for (const file of [
+    'packages/contracts/src/canonical-json.ts',
+    'pnpm-lock.yaml',
+    'supabase/config.toml',
+    'supabase/roles.sql',
     'tests/database/concurrency.test.ts',
+    'tests/support/data-027-observation.ts',
+    'tests/support/local-supabase-status.ts',
     'vitest.db.config.ts',
+    'tools/check-runtime.mjs',
+    'tools/internal/run-supabase-gate-core.mjs',
     'tools/run-supabase-gate.mjs',
+    'tools/run-pnpm.mjs',
     'tools/data-027-runtime-evidence.ts',
     'tools/requirement-oracle.ts',
   ]) write(targetRoot, file, file);
+  write(targetRoot, 'package.json', JSON.stringify({
+    packageManager: 'pnpm@11.13.0',
+    engines: { node: '24.18.0', pnpm: '11.13.0' },
+  }));
   return targetRoot;
 };
 
@@ -122,13 +124,13 @@ describe('database security requirement oracle', () => {
 
   it('passes DATA-027 when the runtime receipt is valid for the current input bundle', () => {
     const targetRoot = createRuntimeRoot();
-    writeData027Receipt(targetRoot, observation, 'a'.repeat(40));
+    writeData027ReceiptFixture(targetRoot);
     expect(executeData027(targetRoot).status).toBe('PASS');
   });
 
   it('blocks DATA-027 when the runtime receipt is forged', () => {
     const targetRoot = createRuntimeRoot();
-    writeData027Receipt(targetRoot, observation, 'a'.repeat(40));
+    writeData027ReceiptFixture(targetRoot);
     const receiptPath = path.join(targetRoot, ...DATA_027_RECEIPT_RELATIVE_PATH.split('/'));
     const receipt = JSON.parse(fs.readFileSync(receiptPath, 'utf8'));
     receipt.successfulSeats = 3;

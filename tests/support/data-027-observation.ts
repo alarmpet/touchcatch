@@ -1,28 +1,97 @@
 import { randomBytes } from 'node:crypto';
-import { closeSync, fsyncSync, openSync, renameSync, rmSync, writeSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import {
+  closeSync,
+  existsSync,
+  fsyncSync,
+  lstatSync,
+  openSync,
+  readFileSync,
+  renameSync,
+  rmSync,
+  writeSync,
+} from 'node:fs';
+import { tmpdir } from 'node:os';
+import { dirname, join, parse, resolve } from 'node:path';
 import { canonicalJson } from '../../packages/contracts/src/canonical-json.js';
 import { validateData027Observation } from '../../tools/data-027-runtime-evidence.js';
 
 const loopbackHosts = new Set(['127.0.0.1', 'localhost', '::1']);
+const gateRunIdPattern =
+  /^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/u;
+const repositoryRoot = resolve(import.meta.dirname, '../..');
+
+const configuredDatabasePort = (): string => {
+  const config = readFileSync(
+    join(repositoryRoot, 'supabase', 'config.toml'),
+    'utf8',
+  );
+  const sectionStart = config.search(/^\[db\]\s*$/mu);
+  if (sectionStart < 0) throw new Error('invalid local database config');
+  const afterHeader = config.slice(sectionStart).replace(/^[^\r\n]*(?:\r?\n)?/u, '');
+  const nextSection = afterHeader.search(/^\[/mu);
+  const section = nextSection < 0
+    ? afterHeader
+    : afterHeader.slice(0, nextSection);
+  const port = /^\s*port\s*=\s*(\d+)\s*$/mu.exec(section ?? '')?.[1];
+  if (port === undefined) throw new Error('invalid local database config');
+  return port;
+};
+
+const assertSafeExistingDirectory = (target: string): void => {
+  const absolute = resolve(target);
+  const root = parse(absolute).root;
+  let current = root;
+  const relative = absolute.slice(root.length);
+  for (const component of relative.split(/[\\/]/u).filter(Boolean)) {
+    current = join(current, component);
+    if (!existsSync(current)) throw new Error('missing observation directory');
+    const stat = lstatSync(current);
+    if (stat.isSymbolicLink() || !stat.isDirectory()) {
+      throw new Error('unsafe observation directory');
+    }
+  }
+};
+
+const observationTarget = (gateRunId: string): string => {
+  const temporaryRoot = resolve(tmpdir());
+  const directory = join(
+    temporaryRoot,
+    'touchcatch-data-027',
+    gateRunId,
+  );
+  assertSafeExistingDirectory(directory);
+  const target = join(directory, 'observation.json');
+  if (existsSync(target)) {
+    const stat = lstatSync(target);
+    if (stat.isSymbolicLink() || !stat.isFile()) {
+      throw new Error('unsafe observation target');
+    }
+    throw new Error('stale observation target');
+  }
+  return target;
+};
 
 export function maybeWriteData027Observation(input: {
-  gateRunId?: string;
-  observationPath?: string;
   sessionsAttempted: number;
   successfulSeats: number;
   verifiedRoles: readonly string[];
   databaseUrl: string;
 }): void {
-  const gateRunId = input.gateRunId ?? process.env.TOUCHCATCH_DATA027_GATE_RUN_ID;
-  const observationPath = input.observationPath ?? process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH;
-  if (gateRunId === undefined && observationPath === undefined) return;
-  if (typeof gateRunId !== 'string' || gateRunId.length === 0 || typeof observationPath !== 'string' || observationPath.length === 0) {
+  const gateRunId = process.env.TOUCHCATCH_DATA027_GATE_RUN_ID;
+  if (gateRunId === undefined) return;
+  if (!gateRunIdPattern.test(gateRunId)) {
     throw new Error('DATA_027_OBSERVATION_INVALID');
   }
 
   try {
-    if (!loopbackHosts.has(new URL(input.databaseUrl).hostname)) throw new Error('non-loopback database');
+    const observedUrl = new URL(input.databaseUrl);
+    if (
+      !loopbackHosts.has(observedUrl.hostname)
+      || observedUrl.port !== configuredDatabasePort()
+      || observedUrl.pathname !== '/postgres'
+    ) {
+      throw new Error('unverified local database');
+    }
   } catch {
     throw new Error('DATA_027_OBSERVATION_INVALID');
   }
@@ -40,6 +109,12 @@ export function maybeWriteData027Observation(input: {
     databaseOrigin: 'LOOPBACK_LOCAL_SUPABASE',
     testStatus: 'PASS',
   }, gateRunId);
+  let observationPath: string;
+  try {
+    observationPath = observationTarget(gateRunId);
+  } catch {
+    throw new Error('DATA_027_OBSERVATION_INVALID');
+  }
   const temporaryPath = join(dirname(observationPath), `.data-027-observation-${randomBytes(16).toString('hex')}.tmp`);
   let descriptor: number | undefined;
   try {

@@ -1,17 +1,10 @@
 import { execFileSync } from 'node:child_process';
-import { createHash, randomBytes } from 'node:crypto';
+import { createHash } from 'node:crypto';
 import {
-  closeSync,
   existsSync,
-  fsyncSync,
   lstatSync,
-  mkdirSync,
-  openSync,
   readFileSync,
   readdirSync,
-  renameSync,
-  rmSync,
-  writeSync,
 } from 'node:fs';
 import path from 'node:path';
 import { canonicalJson } from '../packages/contracts/src/canonical-json.js';
@@ -35,6 +28,17 @@ export type EvidenceInput = Readonly<{
   sha256: `sha256:${string}`;
 }>;
 
+export type Data027RuntimeVersions = Readonly<{
+  node: `v${string}`;
+  pnpm: string;
+}>;
+
+export type Data027EvidenceManifest = Readonly<{
+  evidenceInputs: readonly EvidenceInput[];
+  evidenceInputsSha256: `sha256:${string}`;
+  runtimeVersions: Data027RuntimeVersions;
+}>;
+
 type Data027Receipt = Readonly<{
   schemaVersion: 1;
   requirementId: 'DATA-027';
@@ -42,6 +46,7 @@ type Data027Receipt = Readonly<{
   commitSha: string;
   evidenceInputs: readonly EvidenceInput[];
   evidenceInputsSha256: `sha256:${string}`;
+  runtimeVersions: Data027RuntimeVersions;
   sessionsAttempted: 20;
   successfulSeats: 2;
   requiredRole: 'app_server';
@@ -68,6 +73,7 @@ const receiptKeys = [
   'commitSha',
   'evidenceInputs',
   'evidenceInputsSha256',
+  'runtimeVersions',
   'sessionsAttempted',
   'successfulSeats',
   'requiredRole',
@@ -77,6 +83,7 @@ const receiptKeys = [
 ] as const;
 
 const evidenceInputKeys = ['path', 'sha256'] as const;
+const runtimeVersionKeys = ['node', 'pnpm'] as const;
 const sha256Pattern = /^sha256:[a-f0-9]{64}$/u;
 const commitShaPattern = /^[a-f0-9]{40}$/u;
 
@@ -99,6 +106,33 @@ const repositoryTopLevel = (root: string): string =>
 const relativeInputPath = (root: string, absolutePath: string): string =>
   path.relative(root, absolutePath).split(path.sep).join('/');
 
+const filesRecursively = (
+  root: string,
+  directory: string,
+  acceptedExtensions: ReadonlySet<string>,
+): readonly string[] => {
+  if (!existsSync(directory) || !lstatSync(directory).isDirectory()) {
+    throw new Error('DATA_027_EVIDENCE_INPUTS_INVALID');
+  }
+  const discovered: string[] = [];
+  const visit = (current: string): void => {
+    for (const entry of readdirSync(current, { withFileTypes: true })) {
+      const absolutePath = path.join(current, entry.name);
+      if (entry.isDirectory()) {
+        visit(absolutePath);
+      } else if (entry.isFile()) {
+        if (acceptedExtensions.has(path.extname(entry.name))) {
+          discovered.push(relativeInputPath(root, absolutePath));
+        }
+      } else {
+        throw new Error('DATA_027_EVIDENCE_INPUTS_INVALID');
+      }
+    }
+  };
+  visit(directory);
+  return discovered.sort();
+};
+
 const evidenceInputPaths = (root: string): readonly string[] => {
   const migrationsDirectory = path.join(root, 'supabase', 'migrations');
   if (!existsSync(migrationsDirectory)) throw new Error('DATA_027_EVIDENCE_INPUTS_INVALID');
@@ -109,11 +143,27 @@ const evidenceInputPaths = (root: string): readonly string[] => {
       return relativeInputPath(root, path.join(migrationsDirectory, entry.name));
     })
     .sort();
+  const databaseTests = filesRecursively(
+    root,
+    path.join(root, 'supabase', 'tests'),
+    new Set(['.inc', '.sql']),
+  );
   return [
     ...migrations,
+    ...databaseTests,
+    'package.json',
+    'packages/contracts/src/canonical-json.ts',
+    'pnpm-lock.yaml',
+    'supabase/config.toml',
+    'supabase/roles.sql',
     'tests/database/concurrency.test.ts',
+    'tests/support/data-027-observation.ts',
+    'tests/support/local-supabase-status.ts',
     'vitest.db.config.ts',
+    'tools/check-runtime.mjs',
+    'tools/internal/run-supabase-gate-core.mjs',
     'tools/run-supabase-gate.mjs',
+    'tools/run-pnpm.mjs',
     'tools/data-027-runtime-evidence.ts',
     'tools/requirement-oracle.ts',
   ].sort();
@@ -138,6 +188,57 @@ export function buildEvidenceInputs(root: string): readonly EvidenceInput[] {
     if (error instanceof Error && error.message === 'DATA_027_EVIDENCE_INPUTS_INVALID') throw error;
     throw new Error('DATA_027_EVIDENCE_INPUTS_INVALID');
   }
+}
+
+const expectedRuntimeVersions = (root: string): Data027RuntimeVersions => {
+  try {
+    const packageJson = JSON.parse(
+      readFileSync(path.join(root, 'package.json'), 'utf8'),
+    ) as {
+      packageManager?: unknown;
+      engines?: { node?: unknown; pnpm?: unknown };
+    };
+    const node = packageJson.engines?.node;
+    const pnpm = packageJson.engines?.pnpm;
+    const packageManagerMatch = /^pnpm@(\d+\.\d+\.\d+)$/u.exec(
+      typeof packageJson.packageManager === 'string'
+        ? packageJson.packageManager
+        : '',
+    );
+    if (
+      typeof node !== 'string'
+      || !/^\d+\.\d+\.\d+$/u.test(node)
+      || typeof pnpm !== 'string'
+      || !/^\d+\.\d+\.\d+$/u.test(pnpm)
+      || packageManagerMatch?.[1] !== pnpm
+    ) {
+      throw new Error('invalid runtime pin');
+    }
+    return { node: `v${node}`, pnpm };
+  } catch {
+    throw new Error('DATA_027_EVIDENCE_INPUTS_INVALID');
+  }
+};
+
+export function buildData027EvidenceManifest(
+  root: string,
+): Data027EvidenceManifest {
+  let topLevel: string;
+  try {
+    topLevel = repositoryTopLevel(root);
+  } catch {
+    throw new Error('DATA_027_EVIDENCE_INPUTS_INVALID');
+  }
+  const evidenceInputs = buildEvidenceInputs(topLevel);
+  const runtimeVersions = expectedRuntimeVersions(topLevel);
+  return {
+    evidenceInputs,
+    runtimeVersions,
+    evidenceInputsSha256: hashCanonicalJson({
+      evidenceInputs,
+      runtimeVersions,
+    }),
+  };
 }
 
 export function validateData027Observation(value: unknown, expectedGateRunId: string): Data027Observation {
@@ -167,6 +268,15 @@ const isEvidenceInput = (value: unknown): value is EvidenceInput =>
   && typeof value.sha256 === 'string'
   && sha256Pattern.test(value.sha256);
 
+const isRuntimeVersions = (
+  value: unknown,
+): value is Data027RuntimeVersions =>
+  isExactObject(value, runtimeVersionKeys)
+  && typeof value.node === 'string'
+  && /^v\d+\.\d+\.\d+$/u.test(value.node)
+  && typeof value.pnpm === 'string'
+  && /^\d+\.\d+\.\d+$/u.test(value.pnpm);
+
 const isData027Receipt = (value: unknown): value is Data027Receipt =>
   isExactObject(value, receiptKeys)
   && value.schemaVersion === 1
@@ -178,6 +288,7 @@ const isData027Receipt = (value: unknown): value is Data027Receipt =>
   && value.evidenceInputs.every(isEvidenceInput)
   && typeof value.evidenceInputsSha256 === 'string'
   && sha256Pattern.test(value.evidenceInputsSha256)
+  && isRuntimeVersions(value.runtimeVersions)
   && value.sessionsAttempted === 20
   && value.successfulSeats === 2
   && value.requiredRole === 'app_server'
@@ -203,20 +314,6 @@ const receiptTarget = (root: string): { topLevel: string; target: string } => {
   return { topLevel, target };
 };
 
-const createReceiptDirectory = (topLevel: string, target: string): void => {
-  let current = topLevel;
-  for (const component of DATA_027_RECEIPT_RELATIVE_PATH.split('/').slice(0, -1)) {
-    current = path.join(current, component);
-    if (existsSync(current)) {
-      const stat = lstatSync(current);
-      if (stat.isSymbolicLink() || !stat.isDirectory()) throw new Error('DATA_027_RECEIPT_PATH_INVALID');
-    } else {
-      mkdirSync(current);
-    }
-  }
-  if (path.dirname(target) !== current) throw new Error('DATA_027_RECEIPT_PATH_INVALID');
-};
-
 const hasSafeReceiptDirectory = (topLevel: string, target: string): boolean => {
   let current = topLevel;
   for (const component of DATA_027_RECEIPT_RELATIVE_PATH.split('/').slice(0, -1)) {
@@ -228,72 +325,6 @@ const hasSafeReceiptDirectory = (topLevel: string, target: string): boolean => {
   return path.dirname(target) === current;
 };
 
-const writeCompleteUtf8 = (descriptor: number, text: string): void => {
-  const bytes = Buffer.from(text, 'utf8');
-  let offset = 0;
-  while (offset < bytes.length) {
-    const remaining = bytes.length - offset;
-    const written = writeSync(descriptor, bytes, offset, remaining, null);
-    if (!Number.isSafeInteger(written) || written <= 0 || written > remaining) throw new Error('DATA_027_RECEIPT_WRITE_FAILED');
-    offset += written;
-  }
-};
-
-export function writeData027Receipt(root: string, observation: Data027Observation, commitSha: string): void {
-  validateData027Observation(observation, observation.gateRunId);
-  if (!commitShaPattern.test(commitSha)) throw new Error('DATA_027_RECEIPT_INVALID');
-
-  let location: { topLevel: string; target: string };
-  try {
-    location = receiptTarget(root);
-    createReceiptDirectory(location.topLevel, location.target);
-  } catch (error) {
-    if (error instanceof Error && error.message === 'DATA_027_RECEIPT_PATH_INVALID') throw error;
-    throw new Error('DATA_027_RECEIPT_PATH_INVALID');
-  }
-
-  const evidenceInputs = buildEvidenceInputs(location.topLevel);
-  const payload = {
-    schemaVersion: 1 as const,
-    requirementId: 'DATA-027' as const,
-    scope: 'LOCAL_DETERMINISTIC_NOT_PRODUCTION' as const,
-    commitSha,
-    evidenceInputs,
-    evidenceInputsSha256: hashCanonicalJson(evidenceInputs),
-    sessionsAttempted: 20 as const,
-    successfulSeats: 2 as const,
-    requiredRole: 'app_server' as const,
-    databaseOrigin: 'LOOPBACK_LOCAL_SUPABASE' as const,
-    testStatus: 'PASS' as const,
-  };
-  const receipt: Data027Receipt = { ...payload, receiptSha256: hashCanonicalJson(payload) };
-  const temporaryPath = path.join(path.dirname(location.target), `.data-027-receipt-${randomBytes(16).toString('hex')}.tmp`);
-  let descriptor: number | undefined;
-  try {
-    descriptor = openSync(temporaryPath, 'wx', 0o600);
-    writeCompleteUtf8(descriptor, canonicalJson(receipt));
-    fsyncSync(descriptor);
-    closeSync(descriptor);
-    descriptor = undefined;
-    renameSync(temporaryPath, location.target);
-  } catch {
-    throw new Error('DATA_027_RECEIPT_WRITE_FAILED');
-  } finally {
-    if (descriptor !== undefined) {
-      try {
-        closeSync(descriptor);
-      } catch {
-        // The public error is intentionally sanitized below.
-      }
-    }
-    try {
-      rmSync(temporaryPath, { force: true });
-    } catch {
-      // A failed cleanup must not reveal a personal filesystem path.
-    }
-  }
-}
-
 export function validateData027Receipt(root: string): boolean {
   try {
     const { topLevel, target } = receiptTarget(root);
@@ -304,9 +335,18 @@ export function validateData027Receipt(root: string): boolean {
     const receipt = JSON.parse(readFileSync(target, 'utf8')) as unknown;
     if (!isData027Receipt(receipt)) return false;
     if (receipt.receiptSha256 !== hashCanonicalJson(receiptWithoutHash(receipt))) return false;
-    const evidenceInputs = buildEvidenceInputs(root);
-    if (canonicalJson(receipt.evidenceInputs) !== canonicalJson(evidenceInputs)) return false;
-    if (receipt.evidenceInputsSha256 !== hashCanonicalJson(evidenceInputs)) return false;
+    const manifest = buildData027EvidenceManifest(root);
+    if (
+      canonicalJson(receipt.evidenceInputs)
+      !== canonicalJson(manifest.evidenceInputs)
+    ) return false;
+    if (
+      canonicalJson(receipt.runtimeVersions)
+      !== canonicalJson(manifest.runtimeVersions)
+    ) return false;
+    if (receipt.evidenceInputsSha256 !== manifest.evidenceInputsSha256) {
+      return false;
+    }
     return true;
   } catch {
     return false;
