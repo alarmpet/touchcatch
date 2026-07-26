@@ -21,12 +21,14 @@ function objectiveDetails(change: string) {
   const changeMatch = /^change (?:only )?(.+?)(?: from (.+?))? to (.+)$/i.exec(instruction);
   if (changeMatch) {
     const [, target, before, after] = changeMatch;
+    const quantity = /\b(one|two|three|four|five|six|seven|eight|nine|ten|\d+)\b/i;
+    const form = /\b(shape|sphere|rectangle|diamond|circle|square|pointed|rounded|eyepiece|prongs|blades?)\b/i;
     return {
       target: target!,
       location: /\b(near|below|above|left|right|lower|upper|foreground|center|front|back)\b/i.test(target!) ? target! : 'PENDING',
       before: before ?? 'PENDING',
       after: after!,
-      changeType: /\b(?:one|two|three|four|five|\d+)\b.*\b(?:one|two|three|four|five|\d+)\b/i.test(instruction) ? 'COUNT' : /\b(shape|star|square|circle|rectangle|diamond|eyepiece|prongs|blades?)\b/i.test(instruction) ? 'SHAPE' : 'COLOR',
+      changeType: quantity.test(before ?? '') && quantity.test(after ?? '') ? 'COUNT' : form.test(before ?? '') || form.test(after ?? '') ? 'SHAPE' : 'COLOR',
     };
   }
   if (/^add /i.test(instruction)) return { target: instruction.replace(/^add (?:one )?/i, ''), location: 'PENDING', before: 'absent from the source image', after: 'present in the edited image', changeType: 'ADD' };

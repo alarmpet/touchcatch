@@ -398,7 +398,7 @@
           "location": "the top-left blue shape on the abstract canvas",
           "before": "PENDING",
           "after": "green",
-          "changeType": "SHAPE",
+          "changeType": "COLOR",
           "zone": "F",
           "authoringEvidence": {
             "status": "PENDING",
@@ -482,7 +482,7 @@
           "location": "PENDING",
           "before": "PENDING",
           "after": "bright yellow",
-          "changeType": "SHAPE",
+          "changeType": "COLOR",
           "zone": "C",
           "authoringEvidence": {
             "status": "PENDING",
@@ -512,6 +512,7 @@
           "CATALOG_DRAFT",
           "AUTHORING_FIELDS_REQUIRE_REVIEW",
           "SPATIAL_DISTRIBUTION_REQUIRED",
+          "CHANGE_TYPE_DIVERSITY_REQUIRED",
           "MOBILE_REVIEW_REQUIRED",
           "IMAGE_PAIR_REVIEW_REQUIRED"
         ],
@@ -539,10 +540,10 @@
           ],
           "changeTypeCounts": {
             "ADD": 1,
-            "COLOR": 3,
+            "COLOR": 5,
             "COUNT": 1,
             "REMOVE": 2,
-            "SHAPE": 3
+            "SHAPE": 1
           }
         }
       }
@@ -940,7 +941,7 @@
           "location": "the oval cutout in the wooden chair back",
           "before": "PENDING",
           "after": "a star-shaped cutout",
-          "changeType": "SHAPE",
+          "changeType": "COLOR",
           "zone": "E",
           "authoringEvidence": {
             "status": "PENDING",
@@ -1076,12 +1077,10 @@
             "I": 2
           },
           "changeTypes": [
-            "COLOR",
-            "SHAPE"
+            "COLOR"
           ],
           "changeTypeCounts": {
-            "COLOR": 9,
-            "SHAPE": 1
+            "COLOR": 10
           }
         }
       }
@@ -1291,7 +1290,7 @@
           "location": "the left microscope's two black eyepieces",
           "before": "PENDING",
           "after": "one centered eyepiece",
-          "changeType": "COUNT",
+          "changeType": "SHAPE",
           "zone": "D",
           "authoringEvidence": {
             "status": "PENDING",
@@ -1346,13 +1345,13 @@
           },
           "changeTypes": [
             "COLOR",
-            "COUNT",
-            "REMOVE"
+            "REMOVE",
+            "SHAPE"
           ],
           "changeTypeCounts": {
             "COLOR": 8,
-            "COUNT": 1,
-            "REMOVE": 1
+            "REMOVE": 1,
+            "SHAPE": 1
           }
         }
       }
@@ -1520,7 +1519,7 @@
           "location": "the center blue star cushion",
           "before": "PENDING",
           "after": "pink",
-          "changeType": "SHAPE",
+          "changeType": "COLOR",
           "zone": "E",
           "authoringEvidence": {
             "status": "PENDING",
@@ -1541,7 +1540,7 @@
           "location": "PENDING",
           "before": "PENDING",
           "after": "bright blue",
-          "changeType": "SHAPE",
+          "changeType": "COLOR",
           "zone": "H",
           "authoringEvidence": {
             "status": "PENDING",
@@ -1614,12 +1613,10 @@
             "I": 2
           },
           "changeTypes": [
-            "COLOR",
-            "SHAPE"
+            "COLOR"
           ],
           "changeTypeCounts": {
-            "COLOR": 8,
-            "SHAPE": 2
+            "COLOR": 10
           }
         }
       }
@@ -2321,7 +2318,7 @@
           "location": "PENDING",
           "before": "yellow",
           "after": "green",
-          "changeType": "SHAPE",
+          "changeType": "COLOR",
           "zone": "I",
           "authoringEvidence": {
             "status": "PENDING",
@@ -2416,12 +2413,10 @@
             "I": 2
           },
           "changeTypes": [
-            "COLOR",
-            "SHAPE"
+            "COLOR"
           ],
           "changeTypeCounts": {
-            "COLOR": 9,
-            "SHAPE": 1
+            "COLOR": 10
           }
         }
       }

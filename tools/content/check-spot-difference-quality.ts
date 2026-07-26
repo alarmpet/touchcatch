@@ -29,6 +29,16 @@ const zoneFor = ({ cx, cy }: { cx: number; cy: number }) => 'ABCDEFGHI'[Math.min
 const countBy = (values: string[]) => Object.fromEntries([...new Set(values)].sort().map((value) => [value, values.filter((candidate) => candidate === value).length]));
 const equalJson = (left: unknown, right: unknown) => canonicalJson(left) === canonicalJson(right);
 const completedBy = (reviewer: unknown, reviewedAt: unknown) => typeof reviewer === 'string' && reviewer.trim().length > 0 && typeof reviewedAt === 'string' && !Number.isNaN(Date.parse(reviewedAt));
+const semanticTokens = (value: string) => normalise(value).match(/[\p{L}\p{N}]+/gu)?.filter((token) => token.length >= 2) ?? [];
+function hasGroundedStructuredEvidence(objective: Json) {
+  const sourceTokens = new Set(semanticTokens(String(objective.authoringEvidence?.rawInstruction ?? '')));
+  return ['target', 'location', 'before', 'after'].every((field) => {
+    const value = normalise(String(objective[field] ?? ''));
+    if (value === 'pending') return false;
+    const tokens = semanticTokens(value);
+    return tokens.length > 0 && tokens.some((token) => sourceTokens.has(token));
+  });
+}
 
 function computedDiagnostics(objectives: Json[]) {
   const zones = [...new Set(objectives.map(({ zone }) => zone))].sort();
@@ -107,6 +117,7 @@ export async function checkSpotDifferenceQuality(options: SpotDifferenceQualityC
       if (objectives.some(({ mobileReview }) => mobileReview.status !== 'PASS')) failures.push(`${key}:mobile-review`);
       if (objectives.some(({ mobileReview }) => mobileReview.status === 'PASS' && !completedBy(mobileReview.reviewer, mobileReview.reviewedAt))) failures.push(`${key}:mobile-reviewer`);
       if (objectives.some(({ authoringEvidence }) => authoringEvidence?.status !== 'PASS')) failures.push(`${key}:authoring-review`);
+      for (const objective of objectives) if (objective.authoringEvidence?.status === 'PASS' && !hasGroundedStructuredEvidence(objective)) failures.push(`${key}:release-specificity:${objective.objectiveId}`);
       const review = pack.imagePairReview;
       if (review.status !== 'PASS' || !review.sameComposition || !review.sameCamera || !review.sameLightingDirection || !review.sameArtStyle || review.unintendedChangeStatus !== 'PASS') failures.push(`${key}:image-pair-review`);
       if (review.status === 'PASS' && !completedBy(review.reviewedBy, review.reviewedAt)) failures.push(`${key}:image-pair-reviewer`);

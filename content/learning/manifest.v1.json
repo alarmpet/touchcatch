@@ -49,7 +49,7 @@
         "0c17694fcc0669ac5acd679d9d6afbb9d4d1b4f3d075fbabed511205d6ba8f02",
         "d442821e226bd7e3680ee3f20a6fcbc82a0289cf5eaade1bc897e63437c08ee0"
       ],
-      "qualitySha256": "711182ab6a53f31eff092d28b8f089ec3ec837fb71da2f0692b55c5959fbd432",
+      "qualitySha256": "15b894c283529e8aad5ef9259f65e50e388c370b3dbcbde3cda5dabf4ad10500",
       "promptEvidence": [
         {
           "file": "prompts/en-dilemma-base.txt",
@@ -105,7 +105,7 @@
         "95c0084320de9e387105ba296217c377b4f2e2fd7b1d4c6fa05371d611c38402",
         "c63e9428001f7b96464014c7edf4dd34316744fbc0585ceebef76f28964b445e"
       ],
-      "qualitySha256": "bc2eb54bec733fe8b78c6f7188ba7cd2a308329649486bcd8036d13f09e3cd0c",
+      "qualitySha256": "9f2d46e28d3cdb4410a3e7866433ec3f87eb94cfe7cd4e0d2275628f48159d12",
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-dark-under-lamp-base.txt",
@@ -133,7 +133,7 @@
         "a242905347538545291777abe43e127c759f6aff6ddc73027799416780954311",
         "60602814202a4dff87420e8f2d7f594c274733bb734590107b3fb40a0815fb84"
       ],
-      "qualitySha256": "bcfacf57182bc252df581e7afe2b41500229f6af5b1617f641b44acc985066c6",
+      "qualitySha256": "479736628c71d26060af4e6535e285db99d501565dc4c608e40cd2377482ab52",
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-seeing-is-believing-base.txt",
@@ -161,7 +161,7 @@
         "b8858205d9dafded1307dd651d8b8c40e66d8970e43c4e9614112ad2da6a139c",
         "5a97bfefca375c1ee810f93a2be1504b7100e457d30b5e8f4727087b9ee3d8f5"
       ],
-      "qualitySha256": "af5119c542a4b454fe37a735981a817c30459e51273458742aa677bd6f68a293",
+      "qualitySha256": "cd9b46df3baeab8bdb3b54a0af359bdf6e7931e2c485efa8ff6d7ec45c280ecf",
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-kind-words-return-base.txt",
@@ -249,7 +249,7 @@
         "d37c123580152a6a1552054e4ec6e171af7bfea77b299c2c1234f9e7fb51cf18",
         "d3c5f45583c4166854b90cc0c675c1dad5347ee2290e10862ead0afec923e5b9"
       ],
-      "qualitySha256": "694a8d474e034b84bbe662c667786f10e1ec461d95a252c56516d8e5c18811ee",
+      "qualitySha256": "ae79123c9038999be811743df2393986fb29dc1ec4fcb19f11b6e6a59de10ba9",
       "promptEvidence": [
         {
           "file": "prompts/ko-idiom-perspective-base.txt",

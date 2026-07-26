@@ -107,4 +107,27 @@ describe('spot-difference quality contract', () => {
     expect(packs.find(({ contentKey }) => contentKey === 'en-dilemma').objectives[4].changeType).toBe('COUNT');
     expect(packs.find(({ contentKey }) => contentKey === 'en-sustainability').objectives[4].changeType).toBe('COUNT');
   });
+
+  it('keeps color operations as COLOR when their targets are shape nouns', async () => {
+    const quality = await readJson('content/learning/spot-difference-quality.v1.json');
+    const packs = quality.entries as any[];
+    expect(packs.find(({ contentKey }) => contentKey === 'en-dilemma').objectives[5].changeType).toBe('COLOR'); // blue shape → green
+    expect(packs.find(({ contentKey }) => contentKey === 'en-dilemma').objectives[9].changeType).toBe('COLOR'); // purple star decoration → yellow
+    expect(packs.find(({ contentKey }) => contentKey === 'ko-proverb-kind-words-return').objectives[7].changeType).toBe('COLOR'); // blue star cushion → pink
+    expect(packs.find(({ contentKey }) => contentKey === 'ko-proverb-kind-words-return').objectives[8].changeType).toBe('COLOR'); // yellow square button → blue
+  });
+
+  it('rejects meaningless structured fields even when authoring evidence is marked PASS', async () => {
+    const [quality, manifest] = await Promise.all([
+      readJson('content/learning/spot-difference-quality.v1.json'),
+      readJson('content/learning/manifest.v1.json'),
+    ]);
+    const objective = (quality.entries as any[])[0].objectives[0];
+    Object.assign(objective, {
+      target: 'x', location: 'y', before: 'old', after: 'new',
+      authoringEvidence: { status: 'PASS', rawInstruction: objective.authoringEvidence.rawInstruction, blocker: null },
+    });
+
+    expect(await checkSpotDifferenceQuality({ root, quality, manifest, enforceRelease: true })).toContain('en-resilience:release-specificity:difference_1');
+  });
 });
