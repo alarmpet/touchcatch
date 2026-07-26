@@ -1,22 +1,83 @@
-# Local runtime
+# Local runtime and DATA-027 evidence gate
 
-TouchCatch requires Node `v24.18.0` and pnpm `11.13.0`. From PowerShell, verify both before installing dependencies or running a gate:
+TouchCatch requires Node `v24.18.0` and pnpm `11.13.0`. Select the required
+runtime before installing dependencies or running a gate. For the portable
+Windows runtime used by this repository's verification environment:
 
 ```powershell
+$nodeRoot = 'C:\tmp\touchcatch-node-24.18.0\node-v24.18.0-win-x64'
+$existingPath = $env:Path
+Remove-Item Env:Path
+$env:PATH = "$nodeRoot;$existingPath"
 node --version
 corepack pnpm --version
 ```
 
-The commands must print `v24.18.0` and `11.13.0`, respectively. Stop if either value differs; do not run the gate with a different runtime.
+The commands must print `v24.18.0` and `11.13.0`, respectively. Stop if either
+value differs. This process-local `PATH` setup does not change a global Node,
+pnpm, or Corepack installation. Removing the inherited mixed-case `Path` key
+avoids a Windows child-process path collision before adding the portable
+runtime. Other installed runtime managers may be used instead, provided that
+the same two checks pass.
 
-Select one runtime manager already installed on the machine, then repeat the two checks above. For example, with fnm:
+## Local DATA-027 gate
+
+Run the local, non-production database evidence gate from the worktree root:
 
 ```powershell
-fnm use 24.18.0
-node --version
-corepack pnpm --version
+corepack pnpm check:db
 ```
 
-Equivalent choices are `nvm use 24.18.0` for nvm-windows, or `volta install node@24.18.0 pnpm@11.13.0` for Volta. These are workstation setup tools, not project runtime dependencies.
+This gate is deliberately separate from the fast `check` gate. It first checks
+that the local Docker daemon is available, then performs bounded local
+Supabase reset, lint, pgTAP, authenticated-local, and DATA-027 concurrency
+steps. It is not a production deployment command and must not be pointed at a
+remote or production database.
 
-Once the versions match, start project gates through Corepack, for example `corepack pnpm check` or `corepack pnpm verify`. The nested `check`, `check:db`, and `verify` scripts use a repository wrapper that validates and re-invokes the invoking pnpm's `npm_node_execpath` and `npm_execpath`, preserving the already-selected Node and pnpm instead of resolving another global Corepack or pnpm installation.
+On success, the gate writes the worktree-local, ignored receipt at
+`.superpowers/evidence/data-027/receipt.json`. A receipt is published only
+after all bounded steps pass and the real DATA-027 concurrency test emits a
+valid observation for that gate run. Static TypeScript or AST inspection, a
+direct Vitest invocation, or a hand-written receipt cannot create a DATA-027
+PASS.
+
+The receipt binds the current input bundle: Supabase migrations, the database
+concurrency test and its Vitest configuration, the gate runner, the receipt
+writer/contract, and the requirement oracle. The recorded Git commit SHA is
+provenance only; it does not substitute for input-bundle freshness. Do not copy
+a receipt between worktrees: the requirement oracle rejects it whenever the
+destination input bundle differs. Deleting
+`.superpowers/evidence/data-027/receipt.json` immediately returns DATA-027 to
+`BLOCKED` with `LOCAL_DB_EVIDENCE_UNAVAILABLE`.
+
+The gate takes an exclusive same-worktree lock at
+`.superpowers/evidence/data-027/gate.lock`; run only one gate per worktree at a
+time. Its temporary observation and lock are cleaned on every exit. The
+receipt and fixed errors avoid credentials, connection URLs, raw subprocess
+output, and personal paths.
+
+## Expected outcomes and fixed errors
+
+When Docker or the local Supabase stack is unavailable, the gate exits nonzero
+with the exact blocker `SUPABASE_GATE_DOCKER_UNAVAILABLE`. This is a verified
+`BLOCKED` state, not a reason to synthesize or copy a receipt.
+
+Other gate failures use these fixed codes:
+
+- `SUPABASE_GATE_TIMEOUT:db_reset`, `SUPABASE_GATE_TIMEOUT:db_lint`,
+  `SUPABASE_GATE_TIMEOUT:pg_tap`, `SUPABASE_GATE_TIMEOUT:auth_local`, or
+  `SUPABASE_GATE_TIMEOUT:data_027_concurrency`
+- `SUPABASE_GATE_FAILED:lock`, `SUPABASE_GATE_FAILED:runner`,
+  `SUPABASE_GATE_FAILED:db_reset`, `SUPABASE_GATE_FAILED:db_lint`,
+  `SUPABASE_GATE_FAILED:pg_tap`, `SUPABASE_GATE_FAILED:auth_local`,
+  `SUPABASE_GATE_FAILED:data_027_concurrency`,
+  `SUPABASE_GATE_FAILED:receipt`, or `SUPABASE_GATE_FAILED:cleanup`
+- `DATA_027_OBSERVATION_MISSING` or `DATA_027_OBSERVATION_INVALID`
+
+After a successful local DB gate, validate the requirement and ignored evidence
+path explicitly:
+
+```powershell
+corepack pnpm vitest run tests/specs/generated-requirement-coverage.test.ts tests/specs/database-security-requirement-oracle.test.ts
+git check-ignore .superpowers/evidence/data-027/receipt.json
+```
