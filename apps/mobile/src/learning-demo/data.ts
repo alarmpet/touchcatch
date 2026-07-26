@@ -8,7 +8,7 @@ export type Bundle = Readonly<{
   }>;
 }>;
 
-export function buildDemoEntry(category: LearningDemoEntry['category'], bundle: Bundle, assets: Readonly<{ imageA: unknown; imageB: unknown }>): LearningDemoEntry {
+export function buildDemoEntry(category: LearningDemoEntry['category'], bundle: Bundle, assets: Pick<LearningDemoEntry, 'imageA' | 'imageB'>): LearningDemoEntry {
   const challenge = bundle.privateSolution.finalChallenge;
   return {
     key: bundle.publicContent.theme,

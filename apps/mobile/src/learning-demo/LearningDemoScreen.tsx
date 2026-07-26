@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Image, Pressable, ScrollView, Text, View } from 'react-native';
+import { Image, Pressable, ScrollView, Text, View, type ImageSourcePropType } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { createDemoState, reduceDemoState, type Circle, type DemoState } from './controller';
 
@@ -7,8 +7,8 @@ export type LearningDemoEntry = Readonly<{
   key: string;
   category: 'ENGLISH' | 'PROVERB' | 'IDIOM';
   title: string;
-  imageA: unknown;
-  imageB: unknown;
+  imageA: ImageSourcePropType;
+  imageB: ImageSourcePropType;
   differences: ReadonlyArray<Readonly<{ id: string; imageA: Circle; imageB: Circle }>>;
   prompt: string;
   options: ReadonlyArray<Readonly<{ id: string; label: string }>>;

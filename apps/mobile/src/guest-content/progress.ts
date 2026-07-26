@@ -34,7 +34,10 @@ export function createGuestProgressQueue(storage: Storage, createId: () => strin
       const accepted = new Set(result.acceptedEventIds);
       const rejected = new Map(result.rejected.map((item) => [item.deviceEventId, item.code]));
       const state = await readState();
-      await write({ events: state.events.filter((event) => !accepted.has(event.deviceEventId)).map((event) => rejected.has(event.deviceEventId) ? { ...event, rejectionCode: rejected.get(event.deviceEventId) } : event) });
+      await write({ events: state.events.filter((event) => !accepted.has(event.deviceEventId)).map((event) => {
+        const rejectionCode = rejected.get(event.deviceEventId);
+        return rejectionCode === undefined ? event : { ...event, rejectionCode };
+      }) });
     }); },
   };
 }

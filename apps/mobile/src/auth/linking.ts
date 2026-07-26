@@ -1,7 +1,12 @@
+import type { UserIdentity } from '@supabase/supabase-js';
+
 type Provider = 'google' | 'kakao';
-type Identity = Readonly<{ id?: string; identity_id?: string; provider?: string }>;
+type Identity = Readonly<UserIdentity>;
 type ReauthProof = Readonly<{ email: string; token: string }>;
-type AuthResult<T> = Promise<{ data?: T; error?: unknown }>;
+type AuthResult<T> = Promise<
+  | Readonly<{ data: T; error: null }>
+  | Readonly<{ data: null; error: unknown }>
+>;
 type IdentityAuth = Readonly<{
   reauthenticate?(): AuthResult<unknown>;
   verifyOtp(input: { email: string; token: string; type: 'reauthentication' }): AuthResult<unknown>;

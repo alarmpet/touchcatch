@@ -21,7 +21,7 @@ export function BattleScreen({snapshot,pendingIntentId,connection,lastRejection=
  const [chrome,setChrome]=useState({headerHeight:0,summaryHeight:0});
  const [announcement,setAnnouncement]=useState('');
  const [transform,setTransform]=useState<Transform>({scale:1,tx:0,ty:0});
- const modalFocus=useRef<unknown>(null),boardFocus=useRef<unknown>(null),base=useRef<Transform>(transform),motion=useRef({translationPx:0,scaleDelta:0});
+ const modalFocus=useRef<View>(null),boardFocus=useRef<View>(null),base=useRef<Transform>(transform),motion=useRef({translationPx:0,scaleDelta:0});
  const layout=layoutBattleRegions(safeArea,chrome,{width:vm.assets[0].width,height:vm.assets[0].height},theme.space.baseGrid),pair=layout.pair;
  useEffect(()=>setAnnouncement(`Score ${vm.scores.map(x=>x.absoluteScore).join(' to ')}. ${connection}. ${admitted.phase}.${lastRejection?` Rejected: ${lastRejection}.`:''}`),[vm.scores,connection,admitted.phase,lastRejection]);
  useEffect(()=>{const handle=findNodeHandle(vm.meaningQuiz?modalFocus.current:boardFocus.current);if(handle!==null)AccessibilityInfo.setAccessibilityFocus(handle)},[vm.meaningQuiz]);
