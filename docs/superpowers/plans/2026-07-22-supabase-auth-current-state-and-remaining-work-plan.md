@@ -1,5 +1,7 @@
 # Supabase Auth Current State and Remaining Work Implementation Plan
 
+> **2026-07-26 status:** Task 1–7의 완료 이력은 이 문서에 보존한다. 실제 남은 내부 gate 복구, clean integration, 외부 release evidence 실행은 [`2026-07-26-auth-remaining-work-implementation-plan.md`](2026-07-26-auth-remaining-work-implementation-plan.md)를 기준으로 한다.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** 이미 커밋된 Supabase 인증 Task 1–7을 재현 가능한 증거로 고정하고, 남은 Task 8과 실제 배포 전 handoff를 완료한 뒤 안전하게 `main`에 통합한다.
