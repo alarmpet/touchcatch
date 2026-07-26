@@ -5,6 +5,34 @@ import {spawnSync}from'node:child_process';
 import {validateNonCurrentEvidence}from'../../tools/requirement-oracle.js';
 
 describe('normative traceability',()=>{
+ it('splits NodeNext and Expo typecheck ownership without dropping mobile test entrypoints',()=>{
+  const nodeConfigPath='tsconfig.node.json';
+  expect(fs.existsSync(nodeConfigPath)).toBe(true);
+  if(!fs.existsSync(nodeConfigPath))return;
+  const root=JSON.parse(fs.readFileSync('tsconfig.json','utf8'));
+  const nodeConfig=JSON.parse(fs.readFileSync(nodeConfigPath,'utf8'));
+  const mobileConfig=JSON.parse(fs.readFileSync('apps/mobile/tsconfig.json','utf8'));
+  const expoBase=JSON.parse(fs.readFileSync('node_modules/expo/tsconfig.base.json','utf8'));
+  const pkg=JSON.parse(fs.readFileSync('package.json','utf8'));
+  const nodeIncludes=['apps/server/src/**/*.ts','packages/**/*.ts','tests/**/*.ts','tools/**/*.ts','vitest*.ts'];
+  const nodeExcludes=['apps/mobile/**','tests/contracts/mobile-*.test.ts','tests/integration/local-auth.test.ts','tests/contracts/ui-acceptance-regressions.test.ts','tests/contracts/ui-final-acceptance.test.ts'];
+  const mobileIncludes=['app/**/*.ts','app/**/*.tsx','src/**/*.ts','src/**/*.tsx','../../tests/contracts/mobile-*.test.ts','../../tests/integration/local-auth.test.ts','../../tests/contracts/ui-acceptance-regressions.test.ts','../../tests/contracts/ui-final-acceptance.test.ts'];
+  const validateBoundary=(scripts:Record<string,string>,includes:string[])=>{
+   const issues:string[]=[];
+   if(scripts['typecheck:node']!=='tsc -p tsconfig.node.json --noEmit')issues.push('typecheck:node');
+   if(scripts['typecheck:mobile']!=='tsc -p apps/mobile/tsconfig.json --noEmit')issues.push('typecheck:mobile');
+   if(scripts.typecheck!=='node tools/run-pnpm.mjs typecheck:node && node tools/run-pnpm.mjs typecheck:mobile')issues.push('typecheck:aggregate');
+   for(const entrypoint of mobileIncludes)if(!includes.includes(entrypoint))issues.push(`mobile:${entrypoint}`);
+   return issues;
+  };
+  expect(root.include).toBeUndefined();
+  expect(nodeConfig).toEqual({extends:'./tsconfig.json',include:nodeIncludes,exclude:nodeExcludes});
+  expect(mobileConfig).toEqual({extends:'expo/tsconfig.base',include:mobileIncludes});
+  expect(expoBase.compilerOptions.moduleResolution).toBe('bundler');
+  expect(validateBoundary(pkg.scripts,mobileConfig.include)).toEqual([]);
+  expect(validateBoundary({...pkg.scripts,typecheck:pkg.scripts['typecheck:node']},mobileConfig.include)).toContain('typecheck:aggregate');
+  expect(validateBoundary(pkg.scripts,mobileConfig.include.filter((entrypoint:string)=>entrypoint!=='../../tests/contracts/mobile-*.test.ts'))).toContain('mobile:../../tests/contracts/mobile-*.test.ts');
+ });
  it('discovers bullets, ordered requirements and normative prose with stable semantics',()=>{const text='# API\n## Mutations\n- Must retry. <!-- REQ: API-002 -->\n1. Tie break. <!-- REQ: API-003 -->\nServer authority is final. <!-- REQ: API-004 -->';const rows=discoverNormativeRequirements('09_API.md',text);expect(rows.map(x=>x.text)).toEqual(['Must retry.','Tie break.','Server authority is final.']);expect(rows.every(x=>x.fingerprint.match(/^[a-f0-9]{64}$/))).toBe(true);});
  it('discovers normative blockquotes and table rows',()=>{const text='# Rules\n> Ruleset is authoritative. <!-- REQ: RULE-001 -->\n| action | score |\n|---|---|\n| final | +25 | <!-- REQ: RULE-002 -->';expect(discoverNormativeRequirements('02_RULES.md',text).map(x=>x.text)).toEqual(['Ruleset is authoritative.','| final | +25 |']);});
  it('fails unmarked normative bullets and source/fingerprint drift against a copied real registry',()=>{const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'trace-real-'));for(const file of ['README.md','09_API_AND_SOCKET_EVENTS.md'])fs.copyFileSync(path.resolve(file),path.join(tmp,file));fs.mkdirSync(path.join(tmp,'docs'));fs.copyFileSync(path.resolve('docs/requirements-registry.v1.json'),path.join(tmp,'docs/requirements-registry.v1.json'));expect(checkRepositoryTraceability(tmp).unmarked).toEqual([]);fs.appendFileSync(path.join(tmp,'09_API_AND_SOCKET_EVENTS.md'),'\n- The server MUST reject drift.\n');expect(checkRepositoryTraceability(tmp).unmarked.length).toBe(1);});

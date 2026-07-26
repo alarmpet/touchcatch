@@ -1,4 +1,13 @@
 {
-  "compilerOptions": {},
-  "extends": "expo/tsconfig.base"
+  "extends": "expo/tsconfig.base",
+  "include": [
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "../../tests/contracts/mobile-*.test.ts",
+    "../../tests/integration/local-auth.test.ts",
+    "../../tests/contracts/ui-acceptance-regressions.test.ts",
+    "../../tests/contracts/ui-final-acceptance.test.ts"
+  ]
 }

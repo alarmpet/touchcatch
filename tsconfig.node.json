@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "apps/server/src/**/*.ts",
+    "packages/**/*.ts",
+    "tests/**/*.ts",
+    "tools/**/*.ts",
+    "vitest*.ts"
+  ],
+  "exclude": [
+    "apps/mobile/**",
+    "tests/contracts/mobile-*.test.ts",
+    "tests/integration/local-auth.test.ts",
+    "tests/contracts/ui-acceptance-regressions.test.ts",
+    "tests/contracts/ui-final-acceptance.test.ts"
+  ]
+}
