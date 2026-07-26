@@ -18,7 +18,7 @@
     "secret:scan": "secretlint \"**/*\"",
     "typecheck:node": "tsc -p tsconfig.node.json --noEmit",
     "typecheck:mobile": "tsc -p apps/mobile/tsconfig.json --noEmit",
-    "typecheck": "node tools/run-pnpm.mjs typecheck:node && node tools/run-pnpm.mjs typecheck:mobile",
+    "typecheck": "node tools/run-typechecks.mjs",
     "test": "vitest run --exclude tests/database/**/*.test.ts",
     "content:validate": "tsx packages/content-validator/src/validate-content.ts content/fixtures/valid",
     "content:learning:draft": "vitest run packages/content-validator/src/validate-learning-draft.test.ts",

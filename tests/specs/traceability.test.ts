@@ -21,7 +21,7 @@ describe('normative traceability',()=>{
    const issues:string[]=[];
    if(scripts['typecheck:node']!=='tsc -p tsconfig.node.json --noEmit')issues.push('typecheck:node');
    if(scripts['typecheck:mobile']!=='tsc -p apps/mobile/tsconfig.json --noEmit')issues.push('typecheck:mobile');
-   if(scripts.typecheck!=='node tools/run-pnpm.mjs typecheck:node && node tools/run-pnpm.mjs typecheck:mobile')issues.push('typecheck:aggregate');
+   if(scripts.typecheck!=='node tools/run-typechecks.mjs')issues.push('typecheck:aggregate');
    for(const entrypoint of mobileIncludes)if(!includes.includes(entrypoint))issues.push(`mobile:${entrypoint}`);
    return issues;
   };
@@ -32,6 +32,24 @@ describe('normative traceability',()=>{
   expect(validateBoundary(pkg.scripts,mobileConfig.include)).toEqual([]);
   expect(validateBoundary({...pkg.scripts,typecheck:pkg.scripts['typecheck:node']},mobileConfig.include)).toContain('typecheck:aggregate');
   expect(validateBoundary(pkg.scripts,mobileConfig.include.filter((entrypoint:string)=>entrypoint!=='../../tests/contracts/mobile-*.test.ts'))).toContain('mobile:../../tests/contracts/mobile-*.test.ts');
+ });
+ it('runs the mobile typecheck after a Node typecheck failure and preserves aggregate failure',()=>{
+  const runner='tools/run-typechecks.mjs';
+  expect(fs.existsSync(runner)).toBe(true);
+  if(!fs.existsSync(runner))return;
+  const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'typecheck-runner-'));
+  const fakePnpm=path.join(tmp,'pnpm.cjs');
+  const invocationLog=path.join(tmp,'invocations.txt');
+  fs.writeFileSync(fakePnpm,"const fs=require('node:fs');const script=process.argv[2];fs.appendFileSync(process.env.TYPECHECK_TEST_LOG,script+'\\n');process.exitCode=script==='typecheck:node'?7:0;\n");
+  const result=spawnSync(process.execPath,[runner],{
+   cwd:process.cwd(),
+   encoding:'utf8',
+   env:{PATH:process.env.PATH??'',npm_node_execpath:process.execPath,npm_execpath:fakePnpm,TYPECHECK_TEST_LOG:invocationLog},
+  });
+  expect(fs.readFileSync(invocationLog,'utf8').trim().split(/\r?\n/u)).toEqual(['typecheck:node','typecheck:mobile']);
+  expect(result.status).not.toBe(0);
+  expect(result.stdout).toContain('[typecheck] typecheck:node exit 7');
+  expect(result.stdout).toContain('[typecheck] typecheck:mobile exit 0');
  });
  it('discovers bullets, ordered requirements and normative prose with stable semantics',()=>{const text='# API\n## Mutations\n- Must retry. <!-- REQ: API-002 -->\n1. Tie break. <!-- REQ: API-003 -->\nServer authority is final. <!-- REQ: API-004 -->';const rows=discoverNormativeRequirements('09_API.md',text);expect(rows.map(x=>x.text)).toEqual(['Must retry.','Tie break.','Server authority is final.']);expect(rows.every(x=>x.fingerprint.match(/^[a-f0-9]{64}$/))).toBe(true);});
  it('discovers normative blockquotes and table rows',()=>{const text='# Rules\n> Ruleset is authoritative. <!-- REQ: RULE-001 -->\n| action | score |\n|---|---|\n| final | +25 | <!-- REQ: RULE-002 -->';expect(discoverNormativeRequirements('02_RULES.md',text).map(x=>x.text)).toEqual(['Ruleset is authoritative.','| final | +25 |']);});

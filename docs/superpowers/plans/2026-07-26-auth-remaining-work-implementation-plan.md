@@ -172,6 +172,7 @@ auth branch에는 main의 content pipeline을 임의 복사하거나 의도적�
 **Files:**
 - Modify: `tsconfig.json`
 - Create: `tsconfig.node.json`
+- Create: `tools/run-typechecks.mjs`
 - Modify: `apps/mobile/tsconfig.json`
 - Modify: `package.json`
 - Modify: `tests/specs/traceability.test.ts`
@@ -259,10 +260,12 @@ root `tsconfig.json`은 공통 `compilerOptions`만 가진 base로 바꾸고 기
   "scripts": {
     "typecheck:node": "tsc -p tsconfig.node.json --noEmit",
     "typecheck:mobile": "tsc -p apps/mobile/tsconfig.json --noEmit",
-    "typecheck": "node tools/run-pnpm.mjs typecheck:node && node tools/run-pnpm.mjs typecheck:mobile"
+    "typecheck": "node tools/run-typechecks.mjs"
   }
 }
 ```
+
+`tools/run-typechecks.mjs` runs both child projects sequentially, records both exit results, and exits nonzero only after both have run if either child failed. The executable traceability contract proves the mobile child still runs after a Node child failure and that aggregate failure is preserved.
 
 `traceability.test.ts`는 두 script 중 하나를 제거하거나 mobile test entrypoint를 누락하는 mutation을 거부한다.
 
@@ -272,16 +275,17 @@ Run:
 
 ```powershell
 corepack pnpm vitest run apps/mobile/src/learning-demo/production-boundary.test.ts tests/specs/traceability.test.ts
-corepack pnpm typecheck:node
-corepack pnpm typecheck:mobile
+corepack pnpm typecheck
 ```
+
+Expected aggregate behavior: both `typecheck:node` and `typecheck:mobile` run and record their exit results even when the first project is RED; the aggregate exits nonzero afterward for catalogued source-type errors.
 
 Expected: extensionless import test PASS. 두 typecheck의 남은 오류는 module-resolution 충돌이 아니라 실제 source type 오류로만 구성된다.
 
 - [ ] **Step 6: boundary-only 커밋을 만든다**
 
 ```powershell
-git add tsconfig.json tsconfig.node.json apps/mobile/tsconfig.json package.json tests/specs/traceability.test.ts
+git add tsconfig.json tsconfig.node.json tools/run-typechecks.mjs apps/mobile/tsconfig.json package.json tests/specs/traceability.test.ts docs/superpowers/plans/2026-07-26-auth-remaining-work-implementation-plan.md
 git commit -m "fix(tooling): split Node and Expo typecheck boundaries"
 ```
 
