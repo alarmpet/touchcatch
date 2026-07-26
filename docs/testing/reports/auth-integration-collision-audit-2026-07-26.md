@@ -19,21 +19,29 @@ other intersecting paths.
 Audit refs:
 
 - `main`: `44fbfd947d97bb03061246e7d318c3aca6bcca77`
-- auth branch: `32f092f711a3815d1cacb0c5d74da4c7804eb608`
+- audited auth source ref (pre-report): `32f092f711a3815d1cacb0c5d74da4c7804eb608`
 - merge base: `a4ab20c23c574e3bddc94a57534c4e25e07a7178`
 
 ## Collision evidence and ownership boundary
 
 | Path | Dirty-main patch identity | Main / working / auth-branch blob | Dirty-main intent | Auth-branch intent |
 | --- | --- | --- | --- | --- |
-| `apps/mobile/package.json` | SHA-256 `dbba9adab21bd5629cfb53c6e368260274ebdbfd7bee8fe87fe1f979417bb23d` (1,331 bytes) | `736012a61fba43ca323d87bc098270fcebbadb3b` / `fd43fe530d5cc0257b4f587c71024c5532777042` / `145cf1c8ad45cc53907c7be11534569a8cffedac` | Pins the `react-native-web` version range. | Adds auth-related mobile dependencies. |
-| `package.json` | SHA-256 `e7850f1582cc536f631bc725d5522a3f2581ffb00acd9aa01f99cf48c229275d` (2,387 bytes) | `e51de2374aaf46041eb42d36cf33d4e3a17ad8c9` / `a2293b8b8a27e2b0e970a6fcfedeb63980ea6218` / `539146bca29c9a8f56db94a12e8175946d3140d9` | Adds content-catalog commands and makes the catalog gate part of `check`. | Replaces direct `corepack pnpm` calls in `check` with the portable `node tools/run-pnpm.mjs` runner. |
+| `apps/mobile/package.json` | Raw-byte SHA-256 `6c5e1eb64a473687854286ca3bf088f35759c6a9dc47344eaca8d6603e077d38` (1,332 bytes) | `736012a61fba43ca323d87bc098270fcebbadb3b` / `fd43fe530d5cc0257b4f587c71024c5532777042` / `145cf1c8ad45cc53907c7be11534569a8cffedac` | Pins the `react-native-web` version range. | Adds auth-related mobile dependencies. |
+| `package.json` | Raw-byte SHA-256 `6f8f2f715f6bf8bab73b2e4f0e26de3ea2a21205c298e7559d5725705d2e3df6` (2,388 bytes) | `e51de2374aaf46041eb42d36cf33d4e3a17ad8c9` / `a2293b8b8a27e2b0e970a6fcfedeb63980ea6218` / `539146bca29c9a8f56db94a12e8175946d3140d9` | Adds `content:catalog:check`, `content:batch-build`, and `content:generate-registry`, and makes the catalog gate part of `check`. | Replaces direct `corepack pnpm` calls in `check` with the portable `node tools/run-pnpm.mjs` runner. |
 
-The SHA-256 values are calculated from `git diff --binary -- <path>` at audit
-time.  Before any later manual union, compare both the listed base/working blob
-pair and the patch SHA-256; a mismatch means this audit is stale and must be
-recomputed.  This report intentionally records patch identity and intent rather
-than copying user file contents.
+The SHA-256 values are raw-byte file hashes, not PowerShell text-pipeline
+hashes. For each path, create a fresh temporary file outside the dirty `main`
+worktree, run `git -C D:\touchcatch diff --binary --no-ext-diff
+--output=<temporary-patch-file> -- <path>`, then run `Get-FileHash
+-LiteralPath <temporary-patch-file> -Algorithm SHA256` twice against that same
+raw temporary file. Record the two matching hashes and byte length, then delete
+only that temporary file with `Remove-Item -LiteralPath
+<temporary-patch-file>`. Do not capture the diff through a PowerShell variable
+or pipeline, because that can change the bytes being hashed. Before any later
+manual union, compare both the listed base/working blob pair and the raw-byte
+patch SHA-256; a mismatch means this audit is stale and must be recomputed.
+This report intentionally records patch identity and intent rather than copying
+user file contents.
 
 ## Required clean-integration semantic union
 
@@ -71,7 +79,25 @@ for the two dirty-main files:
 1. Commit the files on `main` first.
 2. Preserve the dirty state and record the exact patch/hash above; manually
    perform the semantic union in a clean integration target later.
-3. Discard the branch and restart integration later.
+3. Keep the branch and defer integration.
 
 Until the user selects one, do not merge, stash, reset, check out, stage, format,
 or write the dirty `main` files.
+
+## Round 1 raw-byte reproduction
+
+Executed outside the dirty `main` worktree; each output path was a newly created
+temporary file and was deleted after hashing:
+
+```powershell
+git -C D:\touchcatch diff --binary --no-ext-diff --output=<temporary-patch-file> -- <path>
+Get-FileHash -LiteralPath <temporary-patch-file> -Algorithm SHA256
+Get-FileHash -LiteralPath <temporary-patch-file> -Algorithm SHA256
+(Get-Item -LiteralPath <temporary-patch-file>).Length
+Remove-Item -LiteralPath <temporary-patch-file>
+```
+
+Observed raw-file output:
+
+- `apps/mobile/package.json`: both hash passes returned SHA-256 `6c5e1eb64a473687854286ca3bf088f35759c6a9dc47344eaca8d6603e077d38`; 1,332 bytes.
+- `package.json`: both hash passes returned SHA-256 `6f8f2f715f6bf8bab73b2e4f0e26de3ea2a21205c298e7559d5725705d2e3df6`; 2,388 bytes.
