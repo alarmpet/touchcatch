@@ -1,92 +1,203 @@
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
-import {describe,expect,it} from 'vitest';
-import {evaluateDatabaseRequirement,executeRequirementOracle,expectConcurrencyEvidence,expectRoleMembershipLifecycle} from '../../tools/requirement-oracle.js';
+import os from 'node:os';
+import path from 'node:path';
+import { afterEach, describe, expect, it } from 'vitest';
+import {
+  DATA_027_RECEIPT_RELATIVE_PATH,
+  writeData027Receipt,
+  type Data027Observation,
+} from '../../tools/data-027-runtime-evidence.js';
+import {
+  evaluateDatabaseRequirement,
+  executeRequirementOracle,
+  expectRoleMembershipLifecycle,
+} from '../../tools/requirement-oracle.js';
 
-const root=process.cwd();
-const sql=fs.readdirSync(`${root}/supabase/migrations`).filter(x=>x.endsWith('.sql')).sort().map(x=>fs.readFileSync(`${root}/supabase/migrations/${x}`,'utf8')).join('\n');
-const source={sql,config:fs.readFileSync(`${root}/supabase/config.toml`,'utf8'),roles:fs.readFileSync(`${root}/supabase/roles.sql`,'utf8')};
+const root = process.cwd();
+const sql = fs.readdirSync(`${root}/supabase/migrations`)
+  .filter((name) => name.endsWith('.sql'))
+  .sort()
+  .map((name) => fs.readFileSync(`${root}/supabase/migrations/${name}`, 'utf8'))
+  .join('\n');
+const source = {
+  sql,
+  config: fs.readFileSync(`${root}/supabase/config.toml`, 'utf8'),
+  roles: fs.readFileSync(`${root}/supabase/roles.sql`, 'utf8'),
+};
+const registry = JSON.parse(fs.readFileSync(`${root}/docs/requirements-registry.v1.json`, 'utf8'));
+const evidence = JSON.parse(fs.readFileSync(`${root}/config/requirement-evidence.v1.json`, 'utf8'));
+const data027Row = registry.requirements.find((row: { id: string }) => row.id === 'DATA-027');
+const data027Claim = evidence.entries.find((claim: { id: string }) => claim.id === 'DATA-027');
+const runtimeRoots: string[] = [];
+const observation: Data027Observation = {
+  schemaVersion: 1,
+  gateRunId: 'oracle-test',
+  requirementId: 'DATA-027',
+  sessionsAttempted: 20,
+  successfulSeats: 2,
+  requiredRole: 'app_server',
+  databaseOrigin: 'LOOPBACK_LOCAL_SUPABASE',
+  testStatus: 'PASS',
+};
 
-describe('database security requirement oracle',()=>{
-  it('DATA-012 parses exact role-membership lifecycle evidence',()=>expect(()=>evaluateDatabaseRequirement('DATA-012')).not.toThrow());
-  it('DATA-027 parses exact real-session concurrency evidence',()=>expect(()=>evaluateDatabaseRequirement('DATA-027')).not.toThrow());
-  it('rejects DATA-012 duplicate or incomplete role membership lifecycles',()=>{const options={role:'game_security_owner',member:'postgres',grantCount:1,revokeCount:1};expect(()=>expectRoleMembershipLifecycle('GRANT game_security_owner TO postgres; REVOKE game_security_owner FROM postgres;',options)).not.toThrow();expect(()=>expectRoleMembershipLifecycle('GRANT game_security_owner TO postgres; GRANT game_security_owner TO postgres; REVOKE game_security_owner FROM postgres;',options)).toThrow(/lifecycle/);expect(()=>expectRoleMembershipLifecycle('GRANT game_security_owner TO postgres;',options)).toThrow(/lifecycle/);});
-  it('rejects DATA-012 added memberships hidden in combined role lists',()=>{const options={role:'game_security_owner',member:'postgres',grantCount:1,revokeCount:1},withAddedMembership='GRANT game_security_owner TO postgres; REVOKE game_security_owner FROM postgres; GRANT game_security_owner, economy_security_owner TO postgres; REVOKE game_security_owner, economy_security_owner FROM postgres;';expect(()=>expectRoleMembershipLifecycle(withAddedMembership,options)).toThrow(/lifecycle/);});
-  it('rejects DATA-012 target-role membership for an undeclared member',()=>{const options={role:'game_security_owner',member:'postgres',grantCount:1,revokeCount:1},withAddedMember='GRANT game_security_owner TO postgres; REVOKE game_security_owner FROM postgres; GRANT game_security_owner TO forged_operator; REVOKE game_security_owner FROM forged_operator;';expect(()=>expectRoleMembershipLifecycle(withAddedMember,options)).toThrow(/lifecycle/);});
-  it('ignores DATA-012 membership-like SQL inside dollar-quoted bodies',()=>{const options={role:'game_security_owner',member:'postgres',grantCount:1,revokeCount:1},withDollarBody="GRANT game_security_owner TO postgres; DO $body$ BEGIN PERFORM 'x;y'; GRANT game_security_owner TO postgres; END $body$; REVOKE game_security_owner FROM postgres;";expect(()=>expectRoleMembershipLifecycle(withDollarBody,options)).not.toThrow();});
-  it.each(['E','e'])('rejects DATA-012 forged memberships inside %s-prefixed escape strings',(prefix)=>{const options={role:'game_security_owner',member:'postgres',grantCount:1,revokeCount:1},withEscapeString=`SELECT ${prefix}'foo\\'; GRANT game_security_owner TO postgres; REVOKE game_security_owner FROM postgres; harmless';`;expect(()=>expectRoleMembershipLifecycle(withEscapeString,options)).toThrow(/lifecycle/);});
-  it('rejects DATA-027 session, seat, role, or loopback semantic mutations',()=>{
-    const testSource=fs.readFileSync(`${root}/tests/database/concurrency.test.ts`,'utf8'),options={sessions:20,expectedSeats:2,requiredRole:'app_server',loopbackOnly:true};
-    expect(()=>expectConcurrencyEvidence(testSource,options)).not.toThrow();
-    const mutations=[
-      testSource.replace('const clients = await Promise.all(Array.from({ length: 20 }','const clients = await Promise.all(Array.from({ length: 19 }'),
-      testSource.replace("'set role app_server'","'set role authenticated'"),
-      testSource.replace('toHaveLength(2)','toHaveLength(3)'),
-      testSource.replace("'../support/local-supabase-status.js'","'../support/remote-status.js'"),
-    ];
-    for(const mutated of mutations)expect(()=>expectConcurrencyEvidence(mutated,options)).toThrow(/concurrency/);
+const write = (targetRoot: string, relativePath: string, content: string): void => {
+  const target = path.join(targetRoot, ...relativePath.split('/'));
+  fs.mkdirSync(path.dirname(target), { recursive: true });
+  fs.writeFileSync(target, content);
+};
+
+const createRuntimeRoot = (): string => {
+  const targetRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'data-027-oracle-'));
+  runtimeRoots.push(targetRoot);
+  execFileSync('git', ['init', '--quiet', targetRoot]);
+  write(targetRoot, data027Row.source, fs.readFileSync(path.join(root, data027Row.source), 'utf8'));
+  write(targetRoot, 'supabase/migrations/202607260001_schema.sql', 'create table evidence ();');
+  for (const file of [
+    'tests/database/concurrency.test.ts',
+    'vitest.db.config.ts',
+    'tools/run-supabase-gate.mjs',
+    'tools/data-027-runtime-evidence.ts',
+    'tools/requirement-oracle.ts',
+  ]) write(targetRoot, file, file);
+  return targetRoot;
+};
+
+const executeData027 = (targetRoot: string) =>
+  executeRequirementOracle(targetRoot, data027Row, data027Claim);
+
+afterEach(() => {
+  for (const targetRoot of runtimeRoots.splice(0)) {
+    fs.rmSync(targetRoot, { recursive: true, force: true });
+  }
+});
+
+describe('database security requirement oracle', () => {
+  it('DATA-012 parses exact role-membership lifecycle evidence', () =>
+    expect(() => evaluateDatabaseRequirement('DATA-012')).not.toThrow());
+
+  it('rejects DATA-012 duplicate or incomplete role membership lifecycles', () => {
+    const options = { role: 'game_security_owner', member: 'postgres', grantCount: 1, revokeCount: 1 };
+    expect(() => expectRoleMembershipLifecycle(
+      'GRANT game_security_owner TO postgres; REVOKE game_security_owner FROM postgres;',
+      options,
+    )).not.toThrow();
+    expect(() => expectRoleMembershipLifecycle(
+      'GRANT game_security_owner TO postgres; GRANT game_security_owner TO postgres; REVOKE game_security_owner FROM postgres;',
+      options,
+    )).toThrow(/lifecycle/);
+    expect(() => expectRoleMembershipLifecycle('GRANT game_security_owner TO postgres;', options)).toThrow(/lifecycle/);
   });
+
+  it('rejects DATA-012 added memberships hidden in combined role lists', () => {
+    const options = { role: 'game_security_owner', member: 'postgres', grantCount: 1, revokeCount: 1 };
+    const withAddedMembership = 'GRANT game_security_owner TO postgres; REVOKE game_security_owner FROM postgres; GRANT game_security_owner, economy_security_owner TO postgres; REVOKE game_security_owner, economy_security_owner FROM postgres;';
+    expect(() => expectRoleMembershipLifecycle(withAddedMembership, options)).toThrow(/lifecycle/);
+  });
+
+  it('rejects DATA-012 target-role membership for an undeclared member', () => {
+    const options = { role: 'game_security_owner', member: 'postgres', grantCount: 1, revokeCount: 1 };
+    const withAddedMember = 'GRANT game_security_owner TO postgres; REVOKE game_security_owner FROM postgres; GRANT game_security_owner TO forged_operator; REVOKE game_security_owner FROM forged_operator;';
+    expect(() => expectRoleMembershipLifecycle(withAddedMember, options)).toThrow(/lifecycle/);
+  });
+
+  it('ignores DATA-012 membership-like SQL inside dollar-quoted bodies', () => {
+    const options = { role: 'game_security_owner', member: 'postgres', grantCount: 1, revokeCount: 1 };
+    const withDollarBody = "GRANT game_security_owner TO postgres; DO $body$ BEGIN PERFORM 'x;y'; GRANT game_security_owner TO postgres; END $body$; REVOKE game_security_owner FROM postgres;";
+    expect(() => expectRoleMembershipLifecycle(withDollarBody, options)).not.toThrow();
+  });
+
+  it.each(['E', 'e'])('rejects DATA-012 forged memberships inside %s-prefixed escape strings', (prefix) => {
+    const options = { role: 'game_security_owner', member: 'postgres', grantCount: 1, revokeCount: 1 };
+    const withEscapeString = `SELECT ${prefix}'foo\\'; GRANT game_security_owner TO postgres; REVOKE game_security_owner FROM postgres; harmless';`;
+    expect(() => expectRoleMembershipLifecycle(withEscapeString, options)).toThrow(/lifecycle/);
+  });
+
+  it('blocks DATA-027 when the runtime receipt is absent', () => {
+    expect(executeData027(createRuntimeRoot())).toMatchObject({
+      status: 'BLOCKED',
+      reason: 'LOCAL_DB_EVIDENCE_UNAVAILABLE',
+    });
+  });
+
+  it('passes DATA-027 when the runtime receipt is valid for the current input bundle', () => {
+    const targetRoot = createRuntimeRoot();
+    writeData027Receipt(targetRoot, observation, 'a'.repeat(40));
+    expect(executeData027(targetRoot).status).toBe('PASS');
+  });
+
+  it('blocks DATA-027 when the runtime receipt is forged', () => {
+    const targetRoot = createRuntimeRoot();
+    writeData027Receipt(targetRoot, observation, 'a'.repeat(40));
+    const receiptPath = path.join(targetRoot, ...DATA_027_RECEIPT_RELATIVE_PATH.split('/'));
+    const receipt = JSON.parse(fs.readFileSync(receiptPath, 'utf8'));
+    receipt.successfulSeats = 3;
+    fs.writeFileSync(receiptPath, JSON.stringify(receipt));
+    expect(executeData027(targetRoot)).toMatchObject({
+      status: 'BLOCKED',
+      reason: 'LOCAL_DB_EVIDENCE_UNAVAILABLE',
+    });
+  });
+
+  it('fails DATA-027 when its source projection is forged before receipt dispatch', () => {
+    const targetRoot = createRuntimeRoot();
+    expect(executeRequirementOracle(targetRoot, { ...data027Row, text: 'forged source row' }, data027Claim).status).toBe('FAIL');
+  });
+
+  it('fails an unsupported runtime-receipt requirement', () => {
+    const row = registry.requirements.find((candidate: { id: string }) => candidate.id === 'DATA-001');
+    const claim = evidence.entries.find((candidate: { id: string }) => candidate.id === 'DATA-001');
+    const runtimeClaim = { ...claim, oracle: { ...claim.oracle, kind: 'RUNTIME_RECEIPT' } };
+    expect(executeRequirementOracle(root, row, runtimeClaim).status).toBe('FAIL');
+  });
+
+  it.each(Array.from({ length: 13 }, (_, index) => `DATA-${String(index + 1).padStart(3, '0')}`))(
+    '%s has an exact repository predicate',
+    (id) => expect(evaluateDatabaseRequirement(id, source)).toBe(true),
+  );
+
   it.each([
-    ['fake connected clients',(testSource:string)=>testSource.replace('() => admin.connect()','() => Promise.resolve({} as PoolClient)')],
-    ['replaced join SQL',(testSource:string)=>testSource.replace("'select private.join_match_participant_v1($1,$2,$3) as joined'","'select true as joined'")],
-    ['remote database URL with unused loopback loader',(testSource:string)=>testSource.replace('const databaseUrl = localDatabaseUrl();',"const databaseUrl = 'postgresql://remote.example/postgres';")],
-    ['disconnected outer clients masked by connected shadow clients',(testSource:string)=>testSource.replace('const clients = await Promise.all(Array.from({ length: 20 }, () => admin.connect()));','const clients = await Promise.all(Array.from({ length: 20 }, () => Promise.resolve({} as PoolClient)));\n    { const clients = await Promise.all(Array.from({ length: 20 }, () => admin.connect())); void clients; }')],
-    ['remote production admin masked by unused safe declarations',(testSource:string)=>testSource.replace('const databaseUrl = localDatabaseUrl();',"function unusedSafePool() {\n  const databaseUrl = localDatabaseUrl();\n  const admin = new Pool({ connectionString: databaseUrl });\n  return admin;\n}\nconst databaseUrl = 'postgresql://remote.example/postgres';")],
-    ['remote localDatabaseUrl return masked by an inner safe url',(testSource:string)=>testSource.replace('  const url = loadLocalDatabaseUrl();',"  { const url = loadLocalDatabaseUrl(); void url.toString(); }\n  const url = new URL('postgresql://remote.example/postgres');")],
-    ['expected join SQL only in a statically unreachable branch',(testSource:string)=>testSource.replace("        const result = await client.query<{ joined: boolean }>(\n          'select private.join_match_participant_v1($1,$2,$3) as joined',\n          [matchId, participantKeys[index], userIds[index]],\n        );","        if (false) {\n          const result = await client.query<{ joined: boolean }>(\n            'select private.join_match_participant_v1($1,$2,$3) as joined',\n            [matchId, participantKeys[index], userIds[index]],\n          );\n          return result.rows[0]?.joined;\n        }\n        const result = await client.query<{ joined: boolean }>('select true as joined');")],
-    ['role setter and assertion only in a statically unreachable branch',(testSource:string)=>testSource.replace("async function asAppServer(client: PoolClient): Promise<void> {\n  await client.query('set role app_server');\n  const role = await client.query<{ current_user: string }>('select current_user');\n  expect(role.rows[0]?.current_user).toBe('app_server');\n}","async function asAppServer(client: PoolClient): Promise<void> {\n  if (false) {\n    await client.query('set role app_server');\n    const role = await client.query<{ current_user: string }>('select current_user');\n    expect(role.rows[0]?.current_user).toBe('app_server');\n  }\n  await client.query('select 1');\n}")],
-    ['expected join SQL only in an if(0) branch',(testSource:string)=>testSource.replace("        const result = await client.query<{ joined: boolean }>(\n          'select private.join_match_participant_v1($1,$2,$3) as joined',\n          [matchId, participantKeys[index], userIds[index]],\n        );","        if (0) {\n          const result = await client.query<{ joined: boolean }>(\n            'select private.join_match_participant_v1($1,$2,$3) as joined',\n            [matchId, participantKeys[index], userIds[index]],\n          );\n          return result.rows[0]?.joined;\n        }\n        const result = await client.query<{ joined: boolean }>('select true as joined');")],
-    ['role setter and assertion only in an if(0) branch',(testSource:string)=>testSource.replace("async function asAppServer(client: PoolClient): Promise<void> {\n  await client.query('set role app_server');\n  const role = await client.query<{ current_user: string }>('select current_user');\n  expect(role.rows[0]?.current_user).toBe('app_server');\n}","async function asAppServer(client: PoolClient): Promise<void> {\n  if (0) {\n    await client.query('set role app_server');\n    const role = await client.query<{ current_user: string }>('select current_user');\n    expect(role.rows[0]?.current_user).toBe('app_server');\n  }\n  await client.query('select 1');\n}")],
-    ['join result reference hidden behind a short circuit',(testSource:string)=>testSource.replace('return result.rows[0]?.joined;','return false && result.rows[0]?.joined;')],
-    ['role assertion reference hidden behind a short circuit',(testSource:string)=>testSource.replace("expect(role.rows[0]?.current_user).toBe('app_server');","expect(false && role.rows[0]?.current_user).toBe('app_server');")],
-    ['one user ID for twenty indexed clients',(testSource:string)=>testSource.replace('const userIds = Array.from({ length: 20 }','const userIds = Array.from({ length: 1 }')],
-    ['one participant key for twenty indexed clients',(testSource:string)=>testSource.replace('const participantKeys = Array.from({ length: 20 }','const participantKeys = Array.from({ length: 1 }')],
-    ['unusable user ID entries',(testSource:string)=>testSource.replace('const userIds = Array.from({ length: 20 }, () => randomUUID());',"const userIds = Array.from({ length: 20 }, () => 'not-a-uuid');")],
-    ['unusable participant key entries',(testSource:string)=>testSource.replace('const participantKeys = Array.from({ length: 20 }, () => randomUUID());',"const participantKeys = Array.from({ length: 20 }, () => 'not-a-uuid');")],
-    ['user ID cardinality truncated after construction',(testSource:string)=>testSource.replace('const userIds = Array.from({ length: 20 }, () => randomUUID());','const userIds = Array.from({ length: 20 }, () => randomUUID());\nuserIds.length = 1;')],
-    ['user ID cardinality truncated through an alias',(testSource:string)=>testSource.replace('const userIds = Array.from({ length: 20 }, () => randomUUID());','const userIds = Array.from({ length: 20 }, () => randomUUID());\nconst userIdsAlias = userIds;\nuserIdsAlias.length = 1;')],
-    ['participant keys shortened by a mutating call',(testSource:string)=>testSource.replace('const participantKeys = Array.from({ length: 20 }, () => randomUUID());','const participantKeys = Array.from({ length: 20 }, () => randomUUID());\nparticipantKeys.splice(1);')],
-    ['participant keys overwritten through an alias',(testSource:string)=>testSource.replace('const participantKeys = Array.from({ length: 20 }, () => randomUUID());','const participantKeys = Array.from({ length: 20 }, () => randomUUID());\nconst participantKeysAlias = participantKeys;\nparticipantKeysAlias[0] = randomUUID();')],
-    ['user IDs mutated through Object.defineProperty',(testSource:string)=>testSource.replace('const userIds = Array.from({ length: 20 }, () => randomUUID());',"const userIds = Array.from({ length: 20 }, () => randomUUID());\nObject.defineProperty(userIds, 'length', { value: 1 });")],
-    ['user IDs passed to a local mutator',(testSource:string)=>testSource.replace('const userIds = Array.from({ length: 20 }, () => randomUUID());','const userIds = Array.from({ length: 20 }, () => randomUUID());\nconst truncate = (values: string[]) => { values.length = 1; };\ntruncate(userIds);')],
-    ['user IDs mutated through a nested array container',(testSource:string)=>testSource.replace('const userIds = Array.from({ length: 20 }, () => randomUUID());','const userIds = Array.from({ length: 20 }, () => randomUUID());\nconst userIdsBox = [userIds];\nuserIdsBox[0]!.length = 1;')],
-    ['participant keys spliced through a nested array container',(testSource:string)=>testSource.replace('const participantKeys = Array.from({ length: 20 }, () => randomUUID());','const participantKeys = Array.from({ length: 20 }, () => randomUUID());\nconst participantKeysBox = [participantKeys];\nparticipantKeysBox[0]!.splice(1);')],
-    ['user IDs passed through an array to a destructuring mutator',(testSource:string)=>testSource.replace('const userIds = Array.from({ length: 20 }, () => randomUUID());','const userIds = Array.from({ length: 20 }, () => randomUUID());\nconst truncate = ([values]: string[][]) => { values!.length = 1; };\ntruncate([userIds]);')],
-    ['user IDs stored in an object container',(testSource:string)=>testSource.replace('const userIds = Array.from({ length: 20 }, () => randomUUID());','const userIds = Array.from({ length: 20 }, () => randomUUID());\nconst userIdsBox = { values: userIds };\nuserIdsBox.values.length = 1;')],
-    ['user IDs assigned into property storage',(testSource:string)=>testSource.replace('const userIds = Array.from({ length: 20 }, () => randomUUID());','const userIds = Array.from({ length: 20 }, () => randomUUID());\nconst userIdsBox: { values?: string[] } = {};\nuserIdsBox.values = userIds;\nuserIdsBox.values.length = 1;')],
-    ['user IDs returned from a helper',(testSource:string)=>testSource.replace('const userIds = Array.from({ length: 20 }, () => randomUUID());','const userIds = Array.from({ length: 20 }, () => randomUUID());\nconst leakUserIds = () => userIds;\nleakUserIds().length = 1;')],
-    ['user IDs spread into an unreviewed container',(testSource:string)=>testSource.replace('const userIds = Array.from({ length: 20 }, () => randomUUID());','const userIds = Array.from({ length: 20 }, () => randomUUID());\nconst copiedUserIds = [...userIds];\nvoid copiedUserIds;')],
-    ['user IDs used in a non-whitelisted expression',(testSource:string)=>testSource.replace('const userIds = Array.from({ length: 20 }, () => randomUUID());','const userIds = Array.from({ length: 20 }, () => randomUUID());\nvoid userIds;')],
-    ['never-returning helper called before role evidence',(testSource:string)=>testSource.replace('async function asAppServer(client: PoolClient): Promise<void> {',"function abortEvidence(): never { throw new Error('stop'); }\n\nasync function asAppServer(client: PoolClient): Promise<void> {").replace("  await client.query('set role app_server');","  abortEvidence();\n  await client.query('set role app_server');")],
-    ['throwing IIFE called before role evidence',(testSource:string)=>testSource.replace("  await client.query('set role app_server');","  (() => { throw new Error('stop'); })();\n  await client.query('set role app_server');")],
-    ['unknown void call before role evidence',(testSource:string)=>testSource.replace('async function asAppServer(client: PoolClient): Promise<void> {','function unrelatedCall(): void {}\n\nasync function asAppServer(client: PoolClient): Promise<void> {').replace("  await client.query('set role app_server');","  unrelatedCall();\n  await client.query('set role app_server');")],
-    ['unknown void call before scenario evidence',(testSource:string)=>testSource.replace("describe('join_match_participant_v1 concurrency', () => {","function unrelatedScenarioCall(): void {}\n\ndescribe('join_match_participant_v1 concurrency', () => {").replace("  it('allows exactly two seats across 20 real app_server sessions', async () => {\n    const clients","  it('allows exactly two seats across 20 real app_server sessions', async () => {\n    unrelatedScenarioCall();\n    const clients")],
-    ['unknown void call before join evidence',(testSource:string)=>testSource.replace('async function asAppServer(client: PoolClient): Promise<void> {','function unrelatedJoinCall(): void {}\n\nasync function asAppServer(client: PoolClient): Promise<void> {').replace('        await barrier;\n        const result','        await barrier;\n        unrelatedJoinCall();\n        const result')],
-    ['unknown sibling call in the clients declaration',(testSource:string)=>testSource.replace("describe('join_match_participant_v1 concurrency', () => {","function unrelatedSiblingCall(): void {}\n\ndescribe('join_match_participant_v1 concurrency', () => {").replace('    const clients = await Promise.all','    const ignored = unrelatedSiblingCall(), clients = await Promise.all')],
-    ['shadowed Promise combinator',(testSource:string)=>testSource.replace('const databaseUrl = localDatabaseUrl();',"const Promise = { all: async (_values: unknown) => [] };\nconst databaseUrl = localDatabaseUrl();")],
-    ['shadowed Array constructor',(testSource:string)=>testSource.replace('const databaseUrl = localDatabaseUrl();',"const Array = { from: (_shape: unknown, _factory: unknown) => [] };\nconst databaseUrl = localDatabaseUrl();")],
-    ['shadowed Boolean predicate',(testSource:string)=>testSource.replace('const databaseUrl = localDatabaseUrl();',"const Boolean = () => true;\nconst databaseUrl = localDatabaseUrl();")],
-  ])('rejects DATA-027 %s evidence',(_label,mutate)=>{const testSource=fs.readFileSync(`${root}/tests/database/concurrency.test.ts`,'utf8'),options={sessions:20,expectedSeats:2,requiredRole:'app_server',loopbackOnly:true};expect(()=>expectConcurrencyEvidence(mutate(testSource),options)).toThrow(/concurrency/);});
-  it.each(['false','0','-0','0n','-0n','NaN',"''",'null','undefined','1 === 2','0 / 0','2 - 2','1n > 2n','0 / 0 === 0 / 0'])('rejects role evidence that exists only under falsy if(%s)',condition=>{const testSource=fs.readFileSync(`${root}/tests/database/concurrency.test.ts`,'utf8'),options={sessions:20,expectedSeats:2,requiredRole:'app_server',loopbackOnly:true},mutated=testSource.replace("async function asAppServer(client: PoolClient): Promise<void> {\n  await client.query('set role app_server');\n  const role = await client.query<{ current_user: string }>('select current_user');\n  expect(role.rows[0]?.current_user).toBe('app_server');\n}",`async function asAppServer(client: PoolClient): Promise<void> {\n  if (${condition}) {\n    await client.query('set role app_server');\n    const role = await client.query<{ current_user: string }>('select current_user');\n    expect(role.rows[0]?.current_user).toBe('app_server');\n  }\n}`);expect(()=>expectConcurrencyEvidence(mutated,options)).toThrow(/concurrency/);});
-  it('rejects role evidence guarded by an unsupported condition',()=>{const testSource=fs.readFileSync(`${root}/tests/database/concurrency.test.ts`,'utf8'),options={sessions:20,expectedSeats:2,requiredRole:'app_server',loopbackOnly:true},mutated=testSource.replace("async function asAppServer(client: PoolClient): Promise<void> {\n  await client.query('set role app_server');\n  const role = await client.query<{ current_user: string }>('select current_user');\n  expect(role.rows[0]?.current_user).toBe('app_server');\n}","async function asAppServer(client: PoolClient): Promise<void> {\n  if (unknownCondition()) {\n    await client.query('set role app_server');\n    const role = await client.query<{ current_user: string }>('select current_user');\n    expect(role.rows[0]?.current_user).toBe('app_server');\n  }\n}");expect(()=>expectConcurrencyEvidence(mutated,options)).toThrow(/concurrency/);});
+    ['DATA-001', 'schemas = ["public", "graphql_public"]', 'schemas = ["public", "private"]'],
+    ['DATA-007', 'with (security_invoker = true)', 'with (security_invoker = false)'],
+    ['DATA-009', 'create role game_security_owner nologin noinherit', 'create role game_security_owner login inherit'],
+    ['DATA-010', 'revoke execute on function private.publish_economy_bundle_v1(jsonb,jsonb) from deployment_role', 'select 1'],
+    ['DATA-011', 'private.set_pet_lock_v1(uuid,uuid,text,uuid,boolean) from app_server', 'private.set_pet_lock_v1(uuid,uuid,text,uuid,boolean) from authenticated'],
+    ['DATA-013', 'set search_path = pg_catalog', 'set search_path = public'],
+  ])('%s rejects a security weakening mutation', (id, needle, replacement) =>
+    expect(() => evaluateDatabaseRequirement(id, {
+      ...source,
+      sql: source.sql.replaceAll(needle, replacement),
+      config: source.config.replaceAll(needle, replacement),
+      roles: source.roles.replaceAll(needle, replacement),
+    })).toThrow());
+
+  it('dispatches DATA-001 through DB_PROJECTION', () => {
+    const row = registry.requirements.find((candidate: { id: string }) => candidate.id === 'DATA-001');
+    const claim = evidence.entries.find((candidate: { id: string }) => candidate.id === 'DATA-001');
+    expect(executeRequirementOracle(root, row, claim).status).toBe('PASS');
+  });
+
+  it.each(Array.from({ length: 8 }, (_, index) => `DATA-${String(index + 14).padStart(3, '0')}`))(
+    '%s maps an exact match persistence predicate',
+    (id) => expect(evaluateDatabaseRequirement(id, source)).toBe(true),
+  );
+
+  it.each(Array.from({ length: 4 }, (_, index) => `DATA-${String(index + 23).padStart(3, '0')}`))(
+    '%s maps exact ACL evidence',
+    (id) => expect(evaluateDatabaseRequirement(id, source)).toBe(true),
+  );
+
+  it.each(['DATA-028', 'DATA-029'])(
+    '%s maps current domain or economy persistence evidence',
+    (id) => expect(evaluateDatabaseRequirement(id, source)).toBe(true),
+  );
+
   it.each([
-    ['break','while (true) {\n    break;\n    EVIDENCE\n  }'],
-    ['continue','while (true) {\n    continue;\n    EVIDENCE\n  }'],
-    ['return','return;\n  EVIDENCE'],
-    ['throw',"throw new Error('stop');\n  EVIDENCE"],
-  ])('rejects role evidence after unconditional %s completion',(_completion,template)=>{const testSource=fs.readFileSync(`${root}/tests/database/concurrency.test.ts`,'utf8'),options={sessions:20,expectedSeats:2,requiredRole:'app_server',loopbackOnly:true},evidence="await client.query('set role app_server');\n    const role = await client.query<{ current_user: string }>('select current_user');\n    expect(role.rows[0]?.current_user).toBe('app_server');",mutated=testSource.replace("  await client.query('set role app_server');\n  const role = await client.query<{ current_user: string }>('select current_user');\n  expect(role.rows[0]?.current_user).toBe('app_server');",template.replace('EVIDENCE',evidence));expect(()=>expectConcurrencyEvidence(mutated,options)).toThrow(/concurrency/);});
-  it.each(['true','1','-1','1n','1_0',"'live'",'1 === 1','2 - 1','1n < 2n','0 / 0 !== 0 / 0','1 / 0'])('accepts live role evidence under truthy if(%s)',condition=>{const testSource=fs.readFileSync(`${root}/tests/database/concurrency.test.ts`,'utf8'),options={sessions:20,expectedSeats:2,requiredRole:'app_server',loopbackOnly:true},mutated=testSource.replace("async function asAppServer(client: PoolClient): Promise<void> {\n  await client.query('set role app_server');\n  const role = await client.query<{ current_user: string }>('select current_user');\n  expect(role.rows[0]?.current_user).toBe('app_server');\n}",`async function asAppServer(client: PoolClient): Promise<void> {\n  if (${condition}) {\n    await client.query('set role app_server');\n    const role = await client.query<{ current_user: string }>('select current_user');\n    expect(role.rows[0]?.current_user).toBe('app_server');\n  }\n}`);expect(()=>expectConcurrencyEvidence(mutated,options)).not.toThrow();});
-  it.each(Array.from({length:13},(_,i)=>`DATA-${String(i+1).padStart(3,'0')}`))('%s has an exact repository predicate',id=>expect(evaluateDatabaseRequirement(id,source)).toBe(true));
-  it.each([
-    ['DATA-001','schemas = ["public", "graphql_public"]','schemas = ["public", "private"]'],
-    ['DATA-007','with (security_invoker = true)','with (security_invoker = false)'],
-    ['DATA-009','create role game_security_owner nologin noinherit','create role game_security_owner login inherit'],
-    ['DATA-010','revoke execute on function private.publish_economy_bundle_v1(jsonb,jsonb) from deployment_role','select 1'],
-    ['DATA-011','private.set_pet_lock_v1(uuid,uuid,text,uuid,boolean) from app_server','private.set_pet_lock_v1(uuid,uuid,text,uuid,boolean) from authenticated'],
-    ['DATA-013','set search_path = pg_catalog','set search_path = public'],
-  ])('%s rejects a security weakening mutation',(id,needle,replacement)=>expect(()=>evaluateDatabaseRequirement(id,{...source,sql:source.sql.replaceAll(needle,replacement),config:source.config.replaceAll(needle,replacement),roles:source.roles.replaceAll(needle,replacement)})).toThrow());
-  it('dispatches DATA-001 through DB_PROJECTION',()=>{const registry=JSON.parse(fs.readFileSync(`${root}/docs/requirements-registry.v1.json`,'utf8')),evidence=JSON.parse(fs.readFileSync(`${root}/config/requirement-evidence.v1.json`,'utf8'));const row=registry.requirements.find((x:{id:string})=>x.id==='DATA-001'),claim=evidence.entries.find((x:{id:string})=>x.id==='DATA-001');expect(executeRequirementOracle(root,row,claim).status).toBe('PASS');});
-  it.each(Array.from({length:8},(_,i)=>`DATA-${String(i+14).padStart(3,'0')}`))('%s maps an exact match persistence predicate',id=>expect(evaluateDatabaseRequirement(id,source)).toBe(true));
-  it.each(Array.from({length:5},(_,i)=>`DATA-${String(i+23).padStart(3,'0')}`))('%s maps exact ACL or concurrency evidence',id=>expect(evaluateDatabaseRequirement(id,source)).toBe(true));
-  it.each(['DATA-028','DATA-029'])('%s maps current domain or economy persistence evidence',id=>expect(evaluateDatabaseRequirement(id,source)).toBe(true));
-  it.each([['DATA-014',"'SUDDEN_DEATH'","'SUDDEN_DRIFT'"],['DATA-017','check (seat_no in (1,2))','check (seat_no in (1,2,3))'],['DATA-018','deferrable initially deferred','not deferrable'],['DATA-020','primary key(match_id, objective_id)','primary key(match_id, participant_key)'],['DATA-021',"old.status = 'COMPLETED'","old.status = 'PENDING'"]])('%s rejects invariant mutation',(id,a,b)=>expect(()=>evaluateDatabaseRequirement(id,{...source,sql:source.sql.replace(a,b)})).toThrow());
+    ['DATA-014', "'SUDDEN_DEATH'", "'SUDDEN_DRIFT'"],
+    ['DATA-017', 'check (seat_no in (1,2))', 'check (seat_no in (1,2,3))'],
+    ['DATA-018', 'deferrable initially deferred', 'not deferrable'],
+    ['DATA-020', 'primary key(match_id, objective_id)', 'primary key(match_id, participant_key)'],
+    ['DATA-021', "old.status = 'COMPLETED'", "old.status = 'PENDING'"],
+  ])('%s rejects invariant mutation', (id, before, after) =>
+    expect(() => evaluateDatabaseRequirement(id, { ...source, sql: source.sql.replace(before, after) })).toThrow());
 });

@@ -2425,12 +2425,12 @@
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
       "metric": "release_requirement_gate_status",
-      "evidenceKind": "DB_PROJECTION",
-      "oracle": "DATA-027:DB_PROJECTION:PASS",
+      "evidenceKind": "RUNTIME_RECEIPT",
+      "oracle": "DATA-027:RUNTIME_RECEIPT:BLOCKED",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-027",
-      "linkageProof": "994d6181020bdf200f9ac692520f607da36c24f3c058a10124b0e35c598fd356"
+      "closureCondition": "Run the bounded local Supabase gate for the current evidence-input bundle",
+      "linkageProof": "429c0941eb80e30ad1d40e2618df46b397c3f0d529510bec24f9a2a500f8f118"
     },
     {
       "id": "DATA-028",

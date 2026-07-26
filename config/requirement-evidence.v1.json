@@ -2611,18 +2611,18 @@
     },
     {
       "id": "DATA-027",
-      "evidenceKind": "DB_PROJECTION",
+      "evidenceKind": "RUNTIME_RECEIPT",
       "oracle": {
-        "kind": "DB_PROJECTION",
-        "expected": "PASS",
-        "input": "DATA-027"
+        "kind": "RUNTIME_RECEIPT",
+        "expected": "BLOCKED",
+        "input": ".superpowers/evidence/data-027/receipt.json"
       },
-      "testCase": "DATA-027 executes DB_PROJECTION",
+      "testCase": "DATA-027 validates a worktree-local runtime receipt",
       "metric": "release_requirement_gate_status",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
       "phase": "IMPLEMENTED",
-      "closureCondition": "Implement exact repository-local DB_PROJECTION oracle for DATA-027"
+      "closureCondition": "Run the bounded local Supabase gate for the current evidence-input bundle"
     },
     {
       "id": "DATA-028",

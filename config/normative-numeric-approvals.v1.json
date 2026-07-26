@@ -1101,7 +1101,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact repository-local 1:1 revision projection oracle green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "22bc6c842659bcbf07d42a3a83bb12b082a9ade5a0160b96ec49bbb4d11f65e2",
+      "ssotHash": "981ea97963a8484affb95d55e798ac614e64f0b5e49b6f56412aeb06ffeaf738",
       "ssotAssertions": [
         {
           "pointer": "/entries/111/oracle/expected",
@@ -1121,7 +1121,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact seat and 20-session concurrency predicate green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "22bc6c842659bcbf07d42a3a83bb12b082a9ade5a0160b96ec49bbb4d11f65e2",
+      "ssotHash": "981ea97963a8484affb95d55e798ac614e64f0b5e49b6f56412aeb06ffeaf738",
       "ssotAssertions": [
         {
           "pointer": "/entries/124/oracle/expected",
@@ -1137,13 +1137,13 @@
       "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
       "evidenceOwner": "database",
-      "closureCondition": "Keep exact 20-session concurrency evidence green",
+      "closureCondition": "Run the bounded local Supabase gate for exact 20-session concurrency evidence",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "22bc6c842659bcbf07d42a3a83bb12b082a9ade5a0160b96ec49bbb4d11f65e2",
+      "ssotHash": "981ea97963a8484affb95d55e798ac614e64f0b5e49b6f56412aeb06ffeaf738",
       "ssotAssertions": [
         {
           "pointer": "/entries/134/oracle/expected",
-          "expected": "PASS"
+          "expected": "BLOCKED"
         }
       ]
     },
