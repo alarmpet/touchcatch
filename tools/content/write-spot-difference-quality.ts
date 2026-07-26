@@ -23,16 +23,16 @@ function objectiveDetails(change: string) {
     const [, target, before, after] = changeMatch;
     return {
       target: target!,
-      location: `the localized scene area containing ${target}`,
-      before: before ?? `the source-image appearance of ${target}`,
+      location: /\b(near|below|above|left|right|lower|upper|foreground|center|front|back)\b/i.test(target!) ? target! : 'PENDING',
+      before: before ?? 'PENDING',
       after: after!,
-      changeType: /\b(shape|star|square|circle|eyepiece|prongs|blades?)\b/i.test(instruction) ? 'SHAPE' : /\b(one|two|three|four|extra)\b/i.test(instruction) ? 'COUNT' : 'COLOR',
+      changeType: /\b(?:one|two|three|four|five|\d+)\b.*\b(?:one|two|three|four|five|\d+)\b/i.test(instruction) ? 'COUNT' : /\b(shape|star|square|circle|rectangle|diamond|eyepiece|prongs|blades?)\b/i.test(instruction) ? 'SHAPE' : 'COLOR',
     };
   }
-  if (/^add /i.test(instruction)) return { target: instruction.replace(/^add (?:one )?/i, ''), location: `the localized scene area described by ${instruction}`, before: 'absent from the source image', after: 'present in the edited image', changeType: 'ADD' };
-  if (/^remove /i.test(instruction)) return { target: instruction.replace(/^remove (?:only )?/i, ''), location: `the localized scene area described by ${instruction}`, before: 'present in the source image', after: 'removed from the edited image', changeType: 'REMOVE' };
-  if (/^reverse /i.test(instruction)) return { target: instruction.replace(/^reverse (?:only )?/i, ''), location: `the localized scene area described by ${instruction}`, before: 'original direction in the source image', after: 'reversed direction in the edited image', changeType: 'DIRECTION' };
-  return { target: instruction, location: `the localized scene area described by ${instruction}`, before: 'source-image state', after: 'edited-image state', changeType: lower.includes('remove') ? 'REMOVE' : 'SHAPE' };
+  if (/^add /i.test(instruction)) return { target: instruction.replace(/^add (?:one )?/i, ''), location: 'PENDING', before: 'absent from the source image', after: 'present in the edited image', changeType: 'ADD' };
+  if (/^remove /i.test(instruction)) return { target: instruction.replace(/^remove (?:only )?/i, ''), location: 'PENDING', before: 'present in the source image', after: 'removed from the edited image', changeType: 'REMOVE' };
+  if (/^reverse /i.test(instruction)) return { target: instruction.replace(/^reverse (?:only )?/i, ''), location: 'PENDING', before: 'original direction in the source image', after: 'reversed direction in the edited image', changeType: 'DIRECTION' };
+  return { target: instruction, location: 'PENDING', before: 'PENDING', after: 'PENDING', changeType: lower.includes('remove') ? 'REMOVE' : 'SHAPE' };
 }
 
 async function editInstructions(key: string) {
@@ -64,6 +64,7 @@ const entries = await Promise.all(catalog.entries.map(async (catalogEntry) => {
     salience: index < 4 ? 'CLEAR' : index < 7 ? 'MODERATE' : 'FOCUSED',
     ...objectiveDetails(instructions[index]!),
     zone: zoneFor(difference.hitboxes.imageA),
+    authoringEvidence: { status: 'PENDING', rawInstruction: instructions[index]!, blocker: 'AUTHORING_FIELDS_REQUIRE_REVIEW' },
     mobileReview: { status: 'PENDING', reviewer: null, reviewedAt: null },
   }));
   const computed = diagnostics(objectives);
@@ -77,7 +78,7 @@ const entries = await Promise.all(catalog.entries.map(async (catalogEntry) => {
     imagePairReview: { status: 'PENDING', sameComposition: null, sameCamera: null, sameLightingDirection: null, sameArtStyle: null, unintendedChangeStatus: 'PENDING', reviewedBy: null, reviewedAt: null },
     releaseReadiness: {
       status: 'PENDING',
-      blockers: ['CATALOG_DRAFT', ...(spatialPass ? [] : ['SPATIAL_DISTRIBUTION_REQUIRED']), ...(typePass ? [] : ['CHANGE_TYPE_DIVERSITY_REQUIRED']), 'MOBILE_REVIEW_REQUIRED', 'IMAGE_PAIR_REVIEW_REQUIRED'],
+      blockers: ['CATALOG_DRAFT', 'AUTHORING_FIELDS_REQUIRE_REVIEW', ...(spatialPass ? [] : ['SPATIAL_DISTRIBUTION_REQUIRED']), ...(typePass ? [] : ['CHANGE_TYPE_DIVERSITY_REQUIRED']), 'MOBILE_REVIEW_REQUIRED', 'IMAGE_PAIR_REVIEW_REQUIRED'],
       diagnostics: computed,
     },
   };

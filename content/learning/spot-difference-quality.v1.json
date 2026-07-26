@@ -14,11 +14,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the large purple flower near the lower center of the sprout bed",
-          "location": "the localized scene area containing the large purple flower near the lower center of the sprout bed",
-          "before": "the source-image appearance of the large purple flower near the lower center of the sprout bed",
+          "location": "the large purple flower near the lower center of the sprout bed",
+          "before": "PENDING",
           "after": "bright yellow",
           "changeType": "COLOR",
           "zone": "H",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "Change only the large purple flower near the lower center of the sprout bed to bright yellow.",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -30,11 +35,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the curved handle of the turquoise watering can held by the student in yellow",
-          "location": "the localized scene area described by Reverse only the curved handle of the turquoise watering can held by the student in yellow",
+          "location": "PENDING",
           "before": "original direction in the source image",
           "after": "reversed direction in the edited image",
           "changeType": "DIRECTION",
           "zone": "D",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "Reverse only the curved handle of the turquoise watering can held by the student in yellow.",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -46,11 +56,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the single orange fallen leaf directly below the watering can student",
-          "location": "the localized scene area described by Remove only the single orange fallen leaf directly below the watering can student",
+          "location": "PENDING",
           "before": "present in the source image",
           "after": "removed from the edited image",
           "changeType": "REMOVE",
           "zone": "E",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "Remove only the single orange fallen leaf directly below the watering can student.",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -62,11 +77,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "small white cloud in the clear blue sky immediately to the right of the rainbow",
-          "location": "the localized scene area described by Add one small white cloud in the clear blue sky immediately to the right of the rainbow",
+          "location": "PENDING",
           "before": "absent from the source image",
           "after": "present in the edited image",
           "changeType": "ADD",
           "zone": "B",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "Add one small white cloud in the clear blue sky immediately to the right of the rainbow.",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -78,11 +98,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the far-right blue-handled garden tool in the cabinet",
-          "location": "the localized scene area containing the far-right blue-handled garden tool in the cabinet",
-          "before": "the source-image appearance of the far-right blue-handled garden tool in the cabinet",
+          "location": "the far-right blue-handled garden tool in the cabinet",
+          "before": "PENDING",
           "after": "an orange handle",
           "changeType": "COLOR",
           "zone": "F",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "Change only the far-right blue-handled garden tool in the cabinet to an orange handle.",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -94,11 +119,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "extra leaf to the smallest sprout at the front-left corner of the central sprout bed",
-          "location": "the localized scene area described by Add one extra leaf to the smallest sprout at the front-left corner of the central sprout bed",
+          "location": "PENDING",
           "before": "absent from the source image",
           "after": "present in the edited image",
           "changeType": "ADD",
           "zone": "H",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "Add one extra leaf to the smallest sprout at the front-left corner of the central sprout bed.",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -110,11 +140,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the blade of the loose foreground trowel",
-          "location": "the localized scene area containing the blade of the loose foreground trowel",
+          "location": "the blade of the loose foreground trowel",
           "before": "a pointed shape",
           "after": "a rounded square shape",
           "changeType": "SHAPE",
           "zone": "H",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "Change only the blade of the loose foreground trowel from a pointed shape to a rounded square shape.",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -126,11 +161,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the diagonal direction of only the top wooden slat on the foreground bench",
-          "location": "the localized scene area described by Reverse the diagonal direction of only the top wooden slat on the foreground bench",
+          "location": "PENDING",
           "before": "original direction in the source image",
           "after": "reversed direction in the edited image",
           "changeType": "DIRECTION",
           "zone": "G",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "Reverse the diagonal direction of only the top wooden slat on the foreground bench.",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -142,11 +182,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the greenhouse entrance door window",
-          "location": "the localized scene area containing the greenhouse entrance door window",
+          "location": "PENDING",
           "before": "a rectangle",
           "after": "a diamond-shaped pane",
-          "changeType": "COLOR",
+          "changeType": "SHAPE",
           "zone": "E",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "Change only the greenhouse entrance door window from a rectangle to a diamond-shaped pane.",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -158,11 +203,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the compost bin's lower front ventilation opening",
-          "location": "the localized scene area containing the compost bin's lower front ventilation opening",
+          "location": "the compost bin's lower front ventilation opening",
           "before": "one long opening",
           "after": "two short openings",
           "changeType": "COUNT",
           "zone": "I",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "Change only the compost bin's lower front ventilation opening from one long opening to two short openings.",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -184,6 +234,7 @@
         "status": "PENDING",
         "blockers": [
           "CATALOG_DRAFT",
+          "AUTHORING_FIELDS_REQUIRE_REVIEW",
           "SPATIAL_DISTRIBUTION_REQUIRED",
           "MOBILE_REVIEW_REQUIRED",
           "IMAGE_PAIR_REVIEW_REQUIRED"
@@ -217,11 +268,11 @@
           ],
           "changeTypeCounts": {
             "ADD": 2,
-            "COLOR": 3,
+            "COLOR": 2,
             "COUNT": 1,
             "DIRECTION": 2,
             "REMOVE": 1,
-            "SHAPE": 1
+            "SHAPE": 2
           }
         }
       }
@@ -239,11 +290,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the robot's two glowing eyes",
-          "location": "the localized scene area containing the robot's two glowing eyes",
+          "location": "PENDING",
           "before": "cyan",
           "after": "yellow",
-          "changeType": "COUNT",
+          "changeType": "COLOR",
           "zone": "D",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the robot's two glowing eyes from cyan to yellow",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -255,11 +311,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the robot antenna tip",
-          "location": "the localized scene area containing the robot antenna tip",
+          "location": "PENDING",
           "before": "a sphere",
           "after": "a star",
           "changeType": "SHAPE",
           "zone": "A",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the robot antenna tip from a sphere to a star",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -271,11 +332,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "one tooth from the large loose gear on the left table",
-          "location": "the localized scene area described by remove one tooth from the large loose gear on the left table",
+          "location": "PENDING",
           "before": "present in the source image",
           "after": "removed from the edited image",
           "changeType": "REMOVE",
           "zone": "D",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "remove one tooth from the large loose gear on the left table",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -287,11 +353,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the drawing compass's blue center ring",
-          "location": "the localized scene area containing the drawing compass's blue center ring",
-          "before": "the source-image appearance of the drawing compass's blue center ring",
+          "location": "the drawing compass's blue center ring",
+          "before": "PENDING",
           "after": "red",
           "changeType": "COLOR",
           "zone": "D",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the drawing compass's blue center ring to red",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -303,11 +374,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the robotic arm claw",
-          "location": "the localized scene area containing the robotic arm claw",
+          "location": "PENDING",
           "before": "two prongs",
           "after": "three",
-          "changeType": "SHAPE",
+          "changeType": "COUNT",
           "zone": "E",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the robotic arm claw from two prongs to three",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -319,11 +395,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the top-left blue shape on the abstract canvas",
-          "location": "the localized scene area containing the top-left blue shape on the abstract canvas",
-          "before": "the source-image appearance of the top-left blue shape on the abstract canvas",
+          "location": "the top-left blue shape on the abstract canvas",
+          "before": "PENDING",
           "after": "green",
           "changeType": "SHAPE",
           "zone": "F",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the top-left blue shape on the abstract canvas to green",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -335,11 +416,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the rightmost paintbrush from the blue brush cup",
-          "location": "the localized scene area described by remove the rightmost paintbrush from the blue brush cup",
+          "location": "PENDING",
           "before": "present in the source image",
           "after": "removed from the edited image",
           "changeType": "REMOVE",
           "zone": "F",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "remove the rightmost paintbrush from the blue brush cup",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -351,11 +437,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "one red paint blob on the palette",
-          "location": "the localized scene area containing one red paint blob on the palette",
-          "before": "the source-image appearance of one red paint blob on the palette",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "purple",
-          "changeType": "COUNT",
+          "changeType": "COLOR",
           "zone": "F",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change one red paint blob on the palette to purple",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -367,11 +458,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "a small green hat to the clay figure",
-          "location": "the localized scene area described by add a small green hat to the clay figure",
+          "location": "PENDING",
           "before": "absent from the source image",
           "after": "present in the edited image",
           "changeType": "ADD",
           "zone": "F",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "add a small green hat to the clay figure",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -383,11 +479,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the hanging purple star decoration",
-          "location": "the localized scene area containing the hanging purple star decoration",
-          "before": "the source-image appearance of the hanging purple star decoration",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "bright yellow",
           "changeType": "SHAPE",
           "zone": "C",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the hanging purple star decoration to bright yellow",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -409,6 +510,7 @@
         "status": "PENDING",
         "blockers": [
           "CATALOG_DRAFT",
+          "AUTHORING_FIELDS_REQUIRE_REVIEW",
           "SPATIAL_DISTRIBUTION_REQUIRED",
           "MOBILE_REVIEW_REQUIRED",
           "IMAGE_PAIR_REVIEW_REQUIRED"
@@ -437,10 +539,10 @@
           ],
           "changeTypeCounts": {
             "ADD": 1,
-            "COLOR": 1,
-            "COUNT": 2,
+            "COLOR": 3,
+            "COUNT": 1,
             "REMOVE": 2,
-            "SHAPE": 4
+            "SHAPE": 3
           }
         }
       }
@@ -458,11 +560,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "one upper-left solar-panel cell",
-          "location": "the localized scene area containing one upper-left solar-panel cell",
+          "location": "one upper-left solar-panel cell",
           "before": "blue",
           "after": "yellow",
-          "changeType": "COUNT",
+          "changeType": "COLOR",
           "zone": "A",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change one upper-left solar-panel cell from blue to yellow",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -474,11 +581,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the white recycling symbol on the blue bin",
-          "location": "the localized scene area containing the white recycling symbol on the blue bin",
-          "before": "the source-image appearance of the white recycling symbol on the blue bin",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "a white leaf icon",
           "changeType": "COLOR",
           "zone": "G",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the white recycling symbol on the blue bin to a white leaf icon",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -490,11 +602,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the yellow recycling bin lid",
-          "location": "the localized scene area containing the yellow recycling bin lid",
-          "before": "the source-image appearance of the yellow recycling bin lid",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "red",
           "changeType": "COLOR",
           "zone": "E",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the yellow recycling bin lid to red",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -506,11 +623,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the bicycle front-wheel lamp",
-          "location": "the localized scene area containing the bicycle front-wheel lamp",
+          "location": "the bicycle front-wheel lamp",
           "before": "white",
           "after": "orange",
           "changeType": "COLOR",
           "zone": "H",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the bicycle front-wheel lamp from white to orange",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -522,11 +644,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the wind turbine",
-          "location": "the localized scene area containing the wind turbine",
+          "location": "PENDING",
           "before": "three blades",
           "after": "four",
-          "changeType": "SHAPE",
+          "changeType": "COUNT",
           "zone": "B",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the wind turbine from three blades to four",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -538,11 +665,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the mini-bus left headlight",
-          "location": "the localized scene area containing the mini-bus left headlight",
+          "location": "the mini-bus left headlight",
           "before": "pale blue",
           "after": "yellow",
           "changeType": "COLOR",
           "zone": "F",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the mini-bus left headlight from pale blue to yellow",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -554,11 +686,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the rain-barrel spigot so its handle points left",
-          "location": "the localized scene area described by reverse the rain-barrel spigot so its handle points left",
+          "location": "PENDING",
           "before": "original direction in the source image",
           "after": "reversed direction in the edited image",
           "changeType": "DIRECTION",
           "zone": "I",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "reverse the rain-barrel spigot so its handle points left",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -570,11 +707,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the watering-can sprinkler rose",
-          "location": "the localized scene area containing the watering-can sprinkler rose",
+          "location": "PENDING",
           "before": "green",
           "after": "red",
           "changeType": "COLOR",
           "zone": "F",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the watering-can sprinkler rose from green to red",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -586,11 +728,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the cap of the yellow reusable bottle",
-          "location": "the localized scene area containing the cap of the yellow reusable bottle",
-          "before": "the source-image appearance of the cap of the yellow reusable bottle",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "white",
           "changeType": "COLOR",
           "zone": "I",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the cap of the yellow reusable bottle to white",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -602,11 +749,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "one orange flower from the lower-left foreground planter",
-          "location": "the localized scene area described by remove one orange flower from the lower-left foreground planter",
+          "location": "PENDING",
           "before": "present in the source image",
           "after": "removed from the edited image",
           "changeType": "REMOVE",
           "zone": "G",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "remove one orange flower from the lower-left foreground planter",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -628,6 +780,7 @@
         "status": "PENDING",
         "blockers": [
           "CATALOG_DRAFT",
+          "AUTHORING_FIELDS_REQUIRE_REVIEW",
           "CHANGE_TYPE_DIVERSITY_REQUIRED",
           "MOBILE_REVIEW_REQUIRED",
           "IMAGE_PAIR_REVIEW_REQUIRED"
@@ -655,15 +808,13 @@
             "COLOR",
             "COUNT",
             "DIRECTION",
-            "REMOVE",
-            "SHAPE"
+            "REMOVE"
           ],
           "changeTypeCounts": {
-            "COLOR": 6,
+            "COLOR": 7,
             "COUNT": 1,
             "DIRECTION": 1,
-            "REMOVE": 1,
-            "SHAPE": 1
+            "REMOVE": 1
           }
         }
       }
@@ -681,11 +832,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the green desk-lamp shade",
-          "location": "the localized scene area containing the green desk-lamp shade",
-          "before": "the source-image appearance of the green desk-lamp shade",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "red",
           "changeType": "COLOR",
           "zone": "E",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the green desk-lamp shade to red",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -697,11 +853,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the silver key below the lamp",
-          "location": "the localized scene area containing the silver key below the lamp",
-          "before": "the source-image appearance of the silver key below the lamp",
+          "location": "the silver key below the lamp",
+          "before": "PENDING",
           "after": "gold",
           "changeType": "COLOR",
           "zone": "H",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the silver key below the lamp to gold",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -713,11 +874,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the flashlight body",
-          "location": "the localized scene area containing the flashlight body",
+          "location": "PENDING",
           "before": "yellow",
           "after": "blue",
           "changeType": "COLOR",
           "zone": "H",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the flashlight body from yellow to blue",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -729,11 +895,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the magnifying-glass handle",
-          "location": "the localized scene area containing the magnifying-glass handle",
+          "location": "PENDING",
           "before": "black",
           "after": "red",
           "changeType": "COLOR",
           "zone": "G",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the magnifying-glass handle from black to red",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -745,11 +916,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the wall clock rim",
-          "location": "the localized scene area containing the wall clock rim",
+          "location": "PENDING",
           "before": "brown",
           "after": "blue",
           "changeType": "COLOR",
           "zone": "C",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the wall clock rim from brown to blue",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -761,11 +937,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the oval cutout in the wooden chair back",
-          "location": "the localized scene area containing the oval cutout in the wooden chair back",
-          "before": "the source-image appearance of the oval cutout in the wooden chair back",
+          "location": "the oval cutout in the wooden chair back",
+          "before": "PENDING",
           "after": "a star-shaped cutout",
           "changeType": "SHAPE",
           "zone": "E",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the oval cutout in the wooden chair back to a star-shaped cutout",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -777,11 +958,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the globe oceans",
-          "location": "the localized scene area containing the globe oceans",
+          "location": "PENDING",
           "before": "blue",
           "after": "purple",
           "changeType": "COLOR",
           "zone": "C",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the globe oceans from blue to purple",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -793,11 +979,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the right foreground plant pot",
-          "location": "the localized scene area containing the right foreground plant pot",
+          "location": "the right foreground plant pot",
           "before": "white",
           "after": "orange",
           "changeType": "COLOR",
           "zone": "I",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the right foreground plant pot from white to orange",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -809,11 +1000,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the pencil cup",
-          "location": "the localized scene area containing the pencil cup",
+          "location": "PENDING",
           "before": "purple",
           "after": "green",
           "changeType": "COLOR",
           "zone": "I",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the pencil cup from purple to green",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -825,11 +1021,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the backpack zipper pull",
-          "location": "the localized scene area containing the backpack zipper pull",
+          "location": "PENDING",
           "before": "gold",
           "after": "red",
           "changeType": "COLOR",
           "zone": "D",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the backpack zipper pull from gold to red",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -851,6 +1052,7 @@
         "status": "PENDING",
         "blockers": [
           "CATALOG_DRAFT",
+          "AUTHORING_FIELDS_REQUIRE_REVIEW",
           "SPATIAL_DISTRIBUTION_REQUIRED",
           "CHANGE_TYPE_DIVERSITY_REQUIRED",
           "MOBILE_REVIEW_REQUIRED",
@@ -897,11 +1099,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the prism base edge",
-          "location": "the localized scene area containing the prism base edge",
+          "location": "PENDING",
           "before": "pale blue",
           "after": "pink",
           "changeType": "COLOR",
           "zone": "E",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the prism base edge from pale blue to pink",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -913,11 +1120,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the lamp rim",
-          "location": "the localized scene area containing the lamp rim",
+          "location": "PENDING",
           "before": "black",
           "after": "red",
           "changeType": "COLOR",
           "zone": "D",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the lamp rim from black to red",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -929,11 +1141,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the leftmost purple test-tube liquid",
-          "location": "the localized scene area containing the leftmost purple test-tube liquid",
-          "before": "the source-image appearance of the leftmost purple test-tube liquid",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "yellow",
           "changeType": "COLOR",
           "zone": "G",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the leftmost purple test-tube liquid to yellow",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -945,11 +1162,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the magnet's red pole",
-          "location": "the localized scene area containing the magnet's red pole",
-          "before": "the source-image appearance of the magnet's red pole",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "green",
           "changeType": "COLOR",
           "zone": "H",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the magnet's red pole to green",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -961,11 +1183,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the ring from the orange model planet",
-          "location": "the localized scene area described by remove the ring from the orange model planet",
+          "location": "PENDING",
           "before": "present in the source image",
           "after": "removed from the edited image",
           "changeType": "REMOVE",
           "zone": "I",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "remove the ring from the orange model planet",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -977,11 +1204,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the right flask liquid",
-          "location": "the localized scene area containing the right flask liquid",
+          "location": "the right flask liquid",
           "before": "blue",
           "after": "green",
           "changeType": "COLOR",
           "zone": "F",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the right flask liquid from blue to green",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -993,11 +1225,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the globe stand",
-          "location": "the localized scene area containing the globe stand",
+          "location": "PENDING",
           "before": "black",
           "after": "red",
           "changeType": "COLOR",
           "zone": "C",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the globe stand from black to red",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1009,11 +1246,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the shelf plant pot",
-          "location": "the localized scene area containing the shelf plant pot",
+          "location": "PENDING",
           "before": "blue",
           "after": "yellow",
           "changeType": "COLOR",
           "zone": "C",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the shelf plant pot from blue to yellow",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1025,11 +1267,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the purple crystal",
-          "location": "the localized scene area containing the purple crystal",
-          "before": "the source-image appearance of the purple crystal",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "bright turquoise",
           "changeType": "COLOR",
           "zone": "C",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the purple crystal to bright turquoise",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1041,11 +1288,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the left microscope's two black eyepieces",
-          "location": "the localized scene area containing the left microscope's two black eyepieces",
-          "before": "the source-image appearance of the left microscope's two black eyepieces",
+          "location": "the left microscope's two black eyepieces",
+          "before": "PENDING",
           "after": "one centered eyepiece",
-          "changeType": "SHAPE",
+          "changeType": "COUNT",
           "zone": "D",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the left microscope's two black eyepieces to one centered eyepiece",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1067,6 +1319,7 @@
         "status": "PENDING",
         "blockers": [
           "CATALOG_DRAFT",
+          "AUTHORING_FIELDS_REQUIRE_REVIEW",
           "SPATIAL_DISTRIBUTION_REQUIRED",
           "CHANGE_TYPE_DIVERSITY_REQUIRED",
           "MOBILE_REVIEW_REQUIRED",
@@ -1093,13 +1346,13 @@
           },
           "changeTypes": [
             "COLOR",
-            "REMOVE",
-            "SHAPE"
+            "COUNT",
+            "REMOVE"
           ],
           "changeTypeCounts": {
             "COLOR": 8,
-            "REMOVE": 1,
-            "SHAPE": 1
+            "COUNT": 1,
+            "REMOVE": 1
           }
         }
       }
@@ -1117,11 +1370,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the wall clock rim",
-          "location": "the localized scene area containing the wall clock rim",
+          "location": "PENDING",
           "before": "black",
           "after": "green",
           "changeType": "COLOR",
           "zone": "C",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the wall clock rim from black to green",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1133,11 +1391,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the desk lamp shade",
-          "location": "the localized scene area containing the desk lamp shade",
+          "location": "PENDING",
           "before": "black",
           "after": "blue",
           "changeType": "COLOR",
           "zone": "C",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the desk lamp shade from black to blue",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1149,11 +1412,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the right shelf plant pot",
-          "location": "the localized scene area containing the right shelf plant pot",
+          "location": "the right shelf plant pot",
           "before": "yellow",
           "after": "pink",
           "changeType": "COLOR",
           "zone": "F",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the right shelf plant pot from yellow to pink",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1165,11 +1433,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the large cone of the left speaker",
-          "location": "the localized scene area containing the large cone of the left speaker",
+          "location": "the large cone of the left speaker",
           "before": "beige",
           "after": "blue",
           "changeType": "COLOR",
           "zone": "G",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the large cone of the left speaker from beige to blue",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1181,11 +1454,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the large cone of the right speaker",
-          "location": "the localized scene area containing the large cone of the right speaker",
+          "location": "the large cone of the right speaker",
           "before": "beige",
           "after": "green",
           "changeType": "COLOR",
           "zone": "I",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the large cone of the right speaker from beige to green",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1197,11 +1475,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the pencil cup",
-          "location": "the localized scene area containing the pencil cup",
+          "location": "PENDING",
           "before": "purple",
           "after": "orange",
           "changeType": "COLOR",
           "zone": "G",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the pencil cup from purple to orange",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1213,11 +1496,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the yellow memo pad near the left speaker",
-          "location": "the localized scene area containing the yellow memo pad near the left speaker",
-          "before": "the source-image appearance of the yellow memo pad near the left speaker",
+          "location": "the yellow memo pad near the left speaker",
+          "before": "PENDING",
           "after": "purple",
           "changeType": "COLOR",
           "zone": "G",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the yellow memo pad near the left speaker to purple",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1229,11 +1517,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the center blue star cushion",
-          "location": "the localized scene area containing the center blue star cushion",
-          "before": "the source-image appearance of the center blue star cushion",
+          "location": "the center blue star cushion",
+          "before": "PENDING",
           "after": "pink",
           "changeType": "SHAPE",
           "zone": "E",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the center blue star cushion to pink",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1245,11 +1538,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the single yellow square button on the mixer",
-          "location": "the localized scene area containing the single yellow square button on the mixer",
-          "before": "the source-image appearance of the single yellow square button on the mixer",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "bright blue",
           "changeType": "SHAPE",
           "zone": "H",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the single yellow square button on the mixer to bright blue",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1261,11 +1559,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the center of the loose headphones' visible earcup",
-          "location": "the localized scene area containing the center of the loose headphones' visible earcup",
+          "location": "the center of the loose headphones' visible earcup",
           "before": "dark gray",
           "after": "red",
           "changeType": "COLOR",
           "zone": "I",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the center of the loose headphones' visible earcup from dark gray to red",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1287,6 +1590,7 @@
         "status": "PENDING",
         "blockers": [
           "CATALOG_DRAFT",
+          "AUTHORING_FIELDS_REQUIRE_REVIEW",
           "SPATIAL_DISTRIBUTION_REQUIRED",
           "CHANGE_TYPE_DIVERSITY_REQUIRED",
           "MOBILE_REVIEW_REQUIRED",
@@ -1333,11 +1637,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the left basketball backboard border",
-          "location": "the localized scene area containing the left basketball backboard border",
+          "location": "the left basketball backboard border",
           "before": "orange",
           "after": "blue",
           "changeType": "COLOR",
           "zone": "A",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the left basketball backboard border from orange to blue",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1349,11 +1658,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "one tall pink umbrella in the foreground stand",
-          "location": "the localized scene area containing one tall pink umbrella in the foreground stand",
-          "before": "the source-image appearance of one tall pink umbrella in the foreground stand",
+          "location": "one tall pink umbrella in the foreground stand",
+          "before": "PENDING",
           "after": "white",
-          "changeType": "COUNT",
+          "changeType": "COLOR",
           "zone": "G",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change one tall pink umbrella in the foreground stand to white",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1365,11 +1679,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the sun in the center sunset painting",
-          "location": "the localized scene area containing the sun in the center sunset painting",
+          "location": "the sun in the center sunset painting",
           "before": "yellow",
           "after": "purple",
           "changeType": "COLOR",
           "zone": "B",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the sun in the center sunset painting from yellow to purple",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1381,11 +1700,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the stage trophy",
-          "location": "the localized scene area containing the stage trophy",
+          "location": "PENDING",
           "before": "gold",
           "after": "silver",
           "changeType": "COLOR",
           "zone": "F",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the stage trophy from gold to silver",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1397,11 +1721,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the red paint dot on the giant palette",
-          "location": "the localized scene area containing the red paint dot on the giant palette",
-          "before": "the source-image appearance of the red paint dot on the giant palette",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "green",
           "changeType": "COLOR",
           "zone": "B",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the red paint dot on the giant palette to green",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1413,11 +1742,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "one middle ladder step",
-          "location": "the localized scene area containing one middle ladder step",
+          "location": "PENDING",
           "before": "silver",
           "after": "red",
-          "changeType": "COUNT",
+          "changeType": "COLOR",
           "zone": "E",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change one middle ladder step from silver to red",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1429,11 +1763,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the top segment of the center colorful sculpture",
-          "location": "the localized scene area containing the top segment of the center colorful sculpture",
+          "location": "the top segment of the center colorful sculpture",
           "before": "purple",
           "after": "yellow",
           "changeType": "COLOR",
           "zone": "E",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the top segment of the center colorful sculpture from purple to yellow",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1445,11 +1784,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the fish in the foreground framed painting",
-          "location": "the localized scene area containing the fish in the foreground framed painting",
+          "location": "the fish in the foreground framed painting",
           "before": "yellow",
           "after": "red",
           "changeType": "COLOR",
           "zone": "I",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the fish in the foreground framed painting from yellow to red",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1461,11 +1805,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the large purple foreground vase",
-          "location": "the localized scene area containing the large purple foreground vase",
-          "before": "the source-image appearance of the large purple foreground vase",
+          "location": "the large purple foreground vase",
+          "before": "PENDING",
           "after": "green",
           "changeType": "COLOR",
           "zone": "I",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the large purple foreground vase to green",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1477,11 +1826,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the blue award ribbon on the right display",
-          "location": "the localized scene area containing the blue award ribbon on the right display",
-          "before": "the source-image appearance of the blue award ribbon on the right display",
+          "location": "the blue award ribbon on the right display",
+          "before": "PENDING",
           "after": "red",
           "changeType": "COLOR",
           "zone": "C",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the blue award ribbon on the right display to red",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1503,6 +1857,7 @@
         "status": "PENDING",
         "blockers": [
           "CATALOG_DRAFT",
+          "AUTHORING_FIELDS_REQUIRE_REVIEW",
           "CHANGE_TYPE_DIVERSITY_REQUIRED",
           "MOBILE_REVIEW_REQUIRED",
           "IMAGE_PAIR_REVIEW_REQUIRED"
@@ -1527,12 +1882,10 @@
             "I": 2
           },
           "changeTypes": [
-            "COLOR",
-            "COUNT"
+            "COLOR"
           ],
           "changeTypeCounts": {
-            "COLOR": 8,
-            "COUNT": 2
+            "COLOR": 10
           }
         }
       }
@@ -1550,11 +1903,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the hanging yellow raincoat",
-          "location": "the localized scene area containing the hanging yellow raincoat",
-          "before": "the source-image appearance of the hanging yellow raincoat",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "red",
           "changeType": "COLOR",
           "zone": "A",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the hanging yellow raincoat to red",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1566,11 +1924,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the hanging blue gloves",
-          "location": "the localized scene area containing the hanging blue gloves",
-          "before": "the source-image appearance of the hanging blue gloves",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "orange",
           "changeType": "COLOR",
           "zone": "D",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the hanging blue gloves to orange",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1582,11 +1945,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the red first-aid box on the shelf",
-          "location": "the localized scene area containing the red first-aid box on the shelf",
-          "before": "the source-image appearance of the red first-aid box on the shelf",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "green",
           "changeType": "COLOR",
           "zone": "D",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the red first-aid box on the shelf to green",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1598,11 +1966,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the cap of the center foreground water bottle",
-          "location": "the localized scene area containing the cap of the center foreground water bottle",
+          "location": "the cap of the center foreground water bottle",
           "before": "blue",
           "after": "red",
           "changeType": "COLOR",
           "zone": "H",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the cap of the center foreground water bottle from blue to red",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1614,11 +1987,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "one bar of the floor drain grate",
-          "location": "the localized scene area containing one bar of the floor drain grate",
+          "location": "PENDING",
           "before": "dark gray",
           "after": "yellow",
-          "changeType": "COUNT",
+          "changeType": "COLOR",
           "zone": "E",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change one bar of the floor drain grate from dark gray to yellow",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1630,11 +2008,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the window latch held by the student",
-          "location": "the localized scene area containing the window latch held by the student",
+          "location": "PENDING",
           "before": "gray",
           "after": "red",
           "changeType": "COLOR",
           "zone": "B",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the window latch held by the student from gray to red",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1646,11 +2029,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the top sandbag",
-          "location": "the localized scene area containing the top sandbag",
+          "location": "PENDING",
           "before": "beige",
           "after": "green",
           "changeType": "COLOR",
           "zone": "F",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the top sandbag from beige to green",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1662,11 +2050,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the handheld flashlight's front rim",
-          "location": "the localized scene area containing the handheld flashlight's front rim",
+          "location": "the handheld flashlight's front rim",
           "before": "black",
           "after": "blue",
           "changeType": "COLOR",
           "zone": "F",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the handheld flashlight's front rim from black to blue",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1678,11 +2071,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the radio antenna so it leans to the right",
-          "location": "the localized scene area described by reverse the radio antenna so it leans to the right",
+          "location": "PENDING",
           "before": "original direction in the source image",
           "after": "reversed direction in the edited image",
           "changeType": "DIRECTION",
           "zone": "G",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "reverse the radio antenna so it leans to the right",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1694,11 +2092,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the red whistle on the table",
-          "location": "the localized scene area containing the red whistle on the table",
-          "before": "the source-image appearance of the red whistle on the table",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "yellow",
           "changeType": "COLOR",
           "zone": "H",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the red whistle on the table to yellow",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1720,6 +2123,7 @@
         "status": "PENDING",
         "blockers": [
           "CATALOG_DRAFT",
+          "AUTHORING_FIELDS_REQUIRE_REVIEW",
           "CHANGE_TYPE_DIVERSITY_REQUIRED",
           "MOBILE_REVIEW_REQUIRED",
           "IMAGE_PAIR_REVIEW_REQUIRED"
@@ -1745,12 +2149,10 @@
           },
           "changeTypes": [
             "COLOR",
-            "COUNT",
             "DIRECTION"
           ],
           "changeTypeCounts": {
-            "COLOR": 8,
-            "COUNT": 1,
+            "COLOR": 9,
             "DIRECTION": 1
           }
         }
@@ -1769,11 +2171,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the leftmost blue spotlight lens",
-          "location": "the localized scene area containing the leftmost blue spotlight lens",
-          "before": "the source-image appearance of the leftmost blue spotlight lens",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "red",
           "changeType": "COLOR",
           "zone": "A",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the leftmost blue spotlight lens to red",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1785,11 +2192,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the pink hanging lantern",
-          "location": "the localized scene area containing the pink hanging lantern",
-          "before": "the source-image appearance of the pink hanging lantern",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "orange",
           "changeType": "COLOR",
           "zone": "B",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the pink hanging lantern to orange",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1801,11 +2213,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the wrench icon on the left role card",
-          "location": "the localized scene area containing the wrench icon on the left role card",
+          "location": "the wrench icon on the left role card",
           "before": "gray",
           "after": "red",
           "changeType": "COLOR",
           "zone": "E",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the wrench icon on the left role card from gray to red",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1817,11 +2234,16 @@
           "tier": "NORMAL",
           "salience": "CLEAR",
           "target": "the lamp beam on the right role card",
-          "location": "the localized scene area containing the lamp beam on the right role card",
+          "location": "the lamp beam on the right role card",
           "before": "yellow",
           "after": "blue",
           "changeType": "COLOR",
           "zone": "E",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the lamp beam on the right role card from yellow to blue",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1833,11 +2255,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the purple floor arrow",
-          "location": "the localized scene area containing the purple floor arrow",
-          "before": "the source-image appearance of the purple floor arrow",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "orange",
           "changeType": "COLOR",
           "zone": "H",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the purple floor arrow to orange",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1849,11 +2276,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the red toolbox",
-          "location": "the localized scene area containing the red toolbox",
-          "before": "the source-image appearance of the red toolbox",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "blue",
           "changeType": "COLOR",
           "zone": "G",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the red toolbox to blue",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1865,11 +2297,16 @@
           "tier": "NORMAL",
           "salience": "MODERATE",
           "target": "the work-glove cuff",
-          "location": "the localized scene area containing the work-glove cuff",
+          "location": "PENDING",
           "before": "blue",
           "after": "red",
           "changeType": "COLOR",
           "zone": "G",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the work-glove cuff from blue to red",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1881,11 +2318,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the large wooden star prop",
-          "location": "the localized scene area containing the large wooden star prop",
+          "location": "PENDING",
           "before": "yellow",
           "after": "green",
           "changeType": "SHAPE",
           "zone": "I",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the large wooden star prop from yellow to green",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1897,11 +2339,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the pink paint can",
-          "location": "the localized scene area containing the pink paint can",
-          "before": "the source-image appearance of the pink paint can",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "purple",
           "changeType": "COLOR",
           "zone": "I",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the pink paint can to purple",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1913,11 +2360,16 @@
           "tier": "HARD",
           "salience": "FOCUSED",
           "target": "the pink band on the black top hat",
-          "location": "the localized scene area containing the pink band on the black top hat",
-          "before": "the source-image appearance of the pink band on the black top hat",
+          "location": "PENDING",
+          "before": "PENDING",
           "after": "green",
           "changeType": "COLOR",
           "zone": "C",
+          "authoringEvidence": {
+            "status": "PENDING",
+            "rawInstruction": "change the pink band on the black top hat to green",
+            "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
+          },
           "mobileReview": {
             "status": "PENDING",
             "reviewer": null,
@@ -1939,6 +2391,7 @@
         "status": "PENDING",
         "blockers": [
           "CATALOG_DRAFT",
+          "AUTHORING_FIELDS_REQUIRE_REVIEW",
           "CHANGE_TYPE_DIVERSITY_REQUIRED",
           "MOBILE_REVIEW_REQUIRED",
           "IMAGE_PAIR_REVIEW_REQUIRED"
