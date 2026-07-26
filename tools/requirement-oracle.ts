@@ -196,11 +196,23 @@ export function expectConcurrencyEvidence(testSource:string,expected:{sessions:n
  const flowSet=(...outcomes:FlowOutcome[])=>new Set<FlowOutcome>(outcomes);
  const mergeFlows=(...flows:Array<Set<FlowOutcome>>)=>new Set(flows.flatMap(flow=>[...flow]));
  const statementFlow=(statement:ts.Statement,depth=0):Set<FlowOutcome>=>{
-  if(depth>32)return flowSet('NORMAL');
+  if(depth>32)return flowSet();
   if(ts.isReturnStatement(statement))return flowSet('RETURN');
   if(ts.isThrowStatement(statement))return flowSet('THROW');
   if(ts.isBreakStatement(statement))return flowSet('BREAK');
   if(ts.isContinueStatement(statement))return flowSet('CONTINUE');
+  if(ts.isExpressionStatement(statement)){
+   let expression=transparent(statement.expression),awaited=false;
+   if(ts.isAwaitExpression(expression)){awaited=true;expression=transparent(expression.expression);}
+   if(ts.isCallExpression(expression)){
+    const signature=checker.getResolvedSignature(expression);
+    if(signature&&(checker.getReturnTypeOfSignature(signature).flags&ts.TypeFlags.Never)!==0)return flowSet('THROW');
+    const callee=transparent(expression.expression);
+    if((ts.isArrowFunction(callee)||ts.isFunctionExpression(callee))&&(!callee.modifiers?.some(modifier=>modifier.kind===ts.SyntaxKind.AsyncKeyword)||awaited)){
+     return ts.isBlock(callee.body)?statementFlow(callee.body,depth+1):flowSet('NORMAL');
+    }
+   }
+  }
   if(ts.isBlock(statement))return statementsFlow(statement.statements,depth+1);
   if(ts.isIfStatement(statement)){
    const condition=constantTruthiness(statement.expression);
@@ -267,6 +279,25 @@ export function expectConcurrencyEvidence(testSource:string,expected:{sessions:n
   }
   return false;
  };
+ const callsBefore=(node:ts.Node,boundary:ts.Node)=>{
+  const calls:ts.CallExpression[]=[];let child=node;
+  for(let parent=node.parent;parent;child=parent,parent=parent.parent){
+   if(ts.isVariableDeclarationList(parent)&&ts.isVariableDeclaration(child)){
+    const declarationIndex=parent.declarations.indexOf(child);
+    if(declarationIndex>=0)for(const declaration of parent.declarations.slice(0,declarationIndex))for(const candidate of ownNodes(declaration))if(ts.isCallExpression(candidate))calls.push(candidate);
+   }
+   if(ts.isBlock(parent)||ts.isSourceFile(parent)){
+    const statementIndex=parent.statements.indexOf(child as ts.Statement);
+    if(statementIndex>=0)for(const statement of parent.statements.slice(0,statementIndex))for(const candidate of ownNodes(statement))if(ts.isCallExpression(candidate))calls.push(candidate);
+   }
+   if(parent===boundary)break;
+  }
+  return calls;
+ };
+ const reviewedCallChain=(nodes:ts.Node[],boundary:ts.Node,allowedCalls:Iterable<ts.CallExpression>)=>{
+  const allowed=new Set(allowedCalls);
+  return nodes.every((node,index)=>reachable(node,boundary)&&(index===0||nodes[index-1]!.getStart()<node.getStart())&&callsBefore(node,boundary).every(call=>allowed.has(call)));
+ };
  const namedImportSymbol=(moduleName:string,exportName:string)=>{for(const statement of sourceFile.statements){if(!ts.isImportDeclaration(statement)||!ts.isStringLiteral(statement.moduleSpecifier)||statement.moduleSpecifier.text!==moduleName||!statement.importClause?.namedBindings||!ts.isNamedImports(statement.importClause.namedBindings))continue;const element=statement.importClause.namedBindings.elements.find(binding=>(binding.propertyName?.text??binding.name.text)===exportName);if(element)return symbolAt(element.name);}return undefined;};
  const variableForSymbol=(symbol:ts.Symbol|undefined)=>symbol?.declarations?.find((declaration):declaration is ts.VariableDeclaration=>ts.isVariableDeclaration(declaration));
  const isDirectTopVariable=(declaration:ts.VariableDeclaration|undefined)=>!!declaration&&ts.isVariableDeclarationList(declaration.parent)&&ts.isVariableStatement(declaration.parent.parent)&&declaration.parent.parent.parent===sourceFile;
@@ -279,13 +310,25 @@ export function expectConcurrencyEvidence(testSource:string,expected:{sessions:n
  };
  const boundMethodCall=(node:ts.Expression|undefined,owner:ts.Symbol|undefined,method:string)=>{const call=callExpression(node);if(!call||!ts.isPropertyAccessExpression(call.expression)||call.expression.name.text!==method)return undefined;return sameSymbol(identifierSymbol(call.expression.expression),owner)?call:undefined;};
  const unshadowedGlobalCall=(node:ts.Expression|undefined,owner:string,method:string)=>{const call=callExpression(node);if(!call||!ts.isPropertyAccessExpression(call.expression)||call.expression.name.text!==method)return undefined;const receiver=transparent(call.expression.expression);return ts.isIdentifier(receiver)&&receiver.text===owner&&!symbolAt(receiver)?call:undefined;};
- const promiseAllArgument=(initializer:ts.Expression|undefined)=>{const call=unshadowedGlobalCall(awaitedExpression(initializer),'Promise','all');return call&&call.arguments.length===1?call.arguments[0]:undefined;};
- const returnedExpression=(callback:ts.ArrowFunction|ts.FunctionExpression)=>{if(!ts.isBlock(callback.body))return transparent(callback.body);const returns=ownNodes(callback.body).filter((node):node is ts.ReturnStatement=>ts.isReturnStatement(node)&&!!node.expression&&reachable(node,callback.body));return returns.length===1?returns[0]!.expression:undefined;};
+ const returnedExpression=(callback:ts.ArrowFunction|ts.FunctionExpression)=>{if(!ts.isBlock(callback.body))return transparent(callback.body);const returns=ownNodes(callback.body).filter((node):node is ts.ReturnStatement=>ts.isReturnStatement(node)&&!!node.expression&&reachable(node,callback.body));return returns.length===1&&reviewedCallChain([returns[0]!],callback.body,[])?returns[0]!.expression:undefined;};
  const allNodes=(root:ts.Node)=>{const nodes:ts.Node[]=[];const visit=(node:ts.Node)=>{nodes.push(node);ts.forEachChild(node,visit);};visit(root);return nodes;};
- const orderedReachableChain=(nodes:ts.Node[],boundary:ts.Node)=>nodes.every((node,index)=>reachable(node,boundary)&&(index===0||nodes[index-1]!.getStart()<node.getStart()));
- const arrayRemainsStable=(declaration:ts.VariableDeclaration,arraySymbol:ts.Symbol)=>{
+ const arrayRemainsStable=(declaration:ts.VariableDeclaration,arraySymbol:ts.Symbol,queryOwner:ts.Symbol|undefined,indexSymbol:ts.Symbol|undefined)=>{
   if(!ts.isVariableDeclarationList(declaration.parent)||(declaration.parent.flags&ts.NodeFlags.Const)===0)return false;
   const nodes=allNodes(sourceFile),aliases=new Set<ts.Symbol>([arraySymbol]),usesAlias=(node:ts.Expression|undefined)=>{const symbol=identifierSymbol(node);return symbol!==undefined&&aliases.has(symbol);};
+  const referenceAllowed=(reference:ts.Identifier)=>{
+   if(reference===declaration.name)return true;
+   const parent=reference.parent;
+   if(ts.isElementAccessExpression(parent)&&parent.expression===reference&&parent.argumentExpression&&sameSymbol(identifierSymbol(parent.argumentExpression),indexSymbol))return true;
+   if(ts.isPropertyAccessExpression(parent)&&parent.expression===reference){
+    if(parent.name.text==='length')return true;
+    if(parent.name.text==='map'&&ts.isCallExpression(parent.parent)&&parent.parent.expression===parent)return true;
+   }
+   if(ts.isArrayLiteralExpression(parent)&&parent.elements.some(element=>element===reference)&&ts.isCallExpression(parent.parent)&&parent.parent.arguments[1]===parent){
+    return !!boundMethodCall(parent.parent,queryOwner,'query');
+   }
+   return false;
+  };
+  if(nodes.some(node=>ts.isIdentifier(node)&&sameSymbol(symbolAt(node),arraySymbol)&&node.getStart()>=declaration.getStart()&&!referenceAllowed(node)))return false;
   const safeArrayCallbacks=new Set(['every','filter','find','findIndex','flatMap','forEach','map','reduce','reduceRight','some']);
   for(let pass=0;pass<32;pass++){
    let changed=false;
@@ -339,7 +382,9 @@ export function expectConcurrencyEvidence(testSource:string,expected:{sessions:n
  if(seatAssertions.length!==1)fail();
  const seatAssertion=seatAssertions[0]!,resultsDeclaration=variableForSymbol(seatAssertion.results);
  if(!resultsDeclaration||!scenarioNodes.includes(resultsDeclaration)||!resultsDeclaration.initializer)fail();
- const callsSymbol=identifierSymbol(promiseAllArgument(resultsDeclaration.initializer));
+ const resultsPromiseAll=unshadowedGlobalCall(awaitedExpression(resultsDeclaration.initializer),'Promise','all');
+ if(!resultsPromiseAll||resultsPromiseAll.arguments.length!==1)fail();
+ const callsSymbol=identifierSymbol(resultsPromiseAll.arguments[0]);
  const callsDeclaration=variableForSymbol(callsSymbol);
  if(!callsDeclaration||!scenarioNodes.includes(callsDeclaration)||!callsDeclaration.initializer)fail();
  const callsMap=callExpression(callsDeclaration.initializer);
@@ -348,8 +393,8 @@ export function expectConcurrencyEvidence(testSource:string,expected:{sessions:n
  if(!clientsSymbol||!callsCallback||(!ts.isArrowFunction(callsCallback)&&!ts.isFunctionExpression(callsCallback))||!callsCallback.modifiers?.some(modifier=>modifier.kind===ts.SyntaxKind.AsyncKeyword)||callsCallback.parameters.length!==2||!ts.isIdentifier(callsCallback.parameters[0]!.name)||!ts.isIdentifier(callsCallback.parameters[1]!.name))fail();
  const clientsDeclaration=variableForSymbol(clientsSymbol);
  if(!clientsDeclaration||!scenarioNodes.includes(clientsDeclaration)||!clientsDeclaration.initializer)fail();
- const clientsAll=promiseAllArgument(clientsDeclaration.initializer),arrayFrom=clientsAll&&callExpression(clientsAll);
- if(!arrayFrom||!unshadowedGlobalCall(arrayFrom,'Array','from')||arrayFromLength(arrayFrom)!==expected.sessions)fail();
+ const clientsPromiseAll=unshadowedGlobalCall(awaitedExpression(clientsDeclaration.initializer),'Promise','all'),clientsAll=clientsPromiseAll?.arguments.length===1?clientsPromiseAll.arguments[0]:undefined,arrayFrom=clientsAll&&callExpression(clientsAll);
+ if(!clientsPromiseAll||!arrayFrom||!unshadowedGlobalCall(arrayFrom,'Array','from')||arrayFromLength(arrayFrom)!==expected.sessions)fail();
  const clientFactory=arrayFrom.arguments[1];
  if(!clientFactory||(!ts.isArrowFunction(clientFactory)&&!ts.isFunctionExpression(clientFactory)))fail();
  const connectCall=callExpression(returnedExpression(clientFactory));
@@ -366,28 +411,50 @@ export function expectConcurrencyEvidence(testSource:string,expected:{sessions:n
  if(!localUrlCall||!ts.isIdentifier(localUrlCall.expression)||localUrlCall.arguments.length!==0)fail();
  const localUrlFunction=functionForSymbol(symbolAt(localUrlCall.expression));
  if(!localUrlFunction||localUrlFunction.name?.text!=='localDatabaseUrl'||!localUrlFunction.body)fail();
- if(expected.loopbackOnly){const localUrlBody=localUrlFunction.body!,localNodes=ownNodes(localUrlBody).filter(node=>reachable(node,localUrlBody)),returns=localNodes.filter((node):node is ts.ReturnStatement=>ts.isReturnStatement(node)&&!!node.expression);if(returns.length!==1)fail();const toStringCall=callExpression(returns[0]!.expression);if(!toStringCall||!ts.isPropertyAccessExpression(toStringCall.expression)||toStringCall.expression.name.text!=='toString'||toStringCall.arguments.length!==0)fail();const urlSymbol=identifierSymbol(toStringCall.expression.expression),urlDeclaration=variableForSymbol(urlSymbol);if(!urlDeclaration||!localNodes.includes(urlDeclaration)||!urlDeclaration.initializer||urlDeclaration.getStart()>=returns[0]!.getStart())fail();const loaderCall=callExpression(urlDeclaration.initializer);if(!loaderCall||!ts.isIdentifier(loaderCall.expression)||!sameSymbol(symbolAt(loaderCall.expression),loaderSymbol)||loaderCall.arguments.length!==0)fail();}
- const roleApplications=scenarioNodes.flatMap(node=>{if(!ts.isAwaitExpression(node)||!ts.isExpressionStatement(node.parent)||node.parent.expression!==node)return[];const all=unshadowedGlobalCall(transparent(node.expression),'Promise','all');if(!all||all.arguments.length!==1)return[];const mapped=callExpression(all.arguments[0]);if(!mapped||!ts.isPropertyAccessExpression(mapped.expression)||mapped.expression.name.text!=='map'||!sameSymbol(identifierSymbol(mapped.expression.expression),clientsSymbol)||mapped.arguments.length!==1||!ts.isIdentifier(mapped.arguments[0]!))return[];const role=symbolAt(mapped.arguments[0]!);return role?[{node,role}]:[];});
+ if(expected.loopbackOnly){const localUrlBody=localUrlFunction.body!,localNodes=ownNodes(localUrlBody).filter(node=>reachable(node,localUrlBody)),returns=localNodes.filter((node):node is ts.ReturnStatement=>ts.isReturnStatement(node)&&!!node.expression);if(returns.length!==1)fail();const toStringCall=callExpression(returns[0]!.expression);if(!toStringCall||!ts.isPropertyAccessExpression(toStringCall.expression)||toStringCall.expression.name.text!=='toString'||toStringCall.arguments.length!==0)fail();const urlSymbol=identifierSymbol(toStringCall.expression.expression),urlDeclaration=variableForSymbol(urlSymbol);if(!urlDeclaration||!localNodes.includes(urlDeclaration)||!urlDeclaration.initializer||urlDeclaration.getStart()>=returns[0]!.getStart())fail();const loaderCall=callExpression(urlDeclaration.initializer);if(!loaderCall||!ts.isIdentifier(loaderCall.expression)||!sameSymbol(symbolAt(loaderCall.expression),loaderSymbol)||loaderCall.arguments.length!==0||!reviewedCallChain([urlDeclaration,returns[0]!],localUrlBody,[loaderCall]))fail();}
+ const releaseDeclarations=scenarioNodes.filter((node):node is ts.VariableDeclaration=>ts.isVariableDeclaration(node)&&ts.isIdentifier(node.name)&&node.name.text==='release'&&!node.initializer&&ts.isVariableDeclarationList(node.parent)&&(node.parent.flags&ts.NodeFlags.Let)!==0);
+ if(releaseDeclarations.length!==1)fail();
+ const releaseSymbol=symbolAt(releaseDeclarations[0]!.name),barrierDeclarations=scenarioNodes.filter((node):node is ts.VariableDeclaration=>ts.isVariableDeclaration(node)&&ts.isIdentifier(node.name)&&node.name.text==='barrier'&&!!node.initializer);
+ if(!releaseSymbol||barrierDeclarations.length!==1)fail();
+ const barrierDeclaration=barrierDeclarations[0]!,barrierConstruction=transparent(barrierDeclaration.initializer!);
+ if(!ts.isNewExpression(barrierConstruction)||!ts.isIdentifier(barrierConstruction.expression)||barrierConstruction.expression.text!=='Promise'||symbolAt(barrierConstruction.expression)||barrierConstruction.arguments?.length!==1)fail();
+ const barrierCallback=barrierConstruction.arguments[0];
+ if(!barrierCallback||(!ts.isArrowFunction(barrierCallback)&&!ts.isFunctionExpression(barrierCallback))||barrierCallback.parameters.length!==1||!ts.isIdentifier(barrierCallback.parameters[0]!.name)||!ts.isBlock(barrierCallback.body)||barrierCallback.body.statements.length!==1)fail();
+ const resolveSymbol=symbolAt(barrierCallback.parameters[0]!.name),barrierStatement=barrierCallback.body.statements[0];
+ if(!resolveSymbol||!barrierStatement||!ts.isExpressionStatement(barrierStatement))fail();
+ const barrierAssignment=transparent(barrierStatement.expression);
+ if(!ts.isBinaryExpression(barrierAssignment)||barrierAssignment.operatorToken.kind!==ts.SyntaxKind.EqualsToken||!sameSymbol(identifierSymbol(barrierAssignment.left),releaseSymbol)||!sameSymbol(identifierSymbol(barrierAssignment.right),resolveSymbol))fail();
+ const barrierSymbol=symbolAt(barrierDeclaration.name),releaseCalls=scenarioNodes.filter((node):node is ts.CallExpression=>ts.isCallExpression(node)&&ts.isExpressionStatement(node.parent)&&node.parent.expression===node&&ts.isIdentifier(node.expression)&&sameSymbol(symbolAt(node.expression),releaseSymbol)&&node.arguments.length===0);
+ if(!barrierSymbol||releaseCalls.length!==1)fail();
+ const releaseCall=releaseCalls[0]!;
+ const roleApplications=scenarioNodes.flatMap(node=>{if(!ts.isAwaitExpression(node)||!ts.isExpressionStatement(node.parent)||node.parent.expression!==node)return[];const all=unshadowedGlobalCall(transparent(node.expression),'Promise','all');if(!all||all.arguments.length!==1)return[];const mapped=callExpression(all.arguments[0]);if(!mapped||!ts.isPropertyAccessExpression(mapped.expression)||mapped.expression.name.text!=='map'||!sameSymbol(identifierSymbol(mapped.expression.expression),clientsSymbol)||mapped.arguments.length!==1||!ts.isIdentifier(mapped.arguments[0]!))return[];const role=symbolAt(mapped.arguments[0]!);return role?[{node,role,all,mapped}]:[];});
  if(roleApplications.length!==1)fail();
  const roleApplication=roleApplications[0]!,roleFunction=functionForSymbol(roleApplication.role);
  if(!roleFunction||roleFunction.name?.text!=='asAppServer'||!roleFunction.body||roleFunction.parameters.length!==1||!ts.isIdentifier(roleFunction.parameters[0]!.name))fail();
  const roleBody=roleFunction.body!,roleClientSymbol=symbolAt(roleFunction.parameters[0]!.name),roleNodes=ownNodes(roleBody).filter(node=>reachable(node,roleBody));
- const setRoleCalls=roleNodes.flatMap(node=>{if(!ts.isAwaitExpression(node)||!ts.isExpressionStatement(node.parent)||node.parent.expression!==node)return[];const query=boundMethodCall(transparent(node.expression),roleClientSymbol,'query');return query&&query.arguments.length===1&&ts.isStringLiteralLike(query.arguments[0]!)&&query.arguments[0]!.text.toLowerCase()===`set role ${expected.requiredRole.toLowerCase()}`?[node]:[];});
+ const setRoleCalls=roleNodes.flatMap(node=>{if(!ts.isAwaitExpression(node)||!ts.isExpressionStatement(node.parent)||node.parent.expression!==node)return[];const query=boundMethodCall(transparent(node.expression),roleClientSymbol,'query');return query&&query.arguments.length===1&&ts.isStringLiteralLike(query.arguments[0]!)&&query.arguments[0]!.text.toLowerCase()===`set role ${expected.requiredRole.toLowerCase()}`?[{node,query}]:[];});
  const roleDeclarations=roleNodes.filter((node):node is ts.VariableDeclaration=>{if(!ts.isVariableDeclaration(node)||!ts.isIdentifier(node.name)||!node.initializer)return false;const query=boundMethodCall(awaitedExpression(node.initializer),roleClientSymbol,'query');return !!query&&query.arguments.length===1&&ts.isStringLiteralLike(query.arguments[0]!)&&query.arguments[0]!.text.toLowerCase()==='select current_user';});
  if(setRoleCalls.length!==1||roleDeclarations.length!==1)fail();
+ const roleQuery=boundMethodCall(awaitedExpression(roleDeclarations[0]!.initializer),roleClientSymbol,'query');if(!roleQuery)fail();
  const currentRoleSymbol=symbolAt(roleDeclarations[0]!.name);
  const roleAssertions=roleNodes.filter((node):node is ts.CallExpression=>{if(!ts.isCallExpression(node)||!ts.isExpressionStatement(node.parent)||node.parent.expression!==node||!ts.isPropertyAccessExpression(node.expression)||node.expression.name.text!=='toBe'||node.arguments.length!==1||!ts.isStringLiteralLike(node.arguments[0]!)||node.arguments[0]!.text!==expected.requiredRole)return false;const expectCall=callExpression(node.expression.expression);return !!expectCall&&ts.isIdentifier(expectCall.expression)&&sameSymbol(symbolAt(expectCall.expression),expectSymbol)&&expectCall.arguments.length===1&&zeroIndexedRowProperty(expectCall.arguments[0]!,currentRoleSymbol,'current_user');});
- if(roleAssertions.length!==1||!orderedReachableChain([setRoleCalls[0]!,roleDeclarations[0]!,roleAssertions[0]!],roleBody))fail();
+ if(roleAssertions.length!==1||!reviewedCallChain([setRoleCalls[0]!.node,roleDeclarations[0]!,roleAssertions[0]!],roleBody,[setRoleCalls[0]!.query,roleQuery]))fail();
  const callbackClientSymbol=symbolAt(callsCallback.parameters[0]!.name),callbackIndexSymbol=symbolAt(callsCallback.parameters[1]!.name),callbackNodes=ownNodes(callsCallback.body).filter(node=>reachable(node,callsCallback.body));
+ const barrierAwaits=callbackNodes.filter((node):node is ts.AwaitExpression=>ts.isAwaitExpression(node)&&ts.isExpressionStatement(node.parent)&&node.parent.expression===node&&sameSymbol(identifierSymbol(node.expression),barrierSymbol));
+ if(barrierAwaits.length!==1)fail();
  const topVariableDeclaration=(name:string)=>{const declarations=sourceFile.statements.flatMap(statement=>ts.isVariableStatement(statement)?statement.declarationList.declarations.filter(declaration=>ts.isIdentifier(declaration.name)&&declaration.name.text===name):[]);return declarations.length===1?declarations[0]:undefined;};
- const fixtureArray=(name:string)=>{const declaration=topVariableDeclaration(name);if(!declaration||!ts.isIdentifier(declaration.name)||!declaration.initializer)return undefined;const arrayFrom=unshadowedGlobalCall(declaration.initializer,'Array','from'),factory=arrayFrom?.arguments[1];if(!arrayFrom||arrayFromLength(arrayFrom)!==expected.sessions||!factory||(!ts.isArrowFunction(factory)&&!ts.isFunctionExpression(factory)))return undefined;const generated=callExpression(returnedExpression(factory)),symbol=symbolAt(declaration.name);return generated&&symbol&&ts.isIdentifier(generated.expression)&&sameSymbol(symbolAt(generated.expression),randomUuidSymbol)&&generated.arguments.length===0&&arrayRemainsStable(declaration,symbol)?{declaration,symbol}:undefined;};
+ const fixtureArray=(name:string)=>{const declaration=topVariableDeclaration(name);if(!declaration||!ts.isIdentifier(declaration.name)||!declaration.initializer)return undefined;const arrayFrom=unshadowedGlobalCall(declaration.initializer,'Array','from'),factory=arrayFrom?.arguments[1];if(!arrayFrom||arrayFromLength(arrayFrom)!==expected.sessions||!factory||(!ts.isArrowFunction(factory)&&!ts.isFunctionExpression(factory)))return undefined;const generated=callExpression(returnedExpression(factory)),symbol=symbolAt(declaration.name);return generated&&symbol&&ts.isIdentifier(generated.expression)&&sameSymbol(symbolAt(generated.expression),randomUuidSymbol)&&generated.arguments.length===0&&arrayRemainsStable(declaration,symbol,adminSymbol,callbackIndexSymbol)?{declaration,symbol}:undefined;};
  const matchIdDeclaration=topVariableDeclaration('matchId'),matchIdSymbol=matchIdDeclaration&&ts.isIdentifier(matchIdDeclaration.name)?symbolAt(matchIdDeclaration.name):undefined,participantKeys=fixtureArray('participantKeys'),userIds=fixtureArray('userIds'),participantKeysSymbol=participantKeys?.symbol,userIdsSymbol=userIds?.symbol;
  if(!matchIdSymbol||!participantKeysSymbol||!userIdsSymbol)fail();
  const indexedByCallback=(value:ts.Expression|undefined,arraySymbol:ts.Symbol|undefined)=>{if(!value)return false;const expression=transparent(value);return ts.isElementAccessExpression(expression)&&sameSymbol(identifierSymbol(expression.expression),arraySymbol)&&!!expression.argumentExpression&&sameSymbol(identifierSymbol(expression.argumentExpression),callbackIndexSymbol);};
  const liveReturns=callbackNodes.filter((node):node is ts.ReturnStatement=>ts.isReturnStatement(node)&&!!node.expression);
- const joinQueries=callbackNodes.flatMap(node=>{if(!ts.isVariableDeclaration(node)||!ts.isIdentifier(node.name)||!node.initializer)return[];const query=boundMethodCall(awaitedExpression(node.initializer),callbackClientSymbol,'query'),sql=query?.arguments[0],parameters=query?.arguments[1];if(!query||!sql||!ts.isStringLiteralLike(sql)||sql.text.replace(/\s+/gu,' ').trim().toLowerCase()!=='select private.join_match_participant_v1($1,$2,$3) as joined'||!parameters||!ts.isArrayLiteralExpression(parameters)||parameters.elements.length!==3||!sameSymbol(identifierSymbol(parameters.elements[0]),matchIdSymbol)||!indexedByCallback(parameters.elements[1],participantKeysSymbol)||!indexedByCallback(parameters.elements[2],userIdsSymbol))return[];const resultSymbol=symbolAt(node.name),returns=liveReturns.filter(statement=>statement.expression&&zeroIndexedRowProperty(statement.expression,resultSymbol,'joined')&&node.getStart()<statement.getStart());return returns.length===1?[{declaration:node,returned:returns[0]!}]:[];});
- if(joinQueries.length!==1||!orderedReachableChain([joinQueries[0]!.declaration,joinQueries[0]!.returned],callsCallback.body))fail();
- if(!(clientsDeclaration.getStart()<roleApplication.node.getStart()&&roleApplication.node.getStart()<callsDeclaration.getStart()&&callsDeclaration.getStart()<resultsDeclaration.getStart()&&resultsDeclaration.getStart()<seatAssertion.node.getStart()))fail();
+ const joinQueries=callbackNodes.flatMap(node=>{if(!ts.isVariableDeclaration(node)||!ts.isIdentifier(node.name)||!node.initializer)return[];const query=boundMethodCall(awaitedExpression(node.initializer),callbackClientSymbol,'query'),sql=query?.arguments[0],parameters=query?.arguments[1];if(!query||!sql||!ts.isStringLiteralLike(sql)||sql.text.replace(/\s+/gu,' ').trim().toLowerCase()!=='select private.join_match_participant_v1($1,$2,$3) as joined'||!parameters||!ts.isArrayLiteralExpression(parameters)||parameters.elements.length!==3||!sameSymbol(identifierSymbol(parameters.elements[0]),matchIdSymbol)||!indexedByCallback(parameters.elements[1],participantKeysSymbol)||!indexedByCallback(parameters.elements[2],userIdsSymbol))return[];const resultSymbol=symbolAt(node.name),returns=liveReturns.filter(statement=>statement.expression&&zeroIndexedRowProperty(statement.expression,resultSymbol,'joined')&&node.getStart()<statement.getStart());return returns.length===1?[{declaration:node,returned:returns[0]!,query}]:[];});
+ if(joinQueries.length!==1||!reviewedCallChain([barrierAwaits[0]!,joinQueries[0]!.declaration,joinQueries[0]!.returned],callsCallback.body,[joinQueries[0]!.query]))fail();
+ if(!reviewedCallChain(
+  [clientsDeclaration,roleApplication.node,callsDeclaration,releaseCall,resultsDeclaration,seatAssertion.node],
+  scenarioCallback.body,
+  [clientsPromiseAll,arrayFrom,roleApplication.all,roleApplication.mapped,callsMap,releaseCall,resultsPromiseAll],
+ ))fail();
 }
 export function evaluateDatabaseRequirement(id:string,provided?:DatabaseRequirementSource){const root=process.cwd(),read=(p:string)=>fs.readFileSync(path.join(root,p),'utf8'),source=provided??{sql:fs.readdirSync(path.join(root,'supabase/migrations')).filter(x=>x.endsWith('.sql')).sort().map(x=>read(`supabase/migrations/${x}`)).join('\n'),config:read('supabase/config.toml'),roles:read('supabase/roles.sql')};
  const sql=source.sql.replace(/--[^\n]*/gu,'').replace(/\s+/gu,' ').trim().toLowerCase(),has=(pattern:RegExp,message:string)=>{if(!pattern.test(sql))throw Error(message);};
