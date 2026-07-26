@@ -10,6 +10,9 @@ describe('database security requirement oracle',()=>{
   it('DATA-012 parses exact role-membership lifecycle evidence',()=>expect(()=>evaluateDatabaseRequirement('DATA-012')).not.toThrow());
   it('DATA-027 parses exact real-session concurrency evidence',()=>expect(()=>evaluateDatabaseRequirement('DATA-027')).not.toThrow());
   it('rejects DATA-012 duplicate or incomplete role membership lifecycles',()=>{const options={role:'game_security_owner',member:'postgres',grantCount:1,revokeCount:1};expect(()=>expectRoleMembershipLifecycle('GRANT game_security_owner TO postgres; REVOKE game_security_owner FROM postgres;',options)).not.toThrow();expect(()=>expectRoleMembershipLifecycle('GRANT game_security_owner TO postgres; GRANT game_security_owner TO postgres; REVOKE game_security_owner FROM postgres;',options)).toThrow(/lifecycle/);expect(()=>expectRoleMembershipLifecycle('GRANT game_security_owner TO postgres;',options)).toThrow(/lifecycle/);});
+  it('rejects DATA-012 added memberships hidden in combined role lists',()=>{const options={role:'game_security_owner',member:'postgres',grantCount:1,revokeCount:1},withAddedMembership='GRANT game_security_owner TO postgres; REVOKE game_security_owner FROM postgres; GRANT game_security_owner, economy_security_owner TO postgres; REVOKE game_security_owner, economy_security_owner FROM postgres;';expect(()=>expectRoleMembershipLifecycle(withAddedMembership,options)).toThrow(/lifecycle/);});
+  it('rejects DATA-012 target-role membership for an undeclared member',()=>{const options={role:'game_security_owner',member:'postgres',grantCount:1,revokeCount:1},withAddedMember='GRANT game_security_owner TO postgres; REVOKE game_security_owner FROM postgres; GRANT game_security_owner TO forged_operator; REVOKE game_security_owner FROM forged_operator;';expect(()=>expectRoleMembershipLifecycle(withAddedMember,options)).toThrow(/lifecycle/);});
+  it('ignores DATA-012 membership-like SQL inside dollar-quoted bodies',()=>{const options={role:'game_security_owner',member:'postgres',grantCount:1,revokeCount:1},withDollarBody="GRANT game_security_owner TO postgres; DO $body$ BEGIN PERFORM 'x;y'; GRANT game_security_owner TO postgres; END $body$; REVOKE game_security_owner FROM postgres;";expect(()=>expectRoleMembershipLifecycle(withDollarBody,options)).not.toThrow();});
   it('rejects DATA-027 session, seat, role, or loopback semantic mutations',()=>{
     const testSource=fs.readFileSync(`${root}/tests/database/concurrency.test.ts`,'utf8'),options={sessions:20,expectedSeats:2,requiredRole:'app_server',loopbackOnly:true};
     expect(()=>expectConcurrencyEvidence(testSource,options)).not.toThrow();
@@ -21,6 +24,12 @@ describe('database security requirement oracle',()=>{
     ];
     for(const mutated of mutations)expect(()=>expectConcurrencyEvidence(mutated,options)).toThrow(/concurrency/);
   });
+  it.each([
+    ['fake connected clients',(testSource:string)=>testSource.replace('() => admin.connect()','() => Promise.resolve({} as PoolClient)')],
+    ['replaced join SQL',(testSource:string)=>testSource.replace("'select private.join_match_participant_v1($1,$2,$3) as joined'","'select true as joined'")],
+    ['remote database URL with unused loopback loader',(testSource:string)=>testSource.replace('const databaseUrl = localDatabaseUrl();',"const databaseUrl = 'postgresql://remote.example/postgres';")],
+    ['disconnected outer clients masked by connected shadow clients',(testSource:string)=>testSource.replace('const clients = await Promise.all(Array.from({ length: 20 }, () => admin.connect()));','const clients = await Promise.all(Array.from({ length: 20 }, () => Promise.resolve({} as PoolClient)));\n    { const clients = await Promise.all(Array.from({ length: 20 }, () => admin.connect())); void clients; }')],
+  ])('rejects DATA-027 %s evidence',(_label,mutate)=>{const testSource=fs.readFileSync(`${root}/tests/database/concurrency.test.ts`,'utf8'),options={sessions:20,expectedSeats:2,requiredRole:'app_server',loopbackOnly:true};expect(()=>expectConcurrencyEvidence(mutate(testSource),options)).toThrow(/concurrency/);});
   it.each(Array.from({length:13},(_,i)=>`DATA-${String(i+1).padStart(3,'0')}`))('%s has an exact repository predicate',id=>expect(evaluateDatabaseRequirement(id,source)).toBe(true));
   it.each([
     ['DATA-001','schemas = ["public", "graphql_public"]','schemas = ["public", "private"]'],

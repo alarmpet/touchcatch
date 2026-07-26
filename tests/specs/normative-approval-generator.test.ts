@@ -27,7 +27,7 @@ function fixture() {
     entries: [
       {
         id: 'DATA-027',
-        approvedTokens: ['stale'],
+        approvedTokens: ['20', '2'],
         status: 'VERIFIED_LOCAL_SSOT',
         lifecycle: 'CURRENT',
         evidenceOwner: 'database',
@@ -38,13 +38,13 @@ function fixture() {
       },
       {
         id: 'RULE-013',
-        approvedTokens: ['stale'],
+        approvedTokens: ['1', '1'],
         status: 'UNAPPROVED_BASELINE',
         lifecycle: 'PLANNED',
         evidenceOwner: 'matchmaking',
         closureCondition: 'Implement production matchmaking',
         blockerReason: 'PLANNED_NOT_IMPLEMENTED:NO_PRODUCTION_MATCHMAKING_PATH',
-        sourcePath: 'stale.md',
+        sourcePath: '08_DATABASE_SCHEMA.md',
         sourceHash: 'stale',
       },
     ],
@@ -80,6 +80,28 @@ describe('normative approval projection generator', () => {
     });
     expect(after.summary).toEqual({ verifiedLocalSsot: 1, unapproved: 1 });
     expect(run(root, '--check').status).toBe(0);
+  });
+
+  it('rejects reviewed-token drift in check and write modes without changing the manifest', () => {
+    const { root, manifestPath } = fixture();
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    manifest.entries[0].approvedTokens = ['review-required'];
+    const serialized = JSON.stringify(manifest, null, 2) + '\n';
+    fs.writeFileSync(manifestPath, serialized);
+    expect(run(root, '--check')).toMatchObject({ status: 1 });
+    expect(run(root, '--write')).toMatchObject({ status: 1 });
+    expect(fs.readFileSync(manifestPath, 'utf8')).toBe(serialized);
+  });
+
+  it('rejects source-path drift instead of silently changing reviewed metadata', () => {
+    const { root, manifestPath } = fixture();
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    manifest.entries[1].sourcePath = 'forged.md';
+    const serialized = JSON.stringify(manifest, null, 2) + '\n';
+    fs.writeFileSync(manifestPath, serialized);
+    expect(run(root, '--check')).toMatchObject({ status: 1 });
+    expect(run(root, '--write')).toMatchObject({ status: 1 });
+    expect(fs.readFileSync(manifestPath, 'utf8')).toBe(serialized);
   });
 
   it.each([

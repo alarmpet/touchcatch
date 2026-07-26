@@ -28,7 +28,9 @@ function generateProjection(manifest, registry) {
   const entries = manifest.entries.map((entry) => {
     const requirement = requirements.get(entry.id);
     if (!requirement) throw new Error(`numeric approval requirement missing: ${entry.id}`);
-    const projected = { ...entry, approvedTokens: extractNormativeNumbers(requirement.text) };
+    const sourceTokens = extractNormativeNumbers(requirement.text);
+    if (JSON.stringify(sourceTokens) !== JSON.stringify(entry.approvedTokens)) throw new Error(`numeric token review required: ${entry.id}`);
+    const projected = { ...entry };
     if (entry.status === 'VERIFIED_LOCAL_SSOT') {
       if (!entry.ssotPath || !Array.isArray(entry.ssotAssertions) || entry.ssotAssertions.length === 0) throw new Error(`reviewed SSOT binding incomplete: ${entry.id}`);
       projected.ssotHash = hash(projectFile(entry.ssotPath));
@@ -36,8 +38,8 @@ function generateProjection(manifest, registry) {
       return projected;
     }
     if (entry.status === 'UNAPPROVED_BASELINE') {
-      projected.sourcePath = requirement.source;
-      projected.sourceHash = hash(projectFile(requirement.source));
+      if (entry.sourcePath !== requirement.source) throw new Error(`numeric source path review required: ${entry.id}`);
+      projected.sourceHash = hash(projectFile(entry.sourcePath));
       return projected;
     }
     throw new Error(`unsupported reviewed numeric status: ${entry.id}:${entry.status}`);

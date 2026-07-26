@@ -6,6 +6,26 @@ const source = readFileSync("packages/contracts/openapi.yaml", "utf8");
 const restIds = ["API-001", "API-002", "API-003", "API-004", "API-006", "API-007", "API-008", "API-009"] as const;
 
 describe("REST requirement oracle", () => {
+  it("derives /v1/me parity from the production mapping used by the router", async () => {
+    const runtimeModule = await import("../../apps/server/src/http/router.js") as unknown as {
+      GET_ME_ERROR_CODES_BY_STATUS?: Record<string, string[]>;
+    };
+    const runtimeErrors = runtimeModule.GET_ME_ERROR_CODES_BY_STATUS;
+    expect(runtimeErrors).toEqual({
+      "401": ["UNAUTHORIZED"],
+      "403": ["ANONYMOUS_FORBIDDEN", "ACCOUNT_DELETING"],
+      "503": ["ACCOUNT_SETUP_FAILED"],
+    });
+    if (!runtimeErrors) return;
+    const original = runtimeErrors["401"]?.[0];
+    try {
+      runtimeErrors["401"]![0] = "RUNTIME_MUTATION";
+      expect(() => evaluateOpenApiRequirement("API-001", source)).toThrow(/status-specific/i);
+    } finally {
+      runtimeErrors["401"]![0] = original!;
+    }
+  });
+
   it("API-001 matches status-specific /v1/me error enums to runtime", () => {
     expect(() => evaluateOpenApiRequirement("API-001")).not.toThrow();
     const swapped = source
