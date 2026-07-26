@@ -228,6 +228,17 @@ const hasSafeReceiptDirectory = (topLevel: string, target: string): boolean => {
   return path.dirname(target) === current;
 };
 
+const writeCompleteUtf8 = (descriptor: number, text: string): void => {
+  const bytes = Buffer.from(text, 'utf8');
+  let offset = 0;
+  while (offset < bytes.length) {
+    const remaining = bytes.length - offset;
+    const written = writeSync(descriptor, bytes, offset, remaining, null);
+    if (!Number.isSafeInteger(written) || written <= 0 || written > remaining) throw new Error('DATA_027_RECEIPT_WRITE_FAILED');
+    offset += written;
+  }
+};
+
 export function writeData027Receipt(root: string, observation: Data027Observation, commitSha: string): void {
   validateData027Observation(observation, observation.gateRunId);
   if (!commitShaPattern.test(commitSha)) throw new Error('DATA_027_RECEIPT_INVALID');
@@ -260,7 +271,7 @@ export function writeData027Receipt(root: string, observation: Data027Observatio
   let descriptor: number | undefined;
   try {
     descriptor = openSync(temporaryPath, 'wx', 0o600);
-    writeSync(descriptor, canonicalJson(receipt), undefined, 'utf8');
+    writeCompleteUtf8(descriptor, canonicalJson(receipt));
     fsyncSync(descriptor);
     closeSync(descriptor);
     descriptor = undefined;

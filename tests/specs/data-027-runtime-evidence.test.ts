@@ -1,8 +1,28 @@
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { canonicalJson } from '../../packages/contracts/src/canonical-json.js';
+
+const fsMockState = vi.hoisted(() => ({ shortWrites: false }));
+
+vi.mock('node:fs', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('node:fs')>();
+  return {
+    ...actual,
+    writeSync: ((descriptor: number, value: string | Uint8Array, ...args: unknown[]) => {
+      if (!fsMockState.shortWrites) return (actual.writeSync as (...parameters: unknown[]) => number)(descriptor, value, ...args);
+      if (typeof value === 'string') {
+        const bytes = Buffer.from(value, 'utf8').subarray(0, 1);
+        return actual.writeSync(descriptor, bytes, 0, bytes.length);
+      }
+      const [offset = 0, length = value.byteLength - Number(offset), position] = args;
+      return actual.writeSync(descriptor, value, Number(offset), Math.min(Number(length), 1), position as number | null | undefined);
+    }) as typeof actual.writeSync,
+  };
+});
 import {
   DATA_027_RECEIPT_RELATIVE_PATH,
   buildEvidenceInputs,
@@ -54,6 +74,15 @@ const receiptPath = (root: string): string => join(root, ...DATA_027_RECEIPT_REL
 const readReceipt = (root: string): Record<string, unknown> => JSON.parse(readFileSync(receiptPath(root), 'utf8')) as Record<string, unknown>;
 
 const overwriteReceipt = (root: string, value: unknown): void => writeFileSync(receiptPath(root), JSON.stringify(value));
+
+const hashCanonicalJson = (value: unknown): `sha256:${string}` =>
+  `sha256:${createHash('sha256').update(canonicalJson(value), 'utf8').digest('hex')}`;
+
+const rehashReceipt = (receipt: Record<string, unknown>): void => {
+  receipt.evidenceInputsSha256 = hashCanonicalJson(receipt.evidenceInputs);
+  const { receiptSha256: _receiptSha256, ...payload } = receipt;
+  receipt.receiptSha256 = hashCanonicalJson(payload);
+};
 
 afterEach(() => {
   for (const root of roots.splice(0)) rmSync(root, { recursive: true, force: true });
@@ -133,14 +162,40 @@ describe('DATA-027 runtime evidence', () => {
     ['wrong type', (receipt: Record<string, unknown>) => { receipt.sessionsAttempted = '20'; }],
     ['wrong acceptance value', (receipt: Record<string, unknown>) => { receipt.successfulSeats = 3; }],
     ['wrong payload hash', (receipt: Record<string, unknown>) => { receipt.receiptSha256 = `sha256:${'0'.repeat(64)}`; }],
-    ['reordered manifest', (receipt: Record<string, unknown>) => { (receipt.evidenceInputs as unknown[]).reverse(); }],
-    ['missing manifest entry', (receipt: Record<string, unknown>) => { (receipt.evidenceInputs as unknown[]).pop(); }],
-    ['extra manifest entry', (receipt: Record<string, unknown>) => { (receipt.evidenceInputs as unknown[]).push({ path: 'extra.ts', sha256: `sha256:${'0'.repeat(64)}` }); }],
   ])('rejects a %s receipt mutation', (_label, mutate) => {
     const root = createRepository();
     writeData027Receipt(root, validObservation, commitSha);
     const receipt = readReceipt(root);
     mutate(receipt);
+    overwriteReceipt(root, receipt);
+    expect(validateData027Receipt(root)).toBe(false);
+  });
+
+  it.each([
+    ['reordered manifest', (receipt: Record<string, unknown>) => { (receipt.evidenceInputs as unknown[]).reverse(); }],
+    ['missing manifest entry', (receipt: Record<string, unknown>) => { (receipt.evidenceInputs as unknown[]).pop(); }],
+    ['extra manifest entry', (receipt: Record<string, unknown>) => { (receipt.evidenceInputs as unknown[]).push({ path: 'extra.ts', sha256: `sha256:${'0'.repeat(64)}` }); }],
+  ])('rejects a %s even when its hashes are internally valid', (_label, mutate) => {
+    const root = createRepository();
+    writeData027Receipt(root, validObservation, commitSha);
+    const receipt = readReceipt(root);
+    mutate(receipt);
+    rehashReceipt(receipt);
+    overwriteReceipt(root, receipt);
+    expect(validateData027Receipt(root)).toBe(false);
+  });
+
+  it.each(['A'.repeat(40), 'a'.repeat(39), 'a'.repeat(41), 'z'.repeat(40)])('rejects invalid commitSha %s when writing a receipt', (invalidCommitSha) => {
+    const root = createRepository();
+    expect(() => writeData027Receipt(root, validObservation, invalidCommitSha)).toThrow('DATA_027_RECEIPT_INVALID');
+  });
+
+  it.each(['A'.repeat(40), 'a'.repeat(39), 'a'.repeat(41), 'z'.repeat(40)])('rejects an internally rehashed receipt with invalid commitSha %s', (invalidCommitSha) => {
+    const root = createRepository();
+    writeData027Receipt(root, validObservation, commitSha);
+    const receipt = readReceipt(root);
+    receipt.commitSha = invalidCommitSha;
+    rehashReceipt(receipt);
     overwriteReceipt(root, receipt);
     expect(validateData027Receipt(root)).toBe(false);
   });
@@ -211,6 +266,17 @@ describe('DATA-027 runtime evidence', () => {
     expect(validateData027Receipt(root)).toBe(true);
     expect(existsSync(receiptPath(root))).toBe(true);
     expect(readdirSync(directory).some((entry) => entry.includes('data-027-receipt-'))).toBe(false);
+  });
+
+  it('completes short writes before atomically publishing the receipt', () => {
+    const root = createRepository();
+    fsMockState.shortWrites = true;
+    try {
+      writeData027Receipt(root, validObservation, commitSha);
+      expect(validateData027Receipt(root)).toBe(true);
+    } finally {
+      fsMockState.shortWrites = false;
+    }
   });
 
   it('cleans up a partial temporary file when atomic replacement fails', () => {
