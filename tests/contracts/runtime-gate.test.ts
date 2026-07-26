@@ -56,4 +56,23 @@ describe('runtime gate', () => {
       expect(result.stderr).toContain(`Node ${process.version}; expected v24.18.0`);
     }
   });
+
+  it('queries the bundled Corepack pnpm when direct Node has no user agent', () => {
+    const env = { ...process.env };
+    for (const key of Object.keys(env)) {
+      if (key.toLowerCase() === 'npm_config_user_agent') delete env[key];
+    }
+    const result = spawnSync(process.execPath, [resolve('tools/check-runtime.mjs')], {
+      encoding: 'utf8',
+      env,
+    });
+
+    if (process.version === 'v24.18.0') {
+      expect(result.status).toBe(0);
+      expect(result.stderr).toBe('');
+    } else {
+      expect(result.status).toBe(1);
+      expect(result.stderr).toContain(`Node ${process.version}; expected v24.18.0`);
+    }
+  });
 });

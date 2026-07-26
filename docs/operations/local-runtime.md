@@ -1,24 +1,23 @@
 # Local runtime and DATA-027 evidence gate
 
 TouchCatch requires Node `v24.18.0` and pnpm `11.13.0`. Select the required
-runtime before installing dependencies or running a gate. For the portable
-Windows runtime used by this repository's verification environment:
+runtime with a runtime manager already installed on the operator's machine,
+then verify both versions before installing dependencies or running a gate:
 
 ```powershell
-$nodeRoot = 'C:\tmp\touchcatch-node-24.18.0\node-v24.18.0-win-x64'
-$existingPath = $env:Path
-Remove-Item Env:Path
-$env:PATH = "$nodeRoot;$existingPath"
+fnm use 24.18.0
 node --version
 corepack pnpm --version
 ```
 
 The commands must print `v24.18.0` and `11.13.0`, respectively. Stop if either
-value differs. This process-local `PATH` setup does not change a global Node,
-pnpm, or Corepack installation. Removing the inherited mixed-case `Path` key
-avoids a Windows child-process path collision before adding the portable
-runtime. Other installed runtime managers may be used instead, provided that
-the same two checks pass.
+value differs. `nvm use 24.18.0` or an equivalent Volta configuration is also
+valid when it yields those exact versions.
+
+On the verification host only, the exact Node archive is at
+`C:\tmp\touchcatch-node-24.18.0\node-v24.18.0-win-x64`. A process may prepend
+that directory to its `PATH` for an isolated verification run; it is an example
+for that host, not an operator prerequisite or a global installation change.
 
 ## Local DATA-027 gate
 
@@ -52,15 +51,19 @@ destination input bundle differs. Deleting
 
 The gate takes an exclusive same-worktree lock at
 `.superpowers/evidence/data-027/gate.lock`; run only one gate per worktree at a
-time. Its temporary observation and lock are cleaned on every exit. The
-receipt and fixed errors avoid credentials, connection URLs, raw subprocess
-output, and personal paths.
+time. It attempts to remove its temporary observation and lock in `finally` on
+every exit. If that cleanup cannot complete, it reports
+`SUPABASE_GATE_FAILED:cleanup`. The receipt and fixed errors avoid credentials,
+connection URLs, raw subprocess output, and personal paths.
 
 ## Expected outcomes and fixed errors
 
-When Docker or the local Supabase stack is unavailable, the gate exits nonzero
-with the exact blocker `SUPABASE_GATE_DOCKER_UNAVAILABLE`. This is a verified
-`BLOCKED` state, not a reason to synthesize or copy a receipt.
+When the Docker daemon is unavailable at the preflight step, the gate exits
+nonzero with the exact blocker `SUPABASE_GATE_DOCKER_UNAVAILABLE`. This is a
+verified `BLOCKED` state, not a reason to synthesize or copy a receipt. Once
+Docker preflight has passed, a local Supabase reset, lint, pgTAP,
+authenticated-local, or DATA-027 concurrency failure or timeout reports its
+own step-specific fixed code rather than the Docker-unavailable blocker.
 
 Other gate failures use these fixed codes:
 
