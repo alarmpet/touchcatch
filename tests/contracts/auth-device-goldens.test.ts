@@ -29,6 +29,11 @@ type EvidenceDeps = {
 };
 type GovernanceKeys = Map<'SECURITY' | 'OPERATIONS', KeyObject>;
 
+function required<T>(value: T | undefined, label: string): T {
+  if (value === undefined) throw new Error(`MISSING_${label}`);
+  return value;
+}
+
 const reviewerRegistryHash = (reviewers: JsonRecord[]): string => `sha256:${createHash('sha256').update(JSON.stringify([...reviewers].sort((a, b) => String(a.keyId).localeCompare(String(b.keyId))))).digest('hex')}`;
 
 function validateReviewerRegistry(value: unknown, governanceKeys: GovernanceKeys = new Map()): { errors: string[]; trusted: Map<string, Reviewer> } {
@@ -217,7 +222,7 @@ function validate(value: unknown, dependencies: EvidenceDeps = defaultDeps()): s
       const signatureCanonical = signature && signature.toString('base64') === attestation?.signature;
       let valid = false;
       try {
-        valid = Boolean(trusted?.owner === record.reviewer && signatureCanonical && verify(null, Buffer.from(canonicalPlatform(record)), trusted.publicKey, signature));
+        valid = Boolean(trusted && signature && trusted.owner === record.reviewer && signatureCanonical && verify(null, Buffer.from(canonicalPlatform(record)), trusted.publicKey, signature));
       } catch {
         valid = false;
       }
@@ -276,14 +281,14 @@ describe('native authentication golden evidence contract', () => {
   it('rejects secrets, raw callback data, and fabricated BLOCKED run metadata', () => {
     const artifact = JSON.parse(fs.readFileSync(artifactPath, 'utf8')) as JsonRecord;
     const mutated = structuredClone(artifact) as JsonRecord;
-    const android = (mutated.platforms as JsonRecord[])[0];
+    const android = required((mutated.platforms as JsonRecord[])[0], 'ANDROID_PLATFORM');
     android.appBuildHash = 'pretend-build';
     android.authorizationCode = 'not-allowed';
     android.callback = 'spotlearn://auth/callback?code=not-allowed';
     const fragmentMutation = structuredClone(artifact) as JsonRecord;
-    (fragmentMutation.platforms as JsonRecord[])[0].callback = 'spotlearn://auth/callback#opaque';
+    required((fragmentMutation.platforms as JsonRecord[])[0], 'FRAGMENT_PLATFORM').callback = 'spotlearn://auth/callback#opaque';
     const blockerMutation = structuredClone(artifact) as JsonRecord;
-    (blockerMutation.platforms as JsonRecord[])[0].blockerCodes = ['PROVIDER_CREDENTIALS_PREVIEW'];
+    required((blockerMutation.platforms as JsonRecord[])[0], 'BLOCKER_PLATFORM').blockerCodes = ['PROVIDER_CREDENTIALS_PREVIEW'];
     expect(validate(mutated)).toEqual(expect.arrayContaining([
       'android/appBuildHash: fabricated run value',
       '/platforms/0/authorizationCode: forbidden key',
@@ -309,43 +314,46 @@ describe('native authentication golden evidence contract', () => {
     expect(validate(passWithBlocker, deps)).toContain('root blockers: forbidden for PASS');
     expect(validate(passed)).toContain('android/EMAIL_CONFIRMATION: evidence invalid');
     const hashMismatch = structuredClone(passed) as JsonRecord;
-    ((((hashMismatch.platforms as JsonRecord[])[0].scenarios as JsonRecord[])[0].evidenceReference) as JsonRecord).sha256 = `sha256:${'0'.repeat(64)}`;
+    const hashMismatchPlatform = required((hashMismatch.platforms as JsonRecord[])[0], 'HASH_MISMATCH_PLATFORM');
+    const hashMismatchScenario = required((hashMismatchPlatform.scenarios as JsonRecord[])[0], 'HASH_MISMATCH_SCENARIO');
+    (hashMismatchScenario.evidenceReference as JsonRecord).sha256 = `sha256:${'0'.repeat(64)}`;
     expect(validate(hashMismatch, deps)).toContain('android/EMAIL_CONFIRMATION: evidence invalid');
     expect(validate(hashMismatch, deps)).toContain('android/attestation: invalid or untrusted');
     const alteredEvidence = new Map(evidence);
-    const firstEvidencePath = [...alteredEvidence.keys()][0];
-    alteredEvidence.set(firstEvidencePath, (alteredEvidence.get(firstEvidencePath) as string).replace('Pixel 9', 'Pixel X'));
+    const firstEvidencePath = required([...alteredEvidence.keys()][0], 'FIRST_EVIDENCE_PATH');
+    const firstEvidence = required(alteredEvidence.get(firstEvidencePath), 'FIRST_EVIDENCE');
+    alteredEvidence.set(firstEvidencePath, firstEvidence.replace('Pixel 9', 'Pixel X'));
     expect(validate(passed, fixtureDeps(alteredEvidence, keys.publicKey))).toContain('android/EMAIL_CONFIRMATION: evidence invalid');
     const badSignature = structuredClone(passed) as JsonRecord;
-    ((badSignature.platforms as JsonRecord[])[0].attestation as JsonRecord).signature = Buffer.alloc(64).toString('base64');
+    (required((badSignature.platforms as JsonRecord[])[0], 'BAD_SIGNATURE_PLATFORM').attestation as JsonRecord).signature = Buffer.alloc(64).toString('base64');
     expect(validate(badSignature, deps)).toContain('android/attestation: invalid or untrusted');
     expect(validate(passed, { ...deps, trustedReviewers: new Map() })).toContain('android/attestation: invalid or untrusted');
     const untrustedReviewer = structuredClone(passed) as JsonRecord;
-    (untrustedReviewer.platforms as JsonRecord[])[0].reviewer = 'untrusted-reviewer';
+    required((untrustedReviewer.platforms as JsonRecord[])[0], 'UNTRUSTED_REVIEWER_PLATFORM').reviewer = 'untrusted-reviewer';
     expect(validate(untrustedReviewer, deps)).toContain('android/attestation: invalid or untrusted');
     const metadataMutation = structuredClone(passed) as JsonRecord;
-    (metadataMutation.platforms as JsonRecord[])[0].osDevice = 'Android 16 / different device';
+    required((metadataMutation.platforms as JsonRecord[])[0], 'METADATA_PLATFORM').osDevice = 'Android 16 / different device';
     expect(validate(metadataMutation, deps)).toContain('android/attestation: invalid or untrusted');
     expect(validate(passed, { ...deps, inspectEvidence: file => ({ regular: true, symlink: true, realPath: path.resolve(file) }) })).toContain('android/EMAIL_CONFIRMATION: evidence invalid');
     expect(validate(passed, { ...deps, inspectEvidence: file => ({ regular: false, symlink: false, realPath: path.resolve(file) }) })).toContain('android/EMAIL_CONFIRMATION: evidence invalid');
     expect(validate(passed, { ...deps, inspectEvidence: () => ({ regular: true, symlink: false, realPath: path.resolve('..', 'outside.json') }) })).toContain('android/EMAIL_CONFIRMATION: evidence invalid');
-    (passed.platforms as JsonRecord[])[0].reviewer = null;
+    required((passed.platforms as JsonRecord[])[0], 'PASS_PLATFORM').reviewer = null;
     expect(validate(passed, deps)).toContain('android/reviewer: required for PASS');
   });
 
   it('requires exactly one Android and one iOS record', () => {
     const artifact = JSON.parse(fs.readFileSync(artifactPath, 'utf8')) as JsonRecord;
     const duplicate = structuredClone(artifact) as JsonRecord;
-    (duplicate.platforms as JsonRecord[])[1].platform = 'android';
+    required((duplicate.platforms as JsonRecord[])[1], 'DUPLICATE_PLATFORM').platform = 'android';
     expect(validate(duplicate)).toContain('platform set');
   });
 
   it('rejects percent-encoded and repeatedly encoded callback payloads', () => {
     const artifact = JSON.parse(fs.readFileSync(artifactPath, 'utf8')) as JsonRecord;
     const encoded = structuredClone(artifact) as JsonRecord;
-    (encoded.platforms as JsonRecord[])[0].callback = 'spotlearn%3A%2F%2Fauth%2Fcallback%3Fcode%3Dopaque';
+    required((encoded.platforms as JsonRecord[])[0], 'ENCODED_PLATFORM').callback = 'spotlearn%3A%2F%2Fauth%2Fcallback%3Fcode%3Dopaque';
     const doubleEncoded = structuredClone(artifact) as JsonRecord;
-    (doubleEncoded.platforms as JsonRecord[])[0].callback = 'spotlearn%253A%252F%252Fauth%252Fcallback%253Fcode%253Dopaque';
+    required((doubleEncoded.platforms as JsonRecord[])[0], 'DOUBLE_ENCODED_PLATFORM').callback = 'spotlearn%253A%252F%252Fauth%252Fcallback%253Fcode%253Dopaque';
     expect(validate(encoded)).toContain('/platforms/0/callback: raw callback data');
     expect(validate(doubleEncoded)).toContain('/platforms/0/callback: raw callback data');
   });
@@ -367,16 +375,17 @@ describe('native authentication golden evidence contract', () => {
 
   it('rejects an arbitrary scenario blocker', () => {
     const artifact = JSON.parse(fs.readFileSync(artifactPath, 'utf8')) as JsonRecord;
-    ((artifact.platforms as JsonRecord[])[0].scenarios as JsonRecord[])[0].blockerCode = 'ARBITRARY_BLOCKER';
+    const platform = required((artifact.platforms as JsonRecord[])[0], 'ARBITRARY_BLOCKER_PLATFORM');
+    required((platform.scenarios as JsonRecord[])[0], 'ARBITRARY_BLOCKER_SCENARIO').blockerCode = 'ARBITRARY_BLOCKER';
     expect(validate(artifact)).toContain('android/EMAIL_CONFIRMATION: blocker mismatch');
   });
 
   it('fails closed for long-prefix, malformed, and oversized encoded material', () => {
     const artifact = JSON.parse(fs.readFileSync(artifactPath, 'utf8')) as JsonRecord;
     const long = structuredClone(artifact) as JsonRecord;
-    (long.platforms as JsonRecord[])[0].callback = `${'a'.repeat(5_000)}spotlearn%3A%2F%2Fauth%2Fcallback%3Fcode%3Dopaque`;
+    required((long.platforms as JsonRecord[])[0], 'LONG_PLATFORM').callback = `${'a'.repeat(5_000)}spotlearn%3A%2F%2Fauth%2Fcallback%3Fcode%3Dopaque`;
     const malformed = structuredClone(artifact) as JsonRecord;
-    (malformed.platforms as JsonRecord[])[0].callback = '%ZZspotlearn%3A%2F%2Fauth%2Fcallback%3Fcode%3Dopaque';
+    required((malformed.platforms as JsonRecord[])[0], 'MALFORMED_PLATFORM').callback = '%ZZspotlearn%3A%2F%2Fauth%2Fcallback%3Fcode%3Dopaque';
     const oversized = structuredClone(artifact) as JsonRecord;
     oversized.padding = 'a'.repeat(300_000);
     expect(validate(long)).toContain('/platforms/0/callback: raw callback data');
@@ -389,9 +398,9 @@ describe('native authentication golden evidence contract', () => {
     const evidence = new Map<string, string>();
     const keys = generateKeyPairSync('ed25519');
     artifact.status = 'PARTIAL';
-    promote((artifact.platforms as JsonRecord[])[0], evidence, keys.privateKey);
-    const ios = (artifact.platforms as JsonRecord[])[1];
-    ((ios.scenarios as JsonRecord[]).find(scenario => scenario.id === 'CONFIGURED_GOOGLE_OR_KAKAO_PROVIDER') as JsonRecord).blockerCode = 'IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN';
+    promote(required((artifact.platforms as JsonRecord[])[0], 'PARTIAL_ANDROID_PLATFORM'), evidence, keys.privateKey);
+    const ios = required((artifact.platforms as JsonRecord[])[1], 'PARTIAL_IOS_PLATFORM');
+    required((ios.scenarios as JsonRecord[]).find(scenario => scenario.id === 'CONFIGURED_GOOGLE_OR_KAKAO_PROVIDER'), 'IOS_PROVIDER_SCENARIO').blockerCode = 'IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN';
     ios.blockerCodes = ['IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN', 'IOS_GUIDELINE_4_8_REVIEW'];
     artifact.blockerCodes = ['IOS_DEVELOPMENT_BUILD_DEVICE_GOLDEN', 'IOS_GUIDELINE_4_8_REVIEW'];
     expect(validate(artifact, fixtureDeps(evidence, keys.publicKey))).toEqual([]);
@@ -399,7 +408,7 @@ describe('native authentication golden evidence contract', () => {
 
   it('rejects self-attestation on a BLOCKED platform', () => {
     const artifact = JSON.parse(fs.readFileSync(artifactPath, 'utf8')) as JsonRecord;
-    (artifact.platforms as JsonRecord[])[0].attestation = { keyId: 'self', signature: 'forged' };
+    required((artifact.platforms as JsonRecord[])[0], 'SELF_ATTESTATION_PLATFORM').attestation = { keyId: 'self', signature: 'forged' };
     expect(validate(artifact)).toContain('android/attestation: forbidden for BLOCKED');
   });
 
@@ -407,8 +416,9 @@ describe('native authentication golden evidence contract', () => {
     const artifact = JSON.parse(fs.readFileSync(artifactPath, 'utf8')) as JsonRecord;
     let deep = '%61uthorizationCode';
     for (let index = 0; index < 8; index += 1) deep = deep.replaceAll('%', '%25');
-    (artifact.platforms as JsonRecord[])[0][deep] = 'opaque';
-    (artifact.platforms as JsonRecord[])[0]['%ZZauthorizationCode'] = 'opaque';
+    const platform = required((artifact.platforms as JsonRecord[])[0], 'ENCODED_KEY_PLATFORM');
+    platform[deep] = 'opaque';
+    platform['%ZZauthorizationCode'] = 'opaque';
     expect(validate(artifact)).toEqual(expect.arrayContaining([
       `/platforms/0/${deep}: encoded key depth exceeded`,
       '/platforms/0/%ZZauthorizationCode: malformed encoded key',
@@ -432,14 +442,14 @@ describe('native authentication golden evidence contract', () => {
     const active: JsonRecord = { ...empty, status: 'ACTIVE', reviewers, approvalReceipts: [receipt('SECURITY', 'security-approver', securityKey.privateKey), receipt('OPERATIONS', 'operations-approver', operationsKey.privateKey)] };
     const governance = new Map<'SECURITY' | 'OPERATIONS', KeyObject>([['SECURITY', securityKey.publicKey], ['OPERATIONS', operationsKey.publicKey]]);
     expect(validateReviewerRegistry(active, governance).errors).toEqual([]);
-    expect(validateReviewerRegistry({ ...active, reviewers: [...reviewers, reviewers[0]] }, governance).errors).toContain('duplicate reviewer keyId');
+    expect(validateReviewerRegistry({ ...active, reviewers: [...reviewers, required(reviewers[0], 'DUPLICATE_REVIEWER')] }, governance).errors).toContain('duplicate reviewer keyId');
     expect(validateReviewerRegistry({ ...active, approvalReceipts: (active.approvalReceipts as JsonRecord[]).map(receiptValue => ({ ...receiptValue, approverId: 'same-approver' })) }, governance).errors).toContain('approval receipt roles');
     expect(validateReviewerRegistry(active).errors).toEqual(expect.arrayContaining(['approval receipt:SECURITY', 'approval receipt:OPERATIONS']));
     const wrongStatus = { ...active, status: 'BLOCKED_NO_TRUSTED_REVIEWER_KEYS' };
     expect(validateReviewerRegistry(wrongStatus, governance).errors).toContain('active registry status');
     const rsa = generateKeyPairSync('rsa', { modulusLength: 2048 });
     const wrongKey = structuredClone(active) as JsonRecord;
-    (wrongKey.reviewers as JsonRecord[])[0].publicKeyPem = rsa.publicKey.export({ type: 'spki', format: 'pem' }).toString();
+    required((wrongKey.reviewers as JsonRecord[])[0], 'WRONG_KEY_REVIEWER').publicKeyPem = rsa.publicKey.export({ type: 'spki', format: 'pem' }).toString();
     expect(validateReviewerRegistry(wrongKey, governance).errors).toContain('reviewer key:reviewer-1');
   });
 });

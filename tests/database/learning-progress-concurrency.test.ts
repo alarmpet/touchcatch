@@ -28,7 +28,7 @@ it('collapses twenty concurrent batch claims to one exact response and event', a
   const clients = await Promise.all(Array.from({ length: 20 }, () => api.connect()));
   try {
     const responses = await Promise.all(clients.map(async (client) => { await client.query('begin'); await client.query('set local role app_server'); const value = (await client.query<{ value: unknown }>('select private.merge_learning_progress_v1($1,$2,$3,$4) value', [userId, batchId, 'a'.repeat(64), JSON.stringify(events)])).rows[0]?.value; await client.query('commit'); return value; }));
-    expect(new Set(responses.map(JSON.stringify)).size).toBe(1);
+    expect(new Set(responses.map(value => JSON.stringify(value))).size).toBe(1);
     expect((await admin.query<{ n: number }>('select count(*)::int n from private.learning_progress_events where device_event_id=$1', [eventId])).rows[0]?.n).toBe(1);
     expect((await admin.query<{ n: number }>('select count(*)::int n from private.learning_progress_batches where idempotency_key=$1', [batchId])).rows[0]?.n).toBe(1);
   } finally { clients.forEach((client) => client.release()); }
