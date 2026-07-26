@@ -31,8 +31,20 @@ import {
   writeData027Receipt,
   type Data027Observation,
 } from '../../tools/data-027-runtime-evidence.js';
+import { maybeWriteData027Observation } from '../support/data-027-observation.js';
 
 const roots: string[] = [];
+const data027GateEnvironment = {
+  gateRunId: process.env.TOUCHCATCH_DATA027_GATE_RUN_ID,
+  observationPath: process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH,
+};
+
+const runtimeObservationInput = {
+  sessionsAttempted: 20,
+  successfulSeats: 2,
+  verifiedRoles: Array.from({ length: 20 }, () => 'app_server'),
+  databaseUrl: 'postgresql://postgres:postgres@127.0.0.1:54322/postgres',
+};
 
 const validObservation: Data027Observation = {
   schemaVersion: 1,
@@ -86,9 +98,58 @@ const rehashReceipt = (receipt: Record<string, unknown>): void => {
 
 afterEach(() => {
   for (const root of roots.splice(0)) rmSync(root, { recursive: true, force: true });
+  if (data027GateEnvironment.gateRunId === undefined) delete process.env.TOUCHCATCH_DATA027_GATE_RUN_ID;
+  else process.env.TOUCHCATCH_DATA027_GATE_RUN_ID = data027GateEnvironment.gateRunId;
+  if (data027GateEnvironment.observationPath === undefined) delete process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH;
+  else process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH = data027GateEnvironment.observationPath;
 });
 
 describe('DATA-027 runtime evidence', () => {
+  it('does not write an observation without DATA-027 gate environment values', () => {
+    const root = mkdtempSync(join(tmpdir(), 'data-027-observation-'));
+    roots.push(root);
+    delete process.env.TOUCHCATCH_DATA027_GATE_RUN_ID;
+    delete process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH;
+
+    maybeWriteData027Observation(runtimeObservationInput);
+
+    expect(readdirSync(root)).toEqual([]);
+  });
+
+  it('rejects an incomplete DATA-027 gate environment', () => {
+    process.env.TOUCHCATCH_DATA027_GATE_RUN_ID = 'run-a';
+    delete process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH;
+
+    expect(() => maybeWriteData027Observation(runtimeObservationInput)).toThrow('DATA_027_OBSERVATION_INVALID');
+
+    delete process.env.TOUCHCATCH_DATA027_GATE_RUN_ID;
+    process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH = join(tmpdir(), 'data-027-observation.json');
+    expect(() => maybeWriteData027Observation(runtimeObservationInput)).toThrow('DATA_027_OBSERVATION_INVALID');
+  });
+
+  it('rejects a non-loopback database URL before writing an observation', () => {
+    const root = mkdtempSync(join(tmpdir(), 'data-027-observation-'));
+    roots.push(root);
+    process.env.TOUCHCATCH_DATA027_GATE_RUN_ID = 'run-a';
+    process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH = join(root, 'observation.json');
+
+    expect(() => maybeWriteData027Observation({ ...runtimeObservationInput, databaseUrl: 'postgresql://db.example.test/postgres' }))
+      .toThrow('DATA_027_OBSERVATION_INVALID');
+    expect(existsSync(process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH)).toBe(false);
+  });
+
+  it('writes the exact observation from twenty verified app_server sessions and two successes', () => {
+    const root = mkdtempSync(join(tmpdir(), 'data-027-observation-'));
+    roots.push(root);
+    const observationPath = join(root, 'observation.json');
+    process.env.TOUCHCATCH_DATA027_GATE_RUN_ID = 'run-a';
+    process.env.TOUCHCATCH_DATA027_OBSERVATION_PATH = observationPath;
+
+    maybeWriteData027Observation(runtimeObservationInput);
+
+    expect(JSON.parse(readFileSync(observationPath, 'utf8'))).toEqual(validObservation);
+  });
+
   it('accepts only the exact runtime observation contract', () => {
     expect(() => validateData027Observation(validObservation, 'run-a')).not.toThrow();
 

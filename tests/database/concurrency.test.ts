@@ -6,6 +6,7 @@ import { validateFixtureFile } from '../../packages/content-validator/src/valida
 import { parseContentAssetOrigins } from '../../packages/contracts/src/integration-evidence.js';
 import { canonicalJson, canonicalJsonSha256 } from '../../packages/contracts/src/canonical-json.js';
 import { loadLocalDatabaseUrl } from '../support/local-supabase-status.js';
+import { maybeWriteData027Observation } from '../support/data-027-observation.js';
 
 function localDatabaseUrl(): string {
   const url = loadLocalDatabaseUrl();
@@ -14,7 +15,7 @@ function localDatabaseUrl(): string {
 }
 
 const databaseUrl = localDatabaseUrl();
-const admin = new Pool({ connectionString: databaseUrl, max: 25 });
+const admin = new Pool({ connectionString: databaseUrl, max: 25, connectionTimeoutMillis: 5_000 });
 const publisherRole = `content_publisher_test_${process.pid}`;
 const publisherPassword = randomUUID();
 let publisherPool: Pool;
@@ -24,10 +25,11 @@ const revisionId = '11111111-1111-4111-8111-111111111111';
 const userIds = Array.from({ length: 20 }, () => randomUUID());
 const participantKeys = Array.from({ length: 20 }, () => randomUUID());
 
-async function asAppServer(client: PoolClient): Promise<void> {
+async function asAppServer(client: PoolClient): Promise<string> {
   await client.query('set role app_server');
   const role = await client.query<{ current_user: string }>('select current_user');
   expect(role.rows[0]?.current_user).toBe('app_server');
+  return role.rows[0]!.current_user;
 }
 
 beforeAll(async () => {
@@ -138,7 +140,7 @@ describe('join_match_participant_v1 concurrency', () => {
   it('allows exactly two seats across 20 real app_server sessions', async () => {
     const clients = await Promise.all(Array.from({ length: 20 }, () => admin.connect()));
     try {
-      await Promise.all(clients.map(asAppServer));
+      const verifiedRoles = await Promise.all(clients.map(asAppServer));
       let release!: () => void;
       const barrier = new Promise<void>((resolve) => { release = resolve; });
       const calls = clients.map(async (client, index) => {
@@ -151,9 +153,16 @@ describe('join_match_participant_v1 concurrency', () => {
       });
       release();
       const results = await Promise.all(calls);
-      expect(results.filter(Boolean)).toHaveLength(2);
+      const successfulSeats = results.filter((result) => result === true);
+      expect(successfulSeats).toHaveLength(2);
       const rows = await admin.query<{ seat_no: number }>('select seat_no from public.match_players where match_id=$1 order by seat_no', [matchId]);
       expect(rows.rows.map((row) => row.seat_no)).toEqual([1, 2]);
+      maybeWriteData027Observation({
+        sessionsAttempted: clients.length,
+        successfulSeats: successfulSeats.length,
+        verifiedRoles,
+        databaseUrl,
+      });
     } finally {
       await Promise.all(clients.map(async (client) => { await client.query('reset role').catch(() => undefined); client.release(); }));
     }
