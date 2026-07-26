@@ -103,18 +103,229 @@ export function expectConcurrencyEvidence(testSource:string,expected:{sessions:n
  const identifierSymbol=(node:ts.Expression|undefined)=>{if(!node)return undefined;const expression=transparent(node);return ts.isIdentifier(expression)?symbolAt(expression):undefined;};
  const isFunctionBoundary=(node:ts.Node)=>ts.isArrowFunction(node)||ts.isFunctionExpression(node)||ts.isFunctionDeclaration(node)||ts.isMethodDeclaration(node)||ts.isGetAccessorDeclaration(node)||ts.isSetAccessorDeclaration(node)||ts.isConstructorDeclaration(node);
  const ownNodes=(root:ts.Node)=>{const nodes:ts.Node[]=[];const visit=(node:ts.Node)=>{nodes.push(node);if(node!==root&&isFunctionBoundary(node))return;ts.forEachChild(node,visit);};visit(root);return nodes;};
- const constantTruthiness=(node:ts.Expression):boolean|undefined=>{const expression=transparent(node);if(expression.kind===ts.SyntaxKind.TrueKeyword)return true;if(expression.kind===ts.SyntaxKind.FalseKeyword||expression.kind===ts.SyntaxKind.NullKeyword)return false;if(ts.isStringLiteralLike(expression))return expression.text.length>0;if(ts.isNumericLiteral(expression)){const value=Number(expression.text.replaceAll('_',''));return value!==0&&!Number.isNaN(value);}if(ts.isBigIntLiteral(expression)){try{return BigInt(expression.text.slice(0,-1).replaceAll('_',''))!==0n;}catch{return undefined;}}if(ts.isIdentifier(expression)&&!symbolAt(expression)){if(expression.text==='undefined'||expression.text==='NaN')return false;if(expression.text==='Infinity')return true;}if(ts.isVoidExpression(expression))return false;if(ts.isPrefixUnaryExpression(expression)){if(expression.operator===ts.SyntaxKind.ExclamationToken){const value=constantTruthiness(expression.operand);return value===undefined?undefined:!value;}if((expression.operator===ts.SyntaxKind.PlusToken||expression.operator===ts.SyntaxKind.MinusToken)&&ts.isNumericLiteral(transparent(expression.operand))){const value=Number(transparent(expression.operand).getText(sourceFile).replaceAll('_',''));return value!==0&&!Number.isNaN(value);}}const type=checker.getTypeAtLocation(expression),literalValue=(type as ts.Type&{value?:unknown}).value;if((type.flags&ts.TypeFlags.BooleanLiteral)!==0){const name=(type as ts.Type&{intrinsicName?:string}).intrinsicName;if(name==='true')return true;if(name==='false')return false;}if((type.flags&ts.TypeFlags.StringLiteral)!==0&&typeof literalValue==='string')return literalValue.length>0;if((type.flags&ts.TypeFlags.NumberLiteral)!==0&&typeof literalValue==='number')return literalValue!==0&&!Number.isNaN(literalValue);if((type.flags&(ts.TypeFlags.Null|ts.TypeFlags.Undefined))!==0)return false;return undefined;};
- const reachable=(node:ts.Node,boundary:ts.Node)=>{let child=node;for(let parent=node.parent;parent;child=parent,parent=parent.parent){if(ts.isIfStatement(parent)){const value=constantTruthiness(parent.expression);if((child===parent.thenStatement&&value===false)||(child===parent.elseStatement&&value===true))return false;}if(ts.isConditionalExpression(parent)){const value=constantTruthiness(parent.condition);if((child===parent.whenTrue&&value===false)||(child===parent.whenFalse&&value===true))return false;}if(ts.isBinaryExpression(parent)&&child===parent.right){const value=constantTruthiness(parent.left);if((parent.operatorToken.kind===ts.SyntaxKind.AmpersandAmpersandToken&&value===false)||(parent.operatorToken.kind===ts.SyntaxKind.BarBarToken&&value===true))return false;}if(ts.isWhileStatement(parent)&&child===parent.statement&&constantTruthiness(parent.expression)===false)return false;if(ts.isForStatement(parent)&&child===parent.statement&&parent.condition&&constantTruthiness(parent.condition)===false)return false;if(ts.isBlock(parent)||ts.isSourceFile(parent)){const statementIndex=parent.statements.indexOf(child as ts.Statement);if(statementIndex>=0&&parent.statements.slice(0,statementIndex).some(statement=>ts.isReturnStatement(statement)||ts.isThrowStatement(statement)))return false;}if(parent===boundary)return true;}return false;};
+ type StaticPrimitive=boolean|string|number|bigint|null|undefined;
+ type StaticResult={known:true;value:StaticPrimitive}|{known:false};
+ const unknownStatic:StaticResult={known:false},knownStatic=(value:StaticPrimitive):StaticResult=>({known:true,value});
+ const strictStaticEqual=(left:StaticPrimitive,right:StaticPrimitive)=>{
+  if(left===null||right===null)return left===null&&right===null;
+  if(left===undefined||right===undefined)return left===undefined&&right===undefined;
+  if(typeof left!==typeof right)return false;
+  if(typeof left==='number'&&typeof right==='number')return left===right;
+  if(typeof left==='bigint'&&typeof right==='bigint')return left===right;
+  if(typeof left==='string'&&typeof right==='string')return left===right;
+  return typeof left==='boolean'&&typeof right==='boolean'&&left===right;
+ };
+ const constantValue=(node:ts.Expression,depth=0):StaticResult=>{
+  if(depth>32)return unknownStatic;
+  const expression=transparent(node);
+  if(expression.kind===ts.SyntaxKind.TrueKeyword)return knownStatic(true);
+  if(expression.kind===ts.SyntaxKind.FalseKeyword)return knownStatic(false);
+  if(expression.kind===ts.SyntaxKind.NullKeyword)return knownStatic(null);
+  if(ts.isStringLiteralLike(expression))return knownStatic(expression.text);
+  if(ts.isNumericLiteral(expression))return knownStatic(Number(expression.text.replaceAll('_','')));
+  if(ts.isBigIntLiteral(expression)){try{return knownStatic(BigInt(expression.text.slice(0,-1).replaceAll('_','')));}catch{return unknownStatic;}}
+  if(ts.isIdentifier(expression)&&!symbolAt(expression)){
+   if(expression.text==='undefined')return knownStatic(undefined);
+   if(expression.text==='NaN')return knownStatic(Number.NaN);
+   if(expression.text==='Infinity')return knownStatic(Number.POSITIVE_INFINITY);
+  }
+  if(ts.isVoidExpression(expression)){const operand=constantValue(expression.expression,depth+1);return operand.known?knownStatic(undefined):unknownStatic;}
+  if(ts.isPrefixUnaryExpression(expression)){
+   const operand=constantValue(expression.operand,depth+1);if(!operand.known)return unknownStatic;
+   try{
+    if(expression.operator===ts.SyntaxKind.ExclamationToken)return knownStatic(!operand.value);
+    if(expression.operator===ts.SyntaxKind.PlusToken)return typeof operand.value==='bigint'?unknownStatic:knownStatic(Number(operand.value));
+    if(expression.operator===ts.SyntaxKind.MinusToken)return typeof operand.value==='bigint'?knownStatic(-operand.value):knownStatic(-Number(operand.value));
+    if(expression.operator===ts.SyntaxKind.TildeToken)return typeof operand.value==='bigint'?knownStatic(~operand.value):knownStatic(~Number(operand.value));
+   }catch{return unknownStatic;}
+   return unknownStatic;
+  }
+  if(ts.isConditionalExpression(expression)){
+   const condition=constantValue(expression.condition,depth+1);if(!condition.known)return unknownStatic;
+   return constantValue(condition.value?expression.whenTrue:expression.whenFalse,depth+1);
+  }
+  if(!ts.isBinaryExpression(expression))return unknownStatic;
+  const operator=expression.operatorToken.kind,left=constantValue(expression.left,depth+1);if(!left.known)return unknownStatic;
+  if(operator===ts.SyntaxKind.AmpersandAmpersandToken)return left.value?constantValue(expression.right,depth+1):left;
+  if(operator===ts.SyntaxKind.BarBarToken)return left.value?left:constantValue(expression.right,depth+1);
+  if(operator===ts.SyntaxKind.QuestionQuestionToken)return left.value===null||left.value===undefined?constantValue(expression.right,depth+1):left;
+  const right=constantValue(expression.right,depth+1);if(!right.known)return unknownStatic;
+  if(operator===ts.SyntaxKind.EqualsEqualsEqualsToken)return knownStatic(strictStaticEqual(left.value,right.value));
+  if(operator===ts.SyntaxKind.ExclamationEqualsEqualsToken)return knownStatic(!strictStaticEqual(left.value,right.value));
+  if(operator===ts.SyntaxKind.CommaToken)return right;
+  try{
+   if(operator===ts.SyntaxKind.PlusToken){
+    if(typeof left.value==='string'||typeof right.value==='string')return knownStatic(String(left.value)+String(right.value));
+    if(typeof left.value==='bigint'||typeof right.value==='bigint')return typeof left.value==='bigint'&&typeof right.value==='bigint'?knownStatic(left.value+right.value):unknownStatic;
+    return knownStatic(Number(left.value)+Number(right.value));
+   }
+   if(operator===ts.SyntaxKind.MinusToken||operator===ts.SyntaxKind.AsteriskToken||operator===ts.SyntaxKind.SlashToken||operator===ts.SyntaxKind.PercentToken||operator===ts.SyntaxKind.AsteriskAsteriskToken){
+    if(typeof left.value==='bigint'||typeof right.value==='bigint'){
+     if(typeof left.value!=='bigint'||typeof right.value!=='bigint')return unknownStatic;
+     if(operator===ts.SyntaxKind.MinusToken)return knownStatic(left.value-right.value);
+     if(operator===ts.SyntaxKind.AsteriskToken)return knownStatic(left.value*right.value);
+     if(operator===ts.SyntaxKind.SlashToken)return right.value===0n?unknownStatic:knownStatic(left.value/right.value);
+     if(operator===ts.SyntaxKind.PercentToken)return right.value===0n?unknownStatic:knownStatic(left.value%right.value);
+     return right.value<0n?unknownStatic:knownStatic(left.value**right.value);
+    }
+    const leftNumber=Number(left.value),rightNumber=Number(right.value);
+    if(operator===ts.SyntaxKind.MinusToken)return knownStatic(leftNumber-rightNumber);
+    if(operator===ts.SyntaxKind.AsteriskToken)return knownStatic(leftNumber*rightNumber);
+    if(operator===ts.SyntaxKind.SlashToken)return knownStatic(leftNumber/rightNumber);
+    if(operator===ts.SyntaxKind.PercentToken)return knownStatic(leftNumber%rightNumber);
+    return knownStatic(leftNumber**rightNumber);
+   }
+   if(operator===ts.SyntaxKind.LessThanToken||operator===ts.SyntaxKind.LessThanEqualsToken||operator===ts.SyntaxKind.GreaterThanToken||operator===ts.SyntaxKind.GreaterThanEqualsToken){
+    let comparison:number;
+    if(typeof left.value==='string'&&typeof right.value==='string')comparison=left.value<right.value?-1:left.value>right.value?1:0;
+    else if(typeof left.value==='bigint'&&typeof right.value==='bigint')comparison=left.value<right.value?-1:left.value>right.value?1:0;
+    else{
+     if(typeof left.value==='bigint'||typeof right.value==='bigint')return unknownStatic;
+     const leftNumber=Number(left.value),rightNumber=Number(right.value);if(Number.isNaN(leftNumber)||Number.isNaN(rightNumber))return knownStatic(false);comparison=leftNumber<rightNumber?-1:leftNumber>rightNumber?1:0;
+    }
+    if(operator===ts.SyntaxKind.LessThanToken)return knownStatic(comparison<0);
+    if(operator===ts.SyntaxKind.LessThanEqualsToken)return knownStatic(comparison<=0);
+    if(operator===ts.SyntaxKind.GreaterThanToken)return knownStatic(comparison>0);
+    return knownStatic(comparison>=0);
+   }
+  }catch{return unknownStatic;}
+  return unknownStatic;
+ };
+ const constantTruthiness=(node:ts.Expression):boolean|undefined=>{const value=constantValue(node);return value.known?Boolean(value.value):undefined;};
+ type FlowOutcome='NORMAL'|'BREAK'|'CONTINUE'|'RETURN'|'THROW';
+ const flowSet=(...outcomes:FlowOutcome[])=>new Set<FlowOutcome>(outcomes);
+ const mergeFlows=(...flows:Array<Set<FlowOutcome>>)=>new Set(flows.flatMap(flow=>[...flow]));
+ const statementFlow=(statement:ts.Statement,depth=0):Set<FlowOutcome>=>{
+  if(depth>32)return flowSet('NORMAL');
+  if(ts.isReturnStatement(statement))return flowSet('RETURN');
+  if(ts.isThrowStatement(statement))return flowSet('THROW');
+  if(ts.isBreakStatement(statement))return flowSet('BREAK');
+  if(ts.isContinueStatement(statement))return flowSet('CONTINUE');
+  if(ts.isBlock(statement))return statementsFlow(statement.statements,depth+1);
+  if(ts.isIfStatement(statement)){
+   const condition=constantTruthiness(statement.expression);
+   if(condition===true)return statementFlow(statement.thenStatement,depth+1);
+   if(condition===false)return statement.elseStatement?statementFlow(statement.elseStatement,depth+1):flowSet('NORMAL');
+   return mergeFlows(statementFlow(statement.thenStatement,depth+1),statement.elseStatement?statementFlow(statement.elseStatement,depth+1):flowSet('NORMAL'));
+  }
+  if(ts.isWhileStatement(statement)||ts.isForStatement(statement)){
+   const condition=ts.isWhileStatement(statement)?constantTruthiness(statement.expression):statement.condition?constantTruthiness(statement.condition):true;
+   if(condition===false)return flowSet('NORMAL');
+   const body=statementFlow(statement.statement,depth+1),outcomes=flowSet(...[...body].filter((outcome):outcome is 'RETURN'|'THROW'=>outcome==='RETURN'||outcome==='THROW'));
+   if(condition===undefined||body.has('BREAK'))outcomes.add('NORMAL');
+   return outcomes;
+  }
+  if(ts.isDoStatement(statement)){
+   const body=statementFlow(statement.statement,depth+1),outcomes=flowSet(...[...body].filter((outcome):outcome is 'RETURN'|'THROW'=>outcome==='RETURN'||outcome==='THROW'));
+   if(body.has('BREAK')||constantTruthiness(statement.expression)!==true)outcomes.add('NORMAL');
+   return outcomes;
+  }
+  if(ts.isForInStatement(statement)||ts.isForOfStatement(statement)){
+   const body=statementFlow(statement.statement,depth+1),outcomes=flowSet('NORMAL');
+   for(const outcome of body)if(outcome==='RETURN'||outcome==='THROW')outcomes.add(outcome);
+   return outcomes;
+  }
+  if(ts.isTryStatement(statement)){
+   let body=statementFlow(statement.tryBlock,depth+1);
+   if(statement.catchClause&&body.has('THROW'))body=mergeFlows(flowSet(...[...body].filter(outcome=>outcome!=='THROW')),statementFlow(statement.catchClause.block,depth+1));
+   if(!statement.finallyBlock)return body;
+   const finalFlow=statementFlow(statement.finallyBlock,depth+1),outcomes=flowSet(...[...finalFlow].filter(outcome=>outcome!=='NORMAL'));
+   if(finalFlow.has('NORMAL'))for(const outcome of body)outcomes.add(outcome);
+   return outcomes;
+  }
+  if(ts.isLabeledStatement(statement))return statementFlow(statement.statement,depth+1);
+  return flowSet('NORMAL');
+ };
+ function statementsFlow(statements:ts.NodeArray<ts.Statement>|readonly ts.Statement[],depth=0){
+  let outcomes=flowSet('NORMAL');
+  for(const statement of statements){
+   if(!outcomes.has('NORMAL'))break;
+   const next=flowSet(...[...outcomes].filter(outcome=>outcome!=='NORMAL'));
+   for(const outcome of statementFlow(statement,depth+1))next.add(outcome);
+   outcomes=next;
+  }
+  return outcomes;
+ }
+ const reachable=(node:ts.Node,boundary:ts.Node)=>{
+  let child=node;
+  for(let parent=node.parent;parent;child=parent,parent=parent.parent){
+   if(ts.isIfStatement(parent)&&(child===parent.thenStatement||child===parent.elseStatement)){const value=constantTruthiness(parent.expression);if(value===undefined||(child===parent.thenStatement&&!value)||(child===parent.elseStatement&&value))return false;}
+   if(ts.isConditionalExpression(parent)&&(child===parent.whenTrue||child===parent.whenFalse)){const value=constantTruthiness(parent.condition);if(value===undefined||(child===parent.whenTrue&&!value)||(child===parent.whenFalse&&value))return false;}
+   if(ts.isBinaryExpression(parent)&&child===parent.right&&(parent.operatorToken.kind===ts.SyntaxKind.AmpersandAmpersandToken||parent.operatorToken.kind===ts.SyntaxKind.BarBarToken||parent.operatorToken.kind===ts.SyntaxKind.QuestionQuestionToken)){
+    const left=constantValue(parent.left);if(!left.known)return false;
+    if(parent.operatorToken.kind===ts.SyntaxKind.AmpersandAmpersandToken&&!left.value)return false;
+    if(parent.operatorToken.kind===ts.SyntaxKind.BarBarToken&&left.value)return false;
+    if(parent.operatorToken.kind===ts.SyntaxKind.QuestionQuestionToken&&left.value!==null&&left.value!==undefined)return false;
+   }
+   if(ts.isWhileStatement(parent)&&child===parent.statement&&constantTruthiness(parent.expression)!==true)return false;
+   if(ts.isForStatement(parent)&&child===parent.statement&&parent.condition&&constantTruthiness(parent.condition)!==true)return false;
+   if((ts.isForInStatement(parent)||ts.isForOfStatement(parent))&&child===parent.statement)return false;
+   if(ts.isSwitchStatement(parent)&&child===parent.caseBlock)return false;
+   if(ts.isCatchClause(parent)&&child===parent.block)return false;
+   if(ts.isBlock(parent)||ts.isSourceFile(parent)){const statementIndex=parent.statements.indexOf(child as ts.Statement);if(statementIndex>=0&&!statementsFlow(parent.statements.slice(0,statementIndex)).has('NORMAL'))return false;}
+   if(parent===boundary)return true;
+  }
+  return false;
+ };
  const namedImportSymbol=(moduleName:string,exportName:string)=>{for(const statement of sourceFile.statements){if(!ts.isImportDeclaration(statement)||!ts.isStringLiteral(statement.moduleSpecifier)||statement.moduleSpecifier.text!==moduleName||!statement.importClause?.namedBindings||!ts.isNamedImports(statement.importClause.namedBindings))continue;const element=statement.importClause.namedBindings.elements.find(binding=>(binding.propertyName?.text??binding.name.text)===exportName);if(element)return symbolAt(element.name);}return undefined;};
  const variableForSymbol=(symbol:ts.Symbol|undefined)=>symbol?.declarations?.find((declaration):declaration is ts.VariableDeclaration=>ts.isVariableDeclaration(declaration));
  const isDirectTopVariable=(declaration:ts.VariableDeclaration|undefined)=>!!declaration&&ts.isVariableDeclarationList(declaration.parent)&&ts.isVariableStatement(declaration.parent.parent)&&declaration.parent.parent.parent===sourceFile;
  const functionForSymbol=(symbol:ts.Symbol|undefined)=>symbol?.declarations?.find((declaration):declaration is ts.FunctionDeclaration=>ts.isFunctionDeclaration(declaration)&&declaration.parent===sourceFile);
- const containsSymbol=(root:ts.Node,target:ts.Symbol|undefined)=>{let found=false;const visit=(node:ts.Node)=>{if(found)return;if(ts.isIdentifier(node)&&sameSymbol(symbolAt(node),target)){found=true;return;}ts.forEachChild(node,visit);};visit(root);return found;};
- const containsProperty=(root:ts.Node,name:string)=>{let found=false;const visit=(node:ts.Node)=>{if(found)return;if(ts.isPropertyAccessExpression(node)&&node.name.text===name){found=true;return;}ts.forEachChild(node,visit);};visit(root);return found;};
+ const zeroIndexedRowProperty=(node:ts.Expression,owner:ts.Symbol|undefined,property:string)=>{
+  const terminal=transparent(node);if(!ts.isPropertyAccessExpression(terminal)||terminal.name.text!==property)return false;
+  const row=transparent(terminal.expression);if(!ts.isElementAccessExpression(row)||!row.argumentExpression)return false;
+  const index=transparent(row.argumentExpression);if(!ts.isNumericLiteral(index)||Number(index.text)!==0)return false;
+  const rows=transparent(row.expression);return ts.isPropertyAccessExpression(rows)&&rows.name.text==='rows'&&sameSymbol(identifierSymbol(rows.expression),owner);
+ };
  const boundMethodCall=(node:ts.Expression|undefined,owner:ts.Symbol|undefined,method:string)=>{const call=callExpression(node);if(!call||!ts.isPropertyAccessExpression(call.expression)||call.expression.name.text!==method)return undefined;return sameSymbol(identifierSymbol(call.expression.expression),owner)?call:undefined;};
  const unshadowedGlobalCall=(node:ts.Expression|undefined,owner:string,method:string)=>{const call=callExpression(node);if(!call||!ts.isPropertyAccessExpression(call.expression)||call.expression.name.text!==method)return undefined;const receiver=transparent(call.expression.expression);return ts.isIdentifier(receiver)&&receiver.text===owner&&!symbolAt(receiver)?call:undefined;};
  const promiseAllArgument=(initializer:ts.Expression|undefined)=>{const call=unshadowedGlobalCall(awaitedExpression(initializer),'Promise','all');return call&&call.arguments.length===1?call.arguments[0]:undefined;};
  const returnedExpression=(callback:ts.ArrowFunction|ts.FunctionExpression)=>{if(!ts.isBlock(callback.body))return transparent(callback.body);const returns=ownNodes(callback.body).filter((node):node is ts.ReturnStatement=>ts.isReturnStatement(node)&&!!node.expression&&reachable(node,callback.body));return returns.length===1?returns[0]!.expression:undefined;};
+ const allNodes=(root:ts.Node)=>{const nodes:ts.Node[]=[];const visit=(node:ts.Node)=>{nodes.push(node);ts.forEachChild(node,visit);};visit(root);return nodes;};
+ const orderedReachableChain=(nodes:ts.Node[],boundary:ts.Node)=>nodes.every((node,index)=>reachable(node,boundary)&&(index===0||nodes[index-1]!.getStart()<node.getStart()));
+ const arrayRemainsStable=(declaration:ts.VariableDeclaration,arraySymbol:ts.Symbol)=>{
+  if(!ts.isVariableDeclarationList(declaration.parent)||(declaration.parent.flags&ts.NodeFlags.Const)===0)return false;
+  const nodes=allNodes(sourceFile),aliases=new Set<ts.Symbol>([arraySymbol]),usesAlias=(node:ts.Expression|undefined)=>{const symbol=identifierSymbol(node);return symbol!==undefined&&aliases.has(symbol);};
+  const safeArrayCallbacks=new Set(['every','filter','find','findIndex','flatMap','forEach','map','reduce','reduceRight','some']);
+  for(let pass=0;pass<32;pass++){
+   let changed=false;
+   for(const node of nodes){
+    if(ts.isVariableDeclaration(node)&&ts.isIdentifier(node.name)&&node.initializer&&usesAlias(node.initializer)){const symbol=symbolAt(node.name);if(symbol&&!aliases.has(symbol)){aliases.add(symbol);changed=true;}}
+    if(ts.isBinaryExpression(node)&&node.operatorToken.kind===ts.SyntaxKind.EqualsToken&&ts.isIdentifier(transparent(node.left))&&usesAlias(node.right)){const symbol=symbolAt(transparent(node.left));if(symbol&&!aliases.has(symbol)){aliases.add(symbol);changed=true;}}
+    if(ts.isCallExpression(node)&&ts.isPropertyAccessExpression(node.expression)&&usesAlias(node.expression.expression)&&safeArrayCallbacks.has(node.expression.name.text)){
+     const callback=node.arguments[0];if(callback&&(ts.isArrowFunction(callback)||ts.isFunctionExpression(callback))&&callback.parameters[2]&&ts.isIdentifier(callback.parameters[2].name)){const symbol=symbolAt(callback.parameters[2].name);if(symbol&&!aliases.has(symbol)){aliases.add(symbol);changed=true;}}
+    }
+   }
+   if(!changed)break;
+   if(pass===31)return false;
+  }
+  const assignmentOperators=new Set<ts.SyntaxKind>([
+   ts.SyntaxKind.EqualsToken,ts.SyntaxKind.PlusEqualsToken,ts.SyntaxKind.MinusEqualsToken,ts.SyntaxKind.AsteriskEqualsToken,ts.SyntaxKind.AsteriskAsteriskEqualsToken,ts.SyntaxKind.SlashEqualsToken,ts.SyntaxKind.PercentEqualsToken,
+   ts.SyntaxKind.LessThanLessThanEqualsToken,ts.SyntaxKind.GreaterThanGreaterThanEqualsToken,ts.SyntaxKind.GreaterThanGreaterThanGreaterThanEqualsToken,ts.SyntaxKind.AmpersandEqualsToken,ts.SyntaxKind.BarEqualsToken,ts.SyntaxKind.CaretEqualsToken,
+   ts.SyntaxKind.AmpersandAmpersandEqualsToken,ts.SyntaxKind.BarBarEqualsToken,ts.SyntaxKind.QuestionQuestionEqualsToken,
+  ]);
+  const mutators=new Set(['copyWithin','fill','pop','push','reverse','shift','sort','splice','unshift']);
+  const targetContainsAlias=(target:ts.Node)=>{let found=false;const visit=(node:ts.Node)=>{if(found)return;if(ts.isIdentifier(node)&&aliases.has(symbolAt(node)!)){found=true;return;}ts.forEachChild(node,visit);};visit(target);return found;};
+  for(const node of nodes){
+   if(node.getStart()<=declaration.getStart())continue;
+   if(ts.isBinaryExpression(node)&&assignmentOperators.has(node.operatorToken.kind)&&targetContainsAlias(node.left))return false;
+   if((ts.isPrefixUnaryExpression(node)||ts.isPostfixUnaryExpression(node))&&(node.operator===ts.SyntaxKind.PlusPlusToken||node.operator===ts.SyntaxKind.MinusMinusToken)&&targetContainsAlias(node.operand))return false;
+   if(ts.isDeleteExpression(node)&&targetContainsAlias(node.expression))return false;
+   if(ts.isPropertyAccessExpression(node)&&usesAlias(node.expression)&&mutators.has(node.name.text))return false;
+   if(ts.isElementAccessExpression(node)&&usesAlias(node.expression)&&node.argumentExpression){const argument=transparent(node.argumentExpression);if(ts.isStringLiteralLike(argument)&&mutators.has(argument.text))return false;}
+   if(ts.isReturnStatement(node)&&node.expression&&usesAlias(node.expression))return false;
+   if(ts.isPropertyAssignment(node)&&usesAlias(node.initializer))return false;
+   if(ts.isShorthandPropertyAssignment(node)&&aliases.has(symbolAt(node.name)!))return false;
+   if(ts.isBinaryExpression(node)&&node.operatorToken.kind===ts.SyntaxKind.EqualsToken&&usesAlias(node.right)&&!ts.isIdentifier(transparent(node.left)))return false;
+   if(ts.isNewExpression(node)&&node.arguments?.some(argument=>usesAlias(argument)))return false;
+   if(ts.isCallExpression(node)){
+    const objectMutation=unshadowedGlobalCall(node,'Object','assign')??unshadowedGlobalCall(node,'Object','defineProperty')??unshadowedGlobalCall(node,'Object','defineProperties')??unshadowedGlobalCall(node,'Reflect','set')??unshadowedGlobalCall(node,'Reflect','deleteProperty');
+    if(objectMutation&&usesAlias(objectMutation.arguments[0]))return false;
+    if(node.arguments.some(argument=>usesAlias(argument)))return false;
+   }
+  }
+  return true;
+ };
  const describeSymbol=namedImportSymbol('vitest','describe'),itSymbol=namedImportSymbol('vitest','it'),expectSymbol=namedImportSymbol('vitest','expect'),poolSymbol=namedImportSymbol('pg','Pool'),loaderSymbol=namedImportSymbol('../support/local-supabase-status.js','loadLocalDatabaseUrl'),randomUuidSymbol=namedImportSymbol('node:crypto','randomUUID');
  if(!describeSymbol||!itSymbol||!expectSymbol||!poolSymbol||!randomUuidSymbol||(expected.loopbackOnly&&!loaderSymbol))fail();
  const describeCalls=sourceFile.statements.flatMap(statement=>{if(!ts.isExpressionStatement(statement))return[];const call=callExpression(statement.expression);return call&&ts.isIdentifier(call.expression)&&sameSymbol(symbolAt(call.expression),describeSymbol)&&call.arguments[0]&&ts.isStringLiteralLike(call.arguments[0])&&call.arguments[0].text==='join_match_participant_v1 concurrency'&&call.arguments[1]&&(ts.isArrowFunction(call.arguments[1])||ts.isFunctionExpression(call.arguments[1]))&&reachable(call,sourceFile)?[call]:[];});
@@ -124,7 +335,7 @@ export function expectConcurrencyEvidence(testSource:string,expected:{sessions:n
  if(scenarioCalls.length!==1)fail();
  const scenarioCallback=scenarioCalls[0]!.arguments[1];if(!scenarioCallback||( !ts.isArrowFunction(scenarioCallback)&&!ts.isFunctionExpression(scenarioCallback))||!ts.isBlock(scenarioCallback.body))fail();
  const scenarioNodes=ownNodes(scenarioCallback.body).filter(node=>reachable(node,scenarioCallback.body));
- const seatAssertions=scenarioNodes.flatMap(node=>{if(!ts.isCallExpression(node)||!ts.isPropertyAccessExpression(node.expression)||node.expression.name.text!=='toHaveLength'||node.arguments.length!==1||!ts.isNumericLiteral(node.arguments[0]!)||Number(node.arguments[0]!.text)!==expected.expectedSeats)return[];const expectCall=callExpression(node.expression.expression);if(!expectCall||!ts.isIdentifier(expectCall.expression)||!sameSymbol(symbolAt(expectCall.expression),expectSymbol)||expectCall.arguments.length!==1)return[];const filterCall=callExpression(expectCall.arguments[0]);if(!filterCall||!ts.isPropertyAccessExpression(filterCall.expression)||filterCall.expression.name.text!=='filter'||filterCall.arguments.length!==1||!ts.isIdentifier(filterCall.arguments[0]!)||filterCall.arguments[0]!.text!=='Boolean'||symbolAt(filterCall.arguments[0]!))return[];const results=symbolAt(transparent(filterCall.expression.expression));return results?[{node,results}]:[];});
+ const seatAssertions=scenarioNodes.flatMap(node=>{if(!ts.isCallExpression(node)||!ts.isExpressionStatement(node.parent)||node.parent.expression!==node||!ts.isPropertyAccessExpression(node.expression)||node.expression.name.text!=='toHaveLength'||node.arguments.length!==1||!ts.isNumericLiteral(node.arguments[0]!)||Number(node.arguments[0]!.text)!==expected.expectedSeats)return[];const expectCall=callExpression(node.expression.expression);if(!expectCall||!ts.isIdentifier(expectCall.expression)||!sameSymbol(symbolAt(expectCall.expression),expectSymbol)||expectCall.arguments.length!==1)return[];const filterCall=callExpression(expectCall.arguments[0]);if(!filterCall||!ts.isPropertyAccessExpression(filterCall.expression)||filterCall.expression.name.text!=='filter'||filterCall.arguments.length!==1||!ts.isIdentifier(filterCall.arguments[0]!)||filterCall.arguments[0]!.text!=='Boolean'||symbolAt(filterCall.arguments[0]!))return[];const results=symbolAt(transparent(filterCall.expression.expression));return results?[{node,results}]:[];});
  if(seatAssertions.length!==1)fail();
  const seatAssertion=seatAssertions[0]!,resultsDeclaration=variableForSymbol(seatAssertion.results);
  if(!resultsDeclaration||!scenarioNodes.includes(resultsDeclaration)||!resultsDeclaration.initializer)fail();
@@ -156,26 +367,26 @@ export function expectConcurrencyEvidence(testSource:string,expected:{sessions:n
  const localUrlFunction=functionForSymbol(symbolAt(localUrlCall.expression));
  if(!localUrlFunction||localUrlFunction.name?.text!=='localDatabaseUrl'||!localUrlFunction.body)fail();
  if(expected.loopbackOnly){const localUrlBody=localUrlFunction.body!,localNodes=ownNodes(localUrlBody).filter(node=>reachable(node,localUrlBody)),returns=localNodes.filter((node):node is ts.ReturnStatement=>ts.isReturnStatement(node)&&!!node.expression);if(returns.length!==1)fail();const toStringCall=callExpression(returns[0]!.expression);if(!toStringCall||!ts.isPropertyAccessExpression(toStringCall.expression)||toStringCall.expression.name.text!=='toString'||toStringCall.arguments.length!==0)fail();const urlSymbol=identifierSymbol(toStringCall.expression.expression),urlDeclaration=variableForSymbol(urlSymbol);if(!urlDeclaration||!localNodes.includes(urlDeclaration)||!urlDeclaration.initializer||urlDeclaration.getStart()>=returns[0]!.getStart())fail();const loaderCall=callExpression(urlDeclaration.initializer);if(!loaderCall||!ts.isIdentifier(loaderCall.expression)||!sameSymbol(symbolAt(loaderCall.expression),loaderSymbol)||loaderCall.arguments.length!==0)fail();}
- const roleApplications=scenarioNodes.flatMap(node=>{if(!ts.isAwaitExpression(node))return[];const all=unshadowedGlobalCall(transparent(node.expression),'Promise','all');if(!all||all.arguments.length!==1)return[];const mapped=callExpression(all.arguments[0]);if(!mapped||!ts.isPropertyAccessExpression(mapped.expression)||mapped.expression.name.text!=='map'||!sameSymbol(identifierSymbol(mapped.expression.expression),clientsSymbol)||mapped.arguments.length!==1||!ts.isIdentifier(mapped.arguments[0]!))return[];const role=symbolAt(mapped.arguments[0]!);return role?[{node,role}]:[];});
+ const roleApplications=scenarioNodes.flatMap(node=>{if(!ts.isAwaitExpression(node)||!ts.isExpressionStatement(node.parent)||node.parent.expression!==node)return[];const all=unshadowedGlobalCall(transparent(node.expression),'Promise','all');if(!all||all.arguments.length!==1)return[];const mapped=callExpression(all.arguments[0]);if(!mapped||!ts.isPropertyAccessExpression(mapped.expression)||mapped.expression.name.text!=='map'||!sameSymbol(identifierSymbol(mapped.expression.expression),clientsSymbol)||mapped.arguments.length!==1||!ts.isIdentifier(mapped.arguments[0]!))return[];const role=symbolAt(mapped.arguments[0]!);return role?[{node,role}]:[];});
  if(roleApplications.length!==1)fail();
  const roleApplication=roleApplications[0]!,roleFunction=functionForSymbol(roleApplication.role);
  if(!roleFunction||roleFunction.name?.text!=='asAppServer'||!roleFunction.body||roleFunction.parameters.length!==1||!ts.isIdentifier(roleFunction.parameters[0]!.name))fail();
  const roleBody=roleFunction.body!,roleClientSymbol=symbolAt(roleFunction.parameters[0]!.name),roleNodes=ownNodes(roleBody).filter(node=>reachable(node,roleBody));
- const setRoleCalls=roleNodes.flatMap(node=>{if(!ts.isAwaitExpression(node))return[];const query=boundMethodCall(transparent(node.expression),roleClientSymbol,'query');return query&&query.arguments.length===1&&ts.isStringLiteralLike(query.arguments[0]!)&&query.arguments[0]!.text.toLowerCase()===`set role ${expected.requiredRole.toLowerCase()}`?[node]:[];});
+ const setRoleCalls=roleNodes.flatMap(node=>{if(!ts.isAwaitExpression(node)||!ts.isExpressionStatement(node.parent)||node.parent.expression!==node)return[];const query=boundMethodCall(transparent(node.expression),roleClientSymbol,'query');return query&&query.arguments.length===1&&ts.isStringLiteralLike(query.arguments[0]!)&&query.arguments[0]!.text.toLowerCase()===`set role ${expected.requiredRole.toLowerCase()}`?[node]:[];});
  const roleDeclarations=roleNodes.filter((node):node is ts.VariableDeclaration=>{if(!ts.isVariableDeclaration(node)||!ts.isIdentifier(node.name)||!node.initializer)return false;const query=boundMethodCall(awaitedExpression(node.initializer),roleClientSymbol,'query');return !!query&&query.arguments.length===1&&ts.isStringLiteralLike(query.arguments[0]!)&&query.arguments[0]!.text.toLowerCase()==='select current_user';});
  if(setRoleCalls.length!==1||roleDeclarations.length!==1)fail();
  const currentRoleSymbol=symbolAt(roleDeclarations[0]!.name);
- const roleAssertions=roleNodes.filter((node):node is ts.CallExpression=>{if(!ts.isCallExpression(node)||!ts.isPropertyAccessExpression(node.expression)||node.expression.name.text!=='toBe'||node.arguments.length!==1||!ts.isStringLiteralLike(node.arguments[0]!)||node.arguments[0]!.text!==expected.requiredRole)return false;const expectCall=callExpression(node.expression.expression);return !!expectCall&&ts.isIdentifier(expectCall.expression)&&sameSymbol(symbolAt(expectCall.expression),expectSymbol)&&expectCall.arguments.length===1&&containsSymbol(expectCall.arguments[0]! ,currentRoleSymbol)&&containsProperty(expectCall.arguments[0]!,'current_user');});
- if(roleAssertions.length!==1||!(setRoleCalls[0]!.getStart()<roleDeclarations[0]!.getStart()&&roleDeclarations[0]!.getStart()<roleAssertions[0]!.getStart()))fail();
+ const roleAssertions=roleNodes.filter((node):node is ts.CallExpression=>{if(!ts.isCallExpression(node)||!ts.isExpressionStatement(node.parent)||node.parent.expression!==node||!ts.isPropertyAccessExpression(node.expression)||node.expression.name.text!=='toBe'||node.arguments.length!==1||!ts.isStringLiteralLike(node.arguments[0]!)||node.arguments[0]!.text!==expected.requiredRole)return false;const expectCall=callExpression(node.expression.expression);return !!expectCall&&ts.isIdentifier(expectCall.expression)&&sameSymbol(symbolAt(expectCall.expression),expectSymbol)&&expectCall.arguments.length===1&&zeroIndexedRowProperty(expectCall.arguments[0]!,currentRoleSymbol,'current_user');});
+ if(roleAssertions.length!==1||!orderedReachableChain([setRoleCalls[0]!,roleDeclarations[0]!,roleAssertions[0]!],roleBody))fail();
  const callbackClientSymbol=symbolAt(callsCallback.parameters[0]!.name),callbackIndexSymbol=symbolAt(callsCallback.parameters[1]!.name),callbackNodes=ownNodes(callsCallback.body).filter(node=>reachable(node,callsCallback.body));
  const topVariableDeclaration=(name:string)=>{const declarations=sourceFile.statements.flatMap(statement=>ts.isVariableStatement(statement)?statement.declarationList.declarations.filter(declaration=>ts.isIdentifier(declaration.name)&&declaration.name.text===name):[]);return declarations.length===1?declarations[0]:undefined;};
- const fixtureArraySymbol=(name:string)=>{const declaration=topVariableDeclaration(name);if(!declaration||!ts.isIdentifier(declaration.name)||!declaration.initializer)return undefined;const arrayFrom=unshadowedGlobalCall(declaration.initializer,'Array','from'),factory=arrayFrom?.arguments[1];if(!arrayFrom||arrayFromLength(arrayFrom)!==expected.sessions||!factory||(!ts.isArrowFunction(factory)&&!ts.isFunctionExpression(factory)))return undefined;const generated=callExpression(returnedExpression(factory));return generated&&ts.isIdentifier(generated.expression)&&sameSymbol(symbolAt(generated.expression),randomUuidSymbol)&&generated.arguments.length===0?symbolAt(declaration.name):undefined;};
- const matchIdDeclaration=topVariableDeclaration('matchId'),matchIdSymbol=matchIdDeclaration&&ts.isIdentifier(matchIdDeclaration.name)?symbolAt(matchIdDeclaration.name):undefined,participantKeysSymbol=fixtureArraySymbol('participantKeys'),userIdsSymbol=fixtureArraySymbol('userIds');
+ const fixtureArray=(name:string)=>{const declaration=topVariableDeclaration(name);if(!declaration||!ts.isIdentifier(declaration.name)||!declaration.initializer)return undefined;const arrayFrom=unshadowedGlobalCall(declaration.initializer,'Array','from'),factory=arrayFrom?.arguments[1];if(!arrayFrom||arrayFromLength(arrayFrom)!==expected.sessions||!factory||(!ts.isArrowFunction(factory)&&!ts.isFunctionExpression(factory)))return undefined;const generated=callExpression(returnedExpression(factory)),symbol=symbolAt(declaration.name);return generated&&symbol&&ts.isIdentifier(generated.expression)&&sameSymbol(symbolAt(generated.expression),randomUuidSymbol)&&generated.arguments.length===0&&arrayRemainsStable(declaration,symbol)?{declaration,symbol}:undefined;};
+ const matchIdDeclaration=topVariableDeclaration('matchId'),matchIdSymbol=matchIdDeclaration&&ts.isIdentifier(matchIdDeclaration.name)?symbolAt(matchIdDeclaration.name):undefined,participantKeys=fixtureArray('participantKeys'),userIds=fixtureArray('userIds'),participantKeysSymbol=participantKeys?.symbol,userIdsSymbol=userIds?.symbol;
  if(!matchIdSymbol||!participantKeysSymbol||!userIdsSymbol)fail();
  const indexedByCallback=(value:ts.Expression|undefined,arraySymbol:ts.Symbol|undefined)=>{if(!value)return false;const expression=transparent(value);return ts.isElementAccessExpression(expression)&&sameSymbol(identifierSymbol(expression.expression),arraySymbol)&&!!expression.argumentExpression&&sameSymbol(identifierSymbol(expression.argumentExpression),callbackIndexSymbol);};
  const liveReturns=callbackNodes.filter((node):node is ts.ReturnStatement=>ts.isReturnStatement(node)&&!!node.expression);
- const joinQueries=callbackNodes.flatMap(node=>{if(!ts.isVariableDeclaration(node)||!ts.isIdentifier(node.name)||!node.initializer)return[];const query=boundMethodCall(awaitedExpression(node.initializer),callbackClientSymbol,'query'),sql=query?.arguments[0],parameters=query?.arguments[1];if(!query||!sql||!ts.isStringLiteralLike(sql)||sql.text.replace(/\s+/gu,' ').trim().toLowerCase()!=='select private.join_match_participant_v1($1,$2,$3) as joined'||!parameters||!ts.isArrayLiteralExpression(parameters)||parameters.elements.length!==3||!sameSymbol(identifierSymbol(parameters.elements[0]),matchIdSymbol)||!indexedByCallback(parameters.elements[1],participantKeysSymbol)||!indexedByCallback(parameters.elements[2],userIdsSymbol))return[];const resultSymbol=symbolAt(node.name),returns=liveReturns.filter(statement=>statement.expression&&containsSymbol(statement.expression,resultSymbol)&&containsProperty(statement.expression,'joined')&&node.getStart()<statement.getStart());return returns.length===1?[{declaration:node,returned:returns[0]!}]:[];});
- if(joinQueries.length!==1)fail();
+ const joinQueries=callbackNodes.flatMap(node=>{if(!ts.isVariableDeclaration(node)||!ts.isIdentifier(node.name)||!node.initializer)return[];const query=boundMethodCall(awaitedExpression(node.initializer),callbackClientSymbol,'query'),sql=query?.arguments[0],parameters=query?.arguments[1];if(!query||!sql||!ts.isStringLiteralLike(sql)||sql.text.replace(/\s+/gu,' ').trim().toLowerCase()!=='select private.join_match_participant_v1($1,$2,$3) as joined'||!parameters||!ts.isArrayLiteralExpression(parameters)||parameters.elements.length!==3||!sameSymbol(identifierSymbol(parameters.elements[0]),matchIdSymbol)||!indexedByCallback(parameters.elements[1],participantKeysSymbol)||!indexedByCallback(parameters.elements[2],userIdsSymbol))return[];const resultSymbol=symbolAt(node.name),returns=liveReturns.filter(statement=>statement.expression&&zeroIndexedRowProperty(statement.expression,resultSymbol,'joined')&&node.getStart()<statement.getStart());return returns.length===1?[{declaration:node,returned:returns[0]!}]:[];});
+ if(joinQueries.length!==1||!orderedReachableChain([joinQueries[0]!.declaration,joinQueries[0]!.returned],callsCallback.body))fail();
  if(!(clientsDeclaration.getStart()<roleApplication.node.getStart()&&roleApplication.node.getStart()<callsDeclaration.getStart()&&callsDeclaration.getStart()<resultsDeclaration.getStart()&&resultsDeclaration.getStart()<seatAssertion.node.getStart()))fail();
 }
 export function evaluateDatabaseRequirement(id:string,provided?:DatabaseRequirementSource){const root=process.cwd(),read=(p:string)=>fs.readFileSync(path.join(root,p),'utf8'),source=provided??{sql:fs.readdirSync(path.join(root,'supabase/migrations')).filter(x=>x.endsWith('.sql')).sort().map(x=>read(`supabase/migrations/${x}`)).join('\n'),config:read('supabase/config.toml'),roles:read('supabase/roles.sql')};
