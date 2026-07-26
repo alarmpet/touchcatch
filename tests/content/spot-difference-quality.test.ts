@@ -132,10 +132,15 @@ describe('spot-difference quality contract', () => {
     const objective = (quality.entries as any[])[0].objectives[0];
     Object.assign(objective, {
       target: 'x', location: 'y', before: 'old', after: 'new',
-      authoringEvidence: { status: 'PASS', rawInstruction: objective.authoringEvidence.rawInstruction, blocker: null },
+      authoringEvidence: {
+        status: 'PASS',
+        rawInstruction: objective.authoringEvidence.rawInstruction,
+        roleRecord: { target: 'x', location: 'y', before: 'old', after: 'new' },
+        blocker: null,
+      },
     });
 
-    expect(await checkSpotDifferenceQuality({ root, quality, manifest, enforceRelease: true })).toContain('en-resilience:release-specificity:difference_1');
+    expect(await checkSpotDifferenceQuality({ root, quality, manifest })).toContain('en-resilience:release-specificity:difference_1');
   });
 
   it('rejects PASS evidence made only of action boilerplate and stopwords', async () => {
@@ -146,9 +151,60 @@ describe('spot-difference quality contract', () => {
     const objective = (quality.entries as any[])[0].objectives[0];
     Object.assign(objective, {
       target: 'the', location: 'only', before: 'change', after: 'bright',
-      authoringEvidence: { status: 'PASS', rawInstruction: objective.authoringEvidence.rawInstruction, blocker: null },
+      authoringEvidence: {
+        status: 'PASS',
+        rawInstruction: objective.authoringEvidence.rawInstruction,
+        roleRecord: { target: 'the', location: 'only', before: 'change', after: 'bright' },
+        blocker: null,
+      },
     });
 
-    expect(await checkSpotDifferenceQuality({ root, quality, manifest, enforceRelease: true })).toContain('en-resilience:release-specificity:difference_1');
+    expect(await checkSpotDifferenceQuality({ root, quality, manifest })).toContain('en-resilience:release-specificity:difference_1');
+  });
+
+  it('rejects PASS evidence when source tokens are assigned to the wrong structured roles', async () => {
+    const [quality, manifest] = await Promise.all([
+      readJson('content/learning/spot-difference-quality.v1.json'),
+      readJson('content/learning/manifest.v1.json'),
+    ]);
+    const objective = (quality.entries as any[])[0].objectives[0];
+    Object.assign(objective, {
+      target: 'flower',
+      location: 'purple',
+      before: 'lower',
+      after: 'yellow',
+      authoringEvidence: {
+        status: 'PASS',
+        rawInstruction: 'Target: flower\nLocation: lower\nBefore: purple\nAfter: yellow',
+        roleRecord: { target: ' Flower ', location: 'LOWER', before: 'Purple', after: ' yellow ' },
+        blocker: null,
+      },
+    });
+
+    expect(await checkSpotDifferenceQuality({ root, quality, manifest })).toContain('en-resilience:release-specificity:difference_1');
+  });
+
+  it('accepts a PASS with an exact structured role record', async () => {
+    const [quality, manifest] = await Promise.all([
+      readJson('content/learning/spot-difference-quality.v1.json'),
+      readJson('content/learning/manifest.v1.json'),
+    ]);
+    const objective = (quality.entries as any[])[0].objectives[0];
+    Object.assign(objective, {
+      target: 'flower',
+      location: 'lower',
+      before: 'purple',
+      after: 'yellow',
+      authoringEvidence: {
+        status: 'PASS',
+        rawInstruction: 'Target: flower\nLocation: lower\nBefore: purple\nAfter: yellow',
+        roleRecord: { target: ' Flower ', location: 'LOWER', before: 'Purple', after: ' yellow ' },
+        blocker: null,
+      },
+    });
+
+    const failures = await checkSpotDifferenceQuality({ root, quality, manifest });
+    expect(failures.some((failure) => failure.startsWith('schema:'))).toBe(false);
+    expect(failures).not.toContain('en-resilience:release-specificity:difference_1');
   });
 });

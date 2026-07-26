@@ -17,7 +17,7 @@
         "5e86119dc48e3f7d008f6aa9ab8cb615e32ba797468ac570c612af78b770d4e1",
         "6c92a8d24904c92039b9acc44438f74f953f58d409fcf50e0879e5f914c0aadf"
       ],
-      "qualitySha256": "3479aae863d86dcea7ee1c7b2804d57db4cc18cf11875acbe8db9a9914d2fbc5",
+      "qualitySha256": "03d7190bd446401b29539c388bb97eb4b076f34424688ea223749166e3b4b6f7",
       "promptEvidence": [
         {
           "file": "prompts/en-resilience-base.txt",
@@ -49,7 +49,7 @@
         "0c17694fcc0669ac5acd679d9d6afbb9d4d1b4f3d075fbabed511205d6ba8f02",
         "d442821e226bd7e3680ee3f20a6fcbc82a0289cf5eaade1bc897e63437c08ee0"
       ],
-      "qualitySha256": "15b894c283529e8aad5ef9259f65e50e388c370b3dbcbde3cda5dabf4ad10500",
+      "qualitySha256": "a519a13eceffd46eff193bfe4d1f0f4a017f9d0ad519e9d9ca9510e3b3c202f2",
       "promptEvidence": [
         {
           "file": "prompts/en-dilemma-base.txt",
@@ -77,7 +77,7 @@
         "15ff015168e3d57c3f528999af9b94fa3a33dc8635be0c476abe9e85690465b1",
         "682464c5006d403d84c98b00af2668c2c733cd9d6506fd9e31d0c35c9824976a"
       ],
-      "qualitySha256": "4816ff891022aecbc8686687fef1caf7c5318f6a0f363a5ce7e764fa7e88d57c",
+      "qualitySha256": "165092755b6dd30f5a9b04d4532b3c9bbdebf318aabdb1051cd07a57db8e5e92",
       "promptEvidence": [
         {
           "file": "prompts/en-sustainability-base.txt",
@@ -105,7 +105,7 @@
         "95c0084320de9e387105ba296217c377b4f2e2fd7b1d4c6fa05371d611c38402",
         "c63e9428001f7b96464014c7edf4dd34316744fbc0585ceebef76f28964b445e"
       ],
-      "qualitySha256": "bc2eb54bec733fe8b78c6f7188ba7cd2a308329649486bcd8036d13f09e3cd0c",
+      "qualitySha256": "c12416a0358c19187b73447055dd3dc9ab22fbfae12a82f78d9271b3abcd3853",
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-dark-under-lamp-base.txt",
@@ -133,7 +133,7 @@
         "a242905347538545291777abe43e127c759f6aff6ddc73027799416780954311",
         "60602814202a4dff87420e8f2d7f594c274733bb734590107b3fb40a0815fb84"
       ],
-      "qualitySha256": "bcfacf57182bc252df581e7afe2b41500229f6af5b1617f641b44acc985066c6",
+      "qualitySha256": "b04d989ba1354cad8d14ae46f990ee29fbecaf0896d33059f28094dac90c83ca",
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-seeing-is-believing-base.txt",
@@ -161,7 +161,7 @@
         "b8858205d9dafded1307dd651d8b8c40e66d8970e43c4e9614112ad2da6a139c",
         "5a97bfefca375c1ee810f93a2be1504b7100e457d30b5e8f4727087b9ee3d8f5"
       ],
-      "qualitySha256": "cd9b46df3baeab8bdb3b54a0af359bdf6e7931e2c485efa8ff6d7ec45c280ecf",
+      "qualitySha256": "4747e965af1539e2ca67eba7f3cba7b99b0a84308e2e97825c254199ef438a4b",
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-kind-words-return-base.txt",
@@ -193,7 +193,7 @@
         "9bff7dbd76f19a2c0fec8eed9ac754c9ada3d241afd035c89a6dd348cd273bf8",
         "c472823b7ce3418908c6a42f12d9c9fc7834239b993303b951c1f5c2fc64e076"
       ],
-      "qualitySha256": "e74e366b0167ef242bbd5b32bf19ba7976854278c9797c47ee10d23df9c55e40",
+      "qualitySha256": "b3feed14f83aad0e9cab01d32c92c27694f55840c73f1c4bc30f16eaf5e64888",
       "promptEvidence": [
         {
           "file": "prompts/ko-idiom-turn-misfortune-base.txt",
@@ -221,7 +221,7 @@
         "fea2f58b2c3603dbdf5a1ad68bdf52807c79d5f54fcd872738099e1d5c8fbf46",
         "02a616a84a402e017037f4bd5be99ed1701c7b059b004a63c33b0e86a86c4ccf"
       ],
-      "qualitySha256": "63ccd2e873e72b646ab271c330bd98079598ac3c21337845c031e50c383980d7",
+      "qualitySha256": "f82d64719e2de1a60dd4686d45e0d8e95edd2cd64453010a0c5f077beb82873a",
       "promptEvidence": [
         {
           "file": "prompts/ko-idiom-prepare-ahead-base.txt",
@@ -249,7 +249,7 @@
         "d37c123580152a6a1552054e4ec6e171af7bfea77b299c2c1234f9e7fb51cf18",
         "d3c5f45583c4166854b90cc0c675c1dad5347ee2290e10862ead0afec923e5b9"
       ],
-      "qualitySha256": "ae79123c9038999be811743df2393986fb29dc1ec4fcb19f11b6e6a59de10ba9",
+      "qualitySha256": "3c3c36bf5febdc666a4a640580eb47e81ede3814cd72f0e949db3f0e53a96522",
       "promptEvidence": [
         {
           "file": "prompts/ko-idiom-perspective-base.txt",

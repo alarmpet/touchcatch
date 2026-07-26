@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "entries": [
     {
       "contentKey": "en-resilience",
@@ -22,6 +22,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "Change only the large purple flower near the lower center of the sprout bed to bright yellow.",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -43,6 +44,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "Reverse only the curved handle of the turquoise watering can held by the student in yellow.",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -64,6 +66,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "Remove only the single orange fallen leaf directly below the watering can student.",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -85,6 +88,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "Add one small white cloud in the clear blue sky immediately to the right of the rainbow.",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -106,6 +110,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "Change only the far-right blue-handled garden tool in the cabinet to an orange handle.",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -127,6 +132,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "Add one extra leaf to the smallest sprout at the front-left corner of the central sprout bed.",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -148,6 +154,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "Change only the blade of the loose foreground trowel from a pointed shape to a rounded square shape.",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -169,6 +176,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "Reverse the diagonal direction of only the top wooden slat on the foreground bench.",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -190,6 +198,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "Change only the greenhouse entrance door window from a rectangle to a diamond-shaped pane.",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -211,6 +220,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "Change only the compost bin's lower front ventilation opening from one long opening to two short openings.",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -298,6 +308,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the robot's two glowing eyes from cyan to yellow",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -319,6 +330,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the robot antenna tip from a sphere to a star",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -340,6 +352,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "remove one tooth from the large loose gear on the left table",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -361,6 +374,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the drawing compass's blue center ring to red",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -382,6 +396,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the robotic arm claw from two prongs to three",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -403,6 +418,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the top-left blue shape on the abstract canvas to green",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -424,6 +440,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "remove the rightmost paintbrush from the blue brush cup",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -445,6 +462,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change one red paint blob on the palette to purple",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -466,6 +484,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "add a small green hat to the clay figure",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -487,6 +506,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the hanging purple star decoration to bright yellow",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -569,6 +589,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change one upper-left solar-panel cell from blue to yellow",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -590,6 +611,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the white recycling symbol on the blue bin to a white leaf icon",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -611,6 +633,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the yellow recycling bin lid to red",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -632,6 +655,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the bicycle front-wheel lamp from white to orange",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -653,6 +677,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the wind turbine from three blades to four",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -674,6 +699,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the mini-bus left headlight from pale blue to yellow",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -695,6 +721,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "reverse the rain-barrel spigot so its handle points left",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -716,6 +743,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the watering-can sprinkler rose from green to red",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -737,6 +765,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the cap of the yellow reusable bottle to white",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -758,6 +787,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "remove one orange flower from the lower-left foreground planter",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -841,6 +871,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the green desk-lamp shade to red",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -862,6 +893,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the silver key below the lamp to gold",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -883,6 +915,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the flashlight body from yellow to blue",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -904,6 +937,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the magnifying-glass handle from black to red",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -925,6 +959,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the wall clock rim from brown to blue",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -946,6 +981,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the oval cutout in the wooden chair back to a star-shaped cutout",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -967,6 +1003,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the globe oceans from blue to purple",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -988,6 +1025,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the right foreground plant pot from white to orange",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1009,6 +1047,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the pencil cup from purple to green",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1030,6 +1069,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the backpack zipper pull from gold to red",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1108,6 +1148,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the prism base edge from pale blue to pink",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1129,6 +1170,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the lamp rim from black to red",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1150,6 +1192,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the leftmost purple test-tube liquid to yellow",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1171,6 +1214,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the magnet's red pole to green",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1192,6 +1236,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "remove the ring from the orange model planet",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1213,6 +1258,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the right flask liquid from blue to green",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1234,6 +1280,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the globe stand from black to red",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1255,6 +1302,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the shelf plant pot from blue to yellow",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1276,6 +1324,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the purple crystal to bright turquoise",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1297,6 +1346,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the left microscope's two black eyepieces to one centered eyepiece",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1379,6 +1429,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the wall clock rim from black to green",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1400,6 +1451,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the desk lamp shade from black to blue",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1421,6 +1473,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the right shelf plant pot from yellow to pink",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1442,6 +1495,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the large cone of the left speaker from beige to blue",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1463,6 +1517,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the large cone of the right speaker from beige to green",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1484,6 +1539,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the pencil cup from purple to orange",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1505,6 +1561,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the yellow memo pad near the left speaker to purple",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1526,6 +1583,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the center blue star cushion to pink",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1547,6 +1605,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the single yellow square button on the mixer to bright blue",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1568,6 +1627,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the center of the loose headphones' visible earcup from dark gray to red",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1644,6 +1704,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the left basketball backboard border from orange to blue",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1665,6 +1726,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change one tall pink umbrella in the foreground stand to white",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1686,6 +1748,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the sun in the center sunset painting from yellow to purple",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1707,6 +1770,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the stage trophy from gold to silver",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1728,6 +1792,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the red paint dot on the giant palette to green",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1749,6 +1814,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change one middle ladder step from silver to red",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1770,6 +1836,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the top segment of the center colorful sculpture from purple to yellow",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1791,6 +1858,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the fish in the foreground framed painting from yellow to red",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1812,6 +1880,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the large purple foreground vase to green",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1833,6 +1902,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the blue award ribbon on the right display to red",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1910,6 +1980,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the hanging yellow raincoat to red",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1931,6 +2002,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the hanging blue gloves to orange",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1952,6 +2024,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the red first-aid box on the shelf to green",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1973,6 +2046,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the cap of the center foreground water bottle from blue to red",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -1994,6 +2068,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change one bar of the floor drain grate from dark gray to yellow",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -2015,6 +2090,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the window latch held by the student from gray to red",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -2036,6 +2112,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the top sandbag from beige to green",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -2057,6 +2134,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the handheld flashlight's front rim from black to blue",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -2078,6 +2156,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "reverse the radio antenna so it leans to the right",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -2099,6 +2178,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the red whistle on the table to yellow",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -2178,6 +2258,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the leftmost blue spotlight lens to red",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -2199,6 +2280,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the pink hanging lantern to orange",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -2220,6 +2302,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the wrench icon on the left role card from gray to red",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -2241,6 +2324,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the lamp beam on the right role card from yellow to blue",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -2262,6 +2346,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the purple floor arrow to orange",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -2283,6 +2368,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the red toolbox to blue",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -2304,6 +2390,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the work-glove cuff from blue to red",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -2325,6 +2412,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the large wooden star prop from yellow to green",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -2346,6 +2434,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the pink paint can to purple",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {
@@ -2367,6 +2456,7 @@
           "authoringEvidence": {
             "status": "PENDING",
             "rawInstruction": "change the pink band on the black top hat to green",
+            "roleRecord": null,
             "blocker": "AUTHORING_FIELDS_REQUIRE_REVIEW"
           },
           "mobileReview": {

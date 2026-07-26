@@ -67,7 +67,7 @@ const entries = await Promise.all(catalog.entries.map(async (catalogEntry) => {
     salience: index < 4 ? 'CLEAR' : index < 7 ? 'MODERATE' : 'FOCUSED',
     ...objectiveDetails(instructions[index]!),
     zone: zoneFor(difference.hitboxes.imageA),
-    authoringEvidence: { status: 'PENDING', rawInstruction: instructions[index]!, blocker: 'AUTHORING_FIELDS_REQUIRE_REVIEW' },
+    authoringEvidence: { status: 'PENDING', rawInstruction: instructions[index]!, roleRecord: null, blocker: 'AUTHORING_FIELDS_REQUIRE_REVIEW' },
     mobileReview: { status: 'PENDING', reviewer: null, reviewedAt: null },
   }));
   const computed = diagnostics(objectives);
@@ -87,4 +87,4 @@ const entries = await Promise.all(catalog.entries.map(async (catalogEntry) => {
   };
 }));
 
-await writeFile(resolve(learning, 'spot-difference-quality.v1.json'), `${JSON.stringify({ schemaVersion: '1.0.0', entries }, null, 2)}\n`, 'utf8');
+await writeFile(resolve(learning, 'spot-difference-quality.v1.json'), `${JSON.stringify({ schemaVersion: '1.1.0', entries }, null, 2)}\n`, 'utf8');

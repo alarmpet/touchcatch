@@ -32,12 +32,13 @@ const completedBy = (reviewer: unknown, reviewedAt: unknown) => typeof reviewer 
 const semanticStopwords = new Set(['the', 'a', 'an', 'only', 'change', 'add', 'remove', 'bright', 'to', 'from', 'in', 'on', 'at', 'of', 'and', 'or', 'with', 'for', 'near', 'area', 'scene', 'image', 'source', 'edited', 'original', 'state', 'appearance']);
 const semanticTokens = (value: string) => normalise(value).match(/[\p{L}\p{N}]+/gu)?.filter((token) => token.length >= 3 && !semanticStopwords.has(token)) ?? [];
 function hasGroundedStructuredEvidence(objective: Json) {
-  const sourceTokens = new Set(semanticTokens(String(objective.authoringEvidence?.rawInstruction ?? '')));
+  const roleRecord = objective.authoringEvidence?.roleRecord;
+  if (!roleRecord || typeof roleRecord !== 'object' || Array.isArray(roleRecord)) return false;
   return ['target', 'location', 'before', 'after'].every((field) => {
     const value = normalise(String(objective[field] ?? ''));
     if (value === 'pending') return false;
     const tokens = semanticTokens(value);
-    return tokens.length > 0 && tokens.some((token) => sourceTokens.has(token));
+    return tokens.length > 0 && normalise(String(roleRecord[field] ?? '')) === value;
   });
 }
 
@@ -105,6 +106,7 @@ export async function checkSpotDifferenceQuality(options: SpotDifferenceQualityC
     const normalSalience = objectives.filter(({ tier }) => tier === 'NORMAL').map(({ salience }) => salience);
     const hardSalience = objectives.filter(({ tier }) => tier === 'HARD').map(({ salience }) => salience);
     if (normalSalience.some((salience) => salience === 'FOCUSED') || hardSalience.some((salience) => salience !== 'FOCUSED')) failures.push(`${key}:tier-salience-correlation`);
+    for (const objective of objectives) if (objective.authoringEvidence?.status === 'PASS' && !hasGroundedStructuredEvidence(objective)) failures.push(`${key}:release-specificity:${objective.objectiveId}`);
     if (options.enforceRelease) {
       const maxZoneCount = Math.max(...Object.values(diagnostics.zoneCounts).map(Number));
       const maxTypeCount = Math.max(...Object.values(diagnostics.changeTypeCounts).map(Number));
@@ -118,7 +120,6 @@ export async function checkSpotDifferenceQuality(options: SpotDifferenceQualityC
       if (objectives.some(({ mobileReview }) => mobileReview.status !== 'PASS')) failures.push(`${key}:mobile-review`);
       if (objectives.some(({ mobileReview }) => mobileReview.status === 'PASS' && !completedBy(mobileReview.reviewer, mobileReview.reviewedAt))) failures.push(`${key}:mobile-reviewer`);
       if (objectives.some(({ authoringEvidence }) => authoringEvidence?.status !== 'PASS')) failures.push(`${key}:authoring-review`);
-      for (const objective of objectives) if (objective.authoringEvidence?.status === 'PASS' && !hasGroundedStructuredEvidence(objective)) failures.push(`${key}:release-specificity:${objective.objectiveId}`);
       const review = pack.imagePairReview;
       if (review.status !== 'PASS' || !review.sameComposition || !review.sameCamera || !review.sameLightingDirection || !review.sameArtStyle || review.unintendedChangeStatus !== 'PASS') failures.push(`${key}:image-pair-review`);
       if (review.status === 'PASS' && !completedBy(review.reviewedBy, review.reviewedAt)) failures.push(`${key}:image-pair-reviewer`);
