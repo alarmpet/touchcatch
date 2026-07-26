@@ -20,6 +20,7 @@ describe('nine-pack learning manifest', () => {
       expect(bundle.rightsReviewStatus).toBe('REVIEW_REQUIRED');
       expect(bundle.educationReviewStatus).toBe('REVIEW_REQUIRED');
       expect(evidence.outsidePolicy).toBe('PASS');
+      expect(entry.qualitySha256).toMatch(/^[a-f0-9]{64}$/);
     }
   });
 });

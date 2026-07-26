@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "entries"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "entries": { "type": "array", "minItems": 9, "maxItems": 9, "items": { "$ref": "#/$defs/pack" } }
+  },
+  "$defs": {
+    "pendingOrPass": { "enum": ["PENDING", "PASS", "FAIL"] },
+    "pack": {
+      "type": "object", "additionalProperties": false,
+      "required": ["contentKey", "catalogChangesSha256", "reviewViewport", "objectives", "imagePairReview", "releaseReadiness"],
+      "properties": {
+        "contentKey": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "catalogChangesSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "reviewViewport": { "type": "object", "additionalProperties": false, "required": ["width", "height"], "properties": { "width": { "const": 375 }, "height": { "const": 667 } } },
+        "objectives": { "type": "array", "minItems": 10, "maxItems": 10, "items": { "$ref": "#/$defs/objective" } },
+        "imagePairReview": { "$ref": "#/$defs/imagePairReview" },
+        "releaseReadiness": { "$ref": "#/$defs/releaseReadiness" }
+      }
+    },
+    "objective": {
+      "type": "object", "additionalProperties": false,
+      "required": ["objectiveId", "tier", "salience", "changeType", "zone", "target", "location", "before", "after", "mobileReview"],
+      "properties": {
+        "objectiveId": { "type": "string", "minLength": 1 }, "tier": { "enum": ["NORMAL", "HARD"] }, "salience": { "enum": ["CLEAR", "MODERATE", "FOCUSED"] }, "changeType": { "enum": ["COLOR", "ADD", "REMOVE", "SHAPE", "COUNT", "DIRECTION"] }, "zone": { "enum": ["A", "B", "C", "D", "E", "F", "G", "H", "I"] },
+        "target": { "type": "string", "minLength": 1 }, "location": { "type": "string", "minLength": 1 }, "before": { "type": "string", "minLength": 1 }, "after": { "type": "string", "minLength": 1 }, "mobileReview": { "$ref": "#/$defs/mobileReview" }
+      }
+    },
+    "mobileReview": { "type": "object", "additionalProperties": false, "required": ["status", "reviewer", "reviewedAt"], "properties": { "status": { "$ref": "#/$defs/pendingOrPass" }, "reviewer": { "type": ["string", "null"] }, "reviewedAt": { "type": ["string", "null"], "format": "date-time" } } },
+    "imagePairReview": { "type": "object", "additionalProperties": false, "required": ["status", "sameComposition", "sameCamera", "sameLightingDirection", "sameArtStyle", "unintendedChangeStatus", "reviewedBy", "reviewedAt"], "properties": { "status": { "$ref": "#/$defs/pendingOrPass" }, "sameComposition": { "type": ["boolean", "null"] }, "sameCamera": { "type": ["boolean", "null"] }, "sameLightingDirection": { "type": ["boolean", "null"] }, "sameArtStyle": { "type": ["boolean", "null"] }, "unintendedChangeStatus": { "$ref": "#/$defs/pendingOrPass" }, "reviewedBy": { "type": ["string", "null"] }, "reviewedAt": { "type": ["string", "null"], "format": "date-time" } } },
+    "releaseReadiness": { "type": "object", "additionalProperties": false, "required": ["status", "blockers", "diagnostics"], "properties": { "status": { "$ref": "#/$defs/pendingOrPass" }, "blockers": { "type": "array", "items": { "type": "string" } }, "diagnostics": { "type": "object", "additionalProperties": false, "required": ["zones", "zoneCounts", "changeTypes", "changeTypeCounts"], "properties": { "zones": { "type": "array", "items": { "type": "string" } }, "zoneCounts": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 1 } }, "changeTypes": { "type": "array", "items": { "type": "string" } }, "changeTypeCounts": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 1 } } } } } }
+  }
+}

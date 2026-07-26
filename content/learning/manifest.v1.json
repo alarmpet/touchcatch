@@ -17,18 +17,19 @@
         "5e86119dc48e3f7d008f6aa9ab8cb615e32ba797468ac570c612af78b770d4e1",
         "6c92a8d24904c92039b9acc44438f74f953f58d409fcf50e0879e5f914c0aadf"
       ],
+      "qualitySha256": "673852e32e166782024d671a6484e8cf17f4d0424e126d270bd19c23c60027a1",
       "promptEvidence": [
         {
           "file": "prompts/en-resilience-base.txt",
-          "sha256": "f1dc49de847869c9d94b7389b5ceb4ab95103e4454f57d8d74880a5f8b105565"
+          "sha256": "901fdb9a9506d6f560f41287c5b3ed62d36de87a90a8fc56c0424837a12d0b6e"
         },
         {
           "file": "prompts/en-resilience-correction.txt",
-          "sha256": "ebe0d353c794a0125552e2adc5cb627a8637bd00816d97dfca5a864d87c9b97f"
+          "sha256": "268ed5538a482fe9897ab25d36c3809bd5bf20cf9f17a209a496156b9c2a0189"
         },
         {
           "file": "prompts/en-resilience-edit.txt",
-          "sha256": "b9b040883534a3e9f40ae4fcf7f4392a16e1dea66f47fbf89f71edcd60030d2d"
+          "sha256": "d083d4bc9d0f6ec56685256ceeb9c3e0a8b93e838499927d56c2e9309bec79b4"
         }
       ],
       "publishBlocked": true
@@ -48,14 +49,15 @@
         "0c17694fcc0669ac5acd679d9d6afbb9d4d1b4f3d075fbabed511205d6ba8f02",
         "d442821e226bd7e3680ee3f20a6fcbc82a0289cf5eaade1bc897e63437c08ee0"
       ],
+      "qualitySha256": "c5e5c20e1f71d2c8590cd6139aa55063024b6933e941bb65dad1ea4b9e14e894",
       "promptEvidence": [
         {
           "file": "prompts/en-dilemma-base.txt",
-          "sha256": "2ac84e9e7ff3b3499c808954c904239c33b953b254f4728b324e0146ef134f8c"
+          "sha256": "0ee8078978300f7e923960b508a997769b8339033aff7334c947ecca64d893a6"
         },
         {
           "file": "prompts/en-dilemma-edit.txt",
-          "sha256": "152a067ebe623c6e37f02d2b95e3dff71afe7f056f4a55f7104a3b90e5eb624a"
+          "sha256": "f5772cf0e69237c86c0c9f6ff1b331d9e0fe295fa70eba22856695bdfa28b0bf"
         }
       ],
       "publishBlocked": true
@@ -75,14 +77,15 @@
         "15ff015168e3d57c3f528999af9b94fa3a33dc8635be0c476abe9e85690465b1",
         "682464c5006d403d84c98b00af2668c2c733cd9d6506fd9e31d0c35c9824976a"
       ],
+      "qualitySha256": "a0c83c1ba4e7e5d6e37c006ce503fb488ca555d5a7ba8a00cb20f7b0cbbc48aa",
       "promptEvidence": [
         {
           "file": "prompts/en-sustainability-base.txt",
-          "sha256": "ba4ab3d5e71237c9750fe5a6e5e3f760f3047e192c91e17825fb4eb567dc512d"
+          "sha256": "68cbc4ed3ea48f351a837c08d5c0c897cfdd11ee1f3c802e9ceab19cdda7272f"
         },
         {
           "file": "prompts/en-sustainability-edit.txt",
-          "sha256": "12fd9a2c3aad47dfe9b6a0b0dfe27325056563d81641c1330955cf543f3bb40f"
+          "sha256": "de65b09525ab32e87a4665c24d6ea4646fee659bc81a67a7101f42199999b18c"
         }
       ],
       "publishBlocked": true
@@ -102,14 +105,15 @@
         "95c0084320de9e387105ba296217c377b4f2e2fd7b1d4c6fa05371d611c38402",
         "c63e9428001f7b96464014c7edf4dd34316744fbc0585ceebef76f28964b445e"
       ],
+      "qualitySha256": "b923302b04cb38d429dc2e2738fc3fca1b901b9e8882e120a39425d73eabbd7b",
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-dark-under-lamp-base.txt",
-          "sha256": "a88180115b1bccd4384084588b27488b39fa99a06bfc59ebf16a7b304c618fd0"
+          "sha256": "22eaa9fa4e142506b569d701a3487f7fcb49c8d430555ef9eb6749f4160818e0"
         },
         {
           "file": "prompts/ko-proverb-dark-under-lamp-edit.txt",
-          "sha256": "e943b0f8e4544c6f525bcc8febe26810bf4f83ab7bdb020779b9f0383310a432"
+          "sha256": "791f3879ecdbddfc2941a9619a6fa1d951cf5bc859d86668c2bbbbcc9f251038"
         }
       ],
       "publishBlocked": true
@@ -129,14 +133,15 @@
         "a242905347538545291777abe43e127c759f6aff6ddc73027799416780954311",
         "60602814202a4dff87420e8f2d7f594c274733bb734590107b3fb40a0815fb84"
       ],
+      "qualitySha256": "f4233a075c6ad36d7b0d2ac485654e63c934748635b390a8d888e511c31a6cca",
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-seeing-is-believing-base.txt",
-          "sha256": "2005dc4a0753dbe92509165e3c77ec830968b5240c2ca89fd23ec27ac931f40d"
+          "sha256": "7e82360481bed452307e111cb7e724c08d0f18d6ac6d433d34664f36645ba8aa"
         },
         {
           "file": "prompts/ko-proverb-seeing-is-believing-edit.txt",
-          "sha256": "be9bd8efb1449ca8fdf7a6e162d4ef2b20b8b8ac58a05385d6b9c6895e37acd2"
+          "sha256": "64501d036999627e5096e1884d9cd79340f22f4355173cb9914e22c51e553905"
         }
       ],
       "publishBlocked": true
@@ -156,18 +161,19 @@
         "b8858205d9dafded1307dd651d8b8c40e66d8970e43c4e9614112ad2da6a139c",
         "5a97bfefca375c1ee810f93a2be1504b7100e457d30b5e8f4727087b9ee3d8f5"
       ],
+      "qualitySha256": "f3ec712b346522e60e05c5a2d1b01327eecb20650bcfcdcb4304f4a64e1d163e",
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-kind-words-return-base.txt",
-          "sha256": "a85e2f95c9d3353f8961b4dbcca585e65f5f3573cd0ccaf2d16c3a1c9dace835"
+          "sha256": "eee485c6c9faafdb3cc4d54f37b5ebe4a89bb4cfb2de4e9c1d86109be8e63486"
         },
         {
           "file": "prompts/ko-proverb-kind-words-return-correction.txt",
-          "sha256": "8e4d8bfb35c5e344744b29208977dccf8d320b61a3b40e27b00ccbfa8fd0bc39"
+          "sha256": "2a94e63fd9a03c31bf6cb22a4a142006198e221948ed618177b7cf6e540c40c4"
         },
         {
           "file": "prompts/ko-proverb-kind-words-return-edit.txt",
-          "sha256": "46ec5ecdc67a0e88fbf6693732f8717616a3997930794f6836f80e9628bd7320"
+          "sha256": "4e53a3060acbcd48b41aff02993f094649cf73eaabca49cb29f5803119b403f3"
         }
       ],
       "publishBlocked": true
@@ -187,14 +193,15 @@
         "9bff7dbd76f19a2c0fec8eed9ac754c9ada3d241afd035c89a6dd348cd273bf8",
         "c472823b7ce3418908c6a42f12d9c9fc7834239b993303b951c1f5c2fc64e076"
       ],
+      "qualitySha256": "057086373a5c78100366e8d79365dec115c4c1a91f4753c084c8cbd30d2ecf77",
       "promptEvidence": [
         {
           "file": "prompts/ko-idiom-turn-misfortune-base.txt",
-          "sha256": "36b001ce8d9d4e27c4c6b0325fb0172610301e6a5bf57cf083f15b7ec16f0d07"
+          "sha256": "38fdb5c15edd0e75bfb667e1f9b6d26a5824409996d99e1f54d0ca7d775913c8"
         },
         {
           "file": "prompts/ko-idiom-turn-misfortune-edit.txt",
-          "sha256": "1bac6fcda1b10b7474691856467060582da2fcf1001979e0a3d36be5a96a44fb"
+          "sha256": "bfceca7604ecc1b779c802dca3ceba6b7fbab9e484aa17e698d6ce325b1158c3"
         }
       ],
       "publishBlocked": true
@@ -214,14 +221,15 @@
         "fea2f58b2c3603dbdf5a1ad68bdf52807c79d5f54fcd872738099e1d5c8fbf46",
         "02a616a84a402e017037f4bd5be99ed1701c7b059b004a63c33b0e86a86c4ccf"
       ],
+      "qualitySha256": "87d1661b95ac99b1fb75b4f1f52dfa9493dcc1234997c690789b78a26d41a96c",
       "promptEvidence": [
         {
           "file": "prompts/ko-idiom-prepare-ahead-base.txt",
-          "sha256": "ed234c664a756a7f3359d4798a62d5fbf8b11cbc561d1ac07b953a834fb4a88e"
+          "sha256": "515f3aec19bf8c299169260dc9a406b7f00d5b9ed100d8d023b4212ee1f9c807"
         },
         {
           "file": "prompts/ko-idiom-prepare-ahead-edit.txt",
-          "sha256": "8826ee37c40aaeec3f935e2f9250b39538d8473091d692f494040e98cbb2fd4b"
+          "sha256": "411901a11f066af3ae8359dbe724a25bf7149a00272accfb6e1ddf0229cec056"
         }
       ],
       "publishBlocked": true
@@ -241,14 +249,15 @@
         "d37c123580152a6a1552054e4ec6e171af7bfea77b299c2c1234f9e7fb51cf18",
         "d3c5f45583c4166854b90cc0c675c1dad5347ee2290e10862ead0afec923e5b9"
       ],
+      "qualitySha256": "3ad3da67805141b8b172abe0f72288eb69926852a06d03bf63543514475f26df",
       "promptEvidence": [
         {
           "file": "prompts/ko-idiom-perspective-base.txt",
-          "sha256": "0e8c1ee64b1ff7e5f85ae0dce24a89ec374afd58ee773a04ff231d4fbc9a80ce"
+          "sha256": "81ba0d1d724186bdce925217be1a67bd859dc54202f5f0b7d8e5c0a9ab9bb654"
         },
         {
           "file": "prompts/ko-idiom-perspective-edit.txt",
-          "sha256": "3b8cf2baea59b5cdd0b62ae7810547b55d04980be9de042cae73506e15b57ab8"
+          "sha256": "42075c733816fd481da0e4feed3123a82835782422b5d2759a3b0e59399fda06"
         }
       ],
       "publishBlocked": true

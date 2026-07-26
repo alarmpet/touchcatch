@@ -1,0 +1,1977 @@
+{
+  "schemaVersion": "1.0.0",
+  "entries": [
+    {
+      "contentKey": "en-resilience",
+      "catalogChangesSha256": "e2a70a32e1126dc948c2940107ae8508501bb9b0bc78053d8dd29a5cb286c360",
+      "reviewViewport": {
+        "width": 375,
+        "height": 667
+      },
+      "objectives": [
+        {
+          "objectiveId": "difference_1",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the large purple flower near the lower center of the sprout bed",
+          "location": "the localized scene area containing the large purple flower near the lower center of the sprout bed",
+          "before": "the source-image appearance of the large purple flower near the lower center of the sprout bed",
+          "after": "bright yellow",
+          "changeType": "COLOR",
+          "zone": "H",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_2",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the curved handle of the turquoise watering can held by the student in yellow",
+          "location": "the localized scene area described by Reverse only the curved handle of the turquoise watering can held by the student in yellow",
+          "before": "original direction in the source image",
+          "after": "reversed direction in the edited image",
+          "changeType": "DIRECTION",
+          "zone": "D",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_3",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the single orange fallen leaf directly below the watering can student",
+          "location": "the localized scene area described by Remove only the single orange fallen leaf directly below the watering can student",
+          "before": "present in the source image",
+          "after": "removed from the edited image",
+          "changeType": "REMOVE",
+          "zone": "E",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_4",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "small white cloud in the clear blue sky immediately to the right of the rainbow",
+          "location": "the localized scene area described by Add one small white cloud in the clear blue sky immediately to the right of the rainbow",
+          "before": "absent from the source image",
+          "after": "present in the edited image",
+          "changeType": "ADD",
+          "zone": "B",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_5",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the far-right blue-handled garden tool in the cabinet",
+          "location": "the localized scene area containing the far-right blue-handled garden tool in the cabinet",
+          "before": "the source-image appearance of the far-right blue-handled garden tool in the cabinet",
+          "after": "an orange handle",
+          "changeType": "COLOR",
+          "zone": "F",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_6",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "extra leaf to the smallest sprout at the front-left corner of the central sprout bed",
+          "location": "the localized scene area described by Add one extra leaf to the smallest sprout at the front-left corner of the central sprout bed",
+          "before": "absent from the source image",
+          "after": "present in the edited image",
+          "changeType": "ADD",
+          "zone": "H",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_7",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the blade of the loose foreground trowel",
+          "location": "the localized scene area containing the blade of the loose foreground trowel",
+          "before": "a pointed shape",
+          "after": "a rounded square shape",
+          "changeType": "SHAPE",
+          "zone": "H",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_8",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the diagonal direction of only the top wooden slat on the foreground bench",
+          "location": "the localized scene area described by Reverse the diagonal direction of only the top wooden slat on the foreground bench",
+          "before": "original direction in the source image",
+          "after": "reversed direction in the edited image",
+          "changeType": "DIRECTION",
+          "zone": "G",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_9",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the greenhouse entrance door window",
+          "location": "the localized scene area containing the greenhouse entrance door window",
+          "before": "a rectangle",
+          "after": "a diamond-shaped pane",
+          "changeType": "COLOR",
+          "zone": "E",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_10",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the compost bin's lower front ventilation opening",
+          "location": "the localized scene area containing the compost bin's lower front ventilation opening",
+          "before": "one long opening",
+          "after": "two short openings",
+          "changeType": "COUNT",
+          "zone": "I",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        }
+      ],
+      "imagePairReview": {
+        "status": "PENDING",
+        "sameComposition": null,
+        "sameCamera": null,
+        "sameLightingDirection": null,
+        "sameArtStyle": null,
+        "unintendedChangeStatus": "PENDING",
+        "reviewedBy": null,
+        "reviewedAt": null
+      },
+      "releaseReadiness": {
+        "status": "PENDING",
+        "blockers": [
+          "CATALOG_DRAFT",
+          "SPATIAL_DISTRIBUTION_REQUIRED",
+          "MOBILE_REVIEW_REQUIRED",
+          "IMAGE_PAIR_REVIEW_REQUIRED"
+        ],
+        "diagnostics": {
+          "zones": [
+            "B",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I"
+          ],
+          "zoneCounts": {
+            "B": 1,
+            "D": 1,
+            "E": 2,
+            "F": 1,
+            "G": 1,
+            "H": 3,
+            "I": 1
+          },
+          "changeTypes": [
+            "ADD",
+            "COLOR",
+            "COUNT",
+            "DIRECTION",
+            "REMOVE",
+            "SHAPE"
+          ],
+          "changeTypeCounts": {
+            "ADD": 2,
+            "COLOR": 3,
+            "COUNT": 1,
+            "DIRECTION": 2,
+            "REMOVE": 1,
+            "SHAPE": 1
+          }
+        }
+      }
+    },
+    {
+      "contentKey": "en-dilemma",
+      "catalogChangesSha256": "8b31a179627a827cd78e229493c2e5b323df910da816e08e9bab545c4689f263",
+      "reviewViewport": {
+        "width": 375,
+        "height": 667
+      },
+      "objectives": [
+        {
+          "objectiveId": "difference_1",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the robot's two glowing eyes",
+          "location": "the localized scene area containing the robot's two glowing eyes",
+          "before": "cyan",
+          "after": "yellow",
+          "changeType": "COUNT",
+          "zone": "D",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_2",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the robot antenna tip",
+          "location": "the localized scene area containing the robot antenna tip",
+          "before": "a sphere",
+          "after": "a star",
+          "changeType": "SHAPE",
+          "zone": "A",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_3",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "one tooth from the large loose gear on the left table",
+          "location": "the localized scene area described by remove one tooth from the large loose gear on the left table",
+          "before": "present in the source image",
+          "after": "removed from the edited image",
+          "changeType": "REMOVE",
+          "zone": "D",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_4",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the drawing compass's blue center ring",
+          "location": "the localized scene area containing the drawing compass's blue center ring",
+          "before": "the source-image appearance of the drawing compass's blue center ring",
+          "after": "red",
+          "changeType": "COLOR",
+          "zone": "D",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_5",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the robotic arm claw",
+          "location": "the localized scene area containing the robotic arm claw",
+          "before": "two prongs",
+          "after": "three",
+          "changeType": "SHAPE",
+          "zone": "E",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_6",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the top-left blue shape on the abstract canvas",
+          "location": "the localized scene area containing the top-left blue shape on the abstract canvas",
+          "before": "the source-image appearance of the top-left blue shape on the abstract canvas",
+          "after": "green",
+          "changeType": "SHAPE",
+          "zone": "F",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_7",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the rightmost paintbrush from the blue brush cup",
+          "location": "the localized scene area described by remove the rightmost paintbrush from the blue brush cup",
+          "before": "present in the source image",
+          "after": "removed from the edited image",
+          "changeType": "REMOVE",
+          "zone": "F",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_8",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "one red paint blob on the palette",
+          "location": "the localized scene area containing one red paint blob on the palette",
+          "before": "the source-image appearance of one red paint blob on the palette",
+          "after": "purple",
+          "changeType": "COUNT",
+          "zone": "F",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_9",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "a small green hat to the clay figure",
+          "location": "the localized scene area described by add a small green hat to the clay figure",
+          "before": "absent from the source image",
+          "after": "present in the edited image",
+          "changeType": "ADD",
+          "zone": "F",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_10",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the hanging purple star decoration",
+          "location": "the localized scene area containing the hanging purple star decoration",
+          "before": "the source-image appearance of the hanging purple star decoration",
+          "after": "bright yellow",
+          "changeType": "SHAPE",
+          "zone": "C",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        }
+      ],
+      "imagePairReview": {
+        "status": "PENDING",
+        "sameComposition": null,
+        "sameCamera": null,
+        "sameLightingDirection": null,
+        "sameArtStyle": null,
+        "unintendedChangeStatus": "PENDING",
+        "reviewedBy": null,
+        "reviewedAt": null
+      },
+      "releaseReadiness": {
+        "status": "PENDING",
+        "blockers": [
+          "CATALOG_DRAFT",
+          "SPATIAL_DISTRIBUTION_REQUIRED",
+          "MOBILE_REVIEW_REQUIRED",
+          "IMAGE_PAIR_REVIEW_REQUIRED"
+        ],
+        "diagnostics": {
+          "zones": [
+            "A",
+            "C",
+            "D",
+            "E",
+            "F"
+          ],
+          "zoneCounts": {
+            "A": 1,
+            "C": 1,
+            "D": 3,
+            "E": 1,
+            "F": 4
+          },
+          "changeTypes": [
+            "ADD",
+            "COLOR",
+            "COUNT",
+            "REMOVE",
+            "SHAPE"
+          ],
+          "changeTypeCounts": {
+            "ADD": 1,
+            "COLOR": 1,
+            "COUNT": 2,
+            "REMOVE": 2,
+            "SHAPE": 4
+          }
+        }
+      }
+    },
+    {
+      "contentKey": "en-sustainability",
+      "catalogChangesSha256": "aa97017a63e7adee72a6714ea1dd9accbeaca5799e2cc8d38ce69f7a540d1346",
+      "reviewViewport": {
+        "width": 375,
+        "height": 667
+      },
+      "objectives": [
+        {
+          "objectiveId": "difference_1",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "one upper-left solar-panel cell",
+          "location": "the localized scene area containing one upper-left solar-panel cell",
+          "before": "blue",
+          "after": "yellow",
+          "changeType": "COUNT",
+          "zone": "A",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_2",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the white recycling symbol on the blue bin",
+          "location": "the localized scene area containing the white recycling symbol on the blue bin",
+          "before": "the source-image appearance of the white recycling symbol on the blue bin",
+          "after": "a white leaf icon",
+          "changeType": "COLOR",
+          "zone": "G",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_3",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the yellow recycling bin lid",
+          "location": "the localized scene area containing the yellow recycling bin lid",
+          "before": "the source-image appearance of the yellow recycling bin lid",
+          "after": "red",
+          "changeType": "COLOR",
+          "zone": "E",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_4",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the bicycle front-wheel lamp",
+          "location": "the localized scene area containing the bicycle front-wheel lamp",
+          "before": "white",
+          "after": "orange",
+          "changeType": "COLOR",
+          "zone": "H",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_5",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the wind turbine",
+          "location": "the localized scene area containing the wind turbine",
+          "before": "three blades",
+          "after": "four",
+          "changeType": "SHAPE",
+          "zone": "B",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_6",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the mini-bus left headlight",
+          "location": "the localized scene area containing the mini-bus left headlight",
+          "before": "pale blue",
+          "after": "yellow",
+          "changeType": "COLOR",
+          "zone": "F",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_7",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the rain-barrel spigot so its handle points left",
+          "location": "the localized scene area described by reverse the rain-barrel spigot so its handle points left",
+          "before": "original direction in the source image",
+          "after": "reversed direction in the edited image",
+          "changeType": "DIRECTION",
+          "zone": "I",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_8",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the watering-can sprinkler rose",
+          "location": "the localized scene area containing the watering-can sprinkler rose",
+          "before": "green",
+          "after": "red",
+          "changeType": "COLOR",
+          "zone": "F",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_9",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the cap of the yellow reusable bottle",
+          "location": "the localized scene area containing the cap of the yellow reusable bottle",
+          "before": "the source-image appearance of the cap of the yellow reusable bottle",
+          "after": "white",
+          "changeType": "COLOR",
+          "zone": "I",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_10",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "one orange flower from the lower-left foreground planter",
+          "location": "the localized scene area described by remove one orange flower from the lower-left foreground planter",
+          "before": "present in the source image",
+          "after": "removed from the edited image",
+          "changeType": "REMOVE",
+          "zone": "G",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        }
+      ],
+      "imagePairReview": {
+        "status": "PENDING",
+        "sameComposition": null,
+        "sameCamera": null,
+        "sameLightingDirection": null,
+        "sameArtStyle": null,
+        "unintendedChangeStatus": "PENDING",
+        "reviewedBy": null,
+        "reviewedAt": null
+      },
+      "releaseReadiness": {
+        "status": "PENDING",
+        "blockers": [
+          "CATALOG_DRAFT",
+          "CHANGE_TYPE_DIVERSITY_REQUIRED",
+          "MOBILE_REVIEW_REQUIRED",
+          "IMAGE_PAIR_REVIEW_REQUIRED"
+        ],
+        "diagnostics": {
+          "zones": [
+            "A",
+            "B",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I"
+          ],
+          "zoneCounts": {
+            "A": 1,
+            "B": 1,
+            "E": 1,
+            "F": 2,
+            "G": 2,
+            "H": 1,
+            "I": 2
+          },
+          "changeTypes": [
+            "COLOR",
+            "COUNT",
+            "DIRECTION",
+            "REMOVE",
+            "SHAPE"
+          ],
+          "changeTypeCounts": {
+            "COLOR": 6,
+            "COUNT": 1,
+            "DIRECTION": 1,
+            "REMOVE": 1,
+            "SHAPE": 1
+          }
+        }
+      }
+    },
+    {
+      "contentKey": "ko-proverb-dark-under-lamp",
+      "catalogChangesSha256": "30759bc5e2524662bc32eb2437bab13776ea18d171e7101b23a446749cbb863f",
+      "reviewViewport": {
+        "width": 375,
+        "height": 667
+      },
+      "objectives": [
+        {
+          "objectiveId": "difference_1",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the green desk-lamp shade",
+          "location": "the localized scene area containing the green desk-lamp shade",
+          "before": "the source-image appearance of the green desk-lamp shade",
+          "after": "red",
+          "changeType": "COLOR",
+          "zone": "E",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_2",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the silver key below the lamp",
+          "location": "the localized scene area containing the silver key below the lamp",
+          "before": "the source-image appearance of the silver key below the lamp",
+          "after": "gold",
+          "changeType": "COLOR",
+          "zone": "H",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_3",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the flashlight body",
+          "location": "the localized scene area containing the flashlight body",
+          "before": "yellow",
+          "after": "blue",
+          "changeType": "COLOR",
+          "zone": "H",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_4",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the magnifying-glass handle",
+          "location": "the localized scene area containing the magnifying-glass handle",
+          "before": "black",
+          "after": "red",
+          "changeType": "COLOR",
+          "zone": "G",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_5",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the wall clock rim",
+          "location": "the localized scene area containing the wall clock rim",
+          "before": "brown",
+          "after": "blue",
+          "changeType": "COLOR",
+          "zone": "C",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_6",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the oval cutout in the wooden chair back",
+          "location": "the localized scene area containing the oval cutout in the wooden chair back",
+          "before": "the source-image appearance of the oval cutout in the wooden chair back",
+          "after": "a star-shaped cutout",
+          "changeType": "SHAPE",
+          "zone": "E",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_7",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the globe oceans",
+          "location": "the localized scene area containing the globe oceans",
+          "before": "blue",
+          "after": "purple",
+          "changeType": "COLOR",
+          "zone": "C",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_8",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the right foreground plant pot",
+          "location": "the localized scene area containing the right foreground plant pot",
+          "before": "white",
+          "after": "orange",
+          "changeType": "COLOR",
+          "zone": "I",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_9",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the pencil cup",
+          "location": "the localized scene area containing the pencil cup",
+          "before": "purple",
+          "after": "green",
+          "changeType": "COLOR",
+          "zone": "I",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_10",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the backpack zipper pull",
+          "location": "the localized scene area containing the backpack zipper pull",
+          "before": "gold",
+          "after": "red",
+          "changeType": "COLOR",
+          "zone": "D",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        }
+      ],
+      "imagePairReview": {
+        "status": "PENDING",
+        "sameComposition": null,
+        "sameCamera": null,
+        "sameLightingDirection": null,
+        "sameArtStyle": null,
+        "unintendedChangeStatus": "PENDING",
+        "reviewedBy": null,
+        "reviewedAt": null
+      },
+      "releaseReadiness": {
+        "status": "PENDING",
+        "blockers": [
+          "CATALOG_DRAFT",
+          "SPATIAL_DISTRIBUTION_REQUIRED",
+          "CHANGE_TYPE_DIVERSITY_REQUIRED",
+          "MOBILE_REVIEW_REQUIRED",
+          "IMAGE_PAIR_REVIEW_REQUIRED"
+        ],
+        "diagnostics": {
+          "zones": [
+            "C",
+            "D",
+            "E",
+            "G",
+            "H",
+            "I"
+          ],
+          "zoneCounts": {
+            "C": 2,
+            "D": 1,
+            "E": 2,
+            "G": 1,
+            "H": 2,
+            "I": 2
+          },
+          "changeTypes": [
+            "COLOR",
+            "SHAPE"
+          ],
+          "changeTypeCounts": {
+            "COLOR": 9,
+            "SHAPE": 1
+          }
+        }
+      }
+    },
+    {
+      "contentKey": "ko-proverb-seeing-is-believing",
+      "catalogChangesSha256": "65fdea254af0ce512fdedcd6734419d445fd2f9cad2fe04f10aa6047b556a1af",
+      "reviewViewport": {
+        "width": 375,
+        "height": 667
+      },
+      "objectives": [
+        {
+          "objectiveId": "difference_1",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the prism base edge",
+          "location": "the localized scene area containing the prism base edge",
+          "before": "pale blue",
+          "after": "pink",
+          "changeType": "COLOR",
+          "zone": "E",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_2",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the lamp rim",
+          "location": "the localized scene area containing the lamp rim",
+          "before": "black",
+          "after": "red",
+          "changeType": "COLOR",
+          "zone": "D",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_3",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the leftmost purple test-tube liquid",
+          "location": "the localized scene area containing the leftmost purple test-tube liquid",
+          "before": "the source-image appearance of the leftmost purple test-tube liquid",
+          "after": "yellow",
+          "changeType": "COLOR",
+          "zone": "G",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_4",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the magnet's red pole",
+          "location": "the localized scene area containing the magnet's red pole",
+          "before": "the source-image appearance of the magnet's red pole",
+          "after": "green",
+          "changeType": "COLOR",
+          "zone": "H",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_5",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the ring from the orange model planet",
+          "location": "the localized scene area described by remove the ring from the orange model planet",
+          "before": "present in the source image",
+          "after": "removed from the edited image",
+          "changeType": "REMOVE",
+          "zone": "I",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_6",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the right flask liquid",
+          "location": "the localized scene area containing the right flask liquid",
+          "before": "blue",
+          "after": "green",
+          "changeType": "COLOR",
+          "zone": "F",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_7",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the globe stand",
+          "location": "the localized scene area containing the globe stand",
+          "before": "black",
+          "after": "red",
+          "changeType": "COLOR",
+          "zone": "C",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_8",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the shelf plant pot",
+          "location": "the localized scene area containing the shelf plant pot",
+          "before": "blue",
+          "after": "yellow",
+          "changeType": "COLOR",
+          "zone": "C",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_9",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the purple crystal",
+          "location": "the localized scene area containing the purple crystal",
+          "before": "the source-image appearance of the purple crystal",
+          "after": "bright turquoise",
+          "changeType": "COLOR",
+          "zone": "C",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_10",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the left microscope's two black eyepieces",
+          "location": "the localized scene area containing the left microscope's two black eyepieces",
+          "before": "the source-image appearance of the left microscope's two black eyepieces",
+          "after": "one centered eyepiece",
+          "changeType": "SHAPE",
+          "zone": "D",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        }
+      ],
+      "imagePairReview": {
+        "status": "PENDING",
+        "sameComposition": null,
+        "sameCamera": null,
+        "sameLightingDirection": null,
+        "sameArtStyle": null,
+        "unintendedChangeStatus": "PENDING",
+        "reviewedBy": null,
+        "reviewedAt": null
+      },
+      "releaseReadiness": {
+        "status": "PENDING",
+        "blockers": [
+          "CATALOG_DRAFT",
+          "SPATIAL_DISTRIBUTION_REQUIRED",
+          "CHANGE_TYPE_DIVERSITY_REQUIRED",
+          "MOBILE_REVIEW_REQUIRED",
+          "IMAGE_PAIR_REVIEW_REQUIRED"
+        ],
+        "diagnostics": {
+          "zones": [
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I"
+          ],
+          "zoneCounts": {
+            "C": 3,
+            "D": 2,
+            "E": 1,
+            "F": 1,
+            "G": 1,
+            "H": 1,
+            "I": 1
+          },
+          "changeTypes": [
+            "COLOR",
+            "REMOVE",
+            "SHAPE"
+          ],
+          "changeTypeCounts": {
+            "COLOR": 8,
+            "REMOVE": 1,
+            "SHAPE": 1
+          }
+        }
+      }
+    },
+    {
+      "contentKey": "ko-proverb-kind-words-return",
+      "catalogChangesSha256": "09929490dc77847be7fd546749e10cb9ca73885d79a4d0fea32031d056620a21",
+      "reviewViewport": {
+        "width": 375,
+        "height": 667
+      },
+      "objectives": [
+        {
+          "objectiveId": "difference_1",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the wall clock rim",
+          "location": "the localized scene area containing the wall clock rim",
+          "before": "black",
+          "after": "green",
+          "changeType": "COLOR",
+          "zone": "C",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_2",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the desk lamp shade",
+          "location": "the localized scene area containing the desk lamp shade",
+          "before": "black",
+          "after": "blue",
+          "changeType": "COLOR",
+          "zone": "C",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_3",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the right shelf plant pot",
+          "location": "the localized scene area containing the right shelf plant pot",
+          "before": "yellow",
+          "after": "pink",
+          "changeType": "COLOR",
+          "zone": "F",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_4",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the large cone of the left speaker",
+          "location": "the localized scene area containing the large cone of the left speaker",
+          "before": "beige",
+          "after": "blue",
+          "changeType": "COLOR",
+          "zone": "G",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_5",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the large cone of the right speaker",
+          "location": "the localized scene area containing the large cone of the right speaker",
+          "before": "beige",
+          "after": "green",
+          "changeType": "COLOR",
+          "zone": "I",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_6",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the pencil cup",
+          "location": "the localized scene area containing the pencil cup",
+          "before": "purple",
+          "after": "orange",
+          "changeType": "COLOR",
+          "zone": "G",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_7",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the yellow memo pad near the left speaker",
+          "location": "the localized scene area containing the yellow memo pad near the left speaker",
+          "before": "the source-image appearance of the yellow memo pad near the left speaker",
+          "after": "purple",
+          "changeType": "COLOR",
+          "zone": "G",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_8",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the center blue star cushion",
+          "location": "the localized scene area containing the center blue star cushion",
+          "before": "the source-image appearance of the center blue star cushion",
+          "after": "pink",
+          "changeType": "SHAPE",
+          "zone": "E",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_9",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the single yellow square button on the mixer",
+          "location": "the localized scene area containing the single yellow square button on the mixer",
+          "before": "the source-image appearance of the single yellow square button on the mixer",
+          "after": "bright blue",
+          "changeType": "SHAPE",
+          "zone": "H",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_10",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the center of the loose headphones' visible earcup",
+          "location": "the localized scene area containing the center of the loose headphones' visible earcup",
+          "before": "dark gray",
+          "after": "red",
+          "changeType": "COLOR",
+          "zone": "I",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        }
+      ],
+      "imagePairReview": {
+        "status": "PENDING",
+        "sameComposition": null,
+        "sameCamera": null,
+        "sameLightingDirection": null,
+        "sameArtStyle": null,
+        "unintendedChangeStatus": "PENDING",
+        "reviewedBy": null,
+        "reviewedAt": null
+      },
+      "releaseReadiness": {
+        "status": "PENDING",
+        "blockers": [
+          "CATALOG_DRAFT",
+          "SPATIAL_DISTRIBUTION_REQUIRED",
+          "CHANGE_TYPE_DIVERSITY_REQUIRED",
+          "MOBILE_REVIEW_REQUIRED",
+          "IMAGE_PAIR_REVIEW_REQUIRED"
+        ],
+        "diagnostics": {
+          "zones": [
+            "C",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I"
+          ],
+          "zoneCounts": {
+            "C": 2,
+            "E": 1,
+            "F": 1,
+            "G": 3,
+            "H": 1,
+            "I": 2
+          },
+          "changeTypes": [
+            "COLOR",
+            "SHAPE"
+          ],
+          "changeTypeCounts": {
+            "COLOR": 8,
+            "SHAPE": 2
+          }
+        }
+      }
+    },
+    {
+      "contentKey": "ko-idiom-turn-misfortune",
+      "catalogChangesSha256": "e1f7f54df5f6823e5920e88cad3b3131f5ebb90d1a8e0a4b06f9a1c9668420e5",
+      "reviewViewport": {
+        "width": 375,
+        "height": 667
+      },
+      "objectives": [
+        {
+          "objectiveId": "difference_1",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the left basketball backboard border",
+          "location": "the localized scene area containing the left basketball backboard border",
+          "before": "orange",
+          "after": "blue",
+          "changeType": "COLOR",
+          "zone": "A",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_2",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "one tall pink umbrella in the foreground stand",
+          "location": "the localized scene area containing one tall pink umbrella in the foreground stand",
+          "before": "the source-image appearance of one tall pink umbrella in the foreground stand",
+          "after": "white",
+          "changeType": "COUNT",
+          "zone": "G",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_3",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the sun in the center sunset painting",
+          "location": "the localized scene area containing the sun in the center sunset painting",
+          "before": "yellow",
+          "after": "purple",
+          "changeType": "COLOR",
+          "zone": "B",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_4",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the stage trophy",
+          "location": "the localized scene area containing the stage trophy",
+          "before": "gold",
+          "after": "silver",
+          "changeType": "COLOR",
+          "zone": "F",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_5",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the red paint dot on the giant palette",
+          "location": "the localized scene area containing the red paint dot on the giant palette",
+          "before": "the source-image appearance of the red paint dot on the giant palette",
+          "after": "green",
+          "changeType": "COLOR",
+          "zone": "B",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_6",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "one middle ladder step",
+          "location": "the localized scene area containing one middle ladder step",
+          "before": "silver",
+          "after": "red",
+          "changeType": "COUNT",
+          "zone": "E",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_7",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the top segment of the center colorful sculpture",
+          "location": "the localized scene area containing the top segment of the center colorful sculpture",
+          "before": "purple",
+          "after": "yellow",
+          "changeType": "COLOR",
+          "zone": "E",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_8",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the fish in the foreground framed painting",
+          "location": "the localized scene area containing the fish in the foreground framed painting",
+          "before": "yellow",
+          "after": "red",
+          "changeType": "COLOR",
+          "zone": "I",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_9",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the large purple foreground vase",
+          "location": "the localized scene area containing the large purple foreground vase",
+          "before": "the source-image appearance of the large purple foreground vase",
+          "after": "green",
+          "changeType": "COLOR",
+          "zone": "I",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_10",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the blue award ribbon on the right display",
+          "location": "the localized scene area containing the blue award ribbon on the right display",
+          "before": "the source-image appearance of the blue award ribbon on the right display",
+          "after": "red",
+          "changeType": "COLOR",
+          "zone": "C",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        }
+      ],
+      "imagePairReview": {
+        "status": "PENDING",
+        "sameComposition": null,
+        "sameCamera": null,
+        "sameLightingDirection": null,
+        "sameArtStyle": null,
+        "unintendedChangeStatus": "PENDING",
+        "reviewedBy": null,
+        "reviewedAt": null
+      },
+      "releaseReadiness": {
+        "status": "PENDING",
+        "blockers": [
+          "CATALOG_DRAFT",
+          "CHANGE_TYPE_DIVERSITY_REQUIRED",
+          "MOBILE_REVIEW_REQUIRED",
+          "IMAGE_PAIR_REVIEW_REQUIRED"
+        ],
+        "diagnostics": {
+          "zones": [
+            "A",
+            "B",
+            "C",
+            "E",
+            "F",
+            "G",
+            "I"
+          ],
+          "zoneCounts": {
+            "A": 1,
+            "B": 2,
+            "C": 1,
+            "E": 2,
+            "F": 1,
+            "G": 1,
+            "I": 2
+          },
+          "changeTypes": [
+            "COLOR",
+            "COUNT"
+          ],
+          "changeTypeCounts": {
+            "COLOR": 8,
+            "COUNT": 2
+          }
+        }
+      }
+    },
+    {
+      "contentKey": "ko-idiom-prepare-ahead",
+      "catalogChangesSha256": "75169335865b8530a58f5c132c8dfa8cdbc8f9e75d454159a05248ca0ad7c8aa",
+      "reviewViewport": {
+        "width": 375,
+        "height": 667
+      },
+      "objectives": [
+        {
+          "objectiveId": "difference_1",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the hanging yellow raincoat",
+          "location": "the localized scene area containing the hanging yellow raincoat",
+          "before": "the source-image appearance of the hanging yellow raincoat",
+          "after": "red",
+          "changeType": "COLOR",
+          "zone": "A",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_2",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the hanging blue gloves",
+          "location": "the localized scene area containing the hanging blue gloves",
+          "before": "the source-image appearance of the hanging blue gloves",
+          "after": "orange",
+          "changeType": "COLOR",
+          "zone": "D",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_3",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the red first-aid box on the shelf",
+          "location": "the localized scene area containing the red first-aid box on the shelf",
+          "before": "the source-image appearance of the red first-aid box on the shelf",
+          "after": "green",
+          "changeType": "COLOR",
+          "zone": "D",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_4",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the cap of the center foreground water bottle",
+          "location": "the localized scene area containing the cap of the center foreground water bottle",
+          "before": "blue",
+          "after": "red",
+          "changeType": "COLOR",
+          "zone": "H",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_5",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "one bar of the floor drain grate",
+          "location": "the localized scene area containing one bar of the floor drain grate",
+          "before": "dark gray",
+          "after": "yellow",
+          "changeType": "COUNT",
+          "zone": "E",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_6",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the window latch held by the student",
+          "location": "the localized scene area containing the window latch held by the student",
+          "before": "gray",
+          "after": "red",
+          "changeType": "COLOR",
+          "zone": "B",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_7",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the top sandbag",
+          "location": "the localized scene area containing the top sandbag",
+          "before": "beige",
+          "after": "green",
+          "changeType": "COLOR",
+          "zone": "F",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_8",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the handheld flashlight's front rim",
+          "location": "the localized scene area containing the handheld flashlight's front rim",
+          "before": "black",
+          "after": "blue",
+          "changeType": "COLOR",
+          "zone": "F",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_9",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the radio antenna so it leans to the right",
+          "location": "the localized scene area described by reverse the radio antenna so it leans to the right",
+          "before": "original direction in the source image",
+          "after": "reversed direction in the edited image",
+          "changeType": "DIRECTION",
+          "zone": "G",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_10",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the red whistle on the table",
+          "location": "the localized scene area containing the red whistle on the table",
+          "before": "the source-image appearance of the red whistle on the table",
+          "after": "yellow",
+          "changeType": "COLOR",
+          "zone": "H",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        }
+      ],
+      "imagePairReview": {
+        "status": "PENDING",
+        "sameComposition": null,
+        "sameCamera": null,
+        "sameLightingDirection": null,
+        "sameArtStyle": null,
+        "unintendedChangeStatus": "PENDING",
+        "reviewedBy": null,
+        "reviewedAt": null
+      },
+      "releaseReadiness": {
+        "status": "PENDING",
+        "blockers": [
+          "CATALOG_DRAFT",
+          "CHANGE_TYPE_DIVERSITY_REQUIRED",
+          "MOBILE_REVIEW_REQUIRED",
+          "IMAGE_PAIR_REVIEW_REQUIRED"
+        ],
+        "diagnostics": {
+          "zones": [
+            "A",
+            "B",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ],
+          "zoneCounts": {
+            "A": 1,
+            "B": 1,
+            "D": 2,
+            "E": 1,
+            "F": 2,
+            "G": 1,
+            "H": 2
+          },
+          "changeTypes": [
+            "COLOR",
+            "COUNT",
+            "DIRECTION"
+          ],
+          "changeTypeCounts": {
+            "COLOR": 8,
+            "COUNT": 1,
+            "DIRECTION": 1
+          }
+        }
+      }
+    },
+    {
+      "contentKey": "ko-idiom-perspective",
+      "catalogChangesSha256": "6d3bf09fb86c340a67103358b8da17635c4b7effc25b29b834e3f1cfd1394212",
+      "reviewViewport": {
+        "width": 375,
+        "height": 667
+      },
+      "objectives": [
+        {
+          "objectiveId": "difference_1",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the leftmost blue spotlight lens",
+          "location": "the localized scene area containing the leftmost blue spotlight lens",
+          "before": "the source-image appearance of the leftmost blue spotlight lens",
+          "after": "red",
+          "changeType": "COLOR",
+          "zone": "A",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_2",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the pink hanging lantern",
+          "location": "the localized scene area containing the pink hanging lantern",
+          "before": "the source-image appearance of the pink hanging lantern",
+          "after": "orange",
+          "changeType": "COLOR",
+          "zone": "B",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_3",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the wrench icon on the left role card",
+          "location": "the localized scene area containing the wrench icon on the left role card",
+          "before": "gray",
+          "after": "red",
+          "changeType": "COLOR",
+          "zone": "E",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_4",
+          "tier": "NORMAL",
+          "salience": "CLEAR",
+          "target": "the lamp beam on the right role card",
+          "location": "the localized scene area containing the lamp beam on the right role card",
+          "before": "yellow",
+          "after": "blue",
+          "changeType": "COLOR",
+          "zone": "E",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_5",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the purple floor arrow",
+          "location": "the localized scene area containing the purple floor arrow",
+          "before": "the source-image appearance of the purple floor arrow",
+          "after": "orange",
+          "changeType": "COLOR",
+          "zone": "H",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_6",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the red toolbox",
+          "location": "the localized scene area containing the red toolbox",
+          "before": "the source-image appearance of the red toolbox",
+          "after": "blue",
+          "changeType": "COLOR",
+          "zone": "G",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_7",
+          "tier": "NORMAL",
+          "salience": "MODERATE",
+          "target": "the work-glove cuff",
+          "location": "the localized scene area containing the work-glove cuff",
+          "before": "blue",
+          "after": "red",
+          "changeType": "COLOR",
+          "zone": "G",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_8",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the large wooden star prop",
+          "location": "the localized scene area containing the large wooden star prop",
+          "before": "yellow",
+          "after": "green",
+          "changeType": "SHAPE",
+          "zone": "I",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_9",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the pink paint can",
+          "location": "the localized scene area containing the pink paint can",
+          "before": "the source-image appearance of the pink paint can",
+          "after": "purple",
+          "changeType": "COLOR",
+          "zone": "I",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        },
+        {
+          "objectiveId": "difference_10",
+          "tier": "HARD",
+          "salience": "FOCUSED",
+          "target": "the pink band on the black top hat",
+          "location": "the localized scene area containing the pink band on the black top hat",
+          "before": "the source-image appearance of the pink band on the black top hat",
+          "after": "green",
+          "changeType": "COLOR",
+          "zone": "C",
+          "mobileReview": {
+            "status": "PENDING",
+            "reviewer": null,
+            "reviewedAt": null
+          }
+        }
+      ],
+      "imagePairReview": {
+        "status": "PENDING",
+        "sameComposition": null,
+        "sameCamera": null,
+        "sameLightingDirection": null,
+        "sameArtStyle": null,
+        "unintendedChangeStatus": "PENDING",
+        "reviewedBy": null,
+        "reviewedAt": null
+      },
+      "releaseReadiness": {
+        "status": "PENDING",
+        "blockers": [
+          "CATALOG_DRAFT",
+          "CHANGE_TYPE_DIVERSITY_REQUIRED",
+          "MOBILE_REVIEW_REQUIRED",
+          "IMAGE_PAIR_REVIEW_REQUIRED"
+        ],
+        "diagnostics": {
+          "zones": [
+            "A",
+            "B",
+            "C",
+            "E",
+            "G",
+            "H",
+            "I"
+          ],
+          "zoneCounts": {
+            "A": 1,
+            "B": 1,
+            "C": 1,
+            "E": 2,
+            "G": 2,
+            "H": 1,
+            "I": 2
+          },
+          "changeTypes": [
+            "COLOR",
+            "SHAPE"
+          ],
+          "changeTypeCounts": {
+            "COLOR": 9,
+            "SHAPE": 1
+          }
+        }
+      }
+    }
+  ]
+}
