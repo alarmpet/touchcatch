@@ -28,6 +28,38 @@ const defaultGetCommitSha = (root) =>
     windowsHide: true,
   }).trim();
 
+const defaultResolveRepositoryRoot = (startPath) =>
+  path.resolve(execFileSync('git', ['-C', startPath, 'rev-parse', '--show-toplevel'], {
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'ignore'],
+    windowsHide: true,
+  }).trim());
+
+const defaultResolveSupabaseCliEntry = () => {
+  const packageJsonPath = fileURLToPath(import.meta.resolve('supabase/package.json'));
+  const packageRoot = path.dirname(packageJsonPath);
+  const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'));
+  const binPath = typeof packageJson.bin === 'string'
+    ? packageJson.bin
+    : packageJson.bin?.supabase;
+  if (typeof binPath !== 'string' || binPath.length === 0) {
+    throw errorCode('SUPABASE_GATE_FAILED:runner');
+  }
+  const entryPath = path.resolve(packageRoot, binPath);
+  const relative = path.relative(packageRoot, entryPath);
+  if (
+    relative === ''
+    || relative === '..'
+    || relative.startsWith(`..${path.sep}`)
+    || path.isAbsolute(relative)
+    || !existsSync(entryPath)
+    || !lstatSync(entryPath).isFile()
+  ) {
+    throw errorCode('SUPABASE_GATE_FAILED:runner');
+  }
+  return entryPath;
+};
+
 const terminateProcessTree = (child, platform) => {
   if (!Number.isSafeInteger(child.pid) || child.pid <= 0) return;
   if (platform === 'win32') {
@@ -48,20 +80,22 @@ const terminateProcessTree = (child, platform) => {
   }
 };
 
-const createDefaultSpawnStep = ({
+export const createDefaultSpawnStep = ({
   clearTimeout: clearTimer,
   now,
   platform,
   setTimeout: setTimer,
+  spawnProcess = spawn,
+  terminateProcessTree: terminateTree = terminateProcessTree,
 }) => (step) => new Promise((resolve) => {
   const startedAtMs = now();
   let finished = false;
   let timer;
-  const child = spawn(step.executable, [...step.args], {
+  const child = spawnProcess(step.executable, [...step.args], {
     cwd: step.cwd,
     detached: platform !== 'win32',
     env: step.env,
-    shell: platform === 'win32',
+    shell: false,
     stdio: 'ignore',
     windowsHide: true,
   });
@@ -72,8 +106,11 @@ const createDefaultSpawnStep = ({
     resolve({ ...result, startedAtMs, endedAtMs: now() });
   };
   timer = setTimer(() => {
-    terminateProcessTree(child, platform);
-    finish({ status: null, timedOut: true });
+    try {
+      terminateTree(child, platform);
+    } finally {
+      finish({ status: null, timedOut: true });
+    }
   }, step.timeoutMs);
   if (finished) clearTimer(timer);
   child.once('error', () => finish({ status: null, timedOut: false }));
@@ -112,17 +149,19 @@ const acquireLock = (root) => {
 };
 
 const releaseLock = (lock) => {
-  if (lock === undefined) return;
+  if (lock === undefined) return true;
+  let cleaned = true;
   try {
     closeSync(lock.descriptor);
   } catch {
-    // Cleanup must not replace the original fixed error code.
+    cleaned = false;
   }
   try {
     rmSync(lock.lockPath, { force: true });
   } catch {
-    // Cleanup must not expose a personal filesystem path.
+    cleaned = false;
   }
+  return cleaned;
 };
 
 const readObservation = (observationPath, expectedGateRunId, validateObservation) => {
@@ -162,11 +201,25 @@ const runStep = async (spawnStep, step) => {
   if (stepStatus(result) !== 0) throw errorCode(`SUPABASE_GATE_FAILED:${step.name}`);
 };
 
+const sanitizeGateError = (error) =>
+  error instanceof Error
+  && /^(?:SUPABASE_GATE_(?:DOCKER_UNAVAILABLE|TIMEOUT:[a-z0-9_]+|FAILED:[a-z0-9_]+)|DATA_027_OBSERVATION_(?:MISSING|INVALID))$/u.test(error.message)
+    ? error
+    : errorCode('SUPABASE_GATE_FAILED:runner');
+
 const loadEvidenceTools = async () =>
   tsImport('./data-027-runtime-evidence.ts', import.meta.url);
 
 export async function runSupabaseGate(overrides = {}) {
-  const root = path.resolve(overrides.root ?? process.cwd());
+  const startPath = path.resolve(overrides.root ?? process.cwd());
+  let root;
+  try {
+    root = path.resolve(
+      (overrides.resolveRepositoryRoot ?? defaultResolveRepositoryRoot)(startPath),
+    );
+  } catch {
+    throw errorCode('SUPABASE_GATE_FAILED:runner');
+  }
   const randomUUID = overrides.randomUUID ?? systemRandomUUID;
   const tmpdir = overrides.tmpdir ?? systemTmpdir;
   const now = overrides.now ?? Date.now;
@@ -180,9 +233,24 @@ export async function runSupabaseGate(overrides = {}) {
     setTimeout: setTimer,
   });
   const dockerExecutable = overrides.dockerExecutable ?? 'docker';
-  const supabaseExecutable = overrides.supabaseExecutable ?? 'supabase';
   const nodeExecutable = overrides.nodeExecutable ?? process.execPath;
-  const gateRunId = randomUUID();
+  let gateRunId;
+  let supabaseCommand;
+  try {
+    gateRunId = randomUUID();
+    supabaseCommand = overrides.supabaseExecutable !== undefined
+      ? { executable: overrides.supabaseExecutable, argsPrefix: [] }
+      : platform === 'win32'
+        ? {
+            executable: nodeExecutable,
+            argsPrefix: [
+              (overrides.resolveSupabaseCliEntry ?? defaultResolveSupabaseCliEntry)(),
+            ],
+          }
+        : { executable: 'supabase', argsPrefix: [] };
+  } catch {
+    throw errorCode('SUPABASE_GATE_FAILED:runner');
+  }
   if (
     typeof gateRunId !== 'string'
     || gateRunId.length === 0
@@ -200,19 +268,26 @@ export async function runSupabaseGate(overrides = {}) {
   for (const key of observationEnvironmentKeys) delete baseEnvironment[key];
   const steps = [
     ['docker_preflight', dockerExecutable, ['info'], 10_000],
-    ['db_reset', supabaseExecutable, ['db', 'reset', '--local'], 600_000],
-    ['db_lint', supabaseExecutable, ['db', 'lint', '--local', '--fail-on', 'error'], 120_000],
-    ['pg_tap', supabaseExecutable, ['test', 'db', '--local'], 300_000],
+    ['db_reset', supabaseCommand.executable, [...supabaseCommand.argsPrefix, 'db', 'reset', '--local'], 600_000],
+    ['db_lint', supabaseCommand.executable, [...supabaseCommand.argsPrefix, 'db', 'lint', '--local', '--fail-on', 'error'], 120_000],
+    ['pg_tap', supabaseCommand.executable, [...supabaseCommand.argsPrefix, 'test', 'db', '--local'], 300_000],
     ['auth_local', nodeExecutable, ['tools/run-pnpm.mjs', 'test:auth:local'], 300_000],
     ['data_027_concurrency', nodeExecutable, ['tools/run-pnpm.mjs', 'test:db:concurrency'], 300_000],
   ];
+  const removeObservationFile = overrides.removeObservationFile
+    ?? ((target, options) => rmSync(target, options));
+  const releaseGateLock = overrides.releaseGateLock ?? releaseLock;
 
   let lock;
+  let failure;
+  let cleanupFailed = false;
   try {
     lock = acquireLock(root);
     mkdirSync(observationDirectory, { recursive: true });
     for (const [name, executable, args, timeoutMs] of steps) {
-      if (name === 'data_027_concurrency') rmSync(observationPath, { force: true });
+      if (name === 'data_027_concurrency') {
+        removeObservationFile(observationPath, { force: true });
+      }
       const env = name === 'data_027_concurrency'
         ? {
             ...baseEnvironment,
@@ -246,21 +321,23 @@ export async function runSupabaseGate(overrides = {}) {
       throw errorCode('SUPABASE_GATE_FAILED:receipt');
     }
   } catch (error) {
-    if (
-      error instanceof Error
-      && /^(?:SUPABASE_GATE_(?:DOCKER_UNAVAILABLE|TIMEOUT:[a-z0-9_]+|FAILED:[a-z0-9_]+)|DATA_027_OBSERVATION_(?:MISSING|INVALID))$/u.test(error.message)
-    ) {
-      throw error;
-    }
-    throw errorCode('SUPABASE_GATE_FAILED:runner');
+    failure = sanitizeGateError(error);
   } finally {
+    let cleaned = true;
     try {
-      rmSync(observationPath, { force: true });
+      removeObservationFile(observationPath, { force: true });
     } catch {
-      // Cleanup must not replace the original fixed error code.
+      cleaned = false;
     }
-    releaseLock(lock);
+    try {
+      if (releaseGateLock(lock) !== true) cleaned = false;
+    } catch {
+      cleaned = false;
+    }
+    cleanupFailed = !cleaned;
   }
+  if (failure !== undefined) throw failure;
+  if (cleanupFailed) throw errorCode('SUPABASE_GATE_FAILED:cleanup');
 }
 
 const isMain = process.argv[1] !== undefined
