@@ -71,18 +71,21 @@ must not be split into a formatting commit on this auth branch.  No formatting
 action was taken, and no authority exists here to format or otherwise change the
 dirty `main` file.
 
-## Required user decision
+## Selected handling path
 
-No integration resolution has been selected.  Choose exactly one handling path
-for the two dirty-main files:
+The user selected option 2:
 
-1. Commit the files on `main` first.
-2. Preserve the dirty state and record the exact patch/hash above; manually
-   perform the semantic union in a clean integration target later.
-3. Keep the branch and defer integration.
+> Preserve the dirty state and record the exact patch/hash above; manually
+> perform the semantic union in a clean integration target later.
 
-Until the user selects one, do not merge, stash, reset, check out, stage, format,
-or write the dirty `main` files.
+This decision preserves the live dirty-main state and the exact patch/hash
+identities recorded above now. The documented semantic union remains deferred
+until work occurs in a clean integration target; it must retain the portable
+runner, the content catalog gate, and all three named content commands.
+
+This selection does not authorize implementing the union in this auth branch or
+changing the dirty `main` worktree. Do not merge, stash, reset, check out, stage,
+format, or write the dirty-main files as part of this decision record.
 
 ## Round 1 raw-byte reproduction
 
