@@ -17,6 +17,8 @@
 - Never synthesize, copy, or hand-edit `.superpowers/evidence/data-027/receipt.json`.
 - Required runtime is exactly Node `v24.18.0` and pnpm `11.13.0`.
 - The local playable route uses the learning-demo content path in development; production must not ship the public-match fixture as a fake authenticated match.
+- Canonical match content remains exactly `7 NORMAL + 3 HARD`; this plan does not introduce an `EASY` runtime tier or change the 75-second ruleset.
+- Perceptual fairness metadata supplements, but never replaces, authoritative private hitboxes and content hashes.
 - Google/Kakao credentials, trusted reviewer signatures, physical-device goldens, and production approvals remain BLOCKED until supplied by their actual owners.
 - Each implementation task uses RED → GREEN → focused regression → read-only task review → commit.
 
@@ -520,6 +522,271 @@ git commit -m "docs(content): reconcile generated learning evidence"
 
 ---
 
+### Task 7A: Add a Spot-Difference Perceptual Fairness Contract
+
+**Files:**
+- Create: `content/learning/spot-difference-quality.v1.json`
+- Create: `content/learning/spot-difference-quality.schema.json`
+- Create: `tools/content/check-spot-difference-quality.ts`
+- Create: `tests/content/spot-difference-quality.test.ts`
+- Modify: `content/learning/all-content.test.ts`
+- Modify: `content/learning/manifest.v1.json` only through the existing deterministic generator
+- Modify: `content/learning/prompts_100_guide/PROMPTS_100_GUIDE.md`
+
+**Interfaces:**
+- Consumes: integrated catalog keys, ten authoritative difference objectives per pack, normalized hitbox centers/radii, generated Image A/B assets.
+- Produces: a deterministic design/QA manifest that proves prompt specificity, tier cardinality, spatial distribution, change-type diversity, mobile review status, and A/B image integrity without changing the game ruleset.
+
+- [ ] **Step 1: Write the RED schema and bijection tests**
+
+The quality manifest uses one row per catalog entry:
+
+```ts
+type SpotDifferenceQualityPackV1 = Readonly<{
+  contentKey: string;
+  reviewViewport: Readonly<{ width: 375; height: 667 }>;
+  objectives: readonly [
+    SpotDifferenceQualityObjectiveV1,
+    SpotDifferenceQualityObjectiveV1,
+    SpotDifferenceQualityObjectiveV1,
+    SpotDifferenceQualityObjectiveV1,
+    SpotDifferenceQualityObjectiveV1,
+    SpotDifferenceQualityObjectiveV1,
+    SpotDifferenceQualityObjectiveV1,
+    SpotDifferenceQualityObjectiveV1,
+    SpotDifferenceQualityObjectiveV1,
+    SpotDifferenceQualityObjectiveV1,
+  ];
+  imagePairReview: Readonly<{
+    sameComposition: boolean;
+    sameCamera: boolean;
+    sameLightingDirection: boolean;
+    sameArtStyle: boolean;
+    unintendedChangeStatus: "PASS" | "FAIL";
+    reviewedBy: string;
+    reviewedAt: string;
+  }>;
+}>;
+
+type SpotDifferenceQualityObjectiveV1 = Readonly<{
+  objectiveId: string;
+  tier: "NORMAL" | "HARD";
+  salience: "CLEAR" | "MODERATE" | "FOCUSED";
+  changeType: "COLOR" | "ADD" | "REMOVE" | "SHAPE" | "COUNT" | "DIRECTION";
+  zone: "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I";
+  target: string;
+  location: string;
+  before: string;
+  after: string;
+  mobileReview: Readonly<{
+    status: "PASS" | "FAIL";
+    reviewer: string;
+    reviewedAt: string;
+  }>;
+}>;
+```
+
+Tests must require:
+
+```ts
+expect(qualityKeys).toEqual(catalogKeys);
+expect(pack.objectives).toHaveLength(10);
+expect(pack.objectives.filter((x) => x.tier === "NORMAL")).toHaveLength(7);
+expect(pack.objectives.filter((x) => x.tier === "HARD")).toHaveLength(3);
+expect(pack.objectives.filter((x) => x.salience === "CLEAR")).toHaveLength(4);
+expect(pack.objectives.filter((x) => x.salience === "MODERATE")).toHaveLength(3);
+expect(pack.objectives.filter((x) => x.salience === "FOCUSED")).toHaveLength(3);
+```
+
+Run:
+
+```powershell
+corepack pnpm vitest run tests/content/spot-difference-quality.test.ts
+```
+
+Expected: RED because the schema, manifest, and checker do not exist.
+
+- [ ] **Step 2: Implement strict prompt specificity**
+
+Every objective must have non-empty, independently meaningful
+`target + location + before + after` fields. The checker rejects generic
+tokens after Unicode normalization:
+
+```ts
+const forbiddenGeneric = new Set([
+  "change color",
+  "change shape",
+  "remove object",
+  "add object",
+  "색상 변경",
+  "모양 변경",
+  "오브젝트 제거",
+  "오브젝트 추가",
+]);
+const unfinishedMarkers = [
+  ["T", "B", "D"].join(""),
+  ["T", "O", "D", "O"].join(""),
+  "placeholder",
+];
+```
+
+Reject identical normalized `before`/`after`, duplicate `objectiveId`, empty
+location, and a prompt record whose concatenated fields contain placeholder
+tokens from `unfinishedMarkers` or the duplicated phrase `change color color`.
+
+The guide example becomes:
+
+```text
+target: wooden bench
+location: near the fountain in the lower-left area
+before: dark brown seat
+after: bright orange seat
+```
+
+Do not rely on one opaque English sentence as the only machine-readable source.
+
+- [ ] **Step 3: Implement spatial and type diversity without a predictable fixed layout**
+
+Map normalized hitbox centers to a 3×3 grid:
+
+```ts
+const column = Math.min(2, Math.floor(cx * 3));
+const row = Math.min(2, Math.floor(cy * 3));
+const zone = "ABCDEFGHI"[row * 3 + column]!;
+```
+
+Require:
+
+```ts
+expect(new Set(zones).size).toBeGreaterThanOrEqual(7);
+expect(Math.max(...zoneCounts.values())).toBeLessThanOrEqual(2);
+expect(new Set(changeTypes).size).toBeGreaterThanOrEqual(4);
+expect(Math.max(...changeTypeCounts.values())).toBeLessThanOrEqual(4);
+```
+
+Do not mandate `E = 2` and `I = 0`; that makes packs predictable and has no
+verified repository evidence. Existing private-solution overlap/bounds checks
+remain authoritative for hitbox geometry.
+
+- [ ] **Step 4: Implement mobile and image-pair review gates**
+
+`mobileReview.status` must be PASS for every objective at the exact
+`375×667` review viewport. Manual reviewers must inspect the real generated
+pair, not prompt text. `imagePairReview` must have all four sameness booleans
+true and `unintendedChangeStatus: "PASS"`.
+
+The checker rejects:
+
+```ts
+if (pack.objectives.some((x) => x.mobileReview.status !== "PASS")) {
+  failures.push(`${pack.contentKey}:mobile-review`);
+}
+if (
+  !pack.imagePairReview.sameComposition ||
+  !pack.imagePairReview.sameCamera ||
+  !pack.imagePairReview.sameLightingDirection ||
+  !pack.imagePairReview.sameArtStyle ||
+  pack.imagePairReview.unintendedChangeStatus !== "PASS"
+) {
+  failures.push(`${pack.contentKey}:image-pair-review`);
+}
+```
+
+Human timing claims such as “EASY in 5 seconds” or “HARD in 20–40 seconds” are
+not schema truth. Record timing only in a later playtest dataset with sample
+size and distribution; do not self-approve it in this manifest.
+
+- [ ] **Step 5: Bind quality evidence to generated content**
+
+The existing content generator writes the SHA-256 of each pack's quality row
+into the generated manifest entry. `content:catalog:check` must fail when the
+quality row, catalog prompt, authoritative objectives, or referenced assets
+drift.
+
+Mutation tests:
+
+```ts
+it.each([
+  "wrong-tier-count",
+  "generic-prompt",
+  "duplicate-objective",
+  "six-zones-only",
+  "three-in-one-zone",
+  "single-change-type",
+  "mobile-review-fail",
+  "unintended-change-fail",
+  "stale-quality-hash",
+])("rejects %s", (fixture) => {
+  expect(checkFixture(fixture)).not.toEqual([]);
+});
+```
+
+- [ ] **Step 6: Run focused and aggregate content gates**
+
+```powershell
+corepack pnpm vitest run tests/content/spot-difference-quality.test.ts content/learning/all-content.test.ts packages/content-validator/src/validate-content.test.ts
+corepack pnpm content:catalog:check
+corepack pnpm docs:check
+git diff --check
+```
+
+Expected: all commands PASS; canonical `7 NORMAL + 3 HARD` remains unchanged.
+
+- [ ] **Step 7: Commit**
+
+```powershell
+git add content/learning/spot-difference-quality.v1.json content/learning/spot-difference-quality.schema.json content/learning/prompts_100_guide/PROMPTS_100_GUIDE.md content/learning/all-content.test.ts content/learning/manifest.v1.json tools/content/check-spot-difference-quality.ts tests/content/spot-difference-quality.test.ts
+git commit -m "feat(content): enforce spot-difference fairness contract"
+```
+
+---
+
+## External Design Review Disposition — 2026-07-27
+
+### Accepted and incorporated
+
+- Differences must remain perceptually fair after discovery; pixel nudges,
+  texture/grain drift, minute shadows, and near-imperceptible color changes are
+  rejected by prompt review and real image-pair review.
+- Image A/B must preserve composition, camera, lighting direction, and art
+  style, and must not contain unintended changes.
+- Prompts must encode target, location, before, and after as structured fields.
+- Objectives must be spatially distributed and use multiple change types.
+- Every objective requires review on a 375px-wide mobile viewport.
+- Fairness evidence is bound to generated content and fails closed on drift.
+
+### Accepted with modification
+
+- The proposed `4 EASY + 4 NORMAL + 2 HARD` distribution becomes
+  `4 CLEAR + 3 MODERATE` within the canonical seven NORMAL objectives plus
+  three FOCUSED HARD objectives. Runtime tiers remain `7 NORMAL + 3 HARD`.
+- The fixed 9-zone arrangement becomes at least seven occupied zones with no
+  zone containing more than two objectives. No zone is permanently reserved
+  or empty.
+- “No three identical changes in a row” becomes minimum four change types and
+  maximum four objectives of any one type because difference objectives have
+  no meaningful discovery order.
+- Timing targets are treated as future measured playtest metrics, not
+  self-attested content-schema facts.
+
+### Not incorporated into the current implementation plan
+
+- The review percentages, star ratings, quotations, fMRI claim, and “best”
+  8:2 ratio have no verifiable source URLs, sample sizes, collection method, or
+  repository evidence. They cannot justify normative thresholds.
+- A new EASY runtime tier conflicts with `RulesetV1`, content schemas, replay
+  behavior, and numeric approvals.
+- Removing the timer or replacing it with star rewards conflicts with the
+  authoritative 75-second match rules and economy contract.
+- Three-stage spatial hints conflict with the current earned character-reveal
+  hint model. This is a separate gameplay feature requiring its own design,
+  replay/event, UI, analytics, and balance plan.
+- Player telemetry-driven automatic replacement requires privacy, analytics,
+  denominator, retention, and review policy design; it is not added as an
+  unscoped content task.
+
+---
+
 # Track C — External Login and Release Evidence
 
 ### Task 8: Configure Preview Google/Kakao Providers
@@ -603,8 +870,9 @@ git commit -m "docs(content): reconcile generated learning evidence"
 3. Task 5 refreshes collisions after Track A because dirty main may change.
 4. Task 6 requires the user's integration choice before any merge or push.
 5. Task 7 runs only in the approved content/integration worktree.
-6. Tasks 8 → 11 require external owners and may proceed independently after Track B, except governance Task 9 precedes signed device PASS.
-7. Guest development play and code integration do not wait for provider credentials or device goldens.
+6. Task 7A runs after the catalog/manifest union so it validates the integrated content SSOT rather than the nine-entry branch-only draft.
+7. Tasks 8 → 11 require external owners and may proceed independently after Track B, except governance Task 9 precedes signed device PASS.
+8. Guest development play and code integration do not wait for provider credentials or device goldens.
 
 ## Completion Matrix
 
@@ -612,6 +880,6 @@ git commit -m "docs(content): reconcile generated learning evidence"
 |---|---|
 | Locally playable and internally GREEN | Tasks 1–4 |
 | Clean merge/PR candidate | Tasks 1–6 |
-| Content evidence reconciled | Task 7 |
+| Content evidence reconciled and fairness-reviewed | Tasks 7–7A |
 | Preview login beta | Tasks 8–10 |
 | Production release | Tasks 1–11 and zero required release blockers |
