@@ -484,6 +484,14 @@ git commit -m "fix(tooling): satisfy strict verification types"
 
 ### Task 3: Requirement Oracle and Numeric Approval Drift Closure
 
+> **DATA-027 supersession (2026-07-26):** The DATA-027 portions of this task
+> that use `evaluateDatabaseRequirement` / `expectConcurrencyEvidence` as PASS
+> evidence are retired. They were shown to admit static control-flow bypasses
+> and cannot prove that PostgreSQL executed. Implement DATA-027 only through
+> [`2026-07-26-data-027-runtime-evidence-implementation-plan.md`](2026-07-26-data-027-runtime-evidence-implementation-plan.md).
+> This task continues to own OBS-002, DATA-012, API-001/API-005, and numeric
+> approval drift.
+
 **Files:**
 - Modify: `tools/requirement-oracle.ts`
 - Modify: `tests/specs/database-security-requirement-oracle.test.ts`
@@ -685,6 +693,14 @@ git commit -m "fix(admin): make production build portable"
 ---
 
 ### Task 5: Bounded Supabase Verification Chain
+
+> **DATA-027 extension (2026-07-26):** This task's generic bounded runner is
+> incomplete without gate-run isolation, a temporary runtime observation, a
+> worktree-local atomic receipt, and the `RUNTIME_RECEIPT` oracle switch.
+> The dedicated
+> [`DATA-027 runtime evidence implementation plan`](2026-07-26-data-027-runtime-evidence-implementation-plan.md)
+> supersedes Steps 1–6 below for `run-supabase-gate.mjs`, `check:db`, and
+> DATA-027 receipt behavior.
 
 **Files:**
 - Create: `tools/run-supabase-gate.mjs`
@@ -1133,8 +1149,10 @@ auth 변경과 섞지 않고 catalog/manifest/test/research diff만 리뷰한다
 
 1. Task 0에서 exact runtime을 활성화하고 gate를 통과한다.
 2. Task 0A에서 dirty-main collision을 먼저 감사하고 두 package file의 사용자 처리 방식을 결정한다.
-3. Track A Tasks 1A → 1B → 2 → 3 → 4 → 5 → 6을 순차 실행하고 각 Task마다 구현 agent + spec reviewer + quality reviewer를 둔다.
-4. 내부 `verify` PASS 후 Track B Task 7에서 collision을 refresh하고 semantic union을 확정한다.
-5. 사용자가 PR/merge/branch 유지 중 하나를 선택한 후에만 Task 8을 실행한다.
-6. Task 8A는 사용자 소유 content follow-up으로 auth diff와 별도 수행한다.
-7. Track C는 실제 외부 owner와 device가 준비되는 순서대로 진행하되, Task 10 governance activation이 Task 11/12 PASS의 선행 조건이다.
+3. Track A Tasks 1A → 1B → 2 → 3의 비-DATA-027 범위 → 4를 순차 실행한다.
+4. DATA-027는 `2026-07-26-data-027-runtime-evidence-implementation-plan.md` Tasks 1 → 5로 실행한다. Task 4 전까지 DATA-027 정적 oracle을 PASS 근거로 통합하지 않고, 실제 local DB receipt가 없으면 정확히 BLOCKED로 유지한다.
+5. 그 뒤 본 계획 Task 5의 남은 비중복 검증 → Task 6을 실행하며 각 Task마다 구현 agent + spec reviewer + quality reviewer를 둔다.
+6. 내부 `verify` PASS 후 Track B Task 7에서 collision을 refresh하고 semantic union을 확정한다.
+7. 사용자가 PR/merge/branch 유지 중 하나를 선택한 후에만 Task 8을 실행한다.
+8. Task 8A는 사용자 소유 content follow-up으로 auth diff와 별도 수행한다.
+9. Track C는 실제 외부 owner와 device가 준비되는 순서대로 진행하되, Task 10 governance activation이 Task 11/12 PASS의 선행 조건이다.
