@@ -29,17 +29,22 @@ import { tsImport } from 'tsx/esm/api';
 
 const RECEIPT_RELATIVE_PATH =
   '.superpowers/evidence/data-027/receipt.json';
+const PUBLICATION_LOCK_FILE_NAME = 'publication.lock';
 const OBSERVATION_BASE_DIRECTORY = 'touchcatch-data-027';
 const LOCK_BASE_DIRECTORY = 'touchcatch-supabase-gate-locks';
 const PROCESS_TERMINATION_TIMEOUT_MS = 10_000;
+const PUBLICATION_LOCK_RETRY_MS = 50;
+const PUBLICATION_LOCK_WAIT_TIMEOUT_MS = 1_800_000;
 const gateRunIdPattern =
   /^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/u;
 const commitShaPattern = /^[a-f0-9]{40}$/u;
 const targetOverrideKeys = new Set([
+  'content_asset_origins',
   'local_mailpit_url',
   'local_supabase_api_url',
   'local_supabase_publishable_key',
   'local_supabase_secret_key',
+  'node_env',
   'supabase_db_url',
   'supabase_project_id',
   'supabase_project_ref',
@@ -441,6 +446,84 @@ const invalidateReceipt = (root) => {
   }
 };
 
+const tryAcquirePublicationLock = (root) => {
+  let lockPath;
+  try {
+    const receiptPath = receiptLocation(root, true);
+    lockPath = path.join(
+      path.dirname(receiptPath),
+      PUBLICATION_LOCK_FILE_NAME,
+    );
+    const descriptor = openSync(lockPath, 'wx', 0o600);
+    return { descriptor, lockPath };
+  } catch (error) {
+    if (
+      error
+      && typeof error === 'object'
+      && 'code' in error
+      && error.code === 'EEXIST'
+      && lockPath !== undefined
+    ) {
+      try {
+        const stat = lstatSync(lockPath);
+        if (!stat.isSymbolicLink() && stat.isFile()) return undefined;
+      } catch (inspectionError) {
+        if (
+          inspectionError
+          && typeof inspectionError === 'object'
+          && 'code' in inspectionError
+          && inspectionError.code === 'ENOENT'
+        ) {
+          return undefined;
+        }
+      }
+    }
+    throw errorCode('SUPABASE_GATE_FAILED:lock');
+  }
+};
+
+const waitForPublicationLockRetry = (setTimer, milliseconds) =>
+  new Promise((resolve) => {
+    setTimer(resolve, milliseconds);
+  });
+
+const acquirePublicationLock = async (
+  root,
+  {
+    now = Date.now,
+    setTimer = setTimeout,
+    timeoutMs = PUBLICATION_LOCK_WAIT_TIMEOUT_MS,
+  } = {},
+) => {
+  const deadline = now() + timeoutMs;
+  while (true) {
+    const lock = tryAcquirePublicationLock(root);
+    if (lock !== undefined) return lock;
+    if (now() >= deadline) {
+      throw errorCode('SUPABASE_GATE_FAILED:lock');
+    }
+    await waitForPublicationLockRetry(
+      setTimer,
+      PUBLICATION_LOCK_RETRY_MS,
+    );
+  }
+};
+
+const releasePublicationLock = (lock) => {
+  if (lock === undefined) return true;
+  try {
+    closeSync(lock.descriptor);
+  } catch {
+    return false;
+  }
+  try {
+    rmSync(lock.lockPath);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
 const writeComplete = (descriptor, text) => {
   const bytes = Buffer.from(text, 'utf8');
   let offset = 0;
@@ -615,21 +698,11 @@ const cloneAndFreeze = (value) => {
   return freeze(cloned);
 };
 
-export async function runSupabaseGateCore(overrides = {}) {
-  const startPath = path.resolve(overrides.root ?? process.cwd());
-  let root;
-  try {
-    root = path.resolve(
-      (overrides.resolveRepositoryRoot ?? defaultResolveRepositoryRoot)(
-        startPath,
-      ),
-    );
-  } catch {
-    throw errorCode('SUPABASE_GATE_FAILED:runner');
-  }
-  const invalidateCurrentReceipt =
-    overrides.invalidateData027Receipt
-    ?? invalidateReceipt;
+const runSupabaseGateWithPublicationLock = async (
+  overrides,
+  root,
+  invalidateCurrentReceipt,
+) => {
   if (invalidateCurrentReceipt(root) !== true) {
     throw errorCode('SUPABASE_GATE_FAILED:receipt');
   }
@@ -648,9 +721,10 @@ export async function runSupabaseGateCore(overrides = {}) {
   });
   const dockerExecutable = overrides.dockerExecutable ?? 'docker';
   const nodeExecutable = overrides.nodeExecutable ?? process.execPath;
-  const environment = sanitizeEnvironment(
-    overrides.environment ?? process.env,
-  );
+  const environment = {
+    ...sanitizeEnvironment(overrides.environment ?? process.env),
+    NODE_ENV: 'test',
+  };
   let gateRunId;
   let supabaseCommand;
   let temporaryRoot;
@@ -851,5 +925,89 @@ export async function runSupabaseGateCore(overrides = {}) {
       throw sanitized;
     }
     throw errorCode('SUPABASE_GATE_FAILED:receipt');
+  }
+};
+
+export async function runSupabaseGateCore(overrides = {}) {
+  const startPath = path.resolve(overrides.root ?? process.cwd());
+  let root;
+  try {
+    root = path.resolve(
+      (overrides.resolveRepositoryRoot ?? defaultResolveRepositoryRoot)(
+        startPath,
+      ),
+    );
+  } catch {
+    throw errorCode('SUPABASE_GATE_FAILED:runner');
+  }
+  const invalidateCurrentReceipt =
+    overrides.invalidateData027Receipt
+    ?? invalidateReceipt;
+  const acquireWorktreePublicationLock =
+    overrides.acquirePublicationLock
+    ?? (() => acquirePublicationLock(root, {
+      now: overrides.publicationLockNow ?? Date.now,
+      setTimer: overrides.publicationLockSetTimeout ?? setTimeout,
+      timeoutMs:
+        overrides.publicationLockTimeoutMs
+        ?? PUBLICATION_LOCK_WAIT_TIMEOUT_MS,
+    }));
+  const releaseWorktreePublicationLock =
+    overrides.releasePublicationLock
+    ?? releasePublicationLock;
+  let publicationLock;
+  try {
+    publicationLock = await acquireWorktreePublicationLock(root);
+  } catch {
+    throw errorCode('SUPABASE_GATE_FAILED:lock');
+  }
+
+  let failure;
+  try {
+    await runSupabaseGateWithPublicationLock(
+      overrides,
+      root,
+      invalidateCurrentReceipt,
+    );
+  } catch (error) {
+    failure = sanitizeGateError(error);
+  }
+
+  if (failure !== undefined) {
+    let receiptInvalidated = false;
+    try {
+      receiptInvalidated = invalidateCurrentReceipt(root) === true;
+    } catch {
+      receiptInvalidated = false;
+    }
+    try {
+      releaseWorktreePublicationLock(publicationLock);
+    } catch {
+      // Preserve the primary fixed failure; the receipt is already invalid.
+    }
+    if (!receiptInvalidated) {
+      throw errorCode('SUPABASE_GATE_FAILED:receipt');
+    }
+    throw failure;
+  }
+
+  let publicationLockReleased = false;
+  try {
+    publicationLockReleased =
+      releaseWorktreePublicationLock(publicationLock) === true;
+  } catch {
+    publicationLockReleased = false;
+  }
+  if (!publicationLockReleased) {
+    let receiptInvalidated = false;
+    try {
+      receiptInvalidated = invalidateCurrentReceipt(root) === true;
+    } catch {
+      receiptInvalidated = false;
+    }
+    if (!receiptInvalidated) {
+      throw errorCode('SUPABASE_GATE_FAILED:receipt');
+    }
+    throw errorCode('SUPABASE_GATE_FAILED:cleanup');
   }
 }

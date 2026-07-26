@@ -41,7 +41,7 @@
     "release:balance": "tsx tools/write-release-reports.ts --check",
     "db:start": "supabase start",
     "test:auth:local": "vitest run --config vitest.db.config.ts tests/integration",
-    "test:db:concurrency": "vitest run --config vitest.db.config.ts tests/database --sequence.concurrent=false",
+    "test:db:concurrency": "vitest run --config vitest.db.config.ts tests/database/concurrency.test.ts --sequence.concurrent=false",
     "check:db": "node tools/run-supabase-gate.mjs",
     "check": "node tools/run-pnpm.mjs check:runtime && node tools/run-pnpm.mjs admin:check && node tools/run-pnpm.mjs ruleset:projections:check && node tools/run-pnpm.mjs content:schemas:check && node tools/run-pnpm.mjs ui:schemas:check && node tools/run-pnpm.mjs ui:docs:check && node tools/run-pnpm.mjs ui:reference:check && node tools/run-pnpm.mjs ui:assets:check && node tools/run-pnpm.mjs ui:acceptance:check && node tools/run-pnpm.mjs lint && node tools/run-pnpm.mjs typecheck && node tools/run-pnpm.mjs test && node tools/run-pnpm.mjs openapi:lint && node tools/run-pnpm.mjs docs:check && node tools/run-pnpm.mjs release:reports:check && node tools/run-pnpm.mjs content:validate && node tools/run-pnpm.mjs secret:scan",
     "verify": "node tools/run-pnpm.mjs check && node tools/run-pnpm.mjs check:db"

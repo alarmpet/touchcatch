@@ -70,6 +70,107 @@ const write = (root: string, relativePath: string, content = relativePath): void
   writeFileSync(target, content);
 };
 
+const concurrencyDependencyPaths = [
+  'config/client-runtime-policy.v1.json',
+  'config/content-validation-policy.v1.json',
+  'config/ruleset.v1.json',
+  'content/fixtures/assets/59ab13e90d337af02e94c8c9dbfd8aff8dbd54b203acfe768a3641e0b70ab189.png',
+  'content/fixtures/assets/80141f74c0f7353bba31d9952bdbeb4d715716065b6cff2e591f94fa3763129e.png',
+  'content/fixtures/assets/90fce90a3fd50fb9ea665634fc3d5651452ec44369e5375c7e2197c2c5211b18.png',
+  'content/fixtures/valid/en-intermediate.json',
+  'content/fixtures/valid/ko-beginner.json',
+  'packages/content-validator/package.json',
+  'packages/content-validator/src/validate-content.ts',
+  'packages/contracts/package.json',
+  'packages/contracts/src/analytics.ts',
+  'packages/contracts/src/answer-normalization.ts',
+  'packages/contracts/src/attempt-limiter.ts',
+  'packages/contracts/src/auth.ts',
+  'packages/contracts/src/content.ts',
+  'packages/contracts/src/delivery-policy.ts',
+  'packages/contracts/src/economy.schema.ts',
+  'packages/contracts/src/economy.ts',
+  'packages/contracts/src/idempotency.ts',
+  'packages/contracts/src/index.ts',
+  'packages/contracts/src/integration-evidence.ts',
+  'packages/contracts/src/match.schema.ts',
+  'packages/contracts/src/match.ts',
+  'packages/contracts/src/pet-catalog.ts',
+  'packages/contracts/src/projection.ts',
+  'packages/contracts/src/quarantine.ts',
+  'packages/contracts/src/rest-idempotency.ts',
+  'packages/contracts/src/rules.schema.ts',
+  'packages/contracts/src/rules.ts',
+  'packages/contracts/src/socket.schema.ts',
+  'packages/contracts/src/socket.ts',
+  'packages/contracts/src/ui.ts',
+  'pnpm-workspace.yaml',
+  'schemas/economy.schema.json',
+  'schemas/pet-catalog.schema.json',
+  'schemas/ruleset.schema.json',
+  'tsconfig.json',
+] as const;
+
+const expectedEvidencePaths = [
+  'config/client-runtime-policy.v1.json',
+  'config/content-validation-policy.v1.json',
+  'config/ruleset.v1.json',
+  'content/fixtures/assets/59ab13e90d337af02e94c8c9dbfd8aff8dbd54b203acfe768a3641e0b70ab189.png',
+  'content/fixtures/assets/80141f74c0f7353bba31d9952bdbeb4d715716065b6cff2e591f94fa3763129e.png',
+  'content/fixtures/assets/90fce90a3fd50fb9ea665634fc3d5651452ec44369e5375c7e2197c2c5211b18.png',
+  'content/fixtures/valid/en-intermediate.json',
+  'content/fixtures/valid/ko-beginner.json',
+  'package.json',
+  'packages/content-validator/package.json',
+  'packages/content-validator/src/validate-content.ts',
+  'packages/contracts/package.json',
+  'packages/contracts/src/analytics.ts',
+  'packages/contracts/src/answer-normalization.ts',
+  'packages/contracts/src/attempt-limiter.ts',
+  'packages/contracts/src/auth.ts',
+  'packages/contracts/src/canonical-json.ts',
+  'packages/contracts/src/content.ts',
+  'packages/contracts/src/delivery-policy.ts',
+  'packages/contracts/src/economy.schema.ts',
+  'packages/contracts/src/economy.ts',
+  'packages/contracts/src/idempotency.ts',
+  'packages/contracts/src/index.ts',
+  'packages/contracts/src/integration-evidence.ts',
+  'packages/contracts/src/match.schema.ts',
+  'packages/contracts/src/match.ts',
+  'packages/contracts/src/pet-catalog.ts',
+  'packages/contracts/src/projection.ts',
+  'packages/contracts/src/quarantine.ts',
+  'packages/contracts/src/rest-idempotency.ts',
+  'packages/contracts/src/rules.schema.ts',
+  'packages/contracts/src/rules.ts',
+  'packages/contracts/src/socket.schema.ts',
+  'packages/contracts/src/socket.ts',
+  'packages/contracts/src/ui.ts',
+  'pnpm-lock.yaml',
+  'pnpm-workspace.yaml',
+  'schemas/economy.schema.json',
+  'schemas/pet-catalog.schema.json',
+  'schemas/ruleset.schema.json',
+  'supabase/config.toml',
+  'supabase/migrations/202607260001_schema.sql',
+  'supabase/migrations/202607260010_schema.sql',
+  'supabase/roles.sql',
+  'supabase/tests/database/runtime.test.sql',
+  'supabase/tests/database/support/runtime.inc',
+  'tests/database/concurrency.test.ts',
+  'tests/support/data-027-observation.ts',
+  'tests/support/local-supabase-status.ts',
+  'tools/check-runtime.mjs',
+  'tools/data-027-runtime-evidence.ts',
+  'tools/internal/run-supabase-gate-core.mjs',
+  'tools/requirement-oracle.ts',
+  'tools/run-pnpm.mjs',
+  'tools/run-supabase-gate.mjs',
+  'tsconfig.json',
+  'vitest.db.config.ts',
+] as const;
+
 const createRepository = (): string => {
   const root = mkdtempSync(join(tmpdir(), 'data-027-evidence-'));
   roots.push(root);
@@ -79,6 +180,7 @@ const createRepository = (): string => {
   write(root, 'supabase/tests/database/runtime.test.sql', 'select 1;');
   write(root, 'supabase/tests/database/support/runtime.inc', '\\set fixture 1');
   for (const file of [
+    ...concurrencyDependencyPaths,
     'packages/contracts/src/canonical-json.ts',
     'supabase/config.toml',
     'supabase/roles.sql',
@@ -158,27 +260,9 @@ describe('DATA-027 runtime evidence', () => {
       node: 'v24.18.0',
       pnpm: '11.13.0',
     });
-    expect(manifest.evidenceInputs.map((input) => input.path)).toEqual([
-      'package.json',
-      'packages/contracts/src/canonical-json.ts',
-      'pnpm-lock.yaml',
-      'supabase/config.toml',
-      'supabase/migrations/202607260001_schema.sql',
-      'supabase/migrations/202607260010_schema.sql',
-      'supabase/roles.sql',
-      'supabase/tests/database/runtime.test.sql',
-      'supabase/tests/database/support/runtime.inc',
-      'tests/database/concurrency.test.ts',
-      'tests/support/data-027-observation.ts',
-      'tests/support/local-supabase-status.ts',
-      'tools/check-runtime.mjs',
-      'tools/data-027-runtime-evidence.ts',
-      'tools/internal/run-supabase-gate-core.mjs',
-      'tools/requirement-oracle.ts',
-      'tools/run-pnpm.mjs',
-      'tools/run-supabase-gate.mjs',
-      'vitest.db.config.ts',
-    ]);
+    expect(manifest.evidenceInputs.map((input) => input.path)).toEqual(
+      expectedEvidencePaths,
+    );
     expect(manifest.evidenceInputsSha256).toMatch(/^sha256:[a-f0-9]{64}$/u);
   });
 
@@ -292,6 +376,24 @@ describe('DATA-027 runtime evidence', () => {
     expect(validateData027Receipt(root)).toBe(true);
   });
 
+  it('blocks an otherwise valid receipt while its worktree publication lock exists', () => {
+    const root = createRepository();
+    writeData027Receipt(root, validObservation, commitSha);
+    const publicationLock = join(
+      root,
+      '.superpowers',
+      'evidence',
+      'data-027',
+      'publication.lock',
+    );
+
+    writeFileSync(publicationLock, 'held');
+    expect(validateData027Receipt(root)).toBe(false);
+
+    rmSync(publicationLock);
+    expect(validateData027Receipt(root)).toBe(true);
+  });
+
   it('uses an exact worktree-local receipt path and confines fixtures to temp repositories', () => {
     const root = createRepository();
     expect(DATA_027_RECEIPT_RELATIVE_PATH).toBe('.superpowers/evidence/data-027/receipt.json');
@@ -348,30 +450,10 @@ describe('DATA-027 runtime evidence', () => {
   it('invalidates byte mutations to every allow-listed input class', () => {
     const root = createRepository();
     const inputs = buildEvidenceInputs(root);
-    expect(inputs.map((input) => input.path)).toEqual([
-      'package.json',
-      'packages/contracts/src/canonical-json.ts',
-      'pnpm-lock.yaml',
-      'supabase/config.toml',
-      'supabase/migrations/202607260001_schema.sql',
-      'supabase/migrations/202607260010_schema.sql',
-      'supabase/roles.sql',
-      'supabase/tests/database/runtime.test.sql',
-      'supabase/tests/database/support/runtime.inc',
-      'tests/database/concurrency.test.ts',
-      'tests/support/data-027-observation.ts',
-      'tests/support/local-supabase-status.ts',
-      'tools/check-runtime.mjs',
-      'tools/data-027-runtime-evidence.ts',
-      'tools/internal/run-supabase-gate-core.mjs',
-      'tools/requirement-oracle.ts',
-      'tools/run-pnpm.mjs',
-      'tools/run-supabase-gate.mjs',
-      'vitest.db.config.ts',
-    ]);
+    expect(inputs.map((input) => input.path)).toEqual(expectedEvidencePaths);
 
+    writeData027Receipt(root, validObservation, commitSha);
     for (const input of inputs) {
-      writeData027Receipt(root, validObservation, commitSha);
       const target = join(root, ...input.path.split('/'));
       const original = readFileSync(target);
       try {

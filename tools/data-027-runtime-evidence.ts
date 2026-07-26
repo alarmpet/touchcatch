@@ -11,6 +11,8 @@ import { canonicalJson } from '../packages/contracts/src/canonical-json.js';
 
 export const DATA_027_RECEIPT_RELATIVE_PATH =
   '.superpowers/evidence/data-027/receipt.json';
+export const DATA_027_PUBLICATION_LOCK_RELATIVE_PATH =
+  '.superpowers/evidence/data-027/publication.lock';
 
 export type Data027Observation = Readonly<{
   schemaVersion: 1;
@@ -87,6 +89,48 @@ const runtimeVersionKeys = ['node', 'pnpm'] as const;
 const sha256Pattern = /^sha256:[a-f0-9]{64}$/u;
 const commitShaPattern = /^[a-f0-9]{40}$/u;
 
+const concurrencyDependencyPaths = [
+  'config/client-runtime-policy.v1.json',
+  'config/content-validation-policy.v1.json',
+  'config/ruleset.v1.json',
+  'content/fixtures/assets/59ab13e90d337af02e94c8c9dbfd8aff8dbd54b203acfe768a3641e0b70ab189.png',
+  'content/fixtures/assets/80141f74c0f7353bba31d9952bdbeb4d715716065b6cff2e591f94fa3763129e.png',
+  'content/fixtures/assets/90fce90a3fd50fb9ea665634fc3d5651452ec44369e5375c7e2197c2c5211b18.png',
+  'content/fixtures/valid/en-intermediate.json',
+  'content/fixtures/valid/ko-beginner.json',
+  'packages/content-validator/package.json',
+  'packages/content-validator/src/validate-content.ts',
+  'packages/contracts/package.json',
+  'packages/contracts/src/analytics.ts',
+  'packages/contracts/src/answer-normalization.ts',
+  'packages/contracts/src/attempt-limiter.ts',
+  'packages/contracts/src/auth.ts',
+  'packages/contracts/src/canonical-json.ts',
+  'packages/contracts/src/content.ts',
+  'packages/contracts/src/delivery-policy.ts',
+  'packages/contracts/src/economy.schema.ts',
+  'packages/contracts/src/economy.ts',
+  'packages/contracts/src/idempotency.ts',
+  'packages/contracts/src/index.ts',
+  'packages/contracts/src/integration-evidence.ts',
+  'packages/contracts/src/match.schema.ts',
+  'packages/contracts/src/match.ts',
+  'packages/contracts/src/pet-catalog.ts',
+  'packages/contracts/src/projection.ts',
+  'packages/contracts/src/quarantine.ts',
+  'packages/contracts/src/rest-idempotency.ts',
+  'packages/contracts/src/rules.schema.ts',
+  'packages/contracts/src/rules.ts',
+  'packages/contracts/src/socket.schema.ts',
+  'packages/contracts/src/socket.ts',
+  'packages/contracts/src/ui.ts',
+  'pnpm-workspace.yaml',
+  'schemas/economy.schema.json',
+  'schemas/pet-catalog.schema.json',
+  'schemas/ruleset.schema.json',
+  'tsconfig.json',
+] as const;
+
 const hashBytes = (value: Uint8Array): `sha256:${string}` =>
   `sha256:${createHash('sha256').update(value).digest('hex')}`;
 
@@ -148,11 +192,11 @@ const evidenceInputPaths = (root: string): readonly string[] => {
     path.join(root, 'supabase', 'tests'),
     new Set(['.inc', '.sql']),
   );
-  return [
+  return [...new Set([
     ...migrations,
     ...databaseTests,
+    ...concurrencyDependencyPaths,
     'package.json',
-    'packages/contracts/src/canonical-json.ts',
     'pnpm-lock.yaml',
     'supabase/config.toml',
     'supabase/roles.sql',
@@ -166,7 +210,7 @@ const evidenceInputPaths = (root: string): readonly string[] => {
     'tools/run-pnpm.mjs',
     'tools/data-027-runtime-evidence.ts',
     'tools/requirement-oracle.ts',
-  ].sort();
+  ])].sort();
 };
 
 export function buildEvidenceInputs(root: string): readonly EvidenceInput[] {
@@ -325,10 +369,29 @@ const hasSafeReceiptDirectory = (topLevel: string, target: string): boolean => {
   return path.dirname(target) === current;
 };
 
+const hasPublicationLock = (target: string): boolean => {
+  const lockPath = path.join(
+    path.dirname(target),
+    path.basename(DATA_027_PUBLICATION_LOCK_RELATIVE_PATH),
+  );
+  try {
+    lstatSync(lockPath);
+    return true;
+  } catch (error) {
+    return !(
+      error
+      && typeof error === 'object'
+      && 'code' in error
+      && error.code === 'ENOENT'
+    );
+  }
+};
+
 export function validateData027Receipt(root: string): boolean {
   try {
     const { topLevel, target } = receiptTarget(root);
     if (!hasSafeReceiptDirectory(topLevel, target)) return false;
+    if (hasPublicationLock(target)) return false;
     if (!existsSync(target)) return false;
     const targetStat = lstatSync(target);
     if (targetStat.isSymbolicLink() || !targetStat.isFile()) return false;

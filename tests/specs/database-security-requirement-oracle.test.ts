@@ -1,12 +1,13 @@
-import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
-import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import {
   DATA_027_RECEIPT_RELATIVE_PATH,
 } from '../../tools/data-027-runtime-evidence.js';
-import { writeData027ReceiptFixture } from '../support/data-027-receipt-fixture.js';
+import {
+  createData027TestRepository,
+  writeData027ReceiptFixture,
+} from '../support/data-027-receipt-fixture.js';
 import {
   evaluateDatabaseRequirement,
   executeRequirementOracle,
@@ -29,39 +30,10 @@ const evidence = JSON.parse(fs.readFileSync(`${root}/config/requirement-evidence
 const data027Row = registry.requirements.find((row: { id: string }) => row.id === 'DATA-027');
 const data027Claim = evidence.entries.find((claim: { id: string }) => claim.id === 'DATA-027');
 const runtimeRoots: string[] = [];
-const write = (targetRoot: string, relativePath: string, content: string): void => {
-  const target = path.join(targetRoot, ...relativePath.split('/'));
-  fs.mkdirSync(path.dirname(target), { recursive: true });
-  fs.writeFileSync(target, content);
-};
 
 const createRuntimeRoot = (): string => {
-  const targetRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'data-027-oracle-'));
+  const targetRoot = createData027TestRepository(root, data027Row.source);
   runtimeRoots.push(targetRoot);
-  execFileSync('git', ['init', '--quiet', targetRoot]);
-  write(targetRoot, data027Row.source, fs.readFileSync(path.join(root, data027Row.source), 'utf8'));
-  write(targetRoot, 'supabase/migrations/202607260001_schema.sql', 'create table evidence ();');
-  write(targetRoot, 'supabase/tests/database/runtime.test.sql', 'select 1;');
-  for (const file of [
-    'packages/contracts/src/canonical-json.ts',
-    'pnpm-lock.yaml',
-    'supabase/config.toml',
-    'supabase/roles.sql',
-    'tests/database/concurrency.test.ts',
-    'tests/support/data-027-observation.ts',
-    'tests/support/local-supabase-status.ts',
-    'vitest.db.config.ts',
-    'tools/check-runtime.mjs',
-    'tools/internal/run-supabase-gate-core.mjs',
-    'tools/run-supabase-gate.mjs',
-    'tools/run-pnpm.mjs',
-    'tools/data-027-runtime-evidence.ts',
-    'tools/requirement-oracle.ts',
-  ]) write(targetRoot, file, file);
-  write(targetRoot, 'package.json', JSON.stringify({
-    packageManager: 'pnpm@11.13.0',
-    engines: { node: '24.18.0', pnpm: '11.13.0' },
-  }));
   return targetRoot;
 };
 

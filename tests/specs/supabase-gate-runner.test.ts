@@ -6,6 +6,7 @@ import { join } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { canonicalJson } from '../../packages/contracts/src/canonical-json.js';
 import {
+  buildData027EvidenceManifest,
   validateData027Observation,
   validateData027Receipt,
   type Data027Observation,
@@ -463,6 +464,8 @@ describe('bounded Supabase gate', () => {
         'postgresql://postgres:postgres@127.0.0.1:59999/postgres',
       LOCAL_SUPABASE_API_URL: 'http://127.0.0.1:59998',
       local_mailpit_url: 'http://127.0.0.1:59997',
+      CONTENT_ASSET_ORIGINS: 'https://hostile.example.test',
+      NODE_ENV: 'production',
       TOUCHCATCH_DATA027_OBSERVATION_PATH: 'C:\\redirected.json',
     };
 
@@ -490,11 +493,13 @@ describe('bounded Supabase gate', () => {
       ).not.toEqual(expect.arrayContaining([
         'local_mailpit_url',
         'local_supabase_api_url',
+        'content_asset_origins',
         'supabase_workdir',
         'test_database_url',
         'touchcatch_data027_observation_path',
       ]));
       expect(step.env.PATH).toBe('safe-path');
+      expect(step.env.NODE_ENV).toBe('test');
     }
     expect(harness.steps.at(-1)?.env).toMatchObject({
       TOUCHCATCH_DATA027_GATE_RUN_ID: runA,
@@ -773,6 +778,158 @@ describe('bounded Supabase gate', () => {
     ).toBe(false);
   });
 
+  it('serializes two same-worktree owners through publication so a later failed run leaves the oracle BLOCKED', async () => {
+    const registry = JSON.parse(
+      readFileSync('docs/requirements-registry.v1.json', 'utf8'),
+    );
+    const evidence = JSON.parse(
+      readFileSync('config/requirement-evidence.v1.json', 'utf8'),
+    );
+    const row = registry.requirements.find(
+      (candidate: { id: string }) => candidate.id === 'DATA-027',
+    );
+    const claim = evidence.entries.find(
+      (candidate: { id: string }) => candidate.id === 'DATA-027',
+    );
+    const root = createData027TestRepository(process.cwd(), row.source);
+    const temporaryRoot = createRoot();
+    roots.push(root);
+    const first = createHarness({
+      root,
+      temporaryRoot,
+      gateRunId: runA,
+      observationForStep: () => validObservation(runA),
+    });
+    let secondSawInvalidatedReceipt = false;
+    const second = createHarness({
+      root,
+      temporaryRoot,
+      gateRunId: runB,
+      resultForStep: (step) => {
+        if (step.name === 'runtime_preflight') {
+          secondSawInvalidatedReceipt = !existsSync(
+            join(
+              root,
+              '.superpowers',
+              'evidence',
+              'data-027',
+              'receipt.json',
+            ),
+          );
+          return { status: 1, timedOut: false };
+        }
+        return { status: 0, timedOut: false };
+      },
+    });
+    const productionDeps = (harness: ReturnType<typeof createHarness>) => {
+      const {
+        buildData027EvidenceManifest: _injectedBuilder,
+        evidenceTools: _injectedEvidenceTools,
+        getCommitSha: _injectedCommit,
+        invalidateData027Receipt: _injectedInvalidator,
+        publishData027Receipt: _injectedPublisher,
+        ...deps
+      } = harness.deps;
+      return {
+        ...deps,
+        buildData027EvidenceManifest,
+        evidenceTools: {
+          buildData027EvidenceManifest,
+          canonicalJson,
+          validateData027Observation,
+        },
+        getCommitSha: () => commitSha,
+      };
+    };
+    const secondDeps = productionDeps(second);
+    let secondRun: Promise<void> | undefined;
+    const firstDeps = {
+      ...productionDeps(first),
+      getCommitSha: () => {
+        secondRun = runSupabaseGate(secondDeps);
+        return commitSha;
+      },
+    };
+
+    await runSupabaseGate(firstDeps);
+    await expect(secondRun).rejects.toThrow(
+      'SUPABASE_GATE_FAILED:runtime_preflight',
+    );
+
+    expect(secondSawInvalidatedReceipt).toBe(true);
+    expect(executeRequirementOracle(root, row, claim)).toMatchObject({
+      status: 'BLOCKED',
+      reason: 'LOCAL_DB_EVIDENCE_UNAVAILABLE',
+    });
+  });
+
+  it('invalidates a published receipt when worktree publication-lock cleanup fails', async () => {
+    const registry = JSON.parse(
+      readFileSync('docs/requirements-registry.v1.json', 'utf8'),
+    );
+    const evidence = JSON.parse(
+      readFileSync('config/requirement-evidence.v1.json', 'utf8'),
+    );
+    const row = registry.requirements.find(
+      (candidate: { id: string }) => candidate.id === 'DATA-027',
+    );
+    const claim = evidence.entries.find(
+      (candidate: { id: string }) => candidate.id === 'DATA-027',
+    );
+    const root = createData027TestRepository(process.cwd(), row.source);
+    roots.push(root);
+    const harness = createHarness({
+      root,
+      observationForStep: () => validObservation(runA),
+    });
+    const {
+      buildData027EvidenceManifest: _injectedBuilder,
+      evidenceTools: _injectedEvidenceTools,
+      invalidateData027Receipt: _injectedInvalidator,
+      publishData027Receipt: _injectedPublisher,
+      ...productionReceiptDeps
+    } = harness.deps;
+    const publicationLockPath = join(
+      root,
+      '.superpowers',
+      'evidence',
+      'data-027',
+      'publication.lock',
+    );
+
+    try {
+      await expect(runSupabaseGate({
+        ...productionReceiptDeps,
+        buildData027EvidenceManifest,
+        evidenceTools: {
+          buildData027EvidenceManifest,
+          canonicalJson,
+          validateData027Observation,
+        },
+        releasePublicationLock: (lock: { descriptor: number }) => {
+          closeSync(lock.descriptor);
+          return false;
+        },
+      })).rejects.toThrow('SUPABASE_GATE_FAILED:cleanup');
+
+      expect(
+        existsSync(join(
+          root,
+          '.superpowers',
+          'evidence',
+          'data-027',
+          'receipt.json',
+        )),
+      ).toBe(false);
+      expect(executeRequirementOracle(root, row, claim)).toMatchObject({
+        status: 'BLOCKED',
+        reason: 'LOCAL_DB_EVIDENCE_UNAVAILABLE',
+      });
+    } finally {
+      rmSync(publicationLockPath, { force: true });
+    }
+  });
+
   it('serializes distinct worktrees that share one canonical Supabase project identity', async () => {
     const firstRoot = createRoot();
     const secondRoot = createRoot();
@@ -907,20 +1064,29 @@ describe('bounded Supabase gate', () => {
 
     const firstRun = runSupabaseGate(first.deps);
     await dockerStarted;
-    const secondOutcome = await runSupabaseGate(second.deps).then(
-      () => 'resolved',
-      (error: unknown) => error instanceof Error ? error.message : 'unknown',
-    );
+    const secondRun = runSupabaseGate(second.deps);
+    expect(second.steps).toEqual([]);
+    expect(second.invalidateReceipt).not.toHaveBeenCalled();
     releaseDocker();
     await firstRun;
+    await secondRun;
 
-    expect(secondOutcome).toBe('SUPABASE_GATE_FAILED:lock');
     expect(first.steps.every((step) => step.cwd === root)).toBe(true);
+    expect(second.steps.every((step) => step.cwd === root)).toBe(true);
+    expect(second.invalidateReceipt).toHaveBeenCalledOnce();
     expect(first.getCommitSha).toHaveBeenCalledWith(root);
+    expect(second.getCommitSha).toHaveBeenCalledWith(root);
     expect(first.writeReceipt).toHaveBeenCalledWith(
       expect.objectContaining({
         root,
         observation: validObservation(runA),
+        commitSha,
+      }),
+    );
+    expect(second.writeReceipt).toHaveBeenCalledWith(
+      expect.objectContaining({
+        root,
+        observation: validObservation(runB),
         commitSha,
       }),
     );
