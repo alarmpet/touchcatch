@@ -31,14 +31,36 @@ const equalJson = (left: unknown, right: unknown) => canonicalJson(left) === can
 const completedBy = (reviewer: unknown, reviewedAt: unknown) => typeof reviewer === 'string' && reviewer.trim().length > 0 && typeof reviewedAt === 'string' && !Number.isNaN(Date.parse(reviewedAt));
 const semanticStopwords = new Set(['the', 'a', 'an', 'only', 'change', 'add', 'remove', 'bright', 'to', 'from', 'in', 'on', 'at', 'of', 'and', 'or', 'with', 'for', 'near', 'area', 'scene', 'image', 'source', 'edited', 'original', 'state', 'appearance']);
 const semanticTokens = (value: string) => normalise(value).match(/[\p{L}\p{N}]+/gu)?.filter((token) => token.length >= 3 && !semanticStopwords.has(token)) ?? [];
+const roleFields = ['target', 'location', 'before', 'after'] as const;
+function canonicalRoleBlock(rawInstruction: string) {
+  const lines = rawInstruction.normalize('NFC').replace(/\r\n?/gu, '\n').split('\n');
+  for (let start = 0; start <= lines.length - roleFields.length; start += 1) {
+    const record: Record<string, string> = {};
+    const matches = roleFields.every((field, offset) => {
+      const line = lines[start + offset]!;
+      const separator = line.indexOf(':');
+      if (separator < 0 || normalise(line.slice(0, separator)) !== field) return false;
+      const value = line.slice(separator + 1).trim();
+      if (!value) return false;
+      record[field] = value;
+      return true;
+    });
+    if (matches) return record;
+  }
+  return null;
+}
 function hasGroundedStructuredEvidence(objective: Json) {
   const roleRecord = objective.authoringEvidence?.roleRecord;
   if (!roleRecord || typeof roleRecord !== 'object' || Array.isArray(roleRecord)) return false;
-  return ['target', 'location', 'before', 'after'].every((field) => {
+  const rawRoleRecord = canonicalRoleBlock(String(objective.authoringEvidence?.rawInstruction ?? ''));
+  if (!rawRoleRecord) return false;
+  return roleFields.every((field) => {
     const value = normalise(String(objective[field] ?? ''));
     if (value === 'pending') return false;
     const tokens = semanticTokens(value);
-    return tokens.length > 0 && normalise(String(roleRecord[field] ?? '')) === value;
+    return tokens.length > 0
+      && normalise(String(roleRecord[field] ?? '')) === value
+      && normalise(rawRoleRecord[field] ?? '') === value;
   });
 }
 

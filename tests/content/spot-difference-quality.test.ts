@@ -184,7 +184,29 @@ describe('spot-difference quality contract', () => {
     expect(await checkSpotDifferenceQuality({ root, quality, manifest })).toContain('en-resilience:release-specificity:difference_1');
   });
 
-  it('accepts a PASS with an exact structured role record', async () => {
+  it('rejects a PASS whose role record is unrelated to the authoritative raw instruction', async () => {
+    const [quality, manifest] = await Promise.all([
+      readJson('content/learning/spot-difference-quality.v1.json'),
+      readJson('content/learning/manifest.v1.json'),
+    ]);
+    const objective = (quality.entries as any[])[0].objectives[0];
+    Object.assign(objective, {
+      target: 'spaceship',
+      location: 'moon',
+      before: 'silver',
+      after: 'gold',
+      authoringEvidence: {
+        status: 'PASS',
+        rawInstruction: 'Change the lower flower from purple to yellow.',
+        roleRecord: { target: 'spaceship', location: 'moon', before: 'silver', after: 'gold' },
+        blocker: null,
+      },
+    });
+
+    expect(await checkSpotDifferenceQuality({ root, quality, manifest })).toContain('en-resilience:release-specificity:difference_1');
+  });
+
+  it('accepts a PASS when rawInstruction contains the exact canonical role block', async () => {
     const [quality, manifest] = await Promise.all([
       readJson('content/learning/spot-difference-quality.v1.json'),
       readJson('content/learning/manifest.v1.json'),
