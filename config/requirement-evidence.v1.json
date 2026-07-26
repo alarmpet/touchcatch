@@ -1997,7 +1997,7 @@
       "phase": "PLANNED",
       "closureCondition": "Implement an exercised NestJS/Socket.IO realtime service backed by Redis and BullMQ on the existing Node/PostgreSQL foundation",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:REALTIME_SERVICE_SURFACE",
-      "closureArtifact": "apps/server/package.json",
+      "closureArtifact": "docs/testing/reports/realtime-service-surface.v1.json",
       "closureArtifactState": "ABSENT"
     },
     {

@@ -6,6 +6,15 @@ const source = readFileSync("packages/contracts/openapi.yaml", "utf8");
 const restIds = ["API-001", "API-002", "API-003", "API-004", "API-006", "API-007", "API-008", "API-009"] as const;
 
 describe("REST requirement oracle", () => {
+  it("API-001 matches status-specific /v1/me error enums to runtime", () => {
+    expect(() => evaluateOpenApiRequirement("API-001")).not.toThrow();
+    const swapped = source
+      .replace("enum: [UNAUTHORIZED]", "enum: [SWAP_SENTINEL]")
+      .replace("enum: [ACCOUNT_SETUP_FAILED]", "enum: [UNAUTHORIZED]")
+      .replace("enum: [SWAP_SENTINEL]", "enum: [ACCOUNT_SETUP_FAILED]");
+    expect(() => evaluateOpenApiRequirement("API-001", swapped)).toThrow(/status-specific/i);
+  });
+
   it.each(restIds)("%s derives exact route evidence from OpenAPI", (id) => {
     expect(evaluateOpenApiRequirement(id, source)).toBe(true);
   });

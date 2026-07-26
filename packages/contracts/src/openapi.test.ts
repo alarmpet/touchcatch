@@ -6,7 +6,7 @@ type Ref = { $ref: string };
 type Operation = { security?: unknown; parameters?: Ref[]; requestBody?: Ref; responses: Record<string, Ref> };
 type Schema = {
   properties?: {
-    code?: { enum?: string[] };
+    code?: { const?: string; enum?: string[] };
     materials?: {
       "x-runtime-validation"?: { exactCountSum?: number; uniqueBy?: string };
     };
@@ -15,9 +15,10 @@ type Schema = {
 type Document = { openapi: string; security: unknown; paths: Record<string, Record<string, Operation>>; components: { schemas: Record<string, Schema> } };
 const document = parse(readFileSync(new URL("../openapi.yaml", import.meta.url), "utf8")) as Document;
 const expected = {
-  "GET /v1/me": { request: null, statuses: ["200", "401", "403", "503"], response: "MeResponse", errors: ["UNAUTHORIZED", "ANONYMOUS_FORBIDDEN", "ACCOUNT_SETUP_FAILED"] },
-  "PATCH /v1/me": { request: "UpdateMeRequest", statuses: ["200", "400", "401", "403", "429", "503"], response: "MeResponse", errors: ["VALIDATION_FAILED", "UNAUTHORIZED", "ANONYMOUS_FORBIDDEN", "RATE_LIMITED", "ACCOUNT_SETUP_FAILED"] },
-  "POST /v1/learning/progress/merge": { request: "LearningProgressMergeRequest", statuses: ["200", "400", "401", "403", "409", "503"], response: "LearningProgressMergeResponse", errors: ["VALIDATION_FAILED", "UNAUTHORIZED", "ANONYMOUS_FORBIDDEN", "IDEMPOTENCY_CONFLICT", "ACCOUNT_SETUP_FAILED"] },
+  "GET /v1/me": { request: null, statuses: ["200", "401", "403", "503"], response: "MeResponse", errors: ["UNAUTHORIZED", "ANONYMOUS_FORBIDDEN", "ACCOUNT_DELETING", "ACCOUNT_SETUP_FAILED"] },
+  "PATCH /v1/me": { request: "UpdateMeRequest", statuses: ["200", "400", "401", "403", "429", "503"], response: "MeResponse", errors: ["VALIDATION_FAILED", "UNAUTHORIZED", "ANONYMOUS_FORBIDDEN", "ACCOUNT_DELETING", "RATE_LIMITED", "ACCOUNT_SETUP_FAILED"] },
+  "DELETE /v1/me": { request: null, statuses: ["202", "400", "401", "403", "409"], response: "AccountDeletionResponse", errors: ["VALIDATION_FAILED", "UNAUTHORIZED", "ANONYMOUS_FORBIDDEN", "ACCOUNT_DELETING", "IDEMPOTENCY_CONFLICT"] },
+  "POST /v1/learning/progress/merge": { request: "LearningProgressMergeRequest", statuses: ["200", "400", "401", "403", "409", "503"], response: "LearningProgressMergeResponse", errors: ["VALIDATION_FAILED", "UNAUTHORIZED", "ANONYMOUS_FORBIDDEN", "ACCOUNT_DELETING", "IDEMPOTENCY_CONFLICT", "ACCOUNT_SETUP_FAILED"] },
   "GET /v1/pets": { request: null, statuses: ["200", "401"], response: "PetsResponse", errors: ["UNAUTHORIZED"] },
   "POST /v1/pets/{id}/select": { request: null, statuses: ["200", "404", "409"], response: "SelectPetResponse", errors: ["NOT_OWNED", "IDEMPOTENCY_CONFLICT"] },
   "POST /v1/pets/{id}/lock": { request: "LockPetRequest", statuses: ["200", "404", "409"], response: "LockPetResponse", errors: ["NOT_OWNED", "IDEMPOTENCY_CONFLICT"] },
@@ -65,8 +66,10 @@ describe("OpenAPI semantic contract", () => {
       const actualErrors = contract.statuses.slice(1).flatMap((status) => {
         const responseName = operation.responses[status]!.$ref.split("/").at(-1)!;
         const schema = document.components.schemas[responseName]!;
-        expect(schema.properties?.code?.enum?.every((code) => contract.errors.includes(code as never))).toBe(true);
-        return schema.properties?.code?.enum ?? [];
+        const code = schema.properties?.code;
+        const codes = code?.enum ?? (code?.const ? [code.const] : []);
+        expect(codes.every((value) => contract.errors.includes(value as never))).toBe(true);
+        return codes;
       });
       expect(new Set(actualErrors)).toEqual(new Set(contract.errors));
     }
