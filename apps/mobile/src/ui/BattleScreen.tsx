@@ -1,5 +1,5 @@
 import type {MatchSnapshotV1} from '../../../../packages/contracts/src/socket.js';
-import {matchSnapshotV1Schema} from '../../../../packages/contracts/src/socket.schema.js';
+import {parseMatchSnapshotV1} from '../../../../packages/contracts/src/socket.schema.js';
 import theme from '../../../../config/ui-theme.v1.json' with {type:'json'};
 import {useEffect,useMemo,useRef,useState} from 'react';
 import {AccessibilityInfo,findNodeHandle,Image,Modal,Platform,Pressable,Text,View} from 'react-native';
@@ -12,7 +12,7 @@ type Props={snapshot:MatchSnapshotV1;pendingIntentId:string|null;connection:Batt
 const playable=new Set(['PLAYING','FINAL_RUSH','SUDDEN_DEATH']);
 
 export function BattleScreen({snapshot,pendingIntentId,connection,lastRejection=null,preferences={reducedMotion:false,highContrast:false},onIntent}:Props){
- const admitted=useMemo(()=>{assertPublicUiValue(snapshot);return matchSnapshotV1Schema.parse(snapshot)},[snapshot]);
+ const admitted=useMemo(()=>{assertPublicUiValue(snapshot);return parseMatchSnapshotV1(snapshot)},[snapshot]);
  const vm=adaptMatchSnapshot(admitted,{pendingIntentId,connection});
  const disabled=!admitted.viewerInput.enabled||connection!=='CONNECTED'||pendingIntentId!==null||admitted.result!==null||!playable.has(admitted.phase);
  const canvasColor=preferences.highContrast?'#000000':theme.color.background;

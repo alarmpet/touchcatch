@@ -5,6 +5,7 @@ import {
   compatibilityHandshakeSchema,
   matchSnapshotV1Schema,
   negotiateCompatibility,
+  parseMatchSnapshotV1,
   serverEventEnvelopeSchema,
 } from "./socket.schema.js";
 import { hashMatchCommandRequest } from "./idempotency.js";
@@ -26,6 +27,23 @@ const base = {
   },
 };
 describe("authenticated socket wire contracts", () => {
+  it("rejects duplicate READY asset hashes after typed parsing", () => {
+    const assetHash = "a".repeat(64);
+    const ready = {
+      ...base,
+      payload: {
+        type: "READY" as const,
+        contentRevisionId: matchId,
+        contentHash: "b".repeat(64),
+        assetHashes: [assetHash, assetHash],
+        decodedDimensions: [
+          { assetHash, width: 10, height: 10 },
+          { assetHash, width: 10, height: 10 },
+        ],
+      },
+    };
+    expect(clientCommandEnvelopeSchema.safeParse(ready).success).toBe(false);
+  });
   it("uses the content answer limits at the exact wire and reducer-ingress boundaries", () => {
     const envelope = (answer: string) => ({
       ...base,
@@ -241,6 +259,7 @@ it("accepts exact safe snapshots and rejects private/extra fields", () => {
     result: null,
   };
   expect(matchSnapshotV1Schema.safeParse(s).success).toBe(true);
+  expect(parseMatchSnapshotV1(s).phaseEndsAtMs).toBe(20);
   for (const key of [
     "canonicalAnswer",
     "aliases",

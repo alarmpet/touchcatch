@@ -1,5 +1,9 @@
 import { z } from "zod";
-import type { CompatibilityHelloV1, PinnedCompatibilityV1 } from "./socket.js";
+import type {
+  CompatibilityHelloV1,
+  MatchSnapshotV1,
+  PinnedCompatibilityV1,
+} from "./socket.js";
 import { isValidFinalAnswerSubmission } from "./content.js";
 const uuid = z
     .string()
@@ -103,8 +107,14 @@ export const clientCommandEnvelopeSchema = z
   .strict()
   .superRefine((x, c) => {
     if (x.payload.type === "READY") {
-      const a = new Set(x.payload.assetHashes),
-        d = new Set(x.payload.decodedDimensions.map((v) => v.assetHash));
+      const a = new Set<string>(
+          x.payload.assetHashes as [string, string],
+        ),
+        d = new Set<string>(
+          x.payload.decodedDimensions.map(
+            (v: z.infer<typeof dimension>) => v.assetHash,
+          ),
+        );
       if ([...a].some((v) => !d.has(v)) || [...d].some((v) => !a.has(v)))
         c.addIssue({
           code: "custom",
@@ -120,8 +130,11 @@ export const clientCommandEnvelopeSchema = z
           payload: {
             ...x.payload,
             assetHashes: [...x.payload.assetHashes].sort() as [string, string],
-            decodedDimensions: [...x.payload.decodedDimensions].sort((a, b) =>
-              a.assetHash.localeCompare(b.assetHash),
+            decodedDimensions: [...x.payload.decodedDimensions].sort(
+              (
+                a: z.infer<typeof dimension>,
+                b: z.infer<typeof dimension>,
+              ) => a.assetHash.localeCompare(b.assetHash),
             ) as [
               (typeof x.payload.decodedDimensions)[0],
               (typeof x.payload.decodedDimensions)[1],
@@ -442,6 +455,10 @@ export const matchSnapshotV1Schema = z
       .nullable(),
   })
   .strict();
+
+export function parseMatchSnapshotV1(input: unknown): MatchSnapshotV1 {
+  return matchSnapshotV1Schema.parse(input) as unknown as MatchSnapshotV1;
+}
 const immutableAsset = asset;
 export const matchmakingNotificationSchema = z
   .object({

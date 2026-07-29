@@ -15,7 +15,7 @@ import {
   createMeaningIntent,
 } from './battle-shell.js';
 import fixture from '../../../../tests/fixtures/public-match-snapshot.json' with {type:'json'};
-import {matchSnapshotV1Schema} from '../../../../packages/contracts/src/socket.schema.js';
+import {parseMatchSnapshotV1} from '../../../../packages/contracts/src/socket.schema.js';
 
 describe('battle geometry', () => {
   it('uses synchronized uncropped contain rectangles for the A/B pair', () => {
@@ -80,7 +80,7 @@ describe('native acceptance geometry',()=>{
 });
 
 describe('public view-model battle shell', () => {
-  const vm = adaptMatchSnapshot(matchSnapshotV1Schema.parse(fixture),{pendingIntentId:null,connection:'CONNECTED'});
+  const vm = adaptMatchSnapshot(parseMatchSnapshotV1(fixture),{pendingIntentId:null,connection:'CONNECTED'});
 
   it('emits intent only and keeps pending distinct from server-confirmed success', () => {
     const screen = buildBattleScreen(vm, { platform: 'android', reducedMotion: false, textScale: 1 });
