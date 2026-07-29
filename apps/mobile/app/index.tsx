@@ -1,15 +1,15 @@
-import { LearningDemoScreen } from '../src/learning-demo/LearningDemoScreen';
-import type { LearningDemoEntry } from '../src/learning-demo/LearningDemoScreen';
+import { GuestGameScreen } from '../src/learning-demo/GuestGameScreen';
+import type { LearningDemoEntry } from '../src/learning-demo/data';
 
 declare const __DEV__: boolean;
 declare const require: (path: string) => typeof import('../src/learning-demo/registry');
 
 export function LearningDemoHome({ entries }: Readonly<{ entries: readonly LearningDemoEntry[] }>) {
-  return <LearningDemoScreen entries={entries} />;
+  return <GuestGameScreen entries={entries} />;
 }
 
 export default function Home() {
-  if (!__DEV__) throw new Error('Learning demo is DEV-only; production requires authenticated server projections');
+  if (!__DEV__) throw new Error('Guest device registry is DEV-only; production requires server projection');
   const { learningDemoEntries } = require('../src/learning-demo/registry');
   return <LearningDemoHome entries={learningDemoEntries} />;
 }
