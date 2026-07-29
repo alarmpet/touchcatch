@@ -18,6 +18,8 @@
     "check:runtime": "node tools/check-runtime.mjs",
     "mobile:typecheck": "tsc -p apps/mobile/tsconfig.json --noEmit",
     "mobile:test": "vitest run apps/mobile/src/learning-demo apps/mobile/app",
+    "mobile:preflight": "tsx tools/mobile/check-expo-project.ts",
+    "mobile:bundle:android": "corepack pnpm --dir apps/mobile exec expo export --platform android --output-dir ../../.superpowers/mobile-export/android --clear",
     "lint": "eslint .",
     "secret:scan": "secretlint \"**/*\"",
     "typecheck": "tsc -p tsconfig.json --noEmit",

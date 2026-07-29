@@ -2,6 +2,7 @@ node_modules/
 .pnpm-store/
 .worktrees/
 .superpowers/
+.superpowers/mobile-export/
 .env
 .env.*
 !.env.example
