@@ -14,6 +14,8 @@
     "ruleset:projections": "tsx tools/write-ruleset-projections.ts",
     "ruleset:projections:check": "tsx tools/write-ruleset-projections.ts --check",
     "check:runtime": "node tools/check-runtime.mjs",
+    "mobile:typecheck": "tsc -p apps/mobile/tsconfig.json --noEmit",
+    "mobile:test": "vitest run apps/mobile/src/learning-demo apps/mobile/app",
     "lint": "eslint .",
     "secret:scan": "secretlint \"**/*\"",
     "typecheck": "tsc -p tsconfig.json --noEmit",
