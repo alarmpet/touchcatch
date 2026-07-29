@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import { convertNonDestructive } from './convert-png.js';
 import { findChangedRegions } from './auto-detect-delta.js';
-import { generateMobileRegistry } from './generate-registry.js';
+import { generatePlayableRegistry } from './generate-playable-registry.ts';
 import { validateCatalog } from './validate-catalog.js';
 import { execSync } from 'node:child_process';
 
@@ -110,7 +110,7 @@ export async function runBatchBuildAll() {
 
   // 7. Generate Registry
   console.log(`\n[REGISTRY GENERATION]`);
-  await generateMobileRegistry();
+  await generatePlayableRegistry(process.cwd());
 
   console.log(`\n🎉 [BATCH BUILD COMPLETE] Successfully processed ${successCount} content packs!`);
 }

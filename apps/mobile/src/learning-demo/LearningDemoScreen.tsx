@@ -1,19 +1,10 @@
 import { useMemo, useState } from 'react';
 import { Image, Pressable, ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { createDemoState, reduceDemoState, type Circle, type DemoState } from './controller';
+import { createDemoState, reduceDemoState, type DemoState } from './controller';
+import type { LearningDemoEntry } from './data';
 
-export type LearningDemoEntry = Readonly<{
-  key: string;
-  category: 'ENGLISH' | 'PROVERB' | 'IDIOM';
-  title: string;
-  imageA: unknown;
-  imageB: unknown;
-  differences: ReadonlyArray<Readonly<{ id: string; imageA: Circle; imageB: Circle }>>;
-  prompt: string;
-  options: ReadonlyArray<Readonly<{ id: string; label: string }>>;
-  correctOptionId: string;
-}>;
+export type { LearningDemoEntry } from './data';
 
 export function LearningDemoScreen({ entries }: Readonly<{ entries: readonly LearningDemoEntry[] }>) {
   if (!entries.length) throw new Error('LEARNING_DEMO_REQUIRES_CONTENT');

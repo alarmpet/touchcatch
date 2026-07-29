@@ -10,7 +10,8 @@ import { LearningDemoScreen } from './LearningDemoScreen.js';
 
 const entry: LearningDemoEntry = {
   key: 'one', category: 'ENGLISH', title: 'resilience', imageA: 1, imageB: 2,
-  differences: [{ id: 'd1', imageA: { cx: .5, cy: .5, r: .2 }, imageB: { cx: .5, cy: .5, r: .2 } }],
+  sourceSize: { width: 300, height: 200 },
+  differences: [{ id: 'd1', tier: 'NORMAL', imageA: { cx: .5, cy: .5, r: .2 }, imageB: { cx: .5, cy: .5, r: .2 } }],
   prompt: 'Meaning?', options: [{ id: 'right', label: 'Recovery' }, { id: 'wrong', label: 'Delay' }], correctOptionId: 'right',
 };
 
@@ -37,7 +38,7 @@ describe('LearningDemoScreen', () => {
   });
 
   it('draws claimed regions with the same normalized x and y radii used by hit testing', () => {
-    const twoDifferences = { ...entry, differences: [...entry.differences, { id: 'd2', imageA: { cx: .2, cy: .2, r: .05 }, imageB: { cx: .2, cy: .2, r: .05 } }] };
+    const twoDifferences = { ...entry, differences: [...entry.differences, { id: 'd2', tier: 'HARD' as const, imageA: { cx: .2, cy: .2, r: .05 }, imageB: { cx: .2, cy: .2, r: .05 } }] };
     let tree: any;
     act(() => { tree = create(<LearningDemoScreen entries={[twoDifferences]} />); });
     act(() => tree.root.findByProps({ testID: 'demo-board-A' }).props.onLayout({ nativeEvent: { layout: { width: 300, height: 200 } } }));

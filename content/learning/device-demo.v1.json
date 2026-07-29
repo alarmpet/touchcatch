@@ -1,0 +1,9 @@
+{
+  "$schema": "./device-demo.schema.json",
+  "schemaVersion": "1.0.0",
+  "keys": [
+    "en-resilience",
+    "en-dilemma",
+    "en-sustainability"
+  ]
+}

@@ -11,6 +11,8 @@
   "scripts": {
     "content:schemas": "tsx tools/write-content-schemas.ts",
     "content:schemas:check": "tsx tools/write-content-schemas.ts --check",
+    "content:generate-playable-registry": "tsx tools/content/generate-playable-registry.ts",
+    "content:generate-playable-registry:check": "tsx tools/content/generate-playable-registry.ts --check",
     "ruleset:projections": "tsx tools/write-ruleset-projections.ts",
     "ruleset:projections:check": "tsx tools/write-ruleset-projections.ts --check",
     "check:runtime": "node tools/check-runtime.mjs",

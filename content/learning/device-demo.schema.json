@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "keys"],
+  "properties": {
+    "$schema": { "const": "./device-demo.schema.json" },
+    "schemaVersion": { "const": "1.0.0" },
+    "keys": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "uniqueItems": true,
+      "prefixItems": [
+        { "const": "en-resilience" },
+        { "const": "en-dilemma" },
+        { "const": "en-sustainability" }
+      ],
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      }
+    }
+  }
+}
