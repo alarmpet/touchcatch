@@ -3,6 +3,7 @@ import { Image, Pressable, ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { createDemoState, reduceDemoState, type DemoState } from './controller';
 import type { LearningDemoEntry } from './data';
+import { containRect, normalizeTouch } from './geometry';
 
 export type { LearningDemoEntry } from './data';
 
@@ -11,7 +12,7 @@ export function LearningDemoScreen({ entries }: Readonly<{ entries: readonly Lea
   const [selectedKey, setSelectedKey] = useState(entries[0]!.key);
   const selected = useMemo(() => entries.find((entry) => entry.key === selectedKey) ?? entries[0]!, [entries, selectedKey]);
   const [state, setState] = useState<DemoState>(() => createDemoState(selected));
-  const [layouts, setLayouts] = useState({ A: { width: 1, height: 1 }, B: { width: 1, height: 1 } });
+  const [layouts, setLayouts] = useState({ A: { width: 0, height: 0 }, B: { width: 0, height: 0 } });
   const choose = (entry: LearningDemoEntry) => { setSelectedKey(entry.key); setState(createDemoState(entry)); };
   const act = (action: Parameters<typeof reduceDemoState>[2]) => setState((current) => reduceDemoState(current, selected, action));
   const ink = '#17324D', surface = '#FFFFFF', primary = '#0B7A75';
@@ -23,10 +24,22 @@ export function LearningDemoScreen({ entries }: Readonly<{ entries: readonly Lea
     </ScrollView>
     <Text accessibilityLiveRegion="polite" style={{ color: ink, paddingHorizontal: 12 }}>{selected.category} · {state.claimedIds.length}/{selected.differences.length}</Text>
     {state.phase === 'FIND' && <ScrollView accessibilityLabel="Difference boards" contentContainerStyle={{ gap: 8, padding: 8 }}>
-      {(['A', 'B'] as const).map((side) => <Pressable key={side} testID={`demo-board-${side}`} accessibilityRole="imagebutton" accessibilityLabel={`Difference image ${side}`} onLayout={(event: { nativeEvent: { layout: { width: number; height: number } } }) => setLayouts((current) => ({ ...current, [side]: event.nativeEvent.layout }))} onPress={(event: { nativeEvent: { locationX: number; locationY: number } }) => act({ type: 'TAP', side, x: event.nativeEvent.locationX / layouts[side].width, y: event.nativeEvent.locationY / layouts[side].height })} style={{ width: '100%', aspectRatio: 1.5, minHeight: 48, overflow: 'hidden', backgroundColor: surface }}>
-        <Image source={side === 'A' ? selected.imageA : selected.imageB} resizeMode="contain" style={{ width: '100%', height: '100%' }} />
-        {selected.differences.filter((difference) => state.claimedIds.includes(difference.id)).map((difference) => { const circle = side === 'A' ? difference.imageA : difference.imageB; return <View key={difference.id} testID={`claimed-${side}-${difference.id}`} pointerEvents="none" style={{ position: 'absolute', left: `${(circle.cx - circle.r) * 100}%`, top: `${(circle.cy - circle.r) * 100}%`, width: `${circle.r * 200}%`, height: `${circle.r * 200}%`, borderRadius: 999, borderWidth: 4, borderColor: '#FFB703' }} />; })}
-      </Pressable>)}
+      {(['A', 'B'] as const).map((side) => {
+        const layout = layouts[side];
+        const rect = layout.width > 0 && layout.height > 0
+          ? containRect(layout, selected.sourceSize)
+          : null;
+        return <Pressable key={side} testID={`demo-board-${side}`} accessibilityRole="imagebutton" accessibilityLabel={`Difference image ${side}`} onLayout={(event: { nativeEvent: { layout: { width: number; height: number } } }) => setLayouts((current) => ({ ...current, [side]: event.nativeEvent.layout }))} onPress={(event: { nativeEvent: { locationX: number; locationY: number } }) => {
+          if (!rect) return;
+          const point = normalizeTouch({ x: event.nativeEvent.locationX, y: event.nativeEvent.locationY }, rect);
+          if (point) act({ type: 'TAP', side, ...point });
+        }} style={{ width: '100%', aspectRatio: 1.5, minHeight: 48, overflow: 'hidden', backgroundColor: surface }}>
+          <Image source={side === 'A' ? selected.imageA : selected.imageB} resizeMode="contain" style={{ width: '100%', height: '100%' }} />
+          {rect && <View testID={`contained-overlay-${side}`} pointerEvents="none" style={{ position: 'absolute', left: rect.left, top: rect.top, width: rect.width, height: rect.height }}>
+            {selected.differences.filter((difference) => state.claimedIds.includes(difference.id)).map((difference) => { const circle = side === 'A' ? difference.imageA : difference.imageB; return <View key={difference.id} testID={`claimed-${side}-${difference.id}`} pointerEvents="none" style={{ position: 'absolute', left: `${(circle.cx - circle.r) * 100}%`, top: `${(circle.cy - circle.r) * 100}%`, width: `${circle.r * 200}%`, height: `${circle.r * 200}%`, borderRadius: 999, borderWidth: 4, borderColor: '#FFB703' }} />; })}
+          </View>}
+        </Pressable>;
+      })}
     </ScrollView>}
     {state.phase === 'QUIZ' && <View accessibilityLabel="Meaning quiz" style={{ flex: 1, justifyContent: 'center', gap: 10, padding: 20 }}><Text style={{ color: ink, fontSize: 22 }}>{selected.prompt}</Text>{selected.options.map((option) => <Pressable key={option.id} accessibilityRole="button" accessibilityLabel={option.label} onPress={() => act({ type: 'ANSWER', optionId: option.id })} style={{ minHeight: 48, padding: 14, backgroundColor: surface }}><Text style={{ color: ink }}>{option.label}</Text></Pressable>)}{state.wrongAnswers > 0 && <Text accessibilityLiveRegion="polite" style={{ color: '#B42318' }}>다시 생각해 보세요.</Text>}</View>}
     {state.phase === 'COMPLETE' && <View accessibilityLabel="Learning complete" style={{ flex: 1, justifyContent: 'center', alignItems: 'center', gap: 16 }}><Text style={{ color: ink, fontSize: 28 }}>완료!</Text><Pressable accessibilityRole="button" accessibilityLabel="Play again" onPress={() => setState(createDemoState(selected))} style={{ minHeight: 48, padding: 14, backgroundColor: primary }}><Text style={{ color: '#FFFFFF' }}>다시하기</Text></Pressable></View>}

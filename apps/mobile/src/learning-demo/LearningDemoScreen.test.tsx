@@ -44,6 +44,31 @@ describe('LearningDemoScreen', () => {
     act(() => tree.root.findByProps({ testID: 'demo-board-A' }).props.onLayout({ nativeEvent: { layout: { width: 300, height: 200 } } }));
     act(() => tree.root.findByProps({ testID: 'demo-board-A' }).props.onPress({ nativeEvent: { locationX: 150, locationY: 100 } }));
     expect(tree.root.findByProps({ testID: 'claimed-A-d1' }).props.style).toMatchObject({ width: '40%', height: '40%' });
+    expect(tree.root.findByProps({ testID: 'contained-overlay-A' }).props.style).toMatchObject({ left: 0, top: 0, width: 300, height: 200 });
+  });
+
+  it('ignores contain padding and offsets claimed overlays to the visible image', () => {
+    const twoDifferences = { ...entry, differences: [...entry.differences, { id: 'd2', tier: 'HARD' as const, imageA: { cx: .2, cy: .2, r: .05 }, imageB: { cx: .2, cy: .2, r: .05 } }] };
+    let tree: any;
+    act(() => { tree = create(<LearningDemoScreen entries={[twoDifferences]} />); });
+    const board = tree.root.findByProps({ testID: 'demo-board-A' });
+    act(() => board.props.onPress({ nativeEvent: { locationX: 180, locationY: 180 } }));
+    expect(tree.root.findAllByProps({ testID: 'claimed-A-d1' })).toHaveLength(0);
+    act(() => board.props.onLayout({ nativeEvent: { layout: { width: 360, height: 360 } } }));
+    act(() => tree.root.findByProps({ testID: 'demo-board-A' }).props.onPress({ nativeEvent: { locationX: 180, locationY: 30 } }));
+    expect(tree.root.findAllByProps({ testID: 'claimed-A-d1' })).toHaveLength(0);
+    act(() => tree.root.findByProps({ testID: 'demo-board-A' }).props.onPress({ nativeEvent: { locationX: 180, locationY: 180 } }));
+    expect(tree.root.findByProps({ testID: 'contained-overlay-A' }).props.style).toMatchObject({ left: 0, top: 60, width: 360, height: 240 });
+    expect(tree.root.findByProps({ testID: 'claimed-A-d1' })).toBeTruthy();
+  });
+
+  it('uses the tapped board own layout measurement', () => {
+    let tree: any;
+    act(() => { tree = create(<LearningDemoScreen entries={[entry]} />); });
+    act(() => tree.root.findByProps({ testID: 'demo-board-A' }).props.onLayout({ nativeEvent: { layout: { width: 360, height: 360 } } }));
+    act(() => tree.root.findByProps({ testID: 'demo-board-B' }).props.onLayout({ nativeEvent: { layout: { width: 400, height: 200 } } }));
+    act(() => tree.root.findByProps({ testID: 'demo-board-B' }).props.onPress({ nativeEvent: { locationX: 200, locationY: 100 } }));
+    expect(tree.root.findByProps({ accessibilityLabel: 'Meaning quiz' })).toBeTruthy();
   });
 
   it('resets progress when a different lesson is selected', () => {
