@@ -15,7 +15,7 @@ export async function loadTestEconomyFixture(economyName='approved-v1.0.0.test.j
   const catalogCore={schemaVersion:1 as const,catalogRevision:catalogDraft.catalogRevision,entries};
   const catalog={...catalogCore,catalogHash:canonicalJsonSha256(catalogCore),status:'APPROVED' as const,approvalDecisionId:'TEST-DECISION',approvedBy:'test-approver',approvedAt:'2026-07-15T00:00:00.000Z'};
   const economyDraft=JSON.parse(await readFile(resolve('config/economy.v1.json'),'utf8')) as Record<string,unknown>;
-  const economy={...economyDraft,catalogHash:catalog.catalogHash,status:'APPROVED' as const,approvalDecisionId:'TEST-DECISION',approvedBy:'test-approver',approvedAt:'2026-07-15T00:00:00.000Z',rewardPolicies:{MATCH_GACHA_POINTS:1}};
+  const economy={...economyDraft,catalogRevision:catalog.catalogRevision,catalogHash:catalog.catalogHash,status:'APPROVED' as const,approvalDecisionId:'TEST-DECISION',approvedBy:'test-approver',approvedAt:'2026-07-15T00:00:00.000Z',rewardPolicies:{MATCH_GACHA_POINTS:1}};
   const loaded=validateEconomyBundleCore(economy,catalog,{});
   return {config:loaded.economy,economyVersion:loaded.economy.economyVersion,economyHash:loaded.economyHash,catalog:loaded.catalog,catalogRevision:loaded.catalog.catalogRevision,catalogHash:loaded.catalog.catalogHash,catalogArtifactHash:loaded.catalogArtifactHash,pitySeriesId:loaded.economy.pitySeriesId,pitySemanticsHash:loaded.economy.pitySemanticsHash,publishInput:{economy:{...loaded.economy,economyHash:loaded.economyHash},catalog:{...loaded.catalog,catalogArtifactHash:loaded.catalogArtifactHash}}};
 }

@@ -1,8 +1,31 @@
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { loadTestEconomyFixture } from '../helpers/load-test-economy-fixture.js';
 import { canonicalJsonSha256 } from '../../packages/contracts/src/canonical-json.js';
 
 describe('approved economy transaction fixture', () => {
+  it('aligns derived economy cross-references when source config revisions differ', async () => {
+    const [economySource, catalogSource] = await Promise.all([
+      readFile(resolve('config/economy.v1.json'), 'utf8').then(
+        (value) => JSON.parse(value) as { catalogRevision: string },
+      ),
+      readFile(resolve('config/pet-catalog.v1.json'), 'utf8').then(
+        (value) => JSON.parse(value) as { catalogRevision: string },
+      ),
+    ]);
+
+    expect(economySource.catalogRevision).not.toBe(catalogSource.catalogRevision);
+
+    const loaded = await loadTestEconomyFixture();
+
+    expect(loaded.config.catalogRevision).toBe(catalogSource.catalogRevision);
+    expect(loaded.config.catalogRevision).toBe(loaded.catalog.catalogRevision);
+    expect(loaded.config.catalogHash).toBe(loaded.catalog.catalogHash);
+    expect(loaded.publishInput.economy.catalogRevision).toBe(loaded.publishInput.catalog.catalogRevision);
+    expect(loaded.publishInput.economy.catalogHash).toBe(loaded.publishInput.catalog.catalogHash);
+  });
+
   it('returns the exact nested shape published to SQL with opaque UUID pet IDs and canonical hashes', async () => {
     const loaded = await loadTestEconomyFixture();
     expect(Object.keys(loaded.publishInput).sort()).toEqual(['catalog', 'economy']);
