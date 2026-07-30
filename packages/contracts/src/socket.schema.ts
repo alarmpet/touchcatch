@@ -63,6 +63,18 @@ const learningHintCurrent = z.object({
     : value.publicRegion===null;
   if(!valid)context.addIssue({code:"custom",message:"current hint visual descriptor mismatch",path:["publicRegion"]});
 });
+const learningHintCursor = {
+  nextExpectedOrdinal:z.union([z.literal(1),z.literal(2),z.literal(3),z.literal(4),z.literal(5),z.literal(6)]),
+  revealedOrdinals:z.array(z.union([z.literal(1),z.literal(2),z.literal(3),z.literal(4),z.literal(5)])).max(5),
+  revealedCount:safe,
+  current:learningHintCurrent.nullable(),
+};
+const learningHintSnapshot = z.discriminatedUnion("mode",[
+  z.object({...learningHintCursor,mode:z.literal("CASUAL"),coachChargesRemaining:z.number().int().min(0).max(3),cumulativeRankedPenaltyUnits:z.literal(0)}).strict()
+    .refine(value=>value.coachChargesRemaining===Math.max(3-value.revealedCount,0),{message:"casual charge cursor mismatch",path:["coachChargesRemaining"]}),
+  z.object({...learningHintCursor,mode:z.literal("RANKED"),coachChargesRemaining:z.null(),cumulativeRankedPenaltyUnits:safe}).strict()
+    .refine(value=>value.cumulativeRankedPenaltyUnits===value.revealedCount,{message:"ranked penalty cursor mismatch",path:["cumulativeRankedPenaltyUnits"]}),
+]);
 const dimension = z
   .object({
     assetHash: hash,
@@ -508,16 +520,8 @@ export const matchSnapshotV1Schema = z
             maxWrongAttempts: safe,
             hintCredits: safe,
             revealedHintCount: safe,
-            publicPattern: z.string().max(64).nullable(),
-            learningHints:z.object({
-              mode:z.enum(["CASUAL","RANKED"]),
-              nextExpectedOrdinal:z.union([z.literal(1),z.literal(2),z.literal(3),z.literal(4),z.literal(5),z.literal(6)]),
-              revealedOrdinals:z.array(z.union([z.literal(1),z.literal(2),z.literal(3),z.literal(4),z.literal(5)])).max(5),
-              revealedCount:safe,
-              coachChargesRemaining:safe.nullable(),
-              cumulativeRankedPenaltyUnits:safe,
-              current:learningHintCurrent.nullable(),
-            }).strict().nullable().optional(),
+            publicPattern: codePointText(64).nullable(),
+            learningHints:learningHintSnapshot.nullable().optional(),
           })
           .strict(),
       })

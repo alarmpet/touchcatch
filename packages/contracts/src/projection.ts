@@ -160,6 +160,23 @@ export function projectSnapshot(
       learningCurrent={...baseCurrent,kind:currentStep.kind,publicRegion:null};
     }
   }
+  const learningSnapshot:LearningHintSnapshotV1|null=learning==null?null:learning.mode==='CASUAL'?{
+    mode:'CASUAL',
+    nextExpectedOrdinal:(learning.revealedOrdinals.length+1) as 1|2|3|4|5|6,
+    revealedOrdinals:[...learning.revealedOrdinals],
+    revealedCount:learning.revealedOrdinals.length,
+    coachChargesRemaining:learning.coachChargesRemaining,
+    cumulativeRankedPenaltyUnits:0,
+    current:learningCurrent,
+  }:{
+    mode:'RANKED',
+    nextExpectedOrdinal:(learning.revealedOrdinals.length+1) as 1|2|3|4|5|6,
+    revealedOrdinals:[...learning.revealedOrdinals],
+    revealedCount:learning.revealedOrdinals.length,
+    coachChargesRemaining:null,
+    cumulativeRankedPenaltyUnits:learning.cumulativeRankedPenaltyUnits,
+    current:learningCurrent,
+  };
   const terminal =
     s.endReason === null
       ? null
@@ -229,15 +246,7 @@ export function projectSnapshot(
         hintCredits: player.hintCredits,
         revealedHintCount: player.revealedHintIndexes.length,
         publicPattern: player.publicPattern,
-        learningHints: learning==null?null:{
-          mode:learning.mode,
-          nextExpectedOrdinal:(learning.revealedOrdinals.length+1) as 1|2|3|4|5|6,
-          revealedOrdinals:[...learning.revealedOrdinals],
-          revealedCount:learning.revealedOrdinals.length,
-          coachChargesRemaining:learning.mode==='CASUAL'?learning.coachChargesRemaining:null,
-          cumulativeRankedPenaltyUnits:learning.cumulativeRankedPenaltyUnits,
-          current:learningCurrent,
-        },
+        learningHints:learningSnapshot,
       },
     },
     meaningQuiz: quiz

@@ -11,10 +11,21 @@ it('projects only the current learning hint to its owner and redacts it for ever
 });
 it('projects an authoritative owner learning cursor and null for opponent or spectator',()=>{
  const state=structuredClone(createTestingReplayBundle().initialState) as MatchStateV1;
+ for(const asset of state.expectedAssets)asset.url=`https://cdn.test/assets/${asset.sha256}.png`;
  state.privateSolution.finalChallenge.hintLadder=[1,2,3,4,5].map(ordinal=>({ordinal:ordinal as 1|2|3|4|5,kind:'DEFINITION',localizedText:{ko:`현재 ${ordinal}`,en:`Current ${ordinal}`},revealIndexes:[],rankedPenaltyUnits:1}));
  state.players[0]!.learningHints={mode:'CASUAL',selectedPet:null,coachChargesRemaining:1,revealedOrdinals:[1,2],cumulativeRankedPenaltyUnits:0,processedRequestIds:['00000000-0000-4000-8000-000000000101','00000000-0000-4000-8000-000000000102']};
  state.players[0]!.publicPattern='c__';
  expect(projectSnapshot(state,'p1',5).finalChallenge.viewer.learningHints).toEqual({mode:'CASUAL',nextExpectedOrdinal:3,revealedOrdinals:[1,2],revealedCount:2,coachChargesRemaining:1,cumulativeRankedPenaltyUnits:0,current:{ordinal:2,kind:'DEFINITION',localizedText:'Current 2',publicPattern:'c__',publicRegion:null}});
+ for(const count of [33,64]){
+  state.players[0]!.publicPattern='😀'.repeat(count);
+  const projected=projectSnapshot(state,'p1',5);
+  expect(projected.finalChallenge.viewer.publicPattern).toBe('😀'.repeat(count));
+  expect(projected.finalChallenge.viewer.learningHints?.current?.publicPattern).toBe('😀'.repeat(count));
+  const parsed=matchSnapshotV1Schema.safeParse(projected);
+  expect(parsed.success,parsed.success?'':parsed.error.message).toBe(true);
+ }
+ state.players[0]!.publicPattern='😀'.repeat(65);
+ expect(matchSnapshotV1Schema.safeParse(projectSnapshot(state,'p1',5)).success).toBe(false);
  expect(projectSnapshot(state,'p2',5).finalChallenge.viewer.learningHints).toBeNull();
  const spectator=projectSnapshot(state,'spectator',5);
  expect(spectator.finalChallenge.viewer.learningHints).toBeNull();

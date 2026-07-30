@@ -172,3 +172,17 @@ Exit code: 0
   passed, and scoped contract TypeScript reported no errors. The generated
   content-schema check is presently blocked by concurrent uncommitted
   `content.ts`/generated-schema drift outside this fix-round scope.
+
+## Fix Round 3
+
+- Applied the shared 64-code-point predicate to the outer reconnect
+  `finalChallenge.viewer.publicPattern`, matching learning events and the
+  current learning cursor.
+- Made reconnect learning accounting mode-discriminated in TypeScript and Zod:
+  casual cursors carry reachable integer charges and zero ranked units, while
+  ranked cursors carry null charges and cumulative units equal to the revealed
+  count.
+- Exercised real `projectSnapshot` output with 33- and 64-astral-character
+  outer/current patterns and confirmed 65 is rejected.
+- Verification: 15 focused socket/projection tests passed; scoped ESLint and
+  scoped contract TypeScript passed.

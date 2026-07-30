@@ -305,6 +305,12 @@ it("accepts exact safe snapshots and rejects private/extra fields", () => {
   const learning={mode:"CASUAL",nextExpectedOrdinal:2,revealedOrdinals:[1],revealedCount:1,coachChargesRemaining:2,cumulativeRankedPenaltyUnits:0,current};
   const snapshot={...s,finalChallenge:{...s.finalChallenge,viewer:{...s.finalChallenge.viewer,learningHints:learning}}};
   expect(matchSnapshotV1Schema.safeParse(snapshot).success).toBe(true);
+  expect(matchSnapshotV1Schema.safeParse({...snapshot,finalChallenge:{...snapshot.finalChallenge,viewer:{...snapshot.finalChallenge.viewer,learningHints:{...learning,coachChargesRemaining:null}}}}).success).toBe(false);
+  const ranked={...learning,mode:"RANKED",coachChargesRemaining:null,cumulativeRankedPenaltyUnits:1};
+  expect(matchSnapshotV1Schema.safeParse({...snapshot,finalChallenge:{...snapshot.finalChallenge,viewer:{...snapshot.finalChallenge.viewer,learningHints:ranked}}}).success).toBe(true);
+  expect(matchSnapshotV1Schema.safeParse({...snapshot,finalChallenge:{...snapshot.finalChallenge,viewer:{...snapshot.finalChallenge.viewer,learningHints:{...ranked,coachChargesRemaining:2}}}}).success).toBe(false);
+  expect(matchSnapshotV1Schema.safeParse({...snapshot,finalChallenge:{...snapshot.finalChallenge,viewer:{...snapshot.finalChallenge.viewer,publicPattern:"😀".repeat(64)}}}).success).toBe(true);
+  expect(matchSnapshotV1Schema.safeParse({...snapshot,finalChallenge:{...snapshot.finalChallenge,viewer:{...snapshot.finalChallenge.viewer,publicPattern:"😀".repeat(65)}}}).success).toBe(false);
   expect(matchSnapshotV1Schema.safeParse({...snapshot,finalChallenge:{...snapshot.finalChallenge,viewer:{...snapshot.finalChallenge.viewer,learningHints:{...learning,current:{...current,publicPattern:"😀".repeat(65)}}}}}).success).toBe(false);
   for(const invalidCurrent of [
     {...current,publicRegion:{kind:"EXACT_CIRCLE",imageSide:"A",centerX:.4,centerY:.5,radius:.1}},
