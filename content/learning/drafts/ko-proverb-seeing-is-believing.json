@@ -27,7 +27,8 @@
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
-    }
+    },
+    "category": "PROVERB"
   },
   "privateSolution": {
     "contentRevisionId": "1aea2997-0944-493c-8739-acd0c27af4ac",
@@ -292,9 +293,67 @@
           }
         ],
         "correctOptionId": "option_1"
-      }
+      },
+      "hintLadder": [
+        {
+          "ordinal": 1,
+          "kind": "CONTEXT_SENTENCE",
+          "localizedText": {
+            "ko": "설명을 여러 번 듣기보다 직접 한 번 확인하는 편이 나은 상황에 써요.",
+            "en": "Use it when seeing something once is better than hearing repeated explanations."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 2,
+          "kind": "DEFINITION",
+          "localizedText": {
+            "ko": "직접 경험하고 확인하는 일이 중요하다는 교훈이에요.",
+            "en": "The lesson values direct observation and experience."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 3,
+          "kind": "INITIAL_PATTERN",
+          "localizedText": {
+            "ko": "ㅂㅁㅇ ㅂㅇㅇㄱ",
+            "en": "ㅂㅁㅇ ㅂㅇㅇㄱ"
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 4,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "한 음절을 공개해요.",
+            "en": "Reveal one syllable."
+          },
+          "revealIndexes": [
+            0
+          ],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 5,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "남은 음절을 번갈아 공개해요.",
+            "en": "Reveal alternating remaining syllables."
+          },
+          "revealIndexes": [
+            1,
+            4,
+            6
+          ],
+          "rankedPenaltyUnits": 1
+        }
+      ]
     },
-    "privateSolutionHash": "eb30e84e203ad6b24ac68a31f35da2d913ccf617e85ee9014ef7fb4c72c3bae5"
+    "privateSolutionHash": "ddbae7821b9d9428e1b092678a8d453d241813d98ab041dc33e03a28df2971a2"
   },
   "assetFiles": {
     "340f4b221ce65d4443157444b7919ff727132815c47cf7c2f57871fa84daf29a": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-seeing-is-believing-a.png",

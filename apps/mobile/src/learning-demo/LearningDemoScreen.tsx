@@ -1,11 +1,12 @@
 import { useMemo, useState } from 'react';
 import { Image, Pressable, ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import type { HintStepV1 } from '../../../../packages/contracts/src/content';
 import { createDemoState, reduceDemoState, type Circle, type DemoState } from './controller';
 
 export type LearningDemoEntry = Readonly<{
   key: string;
-  category: 'ENGLISH' | 'PROVERB' | 'IDIOM';
+  category: 'ENGLISH' | 'PROVERB' | 'IDIOM' | 'GENERAL_KNOWLEDGE';
   title: string;
   imageA: unknown;
   imageB: unknown;
@@ -13,6 +14,8 @@ export type LearningDemoEntry = Readonly<{
   prompt: string;
   options: ReadonlyArray<Readonly<{ id: string; label: string }>>;
   correctOptionId: string;
+  hintUnits?: readonly string[];
+  hintLadder?: readonly HintStepV1[];
 }>;
 
 export function LearningDemoScreen({ entries }: Readonly<{ entries: readonly LearningDemoEntry[] }>) {

@@ -11,6 +11,7 @@
     "schemaVersion",
     "assetPolicyVersion",
     "theme",
+    "category",
     "language",
     "difficulty",
     "imageA",
@@ -39,6 +40,14 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 120
+    },
+    "category": {
+      "enum": [
+        "ENGLISH",
+        "PROVERB",
+        "IDIOM",
+        "GENERAL_KNOWLEDGE"
+      ]
     },
     "language": {
       "enum": [

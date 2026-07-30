@@ -1,12 +1,181 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","additionalProperties":false,"required":["schemaVersion","entries"],
-  "properties":{"schemaVersion":{"const":"1.0.0"},"entries":{"type":"array","minItems":1,"items":{"type":"object","additionalProperties":false,"required":["key","category","language","difficulty","status","canonicalAnswer","aliases","meaning","sceneBrief","changes","wordHunts","suddenDeath","promptProvenance"],"properties":{
-    "key":{"type":"string","pattern":"^[a-z0-9-]+$"},"category":{"enum":["ENGLISH","ENGLISH_PHONICS","GENERAL_KNOWLEDGE","PROVERB","IDIOM","SEASON","FANTASY"]},"language":{"enum":["en","ko","ja","es"]},"difficulty":{"enum":["BEGINNER","INTERMEDIATE","ADVANCED"]},"status":{"const":"DRAFT"},
-    "canonicalAnswer":{"type":"string","minLength":1,"maxLength":64},"aliases":{"type":"array","maxItems":4,"uniqueItems":true,"items":{"type":"string","minLength":1,"maxLength":64}},
-    "meaning":{"type":"object","additionalProperties":false,"required":["prompt","options","correctOptionId"],"properties":{"prompt":{"type":"string","minLength":1},"options":{"type":"array","minItems":3,"maxItems":3,"items":{"type":"object","additionalProperties":false,"required":["id","label"],"properties":{"id":{"type":"string","pattern":"^option_[1-3]$"},"label":{"type":"string","minLength":1}}}},"correctOptionId":{"type":"string","pattern":"^option_[1-3]$"}}},
-    "sceneBrief":{"type":"string","minLength":20},"changes":{"type":"array","minItems":10,"maxItems":10,"uniqueItems":true,"items":{"type":"string","minLength":5}},
-    "wordHunts":{"type":"array","minItems":3,"maxItems":3,"items":{"type":"object","additionalProperties":false,"required":["kind","prompt","object"],"properties":{"kind":{"enum":["NORMAL","SPECIAL"]},"prompt":{"type":"string","minLength":1},"object":{"type":"string","minLength":1}}}},
-    "suddenDeath":{"type":"object","additionalProperties":false,"required":["prompt","object"],"properties":{"prompt":{"type":"string","minLength":1},"object":{"type":"string","minLength":1}}},
-    "promptProvenance":{"type":"object","additionalProperties":false,"required":["provider","model","basePromptSha256","editPromptSha256","generatedAt"],"properties":{"provider":{"const":"OPENAI"},"model":{"const":"IMAGEGEN"},"basePromptSha256":{"type":"null"},"editPromptSha256":{"type":"null"},"generatedAt":{"type":"null"}}}
-  }}}}
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "entries"],
+  "$defs": {
+    "hintStepV1": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ordinal", "kind", "localizedText", "revealIndexes", "rankedPenaltyUnits"],
+      "properties": {
+        "ordinal": {"enum": [1, 2, 3, 4, 5]},
+        "kind": {
+          "enum": [
+            "VISUAL_REGION",
+            "SEMANTIC_CATEGORY",
+            "DEFINITION",
+            "CONTEXT_SENTENCE",
+            "ANSWER_LENGTH",
+            "INITIAL_PATTERN",
+            "REVEAL_GRAPHEME",
+            "ELIMINATE_OPTION"
+          ]
+        },
+        "localizedText": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["ko", "en"],
+          "properties": {
+            "ko": {"type": "string", "minLength": 1, "maxLength": 512},
+            "en": {"type": "string", "minLength": 1, "maxLength": 512}
+          }
+        },
+        "revealIndexes": {
+          "type": "array",
+          "maxItems": 64,
+          "uniqueItems": true,
+          "items": {"type": "integer", "minimum": 0, "maximum": 63}
+        },
+        "rankedPenaltyUnits": {"const": 1}
+      }
+    }
+  },
+  "properties": {
+    "schemaVersion": {"const": "1.0.0"},
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "category",
+          "language",
+          "difficulty",
+          "status",
+          "canonicalAnswer",
+          "aliases",
+          "meaning",
+          "sceneBrief",
+          "changes",
+          "wordHunts",
+          "suddenDeath",
+          "promptProvenance"
+        ],
+        "dependentRequired": {
+          "reviewedHanja": ["hanjaReviewStatus"],
+          "hanjaReviewStatus": ["reviewedHanja"]
+        },
+        "properties": {
+          "key": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+          "category": {
+            "enum": [
+              "ENGLISH",
+              "ENGLISH_PHONICS",
+              "GENERAL_KNOWLEDGE",
+              "PROVERB",
+              "IDIOM",
+              "SEASON",
+              "FANTASY"
+            ]
+          },
+          "language": {"enum": ["en", "ko", "ja", "es"]},
+          "difficulty": {"enum": ["BEGINNER", "INTERMEDIATE", "ADVANCED"]},
+          "status": {"const": "DRAFT"},
+          "canonicalAnswer": {"type": "string", "minLength": 1, "maxLength": 64},
+          "aliases": {
+            "type": "array",
+            "maxItems": 4,
+            "uniqueItems": true,
+            "items": {"type": "string", "minLength": 1, "maxLength": 64}
+          },
+          "meaning": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["prompt", "options", "correctOptionId"],
+            "properties": {
+              "prompt": {"type": "string", "minLength": 1},
+              "options": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["id", "label"],
+                  "properties": {
+                    "id": {"type": "string", "pattern": "^option_[1-3]$"},
+                    "label": {"type": "string", "minLength": 1}
+                  }
+                }
+              },
+              "correctOptionId": {"type": "string", "pattern": "^option_[1-3]$"}
+            }
+          },
+          "hintLadder": {
+            "type": "array",
+            "minItems": 5,
+            "maxItems": 5,
+            "items": {"$ref": "#/$defs/hintStepV1"}
+          },
+          "reviewedHanja": {"type": "string", "minLength": 1, "maxLength": 64},
+          "hanjaReviewStatus": {
+            "enum": ["REVIEW_REQUIRED", "APPROVED", "REJECTED"]
+          },
+          "sceneBrief": {"type": "string", "minLength": 20},
+          "changes": {
+            "type": "array",
+            "minItems": 10,
+            "maxItems": 10,
+            "uniqueItems": true,
+            "items": {"type": "string", "minLength": 5}
+          },
+          "wordHunts": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["kind", "prompt", "object"],
+              "properties": {
+                "kind": {"enum": ["NORMAL", "SPECIAL"]},
+                "prompt": {"type": "string", "minLength": 1},
+                "object": {"type": "string", "minLength": 1}
+              }
+            }
+          },
+          "suddenDeath": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["prompt", "object"],
+            "properties": {
+              "prompt": {"type": "string", "minLength": 1},
+              "object": {"type": "string", "minLength": 1}
+            }
+          },
+          "promptProvenance": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "provider",
+              "model",
+              "basePromptSha256",
+              "editPromptSha256",
+              "generatedAt"
+            ],
+            "properties": {
+              "provider": {"const": "OPENAI"},
+              "model": {"const": "IMAGEGEN"},
+              "basePromptSha256": {"type": "null"},
+              "editPromptSha256": {"type": "null"},
+              "generatedAt": {"type": "null"}
+            }
+          }
+        }
+      }
+    }
+  }
 }

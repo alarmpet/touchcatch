@@ -39,6 +39,53 @@ export const ASSET_PUBLISH_LIMITS_V1 = {
 const idPattern = '^[a-z0-9][a-z0-9_-]{0,127}$';
 const sha256Pattern = '^[a-f0-9]{64}$';
 
+export const HINT_KINDS_V1 = [
+  'VISUAL_REGION',
+  'SEMANTIC_CATEGORY',
+  'DEFINITION',
+  'CONTEXT_SENTENCE',
+  'ANSWER_LENGTH',
+  'INITIAL_PATTERN',
+  'REVEAL_GRAPHEME',
+  'ELIMINATE_OPTION',
+] as const;
+
+export type HintKind = (typeof HINT_KINDS_V1)[number];
+export type HintStepV1 = Readonly<{
+  ordinal: 1 | 2 | 3 | 4 | 5;
+  kind: HintKind;
+  localizedText: Readonly<Record<'ko' | 'en', string>>;
+  revealIndexes: readonly number[];
+  rankedPenaltyUnits: 1;
+}>;
+
+export const hintStepV1Schema = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['ordinal', 'kind', 'localizedText', 'revealIndexes', 'rankedPenaltyUnits'],
+  properties: {
+    ordinal: { enum: [1, 2, 3, 4, 5] },
+    kind: { enum: HINT_KINDS_V1 },
+    localizedText: {
+      type: 'object',
+      additionalProperties: false,
+      required: ['ko', 'en'],
+      properties: {
+        ko: { type: 'string', minLength: 1, maxLength: 512 },
+        en: { type: 'string', minLength: 1, maxLength: 512 },
+      },
+    },
+    revealIndexes: {
+      type: 'array',
+      minItems: 0,
+      maxItems: 64,
+      uniqueItems: true,
+      items: { type: 'integer', minimum: 0, maximum: 63 },
+    },
+    rankedPenaltyUnits: { const: 1 },
+  },
+} as const;
+
 const assetSchema = {
   type: 'object',
   additionalProperties: false,
@@ -84,6 +131,7 @@ export const publicGameContentSchema = {
     'schemaVersion',
     'assetPolicyVersion',
     'theme',
+    'category',
     'language',
     'difficulty',
     'imageA',
@@ -96,6 +144,7 @@ export const publicGameContentSchema = {
     schemaVersion: { const: '1.0.0' },
     assetPolicyVersion: { const: '1.0.0' },
     theme: { type: 'string', minLength: 1, maxLength: 120 },
+    category: { enum: ['ENGLISH', 'PROVERB', 'IDIOM', 'GENERAL_KNOWLEDGE'] },
     language: { enum: ['ko', 'en', 'ja'] },
     difficulty: { enum: ['BEGINNER', 'INTERMEDIATE', 'ADVANCED'] },
     imageA: assetSchema,
@@ -165,7 +214,11 @@ export const privateGameSolutionSchema = {
     finalChallenge: {
       type: 'object',
       additionalProperties: false,
-      required: ['canonicalAnswer', 'aliases', 'hintUnits', 'meaning'],
+      required: ['canonicalAnswer', 'aliases', 'hintUnits', 'hintLadder', 'meaning'],
+      dependentRequired: {
+        reviewedHanja: ['hanjaReviewStatus'],
+        hanjaReviewStatus: ['reviewedHanja'],
+      },
       properties: {
         canonicalAnswer: { type: 'string', minLength: 1, maxLength: 256 },
         aliases: {
@@ -180,6 +233,14 @@ export const privateGameSolutionSchema = {
           maxItems: 64,
           items: { type: 'string', minLength: 1, maxLength: 32 },
         },
+        hintLadder: {
+          type: 'array',
+          minItems: 5,
+          maxItems: 5,
+          items: hintStepV1Schema,
+        },
+        reviewedHanja: { type: 'string', minLength: 1, maxLength: 64 },
+        hanjaReviewStatus: { enum: ['REVIEW_REQUIRED', 'APPROVED', 'REJECTED'] },
         meaning: {
           type: 'object',
           additionalProperties: false,
@@ -189,7 +250,7 @@ export const privateGameSolutionSchema = {
             options: {
               type: 'array',
               minItems: 3,
-              maxItems: 3,
+              maxItems: 5,
               items: {
                 type: 'object',
                 additionalProperties: false,

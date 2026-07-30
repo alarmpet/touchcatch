@@ -1,10 +1,14 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { evaluateVisualDelta, type DeltaRegion, type VisualDeltaPolicy } from './visual-delta.js';
-import { writeLearningBundle, type LearningGeometry } from './write-learning-bundle.js';
+import {
+  writeLearningBundle,
+  type LearningBundleInput,
+  type LearningGeometry,
+} from './write-learning-bundle.js';
 
 type GeometryFile = LearningGeometry & { policy: VisualDeltaPolicy };
-type Catalog = { entries: Array<{ key: string; language: 'en' | 'ko'; canonicalAnswer: string; aliases: string[]; meaning: { prompt: string; options: Array<{ id: string; label: string }>; correctOptionId: string } }> };
+type Catalog = { entries: LearningBundleInput[] };
 
 const key = process.argv[2];
 if (!key) throw new Error('USAGE: build-learning-entry <key>');

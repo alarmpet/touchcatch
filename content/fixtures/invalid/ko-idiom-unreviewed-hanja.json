@@ -1,0 +1,33 @@
+{
+  "fixtureVersion": "1.0.0",
+  "validatorVersion": "1.0.0",
+  "publicContent": {
+    "category": "IDIOM",
+    "language": "ko"
+  },
+  "privateSolution": {
+    "privateSolutionHash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "differences": [],
+    "wordHunts": [],
+    "suddenDeath": null,
+    "finalChallenge": {
+      "canonicalAnswer": "전화위복",
+      "aliases": [],
+      "hintUnits": ["전", "화", "위", "복"],
+      "hintLadder": [
+        {"ordinal": 1, "kind": "CONTEXT_SENTENCE", "localizedText": {"ko": "실패를 분석해 더 좋은 결과로 바꾼 상황에 어울려요.", "en": "It fits turning a failure into a better result."}, "revealIndexes": [], "rankedPenaltyUnits": 1},
+        {"ordinal": 2, "kind": "DEFINITION", "localizedText": {"ko": "轉禍爲福은 나쁜 일이 좋은 결과로 바뀐다는 뜻이에요.", "en": "轉禍爲福 means fortune can arise from trouble."}, "revealIndexes": [], "rankedPenaltyUnits": 1},
+        {"ordinal": 3, "kind": "INITIAL_PATTERN", "localizedText": {"ko": "ㅈㅎㅇㅂ", "en": "ㅈㅎㅇㅂ"}, "revealIndexes": [], "rankedPenaltyUnits": 1},
+        {"ordinal": 4, "kind": "REVEAL_GRAPHEME", "localizedText": {"ko": "한 음절을 공개해요.", "en": "Reveal one syllable."}, "revealIndexes": [0], "rankedPenaltyUnits": 1},
+        {"ordinal": 5, "kind": "REVEAL_GRAPHEME", "localizedText": {"ko": "두 음절을 더 공개해요.", "en": "Reveal two more syllables."}, "revealIndexes": [1, 2], "rankedPenaltyUnits": 1}
+      ],
+      "meaning": {
+        "prompt": "Meaning?",
+        "options": [{"id": "option_1", "label": "나쁜 일이 좋은 결과로 바뀜"}, {"id": "option_2", "label": "기회를 포기함"}, {"id": "option_3", "label": "실수를 반복함"}],
+        "correctOptionId": "option_1"
+      }
+    }
+  },
+  "rightsManifest": {"entries": []},
+  "assetFiles": {}
+}

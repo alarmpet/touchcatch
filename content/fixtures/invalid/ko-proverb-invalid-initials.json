@@ -1,0 +1,33 @@
+{
+  "fixtureVersion": "1.0.0",
+  "validatorVersion": "1.0.0",
+  "publicContent": {
+    "category": "PROVERB",
+    "language": "ko"
+  },
+  "privateSolution": {
+    "privateSolutionHash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "differences": [],
+    "wordHunts": [],
+    "suddenDeath": null,
+    "finalChallenge": {
+      "canonicalAnswer": "백문이 불여일견",
+      "aliases": [],
+      "hintUnits": ["백", "문", "이", " ", "불", "여", "일", "견"],
+      "hintLadder": [
+        {"ordinal": 1, "kind": "CONTEXT_SENTENCE", "localizedText": {"ko": "설명보다 직접 확인하는 편이 나은 상황에 써요.", "en": "Use it when direct observation is better than explanation."}, "revealIndexes": [], "rankedPenaltyUnits": 1},
+        {"ordinal": 2, "kind": "DEFINITION", "localizedText": {"ko": "직접 경험하고 확인하는 일이 중요하다는 교훈이에요.", "en": "The lesson values direct experience."}, "revealIndexes": [], "rankedPenaltyUnits": 1},
+        {"ordinal": 3, "kind": "INITIAL_PATTERN", "localizedText": {"ko": "ㄱㄴㄷ ㄹㅁㅂㅅ", "en": "ㄱㄴㄷ ㄹㅁㅂㅅ"}, "revealIndexes": [], "rankedPenaltyUnits": 1},
+        {"ordinal": 4, "kind": "REVEAL_GRAPHEME", "localizedText": {"ko": "한 음절을 공개해요.", "en": "Reveal one syllable."}, "revealIndexes": [0], "rankedPenaltyUnits": 1},
+        {"ordinal": 5, "kind": "REVEAL_GRAPHEME", "localizedText": {"ko": "남은 음절을 번갈아 공개해요.", "en": "Reveal alternating remaining syllables."}, "revealIndexes": [1, 4, 6], "rankedPenaltyUnits": 1}
+      ],
+      "meaning": {
+        "prompt": "Meaning?",
+        "options": [{"id": "option_1", "label": "직접 확인"}, {"id": "option_2", "label": "반복 설명"}, {"id": "option_3", "label": "추측"}],
+        "correctOptionId": "option_1"
+      }
+    }
+  },
+  "rightsManifest": {"entries": []},
+  "assetFiles": {}
+}

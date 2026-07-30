@@ -8,6 +8,7 @@
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "fixture-theme-2",
+    "category": "ENGLISH",
     "language": "en",
     "difficulty": "INTERMEDIATE",
     "imageA": {
@@ -270,6 +271,62 @@
         "a",
         "t"
       ],
+      "hintLadder": [
+        {
+          "ordinal": 1,
+          "kind": "DEFINITION",
+          "localizedText": {
+            "ko": "집에서 함께 지내기도 하는 작은 고양잇과 동물이에요.",
+            "en": "A small feline animal often kept as a pet."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 2,
+          "kind": "CONTEXT_SENTENCE",
+          "localizedText": {
+            "ko": "창가에서 ____이 낮잠을 자요.",
+            "en": "The ____ naps by the window."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 3,
+          "kind": "ANSWER_LENGTH",
+          "localizedText": {
+            "ko": "정답은 3글자예요.",
+            "en": "The answer has 3 graphemes."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 4,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "가운데 글자를 공개해요.",
+            "en": "Reveal the deterministic internal grapheme."
+          },
+          "revealIndexes": [
+            1
+          ],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 5,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "남은 글자를 번갈아 공개해요.",
+            "en": "Reveal alternating unrevealed graphemes."
+          },
+          "revealIndexes": [
+            0
+          ],
+          "rankedPenaltyUnits": 1
+        }
+      ],
       "meaning": {
         "prompt": "What does cat mean?",
         "options": [
@@ -289,7 +346,7 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "0ecb579e6db8cde1d7ea91b83c8c029300d59e1af60663136796aad65eca14ae"
+    "privateSolutionHash": "0dcf2bf8de8bc3f3a4f4bd0a789dfa15eaeff73c23d38275348dd4e9ea5e6b47"
   },
   "rightsManifest": {
     "schemaVersion": "1.0.0",

@@ -1,26 +1,169 @@
+// GENERATED CODE - DO NOT EDIT MANUALLY
+// Generated from content/learning/manifest.v1.json by tools/content/generate-registry.js
+
 import { buildDemoEntry, type Bundle } from './data';
 
-declare const require: (path: string) => number;
+declare const require: (path: string) => unknown;
 
 const enResilience = require('../../../../content/learning/drafts/en-resilience.json') as unknown as Bundle;
 const enDilemma = require('../../../../content/learning/drafts/en-dilemma.json') as unknown as Bundle;
 const enSustainability = require('../../../../content/learning/drafts/en-sustainability.json') as unknown as Bundle;
-const darkUnderLamp = require('../../../../content/learning/drafts/ko-proverb-dark-under-lamp.json') as unknown as Bundle;
-const seeingIsBelieving = require('../../../../content/learning/drafts/ko-proverb-seeing-is-believing.json') as unknown as Bundle;
-const kindWordsReturn = require('../../../../content/learning/drafts/ko-proverb-kind-words-return.json') as unknown as Bundle;
-const turnMisfortune = require('../../../../content/learning/drafts/ko-idiom-turn-misfortune.json') as unknown as Bundle;
-const prepareAhead = require('../../../../content/learning/drafts/ko-idiom-prepare-ahead.json') as unknown as Bundle;
-const perspective = require('../../../../content/learning/drafts/ko-idiom-perspective.json') as unknown as Bundle;
+const koProverbDarkUnderLamp = require('../../../../content/learning/drafts/ko-proverb-dark-under-lamp.json') as unknown as Bundle;
+const koProverbSeeingIsBelieving = require('../../../../content/learning/drafts/ko-proverb-seeing-is-believing.json') as unknown as Bundle;
+const koProverbKindWordsReturn = require('../../../../content/learning/drafts/ko-proverb-kind-words-return.json') as unknown as Bundle;
+const koIdiomTurnMisfortune = require('../../../../content/learning/drafts/ko-idiom-turn-misfortune.json') as unknown as Bundle;
+const koIdiomPrepareAhead = require('../../../../content/learning/drafts/ko-idiom-prepare-ahead.json') as unknown as Bundle;
+const koIdiomPerspective = require('../../../../content/learning/drafts/ko-idiom-perspective.json') as unknown as Bundle;
+const enPhonicsApple = require('../../../../content/learning/drafts/en-phonics-apple.json') as unknown as Bundle;
+const gkSpaceRover = require('../../../../content/learning/drafts/gk-space-rover.json') as unknown as Bundle;
+const koProverbCowBarn = require('../../../../content/learning/drafts/ko-proverb-cow-barn.json') as unknown as Bundle;
+const koIdiomBirdsOneStone = require('../../../../content/learning/drafts/ko-idiom-birds-one-stone.json') as unknown as Bundle;
+const enSchoolClassroom = require('../../../../content/learning/drafts/en-school-classroom.json') as unknown as Bundle;
+const enHappyFamily = require('../../../../content/learning/drafts/en-happy-family.json') as unknown as Bundle;
+const enCuriosityLab = require('../../../../content/learning/drafts/en-curiosity-lab.json') as unknown as Bundle;
+const enAmbiguityGallery = require('../../../../content/learning/drafts/en-ambiguity-gallery.json') as unknown as Bundle;
+const enToyHospital = require('../../../../content/learning/drafts/en-toy-hospital.json') as unknown as Bundle;
+const enCityPark = require('../../../../content/learning/drafts/en-city-park.json') as unknown as Bundle;
+const enYellowBus = require('../../../../content/learning/drafts/en-yellow-bus.json') as unknown as Bundle;
+const enFunnyZoo = require('../../../../content/learning/drafts/en-funny-zoo.json') as unknown as Bundle;
+const enSweetBakery = require('../../../../content/learning/drafts/en-sweet-bakery.json') as unknown as Bundle;
+const enSummerBeach = require('../../../../content/learning/drafts/en-summer-beach.json') as unknown as Bundle;
+const enSpaceRocket = require('../../../../content/learning/drafts/en-space-rocket.json') as unknown as Bundle;
+const enSustainabilityGreenhouse = require('../../../../content/learning/drafts/en-sustainability-greenhouse.json') as unknown as Bundle;
+const enArchitectureStudio = require('../../../../content/learning/drafts/en-architecture-studio.json') as unknown as Bundle;
+const enEcosystemCoral = require('../../../../content/learning/drafts/en-ecosystem-coral.json') as unknown as Bundle;
+const enAstronomyObservatory = require('../../../../content/learning/drafts/en-astronomy-observatory.json') as unknown as Bundle;
+const enArchaeologyDig = require('../../../../content/learning/drafts/en-archaeology-dig.json') as unknown as Bundle;
+const enSymphonyOrchestra = require('../../../../content/learning/drafts/en-symphony-orchestra.json') as unknown as Bundle;
+const enHypothesisLab = require('../../../../content/learning/drafts/en-hypothesis-lab.json') as unknown as Bundle;
+const enJournalismPress = require('../../../../content/learning/drafts/en-journalism-press.json') as unknown as Bundle;
+const enMetaphorLibrary = require('../../../../content/learning/drafts/en-metaphor-library.json') as unknown as Bundle;
+const enParadoxLabyrinth = require('../../../../content/learning/drafts/en-paradox-labyrinth.json') as unknown as Bundle;
+const enSerendipityGarden = require('../../../../content/learning/drafts/en-serendipity-garden.json') as unknown as Bundle;
+const enSynergyCradle = require('../../../../content/learning/drafts/en-synergy-cradle.json') as unknown as Bundle;
+const enResilienceGarden = require('../../../../content/learning/drafts/en-resilience-garden.json') as unknown as Bundle;
+const enNostalgiaAttic = require('../../../../content/learning/drafts/en-nostalgia-attic.json') as unknown as Bundle;
+const enEpiphanyLighthouse = require('../../../../content/learning/drafts/en-epiphany-lighthouse.json') as unknown as Bundle;
+const enEquilibriumCliff = require('../../../../content/learning/drafts/en-equilibrium-cliff.json') as unknown as Bundle;
+const enTransmutationAlchemist = require('../../../../content/learning/drafts/en-transmutation-alchemist.json') as unknown as Bundle;
+const enTranscendenceGalaxy = require('../../../../content/learning/drafts/en-transcendence-galaxy.json') as unknown as Bundle;
+const enPhenomenonLab = require('../../../../content/learning/drafts/en-phenomenon-lab.json') as unknown as Bundle;
+const enJuxtapositionMarket = require('../../../../content/learning/drafts/en-juxtaposition-market.json') as unknown as Bundle;
+const enKaleidoscopeChamber = require('../../../../content/learning/drafts/en-kaleidoscope-chamber.json') as unknown as Bundle;
+const enMetamorphosisCocoon = require('../../../../content/learning/drafts/en-metamorphosis-cocoon.json') as unknown as Bundle;
+const enPanoramicObservatory = require('../../../../content/learning/drafts/en-panoramic-observatory.json') as unknown as Bundle;
+const enCataclysmVolcano = require('../../../../content/learning/drafts/en-cataclysm-volcano.json') as unknown as Bundle;
+const enQuintessenceAlchemy = require('../../../../content/learning/drafts/en-quintessence-alchemy.json') as unknown as Bundle;
+const enChrysanthemumGreenhouse = require('../../../../content/learning/drafts/en-chrysanthemum-greenhouse.json') as unknown as Bundle;
+const enArchipelagoIsland = require('../../../../content/learning/drafts/en-archipelago-island.json') as unknown as Bundle;
+const enConstellationAstronomy = require('../../../../content/learning/drafts/en-constellation-astronomy.json') as unknown as Bundle;
+const enSynchronicityClock = require('../../../../content/learning/drafts/en-synchronicity-clock.json') as unknown as Bundle;
+const enCamaraderieCampfire = require('../../../../content/learning/drafts/en-camaraderie-campfire.json') as unknown as Bundle;
+const enSolitudeSanctuary = require('../../../../content/learning/drafts/en-solitude-sanctuary.json') as unknown as Bundle;
+const enSerenityLake = require('../../../../content/learning/drafts/en-serenity-lake.json') as unknown as Bundle;
+const enTranquilityTea = require('../../../../content/learning/drafts/en-tranquility-tea.json') as unknown as Bundle;
+const enCreativityWorkshop = require('../../../../content/learning/drafts/en-creativity-workshop.json') as unknown as Bundle;
+const enIlluminationLibrary = require('../../../../content/learning/drafts/en-illumination-library.json') as unknown as Bundle;
+const enResonanceConcert = require('../../../../content/learning/drafts/en-resonance-concert.json') as unknown as Bundle;
+const enHarmonyOrchestra = require('../../../../content/learning/drafts/en-harmony-orchestra.json') as unknown as Bundle;
+const enEternityMonument = require('../../../../content/learning/drafts/en-eternity-monument.json') as unknown as Bundle;
+const enTranquilityGarden = require('../../../../content/learning/drafts/en-tranquility-garden.json') as unknown as Bundle;
+const enCreativityStudio = require('../../../../content/learning/drafts/en-creativity-studio.json') as unknown as Bundle;
+const enResonanceStage = require('../../../../content/learning/drafts/en-resonance-stage.json') as unknown as Bundle;
+const enSerenityHaven = require('../../../../content/learning/drafts/en-serenity-haven.json') as unknown as Bundle;
+const enSolitudeCliff = require('../../../../content/learning/drafts/en-solitude-cliff.json') as unknown as Bundle;
+const en3dSerenity = require('../../../../content/learning/drafts/en-3d-serenity.json') as unknown as Bundle;
+const en3dCreativity = require('../../../../content/learning/drafts/en-3d-creativity.json') as unknown as Bundle;
+const en3dHarmony = require('../../../../content/learning/drafts/en-3d-harmony.json') as unknown as Bundle;
+const enClayBakery = require('../../../../content/learning/drafts/en-clay-bakery.json') as unknown as Bundle;
+const enPapercutForest = require('../../../../content/learning/drafts/en-papercut-forest.json') as unknown as Bundle;
+const enCyberpunkSpace = require('../../../../content/learning/drafts/en-cyberpunk-space.json') as unknown as Bundle;
+const enClayZoo = require('../../../../content/learning/drafts/en-clay-zoo.json') as unknown as Bundle;
+const enPapercutSakura = require('../../../../content/learning/drafts/en-papercut-sakura.json') as unknown as Bundle;
+const enCyberpunkNeon = require('../../../../content/learning/drafts/en-cyberpunk-neon.json') as unknown as Bundle;
+const enClayFamily = require('../../../../content/learning/drafts/en-clay-family.json') as unknown as Bundle;
+const enPapercutLighthouse = require('../../../../content/learning/drafts/en-papercut-lighthouse.json') as unknown as Bundle;
+const enCyberpunkCity = require('../../../../content/learning/drafts/en-cyberpunk-city.json') as unknown as Bundle;
 
 // DEV-only registry: private solutions never cross a network or production API boundary.
 export const learningDemoEntries = [
   buildDemoEntry('ENGLISH', enResilience, { imageA: require('../../../../content/learning/source/en-resilience-a.png'), imageB: require('../../../../content/learning/source/en-resilience-b.png') }),
   buildDemoEntry('ENGLISH', enDilemma, { imageA: require('../../../../content/learning/source/en-dilemma-a.png'), imageB: require('../../../../content/learning/source/en-dilemma-b.png') }),
   buildDemoEntry('ENGLISH', enSustainability, { imageA: require('../../../../content/learning/source/en-sustainability-a.png'), imageB: require('../../../../content/learning/source/en-sustainability-b.png') }),
-  buildDemoEntry('PROVERB', darkUnderLamp, { imageA: require('../../../../content/learning/source/ko-proverb-dark-under-lamp-a.png'), imageB: require('../../../../content/learning/source/ko-proverb-dark-under-lamp-b.png') }),
-  buildDemoEntry('PROVERB', seeingIsBelieving, { imageA: require('../../../../content/learning/source/ko-proverb-seeing-is-believing-a.png'), imageB: require('../../../../content/learning/source/ko-proverb-seeing-is-believing-b.png') }),
-  buildDemoEntry('PROVERB', kindWordsReturn, { imageA: require('../../../../content/learning/source/ko-proverb-kind-words-return-a.png'), imageB: require('../../../../content/learning/source/ko-proverb-kind-words-return-b.png') }),
-  buildDemoEntry('IDIOM', turnMisfortune, { imageA: require('../../../../content/learning/source/ko-idiom-turn-misfortune-a.png'), imageB: require('../../../../content/learning/source/ko-idiom-turn-misfortune-b.png') }),
-  buildDemoEntry('IDIOM', prepareAhead, { imageA: require('../../../../content/learning/source/ko-idiom-prepare-ahead-a.png'), imageB: require('../../../../content/learning/source/ko-idiom-prepare-ahead-b.png') }),
-  buildDemoEntry('IDIOM', perspective, { imageA: require('../../../../content/learning/source/ko-idiom-perspective-a.png'), imageB: require('../../../../content/learning/source/ko-idiom-perspective-b.png') }),
+  buildDemoEntry('PROVERB', koProverbDarkUnderLamp, { imageA: require('../../../../content/learning/source/ko-proverb-dark-under-lamp-a.png'), imageB: require('../../../../content/learning/source/ko-proverb-dark-under-lamp-b.png') }),
+  buildDemoEntry('PROVERB', koProverbSeeingIsBelieving, { imageA: require('../../../../content/learning/source/ko-proverb-seeing-is-believing-a.png'), imageB: require('../../../../content/learning/source/ko-proverb-seeing-is-believing-b.png') }),
+  buildDemoEntry('PROVERB', koProverbKindWordsReturn, { imageA: require('../../../../content/learning/source/ko-proverb-kind-words-return-a.png'), imageB: require('../../../../content/learning/source/ko-proverb-kind-words-return-b.png') }),
+  buildDemoEntry('IDIOM', koIdiomTurnMisfortune, { imageA: require('../../../../content/learning/source/ko-idiom-turn-misfortune-a.png'), imageB: require('../../../../content/learning/source/ko-idiom-turn-misfortune-b.png') }),
+  buildDemoEntry('IDIOM', koIdiomPrepareAhead, { imageA: require('../../../../content/learning/source/ko-idiom-prepare-ahead-a.png'), imageB: require('../../../../content/learning/source/ko-idiom-prepare-ahead-b.png') }),
+  buildDemoEntry('IDIOM', koIdiomPerspective, { imageA: require('../../../../content/learning/source/ko-idiom-perspective-a.png'), imageB: require('../../../../content/learning/source/ko-idiom-perspective-b.png') }),
+  buildDemoEntry('ENGLISH', enPhonicsApple, { imageA: require('../../../../content/learning/source/en-phonics-apple-a.png'), imageB: require('../../../../content/learning/source/en-phonics-apple-b.png') }),
+  buildDemoEntry('GENERAL_KNOWLEDGE', gkSpaceRover, { imageA: require('../../../../content/learning/source/gk-space-rover-a.png'), imageB: require('../../../../content/learning/source/gk-space-rover-b.png') }),
+  buildDemoEntry('PROVERB', koProverbCowBarn, { imageA: require('../../../../content/learning/source/ko-proverb-cow-barn-a.png'), imageB: require('../../../../content/learning/source/ko-proverb-cow-barn-b.png') }),
+  buildDemoEntry('IDIOM', koIdiomBirdsOneStone, { imageA: require('../../../../content/learning/source/ko-idiom-birds-one-stone-a.png'), imageB: require('../../../../content/learning/source/ko-idiom-birds-one-stone-b.png') }),
+  buildDemoEntry('ENGLISH', enSchoolClassroom, { imageA: require('../../../../content/learning/source/en-school-classroom-a.png'), imageB: require('../../../../content/learning/source/en-school-classroom-b.png') }),
+  buildDemoEntry('ENGLISH', enHappyFamily, { imageA: require('../../../../content/learning/source/en-happy-family-a.png'), imageB: require('../../../../content/learning/source/en-happy-family-b.png') }),
+  buildDemoEntry('ENGLISH', enCuriosityLab, { imageA: require('../../../../content/learning/source/en-curiosity-lab-a.png'), imageB: require('../../../../content/learning/source/en-curiosity-lab-b.png') }),
+  buildDemoEntry('ENGLISH', enAmbiguityGallery, { imageA: require('../../../../content/learning/source/en-ambiguity-gallery-a.png'), imageB: require('../../../../content/learning/source/en-ambiguity-gallery-b.png') }),
+  buildDemoEntry('ENGLISH', enToyHospital, { imageA: require('../../../../content/learning/source/en-toy-hospital-a.png'), imageB: require('../../../../content/learning/source/en-toy-hospital-b.png') }),
+  buildDemoEntry('ENGLISH', enCityPark, { imageA: require('../../../../content/learning/source/en-city-park-a.png'), imageB: require('../../../../content/learning/source/en-city-park-b.png') }),
+  buildDemoEntry('ENGLISH', enYellowBus, { imageA: require('../../../../content/learning/source/en-yellow-bus-a.png'), imageB: require('../../../../content/learning/source/en-yellow-bus-b.png') }),
+  buildDemoEntry('ENGLISH', enFunnyZoo, { imageA: require('../../../../content/learning/source/en-funny-zoo-a.png'), imageB: require('../../../../content/learning/source/en-funny-zoo-b.png') }),
+  buildDemoEntry('ENGLISH', enSweetBakery, { imageA: require('../../../../content/learning/source/en-sweet-bakery-a.png'), imageB: require('../../../../content/learning/source/en-sweet-bakery-b.png') }),
+  buildDemoEntry('ENGLISH', enSummerBeach, { imageA: require('../../../../content/learning/source/en-summer-beach-a.png'), imageB: require('../../../../content/learning/source/en-summer-beach-b.png') }),
+  buildDemoEntry('ENGLISH', enSpaceRocket, { imageA: require('../../../../content/learning/source/en-space-rocket-a.png'), imageB: require('../../../../content/learning/source/en-space-rocket-b.png') }),
+  buildDemoEntry('ENGLISH', enSustainabilityGreenhouse, { imageA: require('../../../../content/learning/source/en-sustainability-greenhouse-a.png'), imageB: require('../../../../content/learning/source/en-sustainability-greenhouse-b.png') }),
+  buildDemoEntry('ENGLISH', enArchitectureStudio, { imageA: require('../../../../content/learning/source/en-architecture-studio-a.png'), imageB: require('../../../../content/learning/source/en-architecture-studio-b.png') }),
+  buildDemoEntry('ENGLISH', enEcosystemCoral, { imageA: require('../../../../content/learning/source/en-ecosystem-coral-a.png'), imageB: require('../../../../content/learning/source/en-ecosystem-coral-b.png') }),
+  buildDemoEntry('ENGLISH', enAstronomyObservatory, { imageA: require('../../../../content/learning/source/en-astronomy-observatory-a.png'), imageB: require('../../../../content/learning/source/en-astronomy-observatory-b.png') }),
+  buildDemoEntry('ENGLISH', enArchaeologyDig, { imageA: require('../../../../content/learning/source/en-archaeology-dig-a.png'), imageB: require('../../../../content/learning/source/en-archaeology-dig-b.png') }),
+  buildDemoEntry('ENGLISH', enSymphonyOrchestra, { imageA: require('../../../../content/learning/source/en-symphony-orchestra-a.png'), imageB: require('../../../../content/learning/source/en-symphony-orchestra-b.png') }),
+  buildDemoEntry('ENGLISH', enHypothesisLab, { imageA: require('../../../../content/learning/source/en-hypothesis-lab-a.png'), imageB: require('../../../../content/learning/source/en-hypothesis-lab-b.png') }),
+  buildDemoEntry('ENGLISH', enJournalismPress, { imageA: require('../../../../content/learning/source/en-journalism-press-a.png'), imageB: require('../../../../content/learning/source/en-journalism-press-b.png') }),
+  buildDemoEntry('ENGLISH', enMetaphorLibrary, { imageA: require('../../../../content/learning/source/en-metaphor-library-a.png'), imageB: require('../../../../content/learning/source/en-metaphor-library-b.png') }),
+  buildDemoEntry('ENGLISH', enParadoxLabyrinth, { imageA: require('../../../../content/learning/source/en-paradox-labyrinth-a.png'), imageB: require('../../../../content/learning/source/en-paradox-labyrinth-b.png') }),
+  buildDemoEntry('ENGLISH', enSerendipityGarden, { imageA: require('../../../../content/learning/source/en-serendipity-garden-a.png'), imageB: require('../../../../content/learning/source/en-serendipity-garden-b.png') }),
+  buildDemoEntry('ENGLISH', enSynergyCradle, { imageA: require('../../../../content/learning/source/en-synergy-cradle-a.png'), imageB: require('../../../../content/learning/source/en-synergy-cradle-b.png') }),
+  buildDemoEntry('ENGLISH', enResilienceGarden, { imageA: require('../../../../content/learning/source/en-resilience-garden-a.png'), imageB: require('../../../../content/learning/source/en-resilience-garden-b.png') }),
+  buildDemoEntry('ENGLISH', enNostalgiaAttic, { imageA: require('../../../../content/learning/source/en-nostalgia-attic-a.png'), imageB: require('../../../../content/learning/source/en-nostalgia-attic-b.png') }),
+  buildDemoEntry('ENGLISH', enEpiphanyLighthouse, { imageA: require('../../../../content/learning/source/en-epiphany-lighthouse-a.png'), imageB: require('../../../../content/learning/source/en-epiphany-lighthouse-b.png') }),
+  buildDemoEntry('ENGLISH', enEquilibriumCliff, { imageA: require('../../../../content/learning/source/en-equilibrium-cliff-a.png'), imageB: require('../../../../content/learning/source/en-equilibrium-cliff-b.png') }),
+  buildDemoEntry('ENGLISH', enTransmutationAlchemist, { imageA: require('../../../../content/learning/source/en-transmutation-alchemist-a.png'), imageB: require('../../../../content/learning/source/en-transmutation-alchemist-b.png') }),
+  buildDemoEntry('ENGLISH', enTranscendenceGalaxy, { imageA: require('../../../../content/learning/source/en-transcendence-galaxy-a.png'), imageB: require('../../../../content/learning/source/en-transcendence-galaxy-b.png') }),
+  buildDemoEntry('ENGLISH', enPhenomenonLab, { imageA: require('../../../../content/learning/source/en-phenomenon-lab-a.png'), imageB: require('../../../../content/learning/source/en-phenomenon-lab-b.png') }),
+  buildDemoEntry('ENGLISH', enJuxtapositionMarket, { imageA: require('../../../../content/learning/source/en-juxtaposition-market-a.png'), imageB: require('../../../../content/learning/source/en-juxtaposition-market-b.png') }),
+  buildDemoEntry('ENGLISH', enKaleidoscopeChamber, { imageA: require('../../../../content/learning/source/en-kaleidoscope-chamber-a.png'), imageB: require('../../../../content/learning/source/en-kaleidoscope-chamber-b.png') }),
+  buildDemoEntry('ENGLISH', enMetamorphosisCocoon, { imageA: require('../../../../content/learning/source/en-metamorphosis-cocoon-a.png'), imageB: require('../../../../content/learning/source/en-metamorphosis-cocoon-b.png') }),
+  buildDemoEntry('ENGLISH', enPanoramicObservatory, { imageA: require('../../../../content/learning/source/en-panoramic-observatory-a.png'), imageB: require('../../../../content/learning/source/en-panoramic-observatory-b.png') }),
+  buildDemoEntry('ENGLISH', enCataclysmVolcano, { imageA: require('../../../../content/learning/source/en-cataclysm-volcano-a.png'), imageB: require('../../../../content/learning/source/en-cataclysm-volcano-b.png') }),
+  buildDemoEntry('ENGLISH', enQuintessenceAlchemy, { imageA: require('../../../../content/learning/source/en-quintessence-alchemy-a.png'), imageB: require('../../../../content/learning/source/en-quintessence-alchemy-b.png') }),
+  buildDemoEntry('ENGLISH', enChrysanthemumGreenhouse, { imageA: require('../../../../content/learning/source/en-chrysanthemum-greenhouse-a.png'), imageB: require('../../../../content/learning/source/en-chrysanthemum-greenhouse-b.png') }),
+  buildDemoEntry('ENGLISH', enArchipelagoIsland, { imageA: require('../../../../content/learning/source/en-archipelago-island-a.png'), imageB: require('../../../../content/learning/source/en-archipelago-island-b.png') }),
+  buildDemoEntry('ENGLISH', enConstellationAstronomy, { imageA: require('../../../../content/learning/source/en-constellation-astronomy-a.png'), imageB: require('../../../../content/learning/source/en-constellation-astronomy-b.png') }),
+  buildDemoEntry('ENGLISH', enSynchronicityClock, { imageA: require('../../../../content/learning/source/en-synchronicity-clock-a.png'), imageB: require('../../../../content/learning/source/en-synchronicity-clock-b.png') }),
+  buildDemoEntry('ENGLISH', enCamaraderieCampfire, { imageA: require('../../../../content/learning/source/en-camaraderie-campfire-a.png'), imageB: require('../../../../content/learning/source/en-camaraderie-campfire-b.png') }),
+  buildDemoEntry('ENGLISH', enSolitudeSanctuary, { imageA: require('../../../../content/learning/source/en-solitude-sanctuary-a.png'), imageB: require('../../../../content/learning/source/en-solitude-sanctuary-b.png') }),
+  buildDemoEntry('ENGLISH', enSerenityLake, { imageA: require('../../../../content/learning/source/en-serenity-lake-a.png'), imageB: require('../../../../content/learning/source/en-serenity-lake-b.png') }),
+  buildDemoEntry('ENGLISH', enTranquilityTea, { imageA: require('../../../../content/learning/source/en-tranquility-tea-a.png'), imageB: require('../../../../content/learning/source/en-tranquility-tea-b.png') }),
+  buildDemoEntry('ENGLISH', enCreativityWorkshop, { imageA: require('../../../../content/learning/source/en-creativity-workshop-a.png'), imageB: require('../../../../content/learning/source/en-creativity-workshop-b.png') }),
+  buildDemoEntry('ENGLISH', enIlluminationLibrary, { imageA: require('../../../../content/learning/source/en-illumination-library-a.png'), imageB: require('../../../../content/learning/source/en-illumination-library-b.png') }),
+  buildDemoEntry('ENGLISH', enResonanceConcert, { imageA: require('../../../../content/learning/source/en-resonance-concert-a.png'), imageB: require('../../../../content/learning/source/en-resonance-concert-b.png') }),
+  buildDemoEntry('ENGLISH', enHarmonyOrchestra, { imageA: require('../../../../content/learning/source/en-harmony-orchestra-a.png'), imageB: require('../../../../content/learning/source/en-harmony-orchestra-b.png') }),
+  buildDemoEntry('ENGLISH', enEternityMonument, { imageA: require('../../../../content/learning/source/en-eternity-monument-a.png'), imageB: require('../../../../content/learning/source/en-eternity-monument-b.png') }),
+  buildDemoEntry('ENGLISH', enTranquilityGarden, { imageA: require('../../../../content/learning/source/en-tranquility-garden-a.png'), imageB: require('../../../../content/learning/source/en-tranquility-garden-b.png') }),
+  buildDemoEntry('ENGLISH', enCreativityStudio, { imageA: require('../../../../content/learning/source/en-creativity-studio-a.png'), imageB: require('../../../../content/learning/source/en-creativity-studio-b.png') }),
+  buildDemoEntry('ENGLISH', enResonanceStage, { imageA: require('../../../../content/learning/source/en-resonance-stage-a.png'), imageB: require('../../../../content/learning/source/en-resonance-stage-b.png') }),
+  buildDemoEntry('ENGLISH', enSerenityHaven, { imageA: require('../../../../content/learning/source/en-serenity-haven-a.png'), imageB: require('../../../../content/learning/source/en-serenity-haven-b.png') }),
+  buildDemoEntry('ENGLISH', enSolitudeCliff, { imageA: require('../../../../content/learning/source/en-solitude-cliff-a.png'), imageB: require('../../../../content/learning/source/en-solitude-cliff-b.png') }),
+  buildDemoEntry('ENGLISH', en3dSerenity, { imageA: require('../../../../content/learning/source/en-3d-serenity-a.png'), imageB: require('../../../../content/learning/source/en-3d-serenity-b.png') }),
+  buildDemoEntry('ENGLISH', en3dCreativity, { imageA: require('../../../../content/learning/source/en-3d-creativity-a.png'), imageB: require('../../../../content/learning/source/en-3d-creativity-b.png') }),
+  buildDemoEntry('ENGLISH', en3dHarmony, { imageA: require('../../../../content/learning/source/en-3d-harmony-a.png'), imageB: require('../../../../content/learning/source/en-3d-harmony-b.png') }),
+  buildDemoEntry('ENGLISH', enClayBakery, { imageA: require('../../../../content/learning/source/en-clay-bakery-a.png'), imageB: require('../../../../content/learning/source/en-clay-bakery-b.png') }),
+  buildDemoEntry('ENGLISH', enPapercutForest, { imageA: require('../../../../content/learning/source/en-papercut-forest-a.png'), imageB: require('../../../../content/learning/source/en-papercut-forest-b.png') }),
+  buildDemoEntry('ENGLISH', enCyberpunkSpace, { imageA: require('../../../../content/learning/source/en-cyberpunk-space-a.png'), imageB: require('../../../../content/learning/source/en-cyberpunk-space-b.png') }),
+  buildDemoEntry('ENGLISH', enClayZoo, { imageA: require('../../../../content/learning/source/en-clay-zoo-a.png'), imageB: require('../../../../content/learning/source/en-clay-zoo-b.png') }),
+  buildDemoEntry('ENGLISH', enPapercutSakura, { imageA: require('../../../../content/learning/source/en-papercut-sakura-a.png'), imageB: require('../../../../content/learning/source/en-papercut-sakura-b.png') }),
+  buildDemoEntry('ENGLISH', enCyberpunkNeon, { imageA: require('../../../../content/learning/source/en-cyberpunk-neon-a.png'), imageB: require('../../../../content/learning/source/en-cyberpunk-neon-b.png') }),
+  buildDemoEntry('ENGLISH', enClayFamily, { imageA: require('../../../../content/learning/source/en-clay-family-a.png'), imageB: require('../../../../content/learning/source/en-clay-family-b.png') }),
+  buildDemoEntry('ENGLISH', enPapercutLighthouse, { imageA: require('../../../../content/learning/source/en-papercut-lighthouse-a.png'), imageB: require('../../../../content/learning/source/en-papercut-lighthouse-b.png') }),
+  buildDemoEntry('ENGLISH', enCyberpunkCity, { imageA: require('../../../../content/learning/source/en-cyberpunk-city-a.png'), imageB: require('../../../../content/learning/source/en-cyberpunk-city-b.png') }),
 ] as const;

@@ -86,6 +86,34 @@ describe('content publish validator', () => {
     },
   );
 
+  it('maps category ladder admission failures to named content errors', async () => {
+    const fixture = JSON.parse(
+      await readFile(resolve(validDir, 'en-intermediate.json'), 'utf8'),
+    ) as any;
+    fixture.privateSolution.finalChallenge.hintLadder[1].localizedText = {
+      ko: '창가에서 동물이 낮잠을 자요.',
+      en: 'The animal naps by the window.',
+    };
+    const { privateSolutionHash: _oldHash, ...hashable } = fixture.privateSolution;
+    fixture.privateSolution.privateSolutionHash = canonicalJsonSha256(hashable);
+
+    const result = await validateFixtureObject(fixture, {
+      fixturePath: resolve(validDir, 'en-intermediate.json'),
+      assetRoot: resolve(root, 'content/fixtures/assets'),
+      allowedAssetOrigins: ['https://cdn.spot-learn.test'],
+    });
+
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.errors).toContainEqual(
+        expect.objectContaining({
+          path: '/privateSolution/finalChallenge/hintLadder',
+          ruleId: 'ENGLISH_CONTEXT_BLANK',
+        }),
+      );
+    }
+  });
+
   it.each([
     ['null-images.json', 'SCHEMA_PUBLIC'],
     ['empty-final-answer.json', 'SCHEMA_PRIVATE'],
@@ -123,6 +151,12 @@ describe('content publish validator', () => {
     ['oversized-encoded.json', 'SCHEMA_PUBLIC'],
     ['encoded-byte-mismatch.json', 'ASSET_SIZE_MISMATCH'],
     ['hint-control-character.json', 'HINT_SEGMENTATION'],
+    ['en-short-word-premature.json', 'SHORT_ENGLISH_PREMATURE_DISCLOSURE'],
+    ['en-missing-context.json', 'ENGLISH_CONTEXT_BLANK'],
+    ['ko-proverb-invalid-initials.json', 'INITIAL_PATTERN_MISMATCH'],
+    ['ko-idiom-unreviewed-hanja.json', 'UNREVIEWED_HANJA'],
+    ['hint-full-answer-step-four.json', 'FULL_ANSWER_DISCLOSURE'],
+    ['hint-duplicate-reveal-index.json', 'DUPLICATE_REVEAL_INDEX'],
     ['missing-provenance.json', 'SCHEMA_RIGHTS'],
     ['extra-rights-entry.json', 'RIGHTS_ASSET_BIJECTION'],
   ])('rejects %s at named rule %s', async (name, ruleId) => {
@@ -152,6 +186,46 @@ describe('content publish validator', () => {
     const answer = '😀'.repeat(64);
     fixture.privateSolution.finalChallenge.canonicalAnswer = answer;
     fixture.privateSolution.finalChallenge.hintUnits = Array.from(answer);
+    fixture.privateSolution.finalChallenge.hintLadder = [
+      {
+        ordinal: 1,
+        kind: 'SEMANTIC_CATEGORY',
+        localizedText: { ko: '그림 문자 분야예요.', en: 'The answer is an emoji sequence.' },
+        revealIndexes: [],
+        rankedPenaltyUnits: 1,
+      },
+      {
+        ordinal: 2,
+        kind: 'CONTEXT_SENTENCE',
+        localizedText: { ko: '화면에 ____을 입력했어요.', en: 'They entered ____ on the screen.' },
+        revealIndexes: [],
+        rankedPenaltyUnits: 1,
+      },
+      {
+        ordinal: 3,
+        kind: 'ANSWER_LENGTH',
+        localizedText: { ko: '정답은 64글자예요.', en: 'The answer has 64 graphemes.' },
+        revealIndexes: [],
+        rankedPenaltyUnits: 1,
+      },
+      {
+        ordinal: 4,
+        kind: 'REVEAL_GRAPHEME',
+        localizedText: { ko: '첫 글자를 공개해요.', en: 'Reveal the first grapheme.' },
+        revealIndexes: [0],
+        rankedPenaltyUnits: 1,
+      },
+      {
+        ordinal: 5,
+        kind: 'REVEAL_GRAPHEME',
+        localizedText: {
+          ko: '남은 글자를 번갈아 공개해요.',
+          en: 'Reveal alternating unrevealed graphemes.',
+        },
+        revealIndexes: Array.from({ length: 32 }, (_, index) => index * 2 + 1),
+        rankedPenaltyUnits: 1,
+      },
+    ];
     const { privateSolutionHash: _oldHash, ...hashable } = fixture.privateSolution;
     fixture.privateSolution.privateSolutionHash = canonicalJsonSha256(hashable);
     const result = await validateFixtureObject(fixture, {

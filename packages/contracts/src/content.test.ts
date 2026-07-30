@@ -1,12 +1,15 @@
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, expectTypeOf, it } from 'vitest';
 import {
   ASSET_PUBLISH_LIMITS_V1,
   CONTENT_TEXT_LIMITS_V1,
+  HINT_KINDS_V1,
+  hintStepV1Schema,
   publicGameContentSchema,
   privateGameSolutionSchema,
   rightsManifestSetSchema,
+  type HintStepV1,
 } from './content.js';
 import { containsDisallowedControl, normalizeFinalAnswer } from './answer-normalization.js';
 
@@ -35,6 +38,57 @@ describe('content contract schemas', () => {
     });
     expect(CONTENT_TEXT_LIMITS_V1).toEqual({ maxCodePoints: 64, maxUtf8Bytes: 256 });
   });
+
+  it('pins the exact authored-only HintStepV1 contract', () => {
+    expect(HINT_KINDS_V1).toEqual([
+      'VISUAL_REGION',
+      'SEMANTIC_CATEGORY',
+      'DEFINITION',
+      'CONTEXT_SENTENCE',
+      'ANSWER_LENGTH',
+      'INITIAL_PATTERN',
+      'REVEAL_GRAPHEME',
+      'ELIMINATE_OPTION',
+    ]);
+    expect(hintStepV1Schema).toMatchObject({
+      additionalProperties: false,
+      required: ['ordinal', 'kind', 'localizedText', 'revealIndexes', 'rankedPenaltyUnits'],
+      properties: {
+        ordinal: { enum: [1, 2, 3, 4, 5] },
+        kind: { enum: HINT_KINDS_V1 },
+        rankedPenaltyUnits: { const: 1 },
+      },
+    });
+    expectTypeOf<HintStepV1>().toEqualTypeOf<
+      Readonly<{
+        ordinal: 1 | 2 | 3 | 4 | 5;
+        kind: (typeof HINT_KINDS_V1)[number];
+        localizedText: Readonly<Record<'ko' | 'en', string>>;
+        revealIndexes: readonly number[];
+        rankedPenaltyUnits: 1;
+      }>
+    >();
+  });
+
+  it.each(['en-intermediate.json', 'ko-beginner.json', 'ja-advanced.json'])(
+    'carries a distinct five-step ladder and canonical hint units in %s',
+    async (name) => {
+      const fixture = (await readJson(`content/fixtures/valid/${name}`)) as {
+        privateSolution: {
+          finalChallenge: {
+            canonicalAnswer: string;
+            hintUnits: string[];
+            hintLadder: HintStepV1[];
+          };
+        };
+      };
+      const challenge = fixture.privateSolution.finalChallenge;
+
+      expect(challenge.hintUnits.join('')).toBe(challenge.canonicalAnswer);
+      expect(challenge.hintLadder).toHaveLength(5);
+      expect(challenge.hintLadder).not.toEqual(challenge.hintUnits);
+    },
+  );
 
   it('shares locale-independent answer normalization and rejects C1 controls', () => {
     expect(normalizeFinalAnswer('  ＣＡＴ\u00a0NAME  ')).toBe('cat name');

@@ -27,7 +27,8 @@
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
-    }
+    },
+    "category": "IDIOM"
   },
   "privateSolution": {
     "contentRevisionId": "0acd4bf2-3806-4ee9-8b6f-84f70a62bd8b",
@@ -288,9 +289,66 @@
           }
         ],
         "correctOptionId": "option_1"
-      }
+      },
+      "hintLadder": [
+        {
+          "ordinal": 1,
+          "kind": "CONTEXT_SENTENCE",
+          "localizedText": {
+            "ko": "실패한 실험을 분석해 더 좋은 발명으로 바꾼 상황에 어울려요.",
+            "en": "It fits turning a failed experiment into a better invention."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 2,
+          "kind": "DEFINITION",
+          "localizedText": {
+            "ko": "나쁜 일이 계기가 되어 좋은 결과로 바뀐다는 뜻이에요.",
+            "en": "A misfortune becomes the cause of a fortunate result."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 3,
+          "kind": "INITIAL_PATTERN",
+          "localizedText": {
+            "ko": "ㅈㅎㅇㅂ",
+            "en": "ㅈㅎㅇㅂ"
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 4,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "한 음절을 공개해요.",
+            "en": "Reveal one syllable."
+          },
+          "revealIndexes": [
+            0
+          ],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 5,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "두 음절을 더 공개해요.",
+            "en": "Reveal two more syllables."
+          },
+          "revealIndexes": [
+            1,
+            2
+          ],
+          "rankedPenaltyUnits": 1
+        }
+      ]
     },
-    "privateSolutionHash": "d4e9d1e79346e783417d02eee4c56d427aa1a4a32dc951c552a7b1ebd2ce262c"
+    "privateSolutionHash": "e86fd95fd2ac62b95b1824a53bb0235fdedec00743df751d1b79def400dfebc1"
   },
   "assetFiles": {
     "5156a3c91b47057974df6e635453bd8b167134af3c203c3fb1441b164f9ba052": "D:\\touchcatch\\content\\learning\\source\\ko-idiom-turn-misfortune-a.png",

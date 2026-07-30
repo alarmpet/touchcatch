@@ -11,17 +11,27 @@ import {
   CONTENT_CARDINALITY_V1,
   CONTENT_TEXT_LIMITS_V1,
   CONTENT_VALIDATOR_VERSION,
-  canonicalJson,
-  canonicalJsonSha256,
-  containsDisallowedControl,
-  normalizeFinalAnswer,
-  parseContentAssetOrigins,
   privateGameSolutionSchema,
   publicGameContentSchema,
   rightsManifestSetSchema,
   type ContentValidationError,
   type ContentValidationResult,
-} from '../../contracts/src/index.js';
+  type HintStepV1,
+} from '../../contracts/src/content.js';
+import {
+  canonicalJson,
+  canonicalJsonSha256,
+} from '../../contracts/src/canonical-json.js';
+import {
+  containsDisallowedControl,
+  normalizeFinalAnswer,
+} from '../../contracts/src/answer-normalization.js';
+import { parseContentAssetOrigins } from '../../contracts/src/integration-evidence.js';
+import {
+  validateHintLadder,
+  type HintCategory,
+  type HintLadderValidationContext,
+} from './hint-ladder.js';
 
 export type ValidationOptions = {
   fixturePath: string;
@@ -429,6 +439,59 @@ export async function validateFixtureObject(value: unknown, options: ValidationO
   const optionsList = Array.isArray(meaning.options) ? meaning.options : [];
   const correctMatches = optionsList.filter((option) => isRecord(option) && option.id === meaning.correctOptionId).length;
   if (correctMatches !== 1) addError(errors, '/privateSolution/finalChallenge/meaning/correctOptionId', 'CORRECT_OPTION', 'correctOptionId must identify exactly one option');
+  const category = publicContent.category;
+  const hintLadder = finalChallenge.hintLadder;
+  const validCategory =
+    category === 'ENGLISH' ||
+    category === 'PROVERB' ||
+    category === 'IDIOM' ||
+    category === 'GENERAL_KNOWLEDGE';
+  const structurallySafeLadder =
+    Array.isArray(hintLadder) &&
+    hintLadder.every(
+      (step) =>
+        isRecord(step) &&
+        isRecord(step.localizedText) &&
+        Array.isArray(step.revealIndexes),
+    );
+  if (validCategory && structurallySafeLadder) {
+    const hanjaReviewStatus =
+      finalChallenge.hanjaReviewStatus === 'REVIEW_REQUIRED' ||
+      finalChallenge.hanjaReviewStatus === 'APPROVED' ||
+      finalChallenge.hanjaReviewStatus === 'REJECTED'
+        ? finalChallenge.hanjaReviewStatus
+        : undefined;
+    const context: HintLadderValidationContext = {
+      ...(typeof finalChallenge.reviewedHanja === 'string'
+        ? { reviewedHanja: finalChallenge.reviewedHanja }
+        : {}),
+      ...(hanjaReviewStatus ? { hanjaReviewStatus } : {}),
+      meaning: {
+        options: optionsList
+          .filter(isRecord)
+          .filter(
+            (option): option is Record<string, any> & { id: string; label: string } =>
+              typeof option.id === 'string' && typeof option.label === 'string',
+          )
+          .map((option) => ({ id: option.id, label: option.label })),
+        correctOptionId:
+          typeof meaning.correctOptionId === 'string' ? meaning.correctOptionId : '',
+      },
+    };
+    for (const ruleId of validateHintLadder(
+      category as HintCategory,
+      canonical,
+      hintLadder as HintStepV1[],
+      context,
+    )) {
+      addError(
+        errors,
+        '/privateSolution/finalChallenge/hintLadder',
+        ruleId,
+        'authored hint ladder failed category admission',
+      );
+    }
+  }
 
   const entries = Array.isArray(rightsManifest.entries) ? rightsManifest.entries.filter(isRecord) : [];
   const rightsIds = entries.map((entry) => entry.rightsRecordId).filter((id): id is string => typeof id === 'string');

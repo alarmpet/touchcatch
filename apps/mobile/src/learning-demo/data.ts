@@ -1,10 +1,20 @@
 import type { LearningDemoEntry } from './LearningDemoScreen';
+import type { HintStepV1 } from '../../../../packages/contracts/src/content';
 
 export type Bundle = Readonly<{
   publicContent: Readonly<{ theme: string }>;
   privateSolution: Readonly<{
     differences: ReadonlyArray<Readonly<{ objectiveId: string; hitboxes: Readonly<{ imageA: Readonly<{ cx: number; cy: number; r: number }>; imageB: Readonly<{ cx: number; cy: number; r: number }> }> }>>;
-    finalChallenge: Readonly<{ canonicalAnswer: string; meaning: Readonly<{ prompt: string; options: ReadonlyArray<Readonly<{ id: string; label: string }>>; correctOptionId: string }> }>;
+    finalChallenge: Readonly<{
+      canonicalAnswer: string;
+      hintUnits: readonly string[];
+      hintLadder?: readonly HintStepV1[];
+      meaning: Readonly<{
+        prompt: string;
+        options: ReadonlyArray<Readonly<{ id: string; label: string }>>;
+        correctOptionId: string;
+      }>;
+    }>;
   }>;
 }>;
 
@@ -20,5 +30,7 @@ export function buildDemoEntry(category: LearningDemoEntry['category'], bundle: 
     prompt: challenge.meaning.prompt,
     options: challenge.meaning.options,
     correctOptionId: challenge.meaning.correctOptionId,
+    hintUnits: challenge.hintUnits,
+    ...(challenge.hintLadder ? { hintLadder: challenge.hintLadder } : {}),
   };
 }

@@ -290,8 +290,17 @@
         "canonicalAnswer",
         "aliases",
         "hintUnits",
+        "hintLadder",
         "meaning"
       ],
+      "dependentRequired": {
+        "reviewedHanja": [
+          "hanjaReviewStatus"
+        ],
+        "hanjaReviewStatus": [
+          "reviewedHanja"
+        ]
+      },
       "properties": {
         "canonicalAnswer": {
           "type": "string",
@@ -318,6 +327,91 @@
             "maxLength": 32
           }
         },
+        "hintLadder": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "ordinal",
+              "kind",
+              "localizedText",
+              "revealIndexes",
+              "rankedPenaltyUnits"
+            ],
+            "properties": {
+              "ordinal": {
+                "enum": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ]
+              },
+              "kind": {
+                "enum": [
+                  "VISUAL_REGION",
+                  "SEMANTIC_CATEGORY",
+                  "DEFINITION",
+                  "CONTEXT_SENTENCE",
+                  "ANSWER_LENGTH",
+                  "INITIAL_PATTERN",
+                  "REVEAL_GRAPHEME",
+                  "ELIMINATE_OPTION"
+                ]
+              },
+              "localizedText": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "ko",
+                  "en"
+                ],
+                "properties": {
+                  "ko": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 512
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 512
+                  }
+                }
+              },
+              "revealIndexes": {
+                "type": "array",
+                "minItems": 0,
+                "maxItems": 64,
+                "uniqueItems": true,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 63
+                }
+              },
+              "rankedPenaltyUnits": {
+                "const": 1
+              }
+            }
+          }
+        },
+        "reviewedHanja": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "hanjaReviewStatus": {
+          "enum": [
+            "REVIEW_REQUIRED",
+            "APPROVED",
+            "REJECTED"
+          ]
+        },
         "meaning": {
           "type": "object",
           "additionalProperties": false,
@@ -335,7 +429,7 @@
             "options": {
               "type": "array",
               "minItems": 3,
-              "maxItems": 3,
+              "maxItems": 5,
               "items": {
                 "type": "object",
                 "additionalProperties": false,

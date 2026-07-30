@@ -39,7 +39,14 @@
           "sha256": "6d2e921f2baa3f9a9cafbfa1804e1ba620fdedd52b77f7de73378888ee87a427"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "ADMITTED",
+        "stepCount": 5,
+        "errors": [],
+        "hash": "5541ebe48d00f21bbb0344a5b722b59b0d95faf4b4e569666d70e800bbb0f127"
+      },
+      "rankedEligible": true
     },
     {
       "key": "en-dilemma",
@@ -66,7 +73,16 @@
           "sha256": "f5772cf0e69237c86c0c9f6ff1b331d9e0fe295fa70eba22856695bdfa28b0bf"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-sustainability",
@@ -101,7 +117,16 @@
           "sha256": "77404e13f58a43ef3769480a4ef2a19863e9860ebbe98084ea00f16b09a777a2"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "ko-proverb-dark-under-lamp",
@@ -128,7 +153,16 @@
           "sha256": "791f3879ecdbddfc2941a9619a6fa1d951cf5bc859d86668c2bbbbcc9f251038"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "ko-proverb-seeing-is-believing",
@@ -155,7 +189,14 @@
           "sha256": "64501d036999627e5096e1884d9cd79340f22f4355173cb9914e22c51e553905"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "ADMITTED",
+        "stepCount": 5,
+        "errors": [],
+        "hash": "a740c97fdaf1ba62e2819dda6d6754c05f8c2ea0744e4a254df8abca25ae7533"
+      },
+      "rankedEligible": true
     },
     {
       "key": "ko-proverb-kind-words-return",
@@ -186,7 +227,16 @@
           "sha256": "4e53a3060acbcd48b41aff02993f094649cf73eaabca49cb29f5803119b403f3"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "ko-idiom-turn-misfortune",
@@ -213,7 +263,14 @@
           "sha256": "bfceca7604ecc1b779c802dca3ceba6b7fbab9e484aa17e698d6ce325b1158c3"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "ADMITTED",
+        "stepCount": 5,
+        "errors": [],
+        "hash": "8b87cbb52cab89fd45d1ebb84a294084c0a5f170855a54e1f6f4033d5a5cb4ef"
+      },
+      "rankedEligible": true
     },
     {
       "key": "ko-idiom-prepare-ahead",
@@ -240,7 +297,16 @@
           "sha256": "411901a11f066af3ae8359dbe724a25bf7149a00272accfb6e1ddf0229cec056"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "ko-idiom-perspective",
@@ -267,7 +333,16 @@
           "sha256": "42075c733816fd481da0e4feed3123a82835782422b5d2759a3b0e59399fda06"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-phonics-apple",
@@ -294,7 +369,16 @@
           "sha256": "257409431fcbca6b8d3d0a8018b8f49bcc33da7415d0a090c9ccd10c8eb997a3"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "gk-space-rover",
@@ -321,7 +405,16 @@
           "sha256": "a33c77be00570b06dbe20671ce969f0b2a89677fad8e0f5f892c8e0c6be2ba16"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "ko-proverb-cow-barn",
@@ -348,7 +441,16 @@
           "sha256": "5b916ef4984fba279d8812ec57215519baff9cf66ab0467cac1cd781d97eeea0"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "ko-idiom-birds-one-stone",
@@ -375,7 +477,16 @@
           "sha256": "8d8d0a05b944e102d805d034068eb267eceb635730d9143c5d79cb49a4838c76"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-school-classroom",
@@ -402,7 +513,16 @@
           "sha256": "b781f57eca0cfa26f1ef00b59d73db44bd841a8cecfe5fac8bb0017ae3fe34e4"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-happy-family",
@@ -429,7 +549,16 @@
           "sha256": "562d2dd20c9e5472625cab47ac4713d82566c00cc76d8d70f44ba0b63459a16f"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-curiosity-lab",
@@ -456,7 +585,16 @@
           "sha256": "d8fa005b7eed5dc55acf5305c9c9da8c7ed33f64ee50c4b0c701b2232511e3c8"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-ambiguity-gallery",
@@ -483,7 +621,16 @@
           "sha256": "a01c86e47256b7cce1c217518bf893d098b64c648bacd3b432e2925ce5f7d680"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-toy-hospital",
@@ -510,7 +657,16 @@
           "sha256": "4ad93da621b1859897f1f114af94ee87c3b7b898c34e2fe5ce8ee8de8f4e90c7"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-city-park",
@@ -537,7 +693,16 @@
           "sha256": "475913ab8dc6f8e4aa73feaa8bd79e2d39b4f2dbb30525b3d868bc79db7ec989"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-yellow-bus",
@@ -564,7 +729,16 @@
           "sha256": "ac32ecaffa971d80359aa74742f51c735f67127e63b70bd6b53ee47fa66414b3"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-funny-zoo",
@@ -591,7 +765,16 @@
           "sha256": "735ded77a72c681390e371bb83501fca2acd45bef4998a1ed2d101a41b83f6ce"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-sweet-bakery",
@@ -618,7 +801,16 @@
           "sha256": "60337784ffa9c2d3783bd196d79c6aa0adfd70e1a9c265987afbcebe3e6cedf0"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-summer-beach",
@@ -645,7 +837,16 @@
           "sha256": "3fef1574364d869113f7ba82977ef686d18778f4b988384978fce503b48fe4c1"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-space-rocket",
@@ -672,7 +873,16 @@
           "sha256": "5b1d6631b20e1ffd1d9de8d8d006ae739612dcb9b099a976ba8e4d468c5a655d"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-sustainability-greenhouse",
@@ -699,7 +909,16 @@
           "sha256": "77404e13f58a43ef3769480a4ef2a19863e9860ebbe98084ea00f16b09a777a2"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-architecture-studio",
@@ -726,7 +945,16 @@
           "sha256": "9f004a60645ba46d44701b0ef90fac1fabf7c130e1d7d1f6ebd223590c84f4b5"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-ecosystem-coral",
@@ -753,7 +981,16 @@
           "sha256": "732a533ffc498ffad477389c30b52ef4bf12a573e3d8ac03abc114bf653a1f1f"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-astronomy-observatory",
@@ -780,7 +1017,16 @@
           "sha256": "28c8a4fe19139d76a0a60c712b820a1c01e8467fdd74f93673ebfc9c9331f68d"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-archaeology-dig",
@@ -807,7 +1053,16 @@
           "sha256": "1df4a04aa882d0edfd731a381b78b9ecc2061cad69418333bfa7fc0a0c7fbe61"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-symphony-orchestra",
@@ -834,7 +1089,16 @@
           "sha256": "e20d26a48bf40d1c57bda229806f080d2f51e3267fb04b449e983c5181ace5d8"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-hypothesis-lab",
@@ -861,7 +1125,16 @@
           "sha256": "a6e890daae15dc04080c55954ac8d75e3171d3e762a1a02f024576c75a487548"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-journalism-press",
@@ -888,7 +1161,16 @@
           "sha256": "449c52472b6faedf7261332ed228910fba964047624f02eb4cb0f22e87dfda3c"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-metaphor-library",
@@ -915,7 +1197,16 @@
           "sha256": "902578d5da6b018b7bc59529dd3d6bcedf9a883e0bb519b26a8bef5489c5a4d2"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-paradox-labyrinth",
@@ -942,7 +1233,16 @@
           "sha256": "5e11522c87a1a51c3258892e5bd83ce7c862bf1d2332ffb7584c2d7e02a9a05b"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-serendipity-garden",
@@ -969,7 +1269,16 @@
           "sha256": "02455e34deed226b84bb1adb7655d1e17a465d56be77a2c603b5ce60113fe682"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-synergy-cradle",
@@ -996,7 +1305,16 @@
           "sha256": "ccbe506afc25ea8d7b3b3500b81c2de9a40c1e5b18c683fb5945ef6299b3c52a"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-resilience-garden",
@@ -1023,7 +1341,16 @@
           "sha256": "6d2e921f2baa3f9a9cafbfa1804e1ba620fdedd52b77f7de73378888ee87a427"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-nostalgia-attic",
@@ -1050,7 +1377,16 @@
           "sha256": "6ce4729de51d411a41f57fae3e7593dc3bba3ab61f75bc3c9a9ac0917c2f1bad"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-epiphany-lighthouse",
@@ -1077,7 +1413,16 @@
           "sha256": "4096de29b01104588e2b9b736230d17d07d9f4d3fde943507c0c420c7c1d6e3d"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-equilibrium-cliff",
@@ -1104,7 +1449,16 @@
           "sha256": "080a95068542d6bf2c7770df8435438a7be163a9d4d89d5d164eb7e1e8c9d814"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-transmutation-alchemist",
@@ -1131,7 +1485,16 @@
           "sha256": "9d9777fdf953aefc1624072602fa31144192c2bd69e9affe043df103eb36fe8a"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-transcendence-galaxy",
@@ -1158,7 +1521,16 @@
           "sha256": "325bc9b40005a89f86d710b9c5e265aec00ee49f840eaeb59f3d05aef53498b4"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-phenomenon-lab",
@@ -1181,7 +1553,16 @@
           "sha256": "550d54c98d6d46b01ebde4187b7dbc67c19d33913d1ad004643b99446fdb6eff"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-juxtaposition-market",
@@ -1208,7 +1589,16 @@
           "sha256": "c4f571d343c23d490d1499355d7a29d8ebe8792289f94820517a14cab0dc488f"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-kaleidoscope-chamber",
@@ -1235,7 +1625,16 @@
           "sha256": "89868d66fe0b6215b99ea411f87c937fc52156c9e730fb2ac25eeefd4a8de37d"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-metamorphosis-cocoon",
@@ -1262,7 +1661,16 @@
           "sha256": "2ee6e04bfa8015a6d1693b17f2531c14241cf09054b97304a0fc85a9b9e77dbe"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-panoramic-observatory",
@@ -1289,7 +1697,16 @@
           "sha256": "6e0b33d3c859112a821dc37c1f18f0b42e49c8d4cdf56e8e36b1f335686413ad"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-cataclysm-volcano",
@@ -1316,7 +1733,16 @@
           "sha256": "7c21d13c8a9efb6a8fdecf7ce76e109965871c3ad461203a2b46c527294f7387"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-quintessence-alchemy",
@@ -1343,7 +1769,16 @@
           "sha256": "e9cde9dedb94075bd27900931e259fc2b116518673bdc6c1c4ed9d66f0db80ca"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-chrysanthemum-greenhouse",
@@ -1370,7 +1805,16 @@
           "sha256": "b62ad95ae189d8ec8407999c02117b8426d9e02a6a4217ad9bbbd247c808ab6c"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-archipelago-island",
@@ -1397,7 +1841,16 @@
           "sha256": "653f193cd4e198e34a1762fc1c2e2096d5699dd6525232417d7f6185773d48f1"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-constellation-astronomy",
@@ -1424,7 +1877,16 @@
           "sha256": "0415023bfc2a8b0c490ac0f5d9fe6441684f9c65da81f72c35add4be2afaf30d"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-synchronicity-clock",
@@ -1451,7 +1913,16 @@
           "sha256": "0402e290c99b4e1e1622d02083a662d81fa12d338ee31a886481d8129abca90f"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-camaraderie-campfire",
@@ -1478,7 +1949,16 @@
           "sha256": "07c6629fc059be36402ca64702c55d98caab941dd1d9fe7cad81012d568fb5e0"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-solitude-sanctuary",
@@ -1505,7 +1985,16 @@
           "sha256": "480965ed12c06c4b1a1219f0702e141859340cad9ac72057deda4f5e69455ebf"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-serenity-lake",
@@ -1532,7 +2021,16 @@
           "sha256": "928263ab84ec3acd61c63cc7593c8e7d98068bff16744c76c190f0db584620e6"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-tranquility-tea",
@@ -1559,7 +2057,16 @@
           "sha256": "8d5eb7708d755c3172c878ec1e6a1193c7dc4130b0aa40c0260163a14ee703d7"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-creativity-workshop",
@@ -1586,7 +2093,16 @@
           "sha256": "787203e687df0968c99aeaf917694681cdc99bc5cdb62bb5f73d0f8bfd1f7fd2"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-illumination-library",
@@ -1613,7 +2129,16 @@
           "sha256": "9762ef27a152bf173a5d20d56fc82516bfbdcf2a8da5a7d15715a4c350945f3c"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-resonance-concert",
@@ -1640,7 +2165,16 @@
           "sha256": "1916abf47561d2d5a2b34f185ded58c245e129dbecfe1fa0f7553a4088033821"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-harmony-orchestra",
@@ -1667,7 +2201,16 @@
           "sha256": "9549af51001c54072c3e54eab81c7dc0b61943b7c3fea5f19172215173a16b9c"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-eternity-monument",
@@ -1694,7 +2237,16 @@
           "sha256": "fefd818aa3bf3ff7931e2c085649cad37aadffa54f68372c8376b0dd81da0988"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-tranquility-garden",
@@ -1721,7 +2273,16 @@
           "sha256": "125eb474b94b49654af6d5d395e59ac22760ec80254fa690bcacf24b93afa99e"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-creativity-studio",
@@ -1748,7 +2309,16 @@
           "sha256": "6400eff0a8af415a8bd26e104d56071335c563e2525a69658a8dddf14b81e5f4"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-resonance-stage",
@@ -1775,7 +2345,16 @@
           "sha256": "8c15c32973102f4eb7f66ec51da8560950fc85e5fa8645344d97597a70e79470"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-serenity-haven",
@@ -1802,7 +2381,16 @@
           "sha256": "d629622b1fd3bb7cde52f031b5c37570ce714741d59d7ece95118cf2aa765e92"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-solitude-cliff",
@@ -1829,7 +2417,16 @@
           "sha256": "4237f2e001583df64f80fa87b8fffd39e6a9b0395cdc84af62a957bc28b4138d"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-3d-serenity",
@@ -1856,7 +2453,16 @@
           "sha256": "3b536b1bb450492374e40d853d943855e72b7de57de9415c0d47406f043678d2"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-3d-creativity",
@@ -1883,7 +2489,16 @@
           "sha256": "adf32bdc953607ec06c7842903afef1af4f832af6ec21934eae5243d84fc903e"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-3d-harmony",
@@ -1910,7 +2525,16 @@
           "sha256": "5c92b36d4dde8922938668a12b539c8991a02ab882c84a808e0e47f337d82300"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-clay-bakery",
@@ -1937,7 +2561,16 @@
           "sha256": "da5f294cb1d49f0e8b4d73b5d2a562114701dde0e3f1892f6d77456bfb20fe52"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-papercut-forest",
@@ -1964,7 +2597,16 @@
           "sha256": "5a4c26195a90a6ede72c20380bb5f72a6d18232c5e6289312b69627a7347764a"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-cyberpunk-space",
@@ -1991,7 +2633,16 @@
           "sha256": "a805a47dd2d24a6939ab2e245e1c5ad6e8fffd9d6225d1e18fb68247e0ed256b"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-clay-zoo",
@@ -2018,7 +2669,16 @@
           "sha256": "2a50808d7707e61ecdf7a548e807bd28301200ad9d429fb4564c0f27d11c6b75"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-papercut-sakura",
@@ -2045,7 +2705,16 @@
           "sha256": "29a4f279a23ea238e3f83d99e71b0321415acfce82070bddaba6cb2e1e1d7610"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-cyberpunk-neon",
@@ -2072,7 +2741,16 @@
           "sha256": "6932ca8d614b328a77a2acbb1dc424bdc2eeb0b1f00c5b6b8c921faa2c892c5c"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-clay-family",
@@ -2099,7 +2777,16 @@
           "sha256": "c238a3c499d815a04a258339b9205202bdd1c691dd392b03f348c284037ef108"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-papercut-lighthouse",
@@ -2126,7 +2813,16 @@
           "sha256": "639f46dffea1670c8399977c644c285df706af4cb8b3124046204effdd9f0b91"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     },
     {
       "key": "en-cyberpunk-city",
@@ -2153,7 +2849,16 @@
           "sha256": "c4092b9700af82cbb2e09bf3667fc922717fe660ea9b8d7f3586a5616dee606e"
         }
       ],
-      "publishBlocked": true
+      "publishBlocked": true,
+      "hintLadderAdmission": {
+        "status": "MISSING",
+        "stepCount": 0,
+        "errors": [
+          "MISSING_HINT_LADDER"
+        ],
+        "hash": null
+      },
+      "rankedEligible": false
     }
   ]
 }

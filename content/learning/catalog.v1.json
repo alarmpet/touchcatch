@@ -69,7 +69,67 @@
         "basePromptSha256": null,
         "editPromptSha256": null,
         "generatedAt": null
-      }
+      },
+      "hintLadder": [
+        {
+          "ordinal": 1,
+          "kind": "SEMANTIC_CATEGORY",
+          "localizedText": {
+            "ko": "역경을 이겨 내고 다시 회복하는 힘을 나타내는 말이에요.",
+            "en": "A quality for recovering and adapting after difficulty."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 2,
+          "kind": "CONTEXT_SENTENCE",
+          "localizedText": {
+            "ko": "공동체는 폭풍 뒤 놀라운 ____을 보여 주었어요.",
+            "en": "The community showed remarkable ____ after the storm."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 3,
+          "kind": "ANSWER_LENGTH",
+          "localizedText": {
+            "ko": "정답은 10글자예요.",
+            "en": "The answer has 10 graphemes."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 4,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "첫 글자를 공개해요.",
+            "en": "Reveal the first grapheme."
+          },
+          "revealIndexes": [
+            0
+          ],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 5,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "남은 글자를 번갈아 공개해요.",
+            "en": "Reveal alternating unrevealed graphemes."
+          },
+          "revealIndexes": [
+            1,
+            3,
+            5,
+            7,
+            9
+          ],
+          "rankedPenaltyUnits": 1
+        }
+      ]
     },
     {
       "key": "en-dilemma",
@@ -341,7 +401,65 @@
         "basePromptSha256": null,
         "editPromptSha256": null,
         "generatedAt": null
-      }
+      },
+      "hintLadder": [
+        {
+          "ordinal": 1,
+          "kind": "CONTEXT_SENTENCE",
+          "localizedText": {
+            "ko": "설명을 여러 번 듣기보다 직접 한 번 확인하는 편이 나은 상황에 써요.",
+            "en": "Use it when seeing something once is better than hearing repeated explanations."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 2,
+          "kind": "DEFINITION",
+          "localizedText": {
+            "ko": "직접 경험하고 확인하는 일이 중요하다는 교훈이에요.",
+            "en": "The lesson values direct observation and experience."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 3,
+          "kind": "INITIAL_PATTERN",
+          "localizedText": {
+            "ko": "ㅂㅁㅇ ㅂㅇㅇㄱ",
+            "en": "ㅂㅁㅇ ㅂㅇㅇㄱ"
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 4,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "한 음절을 공개해요.",
+            "en": "Reveal one syllable."
+          },
+          "revealIndexes": [
+            0
+          ],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 5,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "남은 음절을 번갈아 공개해요.",
+            "en": "Reveal alternating remaining syllables."
+          },
+          "revealIndexes": [
+            1,
+            4,
+            6
+          ],
+          "rankedPenaltyUnits": 1
+        }
+      ]
     },
     {
       "key": "ko-proverb-kind-words-return",
@@ -477,7 +595,64 @@
         "basePromptSha256": null,
         "editPromptSha256": null,
         "generatedAt": null
-      }
+      },
+      "hintLadder": [
+        {
+          "ordinal": 1,
+          "kind": "CONTEXT_SENTENCE",
+          "localizedText": {
+            "ko": "실패한 실험을 분석해 더 좋은 발명으로 바꾼 상황에 어울려요.",
+            "en": "It fits turning a failed experiment into a better invention."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 2,
+          "kind": "DEFINITION",
+          "localizedText": {
+            "ko": "나쁜 일이 계기가 되어 좋은 결과로 바뀐다는 뜻이에요.",
+            "en": "A misfortune becomes the cause of a fortunate result."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 3,
+          "kind": "INITIAL_PATTERN",
+          "localizedText": {
+            "ko": "ㅈㅎㅇㅂ",
+            "en": "ㅈㅎㅇㅂ"
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 4,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "한 음절을 공개해요.",
+            "en": "Reveal one syllable."
+          },
+          "revealIndexes": [
+            0
+          ],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 5,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "두 음절을 더 공개해요.",
+            "en": "Reveal two more syllables."
+          },
+          "revealIndexes": [
+            1,
+            2
+          ],
+          "rankedPenaltyUnits": 1
+        }
+      ]
     },
     {
       "key": "ko-idiom-prepare-ahead",

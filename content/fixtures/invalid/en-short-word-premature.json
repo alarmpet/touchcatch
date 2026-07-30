@@ -1,0 +1,33 @@
+{
+  "fixtureVersion": "1.0.0",
+  "validatorVersion": "1.0.0",
+  "publicContent": {
+    "category": "ENGLISH",
+    "language": "en"
+  },
+  "privateSolution": {
+    "privateSolutionHash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "differences": [],
+    "wordHunts": [],
+    "suddenDeath": null,
+    "finalChallenge": {
+      "canonicalAnswer": "book",
+      "aliases": [],
+      "hintUnits": ["b", "o", "o", "k"],
+      "hintLadder": [
+        {"ordinal": 1, "kind": "DEFINITION", "localizedText": {"ko": "읽기 위해 묶은 종이예요.", "en": "Bound pages that people read."}, "revealIndexes": [], "rankedPenaltyUnits": 1},
+        {"ordinal": 2, "kind": "CONTEXT_SENTENCE", "localizedText": {"ko": "도서관에서 ____을 빌렸어요.", "en": "I borrowed a ____ from the library."}, "revealIndexes": [], "rankedPenaltyUnits": 1},
+        {"ordinal": 3, "kind": "ANSWER_LENGTH", "localizedText": {"ko": "정답은 4글자예요.", "en": "The answer has 4 graphemes."}, "revealIndexes": [], "rankedPenaltyUnits": 1},
+        {"ordinal": 4, "kind": "REVEAL_GRAPHEME", "localizedText": {"ko": "글자를 공개해요.", "en": "Reveal graphemes."}, "revealIndexes": [0, 3], "rankedPenaltyUnits": 1},
+        {"ordinal": 5, "kind": "REVEAL_GRAPHEME", "localizedText": {"ko": "빈칸을 남겨요.", "en": "Keep a blank."}, "revealIndexes": [1], "rankedPenaltyUnits": 1}
+      ],
+      "meaning": {
+        "prompt": "Meaning?",
+        "options": [{"id": "option_1", "label": "reading material"}, {"id": "option_2", "label": "plant"}, {"id": "option_3", "label": "place"}],
+        "correctOptionId": "option_1"
+      }
+    }
+  },
+  "rightsManifest": {"entries": []},
+  "assetFiles": {}
+}
