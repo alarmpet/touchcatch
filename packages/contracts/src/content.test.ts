@@ -12,6 +12,7 @@ import {
   type HintStepV1,
 } from './content.js';
 import { containsDisallowedControl, normalizeFinalAnswer } from './answer-normalization.js';
+import { Ajv2020 } from 'ajv/dist/2020.js';
 
 const root = resolve(import.meta.dirname, '../../..');
 
@@ -68,6 +69,11 @@ describe('content contract schemas', () => {
         rankedPenaltyUnits: 1;
       }>
     >();
+  });
+
+  it.each([[512,true],[513,false]] as const)('counts %i astral localized characters as JSON Schema code points', (count, valid) => {
+    const validate = new Ajv2020().compile(hintStepV1Schema);
+    expect(validate({ordinal:1,kind:'DEFINITION',localizedText:{ko:'😀'.repeat(count),en:'😀'.repeat(count)},revealIndexes:[],rankedPenaltyUnits:1})).toBe(valid);
   });
 
   it('keeps ladders and reviewed Hanja optional for legacy private bundles', () => {

@@ -244,6 +244,11 @@ const generalKnowledgeContext: HintLadderValidationContext = {
 };
 
 describe('category-specific hint ladder admission', () => {
+  it.each([[512,false],[513,true]] as const)('counts %i astral localization characters by code point', (count, rejected) => {
+    const steps = englishSteps.map((step,index)=>index===0?{...step,localizedText:text('😀'.repeat(count),'😀'.repeat(count))}:step);
+    expect(validateHintLadder('ENGLISH','resilience',steps).includes('HINT_LOCALIZATION_LENGTH')).toBe(rejected);
+  });
+
   it('accepts the authored English sequence', () => {
     expect(validateHintLadder('ENGLISH', 'resilience', englishSteps)).toEqual([]);
   });

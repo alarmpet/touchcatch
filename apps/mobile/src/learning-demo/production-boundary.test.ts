@@ -18,6 +18,6 @@ it('uses Metro-resolvable extensionless imports in runtime modules', async () =>
     'apps/mobile/src/learning-demo/registry.ts',
   ];
   for (const file of runtimeFiles) {
-    expect(await readFile(file, 'utf8'), file).not.toMatch(/(?:from|require\()['"][^'"]+\.js['"]/);
+    expect(await readFile(file, 'utf8'), file).not.toMatch(/(?:from\s+|require\()['"][^'"]+\.js['"]/);
   }
 });

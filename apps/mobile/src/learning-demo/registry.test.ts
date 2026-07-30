@@ -20,6 +20,8 @@ describe('learning demo registry', () => {
     const source = await readFile('apps/mobile/src/learning-demo/registry.ts', 'utf8');
 
     expect(source.match(/buildDemoEntry\(/g)).toHaveLength(manifest.entries.length);
+    expect(source).toContain('export const learningDemoEntries');
+    expect(source).not.toContain('export const learningPacks');
     for (const entry of manifest.entries) {
       expect(source).toContain(`"category":"${entry.category}"`);
       expect(source).toContain(`"hintAdmissionStatus":"${entry.hintLadderAdmission.status}"`);
@@ -34,5 +36,6 @@ describe('learning demo registry', () => {
       manifest.entries.filter((entry) => entry.rankedEligible).length,
     );
     expect(source).not.toContain('/drafts/');
+    expect(source.match(/require\('\.\.\/\.\.\/\.\.\/\.\.\/content\/learning\/source\//g)).toHaveLength(manifest.entries.length * 2);
   });
 });

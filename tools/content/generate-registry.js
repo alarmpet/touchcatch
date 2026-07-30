@@ -114,7 +114,7 @@ export async function generateMobileRegistry({
   const code = `// GENERATED CODE - DO NOT EDIT MANUALLY
 // Generated from content/learning/manifest.v1.json by tools/content/generate-registry.js
 
-import { buildDemoEntry, type MobileSemanticSnapshot } from './data.js';
+import { buildDemoEntry, type MobileSemanticSnapshot } from './data';
 
 declare const require: (path: string) => unknown;
 

@@ -1,196 +1,158 @@
-# Task 2 Fix-Round Review - Five-Step Category Hint Ladders
+# Task 2 Fix-Round 2 Review - Five-Step Category Hint Ladders
 
 **Verdict: CHANGES REQUIRED**
 
 - **SPEC COMPLIANCE: FAIL**
 - **CODE/TEST QUALITY: FAIL**
 
-This is a static re-review of `review-c141e34..aed6e67.diff` against
-`task-2-brief.md`. The 205 passing tests reported in `task-2-report.md` are
-accepted as evidence; no tests were rerun. Source references are to the
-committed `aed6e67` snapshot.
+This is a static review of `review-aed6e67..c370977.diff` against the three
+open Task 2 findings. No tests were rerun. The claimed 5-file/74-test result
+was considered, but the committed source contradicts two of those assertions.
+All references below are to the frozen `c370977` snapshot, not the accepted
+dirty working tree.
 
-## Original finding disposition
+The six findings already closed in fix round 1 remain outside this scoped
+review.
 
-### 1. Critical - active runtime contract and separator charging
+## Open-item disposition
 
-**ADDRESSED.**
-
-The active parser now permits the optional ladder/Hanja fields and validates a
-present five-step ladder
-(`packages/contracts/src/match.schema.ts:52-54`). Match creation and parsing
-require the reveal schedule to cover exactly the revealable, non-separator
-indexes (`packages/game-engine/src/reducer.ts:20-21`;
-`packages/contracts/src/match.schema.ts:54`). `USE_HINT` spends one credit for
-the next such index (`reducer.ts:59`), while the pattern renders whitespace and
-punctuation immediately (`reducer.ts:80-81`). The focused reducer regression
-proves the visible, unscheduled, uncharged separator behavior
-(`packages/game-engine/src/reducer.test.ts:24-51`).
-
-### 2. Critical - authoritative ranked admission and immutable identity
+### Original Important #4 - production four-option general knowledge
 
 **ADDRESSED.**
 
-Manifest construction now validates the authoritative catalog before use
-(`tools/content/learning-manifest.ts:50-54`). Attempted admission validates the
-shared private schema and verifies the private-solution self-hash
-(`packages/content-validator/src/validate-learning-draft.ts:189-203`), then
-compares category, answer, segmentation, ordered meaning/correct option, Hanja
-evidence, and the catalog-authored ladder (`:214-244`). It reruns ladder
-semantics against the admitted draft context (`:245-265`), including the fixed
-penalty (`packages/content-validator/src/hint-ladder.ts:443-457`). The admitted
-hash binds that semantic envelope plus the verified private hash
-(`validate-learning-draft.ts:274-287`), and ranking requires `ADMITTED`, five
-steps, and a non-null hash (`tools/content/learning-manifest.ts:109-113`).
+The production catalog now permits three or four options and IDs
+`option_1` through `option_4`, including `correctOptionId`
+(`content/learning/catalog.schema.json:100-114`). Catalog validation runs the
+schema and ladder admission
+(`packages/content-validator/src/validate-learning-draft.ts:131-160`), while
+bundle admission compares the ordered catalog/draft meaning and validates the
+general-knowledge ladder before returning `ADMITTED` (`:225-288`).
 
-### 3. Critical - reproducible 79-entry legacy batch
+The active match parser accepts three or four options, rejects duplicate IDs,
+and requires the correct ID to be present
+(`packages/contracts/src/match.schema.ts:52`). Its opaque-ID rule accepts
+`option_4`. The new production-schema fixture uses four unique IDs, validates
+the catalog, and reaches five-step admission
+(`packages/content-validator/src/validate-learning-draft.test.ts:38-54`).
 
-**ADDRESSED.**
-
-The writer now accepts an absent authored ladder and omits it from the rebuilt
-private bundle (`tools/content/write-learning-bundle.ts:68-70,103-115`), with a
-legacy regression at `tools/content/write-learning-bundle.test.ts:133-145`.
-This removes the throw that previously stopped the default all-entry batch.
-The committed-snapshot test reconstructs the 79-entry manifest/registry result
-as 3 admitted and 76 missing (`tools/content/learning-manifest.test.ts:175-228`).
-That evidence is compositional rather than a direct `runBatchBuildAll`
-integration test, but the reported implementation blocker is gone.
-
-### 4. Important - production general-knowledge ladder
+### Original Important #6 - manifest-to-mobile immutable projection
 
 **NOT ADDRESSED.**
 
-The catalog now permits three or four options
-(`content/learning/catalog.schema.json:100-104`), but every option ID and the
-correct ID are still restricted to `option_1` through `option_3` (`:109,114`).
-Every four-option catalog entry must therefore duplicate an ID, while the
-active match parser rejects duplicate option IDs
-(`packages/contracts/src/match.schema.ts:52`). The positive four-option
-validator fixture still bypasses the production schema with the arbitrary IDs
-`mars`, `venus`, `jupiter`, and `saturn`
-(`packages/content-validator/src/hint-ladder.test.ts:234-244,318-326`). A
-general-knowledge ladder still cannot be both catalog-valid and runtime-valid.
+The generator implementation is corrected in isolation:
 
-### 5. Important - optional legacy shared contract versus ranked five
+- it recomputes the private-solution self-hash
+  (`tools/content/generate-registry.js:61-64`);
+- it rebuilds the semantic admission envelope and checks the manifest hash
+  (`:21-32,67-75`);
+- it constructs a complete literal mobile snapshot and leaves only image
+  asset `require` calls (`:85-110`); and
+- `buildDemoEntry` exposes a ladder only for ranked, 64-hex-hash,
+  exact-five-step `ADMITTED` input
+  (`apps/mobile/src/learning-demo/data.ts:26-31`).
 
-**ADDRESSED.**
+However, the committed `apps/mobile/src/learning-demo/registry.ts` is not that
+generator output. It exports `learningPacks`, an 81-entry map of live draft
+imports, with no semantic literals, admission hashes, `buildDemoEntry` calls,
+or `learningDemoEntries` export (`registry.ts:1-84`). The last two entries at
+`:82-83` also restore the dirty 81-entry projection instead of the committed
+79-entry manifest projection.
 
-`hintLadder` is no longer required by the shared private contract, but a
-present ladder is exactly five steps; reviewed Hanja remains an optional
-paired field (`packages/contracts/src/content.ts:218-247`). Admission still
-requires exactly five steps, and the manifest grants ranking only to a
-five-step admitted ladder (`packages/content-validator/src/hint-ladder.ts:107-117,433-459`;
-`tools/content/learning-manifest.ts:109-113`).
+This is not merely stale evidence: `apps/mobile/app/index.tsx:5,13-14`
+requires `learningDemoEntries`, which the committed registry does not export.
+Its `../../../content/...` imports also resolve from
+`apps/mobile/src/learning-demo` to `apps/content/...`, not repository-root
+`content/...`. The frozen mobile projection is therefore mutable, unpinned,
+and unusable.
 
-### 6. Important - manifest-to-mobile admission/hash binding
+### Fix-round-1 Important - match parser/shared HintStep parity
 
-**NOT ADDRESSED.**
+**NOT ADDRESSED overall.**
 
-The fix now literalizes the admitted ladder and hash, but it does not pin or
-verify the full payload represented by that hash. The registry hash
-recalculation includes the draft's stored `privateSolutionHash` without
-recomputing the self-hash over the current private body
-(`tools/content/generate-registry.js:21-32,54-69`). A private-body change
-outside the directly hashed challenge fields can therefore pass generation
-when the stale stored hash is left in place.
+Reveal-index parity is addressed. The active parser now mirrors the shared
+maximum of 64 indexes, uniqueness, safe integer requirement, and range
+`0..63` (`packages/contracts/src/match.schema.ts:53`; shared contract at
+`packages/contracts/src/content.ts:82-88`). The negative cases cover
+out-of-range and duplicate indexes
+(`packages/game-engine/src/reducer.test.ts:81-96`).
 
-The generated registry also continues to import each live draft
-(`generate-registry.js:77-81`). Mobile takes its title, differences,
-meaning/options, correct option, and hint units from that mutable import; only
-the ladder/hash are snapshot literals
-(`apps/mobile/src/learning-demo/data.ts:40-60`). Consumption checks merely the
-hash's shape and ladder length (`:41-45`), so a draft changed after registry
-generation can alter mobile semantics without changing `registry.ts`. The
-registry test checks embedded status/hash strings, not full snapshot equality
-or current-draft hash integrity
-(`apps/mobile/src/learning-demo/registry.test.ts:21-36`).
+Localized-text parity is still incomplete. JSON Schema `maxLength: 512`
+counts Unicode code points (`packages/contracts/src/content.ts:73-80`;
+`content/learning/catalog.schema.json:25-31`), while the active parser uses
+JavaScript `v.length <= 512`, which counts UTF-16 code units
+(`packages/contracts/src/match.schema.ts:53`). A schema-valid string containing
+up to 512 astral characters can therefore be rejected by the match runtime.
+The added 256/257/512/513 tests use only BMP Korean and ASCII strings, so they
+do not exercise this mismatch
+(`packages/game-engine/src/reducer.test.ts:73-78`).
 
-### 7. Minor - exact answer-length number token
-
-**ADDRESSED.**
-
-Numeric matching now uses digit boundaries
-(`packages/content-validator/src/hint-ladder.ts:69-71`) in both English and
-general-knowledge length validation (`:237-247,360-370`). The `4` versus `14`
-regression is covered at
-`packages/content-validator/src/hint-ladder.test.ts:380-409`.
-
-### 8. Minor - stale documentation
-
-**ADDRESSED.**
-
-The pipeline tag now says 79 packs
-(`docs/03-ContentPipeline/10_CONTENT_AND_IMAGE_PIPELINE.md:3`), the active
-writer reference names the TypeScript implementation and delegating wrapper
-(`research.md:17-23`), and the stale 56-pack count/test command were replaced
-(`research.md:76-79`). The pipeline document also records the 79/3/76
-admission snapshot and intended semantic envelope
-(`docs/03-ContentPipeline/10_CONTENT_AND_IMAGE_PIPELINE.md:70-79`).
-
-## New Critical/Important findings introduced by the fix
+## New Critical/Important findings introduced by this fix
 
 ### Critical
 
-None found.
+1. **The committed registry replacement breaks the active mobile entrypoint.**
+
+   `apps/mobile/src/learning-demo/registry.ts:1-84` replaces the prior
+   `learningDemoEntries` projection with a wrong-path, live-draft
+   `learningPacks` loader. The consumer still destructures
+   `learningDemoEntries` (`apps/mobile/app/index.tsx:13-14`), so the DEV mobile
+   route receives `undefined` even before considering admission integrity.
+   This committed artifact must be regenerated from the fixed generator and
+   frozen manifest.
 
 ### Important
 
-1. **The new active match ladder parser is stricter than both authoritative
-   hint schemas.**
+1. **The fix adds Metro-incompatible `.js` specifiers to runtime modules.**
 
-   The shared and production catalog schemas permit 512-character localized
-   hint strings (`packages/contracts/src/content.ts:73-80`;
-   `content/learning/catalog.schema.json:25-31`), but the new match parser
-   rejects any string longer than 256 characters
-   (`packages/contracts/src/match.schema.ts:53`). Consequently, a
-   catalog-valid, shared-schema-valid, admitted 257-512-character hint can
-   still be rejected by the active runtime. No boundary test covers this
-   parser/schema parity case.
+   `apps/mobile/src/learning-demo/data.ts:1-2` imports
+   `LearningDemoScreen.js` and the shared contract's `content.js`; the fixed
+   generator template also emits `from './data.js'`
+   (`tools/content/generate-registry.js:114-121`). The repository explicitly
+   requires extensionless Metro-resolvable runtime imports
+   (`apps/mobile/src/learning-demo/production-boundary.test.ts:13-21`).
+
+No other new Critical or Important issue was found in this scoped diff.
 
 ## SPEC COMPLIANCE - FAIL
 
-Six of the eight original findings are addressed, including all three original
-Critical findings. The production general-knowledge path and end-to-end mobile
-binding remain incomplete, and the fix introduces a new runtime/schema
-compatibility gap.
+Only one of the three open items is fully addressed. The committed mobile
+artifact still bypasses the immutable projection and breaks its consumer, and
+match parsing remains incompatible with schema-valid astral Unicode at the
+512-character boundary.
 
 ## CODE/TEST QUALITY - FAIL
 
-The fix adds useful, non-tautological regressions for separator rendering and
-charging, legacy writer behavior, catalog validation, post-admission ladder
-drift, the committed 79/3/76 snapshot, and exact numeric tokens. The reported
-205 passing tests are credible evidence for those paths.
+The round adds useful admission, self-hash, semantic-drift, exact-five, and
+reveal-index regressions. Those tests do not establish a passing frozen
+commit:
 
-The remaining boundary gaps are visible in the test design:
+- `apps/mobile/src/learning-demo/registry.test.ts:22` expects one
+  `buildDemoEntry` call per manifest entry, but committed `registry.ts`
+  contains none;
+- the same test forbids `/drafts/` at `:36`, while every committed registry
+  entry is a draft import;
+- `production-boundary.test.ts:13-21` rejects the `.js` specifiers now present
+  in `data.ts`; and
+- the localization boundary tests use BMP/ASCII only and miss JSON Schema's
+  code-point counting semantics.
 
-- the positive four-option general-knowledge test bypasses the production ID
-  schema;
-- the mobile registry test does not independently verify the current draft's
-  private self-hash or a complete pinned semantic snapshot;
-- no match test exercises the authoritative 512-character localization
-  boundary; and
-- default-batch evidence remains compositional rather than a direct
-  all-entry batch invocation.
+The reported 5-file/74-test result therefore does not describe the frozen
+`c370977` tree. Task 2 is not ready for acceptance.
 
-Task 2 is not ready for acceptance until the two remaining original Important
-findings and the new parser/schema compatibility finding are resolved.
+## Fix round 3 implementation evidence
 
-## Fix round 2 implementation evidence
+The frozen mobile artifact is now generated from the committed 79-entry
+manifest and drafts, exports `learningDemoEntries`, contains complete literal
+semantic snapshots, and has no live draft imports. Image assets are the only
+runtime `require` calls and use repository-root-correct relative paths.
 
-All three remaining boundaries are addressed:
+Localized hint limits now count Unicode code points in both authored ladder
+validation and active match parsing. Astral-character tests accept 512 code
+points and reject 513 in the JSON Schema, shared validator, and match parser.
+Mobile runtime imports and generated output use Metro-compatible extensionless
+specifiers.
 
-- the production catalogue permits unique `option_1` through `option_4` IDs,
-  including `correctOptionId`, and the validator test admits a complete
-  four-option general-knowledge fixture;
-- registry generation independently verifies the private solution self-hash,
-  rechecks the admitted semantic envelope, and emits a complete literal mobile
-  snapshot. Runtime code imports only image assets and exposes a ladder only
-  for an exact five-step, ranked, hash-pinned `ADMITTED` snapshot; and
-- the active match parser now matches the shared HintStep limits: exact
-  `ko`/`en`, localized text through 512 characters, ordinal/kind/penalty
-  constraints, and unique reveal indexes in `0..63` with at most 64 values.
-
-Focused verification on 2026-07-30: 5 files passed, 74 tests passed. This
-includes 256/257/512/513 parser boundaries, all HintStep field negatives,
-stale-private-hash rejection, draft-mutation isolation, the four-option GK
-path, and deterministic committed 79-entry registry generation.
+Focused verification on 2026-07-30: 8 files passed, 101 tests passed. Frozen
+index verification was performed against the staged registry blob before
+commit: 79 entries, `learningDemoEntries` export, zero `/drafts/` imports,
+158 correctly rooted image requires, and byte equality with generator output.

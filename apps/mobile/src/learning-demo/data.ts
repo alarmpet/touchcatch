@@ -1,5 +1,5 @@
-import type { LearningDemoEntry } from './LearningDemoScreen.js';
-import type { HintStepV1 } from '../../../../packages/contracts/src/content.js';
+import type { LearningDemoEntry } from './LearningDemoScreen';
+import type { HintStepV1 } from '../../../../packages/contracts/src/content';
 
 export type MobileSemanticSnapshot = Readonly<{
   key: string;

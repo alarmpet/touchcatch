@@ -129,6 +129,7 @@ function validateLocalization(
         addError(errors, 'MISSING_HINT_LOCALIZATION');
         continue;
       }
+      if ([...value].length > 512) addError(errors, 'HINT_LOCALIZATION_LENGTH');
       if (containsDisallowedControl(value)) addError(errors, 'HINT_CONTROL_CHARACTER');
       if (step.ordinal < 5 && containsCanonicalAnswer(value, answer)) {
         addError(errors, 'FULL_ANSWER_DISCLOSURE');

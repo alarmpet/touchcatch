@@ -78,6 +78,14 @@ it.each([[256,true],[257,true],[512,true],[513,false]])('keeps match hint locali
   if(accepted) expect(()=>parseMatchStateV1(state)).not.toThrow(); else expect(()=>parseMatchStateV1(state)).toThrow(/hint step/);
 });
 
+it.each([[512,true],[513,false]] as const)('counts %i astral hint characters as code points in active match parsing',(count,accepted)=>{
+  const state=startedState().state;
+  const {privateSolutionHash:_,...body}=structuredClone(solution);
+  (body.finalChallenge as any).hintLadder=[1,2,3,4,5].map(ordinal=>({ordinal,kind:'DEFINITION',localizedText:{ko:'😀'.repeat(count),en:'😀'.repeat(count)},revealIndexes:[],rankedPenaltyUnits:1}));
+  state.privateSolution={...body,privateSolutionHash:canonicalJsonSha256(body)};
+  if(accepted) expect(()=>parseMatchStateV1(state)).not.toThrow(); else expect(()=>parseMatchStateV1(state)).toThrow(/hint step/);
+});
+
 it.each([
   ['ordinal',(s:any)=>s[0].ordinal=2],
   ['kind',(s:any)=>s[0].kind='FORGED'],
