@@ -27,22 +27,50 @@ const hintFixture = readJson('config/hint-policy.v1.json');
 const progressionFixture = readJson('config/learning-progression.v1.json');
 const competitionFixture = readJson('config/weekly-competition.v1.json');
 
-const policyCases = [
+type PolicyCase = Readonly<{
+  name: string;
+  fixture: unknown;
+  schema: AnySchema;
+  loadApproved: (input: unknown) => unknown;
+}>;
+
+const policyCases: readonly PolicyCase[] = [
   {
     name: 'hint',
     fixture: hintFixture,
     schema: readSchema('schemas/hint-policy.schema.json'),
+    loadApproved: loadApprovedHintPolicyV1,
   },
   {
     name: 'progression',
     fixture: progressionFixture,
     schema: readSchema('schemas/learning-progression.schema.json'),
+    loadApproved: loadApprovedLearningProgressionV1,
   },
   {
     name: 'competition',
     fixture: competitionFixture,
     schema: readSchema('schemas/weekly-competition.schema.json'),
+    loadApproved: loadApprovedWeeklyCompetitionV1,
   },
+] as const;
+
+const canonicalApproval = {
+  status: 'APPROVED',
+  approvalDecisionId: 'decision-1',
+  approvedBy: 'reviewer-1',
+  approvedAt: '2026-07-30T10:00:00.000Z',
+} as const;
+
+const noncanonicalApprovalTimestamps = [
+  '2026-07-30T10:00Z',
+  '2026-07-30 10:00:00Z',
+  '2026-07-30T10:00:00+09',
+  '2026-07-30T10:00:00Z',
+  '2026-07-30T10:00:00.00Z',
+  '2026-07-30T10:00:00.000+09:00',
+  '2026-02-30T10:00:00.000Z',
+  'not-a-date',
 ] as const;
 
 function object(value: unknown): Record<string, unknown> {
@@ -50,6 +78,12 @@ function object(value: unknown): Record<string, unknown> {
     throw new TypeError('test fixture must be an object');
   }
   return value as Record<string, unknown>;
+}
+
+function compileSchema(schema: AnySchema) {
+  const ajv = new Ajv2020({ strict: true, allErrors: true });
+  addFormats(ajv);
+  return ajv.compile(schema);
 }
 
 describe('learning policy contracts', () => {
@@ -93,7 +127,9 @@ describe('learning policy contracts', () => {
       weeklyCategoryParticipation: 20,
       dailyCap: 100,
     });
+    expect(Object.isFrozen(parsed)).toBe(true);
     expect(Object.isFrozen(parsed.accountXp)).toBe(true);
+    expect(Object.isFrozen(parsed.drawPoints)).toBe(true);
   });
 
   it('enables exactly the two MVP weekly categories and freezes the rank-one reward', () => {
@@ -118,7 +154,11 @@ describe('learning policy contracts', () => {
         affectsDirectDrawPity: false,
       },
     });
+    expect(Object.isFrozen(parsed)).toBe(true);
     expect(Object.isFrozen(parsed.categories)).toBe(true);
+    expect(Object.isFrozen(parsed.disabledCategories)).toBe(true);
+    expect(Object.isFrozen(parsed.ranked)).toBe(true);
+    expect(Object.isFrozen(parsed.rankOneReward)).toBe(true);
     expect(Object.isFrozen(parsed.rankOneReward.eligibleRarities)).toBe(true);
   });
 
@@ -141,12 +181,58 @@ describe('learning policy contracts', () => {
   });
 
   it.each(policyCases)('keeps the $name JSON Schema aligned with its DRAFT parser fixture', ({ fixture, schema }) => {
-    const ajv = new Ajv2020({ strict: true, allErrors: true });
-    addFormats(ajv);
-    const validate = ajv.compile(schema);
+    const validate = compileSchema(schema);
 
     expect(validate(fixture), JSON.stringify(validate.errors)).toBe(true);
   });
+
+  it.each(policyCases)(
+    'admits the canonical millisecond UTC APPROVED $name policy through both validators',
+    ({ fixture, schema, loadApproved }) => {
+      const approved = { ...object(fixture), ...canonicalApproval };
+      const validate = compileSchema(schema);
+
+      expect(validate(approved), JSON.stringify(validate.errors)).toBe(true);
+      expect(() => loadApproved(approved)).not.toThrow();
+    },
+  );
+
+  for (const policyCase of policyCases) {
+    it.each(noncanonicalApprovalTimestamps)(
+      `rejects noncanonical or invalid ${policyCase.name} approvedAt %s through both validators`,
+      (approvedAt) => {
+        const approved = {
+          ...object(policyCase.fixture),
+          ...canonicalApproval,
+          approvedAt,
+        };
+        const validate = compileSchema(policyCase.schema);
+
+        expect(validate(approved), JSON.stringify(validate.errors)).toBe(false);
+        expect(() => policyCase.loadApproved(approved)).toThrow();
+      },
+    );
+
+    it.each([
+      ['approvalDecisionId', ''],
+      ['approvalDecisionId', '   '],
+      ['approvedBy', ''],
+      ['approvedBy', '   '],
+    ])(
+      `rejects empty or blank ${policyCase.name} %s through both validators`,
+      (field, value) => {
+        const approved = {
+          ...object(policyCase.fixture),
+          ...canonicalApproval,
+          [field]: value,
+        };
+        const validate = compileSchema(policyCase.schema);
+
+        expect(validate(approved), JSON.stringify(validate.errors)).toBe(false);
+        expect(() => policyCase.loadApproved(approved)).toThrow();
+      },
+    );
+  }
 
   it.each([
     {
@@ -275,8 +361,8 @@ describe('learning policy contracts', () => {
   });
 
   it.each([
-    ['approvalDecisionId', { approvedBy: 'reviewer', approvedAt: '2026-07-30T10:00:00Z' }],
-    ['approvedBy', { approvalDecisionId: 'decision-1', approvedAt: '2026-07-30T10:00:00Z' }],
+    ['approvalDecisionId', { approvedBy: 'reviewer', approvedAt: '2026-07-30T10:00:00.000Z' }],
+    ['approvedBy', { approvalDecisionId: 'decision-1', approvedAt: '2026-07-30T10:00:00.000Z' }],
     ['approvedAt', { approvalDecisionId: 'decision-1', approvedBy: 'reviewer' }],
   ])('rejects APPROVED input missing %s', (_name, approvalFields) => {
     expect(() => loadApprovedHintPolicyV1({
@@ -292,7 +378,7 @@ describe('learning policy contracts', () => {
       status: 'APPROVED',
       approvalDecisionId: 'decision-1',
       approvedBy: 'reviewer-1',
-      approvedAt: '2026-07-30T10:00:00Z',
+      approvedAt: '2026-07-30T10:00:00.000Z',
     });
 
     expect(approved.policy.status).toBe('APPROVED');

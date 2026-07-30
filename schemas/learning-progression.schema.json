@@ -67,7 +67,11 @@
     },
     "approvalDecisionId": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
     "approvedBy": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
-    "approvedAt": { "type": "string", "format": "date-time" }
+    "approvedAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+    }
   },
   "allOf": [
     {
@@ -86,7 +90,11 @@
         "properties": {
           "approvalDecisionId": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
           "approvedBy": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
-          "approvedAt": { "type": "string", "format": "date-time" }
+          "approvedAt": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+          }
         },
         "required": ["approvalDecisionId", "approvedBy", "approvedAt"]
       }

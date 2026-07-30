@@ -18,7 +18,7 @@ const nonBlankStringSchema = z.string().min(1).refine(
 const approvalShape = {
   approvalDecisionId: nonBlankStringSchema,
   approvedBy: nonBlankStringSchema,
-  approvedAt: z.iso.datetime({ offset: true }),
+  approvedAt: z.iso.datetime({ precision: 3, offset: false }),
 } as const;
 
 const hintShape = {

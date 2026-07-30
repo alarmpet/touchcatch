@@ -151,3 +151,68 @@ tests, and requirement-oracle typing. They were not modified.
 3. All three policy artifacts intentionally remain `DRAFT`; production loaders
    fail closed until an approval decision and complete approval provenance are
    supplied.
+
+## Fix Round 1
+
+The review's approval timestamp parity finding was reproduced directly against
+the committed hint runtime parser and AJV schema:
+
+```text
+{"approvedAt":"2026-07-30T10:00Z","runtime":true,"jsonSchema":false}
+{"approvedAt":"2026-07-30 10:00:00Z","runtime":false,"jsonSchema":true}
+{"approvedAt":"2026-07-30T10:00:00+09","runtime":false,"jsonSchema":true}
+{"approvedAt":"2026-07-30T10:00:00.000Z","runtime":true,"jsonSchema":true}
+```
+
+The root cause was the different default grammars of
+`z.iso.datetime({ offset: true })` and AJV's `date-time` format. Differential
+tests were added before implementation for all three policy types.
+
+RED:
+
+```powershell
+$env:PATH = "$(Resolve-Path 'node_modules/.bin');$env:PATH"
+corepack pnpm vitest run packages/contracts/src/learning-policy.test.ts
+```
+
+```text
+Test Files  1 failed (1)
+Tests       18 failed | 48 passed (66)
+```
+
+The 18 failures showed runtime acceptance of omitted seconds and schema
+acceptance of noncanonical separators, missing millisecond precision, and
+non-UTC offsets.
+
+Runtime and JSON Schema now admit exactly one approval timestamp syntax:
+`YYYY-MM-DDTHH:mm:ss.sssZ`. Runtime uses Zod ISO datetime precision 3 with
+offsets disabled. Each JSON Schema combines an exact UTC-millisecond pattern
+with `format: "date-time"` so calendar validity is still enforced.
+
+The differential suite now proves for hint, progression, and competition:
+
+- canonical complete APPROVED admission succeeds through both validators;
+- omitted seconds, a space separator, abbreviated `+09`, missing or
+  non-three-digit milliseconds, and non-UTC offsets fail both;
+- impossible dates and malformed timestamps fail both;
+- empty and whitespace-only `approvalDecisionId`/`approvedBy` fail both;
+- complete progression and competition production admission succeeds.
+
+Representative deep-freeze evidence now covers policy roots and nested
+progression/competition objects and arrays, including `drawPoints`, `ranked`,
+`rankOneReward`, and `disabledCategories`.
+
+Fresh GREEN:
+
+```powershell
+corepack pnpm vitest run packages/contracts/src/learning-policy.test.ts packages/contracts/src/canonical-json.test.ts
+```
+
+```text
+Test Files  2 passed (2)
+Tests       73 passed (73)
+```
+
+The scoped strict TypeScript and ESLint commands from the original report also
+exit 0. Verification continues to emit the existing Node `22.16.0` versus
+repository-required `24.18.0` engine warning.
