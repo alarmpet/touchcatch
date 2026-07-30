@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import {
   REQUIRED_SCENARIOS,
+  aggregateDeviceStatus,
   validateAndroidEvidence,
+  validateIosEvidence,
   type AndroidGuestEvidence,
 } from './check-device-evidence.js';
 
@@ -68,5 +70,20 @@ describe('Android physical-device evidence', () => {
       recordedAt: '2026-07-29T00:00:00.000Z',
       blocker: 'DEVICE_UNAVAILABLE',
     }, context)).toEqual([]);
+  });
+
+  it('does not let Android-shaped values satisfy iOS evidence', () => {
+    expect(validateIosEvidence({ ...validPass, platform: 'IOS' } as never, context))
+      .not.toEqual([]);
+  });
+
+  it('keeps iOS blocking independent from an Android pass', () => {
+    expect(aggregateDeviceStatus({ android: 'PASS', ios: 'BLOCKED' })).toEqual({
+      localGuestGame: 'PASS',
+      android: 'PASS',
+      ios: 'BLOCKED',
+    });
+    expect(aggregateDeviceStatus({ android: 'BLOCKED', ios: 'BLOCKED' }).localGuestGame)
+      .toBe('BLOCKED');
   });
 });

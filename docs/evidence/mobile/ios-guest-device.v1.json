@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "1.0.0",
+  "platform": "IOS",
+  "status": "BLOCKED",
+  "commitSha": "26e2554",
+  "recordedAt": "2026-07-30T03:37:00.000Z",
+  "blocker": "DEVICE_OR_MACOS_HOST_UNAVAILABLE"
+}

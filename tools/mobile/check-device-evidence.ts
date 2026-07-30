@@ -54,6 +54,34 @@ type PassedAndroidEvidence = Readonly<{
 }>;
 
 export type AndroidGuestEvidence = BlockedAndroidEvidence | PassedAndroidEvidence;
+type BlockedIosEvidence = Readonly<{
+  schemaVersion: '1.0.0';
+  platform: 'IOS';
+  status: 'BLOCKED';
+  commitSha: string;
+  recordedAt: string;
+  blocker: 'DEVICE_OR_MACOS_HOST_UNAVAILABLE';
+}>;
+type PassedIosEvidence = Readonly<{
+  schemaVersion: '1.0.0';
+  platform: 'IOS';
+  status: 'PASS' | 'FAIL';
+  commitSha: string;
+  recordedAt: string;
+  runtime: Readonly<{
+    bundleIdentifier: 'com.touchcatch.mobile';
+    developmentBuildId: string;
+  }>;
+  device: Readonly<{ model: string; iosVersion: string }>;
+  scenarios: readonly Readonly<{ id: string; status: 'PASS' | 'FAIL'; note: string }>[];
+  screenshots: readonly Readonly<{
+    id: typeof SCREENSHOT_IDS[number];
+    path: string;
+    sha256: string;
+  }>[];
+  blocker: string | null;
+}>;
+export type IosGuestEvidence = BlockedIosEvidence | PassedIosEvidence;
 export type EvidenceContext = Readonly<{
   expectedCommitSha: string;
   now: Date;
@@ -128,6 +156,65 @@ export function validateAndroidEvidence(
   return errors;
 }
 
+export function validateIosEvidence(
+  evidence: IosGuestEvidence,
+  context: EvidenceContext,
+): string[] {
+  const errors: string[] = [];
+  if (evidence.schemaVersion !== '1.0.0') errors.push('EVIDENCE_SCHEMA_VERSION');
+  if (evidence.platform !== 'IOS') errors.push('EVIDENCE_PLATFORM');
+  if (!/^[0-9a-f]{7,40}$/i.test(evidence.commitSha)) errors.push('EVIDENCE_COMMIT');
+  if (evidence.commitSha !== context.expectedCommitSha) errors.push('EVIDENCE_COMMIT_MISMATCH');
+  if (invalidOrFutureTimestamp(evidence.recordedAt, context.now)) errors.push('EVIDENCE_FUTURE_TIMESTAMP');
+  if (evidence.status === 'BLOCKED') {
+    if (evidence.blocker !== 'DEVICE_OR_MACOS_HOST_UNAVAILABLE') errors.push('EVIDENCE_BLOCKER');
+    const allowed = new Set(['schemaVersion', 'platform', 'status', 'commitSha', 'recordedAt', 'blocker']);
+    if (Object.keys(evidence).some((key) => !allowed.has(key))) errors.push('EVIDENCE_BLOCKED_FIELDS');
+    return errors;
+  }
+  if (
+    evidence.runtime.bundleIdentifier !== 'com.touchcatch.mobile' ||
+    !evidence.runtime.developmentBuildId ||
+    containsSynthetic(evidence.runtime.developmentBuildId)
+  ) errors.push('EVIDENCE_RUNTIME');
+  if (!evidence.device.model || !evidence.device.iosVersion) errors.push('EVIDENCE_DEVICE');
+  const scenarios = new Map(evidence.scenarios.map((item) => [item.id, item]));
+  if (scenarios.size !== REQUIRED_SCENARIOS.length) errors.push('EVIDENCE_SCENARIO_SET');
+  for (const id of REQUIRED_SCENARIOS) {
+    const item = scenarios.get(id);
+    if (!item || (evidence.status === 'PASS' && item.status !== 'PASS')) {
+      errors.push(`EVIDENCE_SCENARIO:${id}`);
+    }
+  }
+  const screenshots = new Map(evidence.screenshots.map((item) => [item.id, item]));
+  if (screenshots.size !== SCREENSHOT_IDS.length) errors.push('EVIDENCE_SCREENSHOT_SET');
+  for (const id of SCREENSHOT_IDS) {
+    const screenshot = screenshots.get(id);
+    if (
+      !screenshot ||
+      !screenshot.path.startsWith('docs/evidence/mobile/ios/') ||
+      !/^[0-9a-f]{64}$/i.test(screenshot.sha256) ||
+      /^0{64}$/.test(screenshot.sha256) ||
+      !context.existingPaths.has(screenshot.path)
+    ) errors.push(`EVIDENCE_SCREENSHOT:${id}`);
+  }
+  return errors;
+}
+
+export function aggregateDeviceStatus(status: Readonly<{
+  android: 'PASS' | 'FAIL' | 'BLOCKED';
+  ios: 'PASS' | 'FAIL' | 'BLOCKED';
+}>): Readonly<{
+  localGuestGame: 'PASS' | 'FAIL' | 'BLOCKED';
+  android: typeof status.android;
+  ios: typeof status.ios;
+}> {
+  const localGuestGame = status.android === 'PASS'
+    ? 'PASS'
+    : status.android === 'FAIL' || status.ios === 'FAIL' ? 'FAIL' : 'BLOCKED';
+  return { localGuestGame, ...status };
+}
+
 async function validateAndroidFile(root: string): Promise<void> {
   const relativePath = 'docs/evidence/mobile/android-guest-device.v1.json';
   const evidence = JSON.parse(
@@ -152,13 +239,45 @@ async function validateAndroidFile(root: string): Promise<void> {
   console.log(`Android guest device evidence: ${evidence.status}`);
 }
 
+async function validateIosFile(root: string): Promise<void> {
+  const evidence = JSON.parse(
+    await readFile(resolve(root, 'docs/evidence/mobile/ios-guest-device.v1.json'), 'utf8'),
+  ) as IosGuestEvidence;
+  execFileSync('git', ['merge-base', '--is-ancestor', evidence.commitSha, 'HEAD'], { cwd: root });
+  const existingPaths = new Set<string>();
+  if (evidence.status !== 'BLOCKED') {
+    for (const screenshot of evidence.screenshots) {
+      const bytes = await readFile(resolve(root, screenshot.path));
+      const hash = createHash('sha256').update(bytes).digest('hex');
+      if (hash !== screenshot.sha256) throw new Error(`EVIDENCE_HASH:${screenshot.id}`);
+      existingPaths.add(screenshot.path);
+    }
+  }
+  const errors = validateIosEvidence(evidence, {
+    expectedCommitSha: evidence.commitSha,
+    now: new Date(),
+    existingPaths,
+  });
+  if (errors.length) throw new Error(errors.join('\n'));
+  console.log(`iOS guest device evidence: ${evidence.status}`);
+}
+
 export async function runDeviceEvidenceCheck(platform: string | undefined): Promise<void> {
-  if (platform !== 'android') throw new Error('EVIDENCE_UNSUPPORTED_PLATFORM');
-  await validateAndroidFile(process.cwd());
+  if (platform === 'android') return validateAndroidFile(process.cwd());
+  if (platform === 'ios') return validateIosFile(process.cwd());
+  if (platform === 'aggregate') {
+    const android = JSON.parse(await readFile(resolve(process.cwd(), 'docs/evidence/mobile/android-guest-device.v1.json'), 'utf8')) as AndroidGuestEvidence;
+    const ios = JSON.parse(await readFile(resolve(process.cwd(), 'docs/evidence/mobile/ios-guest-device.v1.json'), 'utf8')) as IosGuestEvidence;
+    const result = aggregateDeviceStatus({ android: android.status, ios: ios.status });
+    console.log(JSON.stringify(result));
+    if (result.localGuestGame !== 'PASS') throw new Error('LOCAL_GUEST_GAME_NOT_PASSED');
+    return;
+  }
+  throw new Error('EVIDENCE_UNSUPPORTED_PLATFORM');
 }
 
 const invokedPath = process.argv[1] ? resolve(process.argv[1]) : '';
 if (invokedPath === fileURLToPath(import.meta.url)) {
   const index = process.argv.indexOf('--platform');
-  await runDeviceEvidenceCheck(index >= 0 ? process.argv[index + 1] : undefined);
+  await runDeviceEvidenceCheck(process.argv.includes('--aggregate') ? 'aggregate' : index >= 0 ? process.argv[index + 1] : undefined);
 }

@@ -59,3 +59,18 @@ corepack pnpm mobile:evidence:android
 
 When no device is connected, retain `DEVICE_UNAVAILABLE` as `BLOCKED` and do
 not create screenshots or report an Android pass.
+
+## iOS and aggregate status
+
+iOS evidence requires both a macOS build host and a physical iPhone. On this
+Windows host it remains `DEVICE_OR_MACOS_HOST_UNAVAILABLE`; Android or web
+results cannot satisfy that gate.
+
+```powershell
+corepack pnpm mobile:evidence:ios
+corepack pnpm mobile:evidence:aggregate
+```
+
+The aggregate check reports the offline local guest game as passed only after
+Android physical-device evidence is `PASS`. iOS may remain independently
+`BLOCKED`; neither state is a production-release approval.
