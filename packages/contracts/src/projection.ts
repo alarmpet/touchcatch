@@ -115,8 +115,17 @@ export function projectSnapshot(
   viewer: string,
   now: number,
 ): MatchSnapshotV1 {
-  const player = s.players.find((x) => x.playerId === viewer);
-  if (!player) throw Error("viewer is not a participant");
+  const participant = s.players.find((x) => x.playerId === viewer);
+  const player = participant ?? {
+    ...s.players[0]!,
+    playerId: viewer,
+    wrongFinalAttempts: 0,
+    hintCredits: 0,
+    revealedHintIndexes: [],
+    publicPattern: null,
+    learningHints: null,
+    answerUntilMs: null,
+  };
   const claimed = s.objectives
     .filter((x) => x.kind === "DIFFERENCE" && x.ownerPlayerId !== null)
     .map((x) => {
@@ -134,6 +143,11 @@ export function projectSnapshot(
     (x) => x.playerId === viewer && !x.submitted,
   );
   const meaning = s.privateSolution.finalChallenge.meaning;
+  const learning = player.learningHints;
+  const currentOrdinal = learning?.revealedOrdinals.at(-1);
+  const currentStep = currentOrdinal === undefined
+    ? undefined
+    : s.privateSolution.finalChallenge.hintLadder?.find(step=>step.ordinal===currentOrdinal);
   const terminal =
     s.endReason === null
       ? null
@@ -163,6 +177,7 @@ export function projectSnapshot(
     },
     viewerInput: {
       enabled:
+        participant !== undefined &&
         ["WAITING_FOR_ASSETS", "PLAYING", "FINAL_RUSH", "SETTLING"].includes(
           s.phase,
         ) && player.answerUntilMs === null,
@@ -202,6 +217,21 @@ export function projectSnapshot(
         hintCredits: player.hintCredits,
         revealedHintCount: player.revealedHintIndexes.length,
         publicPattern: player.publicPattern,
+        learningHints: learning==null?null:{
+          mode:learning.mode,
+          nextExpectedOrdinal:(learning.revealedOrdinals.length+1) as 1|2|3|4|5|6,
+          revealedOrdinals:[...learning.revealedOrdinals],
+          revealedCount:learning.revealedOrdinals.length,
+          coachChargesRemaining:learning.mode==='CASUAL'?learning.coachChargesRemaining:null,
+          cumulativeRankedPenaltyUnits:learning.cumulativeRankedPenaltyUnits,
+          current:currentStep===undefined?null:{
+            ordinal:currentStep.ordinal,
+            kind:currentStep.kind,
+            localizedText:currentStep.localizedText[s.contentLanguage==='ko'?'ko':'en'],
+            publicPattern:player.publicPattern,
+            publicRegion:currentStep.publicRegion??null,
+          },
+        },
       },
     },
     meaningQuiz: quiz

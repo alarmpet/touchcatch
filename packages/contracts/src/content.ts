@@ -62,10 +62,9 @@ export const PUBLIC_HINT_REGIONS_V1 = [
   'BOTTOM_RIGHT',
   'CENTER',
 ] as const;
-export type PublicHintRegionV1 = Readonly<{
-  imageSide: 'A' | 'B';
-  region: (typeof PUBLIC_HINT_REGIONS_V1)[number];
-}>;
+export type PublicHintRegionV1 =
+  | Readonly<{ kind:'REGION'; imageSide:'A'|'B'; region:(typeof PUBLIC_HINT_REGIONS_V1)[number] }>
+  | Readonly<{ kind:'EXACT_CIRCLE'; imageSide:'A'|'B'; centerX:number; centerY:number; radius:number }>;
 export type HintStepV1 = Readonly<{
   ordinal: 1 | 2 | 3 | 4 | 5;
   kind: HintKind;
@@ -76,13 +75,10 @@ export type HintStepV1 = Readonly<{
 }>;
 
 export const publicHintRegionV1Schema = {
-  type: 'object',
-  additionalProperties: false,
-  required: ['imageSide', 'region'],
-  properties: {
-    imageSide: { enum: ['A', 'B'] },
-    region: { enum: PUBLIC_HINT_REGIONS_V1 },
-  },
+  oneOf: [
+    {type:'object',additionalProperties:false,required:['kind','imageSide','region'],properties:{kind:{const:'REGION'},imageSide:{enum:['A','B']},region:{enum:PUBLIC_HINT_REGIONS_V1}}},
+    {type:'object',additionalProperties:false,required:['kind','imageSide','centerX','centerY','radius'],properties:{kind:{const:'EXACT_CIRCLE'},imageSide:{enum:['A','B']},centerX:{type:'number',minimum:0,maximum:1},centerY:{type:'number',minimum:0,maximum:1},radius:{type:'number',exclusiveMinimum:0,maximum:.25}}},
+  ],
 } as const;
 
 export const hintStepV1Schema = {
@@ -111,11 +107,11 @@ export const hintStepV1Schema = {
     rankedPenaltyUnits: { const: 1 },
     publicRegion: publicHintRegionV1Schema,
   },
-  dependentSchemas: {
-    publicRegion: {
-      properties: { kind: { const: 'VISUAL_REGION' } },
-    },
-  },
+  allOf: [
+    {if:{properties:{kind:{const:'VISUAL_REGION'}},required:['kind']},then:{required:['publicRegion']},else:{not:{required:['publicRegion']}}},
+    {if:{properties:{kind:{const:'VISUAL_REGION'},ordinal:{const:5}},required:['kind','ordinal']},then:{properties:{publicRegion:{properties:{kind:{const:'EXACT_CIRCLE'}}}}}},
+    {if:{properties:{kind:{const:'VISUAL_REGION'},ordinal:{enum:[1,2,3,4]}},required:['kind','ordinal']},then:{properties:{publicRegion:{properties:{kind:{const:'REGION'}}}}}},
+  ],
 } as const;
 
 const assetSchema = {

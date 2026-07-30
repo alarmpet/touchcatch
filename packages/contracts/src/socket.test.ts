@@ -189,7 +189,7 @@ it("validates current-step learning hint events and rejects private or future ma
       kind: "VISUAL_REGION" as const,
       localizedText: "Look toward the top left",
       publicPattern: "___",
-      publicRegion: { imageSide: "A" as const, region: "TOP_LEFT" as const },
+      publicRegion: { kind:"REGION" as const,imageSide: "A" as const, region: "TOP_LEFT" as const },
       rankedPenaltyUnits: 0 as const,
       cumulativeRankedPenaltyUnits: 0,
       coachChargesRemaining: 2,
@@ -197,6 +197,10 @@ it("validates current-step learning hint events and rejects private or future ma
   };
 
   expect(serverEventEnvelopeSchema.safeParse(event).success).toBe(true);
+  expect(serverEventEnvelopeSchema.safeParse({...event,payload:{...event.payload,localizedText:"😀".repeat(512)}}).success).toBe(true);
+  expect(serverEventEnvelopeSchema.safeParse({...event,payload:{...event.payload,localizedText:"😀".repeat(513)}}).success).toBe(false);
+  expect(serverEventEnvelopeSchema.safeParse({...event,payload:{...event.payload,kind:"DEFINITION"}}).success).toBe(false);
+  expect(serverEventEnvelopeSchema.safeParse({...event,payload:{...event.payload,ordinal:5,publicRegion:{kind:"EXACT_CIRCLE",imageSide:"B",centerX:.4,centerY:.5,radius:.1}}}).success).toBe(true);
   for (const forbidden of [
     { remainingSteps: [] },
     { canonicalAnswer: "cat" },

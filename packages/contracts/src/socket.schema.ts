@@ -35,12 +35,13 @@ const uuid = z
     })
     .strict(),
   circles = z.object({ imageA: circle, imageB: circle }).strict(),
-  publicHintRegion = z
-    .object({
+  publicHintRegion = z.discriminatedUnion("kind",[
+    z.object({kind:z.literal("REGION"),
       imageSide: z.enum(["A", "B"]),
       region: z.enum(["TOP_LEFT", "TOP_RIGHT", "BOTTOM_LEFT", "BOTTOM_RIGHT", "CENTER"]),
-    })
-    .strict(),
+    }).strict(),
+    z.object({kind:z.literal("EXACT_CIRCLE"),imageSide:z.enum(["A","B"]),centerX:z.number().finite().min(0).max(1),centerY:z.number().finite().min(0).max(1),radius:z.number().finite().gt(0).max(.25)}).strict(),
+  ]),
   option = z
     .object({
       id: z.string().regex(/^[A-Za-z0-9_-]{1,64}$/),
@@ -280,7 +281,7 @@ export const serverEventEnvelopeSchema = z.discriminatedUnion("type", [
           "REVEAL_GRAPHEME",
           "ELIMINATE_OPTION",
         ]),
-        localizedText: z.string().min(1).max(512),
+        localizedText: z.string().min(1).refine(value=>[...value].length<=512),
         publicPattern: z.string().max(64),
         publicRegion: publicHintRegion.nullable(),
         rankedPenaltyUnits: z.union([z.literal(0), z.literal(1)]),
@@ -289,7 +290,10 @@ export const serverEventEnvelopeSchema = z.discriminatedUnion("type", [
       })
       .strict()
       .superRefine((value, context) => {
-        if (value.publicRegion !== null && value.kind !== "VISUAL_REGION") {
+        if ((value.kind === "VISUAL_REGION") !== (value.publicRegion !== null)
+          || value.publicRegion?.kind === "EXACT_CIRCLE" && value.ordinal !== 5
+          || value.kind === "VISUAL_REGION" && value.ordinal === 5 && value.publicRegion?.kind !== "EXACT_CIRCLE"
+          || value.kind === "VISUAL_REGION" && value.ordinal < 5 && value.publicRegion?.kind !== "REGION") {
           context.addIssue({
             code: "custom",
             message: "public region requires a visual hint",
@@ -483,6 +487,15 @@ export const matchSnapshotV1Schema = z
             hintCredits: safe,
             revealedHintCount: safe,
             publicPattern: z.string().max(64).nullable(),
+            learningHints:z.object({
+              mode:z.enum(["CASUAL","RANKED"]),
+              nextExpectedOrdinal:z.union([z.literal(1),z.literal(2),z.literal(3),z.literal(4),z.literal(5),z.literal(6)]),
+              revealedOrdinals:z.array(z.union([z.literal(1),z.literal(2),z.literal(3),z.literal(4),z.literal(5)])).max(5),
+              revealedCount:safe,
+              coachChargesRemaining:safe.nullable(),
+              cumulativeRankedPenaltyUnits:safe,
+              current:z.object({ordinal:z.union([z.literal(1),z.literal(2),z.literal(3),z.literal(4),z.literal(5)]),kind:z.enum(["VISUAL_REGION","SEMANTIC_CATEGORY","DEFINITION","CONTEXT_SENTENCE","ANSWER_LENGTH","INITIAL_PATTERN","REVEAL_GRAPHEME","ELIMINATE_OPTION"]),localizedText:z.string().min(1).refine(value=>[...value].length<=512),publicPattern:z.string().max(64).nullable(),publicRegion:publicHintRegion.nullable()}).strict().nullable(),
+            }).strict().nullable().optional(),
           })
           .strict(),
       })

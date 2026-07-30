@@ -73,7 +73,7 @@ describe('content contract schemas', () => {
     >();
   });
 
-  it('admits only an enumerated public visual region and cannot encode private circles', () => {
+  it('requires a coarse region for visual ordinals 1-4 and a normalized exact circle only at ordinal 5', () => {
     const validate = new Ajv2020().compile(hintStepV1Schema);
     const base = {
       ordinal: 1,
@@ -85,16 +85,21 @@ describe('content contract schemas', () => {
 
     expect(validate({
       ...base,
-      publicRegion: { imageSide: 'A', region: 'TOP_LEFT' },
+      publicRegion: { kind:'REGION', imageSide: 'A', region: 'TOP_LEFT' },
     })).toBe(true);
+    expect(validate(base)).toBe(false);
     expect(validate({
       ...base,
       kind: 'DEFINITION',
-      publicRegion: { imageSide: 'A', region: 'TOP_LEFT' },
+      publicRegion: { kind:'REGION', imageSide: 'A', region: 'TOP_LEFT' },
     })).toBe(false);
     expect(validate({
+      ...base, ordinal:5,
+      publicRegion: { kind:'EXACT_CIRCLE', imageSide:'A', centerX:.1, centerY:.2, radius:.03 },
+    })).toBe(true);
+    expect(validate({
       ...base,
-      publicRegion: { imageSide: 'A', region: 'TOP_LEFT', cx: 0.1, cy: 0.2, r: 0.03 },
+      publicRegion: { kind:'EXACT_CIRCLE', imageSide:'A', centerX:.1, centerY:.2, radius:.03 },
     })).toBe(false);
   });
 

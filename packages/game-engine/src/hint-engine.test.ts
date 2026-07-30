@@ -39,10 +39,15 @@ describe('revealNextHint', () => {
     expect(reveal({
       revealedOrdinals: [1, 3],
       expectedOrdinal: 2,
-    })).toMatchObject({
-      status: 'REVEALED',
-      ordinal: 2,
+    })).toEqual({
+      status: 'REJECTED',
+      reason: 'INVALID_REVEAL_STATE',
     });
+  });
+
+  it.each([[2,1],[1,2,4]])('rejects a non-prefix revealed ordinal history', (...revealedOrdinals) => {
+    expect(reveal({ revealedOrdinals: revealedOrdinals as (1|2|3|4|5)[] }))
+      .toEqual({ status: 'REJECTED', reason: 'INVALID_REVEAL_STATE' });
   });
 
   it('keeps the ordinary casual hint available after coach charges are exhausted', () => {

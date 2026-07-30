@@ -79,6 +79,7 @@ export function revealNextHint(input: HintRevealInput): HintRevealResult {
     || input.coachCharges < 0
     || new Set(input.revealedOrdinals).size !== input.revealedOrdinals.length
     || input.revealedOrdinals.some((ordinal) => !isHintOrdinal(ordinal))
+    || input.revealedOrdinals.some((ordinal, index) => ordinal !== index + 1)
   ) {
     return { status: 'REJECTED', reason: 'INVALID_REVEAL_STATE' };
   }

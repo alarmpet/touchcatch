@@ -397,40 +397,161 @@
                 "const": 1
               },
               "publicRegion": {
-                "type": "object",
-                "additionalProperties": false,
-                "required": [
-                  "imageSide",
-                  "region"
-                ],
-                "properties": {
-                  "imageSide": {
-                    "enum": [
-                      "A",
-                      "B"
-                    ]
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "kind",
+                      "imageSide",
+                      "region"
+                    ],
+                    "properties": {
+                      "kind": {
+                        "const": "REGION"
+                      },
+                      "imageSide": {
+                        "enum": [
+                          "A",
+                          "B"
+                        ]
+                      },
+                      "region": {
+                        "enum": [
+                          "TOP_LEFT",
+                          "TOP_RIGHT",
+                          "BOTTOM_LEFT",
+                          "BOTTOM_RIGHT",
+                          "CENTER"
+                        ]
+                      }
+                    }
                   },
-                  "region": {
-                    "enum": [
-                      "TOP_LEFT",
-                      "TOP_RIGHT",
-                      "BOTTOM_LEFT",
-                      "BOTTOM_RIGHT",
-                      "CENTER"
-                    ]
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "kind",
+                      "imageSide",
+                      "centerX",
+                      "centerY",
+                      "radius"
+                    ],
+                    "properties": {
+                      "kind": {
+                        "const": "EXACT_CIRCLE"
+                      },
+                      "imageSide": {
+                        "enum": [
+                          "A",
+                          "B"
+                        ]
+                      },
+                      "centerX": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                      },
+                      "centerY": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                      },
+                      "radius": {
+                        "type": "number",
+                        "exclusiveMinimum": 0,
+                        "maximum": 0.25
+                      }
+                    }
                   }
-                }
+                ]
               }
             },
-            "dependentSchemas": {
-              "publicRegion": {
-                "properties": {
-                  "kind": {
-                    "const": "VISUAL_REGION"
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "kind": {
+                      "const": "VISUAL_REGION"
+                    }
+                  },
+                  "required": [
+                    "kind"
+                  ]
+                },
+                "then": {
+                  "required": [
+                    "publicRegion"
+                  ]
+                },
+                "else": {
+                  "not": {
+                    "required": [
+                      "publicRegion"
+                    ]
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "kind": {
+                      "const": "VISUAL_REGION"
+                    },
+                    "ordinal": {
+                      "const": 5
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "ordinal"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "publicRegion": {
+                      "properties": {
+                        "kind": {
+                          "const": "EXACT_CIRCLE"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "kind": {
+                      "const": "VISUAL_REGION"
+                    },
+                    "ordinal": {
+                      "enum": [
+                        1,
+                        2,
+                        3,
+                        4
+                      ]
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "ordinal"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "publicRegion": {
+                      "properties": {
+                        "kind": {
+                          "const": "REGION"
+                        }
+                      }
+                    }
                   }
                 }
               }
-            }
+            ]
           }
         },
         "reviewedHanja": {

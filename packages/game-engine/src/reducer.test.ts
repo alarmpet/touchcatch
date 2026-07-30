@@ -94,6 +94,7 @@ describe('authoritative learning hint revelation', () => {
     requestId: string,
     expectedOrdinal: number,
     commandSeq = 50,
+    expectedRevision = state.stateRevision,
   ) {
     return {
       source: 'PLAYER' as const,
@@ -103,10 +104,31 @@ describe('authoritative learning hint revelation', () => {
       receivedAtMs: 5_000,
       requestId,
       playerId: 'p1',
-      expectedRevision: state.stateRevision,
+      expectedRevision,
       payload: { type: 'USE_LEARNING_HINT' as const, expectedOrdinal },
     };
   }
+
+  it.each([
+    ['hole', [1,3], 1, ['00000000-0000-4000-8000-000000000101','00000000-0000-4000-8000-000000000102']],
+    ['reorder', [2,1], 1, ['00000000-0000-4000-8000-000000000101','00000000-0000-4000-8000-000000000102']],
+    ['receipt drift', [1], 2, []],
+    ['forged casual charges', [1], 3, ['00000000-0000-4000-8000-000000000101']],
+  ])('rejects persisted learning hint invariant drift: %s',(_case,revealedOrdinals,coachChargesRemaining,processedRequestIds)=>{
+    const state=learningState('CASUAL');
+    Object.assign(state.players[0]!.learningHints!,{revealedOrdinals,coachChargesRemaining,processedRequestIds});
+    expect(()=>parseMatchStateV1(state)).toThrow(/learning hint/);
+  });
+
+  it('rejects forged ranked cumulative units',()=>{
+    const state=learningState('RANKED');
+    Object.assign(state.players[0]!.learningHints!,{
+      revealedOrdinals:[1],
+      cumulativeRankedPenaltyUnits:9,
+      processedRequestIds:['00000000-0000-4000-8000-000000000101'],
+    });
+    expect(()=>parseMatchStateV1(state)).toThrow(/learning hint/);
+  });
 
   it('pins server-selected casual and ranked hint contexts in initial player state', () => {
     const state = startedState([
@@ -177,9 +199,17 @@ describe('authoritative learning hint revelation', () => {
 
   it('keeps casual revelation available at zero charges without going negative', () => {
     const state = learningState('CASUAL', 0);
+    Object.assign(state.players[0]!.learningHints!, {
+      revealedOrdinals: [1, 2, 3],
+      processedRequestIds: [
+        '00000000-0000-4000-8000-000000000520',
+        '00000000-0000-4000-8000-000000000521',
+        '00000000-0000-4000-8000-000000000522',
+      ],
+    });
     const result = reduceMatch(
       state,
-      command(state, '00000000-0000-4000-8000-000000000502', 1),
+      command(state, '00000000-0000-4000-8000-000000000502', 4),
       frozenRules,
     );
 
@@ -204,6 +234,27 @@ describe('authoritative learning hint revelation', () => {
     });
     expect(stale.events).toEqual([]);
     expect(stale.state).toEqual(first.state);
+  });
+
+  it('lets only one command from the same snapshot win and retries a five-step receipt after terminal as a no-op',()=>{
+    let state=learningState('RANKED');
+    const originalRevision=state.stateRevision;
+    const firstId='00000000-0000-4000-8000-000000000530';
+    const first=reduceMatch(state,command(state,firstId,1,50,originalRevision),frozenRules);
+    const concurrent=reduceMatch(first.state,command(first.state,'00000000-0000-4000-8000-000000000531',1,51,originalRevision),frozenRules);
+    expect(first.decision.status).toBe('APPLIED');
+    expect(concurrent.decision).toEqual({status:'REJECTED',reason:'HINT_ORDINAL_CONFLICT'});
+    state=first.state;
+    for(let ordinal=2;ordinal<=5;ordinal++){
+      const id=`00000000-0000-4000-8000-${String(530+ordinal-1).padStart(12,'0')}`;
+      state=reduceMatch(state,command(state,id,ordinal,49+ordinal),frozenRules).state;
+    }
+    expect(state.players[0]!.learningHints?.processedRequestIds).toHaveLength(5);
+    const terminal=structuredClone(state);terminal.phase='FINISHED';terminal.endReason='DRAW';terminal.winnerPlayerId=null;
+    const retry=reduceMatch(terminal,command(terminal,firstId,1,60),frozenRules);
+    expect(retry.decision).toEqual({status:'APPLIED'});
+    expect(retry.events).toEqual([]);
+    expect(retry.state).toEqual(terminal);
   });
 
   it('derives cumulative ranked penalties from revealed state', () => {
@@ -253,6 +304,7 @@ describe('authoritative learning hint revelation', () => {
 
     const exhausted = learningState('CASUAL');
     Object.assign((exhausted.players[0] as any).learningHints, {
+      coachChargesRemaining: 0,
       revealedOrdinals: [1, 2, 3, 4, 5],
       processedRequestIds: [
         '00000000-0000-4000-8000-000000000510',

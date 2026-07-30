@@ -35,4 +35,11 @@ describe('match event payload values',()=>{
  const event=(type:string,payload:Record<string,unknown>)=>({eventId:`${matchId}:1`,matchId,eventSeq:1,causedByCommandSeq:1,stateRevision:1,occurredAtMs:0,phase:'PLAYING',type,payload});
  it.each(Object.entries(payloads))('accepts %s payload and rejects an invalid value', (type,payload)=>{expect(parseMatchEventV1(event(type,payload)).type).toBe(type);const key=Object.keys(payload)[0]!;expect(()=>parseMatchEventV1(event(type,{...payload,[key]:{private:true}}))).toThrow(/values/);});
  it('rejects private fields even on an otherwise valid branch',()=>expect(()=>parseMatchEventV1(event('TAP_RESOLVED',{...payloads.TAP_RESOLVED!,privateSolution:{}}))).toThrow(/branch/));
+ it('keeps domain hint-event Unicode and discriminated-field rules aligned with the wire',()=>{
+  const base={playerId:'p1',requestId,ordinal:1,kind:'VISUAL_REGION',localizedText:'😀'.repeat(512),publicPattern:'___',publicRegion:{kind:'REGION',imageSide:'A',region:'TOP_LEFT'},rankedPenaltyUnits:0,cumulativeRankedPenaltyUnits:0,coachChargesRemaining:2};
+  expect(()=>parseMatchEventV1(event('HINT_STEP_REVEALED',base))).not.toThrow();
+  expect(()=>parseMatchEventV1(event('HINT_STEP_REVEALED',{...base,localizedText:'😀'.repeat(513)}))).toThrow();
+  expect(()=>parseMatchEventV1(event('HINT_STEP_REVEALED',{...base,kind:'DEFINITION'}))).toThrow();
+  expect(()=>parseMatchEventV1(event('HINT_STEP_REVEALED',{...base,ordinal:5,publicRegion:{kind:'EXACT_CIRCLE',imageSide:'B',centerX:.4,centerY:.5,radius:.1}}))).not.toThrow();
+ });
 });

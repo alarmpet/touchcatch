@@ -131,3 +131,27 @@ Exit code: 0
   matches.
 - User-owned 81-entry content/registry work and all unrelated dirty files were
   left untouched.
+
+## Fix Round 1
+
+- Added a non-mutating V1 read-boundary normalization for legacy player
+  documents without `learningHints`; replay parsing now returns and replays the
+  normalized initial state.
+- Enforced reachable persisted learning state: exact ordinal prefixes, one
+  receipt per reveal (maximum five), casual `max(3 - reveals, 0)` charges, and
+  ranked cumulative penalty equality.
+- Made visual hints discriminated and public-safe: visual ordinals 1-4 require
+  a coarse named region, visual ordinal 5 requires a bounded normalized exact
+  circle, and nonvisual hints forbid either descriptor.
+- Added owner-only reconnect cursor projection with next ordinal, reveal
+  history/count, charge or ranked accounting, and only the current localized
+  public step. Opponent and spectator snapshots receive `null`; legacy wire
+  snapshots may omit the field.
+- Aligned domain and wire parsers on Unicode code-point limits and all visual,
+  casual, and ranked cross-field rules.
+- Added regression matrices for frozen legacy replay, persisted invariant
+  drift, 512/513 astral text, owner/opponent/spectator privacy, same-snapshot
+  contention, five reveals, and terminal receipt retry.
+- Verification: 151 focused tests passed; scoped ESLint and generated content
+  schema checks passed. Root TypeScript remains red only on pre-existing
+  mobile/catalog, economy, traceability, and old reducer-test inference errors.
