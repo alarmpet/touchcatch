@@ -330,13 +330,13 @@ select is(
   'YES',
   'legacy acquisition date remains explicitly nullable'
 );
-select like(
+select is(
   (
     select column_default::text
     from information_schema.columns
     where table_schema = 'private' and table_name = 'pet_inventory' and column_name = 'acquired_at'
   ),
-  '%clock_timestamp%',
+  'clock_timestamp()',
   'new acquisitions receive a real transaction-time default'
 );
 
