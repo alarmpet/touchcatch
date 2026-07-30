@@ -28,10 +28,10 @@ insert into private.economy_policy_revisions(economy_version,economy_hash,pity_s
 values('mutation-test','a'||repeat('0',63),'pity-50-150-v1','b'||repeat('0',63),'{}',100,'{}');
 insert into private.pet_catalog_revisions(catalog_revision,catalog_hash)
 values('catalog-mutation-test','c'||repeat('0',63));
-insert into private.pet_definitions(pet_id,rarity,display_key)
+insert into private.pet_definitions(pet_id,rarity,display_key,coach_archetype)
 values
-  ('00000000-0000-4000-8000-000000000998','COMMON','pet.entry-test'),
-  ('00000000-0000-4000-8000-000000000999','COMMON','pet.identity-test');
+  ('00000000-0000-4000-8000-000000000998','COMMON','pet.entry-test','CHEER'),
+  ('00000000-0000-4000-8000-000000000999','COMMON','pet.identity-test','CHEER');
 insert into private.pet_catalog_revision_entries(catalog_revision,pet_id,rarity,ordinal)
 values('catalog-mutation-test','00000000-0000-4000-8000-000000000998','COMMON',0);
 

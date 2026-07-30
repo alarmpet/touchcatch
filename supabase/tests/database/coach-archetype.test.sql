@@ -184,6 +184,18 @@ select has_column(
 
 select is(
   (
+    select column_default::text
+    from information_schema.columns
+    where table_schema = 'private'
+      and table_name = 'pet_definitions'
+      and column_name = 'coach_archetype'
+  ),
+  null::text,
+  'durable coach archetype storage has no admission fallback default'
+);
+
+select is(
+  (
     select c.relowner::regrole::text
     from pg_class c
     where c.oid = 'private.pet_definitions'::regclass
@@ -227,17 +239,39 @@ select is(
   'publication stores the exact four admitted coach archetypes'
 );
 
-insert into private.pet_definitions(pet_id, rarity, display_key)
-values ('00000000-0000-4000-8000-000000009999', 'COMMON', 'pet.task0c.default');
-
 select is(
   (
-    select to_jsonb(p)->>'coach_archetype'
-    from private.pet_definitions p
-    where p.pet_id = '00000000-0000-4000-8000-000000009999'
+    select count(*)::integer
+    from task0c_valid_bundle bundle
+    cross join lateral jsonb_array_elements(bundle.catalog->'entries') entry
+    left join private.pet_definitions pet
+      on pet.pet_id = (entry->>'petId')::uuid
+    where pet.coach_archetype is distinct from entry->>'coachArchetype'
   ),
-  'CHEER',
-  'direct legacy inserts receive the CHEER compatibility default'
+  0,
+  'each published petId stores its own explicit catalog archetype'
+);
+
+select throws_ok(
+  $$
+    insert into private.pet_definitions(pet_id, rarity, display_key)
+    values (
+      '00000000-0000-4000-8000-000000009999',
+      'COMMON',
+      'pet.task0c.missing-archetype'
+    )
+  $$,
+  '23502',
+  null,
+  'future durable inserts require an explicit coach archetype'
+);
+
+insert into private.pet_definitions(pet_id, rarity, display_key, coach_archetype)
+values (
+  '00000000-0000-4000-8000-000000009997',
+  'COMMON',
+  'pet.task0c.explicit',
+  'CHEER'
 );
 
 select throws_ok(
@@ -264,7 +298,7 @@ select throws_ok(
   $$
     update private.pet_definitions
     set coach_archetype = 'SCOUT'
-    where pet_id = '00000000-0000-4000-8000-000000009999'
+    where pet_id = '00000000-0000-4000-8000-000000009997'
   $$,
   'P0001',
   'IMMUTABLE_ECONOMY_REVISION',
@@ -381,18 +415,23 @@ select ok(
   'publisher preserves security definer, fixed search path, and owner'
 );
 
-select ok(
-  has_function_privilege(
-    'economy_deployment_role',
-    'private.publish_economy_bundle_v1(jsonb,jsonb)',
-    'EXECUTE'
-  )
-  and not has_function_privilege(
-    'deployment_role',
-    'private.publish_economy_bundle_v1(jsonb,jsonb)',
-    'EXECUTE'
+select is(
+  (
+    select array_agg(role_name order by role_name)
+    from (
+      select coalesce(roles.rolname::text, 'PUBLIC') as role_name
+      from pg_proc function
+      cross join lateral aclexplode(
+        coalesce(function.proacl, acldefault('f', function.proowner))
+      ) grant_entry
+      left join pg_roles roles on roles.oid = grant_entry.grantee
+      where function.oid =
+        'private.publish_economy_bundle_v1(jsonb,jsonb)'::regprocedure
+        and grant_entry.privilege_type = 'EXECUTE'
+    ) publisher_execute_roles
   ),
-  'publisher preserves the split deployment-role grant'
+  array['economy_deployment_role','economy_security_owner']::text[],
+  'publisher EXECUTE ACL contains exactly its owner and economy deployment role'
 );
 
 select * from finish();

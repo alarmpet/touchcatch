@@ -52,13 +52,13 @@ select is(
 
 insert into private.pet_catalog_revisions(catalog_revision, catalog_hash)
 values ('daily-loop-test', repeat('c', 64));
-insert into private.pet_definitions(pet_id, rarity, display_key) values
-  ('00000000-0000-4000-8000-000000000101', 'COMMON', 'daily.common.source'),
-  ('00000000-0000-4000-8000-000000000102', 'RARE', 'daily.rare.source'),
-  ('00000000-0000-4000-8000-000000000103', 'LEGENDARY', 'daily.legendary.source'),
-  ('00000000-0000-4000-8000-000000000104', 'COMMON', 'daily.common.target'),
-  ('00000000-0000-4000-8000-000000000105', 'RARE', 'daily.rare.target'),
-  ('00000000-0000-4000-8000-000000000106', 'LEGENDARY', 'daily.legendary.target');
+insert into private.pet_definitions(pet_id, rarity, display_key, coach_archetype) values
+  ('00000000-0000-4000-8000-000000000101', 'COMMON', 'daily.common.source', 'CHEER'),
+  ('00000000-0000-4000-8000-000000000102', 'RARE', 'daily.rare.source', 'CHEER'),
+  ('00000000-0000-4000-8000-000000000103', 'LEGENDARY', 'daily.legendary.source', 'CHEER'),
+  ('00000000-0000-4000-8000-000000000104', 'COMMON', 'daily.common.target', 'CHEER'),
+  ('00000000-0000-4000-8000-000000000105', 'RARE', 'daily.rare.target', 'CHEER'),
+  ('00000000-0000-4000-8000-000000000106', 'LEGENDARY', 'daily.legendary.target', 'CHEER');
 insert into private.pet_catalog_revision_entries(catalog_revision, pet_id, rarity, ordinal) values
   ('daily-loop-test', '00000000-0000-4000-8000-000000000101', 'COMMON', 0),
   ('daily-loop-test', '00000000-0000-4000-8000-000000000104', 'COMMON', 1),

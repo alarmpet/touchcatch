@@ -5,6 +5,9 @@ alter table private.pet_definitions
   add column coach_archetype text not null default 'CHEER';
 
 alter table private.pet_definitions
+  alter column coach_archetype drop default;
+
+alter table private.pet_definitions
   add constraint pet_definitions_coach_archetype_valid
   check (coach_archetype in ('SCOUT', 'LINGUIST', 'SAGE', 'CHEER'));
 
