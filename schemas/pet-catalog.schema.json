@@ -1,1 +1,49 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://touchcatch.invalid/schemas/pet-catalog.v1.json","type":"object","additionalProperties":false,"required":["schemaVersion","catalogRevision","status","catalogHash","entries"],"properties":{"schemaVersion":{"const":1},"catalogRevision":{"type":"string","minLength":1},"status":{"enum":["DRAFT","APPROVED"]},"catalogHash":{"type":"string","pattern":"^[0-9a-f]{64}$"},"entries":{"type":"array","minItems":50,"maxItems":50,"items":{"type":"object","additionalProperties":false,"required":["petId","rarity","displayKey"],"properties":{"petId":{"type":"string","minLength":1},"rarity":{"type":"string","enum":["COMMON","RARE","LEGENDARY"]},"displayKey":{"type":"string","minLength":1}}}},"approvalDecisionId":{"type":"string","minLength":1},"approvedBy":{"type":"string","minLength":1},"approvedAt":{"type":"string","format":"date-time"}},"if":{"properties":{"status":{"const":"APPROVED"}},"required":["status"]},"then":{"properties":{"approvalDecisionId":{"type":"string","minLength":1},"approvedBy":{"type":"string","minLength":1},"approvedAt":{"type":"string","format":"date-time"}},"required":["approvalDecisionId","approvedBy","approvedAt"]}}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://touchcatch.invalid/schemas/pet-catalog.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "catalogRevision", "status", "catalogHash", "entries"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "catalogRevision": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["DRAFT", "APPROVED"] },
+    "catalogHash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "entries": {
+      "type": "array",
+      "minItems": 50,
+      "maxItems": 50,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["petId", "rarity", "displayKey"],
+        "properties": {
+          "petId": { "type": "string", "minLength": 1 },
+          "rarity": { "type": "string", "enum": ["COMMON", "RARE", "LEGENDARY"] },
+          "displayKey": { "type": "string", "minLength": 1 },
+          "coachArchetype": { "type": "string", "enum": ["SCOUT", "LINGUIST", "SAGE", "CHEER"] }
+        }
+      }
+    },
+    "approvalDecisionId": { "type": "string", "minLength": 1 },
+    "approvedBy": { "type": "string", "minLength": 1 },
+    "approvedAt": { "type": "string", "format": "date-time" }
+  },
+  "if": { "properties": { "status": { "const": "APPROVED" } }, "required": ["status"] },
+  "then": {
+    "properties": {
+      "approvalDecisionId": { "type": "string", "minLength": 1 },
+      "approvedBy": { "type": "string", "minLength": 1 },
+      "approvedAt": { "type": "string", "format": "date-time" },
+      "entries": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["coachArchetype"],
+          "properties": { "coachArchetype": { "type": "string", "enum": ["SCOUT", "LINGUIST", "SAGE", "CHEER"] } }
+        }
+      }
+    },
+    "required": ["approvalDecisionId", "approvedBy", "approvedAt"]
+  }
+}

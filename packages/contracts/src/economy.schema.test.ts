@@ -3,6 +3,7 @@ import { canonicalJsonSha256 } from './canonical-json.js';
 import {
   loadProductionEconomy,
   normalizeFusionMaterials,
+  admitDraftPetCatalog,
   parseEconomy,
   parsePetCatalog,
   pityTransition,
@@ -27,9 +28,9 @@ const pityProjection = {
 
 function catalog(status: 'DRAFT' | 'APPROVED' = 'DRAFT') {
   const entries = [
-    ...Array.from({ length: 30 }, (_, i) => ({ petId: `00000000-0000-4000-8000-${String(i+1).padStart(12,'0')}`, rarity: 'COMMON', displayKey: `pet.common.${i + 1}` })),
-    ...Array.from({ length: 15 }, (_, i) => ({ petId: `00000000-0000-4000-8000-${String(i+31).padStart(12,'0')}`, rarity: 'RARE', displayKey: `pet.rare.${i + 1}` })),
-    ...Array.from({ length: 5 }, (_, i) => ({ petId: `00000000-0000-4000-8000-${String(i+46).padStart(12,'0')}`, rarity: 'LEGENDARY', displayKey: `pet.legendary.${i + 1}` })),
+    ...Array.from({ length: 30 }, (_, i) => ({ petId: `00000000-0000-4000-8000-${String(i+1).padStart(12,'0')}`, rarity: 'COMMON', displayKey: `pet.common.${i + 1}`, coachArchetype: 'SCOUT' })),
+    ...Array.from({ length: 15 }, (_, i) => ({ petId: `00000000-0000-4000-8000-${String(i+31).padStart(12,'0')}`, rarity: 'RARE', displayKey: `pet.rare.${i + 1}`, coachArchetype: 'CHEER' })),
+    ...Array.from({ length: 5 }, (_, i) => ({ petId: `00000000-0000-4000-8000-${String(i+46).padStart(12,'0')}`, rarity: 'LEGENDARY', displayKey: `pet.legendary.${i + 1}`, coachArchetype: 'SAGE' })),
   ];
   const core = { schemaVersion: 1, catalogRevision: 'catalog-v1', entries };
   return {
@@ -93,6 +94,25 @@ describe('economy and catalog admission', () => {
     expect(parseEconomy(economy()).economyVersion).toBe('1.0.0');
     expect(parsePetCatalog(catalog()).entries).toHaveLength(50);
     expect(() => loadProductionEconomy(economy(), catalog(), {})).toThrow(/APPROVED/);
+  });
+
+  it('requires explicit coach archetypes for approved catalogs and defaults only missing DRAFT values', () => {
+    const draft = catalog();
+    delete (draft.entries[0] as { coachArchetype?: string }).coachArchetype;
+    draft.catalogHash = canonicalJsonSha256({ schemaVersion: draft.schemaVersion, catalogRevision: draft.catalogRevision, entries: draft.entries });
+    expect(parsePetCatalog(draft).entries[0]?.coachArchetype).toBe('CHEER');
+    const approved = catalog('APPROVED');
+    delete (approved.entries[0] as { coachArchetype?: string }).coachArchetype;
+    expect(() => parsePetCatalog(approved)).toThrow(/coachArchetype/i);
+  });
+
+  it('emits PET_COACH_ARCHETYPE_DEFAULTED only while admitting a DRAFT catalog', () => {
+    const draft = catalog();
+    delete (draft.entries[0] as { coachArchetype?: string }).coachArchetype;
+    draft.catalogHash = canonicalJsonSha256({ schemaVersion: draft.schemaVersion, catalogRevision: draft.catalogRevision, entries: draft.entries });
+    const warnings: string[] = [];
+    expect(admitDraftPetCatalog(draft, (warning) => warnings.push(warning.code)).entries[0]?.coachArchetype).toBe('CHEER');
+    expect(warnings).toEqual(['PET_COACH_ARCHETYPE_DEFAULTED']);
   });
 
   it('rejects extra properties, stale hashes, invalid protection, and catalog grouping drift', () => {

@@ -1,6 +1,6 @@
 import { canonicalJsonSha256 } from './canonical-json.js';
 import type { EconomyV1, LoadedApprovedEconomyV1 } from './economy.js';
-import type { PetCatalogRevisionV1, PetRarity } from './pet-catalog.js';
+import type { CoachArchetype, PetCatalogEntryV1, PetCatalogRevisionV1, PetRarity } from './pet-catalog.js';
 import { Ajv2020 } from 'ajv/dist/2020.js';
 import economyJsonSchema from '../../../schemas/economy.schema.json' with { type: 'json' };
 import catalogJsonSchema from '../../../schemas/pet-catalog.schema.json' with { type: 'json' };
@@ -31,15 +31,30 @@ export function parsePetCatalog(input: unknown): PetCatalogRevisionV1 {
   const value = object(input, 'catalog'); exactKeys(value, catalogKeys, 'catalog'); approval(value);
   if (value.schemaVersion !== 1 || !['DRAFT','APPROVED'].includes(String(value.status)) || typeof value.catalogRevision !== 'string' || !Array.isArray(value.entries)) throw new TypeError('invalid catalog structure');
   const ids = new Set<string>(); const counts: Record<PetRarity, number> = { COMMON: 0, RARE: 0, LEGENDARY: 0 };
+  const normalizedEntries: PetCatalogEntryV1[] = [];
   for (const raw of value.entries) {
-    const entry = object(raw, 'catalog entry'); exactKeys(entry, new Set(['petId','rarity','displayKey']), 'catalog entry');
-    if (typeof entry.petId !== 'string' || entry.petId === '' || ids.has(entry.petId) || (value.status === 'APPROVED' && !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(entry.petId)) || typeof entry.displayKey !== 'string' || !(entry.rarity === 'COMMON' || entry.rarity === 'RARE' || entry.rarity === 'LEGENDARY')) throw new TypeError('catalog entries require unique opaque UUIDv4 IDs and valid rarity');
+    const entry = object(raw, 'catalog entry'); exactKeys(entry, new Set(['petId','rarity','displayKey','coachArchetype']), 'catalog entry');
+    const coachArchetype = entry.coachArchetype ?? (value.status === 'DRAFT' ? 'CHEER' : undefined);
+    if (typeof entry.petId !== 'string' || entry.petId === '' || ids.has(entry.petId) || (value.status === 'APPROVED' && !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(entry.petId)) || typeof entry.displayKey !== 'string' || !(entry.rarity === 'COMMON' || entry.rarity === 'RARE' || entry.rarity === 'LEGENDARY') || !(coachArchetype === 'SCOUT' || coachArchetype === 'LINGUIST' || coachArchetype === 'SAGE' || coachArchetype === 'CHEER')) throw new TypeError('catalog entries require unique opaque UUIDv4 IDs, valid rarity, and coachArchetype');
     ids.add(entry.petId); counts[entry.rarity] += 1;
+    normalizedEntries.push({ petId: entry.petId, rarity: entry.rarity, displayKey: entry.displayKey, coachArchetype: coachArchetype as CoachArchetype });
   }
   if (counts.COMMON !== 30 || counts.RARE !== 15 || counts.LEGENDARY !== 5) throw new TypeError('catalog requires exact 30/15/5 rarity grouping');
   const projection = { schemaVersion: value.schemaVersion, catalogRevision: value.catalogRevision, entries: value.entries };
   if (!hashPattern.test(String(value.catalogHash)) || canonicalJsonSha256(projection) !== value.catalogHash) throw new TypeError('catalogHash mismatch');
-  return value as unknown as PetCatalogRevisionV1;
+  return { ...value, entries: normalizedEntries } as unknown as PetCatalogRevisionV1;
+}
+
+export function admitDraftPetCatalog(input: unknown, onWarning: (warning: { code: 'PET_COACH_ARCHETYPE_DEFAULTED'; petId: string }) => void = () => undefined): PetCatalogRevisionV1 {
+  const catalog = parsePetCatalog(input);
+  if (catalog.status !== 'DRAFT') throw new TypeError('only DRAFT catalogs may receive coachArchetype defaults');
+  const rawEntries = object(input, 'catalog').entries;
+  if (!Array.isArray(rawEntries)) throw new TypeError('catalog entries must be an array');
+  rawEntries.forEach((raw, index) => {
+    const entry = object(raw, 'catalog entry');
+    if (entry.coachArchetype === undefined) onWarning({ code: 'PET_COACH_ARCHETYPE_DEFAULTED', petId: catalog.entries[index]!.petId });
+  });
+  return catalog;
 }
 
 export function parseEconomy(input: unknown): EconomyV1 {
