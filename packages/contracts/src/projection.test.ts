@@ -33,6 +33,7 @@ it('maps every domain event for owner, opponent, and public visibility without l
   {...base,type:'FINAL_RUSH_STARTED',payload:{startedAtMs:10}},
   {...base,type:'FINAL_CHALLENGE_UNLOCKED',payload:{unlockedAtMs:10,source:'TIME' as const,publicPattern:'c_t'}},
   {...base,type:'HINT_REVEALED',payload:{playerId:'p1',hintIndex:0,publicPattern:'ca_'}},
+  {...base,type:'HINT_STEP_REVEALED',payload:{playerId:'p1',requestId:'00000000-0000-4000-8000-000000000002',ordinal:1,kind:'DEFINITION' as const,localizedText:'current',publicPattern:'ca_',publicRegion:null,rankedPenaltyUnits:0 as const,cumulativeRankedPenaltyUnits:0,coachChargesRemaining:2}},
   {...base,type:'HINT_CREDIT_CHANGED',payload:{playerId:'p1',delta:1,absoluteCredits:2}},
   {...base,type:'SCORE_CHANGED',payload:{playerId:'p1',delta:5,absoluteScore:5}},
   {...base,type:'ANSWER_LOCK_CHANGED',payload:{playerId:'p1',answerUntilMs:20,reason:'WRONG_ANSWER' as const}},
@@ -49,12 +50,12 @@ it('maps every domain event for owner, opponent, and public visibility without l
  ] satisfies MatchEvent[];
  const differenceCircles={imageA:{cx:.1,cy:.2,r:.03},imageB:{cx:.4,cy:.5,r:.03}};
  const state={privateSolution:{schemaVersion:'1.0.0',contentRevisionId:'r',privateSolutionHash:'a'.repeat(64),finalChallenge:{canonicalAnswer:'cat',aliases:[],hintUnits:[],hintLadder:[],meaning:{prompt:'safe prompt',options:[{id:'a',label:'A'},{id:'b',label:'B'}],correctOptionId:'a'}},suddenDeath:{objectiveId:'sd',hitboxes:{imageA:{cx:0,cy:0,r:.1},imageB:{cx:0,cy:0,r:.1}}},differences:[{objectiveId:'d1',tier:'NORMAL',hitboxes:differenceCircles}],wordHunts:[]}} satisfies Pick<MatchStateV1,'privateSolution'>;
- expect(new Set(events.map(e=>e.type)).size).toBe(18);
- const publicTypes={ASSET_READY_CHANGED:'asset_ready_changed',MATCH_STARTED:'match_started',FINAL_RUSH_STARTED:'final_rush_started',FINAL_CHALLENGE_UNLOCKED:'final_challenge_unlocked',HINT_REVEALED:null,HINT_CREDIT_CHANGED:null,SCORE_CHANGED:'score_changed',ANSWER_LOCK_CHANGED:'answer_lock_changed',TAP_RESOLVED:null,OBJECTIVE_CLAIMED:'difference_claimed',WORD_HUNT_STARTED:'word_hunt_started',WORD_HUNT_WON:'word_hunt_won',WORD_HUNT_ENDED:'word_hunt_ended',MEANING_QUIZ_STARTED:null,SUDDEN_DEATH_STARTED:'sudden_death_started',INPUT_CLOSED:'input_closed',PLAYER_CONNECTION_CHANGED:'connection_changed',MATCH_FINISHED:'match_finished'} as const;
+ expect(new Set(events.map(e=>e.type)).size).toBe(19);
+ const publicTypes={ASSET_READY_CHANGED:'asset_ready_changed',MATCH_STARTED:'match_started',FINAL_RUSH_STARTED:'final_rush_started',FINAL_CHALLENGE_UNLOCKED:'final_challenge_unlocked',HINT_REVEALED:null,HINT_STEP_REVEALED:null,HINT_CREDIT_CHANGED:null,SCORE_CHANGED:'score_changed',ANSWER_LOCK_CHANGED:'answer_lock_changed',TAP_RESOLVED:null,OBJECTIVE_CLAIMED:'difference_claimed',WORD_HUNT_STARTED:'word_hunt_started',WORD_HUNT_WON:'word_hunt_won',WORD_HUNT_ENDED:'word_hunt_ended',MEANING_QUIZ_STARTED:null,SUDDEN_DEATH_STARTED:'sudden_death_started',INPUT_CLOSED:'input_closed',PLAYER_CONNECTION_CHANGED:'connection_changed',MATCH_FINISHED:'match_finished'} as const;
  for(const event of events)for(const viewer of ['p1','p2','public']){
   const projected=projectMatchEvent(event,state,viewer);
-  const ownerPrivate=(event.type==='TAP_RESOLVED'||event.type==='HINT_REVEALED'||event.type==='HINT_CREDIT_CHANGED'||event.type==='MEANING_QUIZ_STARTED')&&viewer==='p1';
-  const expected=ownerPrivate?({TAP_RESOLVED:'tap_result',HINT_REVEALED:'hint_revealed',HINT_CREDIT_CHANGED:'hint_credit_changed',MEANING_QUIZ_STARTED:'meaning_quiz_started'} as const)[event.type as 'TAP_RESOLVED'|'HINT_REVEALED'|'HINT_CREDIT_CHANGED'|'MEANING_QUIZ_STARTED']:(publicTypes[event.type]??'state_advanced');
+  const ownerPrivate=(event.type==='TAP_RESOLVED'||event.type==='HINT_REVEALED'||event.type==='HINT_STEP_REVEALED'||event.type==='HINT_CREDIT_CHANGED'||event.type==='MEANING_QUIZ_STARTED')&&viewer==='p1';
+  const expected=ownerPrivate?({TAP_RESOLVED:'tap_result',HINT_REVEALED:'hint_revealed',HINT_STEP_REVEALED:'hint_step_revealed',HINT_CREDIT_CHANGED:'hint_credit_changed',MEANING_QUIZ_STARTED:'meaning_quiz_started'} as const)[event.type as 'TAP_RESOLVED'|'HINT_REVEALED'|'HINT_STEP_REVEALED'|'HINT_CREDIT_CHANGED'|'MEANING_QUIZ_STARTED']:(publicTypes[event.type]??'state_advanced');
   expect(projected.type,`${event.type}/${viewer}`).toBe(expected);expect(projected.eventSeq).toBe(event.eventSeq);expect(projected.stateRevision).toBe(event.stateRevision);expect(forbiddenPaths(projected)).toEqual([]);
   const parsed=serverEventEnvelopeSchema.safeParse(projected);expect(parsed.success,`${event.type}/${viewer} schema ${parsed.success?'':parsed.error.message}`).toBe(true);
   if(event.type==='OBJECTIVE_CLAIMED')expect(projected.payload).toMatchObject({objectiveId:'d1',ownerPlayerId:'p1',displayCircles:differenceCircles});

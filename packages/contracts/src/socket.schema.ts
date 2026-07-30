@@ -16,6 +16,7 @@ const uuid = z
   eventId = z.string().regex(/^[\x21-\x7e]{1,64}$/),
   safe = z.number().int().nonnegative().safe(),
   signed = z.number().int().safe(),
+  codePointText = (maximum:number) => z.string().refine(value=>[...value].length<=maximum),
   phase = z.enum([
     "WAITING_FOR_ASSETS",
     "COUNTDOWN",
@@ -48,6 +49,20 @@ const uuid = z
       label: z.string().min(1).max(256),
     })
     .strict();
+const learningHintCurrent = z.object({
+  ordinal:z.union([z.literal(1),z.literal(2),z.literal(3),z.literal(4),z.literal(5)]),
+  kind:z.enum(["VISUAL_REGION","SEMANTIC_CATEGORY","DEFINITION","CONTEXT_SENTENCE","ANSWER_LENGTH","INITIAL_PATTERN","REVEAL_GRAPHEME","ELIMINATE_OPTION"]),
+  localizedText:codePointText(512).min(1),
+  publicPattern:codePointText(64).nullable(),
+  publicRegion:publicHintRegion.nullable(),
+}).strict().superRefine((value,context)=>{
+  const valid = value.kind==="VISUAL_REGION"
+    ? value.publicRegion!==null && (value.ordinal===5
+      ? value.publicRegion.kind==="EXACT_CIRCLE"
+      : value.publicRegion.kind==="REGION")
+    : value.publicRegion===null;
+  if(!valid)context.addIssue({code:"custom",message:"current hint visual descriptor mismatch",path:["publicRegion"]});
+});
 const dimension = z
   .object({
     assetHash: hash,
@@ -245,7 +260,7 @@ export const serverEventEnvelopeSchema = z.discriminatedUnion("type", [
       .object({
         unlockedAtMs: safe,
         source: z.enum(["TIME", "DIFFERENCE", "WORD_HUNT"]),
-        publicPattern: z.string().max(64),
+        publicPattern: codePointText(64),
       })
       .strict(),
   ),
@@ -282,7 +297,7 @@ export const serverEventEnvelopeSchema = z.discriminatedUnion("type", [
           "ELIMINATE_OPTION",
         ]),
         localizedText: z.string().min(1).refine(value=>[...value].length<=512),
-        publicPattern: z.string().max(64),
+        publicPattern: codePointText(64),
         publicRegion: publicHintRegion.nullable(),
         rankedPenaltyUnits: z.union([z.literal(0), z.literal(1)]),
         cumulativeRankedPenaltyUnits: safe,
@@ -308,6 +323,13 @@ export const serverEventEnvelopeSchema = z.discriminatedUnion("type", [
             code: "custom",
             message: "casual hints cannot carry ranked penalties",
             path: ["cumulativeRankedPenaltyUnits"],
+          });
+        }
+        if (value.rankedPenaltyUnits === 0 && value.coachChargesRemaining === null) {
+          context.addIssue({
+            code: "custom",
+            message: "casual hints require coach charges",
+            path: ["coachChargesRemaining"],
           });
         }
         if (
@@ -494,7 +516,7 @@ export const matchSnapshotV1Schema = z
               revealedCount:safe,
               coachChargesRemaining:safe.nullable(),
               cumulativeRankedPenaltyUnits:safe,
-              current:z.object({ordinal:z.union([z.literal(1),z.literal(2),z.literal(3),z.literal(4),z.literal(5)]),kind:z.enum(["VISUAL_REGION","SEMANTIC_CATEGORY","DEFINITION","CONTEXT_SENTENCE","ANSWER_LENGTH","INITIAL_PATTERN","REVEAL_GRAPHEME","ELIMINATE_OPTION"]),localizedText:z.string().min(1).refine(value=>[...value].length<=512),publicPattern:z.string().max(64).nullable(),publicRegion:publicHintRegion.nullable()}).strict().nullable(),
+              current:learningHintCurrent.nullable(),
             }).strict().nullable().optional(),
           })
           .strict(),

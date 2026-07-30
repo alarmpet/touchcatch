@@ -1,5 +1,5 @@
 import type { MatchEvent, MatchStateV1 } from "./match.js";
-import type { MatchSnapshotV1, ServerEventEnvelope } from "./socket.js";
+import type { LearningHintSnapshotV1, MatchSnapshotV1, ServerEventEnvelope } from "./socket.js";
 const base = (e: MatchEvent) => ({
   protocolVersion: 1 as const,
   eventId: e.eventId,
@@ -148,6 +148,18 @@ export function projectSnapshot(
   const currentStep = currentOrdinal === undefined
     ? undefined
     : s.privateSolution.finalChallenge.hintLadder?.find(step=>step.ordinal===currentOrdinal);
+  let learningCurrent:LearningHintSnapshotV1["current"]=null;
+  if(currentStep!==undefined){
+    const baseCurrent={ordinal:currentStep.ordinal,localizedText:currentStep.localizedText[s.contentLanguage==='ko'?'ko':'en'],publicPattern:player.publicPattern};
+    if(currentStep.kind==='VISUAL_REGION'){
+      if(currentStep.ordinal===5&&currentStep.publicRegion?.kind==='EXACT_CIRCLE')learningCurrent={...baseCurrent,ordinal:5,kind:'VISUAL_REGION',publicRegion:currentStep.publicRegion};
+      else if(currentStep.ordinal<5&&currentStep.publicRegion?.kind==='REGION')learningCurrent={...baseCurrent,ordinal:currentStep.ordinal as 1|2|3|4,kind:'VISUAL_REGION',publicRegion:currentStep.publicRegion};
+      else throw Error('invalid current visual hint descriptor');
+    }else{
+      if(currentStep.publicRegion!==undefined)throw Error('nonvisual current hint has a descriptor');
+      learningCurrent={...baseCurrent,kind:currentStep.kind,publicRegion:null};
+    }
+  }
   const terminal =
     s.endReason === null
       ? null
@@ -224,13 +236,7 @@ export function projectSnapshot(
           revealedCount:learning.revealedOrdinals.length,
           coachChargesRemaining:learning.mode==='CASUAL'?learning.coachChargesRemaining:null,
           cumulativeRankedPenaltyUnits:learning.cumulativeRankedPenaltyUnits,
-          current:currentStep===undefined?null:{
-            ordinal:currentStep.ordinal,
-            kind:currentStep.kind,
-            localizedText:currentStep.localizedText[s.contentLanguage==='ko'?'ko':'en'],
-            publicPattern:player.publicPattern,
-            publicRegion:currentStep.publicRegion??null,
-          },
+          current:learningCurrent,
         },
       },
     },

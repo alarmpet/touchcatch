@@ -155,3 +155,20 @@ Exit code: 0
 - Verification: 151 focused tests passed; scoped ESLint and generated content
   schema checks passed. Root TypeScript remains red only on pre-existing
   mobile/catalog, economy, traceability, and old reducer-test inference errors.
+
+## Fix Round 2
+
+- Made reconnect `current` hints a fail-closed discriminated union in both the
+  public TypeScript contract and Zod parser: early visual hints require a named
+  region, ordinal five requires an exact normalized circle, and nonvisual
+  hints require a null descriptor.
+- Unified learning event and reconnect-current public-pattern limits on Unicode
+  code points (64 accepted, 65 rejected), parallel to localized hint text.
+- Tightened casual/ranked wire parity so casual events require an integer coach
+  charge and ranked events require null.
+- Added all 19 domain event types, including `HINT_STEP_REVEALED`, to the
+  owner/opponent/public projection matrix.
+- Verification: 57 focused match/socket/projection tests passed, scoped ESLint
+  passed, and scoped contract TypeScript reported no errors. The generated
+  content-schema check is presently blocked by concurrent uncommitted
+  `content.ts`/generated-schema drift outside this fix-round scope.
