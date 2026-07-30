@@ -1,73 +1,13 @@
 import { expect, it } from 'vitest';
-import { buildDemoEntry } from './data.js';
+import { buildDemoEntry, type MobileSemanticSnapshot } from './data.js';
 
-it('uses only the admitted five-step hash-pinned snapshot', () => {
-  const hintLadder = [1, 2, 3, 4, 5].map((ordinal) => ({
-    ordinal: ordinal as 1 | 2 | 3 | 4 | 5,
-    kind: 'DEFINITION' as const,
-    localizedText: { ko: `제시 ${ordinal}`, en: `Hint ${ordinal}` },
-    revealIndexes: [],
-    rankedPenaltyUnits: 1 as const,
-  }));
-  const bundle = {
-    publicContent: { theme: 'demo' },
-    privateSolution: {
-      differences: [{
-        objectiveId: 'd',
-        hitboxes: {
-          imageA: { cx: 0.1, cy: 0.2, r: 0.03 },
-          imageB: { cx: 0.2, cy: 0.3, r: 0.04 },
-        },
-      }],
-      finalChallenge: {
-        canonicalAnswer: 'answer',
-        hintUnits: ['a', 'n', 's', 'w', 'e', 'r'],
-        hintLadder: hintLadder.map((step) => ({
-          ...step,
-          localizedText: { ko: '변조됨', en: 'Mutated' },
-        })),
-        meaning: {
-          prompt: 'Meaning?',
-          options: [{ id: 'yes', label: 'Yes' }],
-          correctOptionId: 'yes',
-        },
-      },
-    },
-  };
-
-  const admitted = buildDemoEntry(
-    'ENGLISH',
-    bundle,
-    { imageA: 1, imageB: 2 },
-    {
-      status: 'ADMITTED',
-      rankedEligible: true,
-      admissionHash: 'a'.repeat(64),
-      hintLadder,
-    },
-  );
-  expect(admitted).toMatchObject({
-    key: 'demo',
-    title: 'answer',
-    imageA: 1,
-    imageB: 2,
-    differences: [{ id: 'd' }],
-    correctOptionId: 'yes',
-    hintUnits: ['a', 'n', 's', 'w', 'e', 'r'],
-    hintLadder,
-    hintAdmissionHash: 'a'.repeat(64),
-  });
-
-  expect(
-    buildDemoEntry(
-      'ENGLISH',
-      bundle,
-      { imageA: 1, imageB: 2 },
-      {
-        status: 'MISSING',
-        rankedEligible: false,
-        admissionHash: null,
-      },
-    ),
-  ).not.toHaveProperty('hintLadder');
+it('projects only a complete pinned semantic snapshot and ignores later draft mutation', () => {
+  const ladder = [1,2,3,4,5].map(ordinal=>({ordinal:ordinal as 1|2|3|4|5,kind:'DEFINITION' as const,localizedText:{ko:`힌트 ${ordinal}`,en:`Hint ${ordinal}`},revealIndexes:[],rankedPenaltyUnits:1 as const}));
+  const snapshot: MobileSemanticSnapshot = {key:'demo',category:'ENGLISH',title:'answer',canonicalAnswer:'answer',contentRevisionId:'revision',privateSolutionHash:'b'.repeat(64),differences:[{id:'d',imageA:{cx:.1,cy:.2,r:.03},imageB:{cx:.2,cy:.3,r:.04}}],prompt:'Meaning?',options:[{id:'yes',label:'Yes'}],correctOptionId:'yes',hintUnits:['a'],hintAdmissionStatus:'ADMITTED',rankedEligible:true,hintAdmissionHash:'a'.repeat(64),hintLadder:ladder};
+  const mutableDraft = structuredClone(snapshot);
+  const entry = buildDemoEntry(snapshot,{imageA:1,imageB:2});
+  (mutableDraft as any).title='mutated';
+  (mutableDraft as any).prompt='mutated';
+  expect(entry).toMatchObject({key:'demo',title:'answer',prompt:'Meaning?',hintLadder:ladder,hintAdmissionHash:'a'.repeat(64)});
+  expect(buildDemoEntry({...snapshot,hintAdmissionStatus:'MISSING',rankedEligible:false,hintAdmissionHash:null,hintLadder:ladder},{imageA:1,imageB:2})).not.toHaveProperty('hintLadder');
 });

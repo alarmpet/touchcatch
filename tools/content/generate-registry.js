@@ -32,6 +32,10 @@ function semanticAdmissionHash(category, bundle) {
   }), 'utf8').digest('hex');
 }
 
+function sha256(value) {
+  return createHash('sha256').update(canonicalJson(value), 'utf8').digest('hex');
+}
+
 export async function generateMobileRegistry({
   manifestPath = 'content/learning/manifest.v1.json',
   draftsRoot = 'content/learning/drafts',
@@ -54,8 +58,12 @@ export async function generateMobileRegistry({
     const bundle = JSON.parse(
       await fs.readFile(`${draftsRoot}/${entry.key}.json`, 'utf8'),
     );
+    const { privateSolutionHash, ...privateBody } = bundle.privateSolution;
+    if (sha256(privateBody) !== privateSolutionHash) {
+      throw new Error(`PRIVATE_SOLUTION_HASH_MISMATCH:${entry.key}`);
+    }
     const admission = entry.hintLadderAdmission;
-    let admissionLiteral;
+    let hintLadder;
     if (admission.status === 'ADMITTED') {
       if (
         entry.rankedEligible !== true ||
@@ -66,26 +74,47 @@ export async function generateMobileRegistry({
       ) {
         throw new Error(`HINT_ADMISSION_DRIFT:${entry.key}`);
       }
-      admissionLiteral = `{ status: 'ADMITTED', rankedEligible: true, admissionHash: '${admission.hash}', hintLadder: ${JSON.stringify(bundle.privateSolution.finalChallenge.hintLadder)} }`;
+      hintLadder = bundle.privateSolution.finalChallenge.hintLadder;
     } else {
       if (entry.rankedEligible || admission.hash !== null) {
         throw new Error(`INVALID_HINT_ADMISSION:${entry.key}`);
       }
-      admissionLiteral = `{ status: '${admission.status}', rankedEligible: false, admissionHash: null }`;
     }
     const variable = toCamelCase(entry.key);
+    const challenge = bundle.privateSolution.finalChallenge;
+    const snapshot = {
+      key: entry.key,
+      category: entry.category,
+      title: challenge.canonicalAnswer,
+      canonicalAnswer: challenge.canonicalAnswer,
+      contentRevisionId: entry.contentRevisionId,
+      privateSolutionHash,
+      differences: bundle.privateSolution.differences.map((difference) => ({
+        id: difference.objectiveId,
+        imageA: difference.hitboxes.imageA,
+        imageB: difference.hitboxes.imageB,
+      })),
+      prompt: challenge.meaning.prompt,
+      options: challenge.meaning.options,
+      correctOptionId: challenge.meaning.correctOptionId,
+      hintUnits: challenge.hintUnits,
+      hintAdmissionStatus: admission.status,
+      rankedEligible: entry.rankedEligible,
+      hintAdmissionHash: admission.hash,
+      ...(hintLadder ? { hintLadder } : {}),
+    };
     imports.push(
-      `const ${variable} = require('../../../../content/learning/drafts/${entry.key}.json') as unknown as Bundle;`,
+      `const ${variable}Snapshot = ${JSON.stringify(snapshot)} as const satisfies MobileSemanticSnapshot;`,
     );
     entries.push(
-      `  buildDemoEntry('${entry.category}', ${variable}, { imageA: require('../../../../content/learning/source/${entry.key}-a.png'), imageB: require('../../../../content/learning/source/${entry.key}-b.png') }, ${admissionLiteral}),`,
+      `  buildDemoEntry(${variable}Snapshot, { imageA: require('../../../../content/learning/source/${entry.key}-a.png'), imageB: require('../../../../content/learning/source/${entry.key}-b.png') }),`,
     );
   }
 
   const code = `// GENERATED CODE - DO NOT EDIT MANUALLY
 // Generated from content/learning/manifest.v1.json by tools/content/generate-registry.js
 
-import { buildDemoEntry, type Bundle } from './data';
+import { buildDemoEntry, type MobileSemanticSnapshot } from './data.js';
 
 declare const require: (path: string) => unknown;
 

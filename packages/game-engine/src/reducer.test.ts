@@ -70,6 +70,32 @@ it('accepts optional authored ladder and approved Hanja evidence in match state'
   expect(()=>parseMatchStateV1(state)).not.toThrow();
 });
 
+it.each([[256,true],[257,true],[512,true],[513,false]])('keeps match hint localized text at the shared-schema %i boundary',(length,accepted)=>{
+  const state=startedState().state;
+  const {privateSolutionHash:_,...body}=structuredClone(solution);
+  (body.finalChallenge as any).hintLadder=[1,2,3,4,5].map(ordinal=>({ordinal:ordinal as 1|2|3|4|5,kind:'DEFINITION' as const,localizedText:{ko:'가'.repeat(length),en:'a'.repeat(length)},revealIndexes:[],rankedPenaltyUnits:1 as const}));
+  state.privateSolution={...body,privateSolutionHash:canonicalJsonSha256(body)};
+  if(accepted) expect(()=>parseMatchStateV1(state)).not.toThrow(); else expect(()=>parseMatchStateV1(state)).toThrow(/hint step/);
+});
+
+it.each([
+  ['ordinal',(s:any)=>s[0].ordinal=2],
+  ['kind',(s:any)=>s[0].kind='FORGED'],
+  ['localized keys',(s:any)=>s[0].localizedText.ja='x'],
+  ['negative reveal',(s:any)=>s[0].revealIndexes=[-1]],
+  ['large reveal',(s:any)=>s[0].revealIndexes=[64]],
+  ['duplicate reveal',(s:any)=>s[0].revealIndexes=[1,1]],
+  ['penalty',(s:any)=>s[0].rankedPenaltyUnits=2],
+] as const)('rejects HintStep shared-schema constraint: %s',(_label,mutate)=>{
+  const state=startedState().state;
+  const {privateSolutionHash:_,...body}=structuredClone(solution);
+  const steps:any[]=[1,2,3,4,5].map(ordinal=>({ordinal,kind:'DEFINITION',localizedText:{ko:'힌트',en:'Hint'},revealIndexes:[],rankedPenaltyUnits:1}));
+  mutate(steps);
+  (body.finalChallenge as any).hintLadder=steps;
+  state.privateSolution={...body,privateSolutionHash:canonicalJsonSha256(body)};
+  expect(()=>parseMatchStateV1(state)).toThrow(/hint step/);
+});
+
 function replayFixture(){const matchId='00000000-0000-4000-8000-000000000001';const asset=(side:'A'|'B')=>({side,url:`https://cdn.test/${side}.png`,sha256:(side==='A'?'a':'c').repeat(64),encodedBytes:1,width:1,height:1,mimeType:'image/png' as const});const created=createMatchInitialState({matchId,createdAtMs:0,engineVersion:'1',rulesetHash:canonicalJsonSha256(rules),playerIds:['p1','p2'],contentManifest:{contentRevisionId:solution.contentRevisionId,publicContentHash:'d'.repeat(64),privateSolutionHash:solution.privateSolutionHash,assetPolicyVersion:'1.0.0',expectedAssets:[asset('A'),asset('B')]},privateSolution:solution,randomSchedule:{wordHunts:[{kind:'NORMAL',missionId:'w1',startsAfterMs:16000,endsAfterMs:21000},{kind:'NORMAL',missionId:'w2',startsAfterMs:34000,endsAfterMs:39000},{kind:'SPECIAL',missionId:'w3',startsAfterMs:60000,endsAfterMs:65000}],hintRevealOrder:[2,0,1],suddenDeathObjectiveId:'sd'}},frozenRules);return {bundleVersion:1 as const,engineVersion:'1',ruleset:frozenRules,rulesetVersion:'1.0.0' as const,rulesetHash:canonicalJsonSha256(rules),contentRevisionId:solution.contentRevisionId,contentLanguage:'en' as const,contentHash:'d'.repeat(64),initialState:created.state,commands:[]};}
 
 describe('replay acceptance negatives',()=>{

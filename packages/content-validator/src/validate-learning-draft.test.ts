@@ -35,6 +35,25 @@ function rehashPrivateSolution(bundle: Record<string, any>): void {
 }
 
 describe('learning draft hint admission boundary', () => {
+  it('admits a production-schema-valid four-option general-knowledge fixture', () => {
+    const { entry, bundle } = representativeAdmissionPair();
+    const options = [1,2,3,4].map(number=>({id:`option_${number}`,label:`Choice ${number}`}));
+    const ladder = [
+      {ordinal:1,kind:'SEMANTIC_CATEGORY',localizedText:{ko:'지식 분야예요.',en:'The domain is general knowledge.'},revealIndexes:[],rankedPenaltyUnits:1},
+      {ordinal:2,kind:'DEFINITION',localizedText:{ko:'회복하는 힘을 뜻해요.',en:'It means the ability to recover.'},revealIndexes:[],rankedPenaltyUnits:1},
+      {ordinal:3,kind:'ELIMINATE_OPTION',localizedText:{ko:'첫 선택지를 제외해요.',en:'Eliminate the first option.'},revealIndexes:[0],rankedPenaltyUnits:1},
+      {ordinal:4,kind:'ANSWER_LENGTH',localizedText:{ko:'정답은 10글자예요.',en:'The answer has 10 graphemes.'},revealIndexes:[],rankedPenaltyUnits:1},
+      {ordinal:5,kind:'ELIMINATE_OPTION',localizedText:{ko:'둘째 선택지를 제외해요.',en:'Eliminate the second option.'},revealIndexes:[1],rankedPenaltyUnits:1},
+    ];
+    Object.assign(entry,{category:'GENERAL_KNOWLEDGE',meaning:{prompt:'Which choice is correct?',options,correctOptionId:'option_4'},hintLadder:ladder});
+    expect(validateLearningCatalogue({schemaVersion:'1.0.0',entries:[entry]})).toEqual({ok:true});
+    Object.assign(bundle.publicContent,{category:'GENERAL_KNOWLEDGE'});
+    Object.assign(bundle.privateSolution.finalChallenge,{meaning:entry.meaning,hintLadder:ladder});
+    rehashPrivateSolution(bundle);
+    expect(options.map(option=>option.id)).toEqual(['option_1','option_2','option_3','option_4']);
+    expect(admitLearningBundleHintLadder(entry as never,bundle)).toMatchObject({status:'ADMITTED',stepCount:5,errors:[]});
+  });
+
   it('accepts the expanded production catalogue without freezing an obsolete key list', () => {
     const catalog = JSON.parse(fs.readFileSync(cataloguePath, 'utf8')) as {
       entries: Array<{ category: string; status: string }>;

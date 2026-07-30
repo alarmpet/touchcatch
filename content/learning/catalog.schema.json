@@ -106,12 +106,12 @@
                   "additionalProperties": false,
                   "required": ["id", "label"],
                   "properties": {
-                    "id": {"type": "string", "pattern": "^option_[1-3]$"},
+                    "id": {"type": "string", "pattern": "^option_[1-4]$"},
                     "label": {"type": "string", "minLength": 1}
                   }
                 }
               },
-              "correctOptionId": {"type": "string", "pattern": "^option_[1-3]$"}
+              "correctOptionId": {"type": "string", "pattern": "^option_[1-4]$"}
             }
           },
           "hintLadder": {

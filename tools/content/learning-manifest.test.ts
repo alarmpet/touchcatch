@@ -160,6 +160,8 @@ describe('learning manifest hint admission', () => {
       };
       draft.privateSolution.finalChallenge.hintLadder[0]!.localizedText.en =
         'Changed after admission';
+      const { privateSolutionHash: _ignored, ...privateBody } = draft.privateSolution as any;
+      (draft.privateSolution as any).privateSolutionHash = canonicalJsonSha256(privateBody);
       await writeFile(draftPath, JSON.stringify(draft), 'utf8');
 
       await expect(
@@ -169,6 +171,20 @@ describe('learning manifest hint admission', () => {
           outputPath: registryPath,
         }),
       ).rejects.toThrow('HINT_ADMISSION_DRIFT:en-resilience');
+    });
+  });
+
+  it('rejects a stale private solution self-hash before generating a snapshot', async () => {
+    await withRepresentativeLearningRoot(async (learningRoot) => {
+      const manifest = await buildLearningManifest(learningRoot);
+      const manifestPath = resolve(learningRoot, 'manifest.v1.json');
+      await writeFile(manifestPath, JSON.stringify(manifest), 'utf8');
+      const draftPath = resolve(learningRoot, 'drafts/en-resilience.json');
+      const draft = JSON.parse(await readFile(draftPath, 'utf8')) as any;
+      draft.privateSolution.differences[0].hitboxes.imageA.cx = 0.99;
+      await writeFile(draftPath, JSON.stringify(draft), 'utf8');
+      await expect(generateMobileRegistry({manifestPath,draftsRoot:resolve(learningRoot,'drafts'),outputPath:resolve(learningRoot,'registry.ts')}))
+        .rejects.toThrow('PRIVATE_SOLUTION_HASH_MISMATCH:en-resilience');
     });
   });
 
@@ -224,8 +240,9 @@ describe('learning manifest hint admission', () => {
       });
       const registry = await readFile(registryPath, 'utf8');
       expect(registry.match(/buildDemoEntry\(/g)).toHaveLength(79);
-      expect(registry.match(/status: 'ADMITTED'/g)).toHaveLength(3);
-      expect(registry.match(/status: 'MISSING'/g)).toHaveLength(76);
+      expect(registry.match(/"hintAdmissionStatus":"ADMITTED"/g)).toHaveLength(3);
+      expect(registry.match(/"hintAdmissionStatus":"MISSING"/g)).toHaveLength(76);
+      expect(registry).not.toContain('/drafts/');
     } finally {
       await rm(learningRoot, { recursive: true, force: true });
     }
