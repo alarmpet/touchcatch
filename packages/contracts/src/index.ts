@@ -18,6 +18,7 @@ export * from './economy.js';
 export * from './ui.js';
 export * from './economy.schema.js';
 export * from './pet-catalog.js';
+export * from './daily-pet-loop.js';
 export {
   PRIVACY_OPERATOR_ROLE,
   parseQuarantinePolicy,

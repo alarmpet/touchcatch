@@ -43,7 +43,9 @@ select is((select count(*)::int from pg_proc where prosecdef and pronamespace in
   'private.draw_pet_v1(uuid,uuid,text,text,text,text,text)'::regprocedure,
   'private.fuse_pets_v1(uuid,uuid,text,jsonb,text,text,text,text)'::regprocedure,
   'private.select_pet_v1(uuid,uuid,text,uuid)'::regprocedure,
-  'private.set_pet_lock_v1(uuid,uuid,text,uuid,boolean)'::regprocedure
+  'private.set_pet_lock_v1(uuid,uuid,text,uuid,boolean)'::regprocedure,
+  'private.claim_daily_free_draw_v1(uuid,text,text,text)'::regprocedure,
+  'private.promote_duplicate_cards_v1(uuid,uuid,text,jsonb,text,text,text)'::regprocedure
   ,'private.apply_match_command_g3(uuid,uuid,text,uuid,bigint,jsonb,jsonb,text,bigint,text,text)'::regprocedure,
   'private.acquire_match_lease_g3(uuid,uuid,uuid,bigint,integer)'::regprocedure
 )), 0, 'no unexpected security definer functions');

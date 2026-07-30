@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest";
 type Ref = { $ref: string };
 type Operation = { security?: unknown; parameters?: Ref[]; requestBody?: Ref; responses: Record<string, Ref> };
 type Schema = {
+  additionalProperties?: boolean;
   properties?: {
     code?: { enum?: string[] };
     materials?: {
@@ -17,6 +18,9 @@ const document = parse(readFileSync(new URL("../openapi.yaml", import.meta.url),
 const expected = {
   "GET /v1/me": { request: null, statuses: ["200", "401"], response: "MeResponse", errors: ["UNAUTHORIZED"] },
   "GET /v1/pets": { request: null, statuses: ["200", "401"], response: "PetsResponse", errors: ["UNAUTHORIZED"] },
+  "GET /v1/pets/collection": { request: null, statuses: ["200", "401"], response: "PetCollectionResponse", errors: ["UNAUTHORIZED"] },
+  "POST /v1/pets/daily-draw": { request: null, statuses: ["200", "409"], response: "DailyFreeDrawResponse", errors: ["POLICY_MISMATCH"] },
+  "POST /v1/pets/duplicate-promotion": { request: "DuplicatePromotionRequest", statuses: ["200", "400", "404", "409"], response: "DuplicatePromotionResponse", errors: ["INVALID_MATERIALS", "NOT_OWNED", "IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH", "INSUFFICIENT_DUPLICATES", "COSMETIC_REWARD_POLICY_REQUIRED"] },
   "POST /v1/pets/{id}/select": { request: null, statuses: ["200", "404", "409"], response: "SelectPetResponse", errors: ["NOT_OWNED", "IDEMPOTENCY_CONFLICT"] },
   "POST /v1/pets/{id}/lock": { request: "LockPetRequest", statuses: ["200", "404", "409"], response: "LockPetResponse", errors: ["NOT_OWNED", "IDEMPOTENCY_CONFLICT"] },
   "POST /v1/gacha/draw": { request: null, statuses: ["200", "409"], response: "GachaDrawResponse", errors: ["IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH", "INSUFFICIENT_FUNDS"] },
@@ -27,6 +31,7 @@ const expected = {
   "POST /v1/matches/friend-room": { request: "FriendRoomCreateRequest", statuses: ["201", "400", "409"], response: "FriendRoomResponse", errors: ["INVALID_REQUEST", "CONFLICT", "IDEMPOTENCY_CONFLICT"] },
   "POST /v1/matches/friend-room/{roomCode}/join": { request: "FriendRoomJoinRequest", statuses: ["200", "400", "404", "409"], response: "FriendRoomResponse", errors: ["INVALID_REQUEST", "NOT_FOUND", "CONFLICT", "IDEMPOTENCY_CONFLICT"] },
   "DELETE /v1/matches/friend-room/{roomCode}/members/me": { request: null, statuses: ["200", "404", "409"], response: "FriendRoomLeaveResponse", errors: ["NOT_FOUND", "CONFLICT", "IDEMPOTENCY_CONFLICT"] },
+  "GET /v1/pet-showcases/{nickname}": { request: null, statuses: ["200", "404"], response: "PetShowcaseResponse", errors: ["NOT_FOUND"] },
 } as const;
 
 const economyStatusErrors = {
@@ -34,6 +39,8 @@ const economyStatusErrors = {
   "POST /v1/pets/{id}/lock": { "404": ["NOT_OWNED"], "409": ["IDEMPOTENCY_CONFLICT"] },
   "POST /v1/gacha/draw": { "409": ["IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH", "INSUFFICIENT_FUNDS"] },
   "POST /v1/fusion": { "400": ["INVALID_MATERIALS"], "404": ["NOT_OWNED"], "409": ["IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH"] },
+  "POST /v1/pets/daily-draw": { "409": ["POLICY_MISMATCH"] },
+  "POST /v1/pets/duplicate-promotion": { "400": ["INVALID_MATERIALS"], "404": ["NOT_OWNED"], "409": ["IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH", "INSUFFICIENT_DUPLICATES", "COSMETIC_REWARD_POLICY_REQUIRED"] },
 } as const;
 
 describe("OpenAPI semantic contract", () => {
@@ -95,5 +102,27 @@ describe("OpenAPI semantic contract", () => {
     expect(accepts([{ userPetId: "a", count: 2 }, { userPetId: "b", count: 3 }])).toBe(true);
     expect(accepts([{ userPetId: "a", count: 2 }, { userPetId: "b", count: 2 }])).toBe(false);
     expect(accepts([{ userPetId: "a", count: 2 }, { userPetId: "a", count: 3 }])).toBe(false);
+  });
+
+  it("makes only the allowlisted showcase route public and forbids private showcase properties", () => {
+    expect(document.paths["/v1/pet-showcases/{nickname}"]!.get!.security).toEqual([]);
+    for (const [path, item] of Object.entries(document.paths)) {
+      if (path === "/v1/pet-showcases/{nickname}") continue;
+      for (const operation of Object.values(item)) expect(operation.security).toBeUndefined();
+    }
+    const showcase = document.components.schemas.PetShowcaseResponse as Schema & { properties?: Record<string, unknown> };
+    expect(showcase.additionalProperties).toBe(false);
+    expect(Object.keys(showcase.properties ?? {}).sort()).toEqual([
+      "approvedCosmetics",
+      "championStarCount",
+      "collectionPercentage",
+      "favoritePets",
+      "historicalNumberOneCount",
+      "nickname",
+      "selectedPet",
+    ]);
+    for (const privateKey of ["authId", "userId", "email", "subjectKey", "acquisitionHistory", "biography", "location"]) {
+      expect(showcase.properties).not.toHaveProperty(privateKey);
+    }
   });
 });

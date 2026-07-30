@@ -1,0 +1,63 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { Ajv2020 } from 'ajv/dist/2020.js';
+import { describe, expect, it } from 'vitest';
+import {
+  dailyPetLoopPolicyV1Schema,
+  parseDailyPetLoopPolicyV1,
+  petShowcaseV1Schema,
+} from './daily-pet-loop.js';
+
+const policy = JSON.parse(readFileSync(resolve('config/daily-pet-loop.v1.json'), 'utf8')) as unknown;
+const jsonSchema = JSON.parse(readFileSync(resolve('schemas/daily-pet-loop.schema.json'), 'utf8')) as object;
+
+describe('daily pet loop contract', () => {
+  it('pins the DRAFT daily rarity candidates and duplicate promotion thresholds', () => {
+    const parsed = parseDailyPetLoopPolicyV1(policy);
+    expect(parsed.status).toBe('DRAFT');
+    expect(parsed.dailyDraw.probabilities).toEqual({ COMMON: 0.8, RARE: 0.18, LEGENDARY: 0.02 });
+    expect(parsed.duplicatePromotion).toEqual({
+      ownedCopiesRequired: 11,
+      spareCopiesConsumed: 10,
+      retainBaseCopies: 1,
+      transitions: { COMMON: 'RARE', RARE: 'LEGENDARY' },
+      legendaryOutcome: 'COSMETIC_REWARD_POLICY_REQUIRED',
+    });
+  });
+
+  it('keeps the JSON Schema and runtime parser strict', () => {
+    const ajv = new Ajv2020({ strict: true, allErrors: true });
+    const validate = ajv.compile(jsonSchema);
+    expect(validate(policy), JSON.stringify(validate.errors)).toBe(true);
+    expect(validate({
+      ...(policy as Record<string, unknown>),
+      dailyDraw: {
+        ...((policy as { dailyDraw: Record<string, unknown> }).dailyDraw),
+        probabilities: { COMMON: 0.79, RARE: 0.19, LEGENDARY: 0.02 },
+      },
+    })).toBe(false);
+    expect(() => parseDailyPetLoopPolicyV1({ ...(policy as object), privateKey: 'leak' })).toThrow(/additional|unrecognized/i);
+    expect(dailyPetLoopPolicyV1Schema.parse(policy)).toEqual(policy);
+  });
+
+  it.each([
+    { userId: 'auth-id' },
+    { authId: 'auth-id' },
+    { email: 'private@example.test' },
+    { subjectKey: 'private-economy-key' },
+    { acquisitionHistory: [] },
+    { biography: 'user-authored' },
+    { location: 'Seoul' },
+  ])('rejects private showcase input keys: %o', (privateField) => {
+    expect(() => petShowcaseV1Schema.parse({
+      nickname: 'Miso',
+      selectedPet: null,
+      favoritePets: [],
+      collectionPercentage: 0,
+      championStarCount: 0,
+      historicalNumberOneCount: 0,
+      approvedCosmetics: [],
+      ...privateField,
+    })).toThrow();
+  });
+});

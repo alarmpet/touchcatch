@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://touchcatch.invalid/schemas/daily-pet-loop.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "policyRevision",
+    "status",
+    "timezone",
+    "dailyDraw",
+    "duplicatePromotion",
+    "showcase"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "policyRevision": { "const": "daily-pet-loop-v1" },
+    "status": { "const": "DRAFT" },
+    "timezone": { "const": "Asia/Seoul" },
+    "dailyDraw": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "seriesId",
+        "businessKey",
+        "maxClaimsPerKstDate",
+        "accumulates",
+        "usesDirectDrawPity",
+        "probabilities"
+      ],
+      "properties": {
+        "seriesId": { "const": "DAILY_FREE_DRAW_V1" },
+        "businessKey": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "subjectKey" },
+            { "const": "kstClaimDate" },
+            { "const": "seriesId" }
+          ],
+          "items": false,
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "maxClaimsPerKstDate": { "const": 1 },
+        "accumulates": { "const": false },
+        "usesDirectDrawPity": { "const": false },
+        "probabilities": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["COMMON", "RARE", "LEGENDARY"],
+          "properties": {
+            "COMMON": { "const": 0.8 },
+            "RARE": { "const": 0.18 },
+            "LEGENDARY": { "const": 0.02 }
+          }
+        }
+      }
+    },
+    "duplicatePromotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ownedCopiesRequired",
+        "spareCopiesConsumed",
+        "retainBaseCopies",
+        "transitions",
+        "legendaryOutcome"
+      ],
+      "properties": {
+        "ownedCopiesRequired": { "const": 11 },
+        "spareCopiesConsumed": { "const": 10 },
+        "retainBaseCopies": { "const": 1 },
+        "transitions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["COMMON", "RARE"],
+          "properties": {
+            "COMMON": { "const": "RARE" },
+            "RARE": { "const": "LEGENDARY" }
+          }
+        },
+        "legendaryOutcome": { "const": "COSMETIC_REWARD_POLICY_REQUIRED" }
+      }
+    },
+    "showcase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["maxFavoritePets", "rejectUnknownFields"],
+      "properties": {
+        "maxFavoritePets": { "const": 3 },
+        "rejectUnknownFields": { "const": true }
+      }
+    }
+  }
+}

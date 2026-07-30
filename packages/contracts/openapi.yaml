@@ -16,6 +16,24 @@ paths:
         - { name: cursor, in: query, schema: { type: string, maxLength: 512 } }
         - { name: limit, in: query, schema: { type: integer, minimum: 1, maximum: 100, default: 20 } }
       responses: { "200": { $ref: "#/components/responses/PetsResponse" }, "401": { $ref: "#/components/responses/PetsError" } }
+  /v1/pets/collection:
+    get:
+      operationId: getPetCollectionV1
+      summary: Get the authenticated pet collection projection
+      responses: { "200": { $ref: "#/components/responses/PetCollectionResponse" }, "401": { $ref: "#/components/responses/PetsError" } }
+  /v1/pets/daily-draw:
+    post:
+      operationId: claimDailyFreeDrawV1
+      summary: Claim the effect-once free draw for the server-derived KST date
+      parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
+      responses: { "200": { $ref: "#/components/responses/DailyFreeDrawResponse" }, "409": { $ref: "#/components/responses/DailyFreeDrawConflictError" } }
+  /v1/pets/duplicate-promotion:
+    post:
+      operationId: promoteDuplicateCardsV1
+      summary: Consume ten spare copies of one pet and promote to the next rarity
+      parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
+      requestBody: { $ref: "#/components/requestBodies/DuplicatePromotionRequest" }
+      responses: { "200": { $ref: "#/components/responses/DuplicatePromotionResponse" }, "400": { $ref: "#/components/responses/DuplicatePromotionInvalidError" }, "404": { $ref: "#/components/responses/DuplicatePromotionNotOwnedError" }, "409": { $ref: "#/components/responses/DuplicatePromotionConflictError" } }
   /v1/pets/{id}/select:
     post:
       operationId: selectPet
@@ -80,22 +98,32 @@ paths:
       summary: Leave a friend room
       parameters: [{ $ref: "#/components/parameters/RoomCode" }, { $ref: "#/components/parameters/IdempotencyKey" }]
       responses: { "200": { $ref: "#/components/responses/FriendRoomLeaveResponse" }, "404": { $ref: "#/components/responses/FriendRoomLeaveError" }, "409": { $ref: "#/components/responses/FriendRoomLeaveError" } }
+  /v1/pet-showcases/{nickname}:
+    get:
+      operationId: getPetShowcaseV1
+      summary: Get a public-safe pet showcase
+      security: []
+      parameters: [{ $ref: "#/components/parameters/Nickname" }]
+      responses: { "200": { $ref: "#/components/responses/PetShowcaseResponse" }, "404": { $ref: "#/components/responses/PetShowcaseNotFoundError" } }
 components:
   securitySchemes: { bearerAuth: { type: http, scheme: bearer, bearerFormat: JWT } }
   parameters:
     Id: { name: id, in: path, required: true, schema: { type: string, minLength: 1, maxLength: 128 } }
     TicketId: { name: ticketId, in: path, required: true, schema: { type: string, minLength: 1, maxLength: 128 } }
     RoomCode: { name: roomCode, in: path, required: true, schema: { type: string, pattern: "^[A-Z0-9]{6,12}$" } }
+    Nickname: { name: nickname, in: path, required: true, schema: { type: string, minLength: 1, maxLength: 32 } }
     IdempotencyKey: { name: Idempotency-Key, in: header, required: true, schema: { type: string, pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89aAbB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$" } }
   requestBodies:
     LockPetRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/LockPetRequest" } } } }
     FusionRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/FusionRequest" } } } }
+    DuplicatePromotionRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/DuplicatePromotionRequest" } } } }
     QueueCreateRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/QueueCreateRequest" } } } }
     FriendRoomCreateRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomCreateRequest" } } } }
     FriendRoomJoinRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomJoinRequest" } } } }
   schemas:
     LockPetRequest: { type: object, additionalProperties: false, required: [locked], properties: { locked: { type: boolean } } }
     FusionRequest: { type: object, additionalProperties: false, required: [materials], properties: { materials: { type: array, minItems: 1, maxItems: 5, x-runtime-validation: { exactCountSum: 5, uniqueBy: userPetId }, items: { type: object, additionalProperties: false, required: [userPetId, count], properties: { userPetId: { type: string, format: uuid }, count: { type: integer, minimum: 1, maximum: 5 } } } } } }
+    DuplicatePromotionRequest: { type: object, additionalProperties: false, required: [materials], properties: { materials: { type: array, minItems: 1, maxItems: 1, x-runtime-validation: { exactCountSum: 10, samePetOnly: true }, items: { type: object, additionalProperties: false, required: [userPetId, count], properties: { userPetId: { type: string, format: uuid }, count: { const: 10 } } } } } }
     QueueCreateRequest: { type: object, additionalProperties: false, maxProperties: 0 }
     FriendRoomCreateRequest: { type: object, additionalProperties: false, maxProperties: 0 }
     FriendRoomJoinRequest: { type: object, additionalProperties: false, maxProperties: 0 }
@@ -106,6 +134,14 @@ components:
     LockPetResponse: { type: object, additionalProperties: false, required: [petId, locked], properties: { petId: { type: string, format: uuid }, locked: { type: boolean } } }
     GachaDrawResponse: { type: object, additionalProperties: false, required: [userPetId, petId, rarity, pointsRemaining, rareCounter, legendaryCounter, economyVersion, economyHash, catalogRevision, catalogHash, pitySeriesId, pitySemanticsHash], properties: { userPetId: { type: string, format: uuid }, petId: { type: string, format: uuid }, rarity: { enum: [COMMON, RARE, LEGENDARY] }, pointsRemaining: { type: integer, minimum: 0 }, rareCounter: { type: integer, minimum: 0, maximum: 49 }, legendaryCounter: { type: integer, minimum: 0, maximum: 149 }, economyVersion: { type: string }, economyHash: { type: string, pattern: "^[0-9a-f]{64}$" }, catalogRevision: { type: string }, catalogHash: { type: string, pattern: "^[0-9a-f]{64}$" }, pitySeriesId: { type: string }, pitySemanticsHash: { type: string, pattern: "^[0-9a-f]{64}$" } } }
     FusionResponse: { type: object, additionalProperties: false, required: [consumed, output, economyVersion, economyHash, catalogRevision, catalogHash], properties: { consumed: { type: array, items: { type: object, additionalProperties: false, required: [userPetId, count], properties: { userPetId: { type: string, format: uuid }, count: { type: integer, minimum: 1 } } } }, output: { type: object, additionalProperties: false, required: [userPetId, petId, rarity], properties: { userPetId: { type: string, format: uuid }, petId: { type: string, format: uuid }, rarity: { enum: [RARE, LEGENDARY] } } }, economyVersion: { type: string }, economyHash: { type: string, pattern: "^[0-9a-f]{64}$" }, catalogRevision: { type: string }, catalogHash: { type: string, pattern: "^[0-9a-f]{64}$" } } }
+    ApprovedPetArt: { type: object, additionalProperties: false, required: [thumbnailUrl, fullUrl, assetSha256], properties: { thumbnailUrl: { type: string, format: uri, pattern: "^https://" }, fullUrl: { type: string, format: uri, pattern: "^https://" }, assetSha256: { type: string, pattern: "^[0-9a-f]{64}$" } } }
+    DailyFreeDrawResponse: { type: object, additionalProperties: false, required: [claimDate, seriesId, pet, economyVersion, economyHash, catalogRevision, catalogHash], properties: { claimDate: { type: string, format: date }, seriesId: { const: DAILY_FREE_DRAW_V1 }, pet: { type: object, additionalProperties: false, required: [userPetId, petId, rarity, copies], properties: { userPetId: { type: string, format: uuid }, petId: { type: string, format: uuid }, rarity: { enum: [COMMON, RARE, LEGENDARY] }, copies: { type: integer, minimum: 1 } } }, economyVersion: { type: string }, economyHash: { type: string, pattern: "^[0-9a-f]{64}$" }, catalogRevision: { type: string }, catalogHash: { type: string, pattern: "^[0-9a-f]{64}$" } } }
+    DuplicatePromotionResponse: { type: object, additionalProperties: false, required: [consumed, remainingCopies, output, economyVersion, economyHash, catalogRevision, catalogHash], properties: { consumed: { type: object, additionalProperties: false, required: [userPetId, petId, copies], properties: { userPetId: { type: string, format: uuid }, petId: { type: string, format: uuid }, copies: { const: 10 } } }, remainingCopies: { type: integer, minimum: 1 }, output: { type: object, additionalProperties: false, required: [userPetId, petId, rarity, copies], properties: { userPetId: { type: string, format: uuid }, petId: { type: string, format: uuid }, rarity: { enum: [RARE, LEGENDARY] }, copies: { type: integer, minimum: 1 } } }, economyVersion: { type: string }, economyHash: { type: string, pattern: "^[0-9a-f]{64}$" }, catalogRevision: { type: string }, catalogHash: { type: string, pattern: "^[0-9a-f]{64}$" } } }
+    PetCollectionResponse: { type: object, additionalProperties: false, required: [ownedCount, totalCount, rarityProgress, pets], properties: { ownedCount: { type: integer, minimum: 0 }, totalCount: { type: integer, minimum: 0 }, rarityProgress: { type: object, additionalProperties: false, required: [COMMON, RARE, LEGENDARY], properties: { COMMON: { $ref: "#/components/schemas/RarityProgress" }, RARE: { $ref: "#/components/schemas/RarityProgress" }, LEGENDARY: { $ref: "#/components/schemas/RarityProgress" } } }, pets: { type: array, items: { $ref: "#/components/schemas/PetCollectionItem" } } } }
+    RarityProgress: { type: object, additionalProperties: false, required: [ownedCount, totalCount], properties: { ownedCount: { type: integer, minimum: 0 }, totalCount: { type: integer, minimum: 0 } } }
+    PetCollectionItem: { type: object, additionalProperties: false, required: [userPetId, petId, rarity, displayKey, level, xp, copies, selected, locked, acquiredAt, art], properties: { userPetId: { type: string }, petId: { type: string }, rarity: { enum: [COMMON, RARE, LEGENDARY] }, displayKey: { type: string }, level: { type: integer, minimum: 1 }, xp: { type: integer, minimum: 0 }, copies: { type: integer, minimum: 1 }, selected: { type: boolean }, locked: { type: boolean }, acquiredAt: { type: string, format: date-time }, art: { $ref: "#/components/schemas/ApprovedPetArt" } } }
+    ShowcasePet: { type: object, additionalProperties: false, required: [petId, displayKey, rarity, art], properties: { petId: { type: string }, displayKey: { type: string }, rarity: { enum: [COMMON, RARE, LEGENDARY] }, art: { $ref: "#/components/schemas/ApprovedPetArt" } } }
+    PetShowcaseResponse: { type: object, additionalProperties: false, required: [nickname, selectedPet, favoritePets, collectionPercentage, championStarCount, historicalNumberOneCount, approvedCosmetics], properties: { nickname: { type: string, minLength: 1, maxLength: 32 }, selectedPet: { oneOf: [{ $ref: "#/components/schemas/ShowcasePet" }, { type: "null" }] }, favoritePets: { type: array, maxItems: 3, items: { $ref: "#/components/schemas/ShowcasePet" } }, collectionPercentage: { type: number, minimum: 0, maximum: 100 }, championStarCount: { type: integer, minimum: 0 }, historicalNumberOneCount: { type: integer, minimum: 0 }, approvedCosmetics: { type: array, items: { type: object, additionalProperties: false, required: [cosmeticId, displayKey], properties: { cosmeticId: { type: string }, displayKey: { type: string } } } } } }
     QueueTicketResponse: { type: object, additionalProperties: false, required: [ticketId, status], properties: { ticketId: { type: string }, status: { type: string, enum: [QUEUED, MATCHED] } } }
     QueueCancelResponse: { type: object, additionalProperties: false, required: [cancelled], properties: { cancelled: { const: true } } }
     FriendRoomResponse: { type: object, additionalProperties: false, required: [roomCode, memberCount], properties: { roomCode: { type: string }, memberCount: { type: integer, minimum: 1, maximum: 2 } } }
@@ -120,6 +156,11 @@ components:
     FusionInvalidMaterialsError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [INVALID_MATERIALS] } } }
     FusionNotOwnedError: *notOwnedError
     FusionConflictError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [IDEMPOTENCY_CONFLICT, POLICY_MISMATCH] } } }
+    DailyFreeDrawConflictError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [POLICY_MISMATCH] } } }
+    DuplicatePromotionInvalidError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [INVALID_MATERIALS] } } }
+    DuplicatePromotionNotOwnedError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [NOT_OWNED] } } }
+    DuplicatePromotionConflictError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [IDEMPOTENCY_CONFLICT, POLICY_MISMATCH, INSUFFICIENT_DUPLICATES, COSMETIC_REWARD_POLICY_REQUIRED] } } }
+    PetShowcaseNotFoundError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [NOT_FOUND] } } }
     QueueCreateError: &drawError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [INVALID_REQUEST, CONFLICT, IDEMPOTENCY_CONFLICT] } } }
     QueueGetError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [UNAUTHORIZED, NOT_FOUND] } } }
     QueueCancelError: &cancelError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [NOT_FOUND, CONFLICT, IDEMPOTENCY_CONFLICT] } } }
@@ -133,6 +174,10 @@ components:
     LockPetResponse: { description: Locked pet, content: { application/json: { schema: { $ref: "#/components/schemas/LockPetResponse" } } } }
     GachaDrawResponse: { description: Draw result, content: { application/json: { schema: { $ref: "#/components/schemas/GachaDrawResponse" } } } }
     FusionResponse: { description: Fusion result, content: { application/json: { schema: { $ref: "#/components/schemas/FusionResponse" } } } }
+    DailyFreeDrawResponse: { description: Daily draw result, content: { application/json: { schema: { $ref: "#/components/schemas/DailyFreeDrawResponse" } } } }
+    DuplicatePromotionResponse: { description: Duplicate promotion result, content: { application/json: { schema: { $ref: "#/components/schemas/DuplicatePromotionResponse" } } } }
+    PetCollectionResponse: { description: Pet collection projection, content: { application/json: { schema: { $ref: "#/components/schemas/PetCollectionResponse" } } } }
+    PetShowcaseResponse: { description: Public-safe pet showcase, content: { application/json: { schema: { $ref: "#/components/schemas/PetShowcaseResponse" } } } }
     QueueTicketResponse: { description: Queue ticket, content: { application/json: { schema: { $ref: "#/components/schemas/QueueTicketResponse" } } } }
     QueueCancelResponse: { description: Queue cancellation, content: { application/json: { schema: { $ref: "#/components/schemas/QueueCancelResponse" } } } }
     FriendRoomResponse: { description: Friend room, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomResponse" } } } }
@@ -147,6 +192,11 @@ components:
     FusionInvalidMaterialsError: { description: Invalid fusion materials, content: { application/json: { schema: { $ref: "#/components/schemas/FusionInvalidMaterialsError" } } } }
     FusionNotOwnedError: { description: Fusion material is not owned, content: { application/json: { schema: { $ref: "#/components/schemas/FusionNotOwnedError" } } } }
     FusionConflictError: { description: Fusion conflict, content: { application/json: { schema: { $ref: "#/components/schemas/FusionConflictError" } } } }
+    DailyFreeDrawConflictError: { description: Daily draw policy conflict, content: { application/json: { schema: { $ref: "#/components/schemas/DailyFreeDrawConflictError" } } } }
+    DuplicatePromotionInvalidError: { description: Invalid duplicate materials, content: { application/json: { schema: { $ref: "#/components/schemas/DuplicatePromotionInvalidError" } } } }
+    DuplicatePromotionNotOwnedError: { description: Source pet is not owned, content: { application/json: { schema: { $ref: "#/components/schemas/DuplicatePromotionNotOwnedError" } } } }
+    DuplicatePromotionConflictError: { description: Duplicate promotion conflict, content: { application/json: { schema: { $ref: "#/components/schemas/DuplicatePromotionConflictError" } } } }
+    PetShowcaseNotFoundError: { description: Public showcase not found, content: { application/json: { schema: { $ref: "#/components/schemas/PetShowcaseNotFoundError" } } } }
     QueueCreateError: { description: Queue-create error, content: { application/json: { schema: { $ref: "#/components/schemas/QueueCreateError" } } } }
     QueueGetError: { description: Queue-read error, content: { application/json: { schema: { $ref: "#/components/schemas/QueueGetError" } } } }
     QueueCancelError: { description: Queue-cancel error, content: { application/json: { schema: { $ref: "#/components/schemas/QueueCancelError" } } } }

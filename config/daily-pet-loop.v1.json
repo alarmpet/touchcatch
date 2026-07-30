@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "policyRevision": "daily-pet-loop-v1",
+  "status": "DRAFT",
+  "timezone": "Asia/Seoul",
+  "dailyDraw": {
+    "seriesId": "DAILY_FREE_DRAW_V1",
+    "businessKey": ["subjectKey", "kstClaimDate", "seriesId"],
+    "maxClaimsPerKstDate": 1,
+    "accumulates": false,
+    "usesDirectDrawPity": false,
+    "probabilities": {
+      "COMMON": 0.8,
+      "RARE": 0.18,
+      "LEGENDARY": 0.02
+    }
+  },
+  "duplicatePromotion": {
+    "ownedCopiesRequired": 11,
+    "spareCopiesConsumed": 10,
+    "retainBaseCopies": 1,
+    "transitions": {
+      "COMMON": "RARE",
+      "RARE": "LEGENDARY"
+    },
+    "legendaryOutcome": "COSMETIC_REWARD_POLICY_REQUIRED"
+  },
+  "showcase": {
+    "maxFavoritePets": 3,
+    "rejectUnknownFields": true
+  }
+}
