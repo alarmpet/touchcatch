@@ -71,7 +71,7 @@
     "approvedAt": {
       "type": "string",
       "format": "date-time",
-      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:[0-5][0-9]\\.\\d{3}Z$"
     }
   },
   "allOf": [
@@ -94,7 +94,7 @@
           "approvedAt": {
             "type": "string",
             "format": "date-time",
-            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:[0-5][0-9]\\.\\d{3}Z$"
           }
         },
         "required": ["approvalDecisionId", "approvedBy", "approvedAt"]

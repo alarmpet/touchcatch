@@ -216,3 +216,50 @@ Tests       73 passed (73)
 The scoped strict TypeScript and ESLint commands from the original report also
 exit 0. Verification continues to emit the existing Node `22.16.0` versus
 repository-required `24.18.0` engine warning.
+
+## Fix Round 2
+
+A remaining validator-language difference was reproduced for the RFC 3339 leap
+second `2016-12-31T23:59:60.000Z`:
+
+```text
+{"name":"hint","runtime":false,"jsonSchema":true}
+{"name":"progression","runtime":false,"jsonSchema":true}
+{"name":"competition","runtime":false,"jsonSchema":true}
+```
+
+AJV's `date-time` format permits leap seconds, while the runtime Zod grammar
+does not. The exact schema pattern still used unrestricted `\d{2}` seconds, so
+it did not narrow AJV to the policy's canonical language.
+
+The leap second was added to the all-policy differential APPROVED table before
+the schema change. RED:
+
+```powershell
+corepack pnpm vitest run packages/contracts/src/learning-policy.test.ts
+```
+
+```text
+Test Files  1 failed (1)
+Tests       3 failed | 66 passed (69)
+```
+
+Each failure was schema-only acceptance. The three schemas now constrain the
+seconds component to `[0-5][0-9]` in both approval-property branches while
+retaining exact millisecond UTC syntax and `format: "date-time"` calendar
+validation.
+
+Fresh GREEN:
+
+```powershell
+corepack pnpm vitest run packages/contracts/src/learning-policy.test.ts packages/contracts/src/canonical-json.test.ts
+```
+
+```text
+Test Files  2 passed (2)
+Tests       76 passed (76)
+```
+
+Canonical normal timestamps continue to pass through runtime and schema for
+all three policy types, and the leap second now fails through both. Scoped
+strict TypeScript and ESLint also exit 0.
