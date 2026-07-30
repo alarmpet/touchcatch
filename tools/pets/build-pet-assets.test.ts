@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { mkdtemp, readFile, writeFile } from 'node:fs/promises';
+import { access, mkdtemp, readFile, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -31,5 +31,20 @@ describe('pet asset build', () => {
       expect.objectContaining({ sourceSha256: hash, safeCrop: { x: 0, y: 0, width: 1, height: 1 } }),
     ]));
     expect(result.derivatives.every((asset) => asset.width <= 1 && asset.height <= 1 && asset.sha256.length === 64)).toBe(true);
+  });
+
+  it('removes only stale managed outputs after an admission is revoked', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'touchcatch-pets-revoke-'));
+    const input = join(root, 'input'); const sourceDirectory = join(root, 'source'); const mobileDirectory = join(root, 'mobile');
+    await (await import('node:fs/promises')).mkdir(input);
+    await writeFile(join(input, 'approved.png'), png);
+    const approved = { sourceSha256: hash, normalizedSlug: 'approved', candidateRarity: 'COMMON' as const, familySlug: 'approved', rightsStatus: 'APPROVED' as const, provenanceNote: 'approved', visualReview: 'APPROVED' as const, backgroundReview: 'APPROVED' as const, cropReview: 'APPROVED' as const, coachArchetype: 'CHEER' as const, fileName: 'approved.png', width: 1, height: 1, pixelFormat: 'RGBA' };
+    await buildPetAssets({ admissions: [approved], sourceRoots: [input], sourceDirectory, mobileDirectory });
+    await writeFile(join(sourceDirectory, 'unrelated.txt'), 'keep');
+    await buildPetAssets({ admissions: [{ ...approved, rightsStatus: 'REJECTED' }], sourceRoots: [input], sourceDirectory, mobileDirectory });
+    await expect(access(join(sourceDirectory, `${hash}.png`))).rejects.toThrow();
+    await expect(access(join(mobileDirectory, `${hash}.card.png`))).rejects.toThrow();
+    await expect(access(join(mobileDirectory, `${hash}.portrait.png`))).rejects.toThrow();
+    await expect(readFile(join(sourceDirectory, 'unrelated.txt'), 'utf8')).resolves.toBe('keep');
   });
 });

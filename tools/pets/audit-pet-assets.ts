@@ -46,7 +46,7 @@ const rarityRoots: ReadonlyArray<readonly [PetRarity, keyof Pick<Roots, 'commonR
 export function normalizePetSlug(fileName: string, options: { stripRarePrefix?: boolean } = {}): string {
   const stem = basename(fileName, extname(fileName)).trim().toLowerCase();
   const withoutPrefix = options.stripRarePrefix ? stem.replace(/^rare\s*-\s*/, '') : stem;
-  return withoutPrefix.normalize('NFKD').replace(/[’']/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  return withoutPrefix.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[’']/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
 function sha256(bytes: Uint8Array): string {

@@ -68,7 +68,7 @@ describe('economy and catalog admission', () => {
     ['invalid-pity-semantics-hash.json', 'economy', /pitySemanticsHash/i],
     ['invalid-approved-metadata.json', 'economy', /approvalDecisionId|approvedBy|approvedAt/i],
     ['invalid-protection.json', 'economy', /excludeLocked/i],
-    ['invalid-pet-catalog.json', 'catalog', /30.*15.*5/],
+    ['invalid-pet-catalog.json', 'catalog', /30.*15.*5|coachArchetype|petId/],
   ] as const)('rejects fixture %s at its named %s rule', (file, kind, rule) => {
     const fixture = JSON.parse(readFileSync(resolve('tests/fixtures/economy', file), 'utf8')) as unknown;
     const parse = kind === 'economy' ? parseEconomy : parsePetCatalog;
@@ -96,11 +96,11 @@ describe('economy and catalog admission', () => {
     expect(() => loadProductionEconomy(economy(), catalog(), {})).toThrow(/APPROVED/);
   });
 
-  it('requires explicit coach archetypes for approved catalogs and defaults only missing DRAFT values', () => {
+  it('requires explicit coach archetypes from the strict parser', () => {
     const draft = catalog();
     delete (draft.entries[0] as { coachArchetype?: string }).coachArchetype;
     draft.catalogHash = canonicalJsonSha256({ schemaVersion: draft.schemaVersion, catalogRevision: draft.catalogRevision, entries: draft.entries });
-    expect(parsePetCatalog(draft).entries[0]?.coachArchetype).toBe('CHEER');
+    expect(() => parsePetCatalog(draft)).toThrow(/coachArchetype/i);
     const approved = catalog('APPROVED');
     delete (approved.entries[0] as { coachArchetype?: string }).coachArchetype;
     expect(() => parsePetCatalog(approved)).toThrow(/coachArchetype/i);
@@ -113,6 +113,20 @@ describe('economy and catalog admission', () => {
     const warnings: string[] = [];
     expect(admitDraftPetCatalog(draft, (warning) => warnings.push(warning.code)).entries[0]?.coachArchetype).toBe('CHEER');
     expect(warnings).toEqual(['PET_COACH_ARCHETYPE_DEFAULTED']);
+  });
+
+  it('pins canonical hashes to explicit parsed entries and remains stable when reparsed', () => {
+    const parsed = parsePetCatalog(catalog());
+    expect(canonicalJsonSha256({ schemaVersion: parsed.schemaVersion, catalogRevision: parsed.catalogRevision, entries: parsed.entries })).toBe(parsed.catalogHash);
+    expect(parsePetCatalog(parsed)).toEqual(parsed);
+  });
+
+  it('requires opaque UUIDv4 identifiers for both DRAFT and APPROVED catalogs', () => {
+    for (const petId of ['common-1', '00000000-0000-5000-8000-000000000001']) {
+      const draft = catalog(); draft.entries[0]!.petId = petId;
+      draft.catalogHash = canonicalJsonSha256({ schemaVersion: draft.schemaVersion, catalogRevision: draft.catalogRevision, entries: draft.entries });
+      expect(() => parsePetCatalog(draft)).toThrow(/pattern|UUIDv4/i);
+    }
   });
 
   it('rejects extra properties, stale hashes, invalid protection, and catalog grouping drift', () => {

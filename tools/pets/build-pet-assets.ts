@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { cp, mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readFile, readdir, unlink, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
@@ -66,8 +66,8 @@ export async function buildPetAssets(options: {
   await mkdir(options.sourceDirectory, { recursive: true });
   await mkdir(options.mobileDirectory, { recursive: true });
   const derivatives: Derivative[] = [];
-  for (const admission of [...options.admissions].sort((left, right) => left.sourceSha256.localeCompare(right.sourceSha256))) {
-    if (!isApproved(admission)) continue;
+  const approvedAdmissions = [...options.admissions].filter(isApproved).sort((left, right) => left.sourceSha256.localeCompare(right.sourceSha256));
+  for (const admission of approvedAdmissions) {
     const sourcePath = await sourceFor(admission, options.sourceRoots);
     const target = join(options.sourceDirectory, `${admission.sourceSha256}.png`);
     await cp(sourcePath, target, { force: true });
@@ -75,6 +75,14 @@ export async function buildPetAssets(options: {
     if (sha256(bytes) !== admission.sourceSha256) throw new TypeError(`source hash mismatch for ${admission.sourceSha256}`);
     derivatives.push(await derivative(bytes, admission.sourceSha256, 'CARD', options.mobileDirectory));
     derivatives.push(await derivative(bytes, admission.sourceSha256, 'PORTRAIT', options.mobileDirectory));
+  }
+  const approvedHashes = new Set(approvedAdmissions.map((admission) => admission.sourceSha256));
+  for (const entry of await readdir(options.sourceDirectory, { withFileTypes: true })) {
+    if (entry.isFile() && /^[0-9a-f]{64}\.png$/.test(entry.name) && !approvedHashes.has(entry.name.slice(0, 64))) await unlink(join(options.sourceDirectory, entry.name));
+  }
+  for (const entry of await readdir(options.mobileDirectory, { withFileTypes: true })) {
+    const match = /^([0-9a-f]{64})\.(card|portrait)\.png$/.exec(entry.name);
+    if (entry.isFile() && match && !approvedHashes.has(match[1]!)) await unlink(join(options.mobileDirectory, entry.name));
   }
   return { derivatives };
 }

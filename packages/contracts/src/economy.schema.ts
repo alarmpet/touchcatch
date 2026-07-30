@@ -1,6 +1,6 @@
 import { canonicalJsonSha256 } from './canonical-json.js';
 import type { EconomyV1, LoadedApprovedEconomyV1 } from './economy.js';
-import type { CoachArchetype, PetCatalogEntryV1, PetCatalogRevisionV1, PetRarity } from './pet-catalog.js';
+import type { PetCatalogRevisionV1, PetRarity } from './pet-catalog.js';
 import { Ajv2020 } from 'ajv/dist/2020.js';
 import economyJsonSchema from '../../../schemas/economy.schema.json' with { type: 'json' };
 import catalogJsonSchema from '../../../schemas/pet-catalog.schema.json' with { type: 'json' };
@@ -12,6 +12,7 @@ const validateCatalogStructure = ajv.compile(catalogJsonSchema);
 const economyKeys = new Set(['schemaVersion','economyVersion','status','catalogRevision','catalogHash','pitySeriesId','pitySemantics','pitySemanticsHash','draw','fusion','exp','simulationPolicy','rewardPolicies','approvalDecisionId','approvedBy','approvedAt']);
 const catalogKeys = new Set(['schemaVersion','catalogRevision','status','catalogHash','entries','approvalDecisionId','approvedBy','approvedAt']);
 const hashPattern = /^[0-9a-f]{64}$/;
+const uuidV4Pattern = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const semverPattern = /^\d+\.\d+\.\d+$/;
 
 function object(value: unknown, name: string): Record<string, unknown> {
@@ -31,29 +32,35 @@ export function parsePetCatalog(input: unknown): PetCatalogRevisionV1 {
   const value = object(input, 'catalog'); exactKeys(value, catalogKeys, 'catalog'); approval(value);
   if (value.schemaVersion !== 1 || !['DRAFT','APPROVED'].includes(String(value.status)) || typeof value.catalogRevision !== 'string' || !Array.isArray(value.entries)) throw new TypeError('invalid catalog structure');
   const ids = new Set<string>(); const counts: Record<PetRarity, number> = { COMMON: 0, RARE: 0, LEGENDARY: 0 };
-  const normalizedEntries: PetCatalogEntryV1[] = [];
   for (const raw of value.entries) {
     const entry = object(raw, 'catalog entry'); exactKeys(entry, new Set(['petId','rarity','displayKey','coachArchetype']), 'catalog entry');
-    const coachArchetype = entry.coachArchetype ?? (value.status === 'DRAFT' ? 'CHEER' : undefined);
-    if (typeof entry.petId !== 'string' || entry.petId === '' || ids.has(entry.petId) || (value.status === 'APPROVED' && !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(entry.petId)) || typeof entry.displayKey !== 'string' || !(entry.rarity === 'COMMON' || entry.rarity === 'RARE' || entry.rarity === 'LEGENDARY') || !(coachArchetype === 'SCOUT' || coachArchetype === 'LINGUIST' || coachArchetype === 'SAGE' || coachArchetype === 'CHEER')) throw new TypeError('catalog entries require unique opaque UUIDv4 IDs, valid rarity, and coachArchetype');
+    const coachArchetype = entry.coachArchetype;
+    if (typeof entry.petId !== 'string' || !uuidV4Pattern.test(entry.petId) || ids.has(entry.petId) || typeof entry.displayKey !== 'string' || !(entry.rarity === 'COMMON' || entry.rarity === 'RARE' || entry.rarity === 'LEGENDARY') || !(coachArchetype === 'SCOUT' || coachArchetype === 'LINGUIST' || coachArchetype === 'SAGE' || coachArchetype === 'CHEER')) throw new TypeError('catalog entries require unique opaque UUIDv4 IDs, valid rarity, and coachArchetype');
     ids.add(entry.petId); counts[entry.rarity] += 1;
-    normalizedEntries.push({ petId: entry.petId, rarity: entry.rarity, displayKey: entry.displayKey, coachArchetype: coachArchetype as CoachArchetype });
   }
   if (counts.COMMON !== 30 || counts.RARE !== 15 || counts.LEGENDARY !== 5) throw new TypeError('catalog requires exact 30/15/5 rarity grouping');
   const projection = { schemaVersion: value.schemaVersion, catalogRevision: value.catalogRevision, entries: value.entries };
   if (!hashPattern.test(String(value.catalogHash)) || canonicalJsonSha256(projection) !== value.catalogHash) throw new TypeError('catalogHash mismatch');
-  return { ...value, entries: normalizedEntries } as unknown as PetCatalogRevisionV1;
+  return value as unknown as PetCatalogRevisionV1;
 }
 
 export function admitDraftPetCatalog(input: unknown, onWarning: (warning: { code: 'PET_COACH_ARCHETYPE_DEFAULTED'; petId: string }) => void = () => undefined): PetCatalogRevisionV1 {
-  const catalog = parsePetCatalog(input);
-  if (catalog.status !== 'DRAFT') throw new TypeError('only DRAFT catalogs may receive coachArchetype defaults');
-  const rawEntries = object(input, 'catalog').entries;
+  const rawCatalog = object(input, 'catalog');
+  if (rawCatalog.status !== 'DRAFT') throw new TypeError('only DRAFT catalogs may receive coachArchetype defaults');
+  const rawEntries = rawCatalog.entries;
   if (!Array.isArray(rawEntries)) throw new TypeError('catalog entries must be an array');
-  rawEntries.forEach((raw, index) => {
+  const defaultedPetIds: string[] = [];
+  const entries = rawEntries.map((raw) => {
     const entry = object(raw, 'catalog entry');
-    if (entry.coachArchetype === undefined) onWarning({ code: 'PET_COACH_ARCHETYPE_DEFAULTED', petId: catalog.entries[index]!.petId });
+    if (entry.coachArchetype !== undefined) return entry;
+    if (typeof entry.petId !== 'string') throw new TypeError('catalog entries require petId');
+    defaultedPetIds.push(entry.petId);
+    return { ...entry, coachArchetype: 'CHEER' };
   });
+  const normalized = { ...rawCatalog, entries };
+  normalized.catalogHash = canonicalJsonSha256({ schemaVersion: normalized.schemaVersion, catalogRevision: normalized.catalogRevision, entries });
+  const catalog = parsePetCatalog(normalized);
+  defaultedPetIds.forEach((petId) => onWarning({ code: 'PET_COACH_ARCHETYPE_DEFAULTED', petId }));
   return catalog;
 }
 
