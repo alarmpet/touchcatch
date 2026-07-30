@@ -19,7 +19,7 @@
     "mobile:typecheck": "tsc -p apps/mobile/tsconfig.json --noEmit",
     "mobile:test": "vitest run apps/mobile/src/learning-demo apps/mobile/app",
     "mobile:preflight": "tsx tools/mobile/check-expo-project.ts",
-    "mobile:bundle:android": "corepack pnpm --dir apps/mobile exec expo export --platform android --output-dir ../../.superpowers/mobile-export/android --clear",
+    "mobile:bundle:android": "tsx tools/mobile/export-android.ts",
     "mobile:evidence:android": "tsx tools/mobile/check-device-evidence.ts --platform android",
     "mobile:evidence:ios": "tsx tools/mobile/check-device-evidence.ts --platform ios",
     "mobile:evidence:aggregate": "tsx tools/mobile/check-device-evidence.ts --aggregate",
