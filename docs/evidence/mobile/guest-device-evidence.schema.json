@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "guest-device-evidence.schema.json",
+  "title": "Guest physical-device evidence",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "platform", "status", "commitSha", "recordedAt", "blocker"],
+      "properties": {
+        "schemaVersion": { "const": "1.0.0" },
+        "platform": { "enum": ["ANDROID", "IOS"] },
+        "status": { "const": "BLOCKED" },
+        "commitSha": { "type": "string", "pattern": "^[0-9a-f]{7,40}$" },
+        "recordedAt": { "type": "string", "format": "date-time" },
+        "blocker": { "enum": ["DEVICE_UNAVAILABLE", "DEVICE_OR_MACOS_HOST_UNAVAILABLE"] }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["schemaVersion", "platform", "status", "commitSha", "recordedAt", "runtime", "device", "scenarios", "screenshots", "blocker"],
+      "properties": {
+        "schemaVersion": { "const": "1.0.0" },
+        "platform": { "const": "ANDROID" },
+        "status": { "enum": ["PASS", "FAIL"] },
+        "commitSha": { "type": "string", "pattern": "^[0-9a-f]{7,40}$" },
+        "recordedAt": { "type": "string", "format": "date-time" },
+        "runtime": { "type": "object" },
+        "device": { "type": "object" },
+        "scenarios": { "type": "array", "minItems": 13, "maxItems": 13 },
+        "screenshots": { "type": "array", "minItems": 4, "maxItems": 4 },
+        "blocker": { "type": ["string", "null"] }
+      }
+    }
+  ]
+}

@@ -45,3 +45,17 @@ corepack pnpm --dir apps/mobile start -- --clear
 ```
 
 The Metro command does not build or install the native application.
+
+## Android physical-device evidence
+
+`adb devices -l` must list exactly one authorized physical device. Run all
+thirteen scenarios defined by the evidence checker, including all three packs,
+background/foreground restoration, and completion with Wi-Fi and mobile data
+disabled. Then capture the four named screenshots and run:
+
+```powershell
+corepack pnpm mobile:evidence:android
+```
+
+When no device is connected, retain `DEVICE_UNAVAILABLE` as `BLOCKED` and do
+not create screenshots or report an Android pass.

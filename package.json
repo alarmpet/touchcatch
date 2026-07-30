@@ -20,6 +20,7 @@
     "mobile:test": "vitest run apps/mobile/src/learning-demo apps/mobile/app",
     "mobile:preflight": "tsx tools/mobile/check-expo-project.ts",
     "mobile:bundle:android": "corepack pnpm --dir apps/mobile exec expo export --platform android --output-dir ../../.superpowers/mobile-export/android --clear",
+    "mobile:evidence:android": "tsx tools/mobile/check-device-evidence.ts --platform android",
     "lint": "eslint .",
     "secret:scan": "secretlint \"**/*\"",
     "typecheck": "tsc -p tsconfig.json --noEmit",
