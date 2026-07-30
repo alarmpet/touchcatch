@@ -33,7 +33,7 @@ paths:
       summary: Consume ten spare copies of one pet and promote to the next rarity
       parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
       requestBody: { $ref: "#/components/requestBodies/DuplicatePromotionRequest" }
-      responses: { "200": { $ref: "#/components/responses/DuplicatePromotionResponse" }, "400": { $ref: "#/components/responses/DuplicatePromotionInvalidError" }, "404": { $ref: "#/components/responses/DuplicatePromotionNotOwnedError" }, "409": { $ref: "#/components/responses/DuplicatePromotionConflictError" } }
+      responses: { "200": { $ref: "#/components/responses/DuplicatePromotionResponse" }, "400": { $ref: "#/components/responses/DuplicatePromotionInvalidError" }, "401": { $ref: "#/components/responses/DuplicatePromotionUnauthorizedError" }, "404": { $ref: "#/components/responses/DuplicatePromotionNotOwnedError" }, "409": { $ref: "#/components/responses/DuplicatePromotionConflictError" } }
   /v1/pets/{id}/select:
     post:
       operationId: selectPet
@@ -159,6 +159,7 @@ components:
     DailyFreeDrawConflictError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [POLICY_MISMATCH] } } }
     DailyFreeDrawUnauthorizedError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [AUTH_SUBJECT_REQUIRED] } } }
     DuplicatePromotionInvalidError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [INVALID_MATERIALS] } } }
+    DuplicatePromotionUnauthorizedError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [AUTH_SUBJECT_REQUIRED] } } }
     DuplicatePromotionNotOwnedError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [NOT_OWNED] } } }
     DuplicatePromotionConflictError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [IDEMPOTENCY_CONFLICT, POLICY_MISMATCH, INSUFFICIENT_DUPLICATES, COSMETIC_REWARD_POLICY_REQUIRED] } } }
     PetShowcaseNotFoundError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [NOT_FOUND] } } }
@@ -196,6 +197,7 @@ components:
     DailyFreeDrawConflictError: { description: Daily draw policy conflict, content: { application/json: { schema: { $ref: "#/components/schemas/DailyFreeDrawConflictError" } } } }
     DailyFreeDrawUnauthorizedError: { description: Authenticated account is not linked to a live economy subject, content: { application/json: { schema: { $ref: "#/components/schemas/DailyFreeDrawUnauthorizedError" } } } }
     DuplicatePromotionInvalidError: { description: Invalid duplicate materials, content: { application/json: { schema: { $ref: "#/components/schemas/DuplicatePromotionInvalidError" } } } }
+    DuplicatePromotionUnauthorizedError: { description: Authenticated account is not linked to an economy subject, content: { application/json: { schema: { $ref: "#/components/schemas/DuplicatePromotionUnauthorizedError" } } } }
     DuplicatePromotionNotOwnedError: { description: Source pet is not owned, content: { application/json: { schema: { $ref: "#/components/schemas/DuplicatePromotionNotOwnedError" } } } }
     DuplicatePromotionConflictError: { description: Duplicate promotion conflict, content: { application/json: { schema: { $ref: "#/components/schemas/DuplicatePromotionConflictError" } } } }
     PetShowcaseNotFoundError: { description: Public showcase not found, content: { application/json: { schema: { $ref: "#/components/schemas/PetShowcaseNotFoundError" } } } }

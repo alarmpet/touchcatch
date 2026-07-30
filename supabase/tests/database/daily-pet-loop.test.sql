@@ -76,13 +76,19 @@ insert into private.economy_policy_revisions(
 
 insert into auth.users(id, aud, role, email) values
   ('10000000-0000-4000-8000-000000000201', 'authenticated', 'authenticated', 'daily-201@example.test'),
-  ('10000000-0000-4000-8000-000000000202', 'authenticated', 'authenticated', 'daily-202@example.test');
+  ('10000000-0000-4000-8000-000000000202', 'authenticated', 'authenticated', 'daily-202@example.test'),
+  ('10000000-0000-4000-8000-000000000203', 'authenticated', 'authenticated', 'daily-203@example.test'),
+  ('10000000-0000-4000-8000-000000000204', 'authenticated', 'authenticated', 'daily-204@example.test'),
+  ('10000000-0000-4000-8000-000000000205', 'authenticated', 'authenticated', 'daily-205@example.test'),
+  ('10000000-0000-4000-8000-000000000206', 'authenticated', 'authenticated', 'daily-206@example.test');
 insert into private.economy_subjects(subject_key, user_id) values
   ('70000000-0000-4000-8000-000000000101', '10000000-0000-4000-8000-000000000201'),
-  ('70000000-0000-4000-8000-000000000102', null),
-  ('70000000-0000-4000-8000-000000000103', null),
-  ('70000000-0000-4000-8000-000000000104', null),
-  ('70000000-0000-4000-8000-000000000105', '10000000-0000-4000-8000-000000000202');
+  ('70000000-0000-4000-8000-000000000102', '10000000-0000-4000-8000-000000000203'),
+  ('70000000-0000-4000-8000-000000000103', '10000000-0000-4000-8000-000000000204'),
+  ('70000000-0000-4000-8000-000000000104', '10000000-0000-4000-8000-000000000205'),
+  ('70000000-0000-4000-8000-000000000105', '10000000-0000-4000-8000-000000000202'),
+  ('70000000-0000-4000-8000-000000000106', '10000000-0000-4000-8000-000000000206'),
+  ('70000000-0000-4000-8000-000000000107', null);
 insert into private.gacha_pity_state(
   subject_key, pity_series_id, pity_semantics_hash, rare_counter, legendary_counter,
   economy_version, economy_hash, catalog_revision, catalog_hash
@@ -132,6 +138,15 @@ select throws_ok(
     repeat('e', 64), 'daily-loop-test', repeat('c', 64)
   )$$,
   'P0001', 'AUTH_SUBJECT_REQUIRED', 'deleted or unlinked account cannot claim'
+);
+select throws_ok(
+  $$select private.promote_duplicate_cards_v1(
+    '70000000-0000-4000-8000-000000000107',
+    '50000000-0000-4000-8000-000000000110', repeat('b', 64),
+    '[{"petId":"00000000-0000-4000-8000-000000000101","count":10}]',
+    repeat('e', 64), 'daily-loop-test', repeat('c', 64)
+  )$$,
+  'P0001', 'AUTH_SUBJECT_REQUIRED', 'unlinked account cannot promote'
 );
 
 insert into private.pet_inventory(
@@ -240,7 +255,6 @@ select throws_ok(
   'P0001', 'COSMETIC_REWARD_POLICY_REQUIRED', 'legendary spares fail closed without approved cosmetic policy'
 );
 
-insert into private.economy_subjects(subject_key) values ('70000000-0000-4000-8000-000000000106');
 insert into private.pet_inventory(
   user_pet_id, subject_key, pet_id, rarity, copies, selected, locked,
   acquired_catalog_revision, acquired_catalog_hash
@@ -284,6 +298,28 @@ select is(
   ),
   1,
   'selected row is never consumed'
+);
+select is(
+  (
+    select count(*)::int
+    from private.pet_inventory
+    where subject_key = '70000000-0000-4000-8000-000000000106'
+      and pet_id = '00000000-0000-4000-8000-000000000104'
+      and copies = 0
+  ),
+  10,
+  'promotion retains ten history-backed tombstone rows'
+);
+select is(
+  (
+    select count(*)::int
+    from private.pet_inventory
+    where subject_key = '70000000-0000-4000-8000-000000000106'
+      and pet_id = '00000000-0000-4000-8000-000000000104'
+      and copies > 0
+  ),
+  1,
+  'zero-copy tombstone is excluded from owned inventory'
 );
 select is(
   (

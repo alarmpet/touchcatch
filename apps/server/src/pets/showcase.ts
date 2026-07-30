@@ -31,7 +31,8 @@ export function getPetCollectionV1(input: {
   inventory: readonly InventoryPetV1[];
 }): PetCollectionV1 {
   const catalogById = new Map(input.catalog.map((pet) => [pet.petId, pet]));
-  const ownedIds = new Set(input.inventory.map((pet) => pet.petId));
+  const positiveInventory = input.inventory.filter((pet) => pet.copies > 0);
+  const ownedIds = new Set(positiveInventory.map((pet) => pet.petId));
   const rarityProgress = {
     COMMON: { ownedCount: 0, totalCount: 0 },
     RARE: { ownedCount: 0, totalCount: 0 },
@@ -41,7 +42,7 @@ export function getPetCollectionV1(input: {
     rarityProgress[pet.rarity].totalCount += 1;
     if (ownedIds.has(pet.petId)) rarityProgress[pet.rarity].ownedCount += 1;
   }
-  const pets = input.inventory.map((pet) => {
+  const pets = positiveInventory.map((pet) => {
     const catalogPet = catalogById.get(pet.petId);
     if (!catalogPet || catalogPet.rarity !== pet.rarity) {
       throw new TypeError(`inventory pet ${pet.petId} is not in the approved catalog`);
@@ -61,10 +62,20 @@ export function getPetCollectionV1(input: {
   });
 }
 
-export function projectPetShowcaseV1(input: unknown): PetShowcaseV1 {
+export function projectPetShowcaseV1(input: unknown, collection: PetCollectionV1): PetShowcaseV1 {
   const parsed = petShowcaseV1Schema.safeParse(input);
   if (!parsed.success) {
     throw new TypeError(`public pet showcase rejected: ${parsed.error.message}`);
   }
-  return parsed.data;
+  const ownedPetIds = new Set(collection.pets.map((pet) => pet.petId));
+  return petShowcaseV1Schema.parse({
+    ...parsed.data,
+    selectedPet: parsed.data.selectedPet && ownedPetIds.has(parsed.data.selectedPet.petId)
+      ? parsed.data.selectedPet
+      : null,
+    favoritePets: parsed.data.favoritePets.filter((pet) => ownedPetIds.has(pet.petId)),
+    collectionPercentage: collection.totalCount === 0
+      ? 0
+      : (collection.ownedCount / collection.totalCount) * 100,
+  });
 }

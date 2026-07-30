@@ -105,9 +105,14 @@ describe('daily pet loop production-role concurrency', () => {
 
   it('collapses 20 same-key multi-row promotions and consumes exactly ten copies once', async () => {
     const subject = randomUUID();
+    const userId = randomUUID();
     const key = randomUUID();
     const petId = fixture.catalog.entries.find((entry) => entry.rarity === 'COMMON')!.petId;
-    await pool.query('insert into private.economy_subjects(subject_key) values($1)', [subject]);
+    await pool.query(
+      "insert into auth.users(id,aud,role,email) values($1,'authenticated','authenticated',$2)",
+      [userId, `${userId}@promotion.test`],
+    );
+    await pool.query('insert into private.economy_subjects(subject_key,user_id) values($1,$2)', [subject, userId]);
     for (let index = 0; index < 11; index += 1) {
       await pool.query(
         `insert into private.pet_inventory(

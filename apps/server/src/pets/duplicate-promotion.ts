@@ -7,6 +7,7 @@ import {
   duplicatePromotionV1Schema,
   pinnedPetPolicyV1Schema,
 } from '../../../../packages/contracts/src/daily-pet-loop.js';
+import type { AuthenticatedEconomySubjectResolverV1 } from './daily-draw.js';
 
 export type PetLoopErrorCode =
   | 'INVALID_MATERIALS'
@@ -114,7 +115,8 @@ export interface DuplicatePromotionRepositoryV1 {
 }
 
 export async function promoteDuplicateCardsV1(input: {
-  subjectKey: string;
+  authenticatedUserId: string;
+  subjectResolver: AuthenticatedEconomySubjectResolverV1;
   idempotencyKey: string;
   requestHash: string;
   sourcePetId: string;
@@ -124,9 +126,16 @@ export async function promoteDuplicateCardsV1(input: {
 }): Promise<DuplicatePromotionV1> {
   if (input.policy.status !== 'APPROVED') throw new TypeError('duplicate promotion requires APPROVED economy and catalog pins');
   normalizeDuplicateMaterialsV1(input.sourcePetId, input.materials);
-  const policy = pinnedPetPolicyV1Schema.parse(input.policy);
+  const policy = pinnedPetPolicyV1Schema.parse({
+    economyVersion: input.policy.economyVersion,
+    economyHash: input.policy.economyHash,
+    catalogRevision: input.policy.catalogRevision,
+    catalogHash: input.policy.catalogHash,
+  });
+  const subjectKey = await input.subjectResolver.resolveLinkedSubjectKey(input.authenticatedUserId);
+  if (!subjectKey) throw new TypeError('AUTH_SUBJECT_REQUIRED');
   const response = await input.repository.promoteEffectOnce({
-    subjectKey: input.subjectKey,
+    subjectKey,
     idempotencyKey: input.idempotencyKey,
     requestHash: input.requestHash,
     sourcePetId: input.sourcePetId,

@@ -167,8 +167,8 @@ Addressed all six review findings:
   `user_pet_id` order, never consumes selected/locked rows, retains the base
   copy, consumes exactly 10, and issues one effect-once entitlement;
 - the trusted server adapter resolves authenticated user ID to subject key, and
-  SQL independently requires that subject to remain linked to a live
-  `auth.users` row;
+  SQL independently requires that subject's FK-backed `user_id` remain
+  non-null;
 - legacy `acquired_at` values are backfilled only from real `gacha_history`;
   unknown dates remain nullable and are projected as
   `UNAVAILABLE_LEGACY`;
@@ -210,3 +210,54 @@ Prevention note: future server-authoritative flows should test the cross-layer
 identity contract explicitly (auth user at the transport boundary, subject key
 inside economy repositories) and include at least one fragmented-inventory
 concurrency fixture rather than assuming one row per catalog item.
+
+## Fix Round 2/5
+
+Addressed both Important findings:
+
+- neither security-definer command reads `auth.users`; both lock only a subject
+  whose `economy_subjects.user_id` is non-null. The existing
+  `ON DELETE SET NULL` foreign key supplies the liveness invariant without
+  cross-schema execution privileges;
+- both TypeScript command boundaries now resolve authenticated user ID to
+  subject key before repository access. Duplicate promotion no longer accepts a
+  raw subject key as caller authority;
+- daily and promotion replays both re-check live linkage before returning a
+  stored result;
+- SQL owned/candidate lookups exclude `copies <= 0`, including source locks,
+  aggregate promotion totals, daily reacquisition, and promotion outputs;
+- collection projection removes tombstones before schema parsing and before
+  owned/rarity totals. Showcase selection, favorites, and completion percentage
+  are derived from that positive-copy collection.
+
+Round-2 RED:
+
+```text
+Test Files  4 failed (4)
+Tests       8 failed | 27 passed (35)
+```
+
+Fresh focused GREEN, including the JSON Schema/runtime parity test:
+
+```powershell
+.\node_modules\.bin\vitest.cmd run packages/contracts/src/daily-pet-loop.test.ts packages/contracts/src/daily-pet-loop.sql.test.ts apps/server/src/pets packages/contracts/src/openapi.test.ts
+```
+
+```text
+Test Files  6 passed (6)
+Tests       50 passed (50)
+```
+
+Scoped strict TypeScript, ESLint, Redocly OpenAPI validation, and final diff
+whitespace validation also pass. The fresh Supabase runtime probe remains:
+
+```text
+failed to inspect container health
+open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified
+```
+
+Therefore pgTAP and live 20-session concurrency remain Cannot Verify locally.
+
+Prevention note: an effect-once replay must re-authorize before reading its
+stored response, and any persisted zero-count history row must be excluded at
+every ownership boundary before totals, percentages, or public DTO validation.

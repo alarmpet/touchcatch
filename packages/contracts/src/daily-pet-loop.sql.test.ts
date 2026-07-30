@@ -7,11 +7,14 @@ const pgTap = readFileSync(resolve('supabase/tests/database/daily-pet-loop.test.
 const concurrency = readFileSync(resolve('tests/database/daily-pet-loop-concurrency.test.ts'), 'utf8');
 
 describe('daily pet loop SQL static regression contract', () => {
-  it('requires the adapter-resolved subject to remain linked to a live auth user', () => {
+  it('requires both commands to receive an adapter-resolved, still-linked subject without querying auth schema', () => {
     expect(migration).toMatch(/claim_daily_free_draw_v1\([\s\S]{0,100}p_subject_key uuid/i);
-    expect(migration).toMatch(/join auth\.users[\s\S]+s\.subject_key\s*=\s*p_subject_key[\s\S]+s\.user_id is not null/i);
+    expect(migration).not.toMatch(/auth\.users/i);
+    expect(migration).toMatch(/claim_daily_free_draw_v1\([\s\S]+where s\.subject_key\s*=\s*p_subject_key and s\.user_id is not null[\s\S]+create function private\.promote_duplicate_cards_v1/i);
+    expect(migration).toMatch(/promote_duplicate_cards_v1\([\s\S]+where s\.subject_key\s*=\s*p_subject_key and s\.user_id is not null/i);
     expect(migration).not.toMatch(/p_authenticated_user_id uuid/i);
     expect(pgTap).toMatch(/deleted or unlinked account cannot claim/i);
+    expect(pgTap).toMatch(/unlinked account cannot promote/i);
   });
 
   it('locks and consumes all eligible same-pet rows in stable order', () => {
@@ -19,6 +22,13 @@ describe('daily pet loop SQL static regression contract', () => {
     expect(migration).toMatch(/not i\.selected and not i\.locked/i);
     expect(migration).toMatch(/v_remaining_to_consume\s+integer\s*:=\s*10/i);
     expect(pgTap).toMatch(/eleven one-copy rows aggregate/i);
+  });
+
+  it('excludes zero-copy tombstones from every owned inventory candidate query', () => {
+    expect(migration).toMatch(/where i\.subject_key = p_subject_key and i\.pet_id = v_pet_id\s+and i\.copies > 0/i);
+    expect(migration).toMatch(/where i\.subject_key = p_subject_key and i\.pet_id = v_source_pet_id\s+and i\.copies > 0\s+order by i\.user_pet_id\s+for update/i);
+    expect(migration).toMatch(/where i\.subject_key = p_subject_key and i\.pet_id = v_target_pet_id\s+and i\.copies > 0/i);
+    expect(pgTap).toMatch(/zero-copy tombstone is excluded from owned inventory/i);
   });
 
   it('backfills acquisition time only from real history and leaves unknown legacy dates nullable', () => {

@@ -4,7 +4,52 @@ import {
   normalizeDuplicateMaterialsV1,
   planDuplicateConsumptionV1,
   PetLoopError,
+  promoteDuplicateCardsV1,
+  type DuplicatePromotionRepositoryV1,
 } from './duplicate-promotion.js';
+import type { AuthenticatedEconomySubjectResolverV1 } from './daily-draw.js';
+
+const authenticatedUserId = '10000000-0000-4000-8000-000000000001';
+const subjectKey = '70000000-0000-4000-8000-000000000001';
+const sourcePetId = '00000000-0000-4000-8000-000000000001';
+const pinnedPolicy = {
+  economyVersion: '1.0.0',
+  economyHash: 'a'.repeat(64),
+  catalogRevision: 'catalog-v1',
+  catalogHash: 'b'.repeat(64),
+} as const;
+
+class PromotionRepository implements DuplicatePromotionRepositoryV1 {
+  readonly subjects: string[] = [];
+
+  async promoteEffectOnce(input: Parameters<DuplicatePromotionRepositoryV1['promoteEffectOnce']>[0]) {
+    this.subjects.push(input.subjectKey);
+    return {
+      consumed: {
+        petId: sourcePetId,
+        copies: 10 as const,
+        rows: [{ userPetId: '40000000-0000-4000-8000-000000000001', copies: 10 }],
+      },
+      remainingCopies: 1,
+      output: {
+        userPetId: '40000000-0000-4000-8000-000000000002',
+        petId: '00000000-0000-4000-8000-000000000002',
+        rarity: 'RARE' as const,
+        copies: 1,
+      },
+      ...pinnedPolicy,
+    };
+  }
+}
+
+class PromotionSubjectResolver implements AuthenticatedEconomySubjectResolverV1 {
+  constructor(private readonly linked = true) {}
+
+  async resolveLinkedSubjectKey(userId: string): Promise<string> {
+    if (!this.linked || userId !== authenticatedUserId) throw new TypeError('AUTH_SUBJECT_REQUIRED');
+    return subjectKey;
+  }
+}
 
 describe('same-pet duplicate promotion', () => {
   it.each([
@@ -78,5 +123,35 @@ describe('same-pet duplicate promotion', () => {
       ],
       remainingCopies: 2,
     });
+  });
+
+  it('resolves authenticated user authority before promoting', async () => {
+    const repository = new PromotionRepository();
+    await promoteDuplicateCardsV1({
+      authenticatedUserId,
+      subjectResolver: new PromotionSubjectResolver(),
+      idempotencyKey: '50000000-0000-4000-8000-000000000001',
+      requestHash: 'c'.repeat(64),
+      sourcePetId,
+      materials: [{ petId: sourcePetId, count: 10 }],
+      policy: { status: 'APPROVED', ...pinnedPolicy },
+      repository,
+    });
+    expect(repository.subjects).toEqual([subjectKey]);
+  });
+
+  it('rejects an unlinked authenticated account before repository access', async () => {
+    const repository = new PromotionRepository();
+    await expect(promoteDuplicateCardsV1({
+      authenticatedUserId,
+      subjectResolver: new PromotionSubjectResolver(false),
+      idempotencyKey: '50000000-0000-4000-8000-000000000001',
+      requestHash: 'c'.repeat(64),
+      sourcePetId,
+      materials: [{ petId: sourcePetId, count: 10 }],
+      policy: { status: 'APPROVED', ...pinnedPolicy },
+      repository,
+    })).rejects.toThrow(/AUTH_SUBJECT_REQUIRED/);
+    expect(repository.subjects).toEqual([]);
   });
 });

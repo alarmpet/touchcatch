@@ -135,7 +135,6 @@ declare
 begin
   perform 1
     from private.economy_subjects s
-    join auth.users auth_user on auth_user.id = s.user_id
     where s.subject_key = p_subject_key and s.user_id is not null
     for update of s;
   if not found then raise exception 'AUTH_SUBJECT_REQUIRED'; end if;
@@ -178,6 +177,7 @@ begin
   select i.user_pet_id, i.copies into v_user_pet_id, v_copies
     from private.pet_inventory i
     where i.subject_key = p_subject_key and i.pet_id = v_pet_id
+      and i.copies > 0
     order by i.user_pet_id
     limit 1
     for update;
@@ -267,6 +267,12 @@ declare
   v_history_id bigint;
   v_response jsonb;
 begin
+  perform 1
+    from private.economy_subjects s
+    where s.subject_key = p_subject_key and s.user_id is not null
+    for update;
+  if not found then raise exception 'AUTH_SUBJECT_REQUIRED'; end if;
+
   select * into v_receipt
     from private.duplicate_promotion_receipts r
     where r.subject_key = p_subject_key and r.idempotency_key = p_idempotency_key;
@@ -291,8 +297,6 @@ begin
     or (get_byte(uuid_send(v_source_pet_id), 8) & 192) <> 128
   then raise exception 'INVALID_MATERIALS'; end if;
 
-  perform 1 from private.economy_subjects s where s.subject_key = p_subject_key for update;
-  if not found then raise exception 'NOT_OWNED'; end if;
   select * into v_receipt
     from private.duplicate_promotion_receipts r
     where r.subject_key = p_subject_key and r.idempotency_key = p_idempotency_key;
@@ -313,25 +317,28 @@ begin
   perform 1
     from private.pet_inventory i
     where i.subject_key = p_subject_key and i.pet_id = v_source_pet_id
+      and i.copies > 0
     order by i.user_pet_id
     for update;
   if not found then raise exception 'NOT_OWNED'; end if;
   select i.rarity into v_source_rarity
     from private.pet_inventory i
     where i.subject_key = p_subject_key and i.pet_id = v_source_pet_id
+      and i.copies > 0
     order by i.user_pet_id
     limit 1;
   if exists (
     select 1 from private.pet_inventory i
     where i.subject_key = p_subject_key and i.pet_id = v_source_pet_id
-      and i.rarity <> v_source_rarity
+      and i.copies > 0 and i.rarity <> v_source_rarity
   ) then raise exception 'INVALID_MATERIALS'; end if;
   select
     coalesce(sum(i.copies), 0)::integer,
     coalesce(sum(i.copies) filter (where not i.selected and not i.locked), 0)::integer
   into v_total_copies, v_eligible_copies
   from private.pet_inventory i
-  where i.subject_key = p_subject_key and i.pet_id = v_source_pet_id;
+  where i.subject_key = p_subject_key and i.pet_id = v_source_pet_id
+    and i.copies > 0;
   if v_total_copies < 11 or v_eligible_copies < 10 then raise exception 'INSUFFICIENT_DUPLICATES'; end if;
   if v_source_rarity = 'LEGENDARY' then raise exception 'COSMETIC_REWARD_POLICY_REQUIRED'; end if;
   v_target_rarity := case
@@ -374,6 +381,7 @@ begin
   select i.user_pet_id, i.copies into v_target_user_pet_id, v_target_copies
     from private.pet_inventory i
     where i.subject_key = p_subject_key and i.pet_id = v_target_pet_id
+      and i.copies > 0
     order by i.user_pet_id
     limit 1
     for update;
