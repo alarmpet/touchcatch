@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://touchcatch.invalid/schemas/hint-policy.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "policyVersion",
+    "status",
+    "stepsPerChallenge",
+    "runtimeLlmGeneration",
+    "ranked"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "policyVersion": { "const": "hint-policy-v1-candidate" },
+    "status": { "enum": ["DRAFT", "APPROVED"] },
+    "stepsPerChallenge": { "type": "integer", "const": 5 },
+    "runtimeLlmGeneration": { "const": false },
+    "ranked": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["petEffects", "penaltyPerStep"],
+      "properties": {
+        "petEffects": { "const": "COSMETIC_ONLY" },
+        "penaltyPerStep": { "type": "integer", "const": 15000 }
+      }
+    },
+    "approvalDecisionId": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
+    "approvedBy": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
+    "approvedAt": { "type": "string", "format": "date-time" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "status": { "const": "DRAFT" } },
+        "required": ["status"]
+      },
+      "then": {
+        "properties": {
+          "approvalDecisionId": false,
+          "approvedBy": false,
+          "approvedAt": false
+        }
+      },
+      "else": {
+        "properties": {
+          "approvalDecisionId": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
+          "approvedBy": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
+          "approvedAt": { "type": "string", "format": "date-time" }
+        },
+        "required": ["approvalDecisionId", "approvedBy", "approvedAt"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0.0",
+  "policyVersion": "learning-progression-v1-candidate",
+  "status": "DRAFT",
+  "accountXp": {
+    "firstCompletion": 30,
+    "allObjectivesCorrect": 10,
+    "noHint": 10,
+    "repeatPersonalBest": 5,
+    "dailyChallengeCap": 200
+  },
+  "selectedPetXp": {
+    "firstCompletion": 15,
+    "allObjectivesCorrect": 5,
+    "noHint": 5,
+    "repeatPersonalBest": 2,
+    "dailyChallengeCap": 100
+  },
+  "drawPoints": {
+    "firstCompletion": 10,
+    "weeklyCategoryParticipation": 20,
+    "dailyCap": 100
+  }
+}

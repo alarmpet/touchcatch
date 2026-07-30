@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://touchcatch.invalid/schemas/learning-progression.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "policyVersion",
+    "status",
+    "accountXp",
+    "selectedPetXp",
+    "drawPoints"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "policyVersion": { "const": "learning-progression-v1-candidate" },
+    "status": { "enum": ["DRAFT", "APPROVED"] },
+    "accountXp": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "firstCompletion",
+        "allObjectivesCorrect",
+        "noHint",
+        "repeatPersonalBest",
+        "dailyChallengeCap"
+      ],
+      "properties": {
+        "firstCompletion": { "type": "integer", "const": 30 },
+        "allObjectivesCorrect": { "type": "integer", "const": 10 },
+        "noHint": { "type": "integer", "const": 10 },
+        "repeatPersonalBest": { "type": "integer", "const": 5 },
+        "dailyChallengeCap": { "type": "integer", "const": 200 }
+      }
+    },
+    "selectedPetXp": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "firstCompletion",
+        "allObjectivesCorrect",
+        "noHint",
+        "repeatPersonalBest",
+        "dailyChallengeCap"
+      ],
+      "properties": {
+        "firstCompletion": { "type": "integer", "const": 15 },
+        "allObjectivesCorrect": { "type": "integer", "const": 5 },
+        "noHint": { "type": "integer", "const": 5 },
+        "repeatPersonalBest": { "type": "integer", "const": 2 },
+        "dailyChallengeCap": { "type": "integer", "const": 100 }
+      }
+    },
+    "drawPoints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "firstCompletion",
+        "weeklyCategoryParticipation",
+        "dailyCap"
+      ],
+      "properties": {
+        "firstCompletion": { "type": "integer", "const": 10 },
+        "weeklyCategoryParticipation": { "type": "integer", "const": 20 },
+        "dailyCap": { "type": "integer", "const": 100 }
+      }
+    },
+    "approvalDecisionId": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
+    "approvedBy": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
+    "approvedAt": { "type": "string", "format": "date-time" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "status": { "const": "DRAFT" } },
+        "required": ["status"]
+      },
+      "then": {
+        "properties": {
+          "approvalDecisionId": false,
+          "approvedBy": false,
+          "approvedAt": false
+        }
+      },
+      "else": {
+        "properties": {
+          "approvalDecisionId": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
+          "approvedBy": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
+          "approvedAt": { "type": "string", "format": "date-time" }
+        },
+        "required": ["approvalDecisionId", "approvedBy", "approvedAt"]
+      }
+    }
+  ]
+}

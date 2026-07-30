@@ -19,6 +19,7 @@ export * from './ui.js';
 export * from './economy.schema.js';
 export * from './pet-catalog.js';
 export * from './daily-pet-loop.js';
+export * from './learning-policy.js';
 export {
   PRIVACY_OPERATOR_ROLE,
   parseQuarantinePolicy,

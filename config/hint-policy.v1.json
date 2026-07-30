@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0.0",
+  "policyVersion": "hint-policy-v1-candidate",
+  "status": "DRAFT",
+  "stepsPerChallenge": 5,
+  "runtimeLlmGeneration": false,
+  "ranked": {
+    "petEffects": "COSMETIC_ONLY",
+    "penaltyPerStep": 15000
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://touchcatch.invalid/schemas/weekly-competition.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "policyVersion",
+    "status",
+    "timezone",
+    "categories",
+    "disabledCategories",
+    "challengesPerCategory",
+    "challengePinning",
+    "rankedRecord",
+    "ranked",
+    "rankOneReward"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "policyVersion": { "const": "weekly-competition-v1-candidate" },
+    "status": { "enum": ["DRAFT", "APPROVED"] },
+    "timezone": { "const": "Asia/Seoul" },
+    "categories": {
+      "type": "array",
+      "const": ["ENGLISH", "PROVERB"],
+      "uniqueItems": true
+    },
+    "disabledCategories": {
+      "type": "array",
+      "const": ["IDIOM", "GENERAL_KNOWLEDGE"],
+      "uniqueItems": true
+    },
+    "challengesPerCategory": { "type": "integer", "const": 5 },
+    "challengePinning": { "const": "PINNED_PUBLISHED_REVISIONS" },
+    "rankedRecord": { "const": "BEST_COMPLETED_VERIFIED" },
+    "ranked": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["petEffects"],
+      "properties": {
+        "petEffects": { "const": "COSMETIC_ONLY" }
+      }
+    },
+    "rankOneReward": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rank",
+        "rewardType",
+        "quantity",
+        "eligibleRarities",
+        "selection",
+        "affectsDirectDrawPity"
+      ],
+      "properties": {
+        "rank": { "type": "integer", "const": 1 },
+        "rewardType": { "const": "RARE_ONLY_TICKET_V1" },
+        "quantity": { "type": "integer", "const": 1 },
+        "eligibleRarities": {
+          "type": "array",
+          "const": ["RARE"],
+          "uniqueItems": true
+        },
+        "selection": { "const": "UNIFORM_WITHIN_PINNED_RARE" },
+        "affectsDirectDrawPity": { "const": false }
+      }
+    },
+    "approvalDecisionId": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
+    "approvedBy": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
+    "approvedAt": { "type": "string", "format": "date-time" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "status": { "const": "DRAFT" } },
+        "required": ["status"]
+      },
+      "then": {
+        "properties": {
+          "approvalDecisionId": false,
+          "approvedBy": false,
+          "approvedAt": false
+        }
+      },
+      "else": {
+        "properties": {
+          "approvalDecisionId": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
+          "approvedBy": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
+          "approvedAt": { "type": "string", "format": "date-time" }
+        },
+        "required": ["approvalDecisionId", "approvedBy", "approvedAt"]
+      }
+    }
+  ]
+}

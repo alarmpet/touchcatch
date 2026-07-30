@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "policyVersion": "weekly-competition-v1-candidate",
+  "status": "DRAFT",
+  "timezone": "Asia/Seoul",
+  "categories": [
+    "ENGLISH",
+    "PROVERB"
+  ],
+  "disabledCategories": [
+    "IDIOM",
+    "GENERAL_KNOWLEDGE"
+  ],
+  "challengesPerCategory": 5,
+  "challengePinning": "PINNED_PUBLISHED_REVISIONS",
+  "rankedRecord": "BEST_COMPLETED_VERIFIED",
+  "ranked": {
+    "petEffects": "COSMETIC_ONLY"
+  },
+  "rankOneReward": {
+    "rank": 1,
+    "rewardType": "RARE_ONLY_TICKET_V1",
+    "quantity": 1,
+    "eligibleRarities": [
+      "RARE"
+    ],
+    "selection": "UNIFORM_WITHIN_PINNED_RARE",
+    "affectsDirectDrawPity": false
+  }
+}
