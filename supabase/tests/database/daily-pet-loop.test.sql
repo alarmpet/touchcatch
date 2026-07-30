@@ -332,7 +332,7 @@ select is(
 );
 select like(
   (
-    select column_default
+    select column_default::text
     from information_schema.columns
     where table_schema = 'private' and table_name = 'pet_inventory' and column_name = 'acquired_at'
   ),

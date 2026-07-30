@@ -261,3 +261,32 @@ Therefore pgTAP and live 20-session concurrency remain Cannot Verify locally.
 Prevention note: an effect-once replay must re-authorize before reading its
 stored response, and any persisted zero-count history row must be excluded at
 every ownership boundary before totals, percentages, or public DTO validation.
+
+## Fix Round 3/5
+
+Real Docker-backed database verification supplied the RED evidence that was
+previously unavailable:
+
+```text
+daily-pet-loop.test.sql:333:
+pgTAP like(text,text,text) cannot resolve information_schema.character_data
+without an explicit text cast
+
+db lint:
+daily claim v_history_id is assigned but never read
+```
+
+The pgTAP query now casts `information_schema.columns.column_default` to
+`text`. The daily claim still inserts its history row but no longer declares
+or assigns the unused history identifier. Duplicate promotion's
+`v_history_id` remains intact because its outbox row consumes that identifier.
+
+Focused non-database contract/server verification remains:
+
+```text
+Test Files  6 passed (6)
+Tests       50 passed (50)
+```
+
+The root controller will rerun `corepack pnpm check:db` with Docker daemon
+access after this scoped fix commit.

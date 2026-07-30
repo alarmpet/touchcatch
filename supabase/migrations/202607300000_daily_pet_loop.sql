@@ -129,7 +129,6 @@ declare
   v_user_pet_id uuid;
   v_copies integer;
   v_claim_id bigint;
-  v_history_id bigint;
   v_response jsonb;
   v_roll bigint;
 begin
@@ -223,7 +222,7 @@ begin
     v_claim_id, p_subject_key, v_user_pet_id, v_pet_id, v_rarity,
     v_policy.economy_version, v_policy.economy_hash,
     p_expected_catalog_revision, p_expected_catalog_hash
-  ) returning daily_draw_history_id into v_history_id;
+  );
   insert into private.pet_loop_outbox_events(
     event_type, subject_key, daily_claim_id, payload,
     economy_version, economy_hash, catalog_revision, catalog_hash
