@@ -45,9 +45,31 @@ describe('pet collection projection', () => {
         selected: true,
         locked: false,
         acquiredAt: '2026-07-30T00:00:00.000Z',
+        acquisitionDateStatus: 'KNOWN',
         art,
       }],
     });
+  });
+
+  it('represents an unavailable legacy acquisition date explicitly', () => {
+    const collection = getPetCollectionV1({
+      catalog: [{ petId: 'pet-a', rarity: 'COMMON', displayKey: 'pet.a', art }],
+      inventory: [{
+        userPetId: 'owned-a',
+        petId: 'pet-a',
+        rarity: 'COMMON',
+        level: 1,
+        xp: 0,
+        copies: 1,
+        selected: false,
+        locked: false,
+        acquiredAt: null,
+      }],
+    });
+    expect(collection.pets[0]).toEqual(expect.objectContaining({
+      acquiredAt: null,
+      acquisitionDateStatus: 'UNAVAILABLE_LEGACY',
+    }));
   });
 });
 

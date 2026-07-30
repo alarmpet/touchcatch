@@ -23,7 +23,7 @@ interface InventoryPetV1 {
   copies: number;
   selected: boolean;
   locked: boolean;
-  acquiredAt: string;
+  acquiredAt: string | null;
 }
 
 export function getPetCollectionV1(input: {
@@ -48,6 +48,7 @@ export function getPetCollectionV1(input: {
     }
     return {
       ...pet,
+      acquisitionDateStatus: pet.acquiredAt === null ? 'UNAVAILABLE_LEGACY' as const : 'KNOWN' as const,
       displayKey: catalogPet.displayKey,
       art: catalogPet.art,
     };

@@ -3,8 +3,22 @@ do $$begin execute format('grant economy_security_owner to %I', current_user); e
 
 alter table private.pet_inventory
   add column if not exists level integer not null default 1 check (level > 0),
-  add column if not exists xp bigint not null default 0 check (xp >= 0),
-  add column if not exists acquired_at timestamptz not null default clock_timestamp();
+  add column if not exists xp bigint not null default 0 check (xp >= 0);
+alter table private.pet_inventory add column if not exists acquired_at timestamptz;
+update private.pet_inventory inventory
+set acquired_at = history.acquired_at
+from (
+  select user_pet_id, min(created_at) acquired_at
+  from private.gacha_history
+  group by user_pet_id
+) history
+where inventory.user_pet_id = history.user_pet_id and inventory.acquired_at is null;
+alter table private.pet_inventory alter column acquired_at set default clock_timestamp();
+alter table private.pet_inventory drop constraint if exists pet_inventory_copies_check;
+alter table private.pet_inventory
+  add constraint pet_inventory_copies_check check (
+    copies >= 0 and (copies > 0 or (not selected and not locked))
+  );
 
 create table private.daily_pet_claims (
   daily_claim_id bigint generated always as identity primary key,
@@ -67,6 +81,7 @@ create table private.duplicate_promotion_history (
   source_pet_id uuid not null references private.pet_definitions(pet_id),
   source_rarity public.pet_rarity not null,
   consumed_copies integer not null check (consumed_copies = 10),
+  consumed_rows jsonb not null check (jsonb_typeof(consumed_rows) = 'array' and jsonb_array_length(consumed_rows) > 0),
   output_user_pet_id uuid not null references private.pet_inventory(user_pet_id),
   output_pet_id uuid not null references private.pet_definitions(pet_id),
   output_rarity public.pet_rarity not null check (output_rarity in ('RARE', 'LEGENDARY')),
@@ -118,8 +133,12 @@ declare
   v_response jsonb;
   v_roll bigint;
 begin
-  perform 1 from private.economy_subjects s where s.subject_key = p_subject_key for update;
-  if not found then raise exception 'NOT_OWNED'; end if;
+  perform 1
+    from private.economy_subjects s
+    join auth.users auth_user on auth_user.id = s.user_id
+    where s.subject_key = p_subject_key and s.user_id is not null
+    for update of s;
+  if not found then raise exception 'AUTH_SUBJECT_REQUIRED'; end if;
 
   select * into v_existing
     from private.daily_pet_claims c
@@ -230,8 +249,15 @@ language plpgsql security definer set search_path = pg_catalog as $$
 declare
   v_receipt private.duplicate_promotion_receipts%rowtype;
   v_policy private.economy_policy_revisions%rowtype;
-  v_source private.pet_inventory%rowtype;
   v_source_user_pet_id uuid;
+  v_source_pet_id uuid;
+  v_source_rarity public.pet_rarity;
+  v_row record;
+  v_take integer;
+  v_total_copies integer;
+  v_eligible_copies integer;
+  v_remaining_to_consume integer := 10;
+  v_consumed_rows jsonb := '[]'::jsonb;
   v_target_rarity public.pet_rarity;
   v_target_pet_id uuid;
   v_target_user_pet_id uuid;
@@ -253,11 +279,17 @@ begin
     or pg_catalog.jsonb_array_length(p_materials) <> 1
     or pg_catalog.jsonb_typeof(p_materials->0) <> 'object'
     or (select pg_catalog.array_agg(k order by k) from pg_catalog.jsonb_object_keys(p_materials->0) k)
-      <> array['count','userPetId']::text[]
-    or p_materials#>>'{0,count}' <> '10'
-    or not (p_materials#>>'{0,userPetId}' ~* '^[0-9a-f-]{36}$')
+      <> array['count','petId']::text[]
+    or pg_catalog.jsonb_typeof(p_materials#>'{0,count}') <> 'number'
+    or not (p_materials#>>'{0,petId}' ~ '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$')
   then raise exception 'INVALID_MATERIALS'; end if;
-  v_source_user_pet_id := (p_materials#>>'{0,userPetId}')::uuid;
+  if (p_materials#>>'{0,count}')::numeric <> 10
+    or pg_catalog.trunc((p_materials#>>'{0,count}')::numeric) <> (p_materials#>>'{0,count}')::numeric
+  then raise exception 'INVALID_MATERIALS'; end if;
+  v_source_pet_id := (p_materials#>>'{0,petId}')::uuid;
+  if (get_byte(uuid_send(v_source_pet_id), 6) >> 4) <> 4
+    or (get_byte(uuid_send(v_source_pet_id), 8) & 192) <> 128
+  then raise exception 'INVALID_MATERIALS'; end if;
 
   perform 1 from private.economy_subjects s where s.subject_key = p_subject_key for update;
   if not found then raise exception 'NOT_OWNED'; end if;
@@ -278,15 +310,32 @@ begin
       and c.catalog_hash = p_expected_catalog_hash
   ) then raise exception 'POLICY_MISMATCH'; end if;
 
-  select * into v_source
+  perform 1
     from private.pet_inventory i
-    where i.subject_key = p_subject_key and i.user_pet_id = v_source_user_pet_id
+    where i.subject_key = p_subject_key and i.pet_id = v_source_pet_id
+    order by i.user_pet_id
     for update;
   if not found then raise exception 'NOT_OWNED'; end if;
-  if v_source.copies < 11 then raise exception 'INSUFFICIENT_DUPLICATES'; end if;
-  if v_source.rarity = 'LEGENDARY' then raise exception 'COSMETIC_REWARD_POLICY_REQUIRED'; end if;
+  select i.rarity into v_source_rarity
+    from private.pet_inventory i
+    where i.subject_key = p_subject_key and i.pet_id = v_source_pet_id
+    order by i.user_pet_id
+    limit 1;
+  if exists (
+    select 1 from private.pet_inventory i
+    where i.subject_key = p_subject_key and i.pet_id = v_source_pet_id
+      and i.rarity <> v_source_rarity
+  ) then raise exception 'INVALID_MATERIALS'; end if;
+  select
+    coalesce(sum(i.copies), 0)::integer,
+    coalesce(sum(i.copies) filter (where not i.selected and not i.locked), 0)::integer
+  into v_total_copies, v_eligible_copies
+  from private.pet_inventory i
+  where i.subject_key = p_subject_key and i.pet_id = v_source_pet_id;
+  if v_total_copies < 11 or v_eligible_copies < 10 then raise exception 'INSUFFICIENT_DUPLICATES'; end if;
+  if v_source_rarity = 'LEGENDARY' then raise exception 'COSMETIC_REWARD_POLICY_REQUIRED'; end if;
   v_target_rarity := case
-    when v_source.rarity = 'COMMON' then 'RARE'::public.pet_rarity
+    when v_source_rarity = 'COMMON' then 'RARE'::public.pet_rarity
     else 'LEGENDARY'::public.pet_rarity
   end;
 
@@ -301,10 +350,26 @@ begin
     limit 1;
   if v_target_pet_id is null then raise exception 'POLICY_MISMATCH'; end if;
 
-  update private.pet_inventory
-    set copies = copies - 10
-    where user_pet_id = v_source.user_pet_id
-    returning copies into v_remaining;
+  for v_row in
+    select i.user_pet_id, i.copies
+    from private.pet_inventory i
+    where i.subject_key = p_subject_key and i.pet_id = v_source_pet_id
+      and not i.selected and not i.locked and i.copies > 0
+    order by i.user_pet_id
+  loop
+    exit when v_remaining_to_consume = 0;
+    v_take := least(v_row.copies, v_remaining_to_consume);
+    update private.pet_inventory
+      set copies = copies - v_take
+      where user_pet_id = v_row.user_pet_id;
+    v_consumed_rows := v_consumed_rows || pg_catalog.jsonb_build_array(
+      pg_catalog.jsonb_build_object('userPetId', v_row.user_pet_id, 'copies', v_take)
+    );
+    v_remaining_to_consume := v_remaining_to_consume - v_take;
+  end loop;
+  if v_remaining_to_consume <> 0 then raise exception 'INSUFFICIENT_DUPLICATES'; end if;
+  v_source_user_pet_id := (v_consumed_rows#>>'{0,userPetId}')::uuid;
+  v_remaining := v_total_copies - 10;
 
   select i.user_pet_id, i.copies into v_target_user_pet_id, v_target_copies
     from private.pet_inventory i
@@ -328,9 +393,9 @@ begin
 
   v_response := pg_catalog.jsonb_build_object(
     'consumed', pg_catalog.jsonb_build_object(
-      'userPetId', v_source.user_pet_id,
-      'petId', v_source.pet_id,
-      'copies', 10
+      'petId', v_source_pet_id,
+      'copies', 10,
+      'rows', v_consumed_rows
     ),
     'remainingCopies', v_remaining,
     'output', pg_catalog.jsonb_build_object(
@@ -358,12 +423,12 @@ begin
   );
   insert into private.duplicate_promotion_history(
     promotion_receipt_id, subject_key,
-    source_user_pet_id, source_pet_id, source_rarity, consumed_copies,
+    source_user_pet_id, source_pet_id, source_rarity, consumed_copies, consumed_rows,
     output_user_pet_id, output_pet_id, output_rarity,
     economy_version, economy_hash, catalog_revision, catalog_hash
   ) values (
     v_receipt_id, p_subject_key,
-    v_source.user_pet_id, v_source.pet_id, v_source.rarity, 10,
+    v_source_user_pet_id, v_source_pet_id, v_source_rarity, 10, v_consumed_rows,
     v_target_user_pet_id, v_target_pet_id, v_target_rarity,
     v_policy.economy_version, v_policy.economy_hash,
     p_expected_catalog_revision, p_expected_catalog_hash

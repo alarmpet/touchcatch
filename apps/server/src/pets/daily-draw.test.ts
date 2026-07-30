@@ -4,10 +4,12 @@ import type { PetRarity } from '../../../../packages/contracts/src/pet-catalog.j
 import {
   claimDailyFreeDrawV1,
   kstClaimDateV1,
+  type AuthenticatedEconomySubjectResolverV1,
   type DailyDrawRepositoryV1,
 } from './daily-draw.js';
 
 const subjectKey = '70000000-0000-4000-8000-000000000001';
+const authenticatedUserId = '10000000-0000-4000-8000-000000000001';
 const pinnedPolicy = {
   economyVersion: '1.0.0',
   economyHash: 'a'.repeat(64),
@@ -18,8 +20,10 @@ const pinnedPolicy = {
 class EffectOnceRepository implements DailyDrawRepositoryV1 {
   readonly claims = new Map<string, DailyFreeDrawV1>();
   readonly directDrawPity = { rareCounter: 49, legendaryCounter: 149 };
+  readonly subjects: string[] = [];
 
   async claimEffectOnce(input: Parameters<DailyDrawRepositoryV1['claimEffectOnce']>[0]): Promise<DailyFreeDrawV1> {
+    this.subjects.push(input.subjectKey);
     const key = `${input.subjectKey}:${input.claimDate}:${input.seriesId}`;
     await Promise.resolve();
     const existing = this.claims.get(key);
@@ -36,6 +40,16 @@ class EffectOnceRepository implements DailyDrawRepositoryV1 {
   }
 }
 
+class LinkedSubjectResolver implements AuthenticatedEconomySubjectResolverV1 {
+  readonly requestedUserIds: string[] = [];
+
+  async resolveLinkedSubjectKey(userId: string): Promise<string> {
+    this.requestedUserIds.push(userId);
+    if (userId !== authenticatedUserId) throw new TypeError('AUTH_SUBJECT_REQUIRED');
+    return subjectKey;
+  }
+}
+
 describe('server-authoritative daily free draw', () => {
   it('derives the KST claim date across the UTC boundary', () => {
     expect(kstClaimDateV1(new Date('2026-07-29T14:59:59.999Z'))).toBe('2026-07-29');
@@ -44,9 +58,11 @@ describe('server-authoritative daily free draw', () => {
 
   it('collapses 20 concurrent claims to one daily result without touching DIRECT_DRAW pity', async () => {
     const repository = new EffectOnceRepository();
+    const subjectResolver = new LinkedSubjectResolver();
     const before = { ...repository.directDrawPity };
     const calls = Array.from({ length: 20 }, () => claimDailyFreeDrawV1({
-      subjectKey,
+      authenticatedUserId,
+      subjectResolver,
       now: new Date('2026-07-29T15:00:00.000Z'),
       policy: { status: 'APPROVED', ...pinnedPolicy },
       repository,
@@ -57,25 +73,31 @@ describe('server-authoritative daily free draw', () => {
     expect(results).toEqual(Array(20).fill(expect.objectContaining({ claimDate: '2026-07-30' })));
     expect(new Set(results.map((result) => JSON.stringify(result)))).toHaveLength(1);
     expect(repository.claims).toHaveLength(1);
+    expect(repository.subjects).toEqual(Array(20).fill(subjectKey));
+    expect(subjectResolver.requestedUserIds).toEqual(Array(20).fill(authenticatedUserId));
     expect(repository.directDrawPity).toEqual(before);
   });
 
   it('replays the stored response and never accumulates missed draws', async () => {
     const repository = new EffectOnceRepository();
+    const subjectResolver = new LinkedSubjectResolver();
     const first = await claimDailyFreeDrawV1({
-      subjectKey,
+      authenticatedUserId,
+      subjectResolver,
       now: new Date('2026-07-29T15:00:00.000Z'),
       policy: { status: 'APPROVED', ...pinnedPolicy },
       repository,
     });
     const retry = await claimDailyFreeDrawV1({
-      subjectKey,
+      authenticatedUserId,
+      subjectResolver,
       now: new Date('2026-07-30T14:59:59.999Z'),
       policy: { status: 'APPROVED', ...pinnedPolicy },
       repository,
     });
     const nextDay = await claimDailyFreeDrawV1({
-      subjectKey,
+      authenticatedUserId,
+      subjectResolver,
       now: new Date('2026-07-30T15:00:00.000Z'),
       policy: { status: 'APPROVED', ...pinnedPolicy },
       repository,
@@ -88,10 +110,23 @@ describe('server-authoritative daily free draw', () => {
 
   it('fails closed for an unapproved policy pin', async () => {
     await expect(claimDailyFreeDrawV1({
-      subjectKey,
+      authenticatedUserId,
+      subjectResolver: new LinkedSubjectResolver(),
       now: new Date(),
       policy: { status: 'DRAFT', ...pinnedPolicy },
       repository: new EffectOnceRepository(),
     })).rejects.toThrow(/APPROVED/);
+  });
+
+  it('rejects a deleted or unlinked authenticated account before repository access', async () => {
+    const repository = new EffectOnceRepository();
+    await expect(claimDailyFreeDrawV1({
+      authenticatedUserId: '10000000-0000-4000-8000-000000000099',
+      subjectResolver: new LinkedSubjectResolver(),
+      now: new Date('2026-07-29T15:00:00.000Z'),
+      policy: { status: 'APPROVED', ...pinnedPolicy },
+      repository,
+    })).rejects.toThrow(/AUTH_SUBJECT_REQUIRED/);
+    expect(repository.subjects).toEqual([]);
   });
 });

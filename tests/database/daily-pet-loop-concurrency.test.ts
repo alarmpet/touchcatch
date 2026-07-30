@@ -9,7 +9,7 @@ function databaseUrl(): string {
   const explicit = process.env.TEST_DATABASE_URL;
   const output = explicit ?? execFileSync(
     process.execPath,
-    [resolve('D:/touchcatch/node_modules/supabase/dist/supabase.js'), 'status', '-o', 'env'],
+    [resolve('node_modules/supabase/dist/supabase.js'), 'status', '-o', 'env'],
     { encoding: 'utf8' },
   );
   const raw = explicit ?? /^DB_URL=(?:"([^"]+)"|([^\r\n]+))$/mu.exec(output)?.slice(1).find(Boolean);
@@ -53,7 +53,12 @@ afterAll(async () => pool.end());
 describe('daily pet loop production-role concurrency', () => {
   it('collapses 20 same-day claims before entropy and preserves direct-draw pity', async () => {
     const subject = randomUUID();
-    await pool.query('insert into private.economy_subjects(subject_key) values($1)', [subject]);
+    const userId = randomUUID();
+    await pool.query(
+      "insert into auth.users(id,aud,role,email) values($1,'authenticated','authenticated',$2)",
+      [userId, `${userId}@daily.test`],
+    );
+    await pool.query('insert into private.economy_subjects(subject_key,user_id) values($1,$2)', [subject, userId]);
     await pool.query(
       `insert into private.gacha_pity_state(
         subject_key,pity_series_id,pity_semantics_hash,rare_counter,legendary_counter,
@@ -90,6 +95,53 @@ describe('daily pet loop production-role concurrency', () => {
         'select rare_counter,legendary_counter from private.gacha_pity_state where subject_key=$1',
         [subject],
       ).then((result) => result.rows[0])).toEqual({ rare_counter: 49, legendary_counter: 149 });
+    } finally {
+      await Promise.all(clients.map(async (client) => {
+        await client.query('reset role').catch(() => undefined);
+        client.release();
+      }));
+    }
+  });
+
+  it('collapses 20 same-key multi-row promotions and consumes exactly ten copies once', async () => {
+    const subject = randomUUID();
+    const key = randomUUID();
+    const petId = fixture.catalog.entries.find((entry) => entry.rarity === 'COMMON')!.petId;
+    await pool.query('insert into private.economy_subjects(subject_key) values($1)', [subject]);
+    for (let index = 0; index < 11; index += 1) {
+      await pool.query(
+        `insert into private.pet_inventory(
+          user_pet_id,subject_key,pet_id,rarity,copies,selected,locked,
+          acquired_catalog_revision,acquired_catalog_hash
+        ) values($1,$2,$3,'COMMON',1,$4,false,$5,$6)`,
+        [randomUUID(), subject, petId, index === 10, fixture.catalogRevision, fixture.catalogHash],
+      );
+    }
+    const clients = await Promise.all(Array.from({ length: 20 }, () => pool.connect()));
+    try {
+      await Promise.all(clients.map(economyRole));
+      const args = [
+        subject,
+        key,
+        'a'.repeat(64),
+        JSON.stringify([{ petId, count: 10 }]),
+        fixture.economyHash,
+        fixture.catalogRevision,
+        fixture.catalogHash,
+      ];
+      const results = await Promise.all(clients.map((client) => client.query(
+        'select private.promote_duplicate_cards_v1($1,$2,$3,$4,$5,$6,$7) response',
+        args,
+      )));
+      expect(new Set(results.map((result) => JSON.stringify(result.rows[0]?.response)))).toHaveLength(1);
+      expect(await pool.query(
+        'select sum(copies)::int copies from private.pet_inventory where subject_key=$1 and pet_id=$2',
+        [subject, petId],
+      ).then((result) => result.rows[0]?.copies)).toBe(1);
+      expect(await pool.query(
+        'select count(*)::int count from private.duplicate_promotion_history where subject_key=$1',
+        [subject],
+      ).then((result) => result.rows[0]?.count)).toBe(1);
     } finally {
       await Promise.all(clients.map(async (client) => {
         await client.query('reset role').catch(() => undefined);

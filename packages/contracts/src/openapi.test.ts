@@ -19,7 +19,7 @@ const expected = {
   "GET /v1/me": { request: null, statuses: ["200", "401"], response: "MeResponse", errors: ["UNAUTHORIZED"] },
   "GET /v1/pets": { request: null, statuses: ["200", "401"], response: "PetsResponse", errors: ["UNAUTHORIZED"] },
   "GET /v1/pets/collection": { request: null, statuses: ["200", "401"], response: "PetCollectionResponse", errors: ["UNAUTHORIZED"] },
-  "POST /v1/pets/daily-draw": { request: null, statuses: ["200", "409"], response: "DailyFreeDrawResponse", errors: ["POLICY_MISMATCH"] },
+  "POST /v1/pets/daily-draw": { request: null, statuses: ["200", "401", "409"], response: "DailyFreeDrawResponse", errors: ["AUTH_SUBJECT_REQUIRED", "POLICY_MISMATCH"] },
   "POST /v1/pets/duplicate-promotion": { request: "DuplicatePromotionRequest", statuses: ["200", "400", "404", "409"], response: "DuplicatePromotionResponse", errors: ["INVALID_MATERIALS", "NOT_OWNED", "IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH", "INSUFFICIENT_DUPLICATES", "COSMETIC_REWARD_POLICY_REQUIRED"] },
   "POST /v1/pets/{id}/select": { request: null, statuses: ["200", "404", "409"], response: "SelectPetResponse", errors: ["NOT_OWNED", "IDEMPOTENCY_CONFLICT"] },
   "POST /v1/pets/{id}/lock": { request: "LockPetRequest", statuses: ["200", "404", "409"], response: "LockPetResponse", errors: ["NOT_OWNED", "IDEMPOTENCY_CONFLICT"] },
@@ -124,5 +124,15 @@ describe("OpenAPI semantic contract", () => {
     for (const privateKey of ["authId", "userId", "email", "subjectKey", "acquisitionHistory", "biography", "location"]) {
       expect(showcase.properties).not.toHaveProperty(privateKey);
     }
+  });
+
+  it("promotes by same catalog pet ID with an exact integer ten", () => {
+    const request = document.components.schemas.DuplicatePromotionRequest as {
+      properties?: { materials?: { items?: { properties?: Record<string, unknown>; required?: string[] } } };
+    };
+    expect(request.properties?.materials?.items?.required).toEqual(["petId", "count"]);
+    expect(request.properties?.materials?.items?.properties).toHaveProperty("petId");
+    expect(request.properties?.materials?.items?.properties).not.toHaveProperty("userPetId");
+    expect(request.properties?.materials?.items?.properties?.count).toEqual({ type: "integer", const: 10 });
   });
 });

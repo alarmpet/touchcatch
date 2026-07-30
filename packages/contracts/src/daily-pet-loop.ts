@@ -75,7 +75,7 @@ export const dailyFreeDrawV1Schema = pinnedPetPolicyV1Schema.extend({
 }).strict();
 export type DailyFreeDrawV1 = z.infer<typeof dailyFreeDrawV1Schema>;
 
-export const petCollectionItemV1Schema = z.object({
+const petCollectionItemBaseV1Schema = z.object({
   userPetId: z.string().min(1),
   petId: z.string().min(1),
   rarity: petRarityV1Schema,
@@ -85,9 +85,18 @@ export const petCollectionItemV1Schema = z.object({
   copies: z.number().int().positive(),
   selected: z.boolean(),
   locked: z.boolean(),
-  acquiredAt: z.iso.datetime({ offset: true }),
   art: approvedPetArtV1Schema,
 }).strict();
+export const petCollectionItemV1Schema = z.discriminatedUnion('acquisitionDateStatus', [
+  petCollectionItemBaseV1Schema.extend({
+    acquiredAt: z.iso.datetime({ offset: true }),
+    acquisitionDateStatus: z.literal('KNOWN'),
+  }),
+  petCollectionItemBaseV1Schema.extend({
+    acquiredAt: z.null(),
+    acquisitionDateStatus: z.literal('UNAVAILABLE_LEGACY'),
+  }),
+]);
 export type PetCollectionItemV1 = z.infer<typeof petCollectionItemV1Schema>;
 
 const rarityProgressV1Schema = z.object({
@@ -130,9 +139,12 @@ export type PetShowcaseV1 = z.infer<typeof petShowcaseV1Schema>;
 
 export const duplicatePromotionV1Schema = pinnedPetPolicyV1Schema.extend({
   consumed: z.object({
-    userPetId: uuidSchema,
     petId: uuidSchema,
     copies: z.literal(10),
+    rows: z.array(z.object({
+      userPetId: uuidSchema,
+      copies: z.number().int().positive(),
+    }).strict()).min(1),
   }).strict(),
   remainingCopies: z.number().int().positive(),
   output: z.object({

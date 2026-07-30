@@ -20,6 +20,11 @@ export interface DailyDrawRepositoryV1 {
   claimEffectOnce(input: DailyDrawEffectInputV1): Promise<DailyFreeDrawV1>;
 }
 
+export interface AuthenticatedEconomySubjectResolverV1 {
+  /** Resolve only a currently live auth user linked by economy_subjects.user_id. */
+  resolveLinkedSubjectKey(authenticatedUserId: string): Promise<string>;
+}
+
 export function kstClaimDateV1(now = new Date()): string {
   if (Number.isNaN(now.getTime())) throw new TypeError('now must be a valid server timestamp');
   const parts = new Intl.DateTimeFormat('en-CA', {
@@ -38,7 +43,8 @@ export function kstClaimDateV1(now = new Date()): string {
 }
 
 export async function claimDailyFreeDrawV1(input: {
-  subjectKey: string;
+  authenticatedUserId: string;
+  subjectResolver: AuthenticatedEconomySubjectResolverV1;
   now?: Date;
   policy: PinnedPetPolicyV1 & { status: 'DRAFT' | 'APPROVED' };
   repository: DailyDrawRepositoryV1;
@@ -50,8 +56,10 @@ export async function claimDailyFreeDrawV1(input: {
     catalogRevision: input.policy.catalogRevision,
     catalogHash: input.policy.catalogHash,
   });
+  const subjectKey = await input.subjectResolver.resolveLinkedSubjectKey(input.authenticatedUserId);
+  if (!subjectKey) throw new TypeError('AUTH_SUBJECT_REQUIRED');
   const response = await input.repository.claimEffectOnce({
-    subjectKey: input.subjectKey,
+    subjectKey,
     claimDate: kstClaimDateV1(input.now),
     seriesId: 'DAILY_FREE_DRAW_V1',
     probabilities: { COMMON: 0.8, RARE: 0.18, LEGENDARY: 0.02 },

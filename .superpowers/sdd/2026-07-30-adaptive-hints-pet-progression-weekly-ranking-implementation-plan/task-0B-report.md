@@ -135,9 +135,11 @@ a running local Supabase stack for execution.
   and concurrency tests pin 49/149 before/after.
 - Daily and direct draws share approved economy/catalog pins but use separate
   receipts, history, and outbox tables.
-- Duplicate promotion accepts exactly one source inventory row with count 10,
-  locks subject then source, requires `copies >= 11`, decrements exactly 10,
-  and persists a consumed target entitlement in the same transaction.
+- Duplicate promotion accepts exactly one same-pet request with count 10,
+  locks the subject and every matching inventory row in stable UUID order,
+  skips selected/locked rows, requires 11 aggregate copies, decrements exactly
+  10 eligible copies, and persists one consumed target entitlement in the same
+  transaction.
 - Legendary promotion fails closed with
   `COSMETIC_REWARD_POLICY_REQUIRED`.
 - Showcase parsing is strict at every object level and rejects auth IDs,
@@ -156,3 +158,55 @@ a running local Supabase stack for execution.
 3. The daily-loop policy remains intentionally `DRAFT`; production callers
    must continue to fail closed until the policy and referenced catalog/economy
    artifacts are approved.
+
+## Fix Round 1/5
+
+Addressed all six review findings:
+
+- promotion now aggregates all rows for the same `pet_id`, locks them in stable
+  `user_pet_id` order, never consumes selected/locked rows, retains the base
+  copy, consumes exactly 10, and issues one effect-once entitlement;
+- the trusted server adapter resolves authenticated user ID to subject key, and
+  SQL independently requires that subject to remain linked to a live
+  `auth.users` row;
+- legacy `acquired_at` values are backfilled only from real `gacha_history`;
+  unknown dates remain nullable and are projected as
+  `UNAVAILABLE_LEGACY`;
+- promotion SQL accepts only JSON numeric integer `10` and a canonical UUIDv4
+  pet ID;
+- the concurrency harness resolves the Supabase CLI from the repository instead
+  of hardcoding `D:/touchcatch`;
+- pgTAP pins the exact `economy_server` function allowlist and covers same-key,
+  different-hash idempotency conflict.
+
+Regression tests were written first. Before the fixes:
+
+```text
+Tests  12 failed | 32 passed (44)
+```
+
+Fresh focused verification after the fixes:
+
+```powershell
+.\node_modules\.bin\vitest.cmd run packages/contracts/src/daily-pet-loop.test.ts packages/contracts/src/daily-pet-loop.sql.test.ts apps/server/src/pets packages/contracts/src/openapi.test.ts
+```
+
+```text
+Test Files  6 passed (6)
+Tests       45 passed (45)
+```
+
+The updated scoped strict TypeScript compilation, scoped ESLint, and Redocly
+OpenAPI lint all exit successfully. A fresh local Supabase check still reports:
+
+```text
+open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified
+```
+
+Accordingly, the pgTAP and real 20-session concurrency suites remain implemented
+but runtime-blocked until Docker Desktop's Linux engine is available.
+
+Prevention note: future server-authoritative flows should test the cross-layer
+identity contract explicitly (auth user at the transport boundary, subject key
+inside economy repositories) and include at least one fragmented-inventory
+concurrency fixture rather than assuming one row per catalog item.

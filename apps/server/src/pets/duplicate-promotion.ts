@@ -25,6 +25,14 @@ export interface DuplicateMaterialV1 {
   count: number;
 }
 
+export interface DuplicateInventoryRowV1 {
+  userPetId: string;
+  petId: string;
+  copies: number;
+  selected: boolean;
+  locked: boolean;
+}
+
 export function normalizeDuplicateMaterialsV1(
   sourcePetId: string,
   materials: readonly DuplicateMaterialV1[],
@@ -63,18 +71,42 @@ export function evaluateDuplicatePromotionV1(input: {
   };
 }
 
+export function planDuplicateConsumptionV1(
+  sourcePetId: string,
+  inventoryRows: readonly DuplicateInventoryRowV1[],
+): {
+  consumed: Array<{ userPetId: string; copies: number }>;
+  remainingCopies: number;
+} {
+  const samePet = inventoryRows
+    .filter((row) => row.petId === sourcePetId && Number.isSafeInteger(row.copies) && row.copies > 0)
+    .sort((left, right) => left.userPetId.localeCompare(right.userPetId));
+  const totalCopies = samePet.reduce((total, row) => total + row.copies, 0);
+  if (totalCopies < 11) throw new PetLoopError('INSUFFICIENT_DUPLICATES');
+  let remainingToConsume = 10;
+  const consumed: Array<{ userPetId: string; copies: number }> = [];
+  for (const row of samePet) {
+    if (remainingToConsume === 0) break;
+    if (row.selected || row.locked) continue;
+    const copies = Math.min(row.copies, remainingToConsume);
+    if (copies > 0) consumed.push({ userPetId: row.userPetId, copies });
+    remainingToConsume -= copies;
+  }
+  if (remainingToConsume !== 0) throw new PetLoopError('INSUFFICIENT_DUPLICATES');
+  return { consumed, remainingCopies: totalCopies - 10 };
+}
+
 export interface DuplicatePromotionEffectInputV1 extends PinnedPetPolicyV1 {
   subjectKey: string;
   idempotencyKey: string;
   requestHash: string;
-  sourceUserPetId: string;
   sourcePetId: string;
   consumedCopies: 10;
 }
 
 export interface DuplicatePromotionRepositoryV1 {
   /**
-   * Must lock subject then source inventory row in stable order and atomically
+   * Must lock the subject, then every same-pet inventory row in stable order, and atomically
    * consume ten copies, issue/consume the target entitlement, persist history,
    * receipt, and outbox.
    */
@@ -85,7 +117,6 @@ export async function promoteDuplicateCardsV1(input: {
   subjectKey: string;
   idempotencyKey: string;
   requestHash: string;
-  sourceUserPetId: string;
   sourcePetId: string;
   materials: readonly DuplicateMaterialV1[];
   policy: PinnedPetPolicyV1 & { status: 'DRAFT' | 'APPROVED' };
@@ -98,7 +129,6 @@ export async function promoteDuplicateCardsV1(input: {
     subjectKey: input.subjectKey,
     idempotencyKey: input.idempotencyKey,
     requestHash: input.requestHash,
-    sourceUserPetId: input.sourceUserPetId,
     sourcePetId: input.sourcePetId,
     consumedCopies: 10,
     ...policy,

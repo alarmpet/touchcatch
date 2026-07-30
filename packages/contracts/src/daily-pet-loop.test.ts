@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest';
 import {
   dailyPetLoopPolicyV1Schema,
   parseDailyPetLoopPolicyV1,
+  petCollectionItemV1Schema,
   petShowcaseV1Schema,
 } from './daily-pet-loop.js';
 
@@ -59,5 +60,34 @@ describe('daily pet loop contract', () => {
       approvedCosmetics: [],
       ...privateField,
     })).toThrow();
+  });
+
+  it('requires explicit nullable acquisition provenance', () => {
+    const base = {
+      userPetId: 'owned-a',
+      petId: 'pet-a',
+      rarity: 'COMMON',
+      displayKey: 'pet.a',
+      level: 1,
+      xp: 0,
+      copies: 1,
+      selected: false,
+      locked: false,
+      art: {
+        thumbnailUrl: 'https://cdn.touchcatch.test/thumb.webp',
+        fullUrl: 'https://cdn.touchcatch.test/full.webp',
+        assetSha256: 'a'.repeat(64),
+      },
+    };
+    expect(petCollectionItemV1Schema.parse({
+      ...base,
+      acquiredAt: null,
+      acquisitionDateStatus: 'UNAVAILABLE_LEGACY',
+    })).toEqual(expect.objectContaining({ acquiredAt: null }));
+    expect(() => petCollectionItemV1Schema.parse({
+      ...base,
+      acquiredAt: null,
+      acquisitionDateStatus: 'KNOWN',
+    })).toThrow(/acquiredAt|string/i);
   });
 });

@@ -32,6 +32,23 @@ select ok(
   ),
   'authenticated clients cannot claim directly'
 );
+select is(
+  (
+    select array_agg(routine_name::text order by routine_name)
+    from information_schema.role_routine_grants
+    where routine_schema = 'private' and grantee = 'economy_server'
+  ),
+  array[
+    'award_match_reward_v1',
+    'claim_daily_free_draw_v1',
+    'draw_pet_v1',
+    'fuse_pets_v1',
+    'promote_duplicate_cards_v1',
+    'select_pet_v1',
+    'set_pet_lock_v1'
+  ]::text[],
+  'economy_server exact function allowlist includes daily loop commands'
+);
 
 insert into private.pet_catalog_revisions(catalog_revision, catalog_hash)
 values ('daily-loop-test', repeat('c', 64));
@@ -57,11 +74,15 @@ insert into private.economy_policy_revisions(
   '{"thresholds":{"rareOrBetter":50,"legendary":150}}', 100, '{}'
 );
 
-insert into private.economy_subjects(subject_key) values
-  ('70000000-0000-4000-8000-000000000101'),
-  ('70000000-0000-4000-8000-000000000102'),
-  ('70000000-0000-4000-8000-000000000103'),
-  ('70000000-0000-4000-8000-000000000104');
+insert into auth.users(id, aud, role, email) values
+  ('10000000-0000-4000-8000-000000000201', 'authenticated', 'authenticated', 'daily-201@example.test'),
+  ('10000000-0000-4000-8000-000000000202', 'authenticated', 'authenticated', 'daily-202@example.test');
+insert into private.economy_subjects(subject_key, user_id) values
+  ('70000000-0000-4000-8000-000000000101', '10000000-0000-4000-8000-000000000201'),
+  ('70000000-0000-4000-8000-000000000102', null),
+  ('70000000-0000-4000-8000-000000000103', null),
+  ('70000000-0000-4000-8000-000000000104', null),
+  ('70000000-0000-4000-8000-000000000105', '10000000-0000-4000-8000-000000000202');
 insert into private.gacha_pity_state(
   subject_key, pity_series_id, pity_semantics_hash, rare_counter, legendary_counter,
   economy_version, economy_hash, catalog_revision, catalog_hash
@@ -104,6 +125,14 @@ select results_eq(
   $$values (49,149)$$,
   'daily claim neither reads nor mutates DIRECT_DRAW pity'
 );
+delete from auth.users where id = '10000000-0000-4000-8000-000000000202';
+select throws_ok(
+  $$select private.claim_daily_free_draw_v1(
+    '70000000-0000-4000-8000-000000000105',
+    repeat('e', 64), 'daily-loop-test', repeat('c', 64)
+  )$$,
+  'P0001', 'AUTH_SUBJECT_REQUIRED', 'deleted or unlinked account cannot claim'
+);
 
 insert into private.pet_inventory(
   user_pet_id, subject_key, pet_id, rarity, copies,
@@ -119,7 +148,7 @@ insert into common_promotion
 select private.promote_duplicate_cards_v1(
   '70000000-0000-4000-8000-000000000102',
   '50000000-0000-4000-8000-000000000101', repeat('1', 64),
-  '[{"userPetId":"40000000-0000-4000-8000-000000000101","count":10}]',
+  '[{"petId":"00000000-0000-4000-8000-000000000101","count":10}]',
   repeat('e', 64), 'daily-loop-test', repeat('c', 64)
 );
 select is((select response#>>'{output,rarity}' from common_promotion), 'RARE', 'ten common spares issue one rare target');
@@ -128,11 +157,20 @@ select is(
   private.promote_duplicate_cards_v1(
     '70000000-0000-4000-8000-000000000102',
     '50000000-0000-4000-8000-000000000101', repeat('1', 64),
-    '[{"userPetId":"40000000-0000-4000-8000-000000000101","count":10}]',
+    '[{"petId":"00000000-0000-4000-8000-000000000101","count":10}]',
     repeat('e', 64), 'daily-loop-test', repeat('c', 64)
   ),
   (select response from common_promotion),
   'promotion retry replays its effect-once receipt'
+);
+select throws_ok(
+  $$select private.promote_duplicate_cards_v1(
+    '70000000-0000-4000-8000-000000000102',
+    '50000000-0000-4000-8000-000000000101', repeat('9', 64),
+    '[{"petId":"00000000-0000-4000-8000-000000000101","count":10}]',
+    repeat('e', 64), 'daily-loop-test', repeat('c', 64)
+  )$$,
+  'P0001', 'IDEMPOTENCY_CONFLICT', 'same key with a different hash conflicts'
 );
 select is((select count(*)::int from private.duplicate_promotion_entitlements where status = 'CONSUMED'), 1, 'target entitlement is issued and consumed once');
 select is((select count(*)::int from private.duplicate_promotion_history where subject_key = '70000000-0000-4000-8000-000000000102'), 1, 'promotion history commits once');
@@ -141,7 +179,7 @@ select is(
   private.promote_duplicate_cards_v1(
     '70000000-0000-4000-8000-000000000103',
     '50000000-0000-4000-8000-000000000102', repeat('2', 64),
-    '[{"userPetId":"40000000-0000-4000-8000-000000000102","count":10}]',
+    '[{"petId":"00000000-0000-4000-8000-000000000102","count":10}]',
     repeat('e', 64), 'daily-loop-test', repeat('c', 64)
   )#>>'{output,rarity}',
   'LEGENDARY',
@@ -151,7 +189,7 @@ select throws_ok(
   $$select private.promote_duplicate_cards_v1(
     '70000000-0000-4000-8000-000000000104',
     '50000000-0000-4000-8000-000000000103', repeat('3', 64),
-    '[{"userPetId":"40000000-0000-4000-8000-000000000103","count":10}]',
+    '[{"petId":"00000000-0000-4000-8000-000000000101","count":10}]',
     repeat('e', 64), 'daily-loop-test', repeat('c', 64)
   )$$,
   'P0001', 'INSUFFICIENT_DUPLICATES', 'nine spare copies fail'
@@ -160,7 +198,7 @@ select throws_ok(
   $$select private.promote_duplicate_cards_v1(
     '70000000-0000-4000-8000-000000000104',
     '50000000-0000-4000-8000-000000000104', repeat('4', 64),
-    '[{"userPetId":"40000000-0000-4000-8000-000000000103","count":5},{"userPetId":"40000000-0000-4000-8000-000000000104","count":5}]',
+    '[{"petId":"00000000-0000-4000-8000-000000000101","count":5},{"petId":"00000000-0000-4000-8000-000000000103","count":5}]',
     repeat('e', 64), 'daily-loop-test', repeat('c', 64)
   )$$,
   'P0001', 'INVALID_MATERIALS', 'mixed-pet materials fail'
@@ -168,11 +206,102 @@ select throws_ok(
 select throws_ok(
   $$select private.promote_duplicate_cards_v1(
     '70000000-0000-4000-8000-000000000104',
+    '50000000-0000-4000-8000-000000000107', repeat('7', 64),
+    '[{"petId":"00000000-0000-4000-8000-000000000101","count":"10"}]',
+    repeat('e', 64), 'daily-loop-test', repeat('c', 64)
+  )$$,
+  'P0001', 'INVALID_MATERIALS', 'string count ten is rejected'
+);
+select throws_ok(
+  $$select private.promote_duplicate_cards_v1(
+    '70000000-0000-4000-8000-000000000104',
+    '50000000-0000-4000-8000-000000000108', repeat('8', 64),
+    '[{"petId":"00000000-0000-4000-8000-000000000101","count":9.5}]',
+    repeat('e', 64), 'daily-loop-test', repeat('c', 64)
+  )$$,
+  'P0001', 'INVALID_MATERIALS', 'fractional count is rejected'
+);
+select throws_ok(
+  $$select private.promote_duplicate_cards_v1(
+    '70000000-0000-4000-8000-000000000104',
+    '50000000-0000-4000-8000-000000000109', repeat('a', 64),
+    '[{"petId":"00000000-0000-5000-8000-000000000101","count":10}]',
+    repeat('e', 64), 'daily-loop-test', repeat('c', 64)
+  )$$,
+  'P0001', 'INVALID_MATERIALS', 'non-v4 pet identifier is rejected'
+);
+select throws_ok(
+  $$select private.promote_duplicate_cards_v1(
+    '70000000-0000-4000-8000-000000000104',
     '50000000-0000-4000-8000-000000000105', repeat('5', 64),
-    '[{"userPetId":"40000000-0000-4000-8000-000000000104","count":10}]',
+    '[{"petId":"00000000-0000-4000-8000-000000000103","count":10}]',
     repeat('e', 64), 'daily-loop-test', repeat('c', 64)
   )$$,
   'P0001', 'COSMETIC_REWARD_POLICY_REQUIRED', 'legendary spares fail closed without approved cosmetic policy'
+);
+
+insert into private.economy_subjects(subject_key) values ('70000000-0000-4000-8000-000000000106');
+insert into private.pet_inventory(
+  user_pet_id, subject_key, pet_id, rarity, copies, selected, locked,
+  acquired_catalog_revision, acquired_catalog_hash
+)
+select
+  ('41000000-0000-4000-8000-' || lpad(i::text, 12, '0'))::uuid,
+  '70000000-0000-4000-8000-000000000106',
+  '00000000-0000-4000-8000-000000000104',
+  'COMMON',
+  1,
+  i = 11,
+  false,
+  'daily-loop-test',
+  repeat('c', 64)
+from generate_series(1, 11) i;
+select is(
+  private.promote_duplicate_cards_v1(
+    '70000000-0000-4000-8000-000000000106',
+    '50000000-0000-4000-8000-000000000106', repeat('6', 64),
+    '[{"petId":"00000000-0000-4000-8000-000000000104","count":10}]',
+    repeat('e', 64), 'daily-loop-test', repeat('c', 64)
+  )#>>'{output,rarity}',
+  'RARE',
+  'eleven one-copy rows aggregate into one promotion'
+);
+select is(
+  (
+    select sum(copies)::int
+    from private.pet_inventory
+    where subject_key = '70000000-0000-4000-8000-000000000106'
+      and pet_id = '00000000-0000-4000-8000-000000000104'
+  ),
+  1,
+  'multi-row promotion retains the selected base and consumes ten unprotected copies'
+);
+select is(
+  (
+    select copies
+    from private.pet_inventory
+    where user_pet_id = '41000000-0000-4000-8000-000000000011'
+  ),
+  1,
+  'selected row is never consumed'
+);
+select is(
+  (
+    select is_nullable
+    from information_schema.columns
+    where table_schema = 'private' and table_name = 'pet_inventory' and column_name = 'acquired_at'
+  ),
+  'YES',
+  'legacy acquisition date remains explicitly nullable'
+);
+select like(
+  (
+    select column_default
+    from information_schema.columns
+    where table_schema = 'private' and table_name = 'pet_inventory' and column_name = 'acquired_at'
+  ),
+  '%clock_timestamp%',
+  'new acquisitions receive a real transaction-time default'
 );
 
 select * from finish();

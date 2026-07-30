@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   evaluateDuplicatePromotionV1,
   normalizeDuplicateMaterialsV1,
+  planDuplicateConsumptionV1,
   PetLoopError,
 } from './duplicate-promotion.js';
 
@@ -47,5 +48,35 @@ describe('same-pet duplicate promotion', () => {
       expect(error).toBeInstanceOf(PetLoopError);
       expect((error as PetLoopError).code).toBe('COSMETIC_REWARD_POLICY_REQUIRED');
     }
+  });
+
+  it('aggregates eleven one-copy rows and consumes ten in stable ID order', () => {
+    const rows = Array.from({ length: 11 }, (_, index) => ({
+      userPetId: `40000000-0000-4000-8000-${String(index + 1).padStart(12, '0')}`,
+      petId: 'pet-a',
+      copies: 1,
+      selected: false,
+      locked: false,
+    }));
+    expect(planDuplicateConsumptionV1('pet-a', rows)).toEqual({
+      consumed: rows.slice(0, 10).map(({ userPetId }) => ({ userPetId, copies: 1 })),
+      remainingCopies: 1,
+    });
+  });
+
+  it('never consumes selected or locked rows and still retains a base copy', () => {
+    const rows = [
+      { userPetId: 'c', petId: 'pet-a', copies: 5, selected: false, locked: false },
+      { userPetId: 'a', petId: 'pet-a', copies: 1, selected: true, locked: false },
+      { userPetId: 'b', petId: 'pet-a', copies: 5, selected: false, locked: false },
+      { userPetId: 'd', petId: 'pet-a', copies: 1, selected: false, locked: true },
+    ];
+    expect(planDuplicateConsumptionV1('pet-a', rows)).toEqual({
+      consumed: [
+        { userPetId: 'b', copies: 5 },
+        { userPetId: 'c', copies: 5 },
+      ],
+      remainingCopies: 2,
+    });
   });
 });
