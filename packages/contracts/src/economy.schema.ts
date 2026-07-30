@@ -1,6 +1,6 @@
 import { canonicalJsonSha256 } from './canonical-json.js';
 import type { EconomyV1, LoadedApprovedEconomyV1 } from './economy.js';
-import type { PetCatalogRevisionV1, PetRarity } from './pet-catalog.js';
+import type { CoachArchetype, PetCatalogEntryV1, PetCatalogRevisionV1, PetRarity } from './pet-catalog.js';
 import { Ajv2020 } from 'ajv/dist/2020.js';
 import economyJsonSchema from '../../../schemas/economy.schema.json' with { type: 'json' };
 import catalogJsonSchema from '../../../schemas/pet-catalog.schema.json' with { type: 'json' };
@@ -27,6 +27,11 @@ function approval(value: Record<string, unknown>): void {
   if (value.status === 'APPROVED' && ['approvalDecisionId','approvedBy','approvedAt'].some((key) => typeof value[key] !== 'string' || value[key] === '')) throw new TypeError('APPROVED artifact requires approval metadata');
 }
 
+export type DraftPetCatalogAdmissionInputV1 = Omit<PetCatalogRevisionV1, 'catalogHash' | 'status' | 'entries'> & {
+  status: 'DRAFT';
+  entries: Array<Omit<PetCatalogEntryV1, 'coachArchetype'> & { coachArchetype?: CoachArchetype }>;
+};
+
 export function parsePetCatalog(input: unknown): PetCatalogRevisionV1 {
   if (!validateCatalogStructure(input)) throw new TypeError(`catalog schema: ${ajv.errorsText(validateCatalogStructure.errors)}`);
   const value = object(input, 'catalog'); exactKeys(value, catalogKeys, 'catalog'); approval(value);
@@ -44,9 +49,10 @@ export function parsePetCatalog(input: unknown): PetCatalogRevisionV1 {
   return value as unknown as PetCatalogRevisionV1;
 }
 
-export function admitDraftPetCatalog(input: unknown, onWarning: (warning: { code: 'PET_COACH_ARCHETYPE_DEFAULTED'; petId: string }) => void = () => undefined): PetCatalogRevisionV1 {
+export function admitDraftPetCatalog(input: DraftPetCatalogAdmissionInputV1, onWarning: (warning: { code: 'PET_COACH_ARCHETYPE_DEFAULTED'; petId: string }) => void = () => undefined): PetCatalogRevisionV1 {
   const rawCatalog = object(input, 'catalog');
   if (rawCatalog.status !== 'DRAFT') throw new TypeError('only DRAFT catalogs may receive coachArchetype defaults');
+  if ('catalogHash' in rawCatalog) throw new TypeError('DRAFT admission input must be hashless');
   const rawEntries = rawCatalog.entries;
   if (!Array.isArray(rawEntries)) throw new TypeError('catalog entries must be an array');
   const defaultedPetIds: string[] = [];

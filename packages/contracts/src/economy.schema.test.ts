@@ -109,10 +109,30 @@ describe('economy and catalog admission', () => {
   it('emits PET_COACH_ARCHETYPE_DEFAULTED only while admitting a DRAFT catalog', () => {
     const draft = catalog();
     delete (draft.entries[0] as { coachArchetype?: string }).coachArchetype;
-    draft.catalogHash = canonicalJsonSha256({ schemaVersion: draft.schemaVersion, catalogRevision: draft.catalogRevision, entries: draft.entries });
+    delete (draft as { catalogHash?: string }).catalogHash;
     const warnings: string[] = [];
     expect(admitDraftPetCatalog(draft, (warning) => warnings.push(warning.code)).entries[0]?.coachArchetype).toBe('CHEER');
     expect(warnings).toEqual(['PET_COACH_ARCHETYPE_DEFAULTED']);
+  });
+
+  it('rejects supplied stale hashes before DRAFT admission whether or not a default is needed', () => {
+    const explicit = catalog();
+    explicit.catalogHash = '0'.repeat(64);
+    expect(() => admitDraftPetCatalog(explicit)).toThrow(/hashless/i);
+    const needsDefault = catalog();
+    delete (needsDefault.entries[0] as { coachArchetype?: string }).coachArchetype;
+    needsDefault.catalogHash = 'f'.repeat(64);
+    expect(() => admitDraftPetCatalog(needsDefault)).toThrow(/hashless/i);
+  });
+
+  it('returns a stable normalized catalog from a hashless DRAFT admission input', () => {
+    const input = catalog();
+    delete (input as { catalogHash?: string }).catalogHash;
+    delete (input.entries[0] as { coachArchetype?: string }).coachArchetype;
+    const first = admitDraftPetCatalog(input);
+    const second = admitDraftPetCatalog(input);
+    expect(first).toEqual(second);
+    expect(parsePetCatalog(first)).toEqual(first);
   });
 
   it('pins canonical hashes to explicit parsed entries and remains stable when reparsed', () => {
