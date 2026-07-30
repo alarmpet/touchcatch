@@ -395,6 +395,40 @@
               },
               "rankedPenaltyUnits": {
                 "const": 1
+              },
+              "publicRegion": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "imageSide",
+                  "region"
+                ],
+                "properties": {
+                  "imageSide": {
+                    "enum": [
+                      "A",
+                      "B"
+                    ]
+                  },
+                  "region": {
+                    "enum": [
+                      "TOP_LEFT",
+                      "TOP_RIGHT",
+                      "BOTTOM_LEFT",
+                      "BOTTOM_RIGHT",
+                      "CENTER"
+                    ]
+                  }
+                }
+              }
+            },
+            "dependentSchemas": {
+              "publicRegion": {
+                "properties": {
+                  "kind": {
+                    "const": "VISUAL_REGION"
+                  }
+                }
               }
             }
           }

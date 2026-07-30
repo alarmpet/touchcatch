@@ -79,6 +79,22 @@ describe("authenticated socket wire contracts", () => {
       }).success,
     ).toBe(false);
   });
+  it("uses the envelope request ID as the sole learning-hint idempotency key", () => {
+    const learningHint = {
+      ...base,
+      payload: { type: "USE_LEARNING_HINT" as const, expectedOrdinal: 1 },
+    };
+
+    expect(clientCommandEnvelopeSchema.safeParse(learningHint).success).toBe(true);
+    expect(clientCommandEnvelopeSchema.safeParse({
+      ...learningHint,
+      payload: { ...learningHint.payload, attemptId: requestId },
+    }).success).toBe(false);
+    expect(clientCommandEnvelopeSchema.safeParse({
+      ...learningHint,
+      payload: { ...learningHint.payload, expectedOrdinal: 0 },
+    }).success).toBe(false);
+  });
   it("normalizes retry-only fields out of the request hash", () => {
     const a = {
       ...base,
@@ -156,6 +172,41 @@ it("strictly validates ack and sequenced event branches", () => {
       payload: { redacted: true, canonicalAnswer: "cat" },
     }).success,
   ).toBe(false);
+});
+it("validates current-step learning hint events and rejects private or future material", () => {
+  const event = {
+    protocolVersion: 1 as const,
+    eventId: "evt-hint-1",
+    matchId,
+    eventSeq: 2,
+    stateRevision: 2,
+    occurredAtMs: 2,
+    phase: "PLAYING" as const,
+    type: "hint_step_revealed" as const,
+    payload: {
+      requestId,
+      ordinal: 1,
+      kind: "VISUAL_REGION" as const,
+      localizedText: "Look toward the top left",
+      publicPattern: "___",
+      publicRegion: { imageSide: "A" as const, region: "TOP_LEFT" as const },
+      rankedPenaltyUnits: 0 as const,
+      cumulativeRankedPenaltyUnits: 0,
+      coachChargesRemaining: 2,
+    },
+  };
+
+  expect(serverEventEnvelopeSchema.safeParse(event).success).toBe(true);
+  for (const forbidden of [
+    { remainingSteps: [] },
+    { canonicalAnswer: "cat" },
+    { hitboxes: { imageA: { cx: 0.1, cy: 0.1, r: 0.03 } } },
+  ]) {
+    expect(serverEventEnvelopeSchema.safeParse({
+      ...event,
+      payload: { ...event.payload, ...forbidden },
+    }).success).toBe(false);
+  }
 });
 it("accepts exact safe snapshots and rejects private/extra fields", () => {
   const s = {

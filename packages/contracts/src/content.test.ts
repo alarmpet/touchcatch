@@ -10,6 +10,7 @@ import {
   privateGameSolutionSchema,
   rightsManifestSetSchema,
   type HintStepV1,
+  type PublicHintRegionV1,
 } from './content.js';
 import { containsDisallowedControl, normalizeFinalAnswer } from './answer-normalization.js';
 import { Ajv2020 } from 'ajv/dist/2020.js';
@@ -40,7 +41,7 @@ describe('content contract schemas', () => {
     expect(CONTENT_TEXT_LIMITS_V1).toEqual({ maxCodePoints: 64, maxUtf8Bytes: 256 });
   });
 
-  it('pins the exact authored-only HintStepV1 contract', () => {
+  it('pins the authored HintStepV1 contract and its public-safe visual descriptor', () => {
     expect(HINT_KINDS_V1).toEqual([
       'VISUAL_REGION',
       'SEMANTIC_CATEGORY',
@@ -67,8 +68,34 @@ describe('content contract schemas', () => {
         localizedText: Readonly<Record<'ko' | 'en', string>>;
         revealIndexes: readonly number[];
         rankedPenaltyUnits: 1;
+        publicRegion?: PublicHintRegionV1;
       }>
     >();
+  });
+
+  it('admits only an enumerated public visual region and cannot encode private circles', () => {
+    const validate = new Ajv2020().compile(hintStepV1Schema);
+    const base = {
+      ordinal: 1,
+      kind: 'VISUAL_REGION',
+      localizedText: { ko: '왼쪽 위를 보세요', en: 'Look toward the top left' },
+      revealIndexes: [],
+      rankedPenaltyUnits: 1,
+    };
+
+    expect(validate({
+      ...base,
+      publicRegion: { imageSide: 'A', region: 'TOP_LEFT' },
+    })).toBe(true);
+    expect(validate({
+      ...base,
+      kind: 'DEFINITION',
+      publicRegion: { imageSide: 'A', region: 'TOP_LEFT' },
+    })).toBe(false);
+    expect(validate({
+      ...base,
+      publicRegion: { imageSide: 'A', region: 'TOP_LEFT', cx: 0.1, cy: 0.2, r: 0.03 },
+    })).toBe(false);
   });
 
   it.each([[512,true],[513,false]] as const)('counts %i astral localized characters as JSON Schema code points', (count, valid) => {

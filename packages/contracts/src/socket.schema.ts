@@ -35,6 +35,12 @@ const uuid = z
     })
     .strict(),
   circles = z.object({ imageA: circle, imageB: circle }).strict(),
+  publicHintRegion = z
+    .object({
+      imageSide: z.enum(["A", "B"]),
+      region: z.enum(["TOP_LEFT", "TOP_RIGHT", "BOTTOM_LEFT", "BOTTOM_RIGHT", "CENTER"]),
+    })
+    .strict(),
   option = z
     .object({
       id: z.string().regex(/^[A-Za-z0-9_-]{1,64}$/),
@@ -90,6 +96,12 @@ const payload = z.discriminatedUnion("type", [
     })
     .strict(),
   z.object({ type: z.literal("USE_HINT") }).strict(),
+  z
+    .object({
+      type: z.literal("USE_LEARNING_HINT"),
+      expectedOrdinal: z.number().int().min(1).max(6),
+    })
+    .strict(),
 ]);
 export const clientCommandEnvelopeSchema = z
   .object({
@@ -149,6 +161,9 @@ export const commandAckSchema = z.discriminatedUnion("accepted", [
         "ALREADY_CLAIMED",
         "INPUT_LOCKED",
         "NO_HINT_CREDIT",
+        "INVALID_HINT_LADDER",
+        "HINT_ORDINAL_CONFLICT",
+        "NO_HINT_REMAINING",
         "RATE_LIMITED",
         "MATCH_INPUT_CLOSED",
         "NOT_A_PARTICIPANT",
@@ -242,6 +257,66 @@ export const serverEventEnvelopeSchema = z.discriminatedUnion("type", [
         publicPattern: z.string().max(64),
       })
       .strict(),
+  ),
+  branch(
+    "hint_step_revealed",
+    z
+      .object({
+        requestId: uuid4,
+        ordinal: z.union([
+          z.literal(1),
+          z.literal(2),
+          z.literal(3),
+          z.literal(4),
+          z.literal(5),
+        ]),
+        kind: z.enum([
+          "VISUAL_REGION",
+          "SEMANTIC_CATEGORY",
+          "DEFINITION",
+          "CONTEXT_SENTENCE",
+          "ANSWER_LENGTH",
+          "INITIAL_PATTERN",
+          "REVEAL_GRAPHEME",
+          "ELIMINATE_OPTION",
+        ]),
+        localizedText: z.string().min(1).max(512),
+        publicPattern: z.string().max(64),
+        publicRegion: publicHintRegion.nullable(),
+        rankedPenaltyUnits: z.union([z.literal(0), z.literal(1)]),
+        cumulativeRankedPenaltyUnits: safe,
+        coachChargesRemaining: safe.nullable(),
+      })
+      .strict()
+      .superRefine((value, context) => {
+        if (value.publicRegion !== null && value.kind !== "VISUAL_REGION") {
+          context.addIssue({
+            code: "custom",
+            message: "public region requires a visual hint",
+            path: ["publicRegion"],
+          });
+        }
+        if (
+          value.rankedPenaltyUnits === 0
+          && value.cumulativeRankedPenaltyUnits !== 0
+        ) {
+          context.addIssue({
+            code: "custom",
+            message: "casual hints cannot carry ranked penalties",
+            path: ["cumulativeRankedPenaltyUnits"],
+          });
+        }
+        if (
+          value.rankedPenaltyUnits === 1
+          && value.coachChargesRemaining !== null
+        ) {
+          context.addIssue({
+            code: "custom",
+            message: "ranked hints do not expose coach charges",
+            path: ["coachChargesRemaining"],
+          });
+        }
+      }),
   ),
   branch(
     "hint_credit_changed",

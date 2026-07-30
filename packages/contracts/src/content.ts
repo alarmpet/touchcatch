@@ -55,13 +55,35 @@ export const HINT_KINDS_V1 = [
 ] as const;
 
 export type HintKind = (typeof HINT_KINDS_V1)[number];
+export const PUBLIC_HINT_REGIONS_V1 = [
+  'TOP_LEFT',
+  'TOP_RIGHT',
+  'BOTTOM_LEFT',
+  'BOTTOM_RIGHT',
+  'CENTER',
+] as const;
+export type PublicHintRegionV1 = Readonly<{
+  imageSide: 'A' | 'B';
+  region: (typeof PUBLIC_HINT_REGIONS_V1)[number];
+}>;
 export type HintStepV1 = Readonly<{
   ordinal: 1 | 2 | 3 | 4 | 5;
   kind: HintKind;
   localizedText: Readonly<Record<'ko' | 'en', string>>;
   revealIndexes: readonly number[];
   rankedPenaltyUnits: 1;
+  publicRegion?: PublicHintRegionV1;
 }>;
+
+export const publicHintRegionV1Schema = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['imageSide', 'region'],
+  properties: {
+    imageSide: { enum: ['A', 'B'] },
+    region: { enum: PUBLIC_HINT_REGIONS_V1 },
+  },
+} as const;
 
 export const hintStepV1Schema = {
   type: 'object',
@@ -87,6 +109,12 @@ export const hintStepV1Schema = {
       items: { type: 'integer', minimum: 0, maximum: 63 },
     },
     rankedPenaltyUnits: { const: 1 },
+    publicRegion: publicHintRegionV1Schema,
+  },
+  dependentSchemas: {
+    publicRegion: {
+      properties: { kind: { const: 'VISUAL_REGION' } },
+    },
   },
 } as const;
 

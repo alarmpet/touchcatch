@@ -12,9 +12,9 @@ import { privateSolutionFixture as solution } from './testing-fixtures.js';
 const frozenRules = parseRuleset(rules);
 const createMatchInitialState=(input:Omit<Parameters<typeof engineCreateMatchInitialState>[0],'contentManifest'>&{contentManifest:Omit<Parameters<typeof engineCreateMatchInitialState>[0]['contentManifest'],'contentLanguage'>},sharedRules:Parameters<typeof engineCreateMatchInitialState>[1])=>engineCreateMatchInitialState({...input,contentManifest:{...input.contentManifest,contentLanguage:'en'}},sharedRules);
 
-function startedState(){
+function startedState(learningHintPlayers?:Parameters<typeof engineCreateMatchInitialState>[0]['learningHintPlayers']){
  const matchId='00000000-0000-4000-8000-000000000001';const asset=(side:'A'|'B')=>({side,url:`https://cdn.test/${side}.png`,sha256:(side==='A'?'a':'c').repeat(64),encodedBytes:1,width:1,height:1,mimeType:'image/png' as const});
- let state:MatchStateV1=createMatchInitialState({matchId,createdAtMs:0,engineVersion:'1',rulesetHash:canonicalJsonSha256(rules),playerIds:['p1','p2'],contentManifest:{contentRevisionId:solution.contentRevisionId,publicContentHash:'d'.repeat(64),privateSolutionHash:solution.privateSolutionHash,assetPolicyVersion:'1.0.0',expectedAssets:[asset('A'),asset('B')]},privateSolution:solution,randomSchedule:{wordHunts:[{kind:'NORMAL',missionId:'w1',startsAfterMs:16000,endsAfterMs:21000},{kind:'NORMAL',missionId:'w2',startsAfterMs:34000,endsAfterMs:39000},{kind:'SPECIAL',missionId:'w3',startsAfterMs:60000,endsAfterMs:65000}],hintRevealOrder:[2,0,1],suddenDeathObjectiveId:'sd'}},frozenRules).state;
+ let state:MatchStateV1=createMatchInitialState({matchId,createdAtMs:0,engineVersion:'1',rulesetHash:canonicalJsonSha256(rules),playerIds:['p1','p2'],contentManifest:{contentRevisionId:solution.contentRevisionId,publicContentHash:'d'.repeat(64),privateSolutionHash:solution.privateSolutionHash,assetPolicyVersion:'1.0.0',expectedAssets:[asset('A'),asset('B')]},privateSolution:solution,randomSchedule:{wordHunts:[{kind:'NORMAL',missionId:'w1',startsAfterMs:16000,endsAfterMs:21000},{kind:'NORMAL',missionId:'w2',startsAfterMs:34000,endsAfterMs:39000},{kind:'SPECIAL',missionId:'w3',startsAfterMs:60000,endsAfterMs:65000}],hintRevealOrder:[2,0,1],suddenDeathObjectiveId:'sd'},...(learningHintPlayers===undefined?{}:{learningHintPlayers})},frozenRules).state;
  const ready={type:'READY' as const,contentRevisionId:solution.contentRevisionId,contentHash:'d'.repeat(64),assetHashes:['a'.repeat(64),'c'.repeat(64)],decodedDimensions:[{assetHash:'a'.repeat(64),width:1,height:1},{assetHash:'c'.repeat(64),width:1,height:1}]};
  for(const [i,playerId] of ['p1','p2'].entries()){const requestId=`00000000-0000-4000-8000-00000000000${i+1}`;state=reduceMatch(state,{source:'PLAYER',commandId:`${matchId}:player:${playerId}:${requestId}`,matchId,commandSeq:i+1,receivedAtMs:1000,requestId,playerId,expectedRevision:0,payload:ready},frozenRules).state;}
  const id=`${matchId}:timer:START_MATCH:countdown`;return reduceMatch(state,{source:'TIMER',commandId:id,timerId:id,matchId,commandSeq:3,receivedAtMs:4000,dueAtMs:4000,payload:{type:'START_MATCH'}},frozenRules);
@@ -49,6 +49,242 @@ it('renders separators immediately and never schedules or charges them as hints'
   const invalid=structuredClone(state);
   invalid.randomSchedule.hintRevealOrder=[0,1,2,3,4,5,6,7,8];
   expect(()=>parseMatchStateV1(invalid)).toThrow(/hint order/);
+});
+
+describe('authoritative learning hint revelation', () => {
+  const ladder = [1, 2, 3, 4, 5].map((ordinal) => ({
+    ordinal: ordinal as 1 | 2 | 3 | 4 | 5,
+    kind: ordinal === 1 ? 'DEFINITION' as const : 'REVEAL_GRAPHEME' as const,
+    localizedText: { ko: `현재 힌트 ${ordinal}`, en: `Current hint ${ordinal}` },
+    revealIndexes: ordinal >= 4 ? [ordinal - 4] : [],
+    rankedPenaltyUnits: 1 as const,
+  }));
+
+  function learningState(
+    mode: 'CASUAL' | 'RANKED',
+    coachChargesRemaining = mode === 'CASUAL' ? 3 : 0,
+  ) {
+    const state = startedState().state;
+    const { privateSolutionHash: _, ...body } = structuredClone(state.privateSolution);
+    body.finalChallenge.hintLadder = structuredClone(ladder);
+    state.privateSolution = {
+      ...body,
+      privateSolutionHash: canonicalJsonSha256(body),
+    };
+    state.finalChallenge = { unlockedAtMs: state.startedAtMs, unlockSource: 'TIME' };
+    Object.assign(state.players[0]!, {
+      learningHints: {
+        mode,
+        selectedPet: {
+          rarity: 'LEGENDARY',
+          level: 99,
+          coachArchetype: 'LINGUIST',
+        },
+        coachChargesRemaining,
+        revealedOrdinals: [],
+        cumulativeRankedPenaltyUnits: 0,
+        processedRequestIds: [],
+      },
+    });
+    return state;
+  }
+
+  function command(
+    state: MatchStateV1,
+    requestId: string,
+    expectedOrdinal: number,
+    commandSeq = 50,
+  ) {
+    return {
+      source: 'PLAYER' as const,
+      commandId: `${state.matchId}:player:p1:${requestId}`,
+      matchId: state.matchId,
+      commandSeq,
+      receivedAtMs: 5_000,
+      requestId,
+      playerId: 'p1',
+      expectedRevision: state.stateRevision,
+      payload: { type: 'USE_LEARNING_HINT' as const, expectedOrdinal },
+    };
+  }
+
+  it('pins server-selected casual and ranked hint contexts in initial player state', () => {
+    const state = startedState([
+      {
+        mode: 'CASUAL',
+        selectedPet: { rarity: 'COMMON', level: 7, coachArchetype: 'SCOUT' },
+      },
+      {
+        mode: 'RANKED',
+        selectedPet: { rarity: 'LEGENDARY', level: 99, coachArchetype: 'SAGE' },
+      },
+    ]).state;
+
+    expect(state.players[0].learningHints).toMatchObject({
+      mode: 'CASUAL',
+      coachChargesRemaining: 3,
+      revealedOrdinals: [],
+      cumulativeRankedPenaltyUnits: 0,
+      processedRequestIds: [],
+    });
+    expect(state.players[1].learningHints).toMatchObject({
+      mode: 'RANKED',
+      coachChargesRemaining: 0,
+      revealedOrdinals: [],
+      cumulativeRankedPenaltyUnits: 0,
+      processedRequestIds: [],
+    });
+  });
+
+  it('uses the envelope requestId once and reveals the next casual step', () => {
+    const state = learningState('CASUAL');
+    const requestId = '00000000-0000-4000-8000-000000000501';
+    const first = reduceMatch(state, command(state, requestId, 1), frozenRules);
+
+    expect(first.decision).toEqual({ status: 'APPLIED' });
+    expect(first.state.players[0]).toMatchObject({
+      learningHints: {
+        coachChargesRemaining: 2,
+        revealedOrdinals: [1],
+        cumulativeRankedPenaltyUnits: 0,
+        processedRequestIds: [requestId],
+      },
+    });
+    expect(first.events).toHaveLength(1);
+    expect(first.events[0]).toMatchObject({
+      type: 'HINT_STEP_REVEALED',
+      payload: {
+        playerId: 'p1',
+        requestId,
+        ordinal: 1,
+        localizedText: 'Current hint 1',
+        publicPattern: '___',
+        publicRegion: null,
+        cumulativeRankedPenaltyUnits: 0,
+        coachChargesRemaining: 2,
+      },
+    });
+
+    const replay = reduceMatch(
+      first.state,
+      command(first.state, requestId, 1, 51),
+      frozenRules,
+    );
+    expect(replay.decision).toEqual({ status: 'APPLIED' });
+    expect(replay.events).toEqual([]);
+    expect(replay.state).toEqual(first.state);
+  });
+
+  it('keeps casual revelation available at zero charges without going negative', () => {
+    const state = learningState('CASUAL', 0);
+    const result = reduceMatch(
+      state,
+      command(state, '00000000-0000-4000-8000-000000000502', 1),
+      frozenRules,
+    );
+
+    expect(result.decision).toEqual({ status: 'APPLIED' });
+    expect((result.state.players[0] as any).learningHints.coachChargesRemaining).toBe(0);
+    expect(result.events[0]?.payload).toMatchObject({ coachChargesRemaining: 0 });
+  });
+
+  it('rejects a different stale request while replaying the applied request deterministically', () => {
+    const state = learningState('RANKED');
+    const firstId = '00000000-0000-4000-8000-000000000503';
+    const first = reduceMatch(state, command(state, firstId, 1), frozenRules);
+    const stale = reduceMatch(
+      first.state,
+      command(first.state, '00000000-0000-4000-8000-000000000504', 1, 51),
+      frozenRules,
+    );
+
+    expect(stale.decision).toEqual({
+      status: 'REJECTED',
+      reason: 'HINT_ORDINAL_CONFLICT',
+    });
+    expect(stale.events).toEqual([]);
+    expect(stale.state).toEqual(first.state);
+  });
+
+  it('derives cumulative ranked penalties from revealed state', () => {
+    let state = learningState('RANKED');
+    const first = reduceMatch(
+      state,
+      command(state, '00000000-0000-4000-8000-000000000505', 1),
+      frozenRules,
+    );
+    state = first.state;
+    const second = reduceMatch(
+      state,
+      command(state, '00000000-0000-4000-8000-000000000506', 2, 51),
+      frozenRules,
+    );
+
+    expect(second.events[0]).toMatchObject({
+      type: 'HINT_STEP_REVEALED',
+      payload: {
+        ordinal: 2,
+        cumulativeRankedPenaltyUnits: 2,
+      },
+    });
+    expect((second.state.players[0] as any).learningHints).toMatchObject({
+      revealedOrdinals: [1, 2],
+      cumulativeRankedPenaltyUnits: 2,
+      coachChargesRemaining: 0,
+    });
+  });
+
+  it('rejects missing and exhausted ladders without emitting an event', () => {
+    const missing = learningState('CASUAL');
+    delete (missing.privateSolution.finalChallenge as any).hintLadder;
+    const { privateSolutionHash: _, ...missingBody } = missing.privateSolution;
+    missing.privateSolution = {
+      ...missingBody,
+      privateSolutionHash: canonicalJsonSha256(missingBody),
+    };
+    expect(reduceMatch(
+      missing,
+      command(missing, '00000000-0000-4000-8000-000000000507', 1),
+      frozenRules,
+    ).decision).toEqual({
+      status: 'REJECTED',
+      reason: 'INVALID_HINT_LADDER',
+    });
+
+    const exhausted = learningState('CASUAL');
+    Object.assign((exhausted.players[0] as any).learningHints, {
+      revealedOrdinals: [1, 2, 3, 4, 5],
+      processedRequestIds: [
+        '00000000-0000-4000-8000-000000000510',
+        '00000000-0000-4000-8000-000000000511',
+        '00000000-0000-4000-8000-000000000512',
+        '00000000-0000-4000-8000-000000000513',
+        '00000000-0000-4000-8000-000000000514',
+      ],
+    });
+    expect(reduceMatch(
+      exhausted,
+      command(exhausted, '00000000-0000-4000-8000-000000000515', 6),
+      frozenRules,
+    ).decision).toEqual({
+      status: 'REJECTED',
+      reason: 'NO_HINT_REMAINING',
+    });
+  });
+
+  it('emits no future step, private answer, or raw hitbox material', () => {
+    const state = learningState('CASUAL');
+    const result = reduceMatch(
+      state,
+      command(state, '00000000-0000-4000-8000-000000000508', 1),
+      frozenRules,
+    );
+    const serialized = JSON.stringify(result.events);
+
+    expect(serialized).toContain('Current hint 1');
+    expect(serialized).not.toContain('Current hint 2');
+    expect(serialized).not.toMatch(/canonicalAnswer|privateSolution|hitboxes|imageA|imageB/i);
+  });
 });
 
 it('accepts optional authored ladder and approved Hanja evidence in match state',()=>{

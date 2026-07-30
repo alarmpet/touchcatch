@@ -80,6 +80,12 @@ export function projectMatchEvent(
       return p.playerId === viewer
         ? { ...b, type: "hint_revealed", payload: p }
         : redacted(e); }
+    case "HINT_STEP_REVEALED": {
+      const { playerId, ...payload } = e.payload;
+      return playerId === viewer
+        ? { ...b, type: "hint_step_revealed", payload }
+        : redacted(e);
+    }
     case "HINT_CREDIT_CHANGED": { const p=e.payload;
       return p.playerId === viewer
         ? { ...b, type: "hint_credit_changed", payload: {playerId:p.playerId,delta:p.delta,absoluteCredits:p.absoluteCredits!} }
