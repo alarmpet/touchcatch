@@ -15,7 +15,7 @@ async function clients20(){const clients=await Promise.all(Array.from({length:20
 async function release(clients:PoolClient[]){await Promise.all(clients.map(async c=>{await c.query('reset role').catch(()=>undefined);c.release();}));}
 function revision(version:string, changes:Record<string,unknown>={}){const {economyHash:_,...base}=economy;const artifact={...base,...changes,economyVersion:version};return {...artifact,economyHash:canonicalJsonSha256(artifact)};}
 
-beforeAll(async()=>{fixture=await loadTestEconomyFixture();catalog=fixture.publishInput.catalog;economy=fixture.publishInput.economy;const c=await pool.connect();try{await role(c,'deployment_role');await c.query('select private.publish_economy_bundle_v1($1,$2)',[economy,catalog]);}finally{await c.query('reset role');c.release();}});
+beforeAll(async()=>{fixture=await loadTestEconomyFixture();catalog=fixture.publishInput.catalog;economy=fixture.publishInput.economy;const exists=await pool.query('select 1 from private.economy_policy_revisions where economy_hash=$1',[fixture.economyHash]);if(exists.rowCount===0){const c=await pool.connect();try{await role(c,'deployment_role');await c.query('select private.publish_economy_bundle_v1($1,$2)',[economy,catalog]);}finally{await c.query('reset role').catch(()=>undefined);c.release();}}});
 afterAll(async()=>pool.end());
 
 describe('economy production-role concurrency',()=>{
