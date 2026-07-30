@@ -70,6 +70,25 @@ describe('content contract schemas', () => {
     >();
   });
 
+  it('keeps ladders and reviewed Hanja optional for legacy private bundles', () => {
+    const finalChallenge = privateGameSolutionSchema.properties.finalChallenge;
+
+    expect(finalChallenge.required).toEqual([
+      'canonicalAnswer',
+      'aliases',
+      'hintUnits',
+      'meaning',
+    ]);
+    expect(finalChallenge.properties.hintLadder).toMatchObject({
+      minItems: 5,
+      maxItems: 5,
+    });
+    expect(finalChallenge.properties.meaning.properties.options).toMatchObject({
+      minItems: 3,
+      maxItems: 4,
+    });
+  });
+
   it.each(['en-intermediate.json', 'ko-beginner.json', 'ja-advanced.json'])(
     'carries a distinct five-step ladder and canonical hint units in %s',
     async (name) => {

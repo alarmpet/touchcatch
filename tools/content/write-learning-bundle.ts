@@ -24,7 +24,7 @@ export type LearningBundleInput = {
   difficulty: 'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED';
   canonicalAnswer: string;
   aliases: string[];
-  hintLadder: readonly HintStepV1[];
+  hintLadder?: readonly HintStepV1[];
   reviewedHanja?: string;
   hanjaReviewStatus?: 'REVIEW_REQUIRED' | 'APPROVED' | 'REJECTED';
   meaning: Meaning;
@@ -66,7 +66,8 @@ async function descriptor(file: string) {
 }
 
 function validateAuthoredLadder(entry: LearningBundleInput): void {
-  if (!Array.isArray(entry.hintLadder)) throw new Error('MISSING_AUTHORED_HINT_LADDER');
+  if (entry.hintLadder === undefined) return;
+  if (!Array.isArray(entry.hintLadder)) throw new Error('INVALID_HINT_LADDER:INVALID_SHAPE');
   const errors = validateHintLadder(
     entry.category,
     entry.canonicalAnswer,
@@ -103,7 +104,7 @@ export async function writeLearningBundle(
     canonicalAnswer: entry.canonicalAnswer,
     aliases: entry.aliases,
     hintUnits: segmentAnswer(entry.canonicalAnswer, entry.language).hintUnits,
-    hintLadder: entry.hintLadder,
+    ...(entry.hintLadder === undefined ? {} : { hintLadder: entry.hintLadder }),
     ...(entry.reviewedHanja === undefined
       ? {}
       : { reviewedHanja: entry.reviewedHanja }),

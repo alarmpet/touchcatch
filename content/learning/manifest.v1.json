@@ -20,15 +20,15 @@
       "promptEvidence": [
         {
           "file": "prompts/en-resilience-base.txt",
-          "sha256": "901fdb9a9506d6f560f41287c5b3ed62d36de87a90a8fc56c0424837a12d0b6e"
+          "sha256": "f1dc49de847869c9d94b7389b5ceb4ab95103e4454f57d8d74880a5f8b105565"
         },
         {
           "file": "prompts/en-resilience-correction.txt",
-          "sha256": "268ed5538a482fe9897ab25d36c3809bd5bf20cf9f17a209a496156b9c2a0189"
+          "sha256": "ebe0d353c794a0125552e2adc5cb627a8637bd00816d97dfca5a864d87c9b97f"
         },
         {
           "file": "prompts/en-resilience-edit.txt",
-          "sha256": "d083d4bc9d0f6ec56685256ceeb9c3e0a8b93e838499927d56c2e9309bec79b4"
+          "sha256": "b9b040883534a3e9f40ae4fcf7f4392a16e1dea66f47fbf89f71edcd60030d2d"
         },
         {
           "file": "prompts/en-resilience-garden-base.txt",
@@ -39,14 +39,14 @@
           "sha256": "6d2e921f2baa3f9a9cafbfa1804e1ba620fdedd52b77f7de73378888ee87a427"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "ADMITTED",
         "stepCount": 5,
         "errors": [],
-        "hash": "5541ebe48d00f21bbb0344a5b722b59b0d95faf4b4e569666d70e800bbb0f127"
+        "hash": "b75e755322376b9d358ac4757b4aaac60ec52593d615a904a3f792f5bcb8e81c"
       },
-      "rankedEligible": true
+      "rankedEligible": true,
+      "publishBlocked": true
     },
     {
       "key": "en-dilemma",
@@ -66,14 +66,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-dilemma-base.txt",
-          "sha256": "0ee8078978300f7e923960b508a997769b8339033aff7334c947ecca64d893a6"
+          "sha256": "2ac84e9e7ff3b3499c808954c904239c33b953b254f4728b324e0146ef134f8c"
         },
         {
           "file": "prompts/en-dilemma-edit.txt",
-          "sha256": "f5772cf0e69237c86c0c9f6ff1b331d9e0fe295fa70eba22856695bdfa28b0bf"
+          "sha256": "152a067ebe623c6e37f02d2b95e3dff71afe7f056f4a55f7104a3b90e5eb624a"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -82,7 +81,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-sustainability",
@@ -102,11 +102,11 @@
       "promptEvidence": [
         {
           "file": "prompts/en-sustainability-base.txt",
-          "sha256": "68cbc4ed3ea48f351a837c08d5c0c897cfdd11ee1f3c802e9ceab19cdda7272f"
+          "sha256": "ba4ab3d5e71237c9750fe5a6e5e3f760f3047e192c91e17825fb4eb567dc512d"
         },
         {
           "file": "prompts/en-sustainability-edit.txt",
-          "sha256": "de65b09525ab32e87a4665c24d6ea4646fee659bc81a67a7101f42199999b18c"
+          "sha256": "12fd9a2c3aad47dfe9b6a0b0dfe27325056563d81641c1330955cf543f3bb40f"
         },
         {
           "file": "prompts/en-sustainability-greenhouse-base.txt",
@@ -117,7 +117,6 @@
           "sha256": "77404e13f58a43ef3769480a4ef2a19863e9860ebbe98084ea00f16b09a777a2"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -126,7 +125,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "ko-proverb-dark-under-lamp",
@@ -146,14 +146,13 @@
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-dark-under-lamp-base.txt",
-          "sha256": "22eaa9fa4e142506b569d701a3487f7fcb49c8d430555ef9eb6749f4160818e0"
+          "sha256": "a88180115b1bccd4384084588b27488b39fa99a06bfc59ebf16a7b304c618fd0"
         },
         {
           "file": "prompts/ko-proverb-dark-under-lamp-edit.txt",
-          "sha256": "791f3879ecdbddfc2941a9619a6fa1d951cf5bc859d86668c2bbbbcc9f251038"
+          "sha256": "e943b0f8e4544c6f525bcc8febe26810bf4f83ab7bdb020779b9f0383310a432"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -162,7 +161,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "ko-proverb-seeing-is-believing",
@@ -182,21 +182,21 @@
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-seeing-is-believing-base.txt",
-          "sha256": "7e82360481bed452307e111cb7e724c08d0f18d6ac6d433d34664f36645ba8aa"
+          "sha256": "2005dc4a0753dbe92509165e3c77ec830968b5240c2ca89fd23ec27ac931f40d"
         },
         {
           "file": "prompts/ko-proverb-seeing-is-believing-edit.txt",
-          "sha256": "64501d036999627e5096e1884d9cd79340f22f4355173cb9914e22c51e553905"
+          "sha256": "be9bd8efb1449ca8fdf7a6e162d4ef2b20b8b8ac58a05385d6b9c6895e37acd2"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "ADMITTED",
         "stepCount": 5,
         "errors": [],
-        "hash": "a740c97fdaf1ba62e2819dda6d6754c05f8c2ea0744e4a254df8abca25ae7533"
+        "hash": "8e902db25573ee495679b843ef46132dbb7aa0132aef2441ba3da7f7a9110ac3"
       },
-      "rankedEligible": true
+      "rankedEligible": true,
+      "publishBlocked": true
     },
     {
       "key": "ko-proverb-kind-words-return",
@@ -216,18 +216,17 @@
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-kind-words-return-base.txt",
-          "sha256": "eee485c6c9faafdb3cc4d54f37b5ebe4a89bb4cfb2de4e9c1d86109be8e63486"
+          "sha256": "a85e2f95c9d3353f8961b4dbcca585e65f5f3573cd0ccaf2d16c3a1c9dace835"
         },
         {
           "file": "prompts/ko-proverb-kind-words-return-correction.txt",
-          "sha256": "2a94e63fd9a03c31bf6cb22a4a142006198e221948ed618177b7cf6e540c40c4"
+          "sha256": "8e4d8bfb35c5e344744b29208977dccf8d320b61a3b40e27b00ccbfa8fd0bc39"
         },
         {
           "file": "prompts/ko-proverb-kind-words-return-edit.txt",
-          "sha256": "4e53a3060acbcd48b41aff02993f094649cf73eaabca49cb29f5803119b403f3"
+          "sha256": "46ec5ecdc67a0e88fbf6693732f8717616a3997930794f6836f80e9628bd7320"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -236,7 +235,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "ko-idiom-turn-misfortune",
@@ -256,21 +256,21 @@
       "promptEvidence": [
         {
           "file": "prompts/ko-idiom-turn-misfortune-base.txt",
-          "sha256": "38fdb5c15edd0e75bfb667e1f9b6d26a5824409996d99e1f54d0ca7d775913c8"
+          "sha256": "36b001ce8d9d4e27c4c6b0325fb0172610301e6a5bf57cf083f15b7ec16f0d07"
         },
         {
           "file": "prompts/ko-idiom-turn-misfortune-edit.txt",
-          "sha256": "bfceca7604ecc1b779c802dca3ceba6b7fbab9e484aa17e698d6ce325b1158c3"
+          "sha256": "1bac6fcda1b10b7474691856467060582da2fcf1001979e0a3d36be5a96a44fb"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "ADMITTED",
         "stepCount": 5,
         "errors": [],
-        "hash": "8b87cbb52cab89fd45d1ebb84a294084c0a5f170855a54e1f6f4033d5a5cb4ef"
+        "hash": "b8bb365e51487305cfcf301d4c47ba013b1aeb904b6fb9b99658b47199be2bbf"
       },
-      "rankedEligible": true
+      "rankedEligible": true,
+      "publishBlocked": true
     },
     {
       "key": "ko-idiom-prepare-ahead",
@@ -290,14 +290,13 @@
       "promptEvidence": [
         {
           "file": "prompts/ko-idiom-prepare-ahead-base.txt",
-          "sha256": "515f3aec19bf8c299169260dc9a406b7f00d5b9ed100d8d023b4212ee1f9c807"
+          "sha256": "ed234c664a756a7f3359d4798a62d5fbf8b11cbc561d1ac07b953a834fb4a88e"
         },
         {
           "file": "prompts/ko-idiom-prepare-ahead-edit.txt",
-          "sha256": "411901a11f066af3ae8359dbe724a25bf7149a00272accfb6e1ddf0229cec056"
+          "sha256": "8826ee37c40aaeec3f935e2f9250b39538d8473091d692f494040e98cbb2fd4b"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -306,7 +305,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "ko-idiom-perspective",
@@ -326,14 +326,13 @@
       "promptEvidence": [
         {
           "file": "prompts/ko-idiom-perspective-base.txt",
-          "sha256": "81ba0d1d724186bdce925217be1a67bd859dc54202f5f0b7d8e5c0a9ab9bb654"
+          "sha256": "0e8c1ee64b1ff7e5f85ae0dce24a89ec374afd58ee773a04ff231d4fbc9a80ce"
         },
         {
           "file": "prompts/ko-idiom-perspective-edit.txt",
-          "sha256": "42075c733816fd481da0e4feed3123a82835782422b5d2759a3b0e59399fda06"
+          "sha256": "3b8cf2baea59b5cdd0b62ae7810547b55d04980be9de042cae73506e15b57ab8"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -342,7 +341,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-phonics-apple",
@@ -369,7 +369,6 @@
           "sha256": "257409431fcbca6b8d3d0a8018b8f49bcc33da7415d0a090c9ccd10c8eb997a3"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -378,7 +377,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "gk-space-rover",
@@ -405,7 +405,6 @@
           "sha256": "a33c77be00570b06dbe20671ce969f0b2a89677fad8e0f5f892c8e0c6be2ba16"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -414,7 +413,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "ko-proverb-cow-barn",
@@ -441,7 +441,6 @@
           "sha256": "5b916ef4984fba279d8812ec57215519baff9cf66ab0467cac1cd781d97eeea0"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -450,7 +449,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "ko-idiom-birds-one-stone",
@@ -477,7 +477,6 @@
           "sha256": "8d8d0a05b944e102d805d034068eb267eceb635730d9143c5d79cb49a4838c76"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -486,7 +485,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-school-classroom",
@@ -513,7 +513,6 @@
           "sha256": "b781f57eca0cfa26f1ef00b59d73db44bd841a8cecfe5fac8bb0017ae3fe34e4"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -522,7 +521,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-happy-family",
@@ -549,7 +549,6 @@
           "sha256": "562d2dd20c9e5472625cab47ac4713d82566c00cc76d8d70f44ba0b63459a16f"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -558,7 +557,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-curiosity-lab",
@@ -585,7 +585,6 @@
           "sha256": "d8fa005b7eed5dc55acf5305c9c9da8c7ed33f64ee50c4b0c701b2232511e3c8"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -594,7 +593,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-ambiguity-gallery",
@@ -621,7 +621,6 @@
           "sha256": "a01c86e47256b7cce1c217518bf893d098b64c648bacd3b432e2925ce5f7d680"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -630,7 +629,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-toy-hospital",
@@ -657,7 +657,6 @@
           "sha256": "4ad93da621b1859897f1f114af94ee87c3b7b898c34e2fe5ce8ee8de8f4e90c7"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -666,7 +665,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-city-park",
@@ -693,7 +693,6 @@
           "sha256": "475913ab8dc6f8e4aa73feaa8bd79e2d39b4f2dbb30525b3d868bc79db7ec989"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -702,7 +701,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-yellow-bus",
@@ -729,7 +729,6 @@
           "sha256": "ac32ecaffa971d80359aa74742f51c735f67127e63b70bd6b53ee47fa66414b3"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -738,7 +737,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-funny-zoo",
@@ -765,7 +765,6 @@
           "sha256": "735ded77a72c681390e371bb83501fca2acd45bef4998a1ed2d101a41b83f6ce"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -774,7 +773,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-sweet-bakery",
@@ -801,7 +801,6 @@
           "sha256": "60337784ffa9c2d3783bd196d79c6aa0adfd70e1a9c265987afbcebe3e6cedf0"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -810,7 +809,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-summer-beach",
@@ -837,7 +837,6 @@
           "sha256": "3fef1574364d869113f7ba82977ef686d18778f4b988384978fce503b48fe4c1"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -846,7 +845,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-space-rocket",
@@ -873,7 +873,6 @@
           "sha256": "5b1d6631b20e1ffd1d9de8d8d006ae739612dcb9b099a976ba8e4d468c5a655d"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -882,7 +881,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-sustainability-greenhouse",
@@ -909,7 +909,6 @@
           "sha256": "77404e13f58a43ef3769480a4ef2a19863e9860ebbe98084ea00f16b09a777a2"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -918,7 +917,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-architecture-studio",
@@ -945,7 +945,6 @@
           "sha256": "9f004a60645ba46d44701b0ef90fac1fabf7c130e1d7d1f6ebd223590c84f4b5"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -954,7 +953,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-ecosystem-coral",
@@ -981,7 +981,6 @@
           "sha256": "732a533ffc498ffad477389c30b52ef4bf12a573e3d8ac03abc114bf653a1f1f"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -990,7 +989,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-astronomy-observatory",
@@ -1017,7 +1017,6 @@
           "sha256": "28c8a4fe19139d76a0a60c712b820a1c01e8467fdd74f93673ebfc9c9331f68d"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1026,7 +1025,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-archaeology-dig",
@@ -1053,7 +1053,6 @@
           "sha256": "1df4a04aa882d0edfd731a381b78b9ecc2061cad69418333bfa7fc0a0c7fbe61"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1062,7 +1061,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-symphony-orchestra",
@@ -1089,7 +1089,6 @@
           "sha256": "e20d26a48bf40d1c57bda229806f080d2f51e3267fb04b449e983c5181ace5d8"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1098,7 +1097,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-hypothesis-lab",
@@ -1125,7 +1125,6 @@
           "sha256": "a6e890daae15dc04080c55954ac8d75e3171d3e762a1a02f024576c75a487548"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1134,7 +1133,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-journalism-press",
@@ -1161,7 +1161,6 @@
           "sha256": "449c52472b6faedf7261332ed228910fba964047624f02eb4cb0f22e87dfda3c"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1170,7 +1169,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-metaphor-library",
@@ -1197,7 +1197,6 @@
           "sha256": "902578d5da6b018b7bc59529dd3d6bcedf9a883e0bb519b26a8bef5489c5a4d2"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1206,7 +1205,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-paradox-labyrinth",
@@ -1233,7 +1233,6 @@
           "sha256": "5e11522c87a1a51c3258892e5bd83ce7c862bf1d2332ffb7584c2d7e02a9a05b"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1242,7 +1241,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-serendipity-garden",
@@ -1269,7 +1269,6 @@
           "sha256": "02455e34deed226b84bb1adb7655d1e17a465d56be77a2c603b5ce60113fe682"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1278,7 +1277,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-synergy-cradle",
@@ -1305,7 +1305,6 @@
           "sha256": "ccbe506afc25ea8d7b3b3500b81c2de9a40c1e5b18c683fb5945ef6299b3c52a"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1314,7 +1313,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-resilience-garden",
@@ -1341,7 +1341,6 @@
           "sha256": "6d2e921f2baa3f9a9cafbfa1804e1ba620fdedd52b77f7de73378888ee87a427"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1350,7 +1349,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-nostalgia-attic",
@@ -1377,7 +1377,6 @@
           "sha256": "6ce4729de51d411a41f57fae3e7593dc3bba3ab61f75bc3c9a9ac0917c2f1bad"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1386,7 +1385,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-epiphany-lighthouse",
@@ -1413,7 +1413,6 @@
           "sha256": "4096de29b01104588e2b9b736230d17d07d9f4d3fde943507c0c420c7c1d6e3d"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1422,7 +1421,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-equilibrium-cliff",
@@ -1449,7 +1449,6 @@
           "sha256": "080a95068542d6bf2c7770df8435438a7be163a9d4d89d5d164eb7e1e8c9d814"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1458,7 +1457,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-transmutation-alchemist",
@@ -1485,7 +1485,6 @@
           "sha256": "9d9777fdf953aefc1624072602fa31144192c2bd69e9affe043df103eb36fe8a"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1494,7 +1493,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-transcendence-galaxy",
@@ -1521,7 +1521,6 @@
           "sha256": "325bc9b40005a89f86d710b9c5e265aec00ee49f840eaeb59f3d05aef53498b4"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1530,7 +1529,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-phenomenon-lab",
@@ -1553,7 +1553,6 @@
           "sha256": "550d54c98d6d46b01ebde4187b7dbc67c19d33913d1ad004643b99446fdb6eff"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1562,7 +1561,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-juxtaposition-market",
@@ -1589,7 +1589,6 @@
           "sha256": "c4f571d343c23d490d1499355d7a29d8ebe8792289f94820517a14cab0dc488f"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1598,7 +1597,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-kaleidoscope-chamber",
@@ -1625,7 +1625,6 @@
           "sha256": "89868d66fe0b6215b99ea411f87c937fc52156c9e730fb2ac25eeefd4a8de37d"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1634,7 +1633,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-metamorphosis-cocoon",
@@ -1661,7 +1661,6 @@
           "sha256": "2ee6e04bfa8015a6d1693b17f2531c14241cf09054b97304a0fc85a9b9e77dbe"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1670,7 +1669,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-panoramic-observatory",
@@ -1697,7 +1697,6 @@
           "sha256": "6e0b33d3c859112a821dc37c1f18f0b42e49c8d4cdf56e8e36b1f335686413ad"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1706,7 +1705,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-cataclysm-volcano",
@@ -1733,7 +1733,6 @@
           "sha256": "7c21d13c8a9efb6a8fdecf7ce76e109965871c3ad461203a2b46c527294f7387"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1742,7 +1741,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-quintessence-alchemy",
@@ -1769,7 +1769,6 @@
           "sha256": "e9cde9dedb94075bd27900931e259fc2b116518673bdc6c1c4ed9d66f0db80ca"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1778,7 +1777,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-chrysanthemum-greenhouse",
@@ -1805,7 +1805,6 @@
           "sha256": "b62ad95ae189d8ec8407999c02117b8426d9e02a6a4217ad9bbbd247c808ab6c"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1814,7 +1813,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-archipelago-island",
@@ -1841,7 +1841,6 @@
           "sha256": "653f193cd4e198e34a1762fc1c2e2096d5699dd6525232417d7f6185773d48f1"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1850,7 +1849,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-constellation-astronomy",
@@ -1877,7 +1877,6 @@
           "sha256": "0415023bfc2a8b0c490ac0f5d9fe6441684f9c65da81f72c35add4be2afaf30d"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1886,7 +1885,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-synchronicity-clock",
@@ -1913,7 +1913,6 @@
           "sha256": "0402e290c99b4e1e1622d02083a662d81fa12d338ee31a886481d8129abca90f"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1922,7 +1921,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-camaraderie-campfire",
@@ -1949,7 +1949,6 @@
           "sha256": "07c6629fc059be36402ca64702c55d98caab941dd1d9fe7cad81012d568fb5e0"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1958,7 +1957,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-solitude-sanctuary",
@@ -1985,7 +1985,6 @@
           "sha256": "480965ed12c06c4b1a1219f0702e141859340cad9ac72057deda4f5e69455ebf"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -1994,7 +1993,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-serenity-lake",
@@ -2021,7 +2021,6 @@
           "sha256": "928263ab84ec3acd61c63cc7593c8e7d98068bff16744c76c190f0db584620e6"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2030,7 +2029,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-tranquility-tea",
@@ -2050,14 +2050,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-tranquility-tea-base.txt",
-          "sha256": "e8d737fc3142853a053268dd29efe218ac361b00735cd494ea437b0515e5c77f"
+          "sha256": "eeca5f2ff7f3d396fb5353c34d65359e11314940bc97559c62d3f792aa63a092"
         },
         {
           "file": "prompts/en-tranquility-tea-edit.txt",
-          "sha256": "8d5eb7708d755c3172c878ec1e6a1193c7dc4130b0aa40c0260163a14ee703d7"
+          "sha256": "e49f3513b215e6c9c091ddafec7871efd1b50739ea011ca199d45506765b768a"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2066,7 +2065,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-creativity-workshop",
@@ -2086,14 +2086,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-creativity-workshop-base.txt",
-          "sha256": "8b88abd5ef1ea48e35291a566ab594c778745fe9a2edb8344b9165abe8e8a35c"
+          "sha256": "4670aeea5c63cde2b6c39f3045d55b21eb05cba87ba3f60e9de4a037b96f0712"
         },
         {
           "file": "prompts/en-creativity-workshop-edit.txt",
-          "sha256": "787203e687df0968c99aeaf917694681cdc99bc5cdb62bb5f73d0f8bfd1f7fd2"
+          "sha256": "c745e1253562b09d4769ab7227ad73a9b5ee5b72378a4eecd01be27d256ebeba"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2102,7 +2101,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-illumination-library",
@@ -2122,14 +2122,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-illumination-library-base.txt",
-          "sha256": "6aed0b20a2b7cbb34f33d6ba1a16187a91d59da920c4eb83bf670c9e17aedfa2"
+          "sha256": "56b939c2f6262977be878e2ad99a5a1efd8bb1d928dbe4f8b3a92c62a520a65c"
         },
         {
           "file": "prompts/en-illumination-library-edit.txt",
-          "sha256": "9762ef27a152bf173a5d20d56fc82516bfbdcf2a8da5a7d15715a4c350945f3c"
+          "sha256": "de51eab633a1ecfac67ea42dcb7ecb265368710705235592256efc3fb5f86bfb"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2138,7 +2137,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-resonance-concert",
@@ -2158,14 +2158,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-resonance-concert-base.txt",
-          "sha256": "27b8e92aec16d052ca5ca70046bce1e4354529132d8057ccb3c48715af2d063a"
+          "sha256": "46a89fb8688edb0510d2e9cfe3b20fe26bb7b22b9d4e6d677ae2ceb8a59da6c7"
         },
         {
           "file": "prompts/en-resonance-concert-edit.txt",
-          "sha256": "1916abf47561d2d5a2b34f185ded58c245e129dbecfe1fa0f7553a4088033821"
+          "sha256": "067bc62a83859d8ed7ee090e3aeaf526d65d8da2b426a025bd80dc4030e8ae87"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2174,7 +2173,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-harmony-orchestra",
@@ -2194,14 +2194,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-harmony-orchestra-base.txt",
-          "sha256": "0fcdc48c3a36b4f1f6cc96f1a6f58f74bc98e7815b59d595d5364dba335c5fc3"
+          "sha256": "67de100fbaacffc5493f5d337c51fa0c62e3c516439bbf49fa04508bc776c2cc"
         },
         {
           "file": "prompts/en-harmony-orchestra-edit.txt",
-          "sha256": "9549af51001c54072c3e54eab81c7dc0b61943b7c3fea5f19172215173a16b9c"
+          "sha256": "94da7661d63cd0afe71ad9bec253117c9118a8ca4593e82bf47d280537f213ed"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2210,7 +2209,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-eternity-monument",
@@ -2230,14 +2230,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-eternity-monument-base.txt",
-          "sha256": "3be925f826c4d7f45bcb08d5211b5d032dd7ba691242eb394a376603306947c3"
+          "sha256": "ec8f11d473714f087230f28ffc26e973ab8b73b4ba3e8984583d307d879477c5"
         },
         {
           "file": "prompts/en-eternity-monument-edit.txt",
-          "sha256": "fefd818aa3bf3ff7931e2c085649cad37aadffa54f68372c8376b0dd81da0988"
+          "sha256": "477d45e66c68713ddbd988aca7117210c5262f71a9e93c024942b76437863c76"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2246,7 +2245,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-tranquility-garden",
@@ -2266,14 +2266,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-tranquility-garden-base.txt",
-          "sha256": "fb7908ffea1272b5c8d76621417bf6fefda41345fcf9215e6491d81c3f90974d"
+          "sha256": "01cda54ff005869fcdef1e780aafbe85b46c1ec2a2ea7550a27873e24311b094"
         },
         {
           "file": "prompts/en-tranquility-garden-edit.txt",
-          "sha256": "125eb474b94b49654af6d5d395e59ac22760ec80254fa690bcacf24b93afa99e"
+          "sha256": "d9c1cc4707d023959a094ac1a12992f90760640b531e3f8efb236006b1fe3046"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2282,7 +2281,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-creativity-studio",
@@ -2302,14 +2302,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-creativity-studio-base.txt",
-          "sha256": "17e992d0f5e42379cf839b5964f8b674c3d02926f84868763d225adf21b392ad"
+          "sha256": "00012a4815d308bb7099785382e345cefb7e2823a93eaecce59212b5c227c28e"
         },
         {
           "file": "prompts/en-creativity-studio-edit.txt",
-          "sha256": "6400eff0a8af415a8bd26e104d56071335c563e2525a69658a8dddf14b81e5f4"
+          "sha256": "63a989af10a35d64c02d116729dc0d3ad019a1104a89f2f7be080ece6cac9763"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2318,7 +2317,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-resonance-stage",
@@ -2338,14 +2338,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-resonance-stage-base.txt",
-          "sha256": "ee7dd5c03d89c911b4cf5080fb16f80323356f1a227326952b9b4191a0e76ca4"
+          "sha256": "3174a49635273be7c36c81c4d0ad04d9055ef0cd67affcd08f4353e632359c9a"
         },
         {
           "file": "prompts/en-resonance-stage-edit.txt",
-          "sha256": "8c15c32973102f4eb7f66ec51da8560950fc85e5fa8645344d97597a70e79470"
+          "sha256": "f71557982f60cbb4bcc52431f41727840ec01e937f59cfe7220c66734f986d05"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2354,7 +2353,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-serenity-haven",
@@ -2374,14 +2374,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-serenity-haven-base.txt",
-          "sha256": "a21be4d917f4488dc3011558d71e117cf2202340ea982aa9abeabad097907fc0"
+          "sha256": "4b855584720825387689fec52a9d7c891a7fbd24aca6c8b2419f29318c2f658c"
         },
         {
           "file": "prompts/en-serenity-haven-edit.txt",
-          "sha256": "d629622b1fd3bb7cde52f031b5c37570ce714741d59d7ece95118cf2aa765e92"
+          "sha256": "9c1d5fb6cf26ba6594a9f863b63b18cc4fb22fb0b4266c7221c0361450555e0c"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2390,7 +2389,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-solitude-cliff",
@@ -2410,14 +2410,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-solitude-cliff-base.txt",
-          "sha256": "b45ea29dcb2b9578a596af6dce4be9fa51302a3f0c8a5bad9c8af73d4603819f"
+          "sha256": "f1ec8d5b0b709238f915b17a83bdf8ac1e324744798cf5f0c042b2902d473492"
         },
         {
           "file": "prompts/en-solitude-cliff-edit.txt",
-          "sha256": "4237f2e001583df64f80fa87b8fffd39e6a9b0395cdc84af62a957bc28b4138d"
+          "sha256": "7c9072bf1ee8dd65c986436bc64155ba86eb2e0406bb8a9256c757e3e75601d2"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2426,7 +2425,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-3d-serenity",
@@ -2446,14 +2446,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-3d-serenity-base.txt",
-          "sha256": "2d1d6716779930c6433ddf867e698f77cdadacd87458d4bdff97297560ad3ceb"
+          "sha256": "d69e3eca3bde12a9a16ddf3f39ce38ce5743d608af2c30ac297d03e8f64cc3be"
         },
         {
           "file": "prompts/en-3d-serenity-edit.txt",
-          "sha256": "3b536b1bb450492374e40d853d943855e72b7de57de9415c0d47406f043678d2"
+          "sha256": "9f6a0953547cb841a9f5dbd1806faeacdc3c23b81021430ed181685e79a16630"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2462,7 +2461,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-3d-creativity",
@@ -2482,14 +2482,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-3d-creativity-base.txt",
-          "sha256": "fee3afb46ff594262cc045ffb3d8f1df9be237821c889d81e175d351155dda0e"
+          "sha256": "429e3b039ca7efa6c4daf0dfb0e6bbebea0d7082317de26b0d795c247df4b999"
         },
         {
           "file": "prompts/en-3d-creativity-edit.txt",
-          "sha256": "adf32bdc953607ec06c7842903afef1af4f832af6ec21934eae5243d84fc903e"
+          "sha256": "594d398c7b13ea38fba6f0a44f23daba141ef9df772aba6c7faab5f7e79721da"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2498,7 +2497,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-3d-harmony",
@@ -2518,14 +2518,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-3d-harmony-base.txt",
-          "sha256": "67f00d1c72cb0ffb8781eef9987491eaa0961fb636ab492fb0fd456b7f5371b0"
+          "sha256": "f3209eb70093d0ca4e6981f8ce45d42d2e3bc4d8c3d7fef960499493306e7f01"
         },
         {
           "file": "prompts/en-3d-harmony-edit.txt",
-          "sha256": "5c92b36d4dde8922938668a12b539c8991a02ab882c84a808e0e47f337d82300"
+          "sha256": "5ef90b829a4a2184903844179089a905aaa2c0e4bb2e1c9b01924ab3ff7782b8"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2534,7 +2533,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-clay-bakery",
@@ -2554,14 +2554,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-clay-bakery-base.txt",
-          "sha256": "ac522861fdd16c89a9d86ca916afa4afb7b9048f926b42072b732eeb2f5b1ba1"
+          "sha256": "81a9c7fc6edd9a4e78c355f7cdb193fa4fe20bc3e2009c63d52f8143e45fa4e7"
         },
         {
           "file": "prompts/en-clay-bakery-edit.txt",
-          "sha256": "da5f294cb1d49f0e8b4d73b5d2a562114701dde0e3f1892f6d77456bfb20fe52"
+          "sha256": "de5395fd4e72e665d5c9d586ae489454c854d04443765da8ce05fccc9bc314b3"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2570,7 +2569,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-papercut-forest",
@@ -2590,14 +2590,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-papercut-forest-base.txt",
-          "sha256": "c3218314d30af072d44a21b3061e68c51a4d6308f4cbaf0cda4a88f4b781cbca"
+          "sha256": "0fb550bd193b9f95fdc3b327d8d3fe0af314e09a24988e19b2fd94c9f04bef2a"
         },
         {
           "file": "prompts/en-papercut-forest-edit.txt",
-          "sha256": "5a4c26195a90a6ede72c20380bb5f72a6d18232c5e6289312b69627a7347764a"
+          "sha256": "11218eb6f768edc6fec598f016906415eed28ca3f4008f3bd7913d35846b6b5c"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2606,7 +2605,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-cyberpunk-space",
@@ -2626,14 +2626,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-cyberpunk-space-base.txt",
-          "sha256": "8b7e48492982203a76cb0e5ec0582b8f7f22e41c7f5f2f7671d52eab0c5a40e7"
+          "sha256": "a5bce3f88305b79c1b690bfbcd71bab9c00aee384e47d4517fda76b7816d2ba4"
         },
         {
           "file": "prompts/en-cyberpunk-space-edit.txt",
-          "sha256": "a805a47dd2d24a6939ab2e245e1c5ad6e8fffd9d6225d1e18fb68247e0ed256b"
+          "sha256": "d1e2228310562efd69b6b2eb4f4ca81b462e34e1bfc517a713979be2e29192dc"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2642,7 +2641,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-clay-zoo",
@@ -2662,14 +2662,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-clay-zoo-base.txt",
-          "sha256": "2ca3416ba4349f206059c2c625bb2fd32ee4a1aebf0e3401df08165c45437dfe"
+          "sha256": "6246786477ae14ea0dbdada27e76b59cb80229a063ff436f53897c2427893dbc"
         },
         {
           "file": "prompts/en-clay-zoo-edit.txt",
-          "sha256": "2a50808d7707e61ecdf7a548e807bd28301200ad9d429fb4564c0f27d11c6b75"
+          "sha256": "304c7d1eaedbcb59ea1d4d5b2b287d3c1925af373cac845dbf24dddc6f86cd46"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2678,7 +2677,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-papercut-sakura",
@@ -2698,14 +2698,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-papercut-sakura-base.txt",
-          "sha256": "dc09b0647e2c4c11d54c47c02d847dcbedb3f3b787a61491e0074151f89f65e2"
+          "sha256": "116362910abc0907e4967c4825f04cdb33c3b96822c3c7bc8ebb4f3f1a80603c"
         },
         {
           "file": "prompts/en-papercut-sakura-edit.txt",
-          "sha256": "29a4f279a23ea238e3f83d99e71b0321415acfce82070bddaba6cb2e1e1d7610"
+          "sha256": "f7311fd623d154f3593772a9dd5c18724ddd2ec326798703f13fafb1af93d065"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2714,7 +2713,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-cyberpunk-neon",
@@ -2734,14 +2734,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-cyberpunk-neon-base.txt",
-          "sha256": "13fbb1119e9cc4d422d8ca1e52e524f58e1c5e177e2324d041b1629945a2c564"
+          "sha256": "8495ce549ab94d6f090d55643e3312846bf3176753667e1e24904a995c734858"
         },
         {
           "file": "prompts/en-cyberpunk-neon-edit.txt",
-          "sha256": "6932ca8d614b328a77a2acbb1dc424bdc2eeb0b1f00c5b6b8c921faa2c892c5c"
+          "sha256": "0781293d03b8b9cfca4fd96989558da77dd825d9a7ce603ce77f04ac3aeaded6"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2750,7 +2749,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-clay-family",
@@ -2770,14 +2770,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-clay-family-base.txt",
-          "sha256": "3cbcdc3f1081c1b9d6109005778ba6feb402c509bf9e3730f34728844b5421e9"
+          "sha256": "da952380273fbe8d36d5adcb0a8ecfa333ad0b9e692eac2fbed330c2d1c3daaf"
         },
         {
           "file": "prompts/en-clay-family-edit.txt",
-          "sha256": "c238a3c499d815a04a258339b9205202bdd1c691dd392b03f348c284037ef108"
+          "sha256": "dd9118f46945413a9699a5212fd0ad67c9b913a74201efd8d8d5b54f2ff2bb62"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2786,7 +2785,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-papercut-lighthouse",
@@ -2806,14 +2806,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-papercut-lighthouse-base.txt",
-          "sha256": "f6fb015fee9f74b94c3f9d579bf3eb22106352c0b334a964037ab7243e31b4fa"
+          "sha256": "75a3505a72807272ac1914d4bada990aa1948defe7f856ed92583c9ca664a794"
         },
         {
           "file": "prompts/en-papercut-lighthouse-edit.txt",
-          "sha256": "639f46dffea1670c8399977c644c285df706af4cb8b3124046204effdd9f0b91"
+          "sha256": "d8e1abf473dd3c1aeb2e00c359e57795ee34499d16b710188839d78cd6a8505e"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2822,7 +2821,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     },
     {
       "key": "en-cyberpunk-city",
@@ -2842,14 +2842,13 @@
       "promptEvidence": [
         {
           "file": "prompts/en-cyberpunk-city-base.txt",
-          "sha256": "57150ae36d7d0459b2910da1ed661cf297517d87900978ef5c4f307231ba462f"
+          "sha256": "3e6ace0a31de9736070d8214509f16e70182b4604cb2129162ce7ca5957c3a53"
         },
         {
           "file": "prompts/en-cyberpunk-city-edit.txt",
-          "sha256": "c4092b9700af82cbb2e09bf3667fc922717fe660ea9b8d7f3586a5616dee606e"
+          "sha256": "d728be0eb32a95d8ea02af7d2c0665fe05d69a1a943adb6b74a353353c4c07c0"
         }
       ],
-      "publishBlocked": true,
       "hintLadderAdmission": {
         "status": "MISSING",
         "stepCount": 0,
@@ -2858,7 +2857,8 @@
         ],
         "hash": null
       },
-      "rankedEligible": false
+      "rankedEligible": false,
+      "publishBlocked": true
     }
   ]
 }

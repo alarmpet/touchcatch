@@ -1,4 +1,7 @@
-import type { HintStepV1 } from '../../contracts/src/content.js';
+import {
+  isHintRevealableGrapheme,
+  type HintStepV1,
+} from '../../contracts/src/content.js';
 import { containsDisallowedControl } from '../../contracts/src/answer-normalization.js';
 
 export type HintCategory = 'ENGLISH' | 'PROVERB' | 'IDIOM' | 'GENERAL_KNOWLEDGE';
@@ -18,8 +21,7 @@ export type SegmentedAnswer = Readonly<{
   revealableIndexes: readonly number[];
 }>;
 
-const SEPARATOR = /^[\p{White_Space}\p{Punctuation}]+$/u;
-const HANJA = /\p{Script=Han}/u;
+const HANJA_RUN = /\p{Script=Han}+/gu;
 const INITIAL_CONSONANTS = [
   'ㄱ',
   'ㄲ',
@@ -47,7 +49,7 @@ export function segmentAnswer(answer: string, language: HintLanguage): Segmented
     ...new Intl.Segmenter(language, { granularity: 'grapheme' }).segment(answer),
   ].map(({ segment }) => segment);
   const revealableIndexes = hintUnits.flatMap((unit, index) =>
-    SEPARATOR.test(unit) ? [] : [index],
+    isHintRevealableGrapheme(unit) ? [index] : [],
   );
 
   return { hintUnits, revealableIndexes };
@@ -62,6 +64,10 @@ function containsCanonicalAnswer(text: string, answer: string): boolean {
     .normalize('NFKC')
     .toLocaleLowerCase()
     .includes(answer.normalize('NFKC').toLocaleLowerCase());
+}
+
+function containsExactNumberToken(text: string, expected: number): boolean {
+  return new RegExp(`(?<!\\d)${expected}(?!\\d)`, 'u').test(text);
 }
 
 function initialConsonant(grapheme: string): string | undefined {
@@ -232,7 +238,10 @@ function validateEnglish(
   if (
     !lengthStep ||
     !(['ko', 'en'] as const).every((language) =>
-      lengthStep.localizedText?.[language]?.includes(String(segmented.revealableIndexes.length)),
+      containsExactNumberToken(
+        lengthStep.localizedText?.[language] ?? '',
+        segmented.revealableIndexes.length,
+      ),
     )
   ) {
     addError(errors, 'ANSWER_LENGTH_MISMATCH');
@@ -326,22 +335,25 @@ function validateIdiom(
   if (stepAt(steps, 4)?.revealIndexes.length !== 1) addError(errors, 'IDIOM_ONE_SYLLABLE');
   if (stepAt(steps, 5)?.revealIndexes.length !== 2) addError(errors, 'IDIOM_TWO_SYLLABLES');
 
-  const localizedText = steps.flatMap((step) => [
-    step.localizedText?.ko ?? '',
-    step.localizedText?.en ?? '',
-  ]);
-  if (localizedText.some((value) => HANJA.test(value))) {
-    const reviewedCharacters = new Set([...(context.reviewedHanja ?? '')]);
-    const authoredCharacters = localizedText.flatMap((value) =>
-      [...value].filter((character) => HANJA.test(character)),
-    );
-    if (
-      context.hanjaReviewStatus !== 'APPROVED' ||
+}
+
+function validateReviewedHanja(
+  errors: string[],
+  steps: readonly HintStepV1[],
+  context: HintLadderValidationContext,
+): void {
+  const runs = steps.flatMap((step) =>
+    [step.localizedText?.ko ?? '', step.localizedText?.en ?? ''].flatMap(
+      (value) => value.match(HANJA_RUN) ?? [],
+    ),
+  );
+  if (
+    runs.length > 0 &&
+    (context.hanjaReviewStatus !== 'APPROVED' ||
       !context.reviewedHanja ||
-      authoredCharacters.some((character) => !reviewedCharacters.has(character))
-    ) {
-      addError(errors, 'UNREVIEWED_HANJA');
-    }
+      runs.some((run) => run !== context.reviewedHanja))
+  ) {
+    addError(errors, 'UNREVIEWED_HANJA');
   }
 }
 
@@ -352,7 +364,7 @@ function validateAnswerLengthStep(
 ): void {
   if (
     !(['ko', 'en'] as const).every((language) =>
-      step.localizedText?.[language]?.includes(String(graphemeCount)),
+      containsExactNumberToken(step.localizedText?.[language] ?? '', graphemeCount),
     )
   ) {
     addError(errors, 'ANSWER_LENGTH_MISMATCH');
@@ -429,6 +441,9 @@ export function validateHintLadder(
   const segmented = segmentAnswer(answer, language);
 
   validateOrdinals(errors, steps);
+  if (steps.some((step) => step.rankedPenaltyUnits !== 1)) {
+    addError(errors, 'INVALID_RANKED_PENALTY');
+  }
   validateLocalization(errors, answer, steps);
   validateKinds(errors, category, steps);
   validateRevealIndexes(errors, segmented, steps);
@@ -439,6 +454,7 @@ export function validateHintLadder(
   if (category === 'GENERAL_KNOWLEDGE') {
     validateGeneralKnowledge(errors, answer, segmented, steps, context);
   }
+  validateReviewedHanja(errors, steps, context);
 
   return errors;
 }

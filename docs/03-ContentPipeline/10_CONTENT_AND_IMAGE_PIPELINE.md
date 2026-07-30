@@ -1,6 +1,6 @@
 ---
 title: "10_CONTENT_AND_IMAGE_PIPELINE"
-tags: [pipeline, image-generation, 81-packs]
+tags: [pipeline, image-generation, 79-pack-committed-snapshot]
 updated: 2026-07-30
 status: "VERIFIED"
 related: [[[PROMPTS_EXPANSION_GUIDE]], [[PROMPTS_100_GUIDE]]]
@@ -68,10 +68,21 @@ TypeScript 타입은 [packages/contracts/src/content.ts](packages/contracts/src/
 `UiRuntimeAssetManifestV1` is an empty strict DRAFT manifest. `ui:assets:check` rejects approval forgery and any unapproved beta asset. 로컬 수명주기는 immutable bytes와 exact `(rightsRecordId, assetSha256)` pair를 검증하고, 실제 사람의 시각 승인과 CDN 차단 자격증명은 외부 blocker로 유지한다. Concept references are never runtime assets or visual goldens. <!-- REQ: CONTENT-026 -->
 <!-- GENERATED:UI_ASSETS:END -->
 
+## Committed hint-admission snapshot
+
+The committed production snapshot contains 79 entries: 3 have an admitted
+five-step ladder and 76 legacy entries intentionally omit `hintLadder`.
+Omission is valid for legacy/casual content but always produces
+`MISSING`/`rankedEligible: false`. The admission hash binds category, answer,
+grapheme units, ladder, meaning option order/correct ID, reviewed Hanja
+evidence, and the verified private-solution hash. The generated mobile
+registry embeds that admitted ladder snapshot and hash instead of trusting a
+later mutable draft.
+
 ```powershell
 corepack pnpm content:schemas:check
 corepack pnpm content:validate
-corepack pnpm vitest run packages/contracts/src/content.test.ts packages/content-validator/src tools/content/write-learning-bundle.test.ts tools/content/learning-manifest.test.ts
+.\node_modules\.bin\vitest.CMD run packages/contracts/src/content.test.ts packages/contracts/src/match.schema.test.ts packages/game-engine/src packages/content-validator/src tools/content/write-learning-bundle.test.ts tools/content/learning-manifest.test.ts apps/mobile/src/learning-demo/data.test.ts apps/mobile/src/learning-demo/registry.test.ts
 ```
 
 게시 작업은 위 검증을 통과한 번들만 exact asset origin projection과 함께 `private.publish_content_revision_v1`에 전달한다. legacy 결합 JSON은 자동 승인·게시하지 않고 quarantine 정책 입력 없이는 처리하지 않는다. 법률·backup/WAL/PITR 승인은 외부 blocker다. <!-- REQ: CONTENT-027 -->

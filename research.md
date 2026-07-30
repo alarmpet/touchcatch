@@ -18,7 +18,7 @@ flowchart TD
     B --> C[2. catalog.v1.json: 메타데이터 조회]
     C --> D[3. auto-detect-delta.js: Visual Delta 픽셀 차이 탐지 & 탐욕적 클러스터링]
     D --> E[4. build-learning-entry.js: 지오메트리 & Visual Delta 평가]
-    E --> F[5. write-learning-bundle.js: 불변 암호화 번들 생성]
+    E --> F[5. write-learning-bundle.ts: active writer (.js wrapper delegates to TS)]
     F --> G[6. write-learning-manifest.ts: 마니페스트 수집 & 검증]
     G --> H[7. generate-registry.js: 모바일 레지스트리 생성]
 ```
@@ -73,6 +73,8 @@ flowchart TD
 
 ## 5. 결론 및 현재 상태 (Conclusion)
 
-- **총 검증 완료 팩**: **56개 테마 팩** (`manifest.v1.json` 및 `catalog.v1.json` 100% 동기화 완수)
-- **테스트 통과**: `pnpm test content/learning/all-content.test.ts` (100% PASS)
+- **Committed snapshot**: **79 packs**; 3 admitted five-step ladders and 76
+  legacy `MISSING` ladders that remain casual-only/non-ranked.
+- **Focused verification**:
+  `.\node_modules\.bin\vitest.CMD run packages/contracts/src/content.test.ts packages/contracts/src/match.schema.test.ts packages/game-engine/src packages/content-validator/src tools/content/write-learning-bundle.test.ts tools/content/learning-manifest.test.ts apps/mobile/src/learning-demo/data.test.ts apps/mobile/src/learning-demo/registry.test.ts`
 - **안전 장치**: `__DEV__` 조건부 로딩 및 사람의 승인(`REVIEW_REQUIRED`)을 위한 퍼블리시 게이트 보존

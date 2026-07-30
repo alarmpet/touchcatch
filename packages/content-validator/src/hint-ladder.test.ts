@@ -364,6 +364,68 @@ describe('category-specific hint ladder admission', () => {
       ),
     ).toContain('NO_WRONG_OPTION_REMAINS');
   });
+
+  it('rejects a non-unit ranked penalty even when raw input bypasses the schema', () => {
+    const invalidPenalty = englishSteps.map((step) =>
+      step.ordinal === 1
+        ? { ...step, rankedPenaltyUnits: 2 as unknown as 1 }
+        : step,
+    );
+
+    expect(validateHintLadder('ENGLISH', 'resilience', invalidPenalty)).toContain(
+      'INVALID_RANKED_PENALTY',
+    );
+  });
+
+  it('matches answer-length tokens exactly rather than accepting 4 inside 14', () => {
+    const misleading = generalKnowledgeSteps.map((step) =>
+      step.ordinal === 4
+        ? {
+            ...step,
+            kind: 'ANSWER_LENGTH' as const,
+            revealIndexes: [],
+            localizedText: text('14湲???뺣떟?댁슂.', 'The answer has 14 graphemes.'),
+          }
+        : step,
+    );
+
+    expect(
+      validateHintLadder(
+        'GENERAL_KNOWLEDGE',
+        'Mars',
+        misleading.map((step) =>
+          step.ordinal === 4
+            ? {
+                ...step,
+                localizedText: text(
+                  'The answer has 14 graphemes.',
+                  'The answer has 14 graphemes.',
+                ),
+              }
+            : step,
+        ),
+        generalKnowledgeContext,
+      ),
+    ).toContain('ANSWER_LENGTH_MISMATCH');
+  });
+
+  it('requires an exact approved reviewed Hanja run in every category', () => {
+    const withReorderedHanja = englishSteps.map((step) =>
+      step.ordinal === 1
+        ? {
+            ...step,
+            localizedText: text('福轉禍爲 ?곗뼱?댁슂.', 'The reviewed gloss is 福轉禍爲.'),
+          }
+        : step,
+    );
+
+    expect(
+      validateHintLadder('ENGLISH', 'resilience', withReorderedHanja, {
+        reviewedHanja: '轉禍爲福',
+        hanjaReviewStatus: 'APPROVED',
+      }),
+    ).toContain('UNREVIEWED_HANJA');
+  });
 });
 
 describe('shared hint ladder safety', () => {

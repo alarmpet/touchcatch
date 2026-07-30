@@ -3,7 +3,10 @@ import path from 'node:path';
 import { Ajv2020, type ErrorObject } from 'ajv/dist/2020.js';
 import addFormatsImport from 'ajv-formats';
 import { canonicalJsonSha256 } from '../../contracts/src/canonical-json.js';
-import type { HintStepV1 } from '../../contracts/src/content.js';
+import {
+  privateGameSolutionSchema,
+  type HintStepV1,
+} from '../../contracts/src/content.js';
 import {
   segmentAnswer,
   validateHintLadder,
@@ -18,9 +21,11 @@ const schema = JSON.parse(
 const addFormats = addFormatsImport as unknown as (instance: Ajv2020) => Ajv2020;
 const ajv = new Ajv2020({ allErrors: true, strict: true });
 addFormats(ajv);
-const validate = ajv.compile(schema);
+const validateCatalogSchema = ajv.compile(schema);
+const validatePrivateSchema = ajv.compile(privateGameSolutionSchema);
 
 type Meaning = Readonly<{
+  prompt: string;
   options: readonly Readonly<{ id: string; label: string }>[];
   correctOptionId: string;
 }>;
@@ -124,7 +129,9 @@ function admitHintLadder(
 }
 
 export function validateLearningCatalogue(value: unknown): LearningCatalogueValidationResult {
-  if (!validate(value)) return { ok: false, errors: validate.errors ?? [] };
+  if (!validateCatalogSchema(value)) {
+    return { ok: false, errors: validateCatalogSchema.errors ?? [] };
+  }
   const catalog = value as LearningCatalog;
   const errors: LearningCatalogueHintError[] = [];
   const keys = new Set<string>();
@@ -177,11 +184,33 @@ export function admitLearningBundleHintLadder(
   const steps = Array.isArray(finalChallenge.hintLadder)
     ? (finalChallenge.hintLadder as HintStepV1[])
     : undefined;
-  if (!steps) return missingAdmission();
-  const admission = admitHintLadder(entry, steps);
-  if (admission.status !== 'ADMITTED') return admission;
+  if (!steps && !entry.hintLadder) return missingAdmission();
 
   const errors: string[] = [];
+  if (!validatePrivateSchema(privateSolution)) {
+    errors.push('PRIVATE_SOLUTION_SCHEMA_INVALID');
+  }
+  const privateSolutionHash =
+    typeof privateSolution.privateSolutionHash === 'string'
+      ? privateSolution.privateSolutionHash
+      : '';
+  const { privateSolutionHash: _ignored, ...privateBody } = privateSolution;
+  if (
+    !/^[a-f0-9]{64}$/.test(privateSolutionHash) ||
+    canonicalJsonSha256(privateBody) !== privateSolutionHash
+  ) {
+    errors.push('PRIVATE_SOLUTION_HASH_MISMATCH');
+  }
+  if (!steps) {
+    if (entry.hintLadder) errors.push('DRAFT_HINT_LADDER_MISSING');
+    if (errors.length === 0) return missingAdmission();
+    return {
+      status: 'REJECTED',
+      stepCount: 0,
+      errors: [...new Set(errors)],
+      hash: null,
+    };
+  }
   if (publicContent.category !== entry.category) errors.push('CATALOG_DRAFT_CATEGORY_MISMATCH');
   if (finalChallenge.canonicalAnswer !== entry.canonicalAnswer) {
     errors.push('CATALOG_DRAFT_ANSWER_MISMATCH');
@@ -193,21 +222,70 @@ export function admitLearningBundleHintLadder(
   if (JSON.stringify(hintUnits) !== JSON.stringify(expectedUnits)) {
     errors.push('HINT_SEGMENTATION');
   }
+  const draftMeaning = finalChallenge.meaning;
   if (
-    entry.hintLadder &&
+    !isRecord(draftMeaning) ||
+    canonicalJsonSha256(draftMeaning) !== canonicalJsonSha256(entry.meaning)
+  ) {
+    errors.push('CATALOG_DRAFT_MEANING_MISMATCH');
+  }
+  if (
+    finalChallenge.reviewedHanja !== entry.reviewedHanja ||
+    finalChallenge.hanjaReviewStatus !== entry.hanjaReviewStatus
+  ) {
+    errors.push('CATALOG_DRAFT_HANJA_MISMATCH');
+  }
+  if (!entry.hintLadder) errors.push('CATALOG_HINT_LADDER_MISSING');
+  if (
+    !entry.hintLadder ||
     canonicalJsonSha256(entry.hintLadder) !== canonicalJsonSha256(steps)
   ) {
     errors.push('CATALOG_DRAFT_LADDER_MISMATCH');
   }
+  const ladderErrors = supportedCategory(entry.category)
+    ? validateHintLadder(entry.category, entry.canonicalAnswer, steps, {
+        ...(typeof finalChallenge.reviewedHanja === 'string'
+          ? { reviewedHanja: finalChallenge.reviewedHanja }
+          : {}),
+        ...(typeof finalChallenge.hanjaReviewStatus === 'string'
+          ? {
+              hanjaReviewStatus: finalChallenge.hanjaReviewStatus as
+                | 'REVIEW_REQUIRED'
+                | 'APPROVED'
+                | 'REJECTED',
+            }
+          : {}),
+        ...(isRecord(draftMeaning)
+          ? {
+              meaning: draftMeaning as unknown as Meaning,
+            }
+          : {}),
+      })
+    : ['UNSUPPORTED_HINT_CATEGORY'];
+  errors.push(...ladderErrors);
   if (errors.length > 0) {
     return {
       status: 'REJECTED',
       stepCount: steps.length,
-      errors,
+      errors: [...new Set(errors)],
       hash: null,
     };
   }
-  return admission;
+  return {
+    status: 'ADMITTED',
+    stepCount: steps.length,
+    errors: [],
+    hash: canonicalJsonSha256({
+      category: entry.category,
+      canonicalAnswer: entry.canonicalAnswer,
+      hintUnits: expectedUnits,
+      hintLadder: steps,
+      meaning: draftMeaning,
+      reviewedHanja: finalChallenge.reviewedHanja ?? null,
+      hanjaReviewStatus: finalChallenge.hanjaReviewStatus ?? null,
+      privateSolutionHash,
+    }),
+  };
 }
 
 export async function validateLearningDraft(

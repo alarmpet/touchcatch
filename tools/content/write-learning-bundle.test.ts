@@ -130,18 +130,17 @@ describe('learning bundle writer', () => {
     });
   });
 
-  it('never generates a missing authored ladder at runtime', async () => {
+  it('rebuilds a legacy bundle while omitting a missing authored ladder', async () => {
     await withImages(async (imageA, imageB, output) => {
-      const { hintLadder: _missing, ...withoutLadder } = entry;
+      const { hintLadder: _ignored, ...legacyEntry } = entry;
+      const result = await writeLearningBundle(
+        legacyEntry,
+        imageA,
+        imageB,
+        output,
+      );
 
-      await expect(
-        writeLearningBundle(
-          withoutLadder as LearningBundleInput,
-          imageA,
-          imageB,
-          output,
-        ),
-      ).rejects.toThrow('MISSING_AUTHORED_HINT_LADDER');
+      expect(result.privateSolution.finalChallenge).not.toHaveProperty('hintLadder');
     });
   });
 });

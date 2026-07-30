@@ -3,6 +3,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import {
   admitLearningBundleHintLadder,
+  validateLearningCatalogue,
   type LearningCatalogEntry,
 } from '../../packages/content-validator/src/validate-learning-draft.js';
 
@@ -49,6 +50,8 @@ export async function buildLearningManifest(
   const catalog = JSON.parse(
     await readFile(resolve(learningRoot, 'catalog.v1.json'), 'utf8'),
   ) as Catalog;
+  const catalogValidation = validateLearningCatalogue(catalog);
+  if (!catalogValidation.ok) throw new Error('INVALID_LEARNING_CATALOGUE');
   const draftFiles = (await readdir(resolve(learningRoot, 'drafts')))
     .filter((file) => file.endsWith('.json'))
     .sort();

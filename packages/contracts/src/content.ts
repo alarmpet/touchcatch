@@ -25,6 +25,10 @@ export function isWithinContentTextLimits(value: string): boolean {
   );
 }
 
+export function isHintRevealableGrapheme(value: string): boolean {
+  return !/^[\p{White_Space}\p{Punctuation}]+$/u.test(value);
+}
+
 export function isValidFinalAnswerSubmission(value: string): boolean {
   if ([...value].length > RAW_FINAL_ANSWER_LIMITS_V1.maxCodePoints || Buffer.byteLength(value, 'utf8') > RAW_FINAL_ANSWER_LIMITS_V1.maxUtf8Bytes || containsDisallowedControl(value)) return false;
   const normalized = normalizeFinalAnswer(value);
@@ -214,7 +218,7 @@ export const privateGameSolutionSchema = {
     finalChallenge: {
       type: 'object',
       additionalProperties: false,
-      required: ['canonicalAnswer', 'aliases', 'hintUnits', 'hintLadder', 'meaning'],
+      required: ['canonicalAnswer', 'aliases', 'hintUnits', 'meaning'],
       dependentRequired: {
         reviewedHanja: ['hanjaReviewStatus'],
         hanjaReviewStatus: ['reviewedHanja'],
@@ -250,7 +254,7 @@ export const privateGameSolutionSchema = {
             options: {
               type: 'array',
               minItems: 3,
-              maxItems: 5,
+              maxItems: 4,
               items: {
                 type: 'object',
                 additionalProperties: false,

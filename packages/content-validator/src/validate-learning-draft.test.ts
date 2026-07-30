@@ -2,7 +2,9 @@ import fs from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { canonicalJsonSha256 } from '../../contracts/src/canonical-json.js';
 import {
+  admitLearningBundleHintLadder,
   validateLearningCatalogue,
   validateLearningDraft,
 } from './validate-learning-draft.js';
@@ -13,6 +15,24 @@ const admittedKeys = [
   'ko-proverb-seeing-is-believing',
   'ko-idiom-turn-misfortune',
 ] as const;
+
+function representativeAdmissionPair() {
+  const catalog = JSON.parse(fs.readFileSync(cataloguePath, 'utf8')) as {
+    entries: Array<Record<string, unknown> & { key: string }>;
+  };
+  const entry = structuredClone(
+    catalog.entries.find((candidate) => candidate.key === 'en-resilience')!,
+  );
+  const bundle = JSON.parse(
+    fs.readFileSync('content/learning/drafts/en-resilience.json', 'utf8'),
+  ) as Record<string, any>;
+  return { entry, bundle: structuredClone(bundle) };
+}
+
+function rehashPrivateSolution(bundle: Record<string, any>): void {
+  const { privateSolutionHash: _ignored, ...body } = bundle.privateSolution;
+  bundle.privateSolution.privateSolutionHash = canonicalJsonSha256(body);
+}
 
 describe('learning draft hint admission boundary', () => {
   it('accepts the expanded production catalogue without freezing an obsolete key list', () => {
@@ -152,5 +172,78 @@ describe('learning draft hint admission boundary', () => {
         ]),
       );
     }
+  });
+
+  it('rejects a draft-authored ladder when the authoritative catalog has none', () => {
+    const { entry, bundle } = representativeAdmissionPair();
+    delete entry.hintLadder;
+
+    expect(admitLearningBundleHintLadder(entry as never, bundle)).toMatchObject({
+      status: 'REJECTED',
+      errors: expect.arrayContaining(['CATALOG_HINT_LADDER_MISSING']),
+      hash: null,
+    });
+  });
+
+  it('rejects an authoritative catalog ladder missing from the draft', () => {
+    const { entry, bundle } = representativeAdmissionPair();
+    delete bundle.privateSolution.finalChallenge.hintLadder;
+    rehashPrivateSolution(bundle);
+
+    expect(admitLearningBundleHintLadder(entry as never, bundle)).toMatchObject({
+      status: 'REJECTED',
+      errors: expect.arrayContaining(['DRAFT_HINT_LADDER_MISSING']),
+      hash: null,
+    });
+  });
+
+  it.each([
+    ['stale private hash', (bundle: Record<string, any>) => {
+      bundle.privateSolution.privateSolutionHash = '0'.repeat(64);
+    }, 'PRIVATE_SOLUTION_HASH_MISMATCH'],
+    ['private schema drift', (bundle: Record<string, any>) => {
+      bundle.privateSolution.finalChallenge.unexpected = true;
+      rehashPrivateSolution(bundle);
+    }, 'PRIVATE_SOLUTION_SCHEMA_INVALID'],
+    ['meaning option order drift', (bundle: Record<string, any>) => {
+      bundle.privateSolution.finalChallenge.meaning.options.reverse();
+      rehashPrivateSolution(bundle);
+    }, 'CATALOG_DRAFT_MEANING_MISMATCH'],
+    ['correct option drift', (bundle: Record<string, any>) => {
+      bundle.privateSolution.finalChallenge.meaning.correctOptionId = 'option_2';
+      rehashPrivateSolution(bundle);
+    }, 'CATALOG_DRAFT_MEANING_MISMATCH'],
+    ['Hanja evidence drift', (bundle: Record<string, any>) => {
+      bundle.privateSolution.finalChallenge.reviewedHanja = '轉禍爲福';
+      bundle.privateSolution.finalChallenge.hanjaReviewStatus = 'APPROVED';
+      rehashPrivateSolution(bundle);
+    }, 'CATALOG_DRAFT_HANJA_MISMATCH'],
+    ['ladder penalty drift', (bundle: Record<string, any>) => {
+      bundle.privateSolution.finalChallenge.hintLadder[0].rankedPenaltyUnits = 2;
+      rehashPrivateSolution(bundle);
+    }, 'INVALID_RANKED_PENALTY'],
+  ])('rejects %s at ranked admission', (_label, mutate, expected) => {
+    const { entry, bundle } = representativeAdmissionPair();
+    mutate(bundle);
+
+    expect(admitLearningBundleHintLadder(entry as never, bundle)).toMatchObject({
+      status: 'REJECTED',
+      errors: expect.arrayContaining([expected]),
+      hash: null,
+    });
+  });
+
+  it('hashes the complete verified semantic envelope, including private hash', () => {
+    const { entry, bundle } = representativeAdmissionPair();
+    const admitted = admitLearningBundleHintLadder(entry as never, bundle);
+    const originalHash = admitted.hash;
+
+    bundle.privateSolution.differences[0].hitboxes.imageA.cx += 0.001;
+    rehashPrivateSolution(bundle);
+    const repinned = admitLearningBundleHintLadder(entry as never, bundle);
+
+    expect(admitted.status).toBe('ADMITTED');
+    expect(repinned.status).toBe('ADMITTED');
+    expect(repinned.hash).not.toBe(originalHash);
   });
 });

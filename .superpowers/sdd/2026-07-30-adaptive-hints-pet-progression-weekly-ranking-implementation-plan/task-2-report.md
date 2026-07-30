@@ -88,3 +88,51 @@ Staging was therefore narrowed at the index level:
 
 The working tree intentionally retains the accepted baseline changes after the
 Task 2 commit.
+
+## Fix round 1
+
+Review findings in `task-2-review.md` were converted into focused regressions
+before the production fixes. The initial review RED run reported 16 expected
+failures across six files: optional legacy contracts, match strictness,
+separator rendering/charging, raw penalty/length/Hanja checks, legacy writer
+rebuilds, authoritative admission drift, semantic hashing, and mobile
+live-draft leakage. A later boundary RED added two failures for a catalog
+ladder missing from its draft and legacy/admitted status separation.
+
+The fixes:
+
+- keep `hintLadder` and paired Hanja evidence optional in shared private
+  content, while requiring exactly five valid steps for `ADMITTED`;
+- preserve whitespace/punctuation visibly from unlock, exclude separator
+  indexes from schedules, and never spend a hint credit on them;
+- accept optional ladder/review fields in persisted match private solutions;
+- validate attempted admission against catalog schema, shared private schema,
+  exact private self-hash, authoritative catalog ladder, category, answer,
+  grapheme units, ordered meaning quiz/correct option, Hanja evidence, and
+  fixed penalty;
+- hash a canonical semantic envelope including the verified private hash;
+- require exact approved Hanja runs for every category and exact numeric
+  answer-length tokens;
+- permit 3–4 meaning options, so four-option general-knowledge ladders can
+  eliminate two wrong answers while three-option legacy bundles remain
+  representable and non-ranked;
+- let the active TS bundle writer rebuild legacy entries while omitting a
+  missing ladder;
+- validate catalogs before manifest construction and prove the committed
+  79-entry snapshot produces 3 admitted and 76 missing entries;
+- verify admission hashes before registry generation and embed the exact
+  admitted five-step snapshot/hash, so mobile never trusts a later mutable
+  draft ladder;
+- correct the stale 56/81 pack, writer-name, and verification-command
+  documentation.
+
+Focused review verification:
+
+- 15 files / 205 tests passed across contracts, match schema, game engine,
+  content validators, writer/manifest, and mobile admission projection;
+- committed-snapshot integration rebuilt 79 manifest and registry entries
+  with exactly 3 `ADMITTED` and 76 `MISSING`;
+- content-validator and game-engine package TypeScript checks passed;
+- strict standalone TypeScript for the writer/manifest tools passed;
+- scoped ESLint, schema projection check, catalog validation, and
+  `git diff --check` passed.

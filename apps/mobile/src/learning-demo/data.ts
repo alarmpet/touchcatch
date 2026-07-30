@@ -18,8 +18,31 @@ export type Bundle = Readonly<{
   }>;
 }>;
 
-export function buildDemoEntry(category: LearningDemoEntry['category'], bundle: Bundle, assets: Readonly<{ imageA: unknown; imageB: unknown }>): LearningDemoEntry {
+export type HintAdmissionSnapshot =
+  | Readonly<{
+      status: 'ADMITTED';
+      rankedEligible: true;
+      admissionHash: string;
+      hintLadder: readonly HintStepV1[];
+    }>
+  | Readonly<{
+      status: 'MISSING' | 'REJECTED';
+      rankedEligible: false;
+      admissionHash: null;
+    }>;
+
+export function buildDemoEntry(
+  category: LearningDemoEntry['category'],
+  bundle: Bundle,
+  assets: Readonly<{ imageA: unknown; imageB: unknown }>,
+  admission: HintAdmissionSnapshot,
+): LearningDemoEntry {
   const challenge = bundle.privateSolution.finalChallenge;
+  const admitted =
+    admission.status === 'ADMITTED' &&
+    admission.rankedEligible &&
+    /^[a-f0-9]{64}$/.test(admission.admissionHash) &&
+    admission.hintLadder.length === 5;
   return {
     key: bundle.publicContent.theme,
     category,
@@ -31,6 +54,11 @@ export function buildDemoEntry(category: LearningDemoEntry['category'], bundle: 
     options: challenge.meaning.options,
     correctOptionId: challenge.meaning.correctOptionId,
     hintUnits: challenge.hintUnits,
-    ...(challenge.hintLadder ? { hintLadder: challenge.hintLadder } : {}),
+    ...(admitted
+      ? {
+          hintLadder: admission.hintLadder,
+          hintAdmissionHash: admission.admissionHash,
+        }
+      : {}),
   };
 }

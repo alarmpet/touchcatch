@@ -16,6 +16,7 @@ export type LearningDemoEntry = Readonly<{
   correctOptionId: string;
   hintUnits?: readonly string[];
   hintLadder?: readonly HintStepV1[];
+  hintAdmissionHash?: string;
 }>;
 
 export function LearningDemoScreen({ entries }: Readonly<{ entries: readonly LearningDemoEntry[] }>) {

@@ -21,6 +21,55 @@ function startedState(){
 }
 const playerTap=(state:MatchStateV1,seq:number,at:number,x:number,y:number,imageSide:'A'|'B'='A')=>{const requestId=`00000000-0000-4000-8000-${String(900+seq).padStart(12,'0')}`;return {source:'PLAYER' as const,commandId:`${state.matchId}:player:p1:${requestId}`,matchId:state.matchId,commandSeq:seq,receivedAtMs:at,requestId,playerId:'p1',expectedRevision:state.stateRevision,payload:{type:'TAP_IMAGE' as const,imageSide,x,y}};};
 
+it('renders separators immediately and never schedules or charges them as hints',()=>{
+  let state=startedState().state;
+  const {privateSolutionHash:_,...body}=structuredClone(solution);
+  body.finalChallenge.canonicalAnswer='ice cream!';
+  body.finalChallenge.aliases=[];
+  body.finalChallenge.hintUnits=['i','c','e',' ','c','r','e','a','m','!'];
+  state.privateSolution={...body,privateSolutionHash:canonicalJsonSha256(body)};
+  state.randomSchedule={...state.randomSchedule,hintRevealOrder:[0,1,2,4,5,6,7,8]};
+
+  const unlockId=`${state.matchId}:timer:UNLOCK_FINAL_CHALLENGE:final`;
+  const unlocked=reduceMatch(state,{source:'TIMER',commandId:unlockId,timerId:unlockId,matchId:state.matchId,commandSeq:40,receivedAtMs:16000,dueAtMs:16000,payload:{type:'UNLOCK_FINAL_CHALLENGE'}},frozenRules);
+  expect(unlocked.state.players[0].publicPattern).toBe('___ _____!');
+
+  state=structuredClone(unlocked.state);
+  state.players[0].hintCredits=1;
+  const requestId='00000000-0000-4000-8000-000000000777';
+  const revealed=reduceMatch(state,{source:'PLAYER',commandId:`${state.matchId}:player:p1:${requestId}`,matchId:state.matchId,commandSeq:41,receivedAtMs:16001,requestId,playerId:'p1',expectedRevision:state.stateRevision,payload:{type:'USE_HINT'}},frozenRules);
+  expect(revealed.state.players[0]).toMatchObject({
+    hintCredits:0,
+    revealedHintIndexes:[0],
+    publicPattern:'i__ _____!',
+  });
+  expect(revealed.state.randomSchedule.hintRevealOrder).not.toContain(3);
+  expect(revealed.state.randomSchedule.hintRevealOrder).not.toContain(9);
+
+  const invalid=structuredClone(state);
+  invalid.randomSchedule.hintRevealOrder=[0,1,2,3,4,5,6,7,8];
+  expect(()=>parseMatchStateV1(invalid)).toThrow(/hint order/);
+});
+
+it('accepts optional authored ladder and approved Hanja evidence in match state',()=>{
+  const state=startedState().state;
+  const {privateSolutionHash:_,...body}=structuredClone(solution);
+  Object.assign(body.finalChallenge,{
+    hintLadder:[1,2,3,4,5].map((ordinal)=>({
+      ordinal:ordinal as 1|2|3|4|5,
+      kind:'DEFINITION' as const,
+      localizedText:{ko:`?쒖떆 ${ordinal}`,en:`Hint ${ordinal}`},
+      revealIndexes:[],
+      rankedPenaltyUnits:1 as const,
+    })),
+    reviewedHanja:'轉禍爲福',
+    hanjaReviewStatus:'APPROVED' as const,
+  });
+  state.privateSolution={...body,privateSolutionHash:canonicalJsonSha256(body)};
+
+  expect(()=>parseMatchStateV1(state)).not.toThrow();
+});
+
 function replayFixture(){const matchId='00000000-0000-4000-8000-000000000001';const asset=(side:'A'|'B')=>({side,url:`https://cdn.test/${side}.png`,sha256:(side==='A'?'a':'c').repeat(64),encodedBytes:1,width:1,height:1,mimeType:'image/png' as const});const created=createMatchInitialState({matchId,createdAtMs:0,engineVersion:'1',rulesetHash:canonicalJsonSha256(rules),playerIds:['p1','p2'],contentManifest:{contentRevisionId:solution.contentRevisionId,publicContentHash:'d'.repeat(64),privateSolutionHash:solution.privateSolutionHash,assetPolicyVersion:'1.0.0',expectedAssets:[asset('A'),asset('B')]},privateSolution:solution,randomSchedule:{wordHunts:[{kind:'NORMAL',missionId:'w1',startsAfterMs:16000,endsAfterMs:21000},{kind:'NORMAL',missionId:'w2',startsAfterMs:34000,endsAfterMs:39000},{kind:'SPECIAL',missionId:'w3',startsAfterMs:60000,endsAfterMs:65000}],hintRevealOrder:[2,0,1],suddenDeathObjectiveId:'sd'}},frozenRules);return {bundleVersion:1 as const,engineVersion:'1',ruleset:frozenRules,rulesetVersion:'1.0.0' as const,rulesetHash:canonicalJsonSha256(rules),contentRevisionId:solution.contentRevisionId,contentLanguage:'en' as const,contentHash:'d'.repeat(64),initialState:created.state,commands:[]};}
 
 describe('replay acceptance negatives',()=>{
