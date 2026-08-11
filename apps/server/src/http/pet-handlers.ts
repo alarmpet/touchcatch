@@ -17,6 +17,16 @@ export type PetHandlers = Readonly<{
   claimDailyDraw(request: Request): Promise<Response>;
   promoteDuplicates(request: Request): Promise<Response>;
 }>;
+export type MobileApiHandlers = PetHandlers & Readonly<{
+  getWeeklyLeaderboard(request: Request): Promise<Response>;
+}>;
+
+export function createMobileApiHandlers(
+  pets: PetHandlers,
+  getWeeklyLeaderboard: (request: Request) => Promise<Response>,
+): MobileApiHandlers {
+  return { ...pets, getWeeklyLeaderboard };
+}
 
 export function createPetHandlers(input: Readonly<{
   verifier: BearerVerifier;
@@ -38,11 +48,18 @@ export function createPetHandlers(input: Readonly<{
     if (!key || !uuidV4.test(key)) throw new Error('INVALID_REQUEST');
     return key;
   }
+  function requireNoQuery(request: Request): void {
+    if ([...new URL(request.url).searchParams].length !== 0) throw new Error('INVALID_REQUEST');
+  }
+  async function requireEmptyBody(request: Request): Promise<void> {
+    if ((await request.text()).trim() !== '') throw new Error('INVALID_REQUEST');
+  }
 
   return {
     async getPetCollection(request) {
       try {
         const userId = await principal(request);
+        requireNoQuery(request);
         const policy = rewardPolicy();
         if (policy instanceof Response) return policy;
         const subjectKey = await resolve(userId);
@@ -52,9 +69,11 @@ export function createPetHandlers(input: Readonly<{
     async claimDailyDraw(request) {
       try {
         const userId = await principal(request);
+        requireNoQuery(request);
         const policy = rewardPolicy();
         if (policy instanceof Response) return policy;
         idempotencyKey(request);
+        await requireEmptyBody(request);
         const subjectKey = await resolve(userId);
         return jsonResponse(200, await input.repository.claimEffectOnce({ subjectKey, claimDate: kstClaimDateV1(input.now?.()), seriesId: 'DAILY_FREE_DRAW_V1', probabilities: { COMMON: 0.8, RARE: 0.18, LEGENDARY: 0.02 }, economyVersion: policy.economyVersion, economyHash: policy.economyHash, catalogRevision: policy.catalogRevision, catalogHash: policy.catalogHash }));
       } catch (error) { return petErrorResponse(error); }
@@ -62,6 +81,7 @@ export function createPetHandlers(input: Readonly<{
     async promoteDuplicates(request) {
       try {
         const userId = await principal(request);
+        requireNoQuery(request);
         const policy = rewardPolicy();
         if (policy instanceof Response) return policy;
         const key = idempotencyKey(request);

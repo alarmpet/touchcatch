@@ -15,6 +15,12 @@ export function createRankingHandler(input: Readonly<{
     try {
       const principal = await input.verifier.verify(request);
       const url = new URL(request.url);
+      const queryKeys = [...url.searchParams.keys()];
+      if (queryKeys.length !== 3
+        || new Set(queryKeys).size !== 3
+        || queryKeys.some((key) => !['seasonId', 'category', 'limit'].includes(key))) {
+        return jsonResponse(400, { code: 'INVALID_QUERY' });
+      }
       const limitText = url.searchParams.get('limit');
       const parsed = weeklyLeaderboardQueryV1Schema.safeParse({
         seasonId: url.searchParams.get('seasonId'),
@@ -28,6 +34,7 @@ export function createRankingHandler(input: Readonly<{
       return jsonResponse(200, await input.board.read({ subjectKey, ...parsed.data }));
     } catch (error) {
       if (error instanceof Error && error.message === 'UNAUTHORIZED') return jsonResponse(401, { code: 'UNAUTHORIZED' });
+      if (error instanceof Error && error.message === 'RANKING_POLICY_NOT_APPROVED') return jsonResponse(409, { code: 'RANKING_POLICY_NOT_APPROVED' });
       return jsonResponse(503, { code: 'LEADERBOARD_UNAVAILABLE' });
     }
   };

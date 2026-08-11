@@ -33,10 +33,10 @@ const document = parse(readFileSync(new URL("../openapi.yaml", import.meta.url),
 const expected = {
   "GET /v1/me": { request: null, statuses: ["200", "401"], response: "MeResponse", errors: ["UNAUTHORIZED"] },
   "GET /v1/pets": { request: null, statuses: ["200", "401"], response: "PetsResponse", errors: ["UNAUTHORIZED"] },
-  "GET /v1/pets/collection": { request: null, statuses: ["200", "401"], response: "PetCollectionResponse", errors: ["UNAUTHORIZED"] },
+  "GET /v1/pets/collection": { request: null, statuses: ["200", "400", "401", "409", "503"], response: "PetCollectionResponse", errors: ["INVALID_REQUEST", "UNAUTHORIZED", "AUTH_SUBJECT_REQUIRED", "REWARD_POLICY_NOT_APPROVED", "POLICY_MISMATCH", "DATABASE_UNAVAILABLE"] },
   "GET /v1/learning/leaderboard": { request: null, statuses: ["200", "400", "401", "409", "503"], response: "WeeklyCategoryBoardResponse", errors: ["INVALID_QUERY", "UNAUTHORIZED", "RANKING_POLICY_NOT_APPROVED", "LEADERBOARD_UNAVAILABLE"] },
-  "POST /v1/pets/daily-draw": { request: null, statuses: ["200", "401", "409"], response: "DailyFreeDrawResponse", errors: ["AUTH_SUBJECT_REQUIRED", "POLICY_MISMATCH"] },
-  "POST /v1/pets/duplicate-promotion": { request: "DuplicatePromotionRequest", statuses: ["200", "400", "401", "404", "409"], response: "DuplicatePromotionResponse", errors: ["INVALID_MATERIALS", "AUTH_SUBJECT_REQUIRED", "NOT_OWNED", "IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH", "INSUFFICIENT_DUPLICATES", "COSMETIC_REWARD_POLICY_REQUIRED"] },
+  "POST /v1/pets/daily-draw": { request: null, statuses: ["200", "400", "401", "409", "503"], response: "DailyFreeDrawResponse", errors: ["INVALID_REQUEST", "UNAUTHORIZED", "AUTH_SUBJECT_REQUIRED", "REWARD_POLICY_NOT_APPROVED", "POLICY_MISMATCH", "DATABASE_UNAVAILABLE"] },
+  "POST /v1/pets/duplicate-promotion": { request: "DuplicatePromotionRequest", statuses: ["200", "400", "401", "404", "409", "503"], response: "DuplicatePromotionResponse", errors: ["INVALID_REQUEST", "INVALID_MATERIALS", "UNAUTHORIZED", "AUTH_SUBJECT_REQUIRED", "NOT_OWNED", "IDEMPOTENCY_CONFLICT", "REWARD_POLICY_NOT_APPROVED", "POLICY_MISMATCH", "INSUFFICIENT_DUPLICATES", "COSMETIC_REWARD_POLICY_REQUIRED", "DATABASE_UNAVAILABLE"] },
   "POST /v1/pets/{id}/select": { request: null, statuses: ["200", "404", "409"], response: "SelectPetResponse", errors: ["NOT_OWNED", "IDEMPOTENCY_CONFLICT"] },
   "POST /v1/pets/{id}/lock": { request: "LockPetRequest", statuses: ["200", "404", "409"], response: "LockPetResponse", errors: ["NOT_OWNED", "IDEMPOTENCY_CONFLICT"] },
   "POST /v1/gacha/draw": { request: null, statuses: ["200", "409"], response: "GachaDrawResponse", errors: ["IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH", "INSUFFICIENT_FUNDS"] },
@@ -55,8 +55,8 @@ const economyStatusErrors = {
   "POST /v1/pets/{id}/lock": { "404": ["NOT_OWNED"], "409": ["IDEMPOTENCY_CONFLICT"] },
   "POST /v1/gacha/draw": { "409": ["IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH", "INSUFFICIENT_FUNDS"] },
   "POST /v1/fusion": { "400": ["INVALID_MATERIALS"], "404": ["NOT_OWNED"], "409": ["IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH"] },
-  "POST /v1/pets/daily-draw": { "409": ["POLICY_MISMATCH"] },
-  "POST /v1/pets/duplicate-promotion": { "400": ["INVALID_MATERIALS"], "401": ["AUTH_SUBJECT_REQUIRED"], "404": ["NOT_OWNED"], "409": ["IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH", "INSUFFICIENT_DUPLICATES", "COSMETIC_REWARD_POLICY_REQUIRED"] },
+  "POST /v1/pets/daily-draw": { "400": ["INVALID_REQUEST"], "401": ["UNAUTHORIZED", "AUTH_SUBJECT_REQUIRED"], "409": ["REWARD_POLICY_NOT_APPROVED", "POLICY_MISMATCH"], "503": ["DATABASE_UNAVAILABLE"] },
+  "POST /v1/pets/duplicate-promotion": { "400": ["INVALID_REQUEST", "INVALID_MATERIALS"], "401": ["UNAUTHORIZED", "AUTH_SUBJECT_REQUIRED"], "404": ["NOT_OWNED"], "409": ["IDEMPOTENCY_CONFLICT", "REWARD_POLICY_NOT_APPROVED", "POLICY_MISMATCH", "INSUFFICIENT_DUPLICATES", "COSMETIC_REWARD_POLICY_REQUIRED"], "503": ["DATABASE_UNAVAILABLE"] },
 } as const;
 
 describe("OpenAPI semantic contract", () => {

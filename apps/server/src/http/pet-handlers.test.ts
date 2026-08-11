@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { createPetHandlers } from './pet-handlers.js';
+import { createMobileApiHandlers, createPetHandlers } from './pet-handlers.js';
 import type { MobileRuntimePolicyState } from '../policy/mobile-runtime-policy.js';
 import { PgRpcError } from '../database/pg-rpc.js';
 
@@ -57,5 +57,17 @@ describe('pet HTTP handlers', () => {
     const notOwned = await f.handlers.promoteDuplicates(new Request('https://api.test/v1/pets/duplicate-promotion', { method: 'POST', headers: { 'content-type': 'application/json', 'Idempotency-Key': '70000000-0000-4000-8000-000000000001' }, body: JSON.stringify({ materials: [{ petId: '40000000-0000-4000-8000-000000000001', count: 10 }] }) }));
     expect(notOwned.status).toBe(404);
     expect(await notOwned.json()).toEqual({ code: 'NOT_OWNED' });
+  });
+
+  it('rejects client-controlled fields on read and bodyless mutation routes and composes all four handlers', async () => {
+    const f = fixture();
+    expect((await f.handlers.getPetCollection(new Request(`https://api.test/v1/pets/collection?subjectKey=${subjectKey}`))).status).toBe(400);
+    expect((await f.handlers.claimDailyDraw(new Request('https://api.test/v1/pets/daily-draw', { method: 'POST', headers: { 'Idempotency-Key': '70000000-0000-4000-8000-000000000001' }, body: JSON.stringify({ userId }) }))).status).toBe(400);
+    expect(f.repository.claimEffectOnce).not.toHaveBeenCalled();
+    const ranking = vi.fn();
+    const combined = createMobileApiHandlers(f.handlers, ranking);
+    await combined.getWeeklyLeaderboard(new Request('https://api.test/v1/learning/leaderboard'));
+    expect(ranking).toHaveBeenCalledOnce();
+    expect(Object.keys(combined).sort()).toEqual(['claimDailyDraw', 'getPetCollection', 'getWeeklyLeaderboard', 'promoteDuplicates']);
   });
 });

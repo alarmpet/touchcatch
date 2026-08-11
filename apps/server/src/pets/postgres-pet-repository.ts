@@ -42,7 +42,8 @@ export class PostgresPetRepository implements PetRuntimeRepository {
   ) {}
 
   async readCollection(input: PetCollectionReadInput): Promise<PetCollectionV1> {
-    const raw = rawCollectionSchema.parse(await this.rpc.call('read_pet_inventory_v1', [input.subjectKey, input.catalogRevision, input.catalogHash]));
+    const raw = await this.rpc.callParsed('read_pet_inventory_v1', [input.subjectKey, input.catalogRevision, input.catalogHash], (value) => rawCollectionSchema.parse(value));
+    if (raw.catalogRevision !== input.catalogRevision || raw.catalogHash !== input.catalogHash) throw new TypeError('POLICY_MISMATCH');
     const pets = raw.pets.map(({ acquiredCatalogRevision: _revision, acquiredCatalogHash: _hash, ...pet }) => {
       const art = this.artForPet(pet.petId);
       if (!art) throw new TypeError('PET_ART_NOT_APPROVED');
@@ -52,10 +53,10 @@ export class PostgresPetRepository implements PetRuntimeRepository {
   }
 
   async claimEffectOnce(input: DailyDrawEffectInputV1): Promise<DailyFreeDrawV1> {
-    return dailyFreeDrawV1Schema.parse(await this.rpc.call('claim_daily_free_draw_v1', [input.subjectKey, input.economyHash, input.catalogRevision, input.catalogHash]));
+    return this.rpc.callParsed('claim_daily_free_draw_v1', [input.subjectKey, input.economyHash, input.catalogRevision, input.catalogHash], (value) => dailyFreeDrawV1Schema.parse(value));
   }
 
   async promoteEffectOnce(input: DuplicatePromotionEffectInputV1): Promise<DuplicatePromotionV1> {
-    return duplicatePromotionV1Schema.parse(await this.rpc.call('promote_duplicate_cards_v1', [input.subjectKey, input.idempotencyKey, input.requestHash, [{ petId: input.sourcePetId, count: 10 }], input.economyHash, input.catalogRevision, input.catalogHash]));
+    return this.rpc.callParsed('promote_duplicate_cards_v1', [input.subjectKey, input.idempotencyKey, input.requestHash, [{ petId: input.sourcePetId, count: 10 }], input.economyHash, input.catalogRevision, input.catalogHash], (value) => duplicatePromotionV1Schema.parse(value));
   }
 }

@@ -7,6 +7,6 @@ export interface WeeklyCategoryBoardRepository { read(input: WeeklyCategoryBoard
 export class PostgresWeeklyCategoryBoard implements WeeklyCategoryBoardRepository {
   constructor(private readonly rpc: MobileRpcClient) {}
   async read(input: WeeklyCategoryBoardInput): Promise<WeeklyCategoryBoardResponseV1> {
-    return parseWeeklyCategoryBoardResponseV1(await this.rpc.call('read_weekly_category_board_v1', [input.subjectKey, input.seasonId, input.category, input.limit]));
+    return this.rpc.callParsed('read_weekly_category_board_v1', [input.subjectKey, input.seasonId, input.category, input.limit], parseWeeklyCategoryBoardResponseV1);
   }
 }

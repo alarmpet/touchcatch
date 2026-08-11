@@ -25,5 +25,7 @@ describe('weekly ranking HTTP handler', () => {
     const failure = await failing(new Request('https://api.test/v1/learning/leaderboard?seasonId=30000000-0000-4000-8000-000000000001&category=PROVERB&limit=1'));
     expect(failure.status).toBe(503);
     expect(await failure.json()).toEqual({ code: 'LEADERBOARD_UNAVAILABLE' });
+    const extra = await disabled(new Request('https://api.test/v1/learning/leaderboard?seasonId=30000000-0000-4000-8000-000000000001&category=ENGLISH&limit=10&subjectKey=private'));
+    expect(extra.status).toBe(400);
   });
 });

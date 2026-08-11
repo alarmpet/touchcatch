@@ -16,7 +16,7 @@ const statements: Record<MobileRpcName, string> = {
 type QueryResult = Readonly<{ rows: readonly Record<string, unknown>[] }>;
 export interface PgClientLike {
   query(sql: string, values?: readonly unknown[]): Promise<QueryResult>;
-  release(): void;
+  release(error?: Error): void;
 }
 export interface PgPoolLike { connect(): Promise<PgClientLike> }
 
@@ -29,6 +29,7 @@ export class PgRpcError extends Error {
 
 export interface MobileRpcClient {
   call(name: MobileRpcName, args: readonly unknown[]): Promise<unknown>;
+  callParsed<T>(name: MobileRpcName, args: readonly unknown[], parse: (value: unknown) => T): Promise<T>;
 }
 
 export function createSubjectResolutionRpc(rpc: MobileRpcClient): {
@@ -38,7 +39,7 @@ export function createSubjectResolutionRpc(rpc: MobileRpcClient): {
     async call(functionName, args) {
       if (functionName !== 'private.ensure_mobile_account_v1'
         || typeof args.authenticatedUserId !== 'string') throw new TypeError('RPC_NOT_ALLOWED');
-      return rpc.call('ensure_mobile_account_v1', [args.authenticatedUserId]);
+      return rpc.callParsed('ensure_mobile_account_v1', [args.authenticatedUserId], (value) => value);
     },
   };
 }
@@ -51,25 +52,35 @@ const publicCodes = new Set([
 ]);
 
 export function createPgRpcClient(pool: PgPoolLike): MobileRpcClient {
-  return {
-    async call(name: MobileRpcName, args: readonly unknown[]): Promise<unknown> {
+  async function execute<T>(name: MobileRpcName, args: readonly unknown[], parse: (value: unknown) => T): Promise<T> {
       const sql = statements[name];
       if (!sql) throw new TypeError('RPC_NOT_ALLOWED');
       const client = await pool.connect();
+      let released = false;
       try {
         await client.query('begin');
         await client.query('set local role economy_server');
         const result = await client.query(sql, args);
+        const parsed = parse(result.rows[0]?.response);
         await client.query('commit');
-        return result.rows[0]?.response;
+        return parsed;
       } catch (error) {
-        await client.query('rollback').catch(() => ({ rows: [] }));
+        try {
+          await client.query('rollback');
+        } catch (rollbackError) {
+          const destroyError = rollbackError instanceof Error ? rollbackError : new Error('ROLLBACK_FAILED');
+          client.release(destroyError);
+          released = true;
+        }
         const message = error instanceof Error ? error.message : '';
         const code = publicCodes.has(message) ? message : 'DATABASE_UNAVAILABLE';
         throw new PgRpcError(code, { cause: error });
       } finally {
-        client.release();
+        if (!released) client.release();
       }
-    },
+  }
+  return {
+    call(name, args) { return execute(name, args, (value) => value); },
+    callParsed(name, args, parse) { return execute(name, args, parse); },
   };
 }
