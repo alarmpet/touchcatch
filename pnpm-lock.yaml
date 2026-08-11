@@ -134,6 +134,21 @@ importers:
         specifier: 0.10.0
         version: 0.10.0(@babel/core@7.29.7)(@react-native/metro-config@0.86.0(@babel/core@7.29.7))(react-native@0.86.0(@babel/core@7.29.7)(@react-native/metro-config@0.86.0(@babel/core@7.29.7))(@types/react@19.2.17)(react@19.2.3))(react@19.2.3)
 
+  apps/server:
+    dependencies:
+      '@spot-learn/contracts':
+        specifier: workspace:*
+        version: file:packages/contracts
+      '@spot-learn/game-engine':
+        specifier: workspace:*
+        version: file:packages/game-engine
+      '@spot-learn/learning-competition':
+        specifier: workspace:*
+        version: file:packages/learning-competition
+      jose:
+        specifier: ^6.2.3
+        version: 6.2.3
+
   packages/config: {}
 
   packages/content-validator:
@@ -1723,6 +1738,13 @@ packages:
 
   '@spot-learn/contracts@file:packages/contracts':
     resolution: {directory: packages/contracts, type: directory}
+
+  '@spot-learn/game-engine@file:packages/game-engine':
+    resolution: {directory: packages/game-engine, type: directory}
+
+  '@spot-learn/learning-competition@file:packages/learning-competition':
+    resolution: {directory: packages/learning-competition, type: directory}
+
 
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
@@ -6104,6 +6126,16 @@ snapshots:
       json-schema-to-ts: 3.1.1
       yaml: 2.9.0
       zod: 4.4.3
+
+  '@spot-learn/game-engine@file:packages/game-engine':
+    dependencies:
+      '@spot-learn/contracts': file:packages/contracts
+
+  '@spot-learn/learning-competition@file:packages/learning-competition':
+    dependencies:
+      '@spot-learn/contracts': file:packages/contracts
+      '@spot-learn/game-engine': file:packages/game-engine
+
 
   '@standard-schema/spec@1.1.0': {}
 

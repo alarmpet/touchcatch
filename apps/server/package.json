@@ -1,0 +1,17 @@
+{
+  "name": "@spot-learn/server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run src/**/*.test.ts"
+  },
+  "dependencies": {
+    "@spot-learn/contracts": "workspace:*",
+    "@spot-learn/game-engine": "workspace:*",
+    "@spot-learn/learning-competition": "workspace:*",
+    "jose": "^6.2.3"
+  }
+}
