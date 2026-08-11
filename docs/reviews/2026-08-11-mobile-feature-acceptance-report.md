@@ -12,6 +12,7 @@ The run also found and fixed two real mobile defects: pet inventory rows sharing
 - Successful rebuild logs: `D:\tcbuild\android-rebuild-task9.out.log` and `D:\tcbuild\android-rebuild-task9.err.log`.
 - Cold native smoke: `D:\tcbuild\android-smoke-task9-preflight\20260812-044141`.
 - Authenticated run root: `D:\tcbuild\android-authenticated\20260812-045826`.
+- Evidence provenance and limitations: `provenance.json` in that run root records the observed commit, dirty-worktree state, APK SHA-256, package-ID drift, and exact nested log/API/DB paths. It explicitly records that no complete HTTP transcript was retained.
 - API acceptance summary: `api-smoke\20260812-050438\summary.json` under that run root.
 - Full DB verification: `D:\tcbuild\check-db-task9.out.log` (323 pgTAP assertions and 33 DB-concurrency tests passed).
 - Emulator routing used `adb reverse` for Metro `8081`, API `18787`, and local Supabase `55321`.

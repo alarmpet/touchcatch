@@ -2,6 +2,8 @@
 
 This matrix separates local emulator evidence from production/release readiness. The authenticated run uses disposable local Supabase users, explicit test-only policy decisions, and placeholder HTTPS art. Because enabled claim/promotion were exercised through the authenticated API harness rather than Android button taps, the current aggregate classification is `LOCAL_ANDROID_PARTIAL`.
 
+The run's `provenance.json` records the observed commit and dirty-worktree limitation, APK hash, native/configured package mismatch, and exact nested evidence paths. It also states that the retained API artifact is a redacted result summary rather than a complete HTTP transcript.
+
 | Flow | Expected result | Fresh evidence | Status (2026-08-12 KST) |
 | --- | --- | --- | --- |
 | Cold app boot | Native app opens without a fatal/runtime/module error | `D:\tcbuild\android-smoke-task9-preflight\20260812-044141` | PASS (`com.spotlearnbattle`) |
