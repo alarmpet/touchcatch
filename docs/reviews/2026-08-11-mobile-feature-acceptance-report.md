@@ -2,7 +2,7 @@
 
 ## Outcome
 
-The local Android client now boots, retains a real local Supabase session, reaches authenticated pet and weekly-ranking APIs, and exercises the integrated picture-to-answer learning flow. The fresh evidence qualifies as `LOCAL_ANDROID_AUTHENTICATED`, not production readiness.
+The local Android client now boots, retains a real local Supabase session, reaches authenticated pet and weekly-ranking APIs, and exercises the integrated picture-to-answer learning flow. The fresh evidence qualifies as `LOCAL_ANDROID_PARTIAL`: the authenticated API/DB effects and Android read/game flows passed, but enabled pet mutations were not tapped through on a fresh Android account.
 
 The run also found and fixed two real mobile defects: pet inventory rows sharing a catalog `petId` caused duplicate React keys and duplicate cards, and the home screen falsely showed live pet/ranking destinations as `준비 중` because it used hardcoded capability flags. Focused tests and a clean emulator relaunch verify both fixes.
 
@@ -48,6 +48,6 @@ The run also found and fixed two real mobile defects: pet inventory rows sharing
 
 ## Classification
 
-`LOCAL_ANDROID_AUTHENTICATED`
+`LOCAL_ANDROID_PARTIAL`
 
-This classification proves the local authenticated DB/API/mobile integration described above. It does not authorize enabling rewards or rankings in production and does not close the independent release blockers.
+This classification proves only the local authenticated DB/API integration and Android read/game flows described above. It does not satisfy the plan's full `LOCAL_ANDROID_AUTHENTICATED` gate, authorize production rewards/rankings, or close independent release blockers.

@@ -358,7 +358,7 @@ export function createMobileApiTransport(input: Readonly<{
 
 ### Task 9: Run Local Authenticated DB and Android Acceptance
 
-**Result (2026-08-12 KST):** `LOCAL_ANDROID_AUTHENTICATED` evidence is recorded under `D:\tcbuild\android-authenticated\20260812-045826`. The API/DB boundaries, collection restoration, ranking UI, and integrated learning preview passed. A fresh-account Android tap-through for the enabled draw/promotion buttons remains open, so this task is not treated as production or physical-device acceptance.
+**Result (2026-08-12 KST):** `LOCAL_ANDROID_PARTIAL` evidence is recorded under `D:\tcbuild\android-authenticated\20260812-045826`. The API/DB boundaries, collection restoration, ranking UI, and integrated learning preview passed. A fresh-account Android tap-through for the enabled draw/promotion buttons remains open, so the full `LOCAL_ANDROID_AUTHENTICATED` gate is not yet met.
 
 **Files:**
 - Modify: `tools/mobile/run-authenticated-api-smoke.ps1`

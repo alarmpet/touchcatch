@@ -1,15 +1,15 @@
 # Android feature acceptance matrix
 
-This matrix separates local emulator evidence from production/release readiness. The authenticated run uses disposable local Supabase users, explicit test-only policy decisions, and placeholder HTTPS art. Its maximum classification is `LOCAL_ANDROID_AUTHENTICATED`.
+This matrix separates local emulator evidence from production/release readiness. The authenticated run uses disposable local Supabase users, explicit test-only policy decisions, and placeholder HTTPS art. Because enabled claim/promotion were exercised through the authenticated API harness rather than Android button taps, the current aggregate classification is `LOCAL_ANDROID_PARTIAL`.
 
 | Flow | Expected result | Fresh evidence | Status (2026-08-12 KST) |
 | --- | --- | --- | --- |
 | Cold app boot | Native app opens without a fatal/runtime/module error | `D:\tcbuild\android-smoke-task9-preflight\20260812-044141` | PASS (`com.spotlearnbattle`) |
 | Home | Primary learning CTA and live pet/ranking shortcuts render | `D:\tcbuild\android-authenticated\20260812-045826\home-runtime-ready.png`; no `준비 중` node in the paired XML | PASS |
-| Integrated English flow | Ten actual normalized difference regions open the quiz; direct `resilience` answer completes | `game-en-quiz.xml`; `game-en-complete-3.xml`; `game-en-complete-3.png` in the authenticated run | PASS (development preview judgment) |
+| Integrated English flow | Ten actual normalized difference regions open the quiz; direct `resilience` answer completes | `game-en-quiz.xml`; `game-en-complete-3.xml`; `game-en-complete-3.png`; post-boundary-fix `game-safe-preview.xml` and `game-safe-preview.png` in the authenticated run | PASS (development preview judgment) |
 | English hint ladder | Semantic/context/length/reveal steps advance on device | `game-en-hint.xml`; `game-en-spelling-hint.xml` | PASS |
-| Proverb initial hint | The picture stage exposes `ㄷㅈ ㅁㅇ ㅇㄷㄷ` only after hint use | `game-proverb-hint.xml`; `game-proverb-hint.png` | PASS |
-| Idiom initial hint | The integrated stage selector reaches 사자성어 and exposes `ㅈㅎㅇㅂ` after the third hint | `game-idiom-hint.xml`; `game-idiom-hint.png` | PASS |
+| Proverb initial hint | The post-boundary-fix safe preview exposes `ㅂㅁㅇ ㅂㅇㅇㄱ` only after hint use | `safe-proverb.xml` | PASS (development safe preview) |
+| Idiom initial hint | The post-boundary-fix safe preview reaches 사자성어 and exposes `ㅈㅎㅇㅂ` after the third hint | `safe-idiom.xml` | PASS (development safe preview) |
 | Authenticated pet collection | Signed-in route reaches `READY`; inventory rows group by pet; unique-pet collection rate and copies render | `pet-fixed.xml`; `pet-fixed.png`; clean relaunch log check | PASS |
 | Pet duplicate rendering regression | Same `petId` rows render once and no duplicate React key warning recurs after clean relaunch | `PetCollection.test.tsx` plus cleared-logcat Android relaunch | PASS |
 | Daily draw effect once | First request, same-key replay, and 20 concurrent same-day calls produce exact single DB effect | `api-smoke\20260812-050438\summary.json` | PASS (authenticated API harness) |
