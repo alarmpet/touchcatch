@@ -1,15 +1,8 @@
-import { LearningDemoScreen } from '../src/learning-demo/LearningDemoScreen';
-import type { LearningDemoEntry } from '../src/learning-demo/LearningDemoScreen';
-
-declare const __DEV__: boolean;
-declare const require: (path: string) => typeof import('../src/learning-demo/registry');
-
-export function LearningDemoHome({ entries }: Readonly<{ entries: readonly LearningDemoEntry[] }>) {
-  return <LearningDemoScreen entries={entries} />;
-}
+import { HomeScreen } from '../src/home/HomeScreen';
+import { buildRuntimeHomeModel } from '../src/home/home-runtime-model';
+import { useMobileRuntime } from '../src/runtime/mobile-runtime';
 
 export default function Home() {
-  if (!__DEV__) throw new Error('Learning demo is DEV-only; production requires authenticated server projections');
-  const { learningDemoEntries } = require('../src/learning-demo/registry');
-  return <LearningDemoHome entries={learningDemoEntries} />;
+  const runtime = useMobileRuntime();
+  return <HomeScreen model={buildRuntimeHomeModel(runtime.status)} />;
 }
