@@ -6,6 +6,7 @@ const migration = readFileSync(resolve('supabase/migrations/202607300000_daily_p
 const pgTap = readFileSync(resolve('supabase/tests/database/daily-pet-loop.test.sql'), 'utf8');
 const concurrency = readFileSync(resolve('tests/database/daily-pet-loop-concurrency.test.ts'), 'utf8');
 const mobileMigration = readFileSync(resolve('supabase/migrations/202608110001_mobile_runtime_projections.sql'), 'utf8');
+const mobileUpgradeMigration = readFileSync(resolve('supabase/migrations/202608110002_mobile_runtime_upgrade_compatibility.sql'), 'utf8');
 const mobilePgTap = readFileSync(resolve('supabase/tests/database/mobile-runtime-projections.test.sql'), 'utf8');
 const mobileConcurrency = readFileSync(resolve('tests/database/mobile-runtime-concurrency.test.ts'), 'utf8');
 
@@ -80,5 +81,11 @@ describe('mobile runtime SQL static regression contract', () => {
     expect(mobilePgTap).toMatch(/ignores unpointed and quarantined replay scores/i);
     expect(mobilePgTap).toMatch(/exposes no subject, auth-user, or email identifiers/i);
     expect(mobilePgTap).toMatch(/perform zero attempt or best-record writes/i);
+  });
+
+  it('repairs category publication on forward-upgraded databases', () => {
+    expect(mobileUpgradeMigration).toMatch(/pg_get_functiondef/i);
+    expect(mobileUpgradeMigration).toMatch(/PUBLIC_CONTENT_CATEGORY_UPGRADE_UNEXPECTED/i);
+    expect(mobileUpgradeMigration).toMatch(/'ENGLISH','PROVERB','IDIOM','GENERAL_KNOWLEDGE'/i);
   });
 });

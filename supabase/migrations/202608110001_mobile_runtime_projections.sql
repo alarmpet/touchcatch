@@ -54,6 +54,7 @@ set search_path = pg_catalog
 as $$
 declare
   v_subject_key uuid;
+  v_nickname text;
 begin
   if p_authenticated_user_id is null then
     raise exception using
@@ -74,10 +75,26 @@ begin
         message = 'AUTH_USER_REQUIRED';
   end;
 
+  loop
+    v_nickname := 'learner-' || pg_catalog.substring(
+      pg_catalog.replace(extensions.uuid_generate_v4()::text, '-', ''),
+      1,
+      12
+    );
+    exit when pg_catalog.strpos(
+      v_nickname,
+      pg_catalog.substring(
+        pg_catalog.replace(v_subject_key::text, '-', ''),
+        1,
+        8
+      )
+    ) = 0;
+  end loop;
+
   insert into public.profiles(id, nickname)
   values (
     p_authenticated_user_id,
-    'learner-' || pg_catalog.substring(v_subject_key::text, 1, 8)
+    v_nickname
   )
   on conflict (id) do nothing;
 
@@ -255,7 +272,6 @@ security definer
 set search_path = pg_catalog
 as $$
 declare
-  v_season_created_at timestamptz;
   v_result jsonb;
 begin
   if p_subject_key is null then
@@ -287,8 +303,7 @@ begin
       message = 'INVALID_LIMIT';
   end if;
 
-  select seasons.created_at
-  into v_season_created_at
+  perform 1
   from private.weekly_seasons seasons
   join private.learning_competition_policies policies
     on policies.competition_policy_hash = seasons.competition_policy_hash
@@ -314,14 +329,20 @@ begin
   with eligible as (
     select
       best.subject_key,
-      profiles.nickname,
+      case
+        when pg_catalog.btrim(profiles.nickname) <> ''
+         and pg_catalog.octet_length(
+           pg_catalog.convert_to(pg_catalog.btrim(profiles.nickname), 'UTF8')
+         ) <= 32
+        then pg_catalog.btrim(profiles.nickname)
+        else 'Learner'
+      end as nickname,
       pg_catalog.sum(attempts.display_score)::bigint as total_score,
       pg_catalog.sum(attempts.hints_used)::bigint as total_hints,
       pg_catalog.sum(attempts.wrong_answers)::bigint as total_wrong_answers,
       pg_catalog.sum(attempts.wrong_taps)::bigint as total_wrong_taps,
       pg_catalog.sum(attempts.completion_ms)::bigint as total_completion_ms,
-      pg_catalog.min(attempts.accepted_at) as earliest_completion,
-      pg_catalog.max(best.updated_at) as latest_best_update
+      pg_catalog.min(attempts.accepted_at) as earliest_completion
     from private.learning_best_records best
     join private.learning_attempts attempts
       on attempts.attempt_id = best.attempt_id
@@ -342,6 +363,25 @@ begin
     where best.season_id = p_season_id
       and attempts.category = p_category
     group by best.subject_key, profiles.nickname
+  ), snapshot as (
+    select pg_catalog.md5(
+      p_season_id::text || ':' || p_category || ':' || coalesce(
+        pg_catalog.jsonb_agg(
+          pg_catalog.jsonb_build_array(
+            eligible.subject_key,
+            eligible.nickname,
+            eligible.total_score,
+            eligible.total_hints,
+            eligible.total_wrong_answers,
+            eligible.total_wrong_taps,
+            eligible.total_completion_ms,
+            eligible.earliest_completion
+          ) order by eligible.subject_key
+        )::text,
+        '[]'
+      )
+    ) as snapshot_token
+    from eligible
   ), ranked as (
     select
       eligible.*,
@@ -355,20 +395,14 @@ begin
           eligible.earliest_completion asc,
           eligible.subject_key asc
       ) as board_rank,
-      pg_catalog.count(*) over () as total_competitors,
-      pg_catalog.max(eligible.latest_best_update) over () as snapshot_updated_at
+      pg_catalog.count(*) over () as total_competitors
     from eligible
   )
   select pg_catalog.jsonb_build_object(
     'seasonId', p_season_id,
     'category', p_category,
     'snapshotRevision', p_season_id::text || ':' || p_category || ':'
-      || pg_catalog.date_part(
-        'epoch', coalesce(
-          pg_catalog.max(ranked.snapshot_updated_at),
-          v_season_created_at
-        )
-      )::text,
+      || (select snapshot.snapshot_token from snapshot),
     'rows', coalesce(
       pg_catalog.jsonb_agg(
         pg_catalog.jsonb_build_object(
@@ -407,7 +441,7 @@ begin
       'seasonId', p_season_id,
       'category', p_category,
       'snapshotRevision', p_season_id::text || ':' || p_category || ':'
-        || pg_catalog.date_part('epoch', v_season_created_at)::text,
+        || pg_catalog.md5(p_season_id::text || ':' || p_category || ':[]'),
       'rows', '[]'::jsonb,
       'myRank', null
     );

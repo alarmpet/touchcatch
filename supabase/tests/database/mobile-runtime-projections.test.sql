@@ -641,6 +641,58 @@ select ok(
   'weekly board exposes no subject, auth-user, or email identifiers'
 );
 
+update public.profiles profiles
+set nickname = 'rank-a-renamed'
+from mobile_rank_subjects subjects
+join private.economy_subjects economy
+  on economy.subject_key = subjects.subject_key
+where subjects.label = 'rank-a'
+  and profiles.id = economy.user_id;
+create temp table mobile_weekly_projection_after_rename(response jsonb) on commit drop;
+insert into mobile_weekly_projection_after_rename
+select private.read_weekly_category_board_v1(
+  (select subject_key from mobile_rank_subjects where label = 'rank-b'),
+  '86000000-0000-4000-8000-000000000001',
+  'ENGLISH',
+  2
+);
+select isnt(
+  (select response->>'snapshotRevision' from mobile_weekly_projection_after_rename),
+  (select response->>'snapshotRevision' from mobile_weekly_projection),
+  'weekly snapshot revision changes when a visible nickname changes'
+);
+select is(
+  (select response#>>'{rows,1,nickname}' from mobile_weekly_projection_after_rename),
+  'rank-a-renamed',
+  'weekly board returns the same renamed profile represented by its new snapshot'
+);
+
+update public.profiles profiles
+set nickname = repeat('x', 40)
+from mobile_rank_subjects subjects
+join private.economy_subjects economy
+  on economy.subject_key = subjects.subject_key
+where subjects.label = 'rank-a'
+  and profiles.id = economy.user_id;
+create temp table mobile_weekly_projection_invalid_nickname(response jsonb) on commit drop;
+insert into mobile_weekly_projection_invalid_nickname
+select private.read_weekly_category_board_v1(
+  (select subject_key from mobile_rank_subjects where label = 'rank-b'),
+  '86000000-0000-4000-8000-000000000001',
+  'ENGLISH',
+  2
+);
+select is(
+  (select response#>>'{rows,1,nickname}' from mobile_weekly_projection_invalid_nickname),
+  'Learner',
+  'weekly board replaces a database-valid but API-invalid nickname safely'
+);
+select ok(
+  (select pg_catalog.octet_length(response#>>'{rows,1,nickname}') between 1 and 32
+   from mobile_weekly_projection_invalid_nickname),
+  'weekly board nickname always fits the strict public API contract'
+);
+
 create temp table mobile_ranking_write_count(count bigint) on commit drop;
 insert into mobile_ranking_write_count
 select (select count(*) from private.learning_attempts)

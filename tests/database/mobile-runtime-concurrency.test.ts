@@ -1,5 +1,6 @@
 import { execFileSync } from 'node:child_process';
 import { randomUUID } from 'node:crypto';
+import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { Pool, type PoolClient } from 'pg';
 import { afterAll, describe, expect, it } from 'vitest';
@@ -62,8 +63,9 @@ describe('mobile account bootstrap production-role concurrency', () => {
         'select nickname from public.profiles where id=$1',
         [authenticatedUserId],
       ).then((result) => result.rows[0]);
-      expect(profile?.nickname).toMatch(/^learner-[0-9a-f]{8}$/u);
+      expect(profile?.nickname).toMatch(/^learner-[0-9a-f]{12}$/u);
       expect(profile?.nickname).not.toContain(authenticatedUserId);
+      expect(profile?.nickname).not.toContain(subjectKey.slice(0, 8));
     } finally {
       await Promise.all(clients.map(async (client) => {
         await client.query('reset role').catch(() => undefined);
@@ -75,7 +77,7 @@ describe('mobile account bootstrap production-role concurrency', () => {
   it('restores the same positive-copy pet projection after reconnecting', async () => {
     const authenticatedUserId = randomUUID();
     const catalogRevision = `mobile-reconnect-${randomUUID()}`;
-    const catalogHash = 'c'.repeat(64);
+    const catalogHash = randomUUID().replaceAll('-', '').repeat(2);
     const petId = randomUUID();
     const userPetId = randomUUID();
     const acquiredAt = new Date('2026-08-02T03:04:05.000Z');
@@ -153,5 +155,42 @@ describe('mobile account bootstrap production-role concurrency', () => {
         acquisitionDateStatus: 'KNOWN',
       }],
     });
+  });
+
+  it('upgrades an already-installed publisher to admit categorized content', async () => {
+    const client = await pool.connect();
+    const signature = 'private.publish_content_revision_v1(jsonb,jsonb,jsonb,text,text,text,text)';
+    const oldKeys = "array['contentId','version','contentRevisionId','schemaVersion','assetPolicyVersion','theme','language','difficulty','imageA','imageB']";
+    const newKeys = "array['contentId','version','contentRevisionId','schemaVersion','assetPolicyVersion','theme','category','language','difficulty','imageA','imageB']";
+    const oldGuard = "or requested_public_content->>'language' not in ('ko','en','ja')";
+    const newGuard = "or requested_public_content->>'category' not in ('ENGLISH','PROVERB','IDIOM','GENERAL_KNOWLEDGE')\n     or requested_public_content->>'language' not in ('ko','en','ja')";
+    try {
+      await client.query('begin');
+      const current = await client.query<{ definition: string }>(
+        'select pg_catalog.pg_get_functiondef($1::regprocedure) definition',
+        [signature],
+      ).then((result) => result.rows[0]?.definition ?? '');
+      const legacy = current.replaceAll(newKeys, oldKeys).replace(newGuard, oldGuard);
+      expect(legacy).not.toContain(newKeys);
+      expect(legacy).not.toContain("requested_public_content->>'category'");
+      await client.query('grant game_security_owner to postgres');
+      await client.query('grant create on schema private to game_security_owner');
+      await client.query('set local role game_security_owner');
+      await client.query(legacy);
+
+      await client.query(readFileSync(
+        resolve('supabase/migrations/202608110002_mobile_runtime_upgrade_compatibility.sql'),
+        'utf8',
+      ));
+      const upgraded = await client.query<{ definition: string }>(
+        'select pg_catalog.pg_get_functiondef($1::regprocedure) definition',
+        [signature],
+      ).then((result) => result.rows[0]?.definition ?? '');
+      expect(upgraded).toContain(newKeys);
+      expect(upgraded).toContain("requested_public_content->>'category' not in ('ENGLISH','PROVERB','IDIOM','GENERAL_KNOWLEDGE')");
+    } finally {
+      await client.query('rollback').catch(() => undefined);
+      client.release();
+    }
   });
 });
