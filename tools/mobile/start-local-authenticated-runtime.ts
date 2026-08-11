@@ -6,6 +6,7 @@ import type { ApprovedPetArtV1 } from '../../packages/contracts/src/daily-pet-lo
 import { validateEconomyBundleCore } from '../../packages/contracts/src/economy.schema.js';
 import { parseWeeklyCompetitionV1WithHash } from '../../packages/contracts/src/learning-policy.js';
 import { createLoopbackSupabaseJwtVerifier } from '../../apps/server/src/auth/loopback-supabase-jwt-verifier.js';
+import { assertLocalAcceptanceEnvironment } from '../../apps/server/src/runtime/local-acceptance-guard.js';
 import { startMobileApiRuntime } from '../../apps/server/src/runtime.js';
 
 function required(name: 'LOCAL_SUPABASE_URL' | 'LOCAL_DATABASE_URL'): string {
@@ -63,6 +64,13 @@ export async function startLocalAuthenticatedRuntime(): Promise<void> {
   if (process.env['NODE_ENV'] === 'production') {
     throw new TypeError('The loopback acceptance runtime is forbidden in production');
   }
+  const supabaseUrl = required('LOCAL_SUPABASE_URL');
+  const databaseUrl = required('LOCAL_DATABASE_URL');
+  assertLocalAcceptanceEnvironment({
+    marker: process.env['LOCAL_ACCEPTANCE_CONFIRMATION'],
+    supabaseUrl,
+    databaseUrl,
+  });
   const bundle = approvedTestBundle();
   const weekly = parseWeeklyCompetitionV1WithHash(json('config/weekly-competition.v1.json'));
   const artByPetId = new Map(bundle.catalog.entries.map(({ petId }) => [petId, localArt(petId)]));
@@ -81,14 +89,13 @@ export async function startLocalAuthenticatedRuntime(): Promise<void> {
     catalogHash: bundle.catalog.catalogHash,
     competitionPolicyHash: weekly.canonicalHash,
   };
-  const supabaseUrl = required('LOCAL_SUPABASE_URL');
   const server = await startMobileApiRuntime({
     configuration: {
       host: '127.0.0.1',
       port: Number(portText),
       allowedOrigins: [],
       supabaseUrl,
-      databaseUrl: required('LOCAL_DATABASE_URL'),
+      databaseUrl,
       policy: { rewards: enabled, ranking: enabled },
       artByPetId,
     },
@@ -98,7 +105,7 @@ export async function startLocalAuthenticatedRuntime(): Promise<void> {
   process.stdout.write(`${JSON.stringify({
     event: 'local-authenticated-mobile-api-listening',
     origin: server.origin,
-    classification: 'LOCAL_ANDROID_AUTHENTICATED',
+    classification: 'LOCAL_TEST_RUNTIME',
     rewards: 'test-fixture-enabled',
     ranking: 'test-fixture-enabled',
   })}\n`);

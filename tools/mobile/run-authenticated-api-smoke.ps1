@@ -17,6 +17,9 @@ Add-Type -AssemblyName System.Net.Http
 if ([string]::IsNullOrWhiteSpace($AccessToken)) {
   throw 'MOBILE_API_ACCESS_TOKEN is required.'
 }
+if ($Mode -eq 'Enabled' -and $SkipDatabaseInvariant) {
+  throw 'Enabled acceptance requires exact database invariant checks.'
+}
 $approvedEvidenceRoot = [System.IO.Path]::GetFullPath('D:\tcbuild')
 $EvidenceRoot = [System.IO.Path]::GetFullPath($EvidenceRoot)
 if ($EvidenceRoot -ne $approvedEvidenceRoot -and -not $EvidenceRoot.StartsWith("$approvedEvidenceRoot\", [System.StringComparison]::OrdinalIgnoreCase)) {
@@ -137,7 +140,7 @@ try {
   } else {
     if (-not $FixturePath -or -not (Test-Path -LiteralPath $FixturePath)) { throw 'Enabled mode requires FixturePath.' }
     $fixture = Get-Content -LiteralPath $FixturePath -Raw | ConvertFrom-Json
-    if ($fixture.classification -ne 'LOCAL_ANDROID_AUTHENTICATED' -or -not $fixture.mainPetId -or -not $fixture.boundaryPetId) {
+    if ($fixture.classification -ne 'LOCAL_TEST_FIXTURE' -or -not $fixture.mainPetId -or -not $fixture.boundaryPetId) {
       throw 'Enabled fixture is invalid.'
     }
     $collectionBefore = Invoke-MobileApiRequest -Method GET -Path '/v1/pets/collection' -Authenticated
@@ -187,7 +190,7 @@ try {
       }
     }
     $summary = [ordered]@{
-      apiSmoke = 'PASS'; mode = $Mode; classification = 'LOCAL_ANDROID_AUTHENTICATED'; timestamp = $timestamp; baseUri = $base
+      apiSmoke = 'PASS'; mode = $Mode; classification = 'LOCAL_AUTHENTICATED_API_DB'; timestamp = $timestamp; baseUri = $base
       health = $health.status; collectionRestore = 'PASS'; dailyEffectOnce = 'PASS_1_PLUS_1_REPLAY_PLUS_20_CONCURRENT'
       promotionBoundaries = 'PASS_9_REJECT_10_SUCCEED_REPLAY_CONFLICT'; englishRankingRows = $english.body.rows.Count
       proverbRankingRows = $proverb.body.rows.Count; myRank = $english.body.myRank.rank; disabledCategory = '400/INVALID_QUERY'

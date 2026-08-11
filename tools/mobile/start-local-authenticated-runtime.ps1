@@ -16,6 +16,7 @@ if ($existing) { throw "Port $Port is already in use." }
 $secret = Get-Content -LiteralPath $SessionPath -Raw | ConvertFrom-Json
 $env:LOCAL_SUPABASE_URL = [string]$secret.apiUrl
 $env:LOCAL_DATABASE_URL = [string]$secret.databaseUrl
+$env:LOCAL_ACCEPTANCE_CONFIRMATION = 'TOUCHCATCH_LOCAL_ACCEPTANCE_V1'
 $env:LOCAL_MOBILE_API_PORT = [string]$Port
 $out = Join-Path $RunRoot 'api.out.log'
 $err = Join-Path $RunRoot 'api.err.log'

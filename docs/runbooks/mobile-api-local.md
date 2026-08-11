@@ -18,6 +18,8 @@ Copy apps/server/.env.example to apps/server/.env, then set:
     MOBILE_API_PORT=8787
     MOBILE_API_ALLOWED_ORIGINS=
 
+The test-fixture writer and loopback runtime also require `LOCAL_ACCEPTANCE_CONFIRMATION=TOUCHCATCH_LOCAL_ACCEPTANCE_V1`, a loopback `LOCAL_SUPABASE_URL`, and a loopback PostgreSQL `LOCAL_DATABASE_URL`. They reject remote hosts before opening a database connection. Never set this marker in staging or production configuration.
+
 Provision a dedicated login once from an administrator session, grant only membership in the existing NOLOGIN economy_server role, and put that login in DATABASE_URL:
 
     create role mobile_api_login login password '<generated local password>'
@@ -45,6 +47,17 @@ Run the authenticated fail-closed smoke without writing the bearer token to evid
 Do not pass either secret as a command-line argument; command lines may be visible to other local processes. The database probe credential is local-only and needs read-only SELECT access to public.profiles plus the six private account/pet-effect tables used by the counter probe. Current DRAFT policies must return 409/REWARD_POLICY_NOT_APPROVED for all pet routes and 409/RANKING_POLICY_NOT_APPROVED for the leaderboard, with identical before/after account-bootstrap and mutation counters. Evidence is written only below D:\tcbuild\mobile-api-smoke and contains statuses/codes and the unchanged verdict, never either credential.
 
 ## Android emulator routing
+
+From a clean checkout, generate the native project from `apps/mobile/app.json` before building. Keep Gradle caches and build evidence on `D:`:
+
+    $env:PATH = 'D:\devtools\node-v24.18.0-win-x64;' + $env:PATH
+    $env:GRADLE_USER_HOME = 'D:\tcbuild\gradle-home'
+    Push-Location apps/mobile
+    corepack pnpm exec expo prebuild --platform android
+    .\android\gradlew.bat assembleDebug --project-dir android --project-cache-dir D:\tcbuild\gradle-project-cache
+    Pop-Location
+
+The generated application ID must match `apps/mobile/app.json`. Do not reuse an older native directory with a different package ID as release evidence.
 
     & $env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe reverse tcp:8081 tcp:8081
     & $env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe reverse tcp:8787 tcp:8787

@@ -5,12 +5,13 @@ import { Client } from 'pg';
 import { canonicalJsonSha256 } from '../../packages/contracts/src/canonical-json.js';
 import { validateEconomyBundleCore } from '../../packages/contracts/src/economy.schema.js';
 import { parseWeeklyCompetitionV1WithHash } from '../../packages/contracts/src/learning-policy.js';
+import { assertLocalAcceptanceEnvironment } from '../../apps/server/src/runtime/local-acceptance-guard.js';
 
 const seasonId = '30000000-0000-4000-8000-000000000001';
 const rulesetHash = 'd'.repeat(64);
 const hintPolicyHash = 'e'.repeat(64);
 
-function required(name: 'LOCAL_DATABASE_URL' | 'LOCAL_AUTHENTICATED_USER_ID' | 'LOCAL_FIXTURE_OUTPUT'): string {
+function required(name: 'LOCAL_SUPABASE_URL' | 'LOCAL_DATABASE_URL' | 'LOCAL_AUTHENTICATED_USER_ID' | 'LOCAL_FIXTURE_OUTPUT'): string {
   const value = process.env[name]?.trim();
   if (!value) throw new TypeError(`${name} is required`);
   return value;
@@ -54,6 +55,12 @@ type SeedUser = Readonly<{ userId: string; nickname: string; scoreBase: number }
 
 export async function prepareLocalAuthenticatedFixture(): Promise<void> {
   if (process.env['NODE_ENV'] === 'production') throw new TypeError('Local test fixtures are forbidden in production');
+  const databaseUrl = required('LOCAL_DATABASE_URL');
+  assertLocalAcceptanceEnvironment({
+    marker: process.env['LOCAL_ACCEPTANCE_CONFIRMATION'],
+    supabaseUrl: required('LOCAL_SUPABASE_URL'),
+    databaseUrl,
+  });
   const userId = required('LOCAL_AUTHENTICATED_USER_ID');
   const output = resolve(required('LOCAL_FIXTURE_OUTPUT'));
   const approvedRoot = resolve('D:\\tcbuild');
@@ -70,7 +77,7 @@ export async function prepareLocalAuthenticatedFixture(): Promise<void> {
     { userId: '91000000-0000-4000-8000-000000000013', nickname: 'Coco', scoreBase: 100 },
     { userId: '91000000-0000-4000-8000-000000000014', nickname: 'Luna', scoreBase: 90 },
   ];
-  const client = new Client({ connectionString: required('LOCAL_DATABASE_URL') });
+  const client = new Client({ connectionString: databaseUrl });
   await client.connect();
   try {
     await client.query('begin');
@@ -160,7 +167,7 @@ export async function prepareLocalAuthenticatedFixture(): Promise<void> {
     await client.query('commit');
     mkdirSync(dirname(output), { recursive: true });
     writeFileSync(output, JSON.stringify({
-      classification: 'LOCAL_ANDROID_AUTHENTICATED',
+      classification: 'LOCAL_TEST_FIXTURE',
       seasonId,
       mainPetId,
       boundaryPetId,
