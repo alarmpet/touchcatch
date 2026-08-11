@@ -17,7 +17,15 @@ export function PetsRouteView({ state, onClaim, onPromote, onRetry }: Readonly<{
     if (state.status === 'SIGNED_OUT') return <Message title="로그인이 필요해요" detail="내 펫을 안전하게 불러오려면 내 정보에서 로그인해 주세요." />;
     if (state.status === 'DISABLED') return <><Message title="펫 보상 준비 중" detail="승인된 보상 정책과 펫 아트가 활성화되면 열려요." /><DailyFreeDraw hasClaimedToday={false} policy="DRAFT" /></>;
     if (state.status === 'ERROR') return <Message title="펫 정보를 불러오지 못했어요" detail="연결을 확인하고 다시 시도해 주세요." action="다시 시도" onAction={onRetry} />;
-    const pets = state.collection.pets.map((pet) => ({ id: pet.petId, name: pet.displayKey, rarity: pet.rarity, ownedCopies: pet.copies, artUrl: pet.art.thumbnailUrl }));
+    const pets = state.collection.pets.map((pet) => ({
+      id: pet.petId,
+      name: pet.displayKey,
+      rarity: pet.rarity,
+      ownedCopies: pet.copies,
+      selected: pet.selected,
+      locked: pet.locked,
+      artUrl: pet.art.thumbnailUrl,
+    }));
     return <>
       <DailyFreeDraw hasClaimedToday={state.claimedToday} policy="APPROVED" onClaimDraw={onClaim} />
       <PetCollection status={state.status === 'EMPTY' ? 'EMPTY' : 'READY'} totalCatalogCount={state.collection.totalCount} pets={pets} onPromotePet={onPromote} />

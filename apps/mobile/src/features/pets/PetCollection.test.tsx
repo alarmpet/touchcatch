@@ -27,4 +27,22 @@ describe('PetCollection', () => {
     expect(tree.root.findAllByProps({ accessibilityLabel: '루나 승급' })).toHaveLength(0);
     expect(tree.root.findByProps({ accessibilityLabel: '루나 펫 이미지' }).props.source).toEqual({ uri: 'https://cdn.example/luna.png' });
   });
+
+  it('groups inventory rows by pet and only offers promotion with ten eligible spare copies', () => {
+    let tree!: ReturnType<typeof create>;
+    act(() => { tree = create(<PetCollection pets={[
+      { id: 'cat', name: '코코', rarity: 'COMMON', ownedCopies: 1, selected: true },
+      { id: 'cat', name: '코코', rarity: 'COMMON', ownedCopies: 10 },
+      { id: 'cat', name: '코코', rarity: 'COMMON', ownedCopies: 3, locked: true },
+      { id: 'dog', name: '보리', rarity: 'COMMON', ownedCopies: 9 },
+      { id: 'dog', name: '보리', rarity: 'COMMON', ownedCopies: 2, locked: true },
+    ]} totalCatalogCount={50} />); });
+
+    expect(tree.root.findAllByProps({ accessibilityLabel: '코코 펫 카드' })).toHaveLength(1);
+    expect(tree.root.findAllByProps({ accessibilityLabel: '보리 펫 카드' })).toHaveLength(1);
+    expect(tree.root.findAllByProps({ accessibilityLabel: '코코 승급' })).toHaveLength(1);
+    expect(tree.root.findAllByProps({ accessibilityLabel: '보리 승급' })).toHaveLength(0);
+    expect(tree.root.findByProps({ accessibilityLabel: '펫 수집률' }).children.join('')).toBe('수집률 4% (2/50)');
+    expect(tree.root.findByProps({ accessibilityLabel: '코코 보유 수량' }).children.join('')).toBe('보유: 14개');
+  });
 });
