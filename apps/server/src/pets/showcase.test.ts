@@ -4,7 +4,8 @@ import { getPetCollectionV1, projectPetShowcaseV1 } from './showcase.js';
 const art = {
   thumbnailUrl: 'https://cdn.touchcatch.test/pets/common/thumb.webp',
   fullUrl: 'https://cdn.touchcatch.test/pets/common/full.webp',
-  assetSha256: 'a'.repeat(64),
+  thumbnailSha256: 'a'.repeat(64),
+  fullSha256: 'b'.repeat(64),
 };
 
 describe('pet collection projection', () => {

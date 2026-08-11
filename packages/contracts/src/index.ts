@@ -18,6 +18,7 @@ export * from './economy.js';
 export * from './ui.js';
 export * from './economy.schema.js';
 export * from './pet-catalog.js';
+export * from './pet-runtime-art.js';
 export * from './daily-pet-loop.js';
 export * from './learning-policy.js';
 export * from './learning-leaderboard.js';

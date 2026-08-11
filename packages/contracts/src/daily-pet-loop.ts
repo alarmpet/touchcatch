@@ -12,8 +12,9 @@ const nonBlankApprovalStringSchema = z.string().min(1).refine(
 
 export const approvedPetArtV1Schema = z.object({
   thumbnailUrl: z.string().url().refine((value) => value.startsWith('https://'), 'art URL must use HTTPS'),
+  thumbnailSha256: sha256Schema,
   fullUrl: z.string().url().refine((value) => value.startsWith('https://'), 'art URL must use HTTPS'),
-  assetSha256: sha256Schema,
+  fullSha256: sha256Schema,
 }).strict();
 export type ApprovedPetArtV1 = z.infer<typeof approvedPetArtV1Schema>;
 

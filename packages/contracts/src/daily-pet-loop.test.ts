@@ -126,7 +126,8 @@ describe('daily pet loop contract', () => {
       art: {
         thumbnailUrl: 'https://cdn.touchcatch.test/thumb.webp',
         fullUrl: 'https://cdn.touchcatch.test/full.webp',
-        assetSha256: 'a'.repeat(64),
+        thumbnailSha256: 'a'.repeat(64),
+        fullSha256: 'b'.repeat(64),
       },
     };
     expect(petCollectionItemV1Schema.parse({

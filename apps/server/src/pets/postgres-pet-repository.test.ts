@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import type { MobileRpcName } from '../database/pg-rpc.js';
 import { PostgresPetRepository } from './postgres-pet-repository.js';
 
-const art = { thumbnailUrl: 'https://cdn.example.test/pet-thumb.png', fullUrl: 'https://cdn.example.test/pet.png', assetSha256: 'a'.repeat(64) };
+const art = { thumbnailUrl: 'https://cdn.example.test/pet-thumb.png', thumbnailSha256: 'a'.repeat(64), fullUrl: 'https://cdn.example.test/pet.png', fullSha256: 'b'.repeat(64) };
 
 describe('PostgresPetRepository', () => {
   it('strictly projects DB inventory with approved art', async () => {

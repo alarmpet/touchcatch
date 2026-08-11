@@ -1,8 +1,11 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Pool, type PoolClient } from 'pg';
 import type { ApprovedPetArtV1 } from '../../../packages/contracts/src/daily-pet-loop.js';
+import { parsePetCatalog } from '../../../packages/contracts/src/economy.schema.js';
+import { parsePetRuntimeArtV1 } from '../../../packages/contracts/src/pet-runtime-art.js';
 import { createSupabaseJwtVerifier } from './auth/supabase-jwt-verifier.js';
 import type { BearerVerifier } from './auth/bearer.js';
 import { createSubjectResolver } from './auth/subject-resolver.js';
@@ -24,6 +27,7 @@ export type RuntimeConfiguration = Readonly<{
   supabaseUrl: string;
   databaseUrl: string;
   policy: MobileRuntimePolicy;
+  artByPetId: ReadonlyMap<string, ApprovedPetArtV1>;
 }>;
 
 export type RuntimePool = PgPoolLike & Readonly<{
@@ -83,6 +87,21 @@ function readJson(root: string, path: string): unknown {
   return JSON.parse(readFileSync(resolve(root, path), 'utf8')) as unknown;
 }
 
+function readOptionalJson(root: string, path: string): unknown {
+  try { return readJson(root, path); } catch { return undefined; }
+}
+
+export function verifiedRuntimeAssetHashes(root: string, manifest: unknown): Readonly<Record<string, string | null>> {
+  const entries = manifest && typeof manifest === 'object' && Array.isArray((manifest as { entries?: unknown }).entries)
+    ? (manifest as { entries: Array<Record<string, unknown>> }).entries : [];
+  const runtimeAssetRoot = resolve(root, 'content/pets/runtime');
+  return Object.fromEntries(entries.flatMap((entry) => ['thumbnailFile', 'fullFile'].map((field) => {
+    const path = entry[field]; const absolute = typeof path === 'string' ? resolve(root, path) : '';
+    const inside = absolute.startsWith(`${runtimeAssetRoot}\\`) || absolute.startsWith(`${runtimeAssetRoot}/`);
+    return [String(path), inside && existsSync(absolute) ? createHash('sha256').update(readFileSync(absolute)).digest('hex') : null];
+  })));
+}
+
 export function loadRuntimeConfiguration(input: Readonly<{
   root?: string;
   env?: NodeJS.ProcessEnv;
@@ -91,12 +110,31 @@ export function loadRuntimeConfiguration(input: Readonly<{
   const env = input.env ?? process.env;
   const supabaseUrl = required(env, 'SUPABASE_URL');
   const databaseUrl = parseDatabaseUrl(required(env, 'DATABASE_URL'));
+  const economy = readJson(root, 'config/economy.v1.json');
+  const catalog = readJson(root, 'config/pet-catalog.v1.json');
+  const dailyPetLoop = readJson(root, 'config/daily-pet-loop.v1.json');
+  const weeklyCompetition = readJson(root, 'config/weekly-competition.v1.json');
+  const petRuntimeArt = readOptionalJson(root, 'config/pet-runtime-art.v1.json');
+  const sourceManifest = readOptionalJson(root, 'content/pets/source-manifest.v1.json');
+  const rightsEvidence = readOptionalJson(root, 'config/pet-rights-evidence.v1.json');
+  const approvalRecords = [
+    'docs/approvals/pet-economy-v1-approval.json',
+    'docs/approvals/daily-pet-loop-v1-approval.json',
+    'docs/approvals/weekly-competition-v1-approval.json',
+    'docs/approvals/pet-runtime-art-v1-approval.json',
+  ].map((path) => readOptionalJson(root, path)).filter((value) => value !== undefined);
+  const trustedApprovalSigners = readOptionalJson(root, 'config/trusted-approval-signers.v1.json');
+  const trustedApprovalSignerRegistrySha256 = env['PET_APPROVAL_SIGNER_REGISTRY_SHA256']?.trim();
+  const assetFileHashes = verifiedRuntimeAssetHashes(root, petRuntimeArt);
   const policy = loadMobileRuntimePolicy({
-    economy: readJson(root, 'config/economy.v1.json'),
-    catalog: readJson(root, 'config/pet-catalog.v1.json'),
-    dailyPetLoop: readJson(root, 'config/daily-pet-loop.v1.json'),
-    weeklyCompetition: readJson(root, 'config/weekly-competition.v1.json'),
+    economy, catalog, dailyPetLoop, weeklyCompetition, petRuntimeArt, sourceManifest, rightsEvidence, approvalRecords, trustedApprovalSigners, assetFileHashes,
+    ...(trustedApprovalSignerRegistrySha256 === undefined ? {} : { trustedApprovalSignerRegistrySha256 }),
   });
+  const artByPetId = new Map<string, ApprovedPetArtV1>();
+  if (policy.rewards.enabled) {
+    const art = parsePetRuntimeArtV1(petRuntimeArt, parsePetCatalog(catalog));
+    for (const entry of art.entries) artByPetId.set(entry.petId, { thumbnailUrl: entry.thumbnailUrl, thumbnailSha256: entry.thumbnailSha256, fullUrl: entry.fullUrl, fullSha256: entry.fullSha256 });
+  }
   return {
     host: env['MOBILE_API_HOST']?.trim() || '127.0.0.1',
     port: parsePort(env['MOBILE_API_PORT']?.trim()),
@@ -104,6 +142,7 @@ export function loadRuntimeConfiguration(input: Readonly<{
     supabaseUrl,
     databaseUrl,
     policy,
+    artByPetId,
   };
 }
 
@@ -170,7 +209,7 @@ export async function startMobileApiRuntime(input: Readonly<{
     verifier,
     subjectResolver,
     getPolicy: () => configuration.policy,
-    repository: new PostgresPetRepository(rpc, input.artForPet ?? (() => undefined)),
+    repository: new PostgresPetRepository(rpc, input.artForPet ?? ((petId) => configuration.artByPetId.get(petId))),
   });
   const ranking = createRankingHandler({
     verifier,

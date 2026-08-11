@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://touchcatch.local/schemas/pet-runtime-art.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "status", "catalogRevision", "catalogHash", "entries"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "status": { "enum": ["DRAFT", "APPROVED"] },
+    "catalogRevision": { "type": "string", "minLength": 1 },
+    "catalogHash": { "$ref": "#/$defs/hash" },
+    "approvalDecisionId": { "type": "string", "minLength": 1 },
+    "approvedBy": { "type": "string", "minLength": 1 },
+    "approvedAt": { "$ref": "#/$defs/time" },
+    "entries": { "type": "array", "items": { "$ref": "#/$defs/entry" } }
+  },
+  "if": {
+    "properties": { "status": { "const": "APPROVED" } },
+    "required": ["status"]
+  },
+  "then": {
+    "properties": {
+      "approvalDecisionId": { "type": "string", "minLength": 1 },
+      "approvedBy": { "type": "string", "minLength": 1 },
+      "approvedAt": { "$ref": "#/$defs/time" }
+    },
+    "required": ["approvalDecisionId", "approvedBy", "approvedAt"]
+  },
+  "$defs": {
+    "hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "time": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$" },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["petId", "sourceFile", "sourceSha256", "thumbnailFile", "thumbnailUrl", "thumbnailSha256", "fullFile", "fullUrl", "fullSha256", "rights", "visual"],
+      "properties": {
+        "petId": { "type": "string", "format": "uuid" },
+        "sourceFile": { "type": "string", "minLength": 1 },
+        "sourceSha256": { "$ref": "#/$defs/hash" },
+        "thumbnailFile": { "type": "string", "minLength": 1 },
+        "thumbnailUrl": { "type": "string", "pattern": "^https://" },
+        "thumbnailSha256": { "$ref": "#/$defs/hash" },
+        "fullFile": { "type": "string", "minLength": 1 },
+        "fullUrl": { "type": "string", "pattern": "^https://" },
+        "fullSha256": { "$ref": "#/$defs/hash" },
+        "rights": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["evidenceId", "approvedBy", "approvedAt"],
+          "properties": {
+            "evidenceId": { "type": "string", "minLength": 1 },
+            "approvedBy": { "type": "string", "minLength": 1 },
+            "approvedAt": { "$ref": "#/$defs/time" }
+          }
+        },
+        "visual": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["reviewId", "smallCardApproved", "cropApproved", "backgroundApproved", "approvedBy", "approvedAt"],
+          "properties": {
+            "reviewId": { "type": "string", "minLength": 1 },
+            "smallCardApproved": { "const": true },
+            "cropApproved": { "const": true },
+            "backgroundApproved": { "const": true },
+            "approvedBy": { "type": "string", "minLength": 1 },
+            "approvedAt": { "$ref": "#/$defs/time" }
+          }
+        }
+      }
+    }
+  }
+}
