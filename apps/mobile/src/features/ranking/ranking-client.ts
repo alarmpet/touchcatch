@@ -1,9 +1,9 @@
-import type { RankingRow, RankedCategory } from './ranking-model.js';
+import type { RankingRow, RankedCategory } from './ranking-model';
 import {
   parseWeeklyCategoryBoardResponseV1,
   weeklyLeaderboardQueryV1Schema,
   type WeeklyMyRankV1,
-} from '../../../../../packages/contracts/src/learning-leaderboard.js';
+} from '../../../../../packages/contracts/src/learning-leaderboard';
 
 export type RankingClientRequest = Readonly<{
   method: 'GET';

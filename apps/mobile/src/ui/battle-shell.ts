@@ -1,5 +1,5 @@
 import { Ajv2020 } from 'ajv/dist/2020.js';
-import type { MatchSnapshotV1 } from '../../../../packages/contracts/src/socket.js';
+import type { MatchSnapshotV1 } from '../../../../packages/contracts/src/socket';
 export type Point = Readonly<{ x: number; y: number }>;
 export type Rect = Readonly<{ x: number; y: number; width: number; height: number }>;
 export type Transform = Readonly<{ scale: number; tx: number; ty: number }>;

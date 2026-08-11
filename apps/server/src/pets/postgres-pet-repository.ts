@@ -25,6 +25,7 @@ const rawPetSchema = z.object({
 const progress = z.object({ ownedCount: z.number().int().nonnegative(), totalCount: z.number().int().nonnegative() }).strict();
 const rawCollectionSchema = z.object({
   catalogRevision: z.string().optional(), catalogHash: z.string().optional(),
+  claimedToday: z.boolean(),
   ownedCount: z.number().int().nonnegative(), totalCount: z.number().int().nonnegative(),
   rarityProgress: z.object({ COMMON: progress, RARE: progress, LEGENDARY: progress }).strict(),
   pets: z.array(rawPetSchema),
@@ -49,7 +50,7 @@ export class PostgresPetRepository implements PetRuntimeRepository {
       if (!art) throw new TypeError('PET_ART_NOT_APPROVED');
       return { ...pet, art: approvedPetArtV1Schema.parse(art) };
     });
-    return petCollectionV1Schema.parse({ ownedCount: raw.ownedCount, totalCount: raw.totalCount, rarityProgress: raw.rarityProgress, pets });
+    return petCollectionV1Schema.parse({ claimedToday: raw.claimedToday, ownedCount: raw.ownedCount, totalCount: raw.totalCount, rarityProgress: raw.rarityProgress, pets });
   }
 
   async claimEffectOnce(input: DailyDrawEffectInputV1): Promise<DailyFreeDrawV1> {

@@ -208,6 +208,45 @@ select is(
   'pet projection counts every pet in the pinned catalog'
 );
 select is(
+  (select response->>'claimedToday' from mobile_pet_projection),
+  'false',
+  'pet projection reports that no daily claim exists for the current KST date'
+);
+
+grant economy_security_owner to postgres;
+grant select on mobile_account_fixture to economy_security_owner;
+set local role economy_security_owner;
+insert into private.daily_pet_claims(
+  subject_key,
+  claim_date,
+  series_id,
+  response_body,
+  economy_version,
+  economy_hash,
+  catalog_revision,
+  catalog_hash
+) values (
+  ((select response #>> '{}' from mobile_account_fixture))::uuid,
+  (pg_catalog.timezone('Asia/Seoul', pg_catalog.clock_timestamp()))::date,
+  'DAILY_FREE_DRAW_V1',
+  '{}'::jsonb,
+  'mobile-runtime-economy-v1',
+  repeat('e', 64),
+  'mobile-runtime-catalog-v1',
+  repeat('a', 64)
+);
+reset role;
+
+select is(
+  private.read_pet_inventory_v1(
+    ((select response #>> '{}' from mobile_account_fixture))::uuid,
+    'mobile-runtime-catalog-v1',
+    repeat('a', 64)
+  )->>'claimedToday',
+  'true',
+  'pet projection restores a committed daily claim for the current KST date'
+);
+select is(
   (select pg_catalog.jsonb_array_length(response->'pets') from mobile_pet_projection),
   2,
   'pet projection excludes zero-copy tombstones'

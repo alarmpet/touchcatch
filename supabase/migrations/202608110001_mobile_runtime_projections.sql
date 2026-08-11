@@ -145,6 +145,15 @@ begin
   select pg_catalog.jsonb_build_object(
     'catalogRevision', p_catalog_revision,
     'catalogHash', p_catalog_hash,
+    'claimedToday', exists (
+      select 1
+      from private.daily_pet_claims claims
+      where claims.subject_key = p_subject_key
+        and claims.claim_date = (
+          pg_catalog.timezone('Asia/Seoul', pg_catalog.clock_timestamp())
+        )::date
+        and claims.series_id = 'DAILY_FREE_DRAW_V1'
+    ),
     'ownedCount', (
       select pg_catalog.count(distinct inventory.pet_id)
       from private.pet_inventory inventory

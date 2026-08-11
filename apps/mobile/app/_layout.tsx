@@ -1,3 +1,4 @@
-import { Stack } from 'expo-router';
+import { Slot } from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-export default function Layout(){return <SafeAreaProvider><Stack screenOptions={{headerShown:false}}/></SafeAreaProvider>}
+import { MobileRuntimeProvider } from '../src/runtime/mobile-runtime';
+export default function Layout(){return <SafeAreaProvider><MobileRuntimeProvider><Slot /></MobileRuntimeProvider></SafeAreaProvider>}

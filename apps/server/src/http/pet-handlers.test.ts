@@ -10,7 +10,7 @@ const subjectKey = '20000000-0000-4000-8000-000000000001';
 function fixture(policy: MobileRuntimePolicyState = pins) {
   const resolver = { ensureAndResolve: vi.fn().mockResolvedValue(subjectKey) };
   const repository = {
-    readCollection: vi.fn().mockResolvedValue({ ownedCount: 0, totalCount: 0, rarityProgress: { COMMON: { ownedCount: 0, totalCount: 0 }, RARE: { ownedCount: 0, totalCount: 0 }, LEGENDARY: { ownedCount: 0, totalCount: 0 } }, pets: [] }),
+    readCollection: vi.fn().mockResolvedValue({ claimedToday: false, ownedCount: 0, totalCount: 0, rarityProgress: { COMMON: { ownedCount: 0, totalCount: 0 }, RARE: { ownedCount: 0, totalCount: 0 }, LEGENDARY: { ownedCount: 0, totalCount: 0 } }, pets: [] }),
     claimEffectOnce: vi.fn().mockResolvedValue({ claimDate: '2026-08-11', seriesId: 'DAILY_FREE_DRAW_V1', pet: { userPetId: '30000000-0000-4000-8000-000000000001', petId: '40000000-0000-4000-8000-000000000001', rarity: 'COMMON', copies: 1 }, economyVersion: 'e1', economyHash: 'a'.repeat(64), catalogRevision: 'c1', catalogHash: 'b'.repeat(64) }),
     promoteEffectOnce: vi.fn().mockResolvedValue({ consumed: { petId: '40000000-0000-4000-8000-000000000001', copies: 10, rows: [{ userPetId: '30000000-0000-4000-8000-000000000001', copies: 10 }] }, remainingCopies: 1, output: { userPetId: '50000000-0000-4000-8000-000000000001', petId: '60000000-0000-4000-8000-000000000001', rarity: 'RARE', copies: 1 }, economyVersion: 'e1', economyHash: 'a'.repeat(64), catalogRevision: 'c1', catalogHash: 'b'.repeat(64) }),
   };

@@ -27,6 +27,7 @@ describe('pet collection projection', () => {
         acquiredAt: '2026-07-30T00:00:00.000Z',
       }],
     })).toEqual({
+      claimedToday: false,
       ownedCount: 1,
       totalCount: 3,
       rarityProgress: {

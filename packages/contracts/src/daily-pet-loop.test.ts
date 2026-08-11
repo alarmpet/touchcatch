@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest';
 import {
   dailyPetLoopPolicyV1Schema,
   parseDailyPetLoopPolicyV1,
+  petCollectionV1Schema,
   petCollectionItemV1Schema,
   petShowcaseV1Schema,
 } from './daily-pet-loop.js';
@@ -138,5 +139,22 @@ describe('daily pet loop contract', () => {
       acquiredAt: null,
       acquisitionDateStatus: 'KNOWN',
     })).toThrow(/acquiredAt|string/i);
+  });
+
+  it('requires authoritative daily-claim restoration in collection projections', () => {
+    const projection = {
+      claimedToday: true,
+      ownedCount: 0,
+      totalCount: 0,
+      rarityProgress: {
+        COMMON: { ownedCount: 0, totalCount: 0 },
+        RARE: { ownedCount: 0, totalCount: 0 },
+        LEGENDARY: { ownedCount: 0, totalCount: 0 },
+      },
+      pets: [],
+    };
+    expect(petCollectionV1Schema.parse(projection).claimedToday).toBe(true);
+    const { claimedToday: _missing, ...withoutClaimStatus } = projection;
+    expect(() => petCollectionV1Schema.parse(withoutClaimStatus)).toThrow();
   });
 });

@@ -124,6 +124,7 @@ const rarityProgressV1Schema = z.object({
 }).strict();
 
 export const petCollectionV1Schema = z.object({
+  claimedToday: z.boolean(),
   ownedCount: z.number().int().nonnegative(),
   totalCount: z.number().int().nonnegative(),
   rarityProgress: z.object({

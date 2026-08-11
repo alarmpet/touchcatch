@@ -1,11 +1,11 @@
-import type {MatchSnapshotV1} from '../../../../packages/contracts/src/socket.js';
-import {matchSnapshotV1Schema} from '../../../../packages/contracts/src/socket.schema.js';
+import type {MatchSnapshotV1} from '../../../../packages/contracts/src/socket';
+import {matchSnapshotV1Schema} from '../../../../packages/contracts/src/socket.schema';
 import theme from '../../../../config/ui-theme.v1.json' with {type:'json'};
 import {useEffect,useMemo,useRef,useState} from 'react';
 import {AccessibilityInfo,findNodeHandle,Image,Modal,Platform,Pressable,Text,View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Gesture,GestureDetector} from 'react-native-gesture-handler';
-import {adaptMatchSnapshot,applyGestureDelta,assertPublicUiValue,createMeaningIntent,createTapIntent,inverseContentPoint,layoutBattleRegions,shouldCancelSyntheticTap,touchTargetForPlatform,type BattleExternalState,type Transform} from './battle-shell.js';
+import {adaptMatchSnapshot,applyGestureDelta,assertPublicUiValue,createMeaningIntent,createTapIntent,inverseContentPoint,layoutBattleRegions,shouldCancelSyntheticTap,touchTargetForPlatform,type BattleExternalState,type Transform} from './battle-shell';
 
 type Intent=NonNullable<ReturnType<typeof createTapIntent>>|NonNullable<ReturnType<typeof createMeaningIntent>>;
 type Props={snapshot:MatchSnapshotV1;pendingIntentId:string|null;connection:BattleExternalState['connection'];lastRejection?:string|null;preferences?:Readonly<{reducedMotion:boolean;highContrast:boolean}>;onIntent:(intent:Intent)=>void};
@@ -21,7 +21,7 @@ export function BattleScreen({snapshot,pendingIntentId,connection,lastRejection=
  const [chrome,setChrome]=useState({headerHeight:0,summaryHeight:0});
  const [announcement,setAnnouncement]=useState('');
  const [transform,setTransform]=useState<Transform>({scale:1,tx:0,ty:0});
- const modalFocus=useRef<unknown>(null),boardFocus=useRef<unknown>(null),base=useRef<Transform>(transform),motion=useRef({translationPx:0,scaleDelta:0});
+ const modalFocus=useRef<View|null>(null),boardFocus=useRef<View|null>(null),base=useRef<Transform>(transform),motion=useRef({translationPx:0,scaleDelta:0});
  const layout=layoutBattleRegions(safeArea,chrome,{width:vm.assets[0].width,height:vm.assets[0].height},theme.space.baseGrid),pair=layout.pair;
  useEffect(()=>setAnnouncement(`Score ${vm.scores.map(x=>x.absoluteScore).join(' to ')}. ${connection}. ${admitted.phase}.${lastRejection?` Rejected: ${lastRejection}.`:''}`),[vm.scores,connection,admitted.phase,lastRejection]);
  useEffect(()=>{const handle=findNodeHandle(vm.meaningQuiz?modalFocus.current:boardFocus.current);if(handle!==null)AccessibilityInfo.setAccessibilityFocus(handle)},[vm.meaningQuiz]);

@@ -27,6 +27,7 @@ interface InventoryPetV1 {
 }
 
 export function getPetCollectionV1(input: {
+  claimedToday?: boolean;
   catalog: readonly CatalogPetV1[];
   inventory: readonly InventoryPetV1[];
 }): PetCollectionV1 {
@@ -55,6 +56,7 @@ export function getPetCollectionV1(input: {
     };
   });
   return petCollectionV1Schema.parse({
+    claimedToday: input.claimedToday ?? false,
     ownedCount: ownedIds.size,
     totalCount: input.catalog.length,
     rarityProgress,
