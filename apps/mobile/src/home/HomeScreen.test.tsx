@@ -14,6 +14,6 @@ describe('HomeScreen', () => {
     let tree!: ReturnType<typeof create>;
     act(() => { tree = create(<HomeScreen model={model} />); });
     expect(tree.root.findAllByProps({ accessibilityLabel: '오늘의 학습 준비 중' })).toHaveLength(1);
-    expect(tree.root.findAllByType('Link').some((node) => node.props.href === '/game/spot-difference')).toBe(false);
+    expect(tree.root.findAllByProps({ href: '/game/spot-difference' })).toHaveLength(0);
   });
 });
