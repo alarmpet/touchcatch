@@ -7,10 +7,10 @@ export type HomeRuntimeStatus = 'LOADING' | 'READY' | 'CONFIG_ERROR';
  * Pet policy and category admission remain authoritative in each live route,
  * where the server response can be evaluated without guessing on the home screen.
  */
-export function buildRuntimeHomeModel(status: HomeRuntimeStatus) {
+export function buildRuntimeHomeModel(status: HomeRuntimeStatus, input: Readonly<{ hasAdmittedContent: boolean }>) {
   const runtimeReady = status === 'READY';
   return buildHomeModel({
-    hasAdmittedContent: true,
+    hasAdmittedContent: input.hasAdmittedContent,
     serverAvailable: runtimeReady,
     rewardPolicy: runtimeReady ? 'APPROVED' : 'DRAFT',
     rankingEnabled: runtimeReady,

@@ -1,24 +1,26 @@
 import { readFile } from 'node:fs/promises';
 import { expect, it } from 'vitest';
 
-it('boots the public home and places the private learning registry behind the game route DEV branch', async () => {
+it('boots the public home without placing the private learning registry in the game route graph', async () => {
   const homeSource = await readFile('apps/mobile/app/index.tsx', 'utf8');
   expect(homeSource).toContain("from '../src/home/HomeScreen'");
   expect(homeSource).not.toContain('learning-demo');
 
   const source = await readFile('apps/mobile/app/game/spot-difference.tsx', 'utf8');
   expect(source).toContain("from '../../src/learning-demo/preview-home'");
-  expect(source).not.toMatch(/^import .*learning-demo\/registry/m);
+  expect(source).toContain("from '../../src/learning-demo/preview-registry'");
+  expect(source).not.toMatch(/learning-demo\/registry|privateSolutionHash|canonicalAnswer/);
   const guard = source.indexOf('if (!__DEV__)');
-  const registryLoad = source.indexOf("require('../../src/learning-demo/registry')");
   expect(guard).toBeGreaterThan(-1);
-  expect(registryLoad).toBeGreaterThan(guard);
+  const preview = await readFile('apps/mobile/src/learning-demo/preview-registry.ts', 'utf8');
+  expect(preview).not.toMatch(/privateSolutionHash|canonicalAnswer|contentRevisionId|hintAdmissionHash/);
 });
 
 it('uses Metro-resolvable extensionless imports in runtime modules', async () => {
   const runtimeFiles = [
     'apps/mobile/app/index.tsx',
     'apps/mobile/app/game/spot-difference.tsx',
+    'apps/mobile/src/learning-demo/preview-registry.ts',
     'apps/mobile/src/learning-demo/LearningDemoScreen.tsx',
     'apps/mobile/src/learning-demo/data.ts',
     'apps/mobile/src/learning-demo/registry.ts',

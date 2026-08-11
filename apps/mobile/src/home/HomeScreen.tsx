@@ -16,6 +16,8 @@ function Shortcut({ card }: Readonly<{ card: PublicHomeCard }>) {
 
 export function HomeScreen({ model }: Readonly<{ model: PublicHomeModel }>) {
   const [primary, ...shortcuts] = model.cards;
+  const primaryEnabled = primary?.availability === 'ENABLED';
+  const primaryAction = <Pressable disabled={!primaryEnabled} accessibilityRole="button" accessibilityLabel={primaryEnabled ? '오늘의 학습 시작' : '오늘의 학습 준비 중'} style={{ alignSelf: 'flex-start', paddingHorizontal: 18, paddingVertical: 12, borderRadius: radius.button, backgroundColor: primaryEnabled ? colors.sun : '#CBD5E1' }}><Text style={{ color: colors.ink, fontWeight: '900' }}>{primaryEnabled ? '오늘의 학습 시작  →' : '콘텐츠 준비 중'}</Text></Pressable>;
   return <ScrollView contentContainerStyle={{ padding: spacing.lg, paddingBottom: 32, backgroundColor: colors.canvas }}>
     <View style={{ marginTop: 18, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
       <View><Text style={{ color: colors.muted, fontSize: 14 }}>오늘도 가볍게 시작해요</Text><Text accessibilityRole="header" style={{ color: colors.ink, fontSize: 30, fontWeight: '900' }}>TouchCatch</Text></View>
@@ -23,7 +25,7 @@ export function HomeScreen({ model }: Readonly<{ model: PublicHomeModel }>) {
     </View>
     <View style={{ marginTop: spacing.xl, padding: spacing.xl, borderRadius: radius.card, backgroundColor: colors.sky, minHeight: 190, justifyContent: 'space-between' }}>
       <View><Text style={{ color: '#DFF2FF', fontSize: 13, fontWeight: '700' }}>TODAY'S PLAYBOOK · 약 3분</Text><Text style={{ marginTop: 8, color: colors.white, fontSize: 25, fontWeight: '900' }}>그림을 찾고{`\n`}단어를 잡아보세요</Text></View>
-      <Link href="/game/spot-difference" asChild><Pressable accessibilityRole="button" accessibilityLabel="오늘의 학습 시작" style={{ alignSelf: 'flex-start', paddingHorizontal: 18, paddingVertical: 12, borderRadius: radius.button, backgroundColor: colors.sun }}><Text style={{ color: colors.ink, fontWeight: '900' }}>오늘의 학습 시작  →</Text></Pressable></Link>
+      {primaryEnabled ? <Link href={primary.route as never} asChild>{primaryAction}</Link> : primaryAction}
     </View>
     <Text style={{ marginTop: spacing.xl, marginBottom: spacing.sm, color: colors.ink, fontSize: 19, fontWeight: '900' }}>빠른 이동</Text>
     <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: spacing.sm }}>{shortcuts.map((card) => <Shortcut key={card.id} card={card} />)}</ScrollView>

@@ -4,5 +4,5 @@ import { useMobileRuntime } from '../src/runtime/mobile-runtime';
 
 export default function Home() {
   const runtime = useMobileRuntime();
-  return <HomeScreen model={buildRuntimeHomeModel(runtime.status)} />;
+  return <HomeScreen model={buildRuntimeHomeModel(runtime.status, { hasAdmittedContent: __DEV__ })} />;
 }
