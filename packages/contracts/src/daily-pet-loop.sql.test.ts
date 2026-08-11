@@ -5,6 +5,9 @@ import { describe, expect, it } from 'vitest';
 const migration = readFileSync(resolve('supabase/migrations/202607300000_daily_pet_loop.sql'), 'utf8');
 const pgTap = readFileSync(resolve('supabase/tests/database/daily-pet-loop.test.sql'), 'utf8');
 const concurrency = readFileSync(resolve('tests/database/daily-pet-loop-concurrency.test.ts'), 'utf8');
+const mobileMigration = readFileSync(resolve('supabase/migrations/202608110001_mobile_runtime_projections.sql'), 'utf8');
+const mobilePgTap = readFileSync(resolve('supabase/tests/database/mobile-runtime-projections.test.sql'), 'utf8');
+const mobileConcurrency = readFileSync(resolve('tests/database/mobile-runtime-concurrency.test.ts'), 'utf8');
 
 describe('daily pet loop SQL static regression contract', () => {
   it('requires both commands to receive an adapter-resolved, still-linked subject without querying auth schema', () => {
@@ -49,5 +52,33 @@ describe('daily pet loop SQL static regression contract', () => {
     expect(concurrency).toMatch(/resolve\('node_modules\/supabase\/dist\/supabase\.js'\)/);
     expect(pgTap).toMatch(/economy_server exact function allowlist includes daily loop commands/i);
     expect(pgTap).toMatch(/IDEMPOTENCY_CONFLICT[\s\S]+same key with a different hash/i);
+  });
+});
+
+describe('mobile runtime SQL static regression contract', () => {
+  it('keeps account, pet, and weekly reads behind hardened server-only functions', () => {
+    expect(mobileMigration).toMatch(/create function private\.ensure_mobile_account_v1[\s\S]+security definer[\s\S]+set search_path = pg_catalog/i);
+    expect(mobileMigration).toMatch(/create function private\.read_pet_inventory_v1[\s\S]+security definer[\s\S]+set search_path = pg_catalog/i);
+    expect(mobileMigration).toMatch(/create function private\.read_weekly_category_board_v1[\s\S]+security definer[\s\S]+set search_path = pg_catalog/i);
+    expect(mobileMigration).toMatch(/revoke execute on function private\.read_weekly_category_board_v1[\s\S]+authenticated[\s\S]+grant execute[\s\S]+to economy_server/i);
+    expect(mobilePgTap).toMatch(/hardened non-login-owner security definers/i);
+    expect(pgTap).toMatch(/'ensure_mobile_account_v1'[\s\S]+'read_pet_inventory_v1'[\s\S]+'read_weekly_category_board_v1'/i);
+  });
+
+  it('projects only authoritative positive-copy pet inventory and survives reconnects', () => {
+    expect(mobileMigration).toMatch(/from private\.pet_inventory inventory[\s\S]+inventory\.copies > 0/i);
+    expect(mobileMigration).not.toMatch(/public\.user_pets/i);
+    expect(mobileMigration).toMatch(/'level', 1[\s\S]+'xp', 0/i);
+    expect(mobileConcurrency).toMatch(/Array\.from\(\{ length: 20 \}/i);
+    expect(mobileConcurrency).toMatch(/restores the same positive-copy pet projection after reconnecting/i);
+  });
+
+  it('ranks only verified best pointers across the five pinned challenges without leaking identities', () => {
+    expect(mobileMigration).toMatch(/from private\.learning_best_records best[\s\S]+verification_status = 'COMPLETED_VERIFIED'/i);
+    expect(mobileMigration).toMatch(/from private\.weekly_challenge_pins pins[\s\S]+\) = 5/i);
+    expect(mobileMigration).toMatch(/p_limit < 1 or p_limit > 10/i);
+    expect(mobilePgTap).toMatch(/ignores unpointed and quarantined replay scores/i);
+    expect(mobilePgTap).toMatch(/exposes no subject, auth-user, or email identifiers/i);
+    expect(mobilePgTap).toMatch(/perform zero attempt or best-record writes/i);
   });
 });

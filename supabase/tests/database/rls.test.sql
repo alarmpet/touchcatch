@@ -45,9 +45,18 @@ select is((select count(*)::int from pg_proc where prosecdef and pronamespace in
   'private.select_pet_v1(uuid,uuid,text,uuid)'::regprocedure,
   'private.set_pet_lock_v1(uuid,uuid,text,uuid,boolean)'::regprocedure,
   'private.claim_daily_free_draw_v1(uuid,text,text,text)'::regprocedure,
-  'private.promote_duplicate_cards_v1(uuid,uuid,text,jsonb,text,text,text)'::regprocedure
+  'private.promote_duplicate_cards_v1(uuid,uuid,text,jsonb,text,text,text)'::regprocedure,
+  'private.create_weekly_season_v1(uuid,timestamptz,timestamptz,text,text,text,integer,text,text,jsonb)'::regprocedure,
+  'private.start_learning_attempt_v1(uuid,uuid,uuid,uuid,text,text,text,text,text,text,text)'::regprocedure,
+  'private.attest_learning_assets_ready_v1(uuid,text,text,text,text)'::regprocedure,
+  'private.commit_learning_attempt_v1(uuid,uuid,text,text,text,text,text,integer,integer,integer,integer,text)'::regprocedure,
+  'private.acquire_weekly_settlement_lease_v1(uuid,text,uuid,bigint,integer)'::regprocedure
   ,'private.apply_match_command_g3(uuid,uuid,text,uuid,bigint,jsonb,jsonb,text,bigint,text,text)'::regprocedure,
-  'private.acquire_match_lease_g3(uuid,uuid,uuid,bigint,integer)'::regprocedure
+  'private.acquire_match_lease_g3(uuid,uuid,uuid,bigint,integer)'::regprocedure,
+  'private.award_learning_progression_v1(uuid,uuid,uuid,integer,integer,integer,text)'::regprocedure,
+  'private.ensure_mobile_account_v1(uuid)'::regprocedure,
+  'private.read_pet_inventory_v1(uuid,text,text)'::regprocedure,
+  'private.read_weekly_category_board_v1(uuid,uuid,text,integer)'::regprocedure
 )), 0, 'no unexpected security definer functions');
 select is((select count(*)::int from pg_default_acl d cross join lateral aclexplode(d.defaclacl) a where d.defaclnamespace in ('public'::regnamespace, 'private'::regnamespace) and d.defaclrole in ((select oid from pg_roles where rolname='postgres'), (select oid from pg_roles where rolname='game_security_owner')) and a.grantee in (0, (select oid from pg_roles where rolname='anon'), (select oid from pg_roles where rolname='authenticated'), (select oid from pg_roles where rolname='service_role'))), 0, 'future object default ACLs do not expose client/service roles');
 

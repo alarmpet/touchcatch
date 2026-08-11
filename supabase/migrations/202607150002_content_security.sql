@@ -183,10 +183,10 @@ begin
      or requested_rights_manifest->>'schemaVersion' <> '1.0.0' then
     raise exception using errcode = '22023', message = 'CONTENT_SCHEMA_VERSION_MISMATCH';
   end if;
-  if not requested_public_content ?& array['contentId','version','contentRevisionId','schemaVersion','assetPolicyVersion','theme','language','difficulty','imageA','imageB']
+  if not requested_public_content ?& array['contentId','version','contentRevisionId','schemaVersion','assetPolicyVersion','theme','category','language','difficulty','imageA','imageB']
      or exists (
        select 1 from jsonb_object_keys(requested_public_content) key
-       where key <> all(array['contentId','version','contentRevisionId','schemaVersion','assetPolicyVersion','theme','language','difficulty','imageA','imageB'])
+       where key <> all(array['contentId','version','contentRevisionId','schemaVersion','assetPolicyVersion','theme','category','language','difficulty','imageA','imageB'])
      )
      or jsonb_typeof(requested_public_content->'imageA') <> 'object'
      or jsonb_typeof(requested_public_content->'imageB') <> 'object'
@@ -204,6 +204,7 @@ begin
   end if;
   if jsonb_typeof(requested_public_content->'version') <> 'number'
      or jsonb_typeof(requested_public_content->'theme') <> 'string'
+     or requested_public_content->>'category' not in ('ENGLISH','PROVERB','IDIOM','GENERAL_KNOWLEDGE')
      or requested_public_content->>'language' not in ('ko','en','ja')
      or requested_public_content->>'difficulty' not in ('BEGINNER','INTERMEDIATE','ADVANCED') then
     raise exception using errcode = '22023', message = 'PUBLIC_CONTENT_VALUE_INVALID';

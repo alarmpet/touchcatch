@@ -114,7 +114,9 @@ select is((select count(*)::int from pg_proc where prosecdef and pronamespace='p
   'private.select_pet_v1(uuid,uuid,text,uuid)'::regprocedure,
   'private.set_pet_lock_v1(uuid,uuid,text,uuid,boolean)'::regprocedure,
   'private.claim_daily_free_draw_v1(uuid,text,text,text)'::regprocedure,
-  'private.promote_duplicate_cards_v1(uuid,uuid,text,jsonb,text,text,text)'::regprocedure
+  'private.promote_duplicate_cards_v1(uuid,uuid,text,jsonb,text,text,text)'::regprocedure,
+  'private.ensure_mobile_account_v1(uuid)'::regprocedure,
+  'private.read_pet_inventory_v1(uuid,text,text)'::regprocedure
 )),0,'private security-definer function allowlist is exact');
 select ok(not exists(select 1 from pg_proc where prosecdef and pronamespace='private'::regnamespace and proowner=(select oid from pg_roles where rolname='economy_security_owner') and proconfig is distinct from array['search_path=pg_catalog']),'every economy security definer has the dedicated owner and pinned search_path');
 select is((select count(*)::int from pg_default_acl d cross join lateral aclexplode(d.defaclacl) a where d.defaclnamespace in ('public'::regnamespace,'private'::regnamespace) and d.defaclrole in ((select oid from pg_roles where rolname='postgres'),(select oid from pg_roles where rolname='economy_security_owner')) and a.grantee in (0,(select oid from pg_roles where rolname='anon'),(select oid from pg_roles where rolname='authenticated'),(select oid from pg_roles where rolname='service_role'))),0,'future default ACLs do not expose client or service roles');

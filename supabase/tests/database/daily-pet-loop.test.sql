@@ -39,13 +39,20 @@ select is(
     where routine_schema = 'private' and grantee = 'economy_server'
   ),
   array[
+    'acquire_weekly_settlement_lease_v1',
+    'attest_learning_assets_ready_v1',
     'award_match_reward_v1',
     'claim_daily_free_draw_v1',
+    'commit_learning_attempt_v1',
     'draw_pet_v1',
+    'ensure_mobile_account_v1',
     'fuse_pets_v1',
     'promote_duplicate_cards_v1',
+    'read_pet_inventory_v1',
+    'read_weekly_category_board_v1',
     'select_pet_v1',
-    'set_pet_lock_v1'
+    'set_pet_lock_v1',
+    'start_learning_attempt_v1'
   ]::text[],
   'economy_server exact function allowlist includes daily loop commands'
 );
