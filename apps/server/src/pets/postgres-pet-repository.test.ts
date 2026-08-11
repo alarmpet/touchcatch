@@ -23,4 +23,27 @@ describe('PostgresPetRepository', () => {
     const repository = new PostgresPetRepository({ call: async () => undefined, callParsed: async (_name, _args, parse) => parse({ catalogRevision: 'v1', catalogHash: 'b'.repeat(64), claimedToday: false, ownedCount: 1, totalCount: 1, rarityProgress: { COMMON: { ownedCount: 1, totalCount: 1 }, RARE: { ownedCount: 0, totalCount: 0 }, LEGENDARY: { ownedCount: 0, totalCount: 0 } }, pets: [{ userPetId: '10000000-0000-4000-8000-000000000001', petId: '20000000-0000-4000-8000-000000000001', rarity: 'COMMON', displayKey: 'x', level: 1, xp: 0, copies: 1, selected: false, locked: false, acquiredAt: null, acquisitionDateStatus: 'UNAVAILABLE_LEGACY' }] }) }, () => undefined);
     await expect(repository.readCollection({ subjectKey: 'x', catalogRevision: 'v1', catalogHash: 'b'.repeat(64) })).rejects.toThrow('PET_ART_NOT_APPROVED');
   });
+
+  it('serializes promotion materials as JSON for the PostgreSQL jsonb parameter', async () => {
+    let capturedArgs: readonly unknown[] = [];
+    const sourcePetId = '20000000-0000-4000-8000-000000000001';
+    const repository = new PostgresPetRepository({
+      call: async () => undefined,
+      callParsed: async (_name, args, parse) => {
+        capturedArgs = args;
+        return parse({
+          economyVersion: '1.0.0', economyHash: 'a'.repeat(64), catalogRevision: 'v1', catalogHash: 'b'.repeat(64),
+          consumed: { petId: sourcePetId, copies: 10, rows: [{ userPetId: '30000000-0000-4000-8000-000000000001', copies: 10 }] },
+          remainingCopies: 1,
+          output: { userPetId: '40000000-0000-4000-8000-000000000001', petId: '50000000-0000-4000-8000-000000000001', rarity: 'RARE', copies: 1 },
+        });
+      },
+    }, () => art);
+    await repository.promoteEffectOnce({
+      subjectKey: '10000000-0000-4000-8000-000000000001', idempotencyKey: '60000000-0000-4000-8000-000000000001',
+      requestHash: 'c'.repeat(64), sourcePetId, consumedCopies: 10,
+      economyVersion: '1.0.0', economyHash: 'a'.repeat(64), catalogRevision: 'v1', catalogHash: 'b'.repeat(64),
+    });
+    expect(capturedArgs[3]).toBe(JSON.stringify([{ petId: sourcePetId, count: 10 }]));
+  });
 });

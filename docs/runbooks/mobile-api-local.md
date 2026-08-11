@@ -13,7 +13,7 @@ This runbook starts the authenticated pet and ranking API without placing SDK, d
 Copy apps/server/.env.example to apps/server/.env, then set:
 
     SUPABASE_URL=https://your-development-project.supabase.co
-    DATABASE_URL=postgresql://economy_runtime:<password>@127.0.0.1:54322/postgres
+    DATABASE_URL=<restricted runtime database URL supplied out of band>
     MOBILE_API_HOST=127.0.0.1
     MOBILE_API_PORT=8787
     MOBILE_API_ALLOWED_ORIGINS=
@@ -39,7 +39,7 @@ Expected health response:
 Run the authenticated fail-closed smoke without writing the bearer token to evidence:
 
     $env:MOBILE_API_ACCESS_TOKEN = '<temporary access token>'
-    $env:MOBILE_API_SMOKE_DATABASE_URL = 'postgresql://<read-only-audit-user>:<password>@127.0.0.1:54322/postgres'
+    $env:MOBILE_API_SMOKE_DATABASE_URL = '<read-only audit database URL supplied out of band>'
     corepack pnpm server:smoke
 
 Do not pass either secret as a command-line argument; command lines may be visible to other local processes. The database probe credential is local-only and needs read-only SELECT access to public.profiles plus the six private account/pet-effect tables used by the counter probe. Current DRAFT policies must return 409/REWARD_POLICY_NOT_APPROVED for all pet routes and 409/RANKING_POLICY_NOT_APPROVED for the leaderboard, with identical before/after account-bootstrap and mutation counters. Evidence is written only below D:\tcbuild\mobile-api-smoke and contains statuses/codes and the unchanged verdict, never either credential.

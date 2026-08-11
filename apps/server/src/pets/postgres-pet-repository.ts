@@ -58,6 +58,7 @@ export class PostgresPetRepository implements PetRuntimeRepository {
   }
 
   async promoteEffectOnce(input: DuplicatePromotionEffectInputV1): Promise<DuplicatePromotionV1> {
-    return this.rpc.callParsed('promote_duplicate_cards_v1', [input.subjectKey, input.idempotencyKey, input.requestHash, [{ petId: input.sourcePetId, count: 10 }], input.economyHash, input.catalogRevision, input.catalogHash], (value) => duplicatePromotionV1Schema.parse(value));
+    const materials = JSON.stringify([{ petId: input.sourcePetId, count: 10 }]);
+    return this.rpc.callParsed('promote_duplicate_cards_v1', [input.subjectKey, input.idempotencyKey, input.requestHash, materials, input.economyHash, input.catalogRevision, input.catalogHash], (value) => duplicatePromotionV1Schema.parse(value));
   }
 }

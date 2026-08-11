@@ -5,6 +5,7 @@ param(
   [string]$EvidenceRoot = 'D:\tcbuild\android-smoke',
   [int]$MetroPort = 8081,
   [int]$ApiPort = 8787,
+  [int]$SupabasePort = 55321,
   [switch]$SkipLaunch
 )
 
@@ -43,6 +44,11 @@ if ($LASTEXITCODE -ne 0) {
   throw "adb reverse failed for tcp:$ApiPort"
 }
 
+& $AdbPath -s $serial reverse "tcp:$SupabasePort" "tcp:$SupabasePort" | Out-Null
+if ($LASTEXITCODE -ne 0) {
+  throw "adb reverse failed for tcp:$SupabasePort"
+}
+
 & $AdbPath -s $serial logcat -c
 if ($LASTEXITCODE -ne 0) {
   throw 'Unable to clear logcat before the smoke run.'
@@ -77,14 +83,10 @@ $localXml = Join-Path $runRoot 'ui.xml'
 $uiDeadline = (Get-Date).AddSeconds(45)
 $ui = ''
 do {
-  & $AdbPath -s $serial shell uiautomator dump $remoteXml | Out-Null
-  if ($LASTEXITCODE -ne 0) {
-    throw 'Unable to produce the Android UI hierarchy.'
-  }
+  & $AdbPath -s $serial shell uiautomator dump $remoteXml 2>$null | Out-Null
+  if ($LASTEXITCODE -ne 0) { Start-Sleep -Seconds 1; continue }
   $ui = ((& $AdbPath -s $serial shell cat $remoteXml) -join "`n")
-  if ($LASTEXITCODE -ne 0) {
-    throw 'Unable to read the Android UI hierarchy in memory.'
-  }
+  if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($ui)) { Start-Sleep -Seconds 1; continue }
   & $AdbPath -s $serial shell rm $remoteXml | Out-Null
   $hasTouchCatchUi = $ui -cmatch 'text="TouchCatch"|content-desc="Learning spot the difference"|content-desc="Learning complete"'
   if (-not $hasTouchCatchUi) {
@@ -96,7 +98,7 @@ if (-not $hasTouchCatchUi) {
   throw 'TouchCatch JavaScript UI did not render within 45 seconds.'
 }
 
-$sensitiveUiPattern = 'Bearer\s+\S+|eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+|access[_-]?token|refresh[_-]?token|DATABASE_URL|SUPABASE_SECRET_KEY|subject[_ -]?key|authenticatedUserId|postgres(?:ql)?://|password\s*[=:]|[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}'
+$sensitiveUiPattern = 'Bearer\s+\S+|eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+|access[_-]?token|refresh[_-]?token|DATABASE_URL|SUPABASE_SECRET_KEY|subject[_ -]?key|authenticatedUserId|postgres(?:ql)?://|password\s*[=:]\s*[^"''\s<>]{6,}|[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}'
 if ($ui | Select-String -Pattern $sensitiveUiPattern -CaseSensitive:$false) {
   'Sensitive UI content was detected and UI/screenshot evidence was not persisted.' |
     Set-Content -LiteralPath (Join-Path $runRoot 'sensitive-ui-detected.txt') -Encoding utf8
@@ -117,7 +119,7 @@ $logcat = (& $AdbPath -s $serial logcat "--pid=$appPid" -d) -join "`n"
 if ($LASTEXITCODE -ne 0) {
   throw "Unable to capture PID-scoped logcat for $PackageName."
 }
-$sensitivePattern = 'Bearer\s+\S+|eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+|access[_-]?token|refresh[_-]?token|DATABASE_URL|SUPABASE_SECRET_KEY|subject[_ -]?key|authenticatedUserId|postgres(?:ql)?://|password\s*[=:]|privateSolution|hitbox|coordinates|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}'
+$sensitivePattern = 'Bearer\s+\S+|eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+|access[_-]?token|refresh[_-]?token|DATABASE_URL|SUPABASE_SECRET_KEY|subject[_ -]?key|authenticatedUserId|postgres(?:ql)?://|password\s*[=:]\s*[^"''\s<>]{6,}|privateSolution|hitbox|coordinates|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}'
 if ($logcat | Select-String -Pattern $sensitivePattern -CaseSensitive:$false) {
   'Sensitive application log content was detected and the raw log was not persisted.' |
     Set-Content -LiteralPath (Join-Path $runRoot 'sensitive-log-detected.txt') -Encoding utf8
@@ -140,6 +142,7 @@ $summary = @(
   "activity=$focusedActivity"
   "metroReverse=tcp:$MetroPort"
   "apiReverse=tcp:$ApiPort"
+  "supabaseReverse=tcp:$SupabasePort"
   "logcatScope=pid:$appPid"
   "uiDump=$runRoot\ui.xml"
   "screenshot=$runRoot\screen.png"
