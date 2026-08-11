@@ -4,6 +4,8 @@ import type { HintStepV1 } from '../../../../packages/contracts/src/content';
 export type MobileSemanticSnapshot = Readonly<{
   key: string;
   category: LearningDemoEntry['category'];
+  preferredInputSurface?: LearningDemoEntry['preferredInputSurface'];
+  assistPattern?: LearningDemoEntry['assistPattern'];
   title: string;
   canonicalAnswer: string;
   contentRevisionId: string;
@@ -21,7 +23,10 @@ export type MobileSemanticSnapshot = Readonly<{
 
 export function buildDemoEntry(
   snapshot: MobileSemanticSnapshot,
-  assets: Readonly<{ imageA: unknown; imageB: unknown }>,
+  assets: Readonly<{
+    imageA: LearningDemoEntry['imageA'];
+    imageB: LearningDemoEntry['imageB'];
+  }>,
 ): LearningDemoEntry {
   const admitted =
     snapshot.hintAdmissionStatus === 'ADMITTED' &&
@@ -32,6 +37,8 @@ export function buildDemoEntry(
   return {
     key: snapshot.key,
     category: snapshot.category,
+    preferredInputSurface: snapshot.preferredInputSurface ?? 'FREE_TEXT',
+    assistPattern: snapshot.assistPattern ?? (snapshot.category === 'ENGLISH' ? 'SPELLING' : snapshot.category === 'PROVERB' || snapshot.category === 'IDIOM' ? 'INITIAL_PATTERN' : 'NONE'),
     title: snapshot.title,
     imageA: assets.imageA,
     imageB: assets.imageB,

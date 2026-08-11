@@ -17,7 +17,8 @@ export function reduceDemoState(state: DemoState, content: DemoContent, action: 
   const match = content.differences.find((difference) => {
     if (state.claimedIds.includes(difference.id)) return false;
     const circle = action.side === 'A' ? difference.imageA : difference.imageB;
-    return Math.hypot(action.x - circle.cx, action.y - circle.cy) <= circle.r;
+    const tolerance = Math.max(circle.r, 0.06);
+    return Math.hypot(action.x - circle.cx, action.y - circle.cy) <= tolerance;
   });
   if (!match) return state;
   const claimedIds = [...state.claimedIds, match.id];
