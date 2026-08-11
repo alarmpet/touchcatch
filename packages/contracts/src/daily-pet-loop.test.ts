@@ -18,12 +18,61 @@ describe('daily pet loop contract', () => {
     expect(parsed.status).toBe('DRAFT');
     expect(parsed.dailyDraw.probabilities).toEqual({ COMMON: 0.8, RARE: 0.18, LEGENDARY: 0.02 });
     expect(parsed.duplicatePromotion).toEqual({
+      seriesId: 'DAILY_PET_PROMOTION_V1',
       ownedCopiesRequired: 11,
       spareCopiesConsumed: 10,
       retainBaseCopies: 1,
       transitions: { COMMON: 'RARE', RARE: 'LEGENDARY' },
       legendaryOutcome: 'COSMETIC_REWARD_POLICY_REQUIRED',
     });
+  });
+
+  it('keeps daily promotion in its own economy series', () => {
+    const parsed = parseDailyPetLoopPolicyV1(policy);
+    expect(parsed.duplicatePromotion.seriesId).toBe('DAILY_PET_PROMOTION_V1');
+    expect(parsed.dailyDraw.seriesId).toBe('DAILY_FREE_DRAW_V1');
+  });
+
+  it('requires complete canonical approval metadata when the daily loop is approved', () => {
+    const approved = {
+      ...(policy as Record<string, unknown>),
+      status: 'APPROVED',
+      approvalDecisionId: 'daily-pet-loop-approval-2026-08-11',
+      approvedBy: 'product-owner',
+      approvedAt: '2026-08-11T09:30:00.000Z',
+    };
+
+    expect(parseDailyPetLoopPolicyV1(approved).status).toBe('APPROVED');
+
+    for (const approvalField of ['approvalDecisionId', 'approvedBy', 'approvedAt'] as const) {
+      const incomplete = { ...approved };
+      delete incomplete[approvalField];
+      expect(
+        () => parseDailyPetLoopPolicyV1(incomplete),
+        `missing ${approvalField}`,
+      ).toThrow();
+    }
+
+    expect(() => parseDailyPetLoopPolicyV1({
+      ...approved,
+      approvedAt: '2026-08-11T18:30:00+09:00',
+    })).toThrow();
+  });
+
+  it('applies the approved lifecycle envelope in the published JSON Schema', () => {
+    const ajv = new Ajv2020({ strict: true, allErrors: true });
+    const validate = ajv.compile(jsonSchema);
+    const approved = {
+      ...(policy as Record<string, unknown>),
+      status: 'APPROVED',
+      approvalDecisionId: 'daily-pet-loop-approval-2026-08-11',
+      approvedBy: 'product-owner',
+      approvedAt: '2026-08-11T09:30:00.000Z',
+    };
+
+    expect(validate(approved), JSON.stringify(validate.errors)).toBe(true);
+    expect(validate({ ...approved, approvalDecisionId: undefined })).toBe(false);
+    expect(validate({ ...approved, approvedAt: '2026-08-11T18:30:00+09:00' })).toBe(false);
   });
 
   it('keeps the JSON Schema and runtime parser strict', () => {

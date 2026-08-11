@@ -5,6 +5,10 @@ export const petRarityV1Schema = z.enum(['COMMON', 'RARE', 'LEGENDARY']);
 
 const sha256Schema = z.string().regex(/^[0-9a-f]{64}$/);
 const uuidSchema = z.string().uuid();
+const nonBlankApprovalStringSchema = z.string().min(1).refine(
+  (value) => value.trim().length > 0,
+  'approval value must not be blank',
+);
 
 export const approvedPetArtV1Schema = z.object({
   thumbnailUrl: z.string().url().refine((value) => value.startsWith('https://'), 'art URL must use HTTPS'),
@@ -13,10 +17,9 @@ export const approvedPetArtV1Schema = z.object({
 }).strict();
 export type ApprovedPetArtV1 = z.infer<typeof approvedPetArtV1Schema>;
 
-export const dailyPetLoopPolicyV1Schema = z.object({
+const dailyPetLoopPolicyV1Shape = {
   schemaVersion: z.literal(1),
   policyRevision: z.literal('daily-pet-loop-v1'),
-  status: z.literal('DRAFT'),
   timezone: z.literal('Asia/Seoul'),
   dailyDraw: z.object({
     seriesId: z.literal('DAILY_FREE_DRAW_V1'),
@@ -35,6 +38,7 @@ export const dailyPetLoopPolicyV1Schema = z.object({
     }).strict(),
   }).strict(),
   duplicatePromotion: z.object({
+    seriesId: z.literal('DAILY_PET_PROMOTION_V1'),
     ownedCopiesRequired: z.literal(11),
     spareCopiesConsumed: z.literal(10),
     retainBaseCopies: z.literal(1),
@@ -48,8 +52,23 @@ export const dailyPetLoopPolicyV1Schema = z.object({
     maxFavoritePets: z.literal(3),
     rejectUnknownFields: z.literal(true),
   }).strict(),
-}).strict();
+} as const;
+
+export const dailyPetLoopPolicyV1Schema = z.discriminatedUnion('status', [
+  z.object({
+    ...dailyPetLoopPolicyV1Shape,
+    status: z.literal('DRAFT'),
+  }).strict(),
+  z.object({
+    ...dailyPetLoopPolicyV1Shape,
+    status: z.literal('APPROVED'),
+    approvalDecisionId: nonBlankApprovalStringSchema,
+    approvedBy: nonBlankApprovalStringSchema,
+    approvedAt: z.iso.datetime({ precision: 3, offset: false }),
+  }).strict(),
+]);
 export type DailyPetLoopPolicyV1 = z.infer<typeof dailyPetLoopPolicyV1Schema>;
+export type ApprovedDailyPetLoopPolicyV1 = Extract<DailyPetLoopPolicyV1, { status: 'APPROVED' }>;
 
 export function parseDailyPetLoopPolicyV1(input: unknown): DailyPetLoopPolicyV1 {
   return dailyPetLoopPolicyV1Schema.parse(input);
