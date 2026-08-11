@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- Expo statically bundles local image assets through require(). */
 import type { LearningDemoEntry } from './LearningDemoScreen';
 
 type Point = readonly [number, number];
