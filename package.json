@@ -25,6 +25,8 @@
     "admin:build": "pnpm --dir apps/admin build",
     "admin:client-secret-check": "node tools/check-admin-client-boundary.mjs",
     "admin:check": "pnpm admin:typecheck && pnpm admin:build && pnpm admin:client-secret-check",
+    "server:start": "pnpm --dir apps/server start",
+    "server:smoke": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/mobile/run-authenticated-api-smoke.ps1",
     "ui:reference:check": "node tools/check-ui-reference.mjs",
     "ui:assets:check": "node tools/check-ui-assets.mjs --target contract",
     "ui:assets:beta": "node tools/check-ui-assets.mjs --target beta",

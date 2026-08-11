@@ -5,6 +5,7 @@
   "type": "module",
   "main": "src/index.ts",
   "scripts": {
+    "start": "node --env-file-if-exists=.env --import tsx src/runtime.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run src/**/*.test.ts"
   },
@@ -12,6 +13,8 @@
     "@spot-learn/contracts": "workspace:*",
     "@spot-learn/game-engine": "workspace:*",
     "@spot-learn/learning-competition": "workspace:*",
-    "jose": "^6.2.3"
+    "jose": "^6.2.3",
+    "pg": "^8.16.3",
+    "tsx": "^4.20.6"
   }
 }
