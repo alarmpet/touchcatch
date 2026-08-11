@@ -21,7 +21,7 @@ export function RankingRouteView({ state, onCategory, onRetry }: Readonly<{
     <View accessibilityLabel={`랭킹 상태 ${state.model.state}`} style={{ marginTop: spacing.md, padding: spacing.xl, borderRadius: radius.card, backgroundColor: colors.white, borderColor: colors.line, borderWidth: 1 }}>
       {state.reason === 'SIGNED_OUT' ? <Text>랭킹을 보려면 내 정보에서 로그인해 주세요.</Text>
         : state.board && (state.model.state === 'READY' || state.model.state === 'STALE')
-          ? <>{state.model.state === 'STALE' && <Text accessibilityLiveRegion="polite">저장된 랭킹이에요. 연결되면 갱신할게요.</Text>}<WeeklyCategoryBoard category={state.category} top10={state.model.rows.map((row) => ({ rank: row.rank, nickname: row.nickname, displayScore: row.score }))} myRank={state.board.myRank?.rank} /></>
+          ? <>{state.model.state === 'STALE' && <Text accessibilityLiveRegion="polite">저장된 랭킹이에요. 연결되면 갱신할게요.</Text>}<WeeklyCategoryBoard category={state.category} top10={state.model.rows.map((row) => ({ rank: row.rank, nickname: row.nickname, displayScore: row.score }))} {...(state.board.myRank === null ? {} : { myRank: state.board.myRank.rank })} /></>
           : <RankingScreen model={state.model} />}
       {(state.model.state === 'ERROR' || state.model.state === 'STALE') && <Pressable accessibilityRole="button" accessibilityLabel="랭킹 다시 시도" onPress={onRetry} style={{ marginTop: spacing.md, padding: 12, borderRadius: radius.button, backgroundColor: colors.sky }}><Text style={{ color: colors.white, textAlign: 'center', fontWeight: '800' }}>다시 시도</Text></Pressable>}
     </View>

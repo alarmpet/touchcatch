@@ -51,5 +51,6 @@ export default function ProfileRoute() {
     catch { setMessage('이 기기에서 로그아웃하지 못했어요. 다시 시도해 주세요.'); }
     finally { setBusy(false); }
   };
-  return <ProfileRouteView session={session} email={email} password={password} busy={busy} message={runtime.status === 'CONFIG_ERROR' ? '모바일 연결 설정이 필요해요.' : message} onEmail={setEmail} onPassword={setPassword} onSignIn={() => void signIn()} onSignOut={() => void signOut()} />;
+  const visibleMessage = runtime.status === 'CONFIG_ERROR' ? '모바일 연결 설정이 필요해요.' : message;
+  return <ProfileRouteView session={session} email={email} password={password} busy={busy} {...(visibleMessage === undefined ? {} : { message: visibleMessage })} onEmail={setEmail} onPassword={setPassword} onSignIn={() => void signIn()} onSignOut={() => void signOut()} />;
 }
