@@ -21,6 +21,15 @@ paths:
       operationId: getPetCollectionV1
       summary: Get the authenticated pet collection projection
       responses: { "200": { $ref: "#/components/responses/PetCollectionResponse" }, "401": { $ref: "#/components/responses/PetsError" } }
+  /v1/learning/leaderboard:
+    get:
+      operationId: getWeeklyCategoryLeaderboardV1
+      summary: Get one server-authoritative weekly category board
+      parameters:
+        - { name: seasonId, in: query, required: true, schema: { type: string, format: uuid } }
+        - { name: category, in: query, required: true, schema: { type: string, enum: [ENGLISH, PROVERB] } }
+        - { name: limit, in: query, required: true, schema: { type: integer, minimum: 1, maximum: 10 } }
+      responses: { "200": { $ref: "#/components/responses/WeeklyCategoryBoardResponse" }, "400": { $ref: "#/components/responses/LeaderboardInvalidQueryError" }, "401": { $ref: "#/components/responses/LeaderboardUnauthorizedError" }, "409": { $ref: "#/components/responses/LeaderboardPolicyError" }, "503": { $ref: "#/components/responses/LeaderboardUnavailableError" } }
   /v1/pets/daily-draw:
     post:
       operationId: claimDailyFreeDrawV1
@@ -142,6 +151,7 @@ components:
     PetCollectionItem: { type: object, additionalProperties: false, required: [userPetId, petId, rarity, displayKey, level, xp, copies, selected, locked, acquiredAt, acquisitionDateStatus, art], properties: { userPetId: { type: string }, petId: { type: string }, rarity: { enum: [COMMON, RARE, LEGENDARY] }, displayKey: { type: string }, level: { type: integer, minimum: 1 }, xp: { type: integer, minimum: 0 }, copies: { type: integer, minimum: 1 }, selected: { type: boolean }, locked: { type: boolean }, acquiredAt: { oneOf: [{ type: string, format: date-time }, { type: "null" }] }, acquisitionDateStatus: { enum: [KNOWN, UNAVAILABLE_LEGACY] }, art: { $ref: "#/components/schemas/ApprovedPetArt" } }, allOf: [{ if: { properties: { acquisitionDateStatus: { const: KNOWN } } }, then: { properties: { acquiredAt: { type: string, format: date-time } } }, else: { properties: { acquiredAt: { type: "null" } } } }] }
     ShowcasePet: { type: object, additionalProperties: false, required: [petId, displayKey, rarity, art], properties: { petId: { type: string }, displayKey: { type: string }, rarity: { enum: [COMMON, RARE, LEGENDARY] }, art: { $ref: "#/components/schemas/ApprovedPetArt" } } }
     PetShowcaseResponse: { type: object, additionalProperties: false, required: [nickname, selectedPet, favoritePets, collectionPercentage, championStarCount, historicalNumberOneCount, approvedCosmetics], properties: { nickname: { type: string, minLength: 1, maxLength: 32 }, selectedPet: { oneOf: [{ $ref: "#/components/schemas/ShowcasePet" }, { type: "null" }] }, favoritePets: { type: array, maxItems: 3, items: { $ref: "#/components/schemas/ShowcasePet" } }, collectionPercentage: { type: number, minimum: 0, maximum: 100 }, championStarCount: { type: integer, minimum: 0 }, historicalNumberOneCount: { type: integer, minimum: 0 }, approvedCosmetics: { type: array, items: { type: object, additionalProperties: false, required: [cosmeticId, displayKey], properties: { cosmeticId: { type: string }, displayKey: { type: string } } } } } }
+    WeeklyCategoryBoardResponse: { type: object, additionalProperties: false, required: [seasonId, category, snapshotRevision, rows, myRank], properties: { seasonId: { type: string, format: uuid }, category: { type: string, enum: [ENGLISH, PROVERB] }, snapshotRevision: { type: string, minLength: 1 }, rows: { type: array, maxItems: 10, items: { type: object, additionalProperties: false, required: [rank, nickname, displayScore], properties: { rank: { type: integer, minimum: 1 }, nickname: { type: string, minLength: 1, maxLength: 32 }, displayScore: { type: integer, minimum: 0 } } } }, myRank: { oneOf: [{ type: object, additionalProperties: false, required: [rank, totalCompetitors, percentile, displayScore], properties: { rank: { type: integer, minimum: 1 }, totalCompetitors: { type: integer, minimum: 1 }, percentile: { type: number, minimum: 0, maximum: 100 }, displayScore: { type: integer, minimum: 0 } } }, { type: "null" }] } } }
     QueueTicketResponse: { type: object, additionalProperties: false, required: [ticketId, status], properties: { ticketId: { type: string }, status: { type: string, enum: [QUEUED, MATCHED] } } }
     QueueCancelResponse: { type: object, additionalProperties: false, required: [cancelled], properties: { cancelled: { const: true } } }
     FriendRoomResponse: { type: object, additionalProperties: false, required: [roomCode, memberCount], properties: { roomCode: { type: string }, memberCount: { type: integer, minimum: 1, maximum: 2 } } }
@@ -163,6 +173,10 @@ components:
     DuplicatePromotionNotOwnedError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [NOT_OWNED] } } }
     DuplicatePromotionConflictError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [IDEMPOTENCY_CONFLICT, POLICY_MISMATCH, INSUFFICIENT_DUPLICATES, COSMETIC_REWARD_POLICY_REQUIRED] } } }
     PetShowcaseNotFoundError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [NOT_FOUND] } } }
+    LeaderboardInvalidQueryError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [INVALID_QUERY] } } }
+    LeaderboardUnauthorizedError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [UNAUTHORIZED] } } }
+    LeaderboardPolicyError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [RANKING_POLICY_NOT_APPROVED] } } }
+    LeaderboardUnavailableError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [LEADERBOARD_UNAVAILABLE] } } }
     QueueCreateError: &drawError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [INVALID_REQUEST, CONFLICT, IDEMPOTENCY_CONFLICT] } } }
     QueueGetError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [UNAUTHORIZED, NOT_FOUND] } } }
     QueueCancelError: &cancelError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [NOT_FOUND, CONFLICT, IDEMPOTENCY_CONFLICT] } } }
@@ -180,6 +194,7 @@ components:
     DuplicatePromotionResponse: { description: Duplicate promotion result, content: { application/json: { schema: { $ref: "#/components/schemas/DuplicatePromotionResponse" } } } }
     PetCollectionResponse: { description: Pet collection projection, content: { application/json: { schema: { $ref: "#/components/schemas/PetCollectionResponse" } } } }
     PetShowcaseResponse: { description: Public-safe pet showcase, content: { application/json: { schema: { $ref: "#/components/schemas/PetShowcaseResponse" } } } }
+    WeeklyCategoryBoardResponse: { description: Server-authoritative weekly category board, content: { application/json: { schema: { $ref: "#/components/schemas/WeeklyCategoryBoardResponse" } } } }
     QueueTicketResponse: { description: Queue ticket, content: { application/json: { schema: { $ref: "#/components/schemas/QueueTicketResponse" } } } }
     QueueCancelResponse: { description: Queue cancellation, content: { application/json: { schema: { $ref: "#/components/schemas/QueueCancelResponse" } } } }
     FriendRoomResponse: { description: Friend room, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomResponse" } } } }
@@ -201,6 +216,10 @@ components:
     DuplicatePromotionNotOwnedError: { description: Source pet is not owned, content: { application/json: { schema: { $ref: "#/components/schemas/DuplicatePromotionNotOwnedError" } } } }
     DuplicatePromotionConflictError: { description: Duplicate promotion conflict, content: { application/json: { schema: { $ref: "#/components/schemas/DuplicatePromotionConflictError" } } } }
     PetShowcaseNotFoundError: { description: Public showcase not found, content: { application/json: { schema: { $ref: "#/components/schemas/PetShowcaseNotFoundError" } } } }
+    LeaderboardInvalidQueryError: { description: Invalid leaderboard query, content: { application/json: { schema: { $ref: "#/components/schemas/LeaderboardInvalidQueryError" } } } }
+    LeaderboardUnauthorizedError: { description: Unauthorized leaderboard request, content: { application/json: { schema: { $ref: "#/components/schemas/LeaderboardUnauthorizedError" } } } }
+    LeaderboardPolicyError: { description: Weekly ranking policy is not approved, content: { application/json: { schema: { $ref: "#/components/schemas/LeaderboardPolicyError" } } } }
+    LeaderboardUnavailableError: { description: Leaderboard storage is unavailable, content: { application/json: { schema: { $ref: "#/components/schemas/LeaderboardUnavailableError" } } } }
     QueueCreateError: { description: Queue-create error, content: { application/json: { schema: { $ref: "#/components/schemas/QueueCreateError" } } } }
     QueueGetError: { description: Queue-read error, content: { application/json: { schema: { $ref: "#/components/schemas/QueueGetError" } } } }
     QueueCancelError: { description: Queue-cancel error, content: { application/json: { schema: { $ref: "#/components/schemas/QueueCancelError" } } } }

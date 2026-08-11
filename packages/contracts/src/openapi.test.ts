@@ -3,10 +3,25 @@ import { parse } from "yaml";
 import { describe, expect, it } from "vitest";
 
 type Ref = { $ref: string };
-type Operation = { security?: unknown; parameters?: Ref[]; requestBody?: Ref; responses: Record<string, Ref> };
+type Parameter = Ref | { name: string; in: string; required?: boolean; schema: Record<string, unknown> };
+type Operation = { security?: unknown; parameters?: Parameter[]; requestBody?: Ref; responses: Record<string, Ref> };
 type Schema = {
   additionalProperties?: boolean;
-  properties?: {
+  required?: string[];
+  properties?: Record<string, {
+    enum?: string[];
+    type?: unknown;
+    additionalProperties?: boolean;
+    required?: string[];
+    properties?: Record<string, unknown>;
+    items?: {
+      additionalProperties?: boolean;
+      required?: string[];
+      properties?: Record<string, unknown>;
+    };
+    oneOf?: unknown[];
+    "x-runtime-validation"?: { exactCountSum?: number; uniqueBy?: string };
+  }> & {
     code?: { enum?: string[] };
     materials?: {
       "x-runtime-validation"?: { exactCountSum?: number; uniqueBy?: string };
@@ -19,6 +34,7 @@ const expected = {
   "GET /v1/me": { request: null, statuses: ["200", "401"], response: "MeResponse", errors: ["UNAUTHORIZED"] },
   "GET /v1/pets": { request: null, statuses: ["200", "401"], response: "PetsResponse", errors: ["UNAUTHORIZED"] },
   "GET /v1/pets/collection": { request: null, statuses: ["200", "401"], response: "PetCollectionResponse", errors: ["UNAUTHORIZED"] },
+  "GET /v1/learning/leaderboard": { request: null, statuses: ["200", "400", "401", "409", "503"], response: "WeeklyCategoryBoardResponse", errors: ["INVALID_QUERY", "UNAUTHORIZED", "RANKING_POLICY_NOT_APPROVED", "LEADERBOARD_UNAVAILABLE"] },
   "POST /v1/pets/daily-draw": { request: null, statuses: ["200", "401", "409"], response: "DailyFreeDrawResponse", errors: ["AUTH_SUBJECT_REQUIRED", "POLICY_MISMATCH"] },
   "POST /v1/pets/duplicate-promotion": { request: "DuplicatePromotionRequest", statuses: ["200", "400", "401", "404", "409"], response: "DuplicatePromotionResponse", errors: ["INVALID_MATERIALS", "AUTH_SUBJECT_REQUIRED", "NOT_OWNED", "IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH", "INSUFFICIENT_DUPLICATES", "COSMETIC_REWARD_POLICY_REQUIRED"] },
   "POST /v1/pets/{id}/select": { request: null, statuses: ["200", "404", "409"], response: "SelectPetResponse", errors: ["NOT_OWNED", "IDEMPOTENCY_CONFLICT"] },
@@ -53,10 +69,28 @@ describe("OpenAPI semantic contract", () => {
     for (const key of Object.keys(expected)) {
       const [method, path] = key.split(" ") as [string, string];
       const operation = document.paths[path]![method.toLowerCase()]!;
-      const refs = (operation.parameters ?? []).map((p) => p.$ref);
+      const refs = (operation.parameters ?? []).flatMap((p) => "$ref" in p ? [p.$ref] : []);
       if (method === "GET") expect(refs).not.toContain("#/components/parameters/IdempotencyKey");
       else expect(refs).toContain("#/components/parameters/IdempotencyKey");
     }
+  });
+
+  it("pins the leaderboard query and strict public response shape", () => {
+    const operation = document.paths["/v1/learning/leaderboard"]!.get!;
+    const parameters = (operation.parameters ?? []).filter((parameter): parameter is Exclude<Parameter, Ref> => !("$ref" in parameter));
+    expect(parameters).toEqual([
+      { name: "seasonId", in: "query", required: true, schema: { type: "string", format: "uuid" } },
+      { name: "category", in: "query", required: true, schema: { type: "string", enum: ["ENGLISH", "PROVERB"] } },
+      { name: "limit", in: "query", required: true, schema: { type: "integer", minimum: 1, maximum: 10 } },
+    ]);
+
+    const response = document.components.schemas.WeeklyCategoryBoardResponse!;
+    expect(response.additionalProperties).toBe(false);
+    expect(response.required).toEqual(["seasonId", "category", "snapshotRevision", "rows", "myRank"]);
+    expect(Object.keys(response.properties ?? {}).sort()).toEqual(["category", "myRank", "rows", "seasonId", "snapshotRevision"]);
+    expect(response.properties?.rows?.items?.additionalProperties).toBe(false);
+    expect(response.properties?.rows?.items?.required).toEqual(["rank", "nickname", "displayScore"]);
+    expect(Object.keys(response.properties?.rows?.items?.properties ?? {}).sort()).toEqual(["displayScore", "nickname", "rank"]);
   });
   it("pins route-specific request, response, status, and error schemas", () => {
     for (const [key, contract] of Object.entries(expected)) {
