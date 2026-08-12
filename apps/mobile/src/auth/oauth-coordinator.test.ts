@@ -115,6 +115,32 @@ describe('Google and Kakao PKCE coordinator', () => {
     await expect(changed.startOAuth('kakao')).rejects.toThrow('OAUTH_SESSION_CHANGED');
   });
 
+  it('rejects a competing start before it can overwrite or clear the pending transaction', async () => {
+    let release!: (value: Readonly<{ type: string; url?: string }>) => void;
+    const browserResult = new Promise<Readonly<{ type: string; url?: string }>>((resolve) => { release = resolve; });
+    const storage = memoryStorage();
+    const signInWithOAuth = vi.fn(async () => ({ data: { url: 'https://local.supabase.test/authorize' }, error: null }));
+    const coordinator = createOAuthCoordinator({
+      auth: {
+        getSessionIdentity: async () => null,
+        signInWithOAuth,
+        exchangeCodeForSession: async () => ({ error: null }),
+      },
+      browser: { openAuthSessionAsync: async () => browserResult },
+      storage, ensureAccount: async () => undefined,
+    });
+
+    const first = coordinator.startOAuth('google');
+    await vi.waitFor(() => expect(signInWithOAuth).toHaveBeenCalledTimes(1));
+    const ownedPending = await storage.getItem('touchcatch.auth.pkce.pending');
+    await expect(coordinator.startOAuth('kakao')).rejects.toThrow('OAUTH_START_IN_PROGRESS');
+    expect(signInWithOAuth).toHaveBeenCalledTimes(1);
+    expect(await storage.getItem('touchcatch.auth.pkce.pending')).toBe(ownedPending);
+
+    release({ type: 'success', url: 'spotlearn://auth/callback?code=owned' });
+    await expect(first).resolves.toEqual({ state: 'READY' });
+  });
+
   it('clears pending authorization after browser cancellation', async () => {
     const storage = memoryStorage();
     const coordinator = createOAuthCoordinator({

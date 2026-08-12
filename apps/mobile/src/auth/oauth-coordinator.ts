@@ -59,6 +59,7 @@ export function createOAuthCoordinator(dependencies: Readonly<{
 }>) {
   let inFlight: Readonly<{ url: string; operation: Promise<OAuthGateResult> }> | null = null;
   let terminal: Readonly<{ url: string; result: OAuthGateResult }> | null = null;
+  let startInFlight = false;
 
   const completeOAuth = async (rawUrl: string): Promise<OAuthGateResult> => {
     const code = callbackCode(rawUrl);
@@ -97,15 +98,17 @@ export function createOAuthCoordinator(dependencies: Readonly<{
   return {
     completeOAuth,
     async startOAuth(provider: OAuthProvider): Promise<OAuthGateResult> {
-      const previousSessionId = await dependencies.auth.getSessionIdentity?.() ?? null;
-      if (previousSessionId !== null) throw new Error('OAUTH_SESSION_EXISTS');
-      const signIn = dependencies.auth.signInWithOAuth;
-      const open = dependencies.browser.openAuthSessionAsync;
-      if (!signIn || !open) throw new Error('OAUTH_UNAVAILABLE');
-      await dependencies.storage.setItem(pendingKey, JSON.stringify({
-        kind: 'oauth', provider, stage: 'authorization-pending', previousSessionId,
-      } satisfies PendingTransaction));
+      if (startInFlight) throw new Error('OAUTH_START_IN_PROGRESS');
+      startInFlight = true;
       try {
+        const previousSessionId = await dependencies.auth.getSessionIdentity?.() ?? null;
+        if (previousSessionId !== null) throw new Error('OAUTH_SESSION_EXISTS');
+        const signIn = dependencies.auth.signInWithOAuth;
+        const open = dependencies.browser.openAuthSessionAsync;
+        if (!signIn || !open) throw new Error('OAUTH_UNAVAILABLE');
+        await dependencies.storage.setItem(pendingKey, JSON.stringify({
+          kind: 'oauth', provider, stage: 'authorization-pending', previousSessionId,
+        } satisfies PendingTransaction));
         const authorization = await signIn({ provider, options: { redirectTo: callbackUrl, skipBrowserRedirect: true } });
         if (authorization.error || !authorization.data?.url) throw new Error('OAUTH_AUTHORIZATION_FAILED');
         const browserResult = await open(authorization.data.url, callbackUrl);
@@ -115,6 +118,8 @@ export function createOAuthCoordinator(dependencies: Readonly<{
         const pending = parsePending(await dependencies.storage.getItem(pendingKey));
         if (pending?.stage === 'authorization-pending') await dependencies.storage.removeItem(pendingKey);
         throw error;
+      } finally {
+        startInFlight = false;
       }
     },
   };

@@ -13,7 +13,7 @@
 - Providers are the exact union `google | kakao`.
 - Native callback is exactly `spotlearn://auth/callback`; fragments and extra query parameters are rejected.
 - Only an authorization code is passed to `exchangeCodeForSession`; tokens, verifier, email, and full callback URLs are never logged.
-- A pending transaction has one callback owner at a time; an exact WebBrowser/Router duplicate receives the cached terminal result, while a competing callback is rejected.
+- A pending transaction has one authorization start and one callback owner at a time; an exact WebBrowser/Router duplicate receives the cached terminal result, while competing starts or callbacks are rejected.
 - OAuth controls render only after the session is confirmed signed out, and the coordinator rejects an existing or unexpectedly changed session to keep login separate from account linking.
 - The mobile client never contains Google/Kakao client secrets or a Supabase secret/service-role key.
 - OAuth account bootstrap must use an authenticated public endpoint and must never accept a client-supplied subject identifier.
