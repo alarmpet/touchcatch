@@ -32,11 +32,11 @@
 - Consumes: `SupabaseAuthPort.signInWithOAuth`, `exchangeCodeForSession`, `getSessionIdentity`; browser `openAuthSessionAsync`; Web Storage-compatible persistence.
 - Produces: `createOAuthCoordinator(...).startOAuth(provider)` and `.completeOAuth(url)` returning `READY | ACCOUNT_SETUP_FAILED`.
 
-- [ ] **Step 1: Write failing tests** for exact provider input, exact callback, code-only exchange, fragments/extra params/provider errors, cancellation, replay, and concurrent callback deduplication.
-- [ ] **Step 2: Run focused tests and verify RED** because `oauth-coordinator.ts` does not exist and the auth port lacks OAuth methods.
-- [ ] **Step 3: Implement the minimal coordinator** with pending transaction storage key `touchcatch.auth.pkce.pending`, callback parser, one-shot completion fence, and generic stable errors.
-- [ ] **Step 4: Extend the Supabase adapter narrowly** without exposing the raw client or refresh token.
-- [ ] **Step 5: Run focused tests and mobile typecheck; commit** with `feat(mobile): restore Google and Kakao PKCE boundary`.
+- [x] **Step 1: Write failing tests** for exact provider input, exact callback, code-only exchange, fragments/extra params/provider errors, cancellation, replay, and concurrent callback deduplication.
+- [x] **Step 2: Run focused tests and verify RED** because `oauth-coordinator.ts` does not exist and the auth port lacks OAuth methods.
+- [x] **Step 3: Implement the minimal coordinator** with pending transaction storage key `touchcatch.auth.pkce.pending`, callback parser, one-shot completion fence, and generic stable errors.
+- [x] **Step 4: Extend the Supabase adapter narrowly** without exposing the raw client or refresh token.
+- [x] **Step 5: Run focused tests and mobile typecheck; commit** with `feat(mobile): restore Google and Kakao PKCE boundary` (`53d183c`).
 
 ### Task 2: Connect OAuth to the current runtime and profile UX
 
@@ -44,18 +44,19 @@
 - Modify: `apps/mobile/src/runtime/mobile-runtime.tsx`
 - Modify: `apps/mobile/app/profile.tsx`
 - Create: `apps/mobile/app/auth/callback.tsx`
-- Test: `apps/mobile/app/profile.test.tsx`
+- Test: `apps/mobile/src/auth/profile-social-login.test.tsx`
+- Test: `apps/mobile/src/auth/oauth-callback-route.test.tsx`
 - Test: `apps/mobile/src/auth/production-boundary.test.ts`
 
 **Interfaces:**
 - Consumes: Task 1 coordinator and current session controller.
 - Produces: `runtime.oauth.startOAuth('google' | 'kakao')`, Google/Kakao profile buttons, and callback route completion.
 
-- [ ] **Step 1: Write failing render and boundary tests** requiring both provider buttons, no secrets/raw client, and a callback route that consumes only coordinator results.
-- [ ] **Step 2: Run focused tests and verify RED** because runtime/UI/callback wiring is absent.
-- [ ] **Step 3: Add pinned Expo browser dependency** using the existing workspace package manager; use installed Expo Router linking for the callback route.
-- [ ] **Step 4: Implement runtime wiring and UX** with cancellation-safe messages and no sensitive error details.
-- [ ] **Step 5: Run focused tests, mobile contracts, typecheck, and ESLint; commit** with `feat(mobile): expose social login on profile`.
+- [x] **Step 1: Write failing render and boundary tests** requiring both provider buttons, no secrets/raw client, and a callback route that consumes only coordinator results.
+- [x] **Step 2: Run focused tests and verify RED** because runtime/UI/callback wiring is absent.
+- [x] **Step 3: Add pinned Expo browser dependency** using the existing workspace package manager; use installed Expo Router linking for the callback route.
+- [x] **Step 4: Implement runtime wiring and UX** with cancellation-safe messages and no sensitive error details.
+- [x] **Step 5: Run focused tests, mobile contracts, typecheck, and ESLint; commit** with `feat(mobile): expose social login on profile` (`6ff65d1`).
 
 ### Task 3: Implement the authenticated account-bootstrap endpoint
 
@@ -70,16 +71,17 @@
 - Consumes: the shared Bearer verifier and existing `SubjectResolver.ensureAndResolve(authenticatedUserId)`.
 - Produces: `GET /v1/me` returning only `{ accountReady: true }`; it accepts no query/body/subject fields.
 
-- [ ] **Step 1: Write failing handler/router tests** for verified JWT bootstrap, missing/invalid authorization, query rejection, and absence of private IDs in the response.
-- [ ] **Step 2: Run focused tests and verify RED** because the OpenAPI operation has no runtime route.
-- [ ] **Step 3: Implement the minimal handler and wire it into the router/runtime** using the existing resolver; do not return profile/provider/subject fields.
-- [ ] **Step 4: Run server tests, typecheck, and OpenAPI lint; commit** with `feat(server): expose authenticated account bootstrap`.
+- [x] **Step 1: Write failing handler/router tests** for verified JWT bootstrap, missing/invalid authorization, query rejection, and absence of private IDs in the response.
+- [x] **Step 2: Run focused tests and verify RED** because the OpenAPI operation has no runtime route.
+- [x] **Step 3: Implement the minimal handler and wire it into the router/runtime** using the existing resolver; do not return profile/provider/subject fields.
+- [x] **Step 4: Run server tests, typecheck, and OpenAPI lint; commit** with `feat(server): expose authenticated account bootstrap` (`ab33b52`).
 
 ### Task 4: Align local callback configuration and Android evidence
 
 **Files:**
 - Modify: `supabase/config.toml`
 - Create: `tests/contracts/mobile-oauth-config.test.ts`
+- Modify: `tools/mobile/start-metro-local.ps1`
 - Modify: `docs/superpowers/plans/2026-07-19-supabase-auth-integration-plan.md`
 - Modify: `docs/reviews/2026-08-11-mobile-feature-acceptance-report.md`
 
@@ -87,11 +89,11 @@
 - Consumes: exact callback contract and Android development build.
 - Produces: local redirect allow-list, manual-linking gate, automated callback evidence, and truthful provider-golden blocker.
 
-- [ ] **Step 1: Write a failing config contract** requiring exact `spotlearn://auth/callback` and `enable_manual_linking = true`.
-- [ ] **Step 2: Run the config test and verify RED** against the current empty redirect list.
-- [ ] **Step 3: Update local Supabase config** without adding provider secrets or falsely enabling unconfigured Google/Kakao providers.
-- [ ] **Step 4: Rebuild or refresh Metro, open the profile on Android, verify both buttons and fail-closed provider behavior, and capture D-drive evidence.**
-- [ ] **Step 5: Run the full non-DB suite, mobile/server typechecks, OpenAPI/docs/secret/ESLint gates, and `git diff --check`; update docs and commit** with `docs(auth): record social login restoration evidence`.
+- [x] **Step 1: Write a failing config contract** requiring exact `spotlearn://auth/callback` and `enable_manual_linking = true`.
+- [x] **Step 2: Run the config test and verify RED** against the current empty redirect list.
+- [x] **Step 3: Update local Supabase config** without adding provider secrets or falsely enabling unconfigured Google/Kakao providers.
+- [x] **Step 4: Rebuild or refresh Metro, open the profile on Android, verify both buttons and fail-closed provider behavior, and capture D-drive evidence.** APK/package/intent, rendered profile, provider-disabled 400s, generic app failures, and clean logcat were captured under `D:\tcbuild\android-oauth-runtime`.
+- [x] **Step 5: Run the full non-DB suite, mobile/server typechecks, OpenAPI/docs/secret/ESLint gates, and `git diff --check`; update docs and commit** with `docs(auth): record social login restoration evidence`. Verified 153 files/1,326 tests, 37 mobile files/128 tests, mobile/server/root typechecks, Expo dependency compatibility, focused ESLint, OpenAPI, docs, secret scan, Android rebuild/reinstall, and final emulator smoke.
 
 ## External Acceptance Gate
 

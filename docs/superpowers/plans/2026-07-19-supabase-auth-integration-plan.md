@@ -124,10 +124,10 @@
 **Interfaces:**
 - Produces: `signUpEmail`, `signInEmail`, `resendVerification`, `requestPasswordReset`, `startOAuth(provider)`, `completeOAuth(url)`.
 
-- [ ] **Step 1: RED callback 테스트** — exact scheme/path, stored state, one-shot completion fence, code-only exchange를 허용하고 fragment token, replay, mismatch, provider error를 거절한다.
+- [x] **Step 1: RED callback 테스트** — exact scheme/path, stored state, one-shot completion fence, code-only exchange를 허용하고 fragment token, replay, mismatch, provider error를 거절한다. (`53d183c`)
 - [ ] **Step 2: RED email 테스트** — unverified 상태, generalized resend/reset response, verified 뒤 bootstrap 호출, `ACCOUNT_SETUP_FAILED` 보존을 검증한다.
-- [ ] **Step 3: local config RED** — config test가 exact callback과 `enable_manual_linking=true`를 요구하도록 만들고 FAIL을 확인한다.
-- [ ] **Step 4: 최소 구현** — WebBrowser auth session을 열고 반환 code만 `exchangeCodeForSession`에 넘긴다. callback URL/token/email 전체를 로그하지 않는다.
+- [x] **Step 3: local config RED** — config test가 exact callback과 `enable_manual_linking=true`를 요구하도록 만들고 FAIL을 확인한다.
+- [x] **Step 4: 최소 구현** — WebBrowser auth session을 열고 반환 code만 `exchangeCodeForSession`에 넘긴다. callback URL/token/email 전체를 로그하지 않는다. (`53d183c`, `6ff65d1`)
 - [ ] **Step 5: config와 Inbucket 연결** — `additional_redirect_urls=["spotlearn://auth/callback"]`을 설정하고 로컬 email test 절차를 operations 문서에 기록한다.
 - [ ] **Step 6: GREEN/회귀/커밋** — focused tests와 `corepack pnpm check` 후 `git commit -m "feat(mobile): add PKCE and email authentication"`.
 
