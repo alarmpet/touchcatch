@@ -1,8 +1,10 @@
 import React, { createContext, useContext, useEffect, useState, useSyncExternalStore } from 'react';
 import * as Crypto from 'expo-crypto';
+import * as WebBrowser from 'expo-web-browser';
 import { parseMobileEnvironment, type MobileEnvironment } from '../auth/env';
 import { createMobileSupabaseRuntime } from '../auth/supabase-client';
 import { createSessionController, type PublicSessionState, type SessionController } from '../auth/session-controller';
+import { createOAuthCoordinator } from '../auth/oauth-coordinator';
 import { createMobileApiTransport, createIdempotencyKey } from '../api/mobile-api-transport';
 import { createPetApi } from '../features/pets/pet-api';
 import { createRankingClient } from '../features/ranking/ranking-client';
@@ -11,6 +13,7 @@ type Runtime = Readonly<{ status: 'LOADING' }> | Readonly<{
   status: 'READY';
   environment: MobileEnvironment;
   session: SessionController;
+  oauth: ReturnType<typeof createOAuthCoordinator>;
   pets: ReturnType<typeof createPetApi>;
   ranking: ReturnType<typeof createRankingClient>;
   createMutationKey(): string;
@@ -36,8 +39,19 @@ export function MobileRuntimeProvider({ children }: Readonly<{ children: React.R
       const supabase = createMobileSupabaseRuntime(environment);
       const session = createSessionController(supabase.auth);
       const transport = createMobileApiTransport({ baseUrl: environment.apiOrigin, tokens: session });
+      const oauth = createOAuthCoordinator({
+        auth: supabase.auth,
+        browser: WebBrowser,
+        storage: globalThis.localStorage,
+        ensureAccount: async () => {
+          const token = await session.getAccessToken();
+          if (!token) throw new Error('AUTH_SESSION_REQUIRED');
+          const response = await fetch(`${environment.apiOrigin}/v1/me`, { headers: { authorization: `Bearer ${token}` } });
+          if (!response.ok) throw new Error('ACCOUNT_SETUP_FAILED');
+        },
+      });
       const ready: Runtime = {
-        status: 'READY', environment, session,
+        status: 'READY', environment, session, oauth,
         pets: createPetApi(transport), ranking: createRankingClient(transport),
         createMutationKey: () => createIdempotencyKey(Crypto.randomUUID),
       };

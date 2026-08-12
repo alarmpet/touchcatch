@@ -10,7 +10,7 @@ vi.mock('../runtime/mobile-runtime', () => ({ useMobileRuntime: vi.fn(), useMobi
 describe('profile auth route', () => {
   it('shows local email authentication and never renders token data', () => {
     let tree!: ReturnType<typeof create>;
-    act(() => { tree = create(<ProfileRouteView session={{ status: 'signed-out' }} email="" password="" busy={false} onEmail={vi.fn()} onPassword={vi.fn()} onSignIn={vi.fn()} onSignOut={vi.fn()} />); });
+    act(() => { tree = create(<ProfileRouteView session={{ status: 'signed-out' }} email="" password="" busy={false} onEmail={vi.fn()} onPassword={vi.fn()} onSignIn={vi.fn()} onSignOut={vi.fn()} onOAuth={vi.fn()} />); });
     expect(tree.root.findByProps({ accessibilityLabel: '이메일' })).toBeTruthy();
     expect(tree.root.findByProps({ accessibilityLabel: '비밀번호' }).props.secureTextEntry).toBe(true);
     expect(JSON.stringify(tree.toJSON())).not.toMatch(/access[_-]?token|refresh[_-]?token/iu);

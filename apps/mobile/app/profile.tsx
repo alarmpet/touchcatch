@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Pressable, ScrollView, Text, TextInput, View } from 'react-native';
 import type { PublicSessionState } from '../src/auth/session-controller';
+import type { OAuthProvider } from '../src/auth/oauth-coordinator';
 import { useMobileRuntime, useMobileSession } from '../src/runtime/mobile-runtime';
 import { colors, radius, spacing } from '../src/ui/design-tokens';
 
@@ -14,6 +15,7 @@ export function ProfileRouteView(props: Readonly<{
   onPassword(value: string): void;
   onSignIn(): void;
   onSignOut(): void;
+  onOAuth(provider: OAuthProvider): void;
 }>) {
   return <ScrollView contentContainerStyle={{ padding: spacing.lg, backgroundColor: colors.canvas, flexGrow: 1 }}>
     <Text accessibilityRole="header" style={{ marginTop: 18, color: colors.ink, fontSize: 28, fontWeight: '900' }}>내 정보</Text>
@@ -25,6 +27,10 @@ export function ProfileRouteView(props: Readonly<{
       <TextInput accessibilityLabel="이메일" autoCapitalize="none" keyboardType="email-address" value={props.email} onChangeText={props.onEmail} placeholder="email@example.com" style={{ padding: 14, borderRadius: radius.button, backgroundColor: colors.white, borderWidth: 1, borderColor: colors.line }} />
       <TextInput accessibilityLabel="비밀번호" secureTextEntry value={props.password} onChangeText={props.onPassword} placeholder="비밀번호" style={{ padding: 14, borderRadius: radius.button, backgroundColor: colors.white, borderWidth: 1, borderColor: colors.line }} />
       <Pressable accessibilityRole="button" accessibilityLabel="로그인" disabled={props.busy || !props.email.trim() || !props.password} onPress={props.onSignIn} style={{ padding: 14, borderRadius: radius.button, backgroundColor: colors.sky }}><Text style={{ textAlign: 'center', color: colors.white, fontWeight: '900' }}>{props.busy ? '로그인 중…' : '로그인'}</Text></Pressable>
+      <View accessibilityLabel="소셜 로그인" style={{ marginTop: spacing.md, gap: spacing.sm }}>
+        <Pressable accessibilityRole="button" accessibilityLabel="Google로 계속" disabled={props.busy} onPress={() => props.onOAuth('google')} style={{ padding: 14, borderRadius: radius.button, backgroundColor: colors.white, borderColor: colors.line, borderWidth: 1 }}><Text style={{ textAlign: 'center', color: colors.ink, fontWeight: '900' }}>Google로 계속</Text></Pressable>
+        <Pressable accessibilityRole="button" accessibilityLabel="Kakao로 계속" disabled={props.busy} onPress={() => props.onOAuth('kakao')} style={{ padding: 14, borderRadius: radius.button, backgroundColor: '#FEE500' }}><Text style={{ textAlign: 'center', color: '#191919', fontWeight: '900' }}>Kakao로 계속</Text></Pressable>
+      </View>
     </View>}
     {props.message && <Text accessibilityRole="alert" style={{ marginTop: spacing.md, color: '#B42318' }}>{props.message}</Text>}
   </ScrollView>;
@@ -51,6 +57,15 @@ export default function ProfileRoute() {
     catch { setMessage('이 기기에서 로그아웃하지 못했어요. 다시 시도해 주세요.'); }
     finally { setBusy(false); }
   };
+  const oauth = async (provider: OAuthProvider) => {
+    if (runtime.status !== 'READY') return;
+    setBusy(true); setMessage(undefined);
+    try {
+      const result = await runtime.oauth.startOAuth(provider);
+      if (result.state === 'ACCOUNT_SETUP_FAILED') setMessage('로그인은 완료됐지만 계정을 준비하지 못했어요. 다시 시도해 주세요.');
+    } catch { setMessage('소셜 로그인을 완료하지 못했어요. 다시 시도해 주세요.'); }
+    finally { setBusy(false); }
+  };
   const visibleMessage = runtime.status === 'CONFIG_ERROR' ? '모바일 연결 설정이 필요해요.' : message;
-  return <ProfileRouteView session={session} email={email} password={password} busy={busy} {...(visibleMessage === undefined ? {} : { message: visibleMessage })} onEmail={setEmail} onPassword={setPassword} onSignIn={() => void signIn()} onSignOut={() => void signOut()} />;
+  return <ProfileRouteView session={session} email={email} password={password} busy={busy} {...(visibleMessage === undefined ? {} : { message: visibleMessage })} onEmail={setEmail} onPassword={setPassword} onSignIn={() => void signIn()} onSignOut={() => void signOut()} onOAuth={(provider) => void oauth(provider)} />;
 }
