@@ -35,9 +35,10 @@ file_size_limit = "50MiB"
 [auth]
 enabled = true
 site_url = "http://127.0.0.1:3000"
-additional_redirect_urls = []
+additional_redirect_urls = ["spotlearn://auth/callback"]
 jwt_expiry = 3600
 enable_signup = true
+enable_manual_linking = true
 
 [analytics]
 enabled = true

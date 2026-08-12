@@ -1,7 +1,8 @@
 param(
   [int]$Port = 8081,
   [string]$ApiOrigin = 'http://127.0.0.1:18787',
-  [string]$EvidenceRoot = 'D:\tcbuild'
+  [string]$EvidenceRoot = 'D:\tcbuild',
+  [switch]$UsePublicEnvironment
 )
 
 $ErrorActionPreference = 'Stop'
@@ -11,16 +12,22 @@ if ($EvidenceRoot -ne $approvedRoot -and -not $EvidenceRoot.StartsWith("$approve
   throw 'EvidenceRoot must resolve under D:\tcbuild.'
 }
 $workspace = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
-$supabase = Join-Path $workspace 'node_modules\.bin\supabase.cmd'
-$ErrorActionPreference = 'Continue'
-$statusText = & $supabase status -o json 2>$null
-$statusExit = $LASTEXITCODE
-$ErrorActionPreference = 'Stop'
-if ($statusExit -ne 0) { throw 'Unable to read local Supabase status.' }
-$status = $statusText | ConvertFrom-Json
-if (-not $status.API_URL -or -not $status.PUBLISHABLE_KEY) { throw 'Local Supabase public mobile configuration is unavailable.' }
-$env:EXPO_PUBLIC_SUPABASE_URL = [string]$status.API_URL
-$env:EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY = [string]$status.PUBLISHABLE_KEY
+if ($UsePublicEnvironment) {
+  if (-not $env:EXPO_PUBLIC_SUPABASE_URL -or -not $env:EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY) {
+    throw 'Public Supabase environment is incomplete.'
+  }
+} else {
+  $supabase = Join-Path $workspace 'node_modules\.bin\supabase.cmd'
+  $ErrorActionPreference = 'Continue'
+  $statusText = & $supabase status -o json 2>$null
+  $statusExit = $LASTEXITCODE
+  $ErrorActionPreference = 'Stop'
+  if ($statusExit -ne 0) { throw 'Unable to read local Supabase status.' }
+  $status = $statusText | ConvertFrom-Json
+  if (-not $status.API_URL -or -not $status.PUBLISHABLE_KEY) { throw 'Local Supabase public mobile configuration is unavailable.' }
+  $env:EXPO_PUBLIC_SUPABASE_URL = [string]$status.API_URL
+  $env:EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY = [string]$status.PUBLISHABLE_KEY
+}
 $env:EXPO_PUBLIC_API_ORIGIN = $ApiOrigin
 $env:EXPO_PUBLIC_WEEKLY_SEASON_ID = '30000000-0000-4000-8000-000000000001'
 $env:TOUCHCATCH_NODE_HOME = 'D:\devtools\node-v24.18.0-win-x64'
