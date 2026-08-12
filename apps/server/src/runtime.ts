@@ -12,6 +12,7 @@ import { createSubjectResolver } from './auth/subject-resolver.js';
 import { createPgRpcClient, createSubjectResolutionRpc, type PgPoolLike } from './database/pg-rpc.js';
 import { createMobileApiRouter } from './http/router.js';
 import { createMobileApiHandlers, createPetHandlers } from './http/pet-handlers.js';
+import { createMeHandler } from './http/me-handler.js';
 import { createRankingHandler } from './http/ranking-handler.js';
 import { startNodeServer, type NodeServerHandle } from './http/node-server.js';
 import { PostgresWeeklyCategoryBoard } from './learning/weekly-category-board.js';
@@ -217,8 +218,9 @@ export async function startMobileApiRuntime(input: Readonly<{
     getPolicy: () => configuration.policy,
     board: new PostgresWeeklyCategoryBoard(rpc),
   });
+  const me = createMeHandler({ verifier, subjectResolver });
   const router = createMobileApiRouter({
-    handlers: createMobileApiHandlers(pets, ranking),
+    handlers: createMobileApiHandlers(pets, me, ranking),
     allowedOrigins: configuration.allowedOrigins,
   });
   try {

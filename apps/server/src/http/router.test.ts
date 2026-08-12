@@ -5,6 +5,7 @@ import { createMobileApiRouter } from './router.js';
 function handlers(): MobileApiHandlers {
   const ok = (route: string) => Promise.resolve(Response.json({ route }));
   return {
+    getMe: vi.fn(() => ok('me')),
     getPetCollection: vi.fn(() => ok('collection')),
     claimDailyDraw: vi.fn(() => ok('daily-draw')),
     promoteDuplicates: vi.fn(() => ok('duplicate-promotion')),
@@ -13,7 +14,7 @@ function handlers(): MobileApiHandlers {
 }
 
 describe('mobile API router', () => {
-  it('matches only the four exact method/path pairs and exposes a non-secret health probe', async () => {
+  it('matches only the five exact method/path pairs and exposes a non-secret health probe', async () => {
     const api = handlers();
     const route = createMobileApiRouter({ handlers: api });
 
@@ -22,6 +23,7 @@ describe('mobile API router', () => {
     expect(health.headers.get('content-type')).toMatch(/^application\/json/u);
     expect(await health.json()).toEqual({ status: 'ok' });
 
+    expect((await route(new Request('http://127.0.0.1:8787/v1/me'))).status).toBe(200);
     expect((await route(new Request('http://127.0.0.1:8787/v1/pets/collection'))).status).toBe(200);
     expect((await route(new Request('http://127.0.0.1:8787/v1/learning/leaderboard?seasonId=x'))).status).toBe(200);
     expect((await route(new Request('http://127.0.0.1:8787/v1/pets/daily-draw', { method: 'POST' }))).status).toBe(200);

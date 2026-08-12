@@ -18,14 +18,16 @@ export type PetHandlers = Readonly<{
   promoteDuplicates(request: Request): Promise<Response>;
 }>;
 export type MobileApiHandlers = PetHandlers & Readonly<{
+  getMe(request: Request): Promise<Response>;
   getWeeklyLeaderboard(request: Request): Promise<Response>;
 }>;
 
 export function createMobileApiHandlers(
   pets: PetHandlers,
+  getMe: (request: Request) => Promise<Response>,
   getWeeklyLeaderboard: (request: Request) => Promise<Response>,
 ): MobileApiHandlers {
-  return { ...pets, getWeeklyLeaderboard };
+  return { ...pets, getMe, getWeeklyLeaderboard };
 }
 
 export function createPetHandlers(input: Readonly<{

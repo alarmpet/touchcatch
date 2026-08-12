@@ -91,6 +91,7 @@ export function createMobileApiRouter(options: MobileApiRouterOptions): (request
   }
   const allowedOrigins = new Set(options.allowedOrigins ?? []);
   const routes = new Map<string, Route>([
+    ['/v1/me', { method: 'GET', handle: options.handlers.getMe }],
     ['/v1/pets/collection', { method: 'GET', handle: options.handlers.getPetCollection }],
     ['/v1/learning/leaderboard', { method: 'GET', handle: options.handlers.getWeeklyLeaderboard }],
     ['/v1/pets/daily-draw', { method: 'POST', handle: options.handlers.claimDailyDraw }],

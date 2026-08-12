@@ -59,15 +59,18 @@ describe('pet HTTP handlers', () => {
     expect(await notOwned.json()).toEqual({ code: 'NOT_OWNED' });
   });
 
-  it('rejects client-controlled fields on read and bodyless mutation routes and composes all four handlers', async () => {
+  it('rejects client-controlled fields on read and bodyless mutation routes and composes all five handlers', async () => {
     const f = fixture();
     expect((await f.handlers.getPetCollection(new Request(`https://api.test/v1/pets/collection?subjectKey=${subjectKey}`))).status).toBe(400);
     expect((await f.handlers.claimDailyDraw(new Request('https://api.test/v1/pets/daily-draw', { method: 'POST', headers: { 'Idempotency-Key': '70000000-0000-4000-8000-000000000001' }, body: JSON.stringify({ userId }) }))).status).toBe(400);
     expect(f.repository.claimEffectOnce).not.toHaveBeenCalled();
+    const me = vi.fn();
     const ranking = vi.fn();
-    const combined = createMobileApiHandlers(f.handlers, ranking);
+    const combined = createMobileApiHandlers(f.handlers, me, ranking);
+    await combined.getMe(new Request('https://api.test/v1/me'));
     await combined.getWeeklyLeaderboard(new Request('https://api.test/v1/learning/leaderboard'));
+    expect(me).toHaveBeenCalledOnce();
     expect(ranking).toHaveBeenCalledOnce();
-    expect(Object.keys(combined).sort()).toEqual(['claimDailyDraw', 'getPetCollection', 'getWeeklyLeaderboard', 'promoteDuplicates']);
+    expect(Object.keys(combined).sort()).toEqual(['claimDailyDraw', 'getMe', 'getPetCollection', 'getWeeklyLeaderboard', 'promoteDuplicates']);
   });
 });
