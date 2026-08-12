@@ -12,6 +12,12 @@ export interface SupabaseAuthPort {
   refreshSession(): AuthResult;
   onAuthStateChange(callback: (event: string, session: Session | null) => void): Readonly<{ data: Readonly<{ subscription: Readonly<{ unsubscribe(): void }> }> }>;
   signInWithPassword(input: Readonly<{ email: string; password: string }>): AuthResult;
+  signInWithOAuth?(input: Readonly<{
+    provider: 'google' | 'kakao';
+    options: Readonly<{ redirectTo: string; skipBrowserRedirect: true }>;
+  }>): Promise<Readonly<{ data: Readonly<{ url: string | null }>; error: unknown }>>;
+  exchangeCodeForSession?(code: string): Promise<Readonly<{ error: unknown }>>;
+  getSessionIdentity?(): Promise<string | null>;
   signOut(input: Readonly<{ scope: 'local' }>): Promise<Readonly<{ error: unknown }>>;
 }
 

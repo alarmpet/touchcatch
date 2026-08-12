@@ -37,4 +37,26 @@ describe('mobile Supabase runtime', () => {
     runtime.dispose();
     expect(remove).toHaveBeenCalledOnce();
   });
+
+  it('projects only the narrow OAuth authorization, code exchange, and session identity operations', async () => {
+    const signInWithOAuth = vi.fn().mockResolvedValue({ data: { url: 'https://project.supabase.co/auth/v1/authorize' }, error: null });
+    const exchangeCodeForSession = vi.fn().mockResolvedValue({ data: { session: {} }, error: null });
+    const getSession = vi.fn().mockResolvedValue({ data: { session: { access_token: 'access', user: { id: 'user-1', email: 'learner@example.test' } } }, error: null });
+    const runtime = createMobileSupabaseRuntime({
+      supabaseUrl: 'https://project.supabase.co',
+      supabasePublishableKey: 'sb_publishable_abcdefghijklmnopqrstuvwxyz',
+    }, {
+      createClient: vi.fn().mockReturnValue({ auth: {
+        getSession, refreshSession: vi.fn(), onAuthStateChange: vi.fn(), signInWithPassword: vi.fn(), signOut: vi.fn(),
+        signInWithOAuth, exchangeCodeForSession, startAutoRefresh: vi.fn(), stopAutoRefresh: vi.fn(),
+      } }) as never,
+      storage: { getItem: vi.fn(), setItem: vi.fn(), removeItem: vi.fn() } as never,
+      platform: 'web',
+    });
+
+    await expect(runtime.auth.signInWithOAuth?.({ provider: 'google', options: { redirectTo: 'spotlearn://auth/callback', skipBrowserRedirect: true } })).resolves.toEqual({ data: { url: 'https://project.supabase.co/auth/v1/authorize' }, error: null });
+    await expect(runtime.auth.exchangeCodeForSession?.('one-time-code')).resolves.toEqual({ error: null });
+    await expect(runtime.auth.getSessionIdentity?.()).resolves.toBe('user-1');
+    expect(runtime).not.toHaveProperty('client');
+  });
 });

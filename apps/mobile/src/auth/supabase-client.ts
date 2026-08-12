@@ -42,6 +42,18 @@ function authPort(client: SupabaseClient): SupabaseAuthPort {
       const result = await client.auth.signInWithPassword(input);
       return { data: { session: projectSession(result.data.session) }, error: result.error };
     },
+    async signInWithOAuth(input) {
+      const result = await client.auth.signInWithOAuth(input);
+      return { data: { url: result.data.url }, error: result.error };
+    },
+    async exchangeCodeForSession(code) {
+      const result = await client.auth.exchangeCodeForSession(code);
+      return { error: result.error };
+    },
+    async getSessionIdentity() {
+      const result = await client.auth.getSession();
+      return result.error ? null : result.data.session?.user.id ?? null;
+    },
     signOut: (input) => client.auth.signOut(input),
   };
 }
