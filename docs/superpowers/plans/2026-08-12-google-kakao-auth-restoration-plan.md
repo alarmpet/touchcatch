@@ -57,7 +57,25 @@
 - [ ] **Step 4: Implement runtime wiring and UX** with cancellation-safe messages and no sensitive error details.
 - [ ] **Step 5: Run focused tests, mobile contracts, typecheck, and ESLint; commit** with `feat(mobile): expose social login on profile`.
 
-### Task 3: Align local callback configuration and Android evidence
+### Task 3: Implement the authenticated account-bootstrap endpoint
+
+**Files:**
+- Create: `apps/server/src/http/me-handler.ts`
+- Test: `apps/server/src/http/me-handler.test.ts`
+- Modify: `apps/server/src/http/pet-handlers.ts`
+- Modify: `apps/server/src/http/router.ts`
+- Modify: `apps/server/src/runtime.ts`
+
+**Interfaces:**
+- Consumes: the shared Bearer verifier and existing `SubjectResolver.ensureAndResolve(authenticatedUserId)`.
+- Produces: `GET /v1/me` returning only `{ accountReady: true }`; it accepts no query/body/subject fields.
+
+- [ ] **Step 1: Write failing handler/router tests** for verified JWT bootstrap, missing/invalid authorization, query rejection, and absence of private IDs in the response.
+- [ ] **Step 2: Run focused tests and verify RED** because the OpenAPI operation has no runtime route.
+- [ ] **Step 3: Implement the minimal handler and wire it into the router/runtime** using the existing resolver; do not return profile/provider/subject fields.
+- [ ] **Step 4: Run server tests, typecheck, and OpenAPI lint; commit** with `feat(server): expose authenticated account bootstrap`.
+
+### Task 4: Align local callback configuration and Android evidence
 
 **Files:**
 - Modify: `supabase/config.toml`
