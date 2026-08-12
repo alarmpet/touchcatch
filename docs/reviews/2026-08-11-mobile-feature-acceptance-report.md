@@ -42,6 +42,7 @@ The run also found and fixed four real mobile defects: pet inventory rows sharin
 5. Home availability was static. It now follows mobile runtime readiness and delegates policy/category rejection to the authoritative destination routes.
 6. Expo prebuild regenerated the Android package as `com.touchcatch.mobile` and registered the exact `spotlearn` callback scheme.
 7. OAuth route tests were moved from `apps/mobile/app` to `apps/mobile/src/auth`; a contract now prevents test modules from entering the Expo Router route graph.
+8. Final OAuth review hardened the boundary against concurrent different-code callbacks, WebBrowser/Router duplicate delivery, credential/port/noncanonical callback URLs, and login attempts before a confirmed signed-out session.
 
 ## Remaining blockers and risks
 

@@ -23,7 +23,7 @@ export function ProfileRouteView(props: Readonly<{
       <Text style={{ color: colors.white, fontSize: 22, fontWeight: '900' }}>{props.session.status === 'signed-in' ? (props.session.email ?? 'TouchCatch 학습자') : '학습 기록을 이어가세요'}</Text>
       <Text style={{ marginTop: 6, color: '#DFF2FF' }}>{props.session.status === 'signed-in' ? '펫과 주간 랭킹이 이 계정에 안전하게 연결돼요.' : '로그인하면 서버에 저장된 펫과 기록을 다시 불러와요.'}</Text>
     </View>
-    {props.session.status === 'signed-in' ? <Pressable accessibilityRole="button" accessibilityLabel="로그아웃" disabled={props.busy} onPress={props.onSignOut} style={{ marginTop: spacing.xl, padding: 14, borderRadius: radius.button, backgroundColor: colors.white, borderColor: colors.line, borderWidth: 1 }}><Text style={{ textAlign: 'center', color: colors.ink, fontWeight: '800' }}>이 기기에서 로그아웃</Text></Pressable> : <View style={{ marginTop: spacing.xl, gap: spacing.sm }}>
+    {props.session.status === 'signed-in' ? <Pressable accessibilityRole="button" accessibilityLabel="로그아웃" disabled={props.busy} onPress={props.onSignOut} style={{ marginTop: spacing.xl, padding: 14, borderRadius: radius.button, backgroundColor: colors.white, borderColor: colors.line, borderWidth: 1 }}><Text style={{ textAlign: 'center', color: colors.ink, fontWeight: '800' }}>이 기기에서 로그아웃</Text></Pressable> : props.session.status === 'signed-out' ? <View style={{ marginTop: spacing.xl, gap: spacing.sm }}>
       <TextInput accessibilityLabel="이메일" autoCapitalize="none" keyboardType="email-address" value={props.email} onChangeText={props.onEmail} placeholder="email@example.com" style={{ padding: 14, borderRadius: radius.button, backgroundColor: colors.white, borderWidth: 1, borderColor: colors.line }} />
       <TextInput accessibilityLabel="비밀번호" secureTextEntry value={props.password} onChangeText={props.onPassword} placeholder="비밀번호" style={{ padding: 14, borderRadius: radius.button, backgroundColor: colors.white, borderWidth: 1, borderColor: colors.line }} />
       <Pressable accessibilityRole="button" accessibilityLabel="로그인" disabled={props.busy || !props.email.trim() || !props.password} onPress={props.onSignIn} style={{ padding: 14, borderRadius: radius.button, backgroundColor: colors.sky }}><Text style={{ textAlign: 'center', color: colors.white, fontWeight: '900' }}>{props.busy ? '로그인 중…' : '로그인'}</Text></Pressable>
@@ -31,7 +31,7 @@ export function ProfileRouteView(props: Readonly<{
         <Pressable accessibilityRole="button" accessibilityLabel="Google로 계속" disabled={props.busy} onPress={() => props.onOAuth('google')} style={{ padding: 14, borderRadius: radius.button, backgroundColor: colors.white, borderColor: colors.line, borderWidth: 1 }}><Text style={{ textAlign: 'center', color: colors.ink, fontWeight: '900' }}>Google로 계속</Text></Pressable>
         <Pressable accessibilityRole="button" accessibilityLabel="Kakao로 계속" disabled={props.busy} onPress={() => props.onOAuth('kakao')} style={{ padding: 14, borderRadius: radius.button, backgroundColor: '#FEE500' }}><Text style={{ textAlign: 'center', color: '#191919', fontWeight: '900' }}>Kakao로 계속</Text></Pressable>
       </View>
-    </View>}
+    </View> : <Text accessibilityLiveRegion="polite" style={{ marginTop: spacing.xl, color: colors.muted }}>{props.session.status === 'loading' ? '로그인 상태를 확인하는 중이에요.' : '로그인 상태를 불러오지 못했어요.'}</Text>}
     {props.message && <Text accessibilityRole="alert" style={{ marginTop: spacing.md, color: '#B42318' }}>{props.message}</Text>}
   </ScrollView>;
 }

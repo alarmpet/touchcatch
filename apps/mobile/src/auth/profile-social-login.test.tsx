@@ -37,4 +37,20 @@ describe('ProfileRouteView social login', () => {
     expect(tree.root.findAllByProps({ accessibilityLabel: 'Google로 계속' })).toHaveLength(0);
     expect(tree.root.findAllByProps({ accessibilityLabel: 'Kakao로 계속' })).toHaveLength(0);
   });
+
+  it.each([{ status: 'loading' } as const, { status: 'error', code: 'AUTH_UNAVAILABLE' } as const])(
+    'does not render sign-in controls while the session is $status',
+    (session) => {
+      let tree!: ReturnType<typeof create>;
+      act(() => {
+        tree = create(<ProfileRouteView
+          session={session} email="" password="" busy={false}
+          onEmail={vi.fn()} onPassword={vi.fn()} onSignIn={vi.fn()} onSignOut={vi.fn()} onOAuth={vi.fn()}
+        />);
+      });
+      expect(tree.root.findAllByProps({ accessibilityLabel: 'Google로 계속' })).toHaveLength(0);
+      expect(tree.root.findAllByProps({ accessibilityLabel: 'Kakao로 계속' })).toHaveLength(0);
+      expect(tree.root.findAllByProps({ accessibilityLabel: '이메일' })).toHaveLength(0);
+    },
+  );
 });

@@ -32,11 +32,13 @@ function callbackCode(raw: string): string {
   if (url.protocol !== 'spotlearn:' || url.hostname !== 'auth' || url.pathname !== '/callback') {
     throw new Error('OAUTH_CALLBACK_INVALID');
   }
+  if (url.username !== '' || url.password !== '' || url.port !== '') throw new Error('OAUTH_CALLBACK_INVALID');
   if (url.hash !== '') throw new Error('OAUTH_CALLBACK_FRAGMENT_FORBIDDEN');
   if (url.searchParams.has('error')) throw new Error('OAUTH_CALLBACK_PROVIDER_ERROR');
   const keys = [...url.searchParams.keys()];
   const code = url.searchParams.get('code');
   if (keys.length !== 1 || keys[0] !== 'code' || !code) throw new Error('OAUTH_CALLBACK_CODE_INVALID');
+  if (raw !== `${callbackUrl}?code=${encodeURIComponent(code)}`) throw new Error('OAUTH_CALLBACK_INVALID');
   return code;
 }
 
@@ -55,15 +57,21 @@ export function createOAuthCoordinator(dependencies: Readonly<{
   storage: Storage;
   ensureAccount(): Promise<void>;
 }>) {
-  const inFlight = new Map<string, Promise<OAuthGateResult>>();
+  let inFlight: Readonly<{ url: string; operation: Promise<OAuthGateResult> }> | null = null;
+  let terminal: Readonly<{ url: string; result: OAuthGateResult }> | null = null;
 
   const completeOAuth = async (rawUrl: string): Promise<OAuthGateResult> => {
-    const existing = inFlight.get(rawUrl);
-    if (existing) return existing;
+    const code = callbackCode(rawUrl);
+    if (terminal?.url === rawUrl) return terminal.result;
+    if (inFlight) {
+      if (inFlight.url === rawUrl) return inFlight.operation;
+      throw new Error('OAUTH_COMPLETION_IN_PROGRESS');
+    }
     const operation: Promise<OAuthGateResult> = (async () => {
-      const code = callbackCode(rawUrl);
       const pending = parsePending(await dependencies.storage.getItem(pendingKey));
       if (pending === null) throw new Error('OAUTH_PENDING_MISSING');
+      const currentSessionId = await dependencies.auth.getSessionIdentity?.() ?? null;
+      if ((pending.previousSessionId ?? null) !== currentSessionId) throw new Error('OAUTH_SESSION_CHANGED');
       const exchange = dependencies.auth.exchangeCodeForSession;
       if (!exchange) throw new Error('OAUTH_UNAVAILABLE');
       await dependencies.storage.setItem(pendingKey, JSON.stringify({ ...pending, stage: 'exchanging' } satisfies PendingTransaction));
@@ -73,22 +81,27 @@ export function createOAuthCoordinator(dependencies: Readonly<{
       try {
         await dependencies.ensureAccount();
         await dependencies.storage.removeItem(pendingKey);
-        return { state: 'READY' };
+        const result = { state: 'READY' } as const;
+        terminal = { url: rawUrl, result };
+        return result;
       } catch {
-        return { state: 'ACCOUNT_SETUP_FAILED' };
+        const result = { state: 'ACCOUNT_SETUP_FAILED' } as const;
+        terminal = { url: rawUrl, result };
+        return result;
       }
     })();
-    inFlight.set(rawUrl, operation);
-    try { return await operation; } finally { inFlight.delete(rawUrl); }
+    inFlight = { url: rawUrl, operation };
+    try { return await operation; } finally { if (inFlight?.operation === operation) inFlight = null; }
   };
 
   return {
     completeOAuth,
     async startOAuth(provider: OAuthProvider): Promise<OAuthGateResult> {
+      const previousSessionId = await dependencies.auth.getSessionIdentity?.() ?? null;
+      if (previousSessionId !== null) throw new Error('OAUTH_SESSION_EXISTS');
       const signIn = dependencies.auth.signInWithOAuth;
       const open = dependencies.browser.openAuthSessionAsync;
       if (!signIn || !open) throw new Error('OAUTH_UNAVAILABLE');
-      const previousSessionId = await dependencies.auth.getSessionIdentity?.() ?? null;
       await dependencies.storage.setItem(pendingKey, JSON.stringify({
         kind: 'oauth', provider, stage: 'authorization-pending', previousSessionId,
       } satisfies PendingTransaction));
