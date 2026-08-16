@@ -303,9 +303,70 @@
           }
         ],
         "correctOptionId": "option_1"
-      }
+      },
+      "hintLadder": [
+        {
+          "ordinal": 1,
+          "kind": "CONTEXT_SENTENCE",
+          "localizedText": {
+            "ko": "내가 먼저 남에게 좋게 대해야 남도 나에게 좋게 대한다는 상황에 써요.",
+            "en": "Used when good words to others invite good words in return."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 2,
+          "kind": "DEFINITION",
+          "localizedText": {
+            "ko": "타인을 대할 때 말과 행동을 긍정적으로 해야 한다는 교훈이에요.",
+            "en": "Lesson that respectful words lead to respectful responses."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 3,
+          "kind": "INITIAL_PATTERN",
+          "localizedText": {
+            "ko": "ㄱㄴ ㅁㅇ ㄱㅇㅇ ㅇㄴ ㅁㅇ ㄱㄷ",
+            "en": "ㄱㄴ ㅁㅇ ㄱㅇㅇ ㅇㄴ ㅁㅇ ㄱㄷ"
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 4,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "한 음절을 공개해요.",
+            "en": "Reveal one syllable."
+          },
+          "revealIndexes": [
+            0
+          ],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 5,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "남은 음절을 번갈아 공개해요.",
+            "en": "Reveal alternating remaining syllables."
+          },
+          "revealIndexes": [
+            1,
+            4,
+            7,
+            10,
+            13,
+            16
+          ],
+          "rankedPenaltyUnits": 1
+        }
+      ]
     },
-    "privateSolutionHash": "ff5a20619fe763d431e09d4620c4b54002e1bce85e24f6e7e2077f66936f7dd9"
+    "privateSolutionHash": "e9a15d51cc8da7a8cab28bd7f43a8b5aaaacf3d9edeab99289291ded64b366e1"
   },
   "assetFiles": {
     "61f564e177adc43fc5ce813ae0dc67641ac8347711aea80b1edfa14c497f8fe8": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-kind-words-return-a.png",

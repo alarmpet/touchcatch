@@ -162,14 +162,12 @@
         }
       ],
       "hintLadderAdmission": {
-        "status": "MISSING",
-        "stepCount": 0,
-        "errors": [
-          "MISSING_HINT_LADDER"
-        ],
-        "hash": null
+        "status": "ADMITTED",
+        "stepCount": 5,
+        "errors": [],
+        "hash": "68bc5f2f68d249f95f55f4fa2cc4db750c7cca553400d5f93c42d0f49ea4641d"
       },
-      "rankedEligible": false,
+      "rankedEligible": true,
       "publishBlocked": true
     },
     {
@@ -240,14 +238,12 @@
         }
       ],
       "hintLadderAdmission": {
-        "status": "MISSING",
-        "stepCount": 0,
-        "errors": [
-          "MISSING_HINT_LADDER"
-        ],
-        "hash": null
+        "status": "ADMITTED",
+        "stepCount": 5,
+        "errors": [],
+        "hash": "984ec53a6004a1dc9de57061ff367c0d202fe1dfbfff88be3bc742f0cc06d22b"
       },
-      "rankedEligible": false,
+      "rankedEligible": true,
       "publishBlocked": true
     },
     {
@@ -466,14 +462,12 @@
         }
       ],
       "hintLadderAdmission": {
-        "status": "MISSING",
-        "stepCount": 0,
-        "errors": [
-          "MISSING_HINT_LADDER"
-        ],
-        "hash": null
+        "status": "ADMITTED",
+        "stepCount": 5,
+        "errors": [],
+        "hash": "3bfe240199e91e60a529538a9d6f0eaa450b9f2ab4d478bafe03975255e7d100"
       },
-      "rankedEligible": false,
+      "rankedEligible": true,
       "publishBlocked": true
     },
     {
@@ -998,14 +992,12 @@
         }
       ],
       "hintLadderAdmission": {
-        "status": "MISSING",
-        "stepCount": 0,
-        "errors": [
-          "MISSING_HINT_LADDER"
-        ],
-        "hash": null
+        "status": "ADMITTED",
+        "stepCount": 5,
+        "errors": [],
+        "hash": "b5dab80447f60e515b8e697c96896d55b41e35237884e724aee3a373667277bd"
       },
-      "rankedEligible": false,
+      "rankedEligible": true,
       "publishBlocked": true
     },
     {
@@ -2590,14 +2582,12 @@
         }
       ],
       "hintLadderAdmission": {
-        "status": "MISSING",
-        "stepCount": 0,
-        "errors": [
-          "MISSING_HINT_LADDER"
-        ],
-        "hash": null
+        "status": "ADMITTED",
+        "stepCount": 5,
+        "errors": [],
+        "hash": "959a0c9661537d4446dd564a7fb5d9edcfaccb4ee04a7ebc3da2d0012c14b580"
       },
-      "rankedEligible": false,
+      "rankedEligible": true,
       "publishBlocked": true
     },
     {
@@ -2628,14 +2618,12 @@
         }
       ],
       "hintLadderAdmission": {
-        "status": "MISSING",
-        "stepCount": 0,
-        "errors": [
-          "MISSING_HINT_LADDER"
-        ],
-        "hash": null
+        "status": "ADMITTED",
+        "stepCount": 5,
+        "errors": [],
+        "hash": "0883481f51c706e1daa73045fb349a8dcff98ebe9f5456a44dd800118af239c5"
       },
-      "rankedEligible": false,
+      "rankedEligible": true,
       "publishBlocked": true
     },
     {
@@ -2666,14 +2654,12 @@
         }
       ],
       "hintLadderAdmission": {
-        "status": "MISSING",
-        "stepCount": 0,
-        "errors": [
-          "MISSING_HINT_LADDER"
-        ],
-        "hash": null
+        "status": "ADMITTED",
+        "stepCount": 5,
+        "errors": [],
+        "hash": "af6dd7a0a54c173904d89d559cddc9b05b644a635c878c9849351b467feb6ffb"
       },
-      "rankedEligible": false,
+      "rankedEligible": true,
       "publishBlocked": true
     },
     {

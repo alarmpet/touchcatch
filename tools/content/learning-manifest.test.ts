@@ -240,7 +240,7 @@ describe('learning manifest hint admission', () => {
       expect(manifest.entries).toHaveLength(79);
       expect(
         manifest.entries.filter((entry) => entry.hintLadderAdmission.status === 'ADMITTED'),
-      ).toHaveLength(3);
+      ).toHaveLength(10);
       expect(
         manifest.entries
           .filter((entry) => entry.hintLadderAdmission.status === 'REJECTED')
@@ -251,7 +251,7 @@ describe('learning manifest hint admission', () => {
       ).toEqual([]);
       expect(
         manifest.entries.filter((entry) => entry.hintLadderAdmission.status === 'MISSING'),
-      ).toHaveLength(76);
+      ).toHaveLength(69);
 
       const manifestPath = resolve(learningRoot, 'manifest.v1.json');
       const registryPath = resolve(learningRoot, 'registry.ts');
@@ -266,8 +266,8 @@ describe('learning manifest hint admission', () => {
         "declare const require: (path: string) => import('react-native').ImageSourcePropType;",
       );
       expect(registry.match(/buildDemoEntry\(/g)).toHaveLength(79);
-      expect(registry.match(/"hintAdmissionStatus":"ADMITTED"/g)).toHaveLength(3);
-      expect(registry.match(/"hintAdmissionStatus":"MISSING"/g)).toHaveLength(76);
+      expect(registry.match(/"hintAdmissionStatus":"ADMITTED"/g)).toHaveLength(10);
+      expect(registry.match(/"hintAdmissionStatus":"MISSING"/g)).toHaveLength(69);
       expect(registry).not.toContain('/drafts/');
     } finally {
       await rm(learningRoot, { recursive: true, force: true });

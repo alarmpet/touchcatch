@@ -1,5 +1,7 @@
 import fs from 'fs';
 import path from 'path';
+import { canonicalJsonSha256 } from '../../packages/contracts/src/canonical-json.js';
+import { alternatingIndexes, segmentAnswer } from '../../packages/content-validator/src/hint-ladder.js';
 
 type EnglishHintData = {
   key: string;
@@ -8,8 +10,6 @@ type EnglishHintData = {
   enCategory: string;
   sentenceKo: string;
   sentenceEn: string;
-  firstGraphemeIndex: number;
-  revealIndexesStep5: number[];
 };
 
 const ENGLISH_BATCH: EnglishHintData[] = [
@@ -20,8 +20,6 @@ const ENGLISH_BATCH: EnglishHintData[] = [
     enCategory: 'Ability to produce original ideas',
     sentenceKo: '그의 독창적인 아이디어는 남다른 ____에서 비롯되었어요.',
     sentenceEn: 'His original ideas stemmed from remarkable ____.',
-    firstGraphemeIndex: 0,
-    revealIndexesStep5: [1, 3, 5, 7, 9],
   },
   {
     key: 'en-3d-harmony',
@@ -30,8 +28,6 @@ const ENGLISH_BATCH: EnglishHintData[] = [
     enCategory: 'State of being in agreement or concord',
     sentenceKo: '오케스트라 단원들은 완벽한 ____를 이루어 연주했어요.',
     sentenceEn: 'The orchestra played in perfect ____.',
-    firstGraphemeIndex: 0,
-    revealIndexesStep5: [1, 3, 5],
   },
   {
     key: 'en-3d-serenity',
@@ -40,8 +36,6 @@ const ENGLISH_BATCH: EnglishHintData[] = [
     enCategory: 'State of being calm and peaceful',
     sentenceKo: '고요한 호수 풍경은 마음에 깊은 ____를 주었어요.',
     sentenceEn: 'The quiet lake view gave a sense of deep ____.',
-    firstGraphemeIndex: 0,
-    revealIndexesStep5: [1, 3, 5, 7],
   },
   {
     key: 'en-architecture-studio',
@@ -50,8 +44,6 @@ const ENGLISH_BATCH: EnglishHintData[] = [
     enCategory: 'Art or science of designing buildings',
     sentenceKo: '이 도시는 고대와 현대의 ____가 잘 어우러져 있어요.',
     sentenceEn: 'The city features a blend of ancient and modern ____.',
-    firstGraphemeIndex: 0,
-    revealIndexesStep5: [1, 3, 5, 7, 9, 11],
   },
 ];
 
@@ -63,8 +55,6 @@ type ProverbHintData = {
   lessonKo: string;
   lessonEn: string;
   initials: string;
-  firstIndex: number;
-  step5Indexes: number[];
 };
 
 const PROVERB_BATCH: ProverbHintData[] = [
@@ -76,8 +66,6 @@ const PROVERB_BATCH: ProverbHintData[] = [
     lessonKo: '사전에 미리 대비하는 자세가 중요하다는 교훈이에요.',
     lessonEn: 'Lesson that prevention beforehand is crucial.',
     initials: 'ㅅ ㅇㄱ ㅇㅇㄱ ㄱㅊㄷ',
-    firstIndex: 0,
-    step5Indexes: [2, 4, 7, 9],
   },
   {
     key: 'ko-proverb-dark-under-lamp',
@@ -87,8 +75,6 @@ const PROVERB_BATCH: ProverbHintData[] = [
     lessonKo: '가까이 있는 정황을 더 주의 깊게 살펴야 한다는 교훈이에요.',
     lessonEn: 'Lesson to pay attention to immediate surroundings.',
     initials: 'ㄷㅈ ㅁㅇ ㅇㄷㄷ',
-    firstIndex: 0,
-    step5Indexes: [1, 3, 5],
   },
   {
     key: 'ko-proverb-frog-well',
@@ -98,8 +84,6 @@ const PROVERB_BATCH: ProverbHintData[] = [
     lessonKo: '더 넓은 안목과 경험을 넓혀야 한다는 교훈이에요.',
     lessonEn: 'Lesson to broaden ones horizons and perspective.',
     initials: 'ㅇㅁ ㅇ ㄱㄱㄹ',
-    firstIndex: 0,
-    step5Indexes: [1, 4, 6],
   },
   {
     key: 'ko-proverb-kind-words-return',
@@ -109,8 +93,6 @@ const PROVERB_BATCH: ProverbHintData[] = [
     lessonKo: '타인을 대할 때 말과 행동을 긍정적으로 해야 한다는 교훈이에요.',
     lessonEn: 'Lesson that respectful words lead to respectful responses.',
     initials: 'ㄱㄴ ㅁㅇ ㄱㅇㅇ ㅇㄴ ㅁㅇ ㄱㄷ',
-    firstIndex: 0,
-    step5Indexes: [2, 5, 8, 11, 14],
   },
 ];
 
@@ -124,16 +106,66 @@ function main() {
     catalogEntryMap.set(entry.key, entry);
   }
 
-  // 1. Process English Batch
-  for (const item of ENGLISH_BATCH) {
-    const draftPath = path.join(draftsDir, item.filename);
-    if (!fs.existsSync(draftPath)) continue;
+  // Nothing reaches disk until every pack has been built. The first version wrote each
+  // draft as it went and the catalogue only at the very end, so an interrupted run left
+  // drafts carrying a ladder the catalogue knew nothing about, which admission rejects
+  // as CATALOG_HINT_LADDER_MISSING. Staging makes the run all-or-nothing.
+  const staged: Array<{ draftPath: string; draft: any }> = [];
+  const skipped: string[] = [];
+
+  function prepare(key: string, filename: string) {
+    const entry = catalogEntryMap.get(key);
+    // A draft with no catalogue entry can never be admitted, and writing a ladder into
+    // one only produces an orphan for the drift check to warn about.
+    if (!entry) return { skip: `${key}: not in catalog.v1.json` } as const;
+
+    const draftPath = path.join(draftsDir, filename);
+    if (!fs.existsSync(draftPath)) return { skip: `${key}: no draft file` } as const;
 
     const draft = JSON.parse(fs.readFileSync(draftPath, 'utf-8'));
-    const fc = draft.privateSolution?.finalChallenge;
-    if (!fc) continue;
+    const finalChallenge = draft.privateSolution?.finalChallenge;
+    if (!finalChallenge) return { skip: `${key}: draft has no finalChallenge` } as const;
 
-    const hintLadder = [
+    const segmented = segmentAnswer(entry.canonicalAnswer, entry.language);
+    if (segmented.revealableIndexes.length === 0) {
+      return { skip: `${key}: answer has no revealable graphemes` } as const;
+    }
+
+    return { entry, draft, draftPath, finalChallenge, segmented } as const;
+  }
+
+  function commit(
+    prepared: { entry: any; draft: any; draftPath: string; finalChallenge: any },
+    hintLadder: unknown[],
+  ) {
+    prepared.finalChallenge.hintLadder = hintLadder;
+    // Admission compares publicContent.category against the catalogue entry and
+    // re-derives privateSolutionHash over the whole private body. Leaving either alone
+    // rejects the pack even when the ladder itself is sound.
+    prepared.draft.publicContent.category = prepared.entry.category;
+    const { privateSolutionHash: _stale, ...privateBody } = prepared.draft.privateSolution;
+    prepared.draft.privateSolution.privateSolutionHash = canonicalJsonSha256(privateBody);
+    prepared.entry.hintLadder = hintLadder;
+    staged.push({ draftPath: prepared.draftPath, draft: prepared.draft });
+  }
+
+  // 1. Process English Batch
+  for (const item of ENGLISH_BATCH) {
+    const prepared = prepare(item.key, item.filename);
+    if ('skip' in prepared) {
+      skipped.push(prepared.skip);
+      continue;
+    }
+
+    // Both index sets come from the validator's own rule rather than a hand-authored
+    // list, so a ladder cannot drift out of step with the segmentation. Hand-authored
+    // numbers are what produced NON_GRAPHEME_INDEX on the first attempt.
+    const revealable = prepared.segmented.revealableIndexes;
+    const deterministic =
+      revealable.length >= 5 ? revealable[0]! : revealable[Math.floor(revealable.length / 2)]!;
+    const remaining = revealable.filter((index) => index !== deterministic);
+
+    commit(prepared, [
       {
         ordinal: 1,
         kind: 'SEMANTIC_CATEGORY',
@@ -151,9 +183,11 @@ function main() {
       {
         ordinal: 3,
         kind: 'ANSWER_LENGTH',
+        // The number the validator checks is the revealable grapheme count, which parts
+        // company with the raw answer length as soon as a space or hyphen is in it.
         localizedText: {
-          ko: `정답은 ${fc.canonicalAnswer.length}글자예요.`,
-          en: `The answer has ${fc.canonicalAnswer.length} graphemes.`,
+          ko: `정답은 ${revealable.length}글자예요.`,
+          en: `The answer has ${revealable.length} graphemes.`,
         },
         revealIndexes: [],
         rankedPenaltyUnits: 1,
@@ -161,38 +195,41 @@ function main() {
       {
         ordinal: 4,
         kind: 'REVEAL_GRAPHEME',
-        localizedText: { ko: '첫 글자를 공개해요.', en: 'Reveal the first grapheme.' },
-        revealIndexes: [item.firstGraphemeIndex],
+        // Short answers reveal from the middle instead of the front, so the copy has to
+        // follow the index rather than assert "first" and be wrong.
+        localizedText:
+          deterministic === revealable[0]
+            ? { ko: '첫 글자를 공개해요.', en: 'Reveal the first grapheme.' }
+            : { ko: '글자 하나를 공개해요.', en: 'Reveal one grapheme.' },
+        revealIndexes: [deterministic],
         rankedPenaltyUnits: 1,
       },
       {
         ordinal: 5,
         kind: 'REVEAL_GRAPHEME',
-        localizedText: { ko: '남은 글자를 번갈아 공개해요.', en: 'Reveal alternating unrevealed graphemes.' },
-        revealIndexes: item.revealIndexesStep5,
+        localizedText: {
+          ko: '남은 글자를 번갈아 공개해요.',
+          en: 'Reveal alternating unrevealed graphemes.',
+        },
+        revealIndexes: alternatingIndexes(remaining),
         rankedPenaltyUnits: 1,
       },
-    ];
-
-    fc.hintLadder = hintLadder;
-    fs.writeFileSync(draftPath, JSON.stringify(draft, null, 2), 'utf-8');
-
-    const catEntry = catalogEntryMap.get(item.key);
-    if (catEntry) {
-      catEntry.hintLadder = hintLadder;
-    }
+    ]);
   }
 
   // 2. Process Proverb Batch
   for (const item of PROVERB_BATCH) {
-    const draftPath = path.join(draftsDir, item.filename);
-    if (!fs.existsSync(draftPath)) continue;
+    const prepared = prepare(item.key, item.filename);
+    if ('skip' in prepared) {
+      skipped.push(prepared.skip);
+      continue;
+    }
 
-    const draft = JSON.parse(fs.readFileSync(draftPath, 'utf-8'));
-    const fc = draft.privateSolution?.finalChallenge;
-    if (!fc) continue;
+    const revealable = prepared.segmented.revealableIndexes;
+    const first = revealable[0]!;
+    const remaining = revealable.filter((index) => index !== first);
 
-    const hintLadder = [
+    commit(prepared, [
       {
         ordinal: 1,
         kind: 'CONTEXT_SENTENCE',
@@ -218,29 +255,29 @@ function main() {
         ordinal: 4,
         kind: 'REVEAL_GRAPHEME',
         localizedText: { ko: '한 음절을 공개해요.', en: 'Reveal one syllable.' },
-        revealIndexes: [item.firstIndex],
+        revealIndexes: [first],
         rankedPenaltyUnits: 1,
       },
       {
         ordinal: 5,
         kind: 'REVEAL_GRAPHEME',
-        localizedText: { ko: '남은 음절을 번갈아 공개해요.', en: 'Reveal alternating remaining syllables.' },
-        revealIndexes: item.step5Indexes,
+        localizedText: {
+          ko: '남은 음절을 번갈아 공개해요.',
+          en: 'Reveal alternating remaining syllables.',
+        },
+        revealIndexes: alternatingIndexes(remaining),
         rankedPenaltyUnits: 1,
       },
-    ];
-
-    fc.hintLadder = hintLadder;
-    fs.writeFileSync(draftPath, JSON.stringify(draft, null, 2), 'utf-8');
-
-    const catEntry = catalogEntryMap.get(item.key);
-    if (catEntry) {
-      catEntry.hintLadder = hintLadder;
-    }
+    ]);
   }
 
-  fs.writeFileSync(catalogPath, JSON.stringify(catalogData, null, 2), 'utf-8');
-  console.log('Successfully updated draft packs and catalog.v1.json for Ladder Batch-1.');
+  for (const { draftPath, draft } of staged) {
+    fs.writeFileSync(draftPath, `${JSON.stringify(draft, null, 2)}\n`, 'utf-8');
+  }
+  fs.writeFileSync(catalogPath, `${JSON.stringify(catalogData, null, 2)}\n`, 'utf-8');
+
+  console.log(`Ladder Batch-1: ${staged.length} packs updated in drafts and catalog.v1.json.`);
+  for (const reason of skipped) console.log(`  skipped ${reason}`);
 }
 
 main();

@@ -294,9 +294,67 @@
           }
         ],
         "correctOptionId": "option_1"
-      }
+      },
+      "hintLadder": [
+        {
+          "ordinal": 1,
+          "kind": "CONTEXT_SENTENCE",
+          "localizedText": {
+            "ko": "가까운 곳에서 일어나는 일을 오히려 모를 때 써요.",
+            "en": "Used when overlooking things right in front of you."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 2,
+          "kind": "DEFINITION",
+          "localizedText": {
+            "ko": "가까이 있는 정황을 더 주의 깊게 살펴야 한다는 교훈이에요.",
+            "en": "Lesson to pay attention to immediate surroundings."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 3,
+          "kind": "INITIAL_PATTERN",
+          "localizedText": {
+            "ko": "ㄷㅈ ㅁㅇ ㅇㄷㄷ",
+            "en": "ㄷㅈ ㅁㅇ ㅇㄷㄷ"
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 4,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "한 음절을 공개해요.",
+            "en": "Reveal one syllable."
+          },
+          "revealIndexes": [
+            0
+          ],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 5,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "남은 음절을 번갈아 공개해요.",
+            "en": "Reveal alternating remaining syllables."
+          },
+          "revealIndexes": [
+            1,
+            4,
+            7
+          ],
+          "rankedPenaltyUnits": 1
+        }
+      ]
     },
-    "privateSolutionHash": "48c61440dedbf1ff53ee4b5160240d350844ef3b077ec741b4c20a03a20ccbc9"
+    "privateSolutionHash": "762ff3f4b52586c4fd71d35e2b0a7c4933bc0a9cef760aa3547a93653c0d305c"
   },
   "assetFiles": {
     "e4dce6ea38d8b33bf09711ee72ac2f8fda3156985d5576890d2727bd4d815287": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-dark-under-lamp-a.png",

@@ -27,7 +27,8 @@
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
-    }
+    },
+    "category": "PROVERB"
   },
   "privateSolution": {
     "contentRevisionId": "c88160aa-eab6-4e4b-80b7-961e47ba2a05",
@@ -299,9 +300,68 @@
           }
         ],
         "correctOptionId": "option_1"
-      }
+      },
+      "hintLadder": [
+        {
+          "ordinal": 1,
+          "kind": "CONTEXT_SENTENCE",
+          "localizedText": {
+            "ko": "이미 일을 그르친 후에 뒤늦게 대책을 세우는 상황에 써요.",
+            "en": "Used when taking precautions only after trouble has occurred."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 2,
+          "kind": "DEFINITION",
+          "localizedText": {
+            "ko": "사전에 미리 대비하는 자세가 중요하다는 교훈이에요.",
+            "en": "Lesson that prevention beforehand is crucial."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 3,
+          "kind": "INITIAL_PATTERN",
+          "localizedText": {
+            "ko": "ㅅ ㅇㄱ ㅇㅇㄱ ㄱㅊㄷ",
+            "en": "ㅅ ㅇㄱ ㅇㅇㄱ ㄱㅊㄷ"
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 4,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "한 음절을 공개해요.",
+            "en": "Reveal one syllable."
+          },
+          "revealIndexes": [
+            0
+          ],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 5,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "남은 음절을 번갈아 공개해요.",
+            "en": "Reveal alternating remaining syllables."
+          },
+          "revealIndexes": [
+            2,
+            5,
+            7,
+            10
+          ],
+          "rankedPenaltyUnits": 1
+        }
+      ]
     },
-    "privateSolutionHash": "7b7df42e5c6caf3694f204aac17ce1b54f27fcbb9a0e4aca9598fe8eb9030425"
+    "privateSolutionHash": "699c12720960606774e252bc3b5535bc6771cb7564b8b68ac31667870d5bb0c4"
   },
   "assetFiles": {
     "e24d504d74ed66554064f7100e218df4c6bf4b35b65988a11810f508a4d52309": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-cow-barn-a.png",

@@ -95,7 +95,7 @@ function sameIndexes(actual: readonly number[], expected: readonly number[]): bo
   return actual.length === expected.length && actual.every((value, index) => value === expected[index]);
 }
 
-function alternatingIndexes(indexes: readonly number[]): number[] {
+export function alternatingIndexes(indexes: readonly number[]): number[] {
   const alternating = indexes.filter((_, index) => index % 2 === 0);
   return alternating.length === indexes.length ? alternating.slice(0, -1) : alternating;
 }
