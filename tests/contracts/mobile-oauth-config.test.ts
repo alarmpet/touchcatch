@@ -19,12 +19,17 @@ describe('mobile OAuth local configuration', () => {
     expect(parsed.auth?.enable_manual_linking).toBe(true);
   });
 
-  it('does not claim unconfigured local Google or Kakao providers are enabled', async () => {
+  it('does not claim the unconfigured local Kakao provider is enabled', async () => {
     const parsed = parse(await readFile(resolve('supabase/config.toml'), 'utf8')) as {
       auth?: SupabaseAuthConfig;
     };
 
-    expect(parsed.auth?.external?.google?.enabled).not.toBe(true);
+    // Google is deliberately absent from this check: it has a real OAuth client and reads its
+    // credentials from the shell via env(), so enabled = true is the truth there.
+    //
+    // Kakao has no client yet. Enabling it would make GoTrue advertise a provider that answers
+    // "Unsupported provider" on every attempt — the failure this test exists to prevent, and
+    // one that reads as a client bug rather than missing configuration.
     expect(parsed.auth?.external?.kakao?.enabled).not.toBe(true);
   });
 

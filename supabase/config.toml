@@ -40,6 +40,30 @@ jwt_expiry = 3600
 enable_signup = true
 enable_manual_linking = true
 
+# Social providers.
+#
+# The mobile PKCE flow (apps/mobile/src/auth/oauth-coordinator.ts) has been complete since
+# 2026-08-12, but pressing the buttons returns
+#   {"error_code":"validation_failed","msg":"Unsupported provider: provider is not enabled"}
+# until a provider is enabled here. That is the only remaining gap.
+#
+# To turn one on:
+#   1. Create an OAuth client in the provider console. Authorised redirect URI is the
+#      Supabase callback, not the app scheme:  http://127.0.0.1:55321/auth/v1/callback
+#      (the app's own spotlearn://auth/callback is already in additional_redirect_urls above).
+#   2. Export the credentials in your shell (never commit them):
+#      SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID / _SECRET
+#   3. Flip enabled to true and restart:  supabase stop && supabase start
+[auth.external.google]
+enabled = true
+client_id = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID)"
+secret = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_SECRET)"
+
+[auth.external.kakao]
+enabled = false
+client_id = "env(SUPABASE_AUTH_EXTERNAL_KAKAO_CLIENT_ID)"
+secret = "env(SUPABASE_AUTH_EXTERNAL_KAKAO_SECRET)"
+
 [analytics]
 enabled = true
 port = 55327
