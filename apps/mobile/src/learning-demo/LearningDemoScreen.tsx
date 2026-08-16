@@ -797,15 +797,15 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
         flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: spacing.sm,
       }}
     >
-      {/* The seconds are the largest thing here on purpose: this is the number the plan
-          says must never be set in small type. */}
-      <Text testID="sudden-death-clock" style={{ ...textStyle.display, fontSize: 30, lineHeight: 34, color: colors.onAccent }}>
+      {/* One row, the coach note's proven height. Two rows sat over enough of the lower
+          board to matter, and the seconds still have to be the largest thing here — a
+          countdown in small type is the one place the plan names outright. */}
+      <Text testID="sudden-death-clock" style={{ ...textStyle.display, fontSize: 26, lineHeight: 30, color: colors.onAccent }}>
         {Math.ceil(suddenDeathRemainingMs / 1000)}
       </Text>
-      <View style={{ flexShrink: 1 }}>
-        <Text style={{ ...textStyle.overline, color: 'rgba(255,255,255,0.82)' }}>서든데스</Text>
-        <Text style={{ ...textStyle.bodyStrong, color: colors.onAccent }}>하나만 더 찾으면 돼요</Text>
-      </View>
+      <Text numberOfLines={1} style={{ ...textStyle.bodyStrong, flexShrink: 1, color: colors.onAccent }}>
+        서든데스 · 하나만 더 찾으면 돼요
+      </Text>
     </View> : null}
 
     {/* Coaching floats over the layout rather than sitting in it: pushing the boards down
