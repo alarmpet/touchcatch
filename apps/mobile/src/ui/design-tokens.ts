@@ -6,8 +6,19 @@
  * BattleScreen read as one product. The frozen JSON is hash-locked and is
  * never edited from here.
  *
- * Design intent: white surfaces, one calm accent, hairline borders, generous
- * whitespace, type-led hierarchy. No decorative gradients or heavy fills.
+ * The file carries two layers.
+ *
+ * The base layer — `colors`, `spacing`, `radius`, `typography` — is matched value
+ * for value against the frozen theme. BattleScreen is bound to that contract, so
+ * changing an existing value here silently pulls the two apart. Base tokens are
+ * added to, never edited.
+ *
+ * The vivid layer below it — gradients, glows, glass, dark surfaces — is additive
+ * and exists for the player-facing screens (home, ranking, collection, profile).
+ * Those screens are not in the contract's enforced set, and a learning game aimed
+ * at children cannot carry its whole personality in hairline borders. The vivid
+ * layer is built out of the base palette rather than beside it, so the two still
+ * read as one product where they meet.
  */
 
 /** Legacy keys are kept so older call sites keep compiling. */
@@ -114,6 +125,123 @@ export const podiumPalette = {
 export const gradients = {
   hero: { from: '#0B2F76', to: '#0068D9' },
   header: { from: '#0068D9', to: '#35A8FF' },
+} as const;
+
+/* ------------------------------------------------------------------ *
+ *  Vivid layer. Additive — nothing above this line is edited.
+ * ------------------------------------------------------------------ */
+
+/**
+ * Saturated hues for the vivid layer.
+ *
+ * These are deliberately hotter than `colors`. They never sit on white on their own:
+ * every one of them appears either inside a gradient or behind white type, where the
+ * saturation reads as energy rather than noise.
+ */
+export const vivid = {
+  violet: '#6A3DF0',
+  indigo: '#3B2BC4',
+  magenta: '#E0479E',
+  cyan: '#22D3EE',
+  azure: '#2A7BFF',
+  lime: '#3DD68C',
+  amber: '#FFB020',
+  rose: '#FF5A7A',
+  ink: '#0A1633',
+  inkDeep: '#060D22',
+} as const;
+
+/**
+ * Three-stop gradients.
+ *
+ * Two stops between related hues make a flat wash; the middle stop is what gives the
+ * fill somewhere to travel. `via` is the stop that carries the character — drop it and
+ * every one of these collapses into the same blue-to-blue as the base header.
+ */
+export const vividGradients = {
+  /** Home hero. Night indigo through violet into magenta. */
+  hero: { from: '#1B1160', via: '#5B2BD9', to: '#C13BB0' },
+  /** Ranking header. Reads as podium light rather than sky. */
+  podium: { from: '#3B1E6E', via: '#8B2FC9', to: '#FF7A59' },
+  /** Pet collection header. Cooler, so the rarity colours below it stay legible. */
+  collection: { from: '#0C2A6B', via: '#2A6BE0', to: '#22D3EE' },
+  /** Profile header. */
+  profile: { from: '#12144A', via: '#3B2BC4', to: '#6A3DF0' },
+  /** Progress and CTA fills that sit on a dark ground. */
+  action: { from: '#22D3EE', via: '#3DD68C', to: '#A7F36B' },
+} as const;
+
+export type VividGradientKey = keyof typeof vividGradients;
+
+/** One gradient per rarity, so a legendary pet is visibly a different object. */
+export const rarityGradients: Readonly<Record<RarityKey, { from: string; via: string; to: string }>> = {
+  COMMON: { from: '#8FA3BC', via: '#A8BACE', to: '#C7D5E3' },
+  UNCOMMON: { from: '#0F9D6B', via: '#3DD68C', to: '#9BEFC4' },
+  RARE: { from: '#1D5FD6', via: '#2A7BFF', to: '#7EC2FF' },
+  EPIC: { from: '#6A3DF0', via: '#9B5CF6', to: '#D8B4FE' },
+  LEGENDARY: { from: '#E08A00', via: '#FFB020', to: '#FFE08A' },
+};
+
+/** One gradient per learning mode, matched to the existing categoryPalette hues. */
+export const categoryGradients: Readonly<Record<CategoryKey, { from: string; via: string; to: string }>> = {
+  ENGLISH: { from: '#1D5FD6', via: '#2A7BFF', to: '#5AA9FF' },
+  PROVERB: { from: '#0F9D6B', via: '#2FC489', to: '#6FE0AF' },
+  IDIOM: { from: '#5B2BD9', via: '#7C4DFF', to: '#A98BFF' },
+  GENERAL_KNOWLEDGE: { from: '#D98200', via: '#FFB020', to: '#FFD173' },
+};
+
+/** Podium gradients for ranks 1–3. Gold, silver, bronze read instantly and need no label. */
+export const podiumGradients = {
+  1: { from: '#B8860B', via: '#FFC93C', to: '#FFF0A8' },
+  2: { from: '#7C8794', via: '#B9C4D0', to: '#E8EEF4' },
+  3: { from: '#8B4A20', via: '#C97A45', to: '#F0BA92' },
+} as const;
+
+/**
+ * Coloured elevation.
+ *
+ * A neutral grey shadow under a saturated card reads as dirt. Tinting the shadow to the
+ * card's own hue is what makes the card look lit rather than smudged. Android only honours
+ * `elevation`, so these degrade to plain depth there rather than breaking.
+ */
+export function glow(color: string, strength: 'soft' | 'strong' = 'soft') {
+  return strength === 'strong'
+    ? {
+        shadowColor: color,
+        shadowOpacity: 0.45,
+        shadowOffset: { width: 0, height: 10 },
+        shadowRadius: 22,
+        elevation: 8,
+      }
+    : {
+        shadowColor: color,
+        shadowOpacity: 0.28,
+        shadowOffset: { width: 0, height: 6 },
+        shadowRadius: 14,
+        elevation: 4,
+      };
+}
+
+/**
+ * Translucent whites for surfaces that sit on a gradient.
+ *
+ * A solid white panel on a gradient punches a hole in it. These let the fill show through
+ * so the panel reads as part of the same surface.
+ */
+export const glass = {
+  thin: 'rgba(255,255,255,0.10)',
+  base: 'rgba(255,255,255,0.16)',
+  thick: 'rgba(255,255,255,0.26)',
+  edge: 'rgba(255,255,255,0.28)',
+  edgeStrong: 'rgba(255,255,255,0.45)',
+} as const;
+
+/** Type colours for anything drawn on a vivid or dark ground. */
+export const onDark = {
+  primary: '#FFFFFF',
+  secondary: 'rgba(255,255,255,0.82)',
+  muted: 'rgba(255,255,255,0.62)',
+  faint: 'rgba(255,255,255,0.38)',
 } as const;
 
 export const spacing = {

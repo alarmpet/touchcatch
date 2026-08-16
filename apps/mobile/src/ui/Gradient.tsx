@@ -33,8 +33,21 @@ function mix(from: string, to: string, ratio: number): string {
   return `rgb(${channel(r1, r2)}, ${channel(g1, g2)}, ${channel(b1, b2)})`;
 }
 
-export function VerticalGradient({ from, to, style, children }: Readonly<{
+/**
+ * Colour at `ratio` along a two- or three-stop ramp.
+ *
+ * With a `via` stop the ramp is walked in halves. Without one it behaves exactly as before,
+ * so existing two-stop callers are unaffected.
+ */
+function rampAt(from: string, via: string | undefined, to: string, ratio: number): string {
+  if (via === undefined) return mix(from, to, ratio);
+  return ratio < 0.5 ? mix(from, via, ratio * 2) : mix(via, to, (ratio - 0.5) * 2);
+}
+
+export function VerticalGradient({ from, via, to, style, children }: Readonly<{
   from: string;
+  /** Optional middle stop. Two related hues alone wash out; the middle stop carries the character. */
+  via?: string;
   to: string;
   style?: ViewStyle;
   children?: React.ReactNode;
@@ -45,9 +58,32 @@ export function VerticalGradient({ from, to, style, children }: Readonly<{
     <View pointerEvents="none" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, flexDirection: 'column' }}>
       {Array.from({ length: BANDS }, (_unused, index) => <View
         key={index}
-        style={{ flex: 1, backgroundColor: mix(from, to, index / (BANDS - 1)) as ColorValue }}
+        style={{ flex: 1, backgroundColor: rampAt(from, via, to, index / (BANDS - 1)) as ColorValue }}
       />)}
     </View>
     {children}
   </View>;
+}
+
+/**
+ * A soft off-centre highlight laid over a gradient.
+ *
+ * A pure vertical ramp still reads as flat because the light has no source. An oversized,
+ * very low-opacity white circle bled off the top corner is enough to imply one, and it costs
+ * a single view — no native module, no blur, no image.
+ */
+export function Sheen({ size = 260, top = -110, left = -70, opacity = 0.16 }: Readonly<{
+  size?: number;
+  top?: number;
+  left?: number;
+  opacity?: number;
+}>) {
+  return <View
+    pointerEvents="none"
+    style={{
+      position: 'absolute', top, left,
+      width: size, height: size, borderRadius: size / 2,
+      backgroundColor: '#FFFFFF', opacity,
+    }}
+  />;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, View, Text, Pressable, ScrollView } from 'react-native';
-import { colors, radius, rarityLabels, rarityLadder, rarityPalette, spacing, type RarityKey } from '../../ui/design-tokens';
+import { colors, glow, radius, rarityGradients, rarityLabels, rarityLadder, rarityPalette, spacing, type RarityKey } from '../../ui/design-tokens';
+import { VerticalGradient } from '../../ui/Gradient';
 import { buttonStyle, buttonTextStyle, progress, rarityBadgeStyle, rarityBadgeTextStyle, surface, text } from '../../ui/ui-kit';
 import { copiesUntilPromotion, orderedRarityProgress } from './reveal-model';
 
@@ -69,20 +70,28 @@ export function PetCollection({ pets, totalCatalogCount, status = pets.length ? 
     </View> : null}
 
     <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: spacing.sm, paddingVertical: 4 }}>
-      {groupedPets.map((pet) => <View key={pet.id} accessibilityLabel={`${pet.name} 펫 카드`} style={{
-        width: 128,
+      {groupedPets.map((pet) => {
+        const ramp = rarityGradients[pet.rarity];
+        return <View key={pet.id} accessibilityLabel={`${pet.name} 펫 카드`} style={{
+        width: 136,
         padding: spacing.sm,
         borderWidth: 1,
         borderColor: colors.line,
-        borderRadius: radius.card,
+        borderRadius: radius.xl,
         backgroundColor: colors.surface,
         gap: 6,
+        // Lit by its own tier. A shelf of identically-bordered white cards hides the one
+        // thing a collection screen exists to show — that some of these are rarer.
+        ...glow(ramp.via, pet.rarity === 'LEGENDARY' || pet.rarity === 'EPIC' ? 'strong' : 'soft'),
       }}>
-        <View style={{ height: 84, borderRadius: radius.sm, backgroundColor: colors.surfaceMuted, alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-          {pet.artUrl
-            ? <Image accessibilityLabel={`${pet.name} 펫 이미지`} source={{ uri: pet.artUrl }} resizeMode="cover" style={{ width: '100%', height: '100%' }} />
-            : <Text style={{ fontSize: 20, color: colors.faint }}>❍</Text>}
-        </View>
+        {/* The art sits in a tier-coloured frame rather than a grey well. */}
+        <VerticalGradient from={ramp.from} via={ramp.via} to={ramp.to} style={{ height: 92, borderRadius: radius.card, padding: 2 }}>
+          <View style={{ flex: 1, borderRadius: radius.card - 2, backgroundColor: colors.surfaceMuted, alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+            {pet.artUrl
+              ? <Image accessibilityLabel={`${pet.name} 펫 이미지`} source={{ uri: pet.artUrl }} resizeMode="cover" style={{ width: '100%', height: '100%' }} />
+              : <Text style={{ fontSize: 20, color: colors.faint }}>❍</Text>}
+          </View>
+        </VerticalGradient>
         <Text numberOfLines={1} style={text.bodyStrong}>{pet.name}</Text>
         <View accessibilityLabel={`${pet.name} 등급`} style={rarityBadgeStyle(pet.rarity)}><Text style={rarityBadgeTextStyle(pet.rarity)}>{rarityLabels[pet.rarity]}</Text></View>
         <Text accessibilityLabel={`${pet.name} 보유 수량`} style={text.caption}>{`보유: ${pet.ownedCopies}개`}</Text>
@@ -97,7 +106,8 @@ export function PetCollection({ pets, totalCatalogCount, status = pets.length ? 
           accessibilityLabel={`${pet.name} 승급까지 ${promotionCountdown(pet)}개`}
           style={{ ...text.caption, color: colors.faint }}
         >{`승급까지 ${promotionCountdown(pet)}개`}</Text> : null}
-      </View>)}
+      </View>;
+      })}
     </ScrollView>
   </View>;
 }

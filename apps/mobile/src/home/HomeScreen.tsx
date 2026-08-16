@@ -1,14 +1,14 @@
 import { Link } from 'expo-router';
 import { Image, Pressable, ScrollView, Text, View } from 'react-native';
 import type { PublicHomeModel, PublicHomeCard } from './home-model';
-import { categoryPalette, colors, gradients, radius, rarityLabels, rarityPalette, spacing, type RarityKey } from '../ui/design-tokens';
+import { categoryGradients, categoryPalette, colors, glass, glow, onDark, radius, rarityGradients, rarityLabels, spacing, vivid, vividGradients, type CategoryKey, type RarityKey } from '../ui/design-tokens';
 import { Badge, SectionHeading } from '../ui/atoms';
 import { FadeInUp, STAGGER_MS } from '../ui/FadeInUp';
-import { VerticalGradient } from '../ui/Gradient';
+import { Sheen, VerticalGradient } from '../ui/Gradient';
 import { LockedPetSlots } from '../ui/LockedPetSlots';
 import { TabBar } from '../ui/TabBar';
 import { useMusicMood } from '../features/feedback/music-context';
-import { buttonStyle, buttonTextStyle, header, progress, screen, surface, text } from '../ui/ui-kit';
+import { glowCard, header, progress, screen, text, textOnDark, vividButtonStyle, vividButtonTextStyle, vividSurface } from '../ui/ui-kit';
 
 /** Empty 도감 slots are drawn so the collection reads as a board to fill, not an empty list. */
 const SHOWCASE_SLOTS = 4;
@@ -40,6 +40,7 @@ function ModePicker({ enabled, route }: Readonly<{ enabled: boolean; route: stri
     <View style={{ gap: spacing.xs }}>
       {LEARNING_MODES.map((mode) => {
         const palette = categoryPalette[mode.category];
+        const ramp = categoryGradients[mode.category as CategoryKey];
         // A disabled card drops to grey rather than a faded tint: half-colour reads as a
         // rendering fault, plain grey reads as "not yet".
         const body = <View style={{
@@ -49,17 +50,26 @@ function ModePicker({ enabled, route }: Readonly<{ enabled: boolean; route: stri
           paddingVertical: spacing.md,
           paddingHorizontal: spacing.md,
           borderRadius: radius.xl,
-          backgroundColor: enabled ? palette.bg : colors.surfaceMuted,
+          backgroundColor: enabled ? colors.surface : colors.surfaceMuted,
           borderWidth: 1,
           borderColor: enabled ? palette.edge : 'transparent',
+          // Each row is lit by its own mode colour, which is what separates the three at a
+          // glance without making the card itself loud enough to compete with the hero.
+          ...(enabled ? glow(palette.fg, 'soft') : {}),
         }}>
-          <View style={{
-            width: 52, height: 52, borderRadius: radius.card,
-            alignItems: 'center', justifyContent: 'center',
-            backgroundColor: enabled ? palette.fg : colors.disabled,
-          }}>
-            <Text style={{ fontSize: 22, lineHeight: 27, fontWeight: '800', color: enabled ? colors.onAccent : colors.faint }}>{mode.glyph}</Text>
-          </View>
+          {/* The glyph tile carries the saturation for the whole row. */}
+          <VerticalGradient
+            from={enabled ? ramp.from : colors.disabled}
+            via={enabled ? ramp.via : colors.disabled}
+            to={enabled ? ramp.to : colors.disabled}
+            style={{
+              width: 56, height: 56, borderRadius: radius.card,
+              alignItems: 'center', justifyContent: 'center',
+            }}
+          >
+            {enabled ? <Sheen size={70} top={-34} left={-18} opacity={0.3} /> : null}
+            <Text style={{ fontSize: 23, lineHeight: 28, fontWeight: '800', color: enabled ? colors.onAccent : colors.faint }}>{mode.glyph}</Text>
+          </VerticalGradient>
           <View style={{ flex: 1, gap: 2 }}>
             <Text style={{ ...text.subtitle, color: enabled ? colors.ink : colors.muted }}>{mode.label}</Text>
             <Text numberOfLines={1} style={{ ...text.caption, color: enabled ? colors.muted : colors.faint }}>{mode.hint}</Text>
@@ -82,7 +92,7 @@ function CollectionStrip({ collection }: Readonly<{ collection: PublicHomeModel[
   const slots = Array.from({ length: SHOWCASE_SLOTS }, (_unused, index) => showcase[index] ?? null);
 
   return <Link href={'/pets' as never} asChild>
-    <Pressable accessibilityRole="button" accessibilityLabel={`내 펫 ${owned}마리, 전체 ${total}종`} style={{ ...surface.card, gap: spacing.sm }}>
+    <Pressable accessibilityRole="button" accessibilityLabel={`내 펫 ${owned}마리, 전체 ${total}종`} style={{ ...glowCard(vivid.azure), gap: spacing.sm }}>
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.xs }}>
           <Text style={text.subtitle}>내 펫</Text>
@@ -110,9 +120,15 @@ function CollectionStrip({ collection }: Readonly<{ collection: PublicHomeModel[
               borderWidth: 1, borderColor: colors.line, borderStyle: 'dashed',
             }} />;
           }
-          const palette = rarityPalette[pet.rarity as RarityKey] ?? rarityPalette.COMMON;
-          return <View key={pet.petId} accessibilityLabel={`${rarityLabels[pet.rarity as RarityKey] ?? ''} 펫`} style={{ flex: 1, aspectRatio: 1, borderRadius: radius.card, backgroundColor: palette.bg, overflow: 'hidden', borderWidth: 1, borderColor: palette.fg }}>
-            <Image accessibilityIgnoresInvertColors source={{ uri: pet.thumbnailUrl }} resizeMode="cover" style={{ width: '100%', height: '100%' }} />
+          const ramp = rarityGradients[pet.rarity as RarityKey] ?? rarityGradients.COMMON;
+          // The frame is the rarity. A 2px gradient edge around the art says "legendary"
+          // faster than any label, and costs nothing at thumbnail size.
+          return <View key={pet.petId} accessibilityLabel={`${rarityLabels[pet.rarity as RarityKey] ?? ''} 펫`} style={{ flex: 1, aspectRatio: 1 }}>
+            <VerticalGradient from={ramp.from} via={ramp.via} to={ramp.to} style={{ flex: 1, borderRadius: radius.card, padding: 2, ...glow(ramp.via, 'soft') }}>
+              <View style={{ flex: 1, borderRadius: radius.card - 2, overflow: 'hidden', backgroundColor: colors.surface }}>
+                <Image accessibilityIgnoresInvertColors source={{ uri: pet.thumbnailUrl }} resizeMode="cover" style={{ width: '100%', height: '100%' }} />
+              </View>
+            </VerticalGradient>
           </View>;
         })}
         </View>}
@@ -129,7 +145,7 @@ export function HomeScreen({ model }: Readonly<{ model: PublicHomeModel }>) {
   const streakDays = 0;
   const doneToday = 0;
   const primaryEnabled = primary?.availability === 'ENABLED';
-  const ctaTone = primaryEnabled ? 'primary' : 'disabled';
+  const ctaTone = primaryEnabled ? 'bright' : 'disabled';
   // White on the blue hero rather than a blue button on a blue field: the CTA has to be the
   // highest-contrast thing on the card, and against a saturated ground that means going light.
   const primaryAction = <Pressable
@@ -137,15 +153,9 @@ export function HomeScreen({ model }: Readonly<{ model: PublicHomeModel }>) {
     accessibilityRole="button"
     accessibilityLabel={primaryEnabled ? '오늘의 학습 시작' : '오늘의 학습 준비 중'}
     accessibilityState={{ disabled: !primaryEnabled }}
-    style={{
-      ...buttonStyle(ctaTone, { block: true }),
-      minHeight: 56,
-      borderRadius: radius.pill,
-      backgroundColor: primaryEnabled ? colors.onAccent : 'rgba(255,255,255,0.22)',
-      borderColor: 'transparent',
-    }}
+    style={vividButtonStyle(ctaTone, { block: true })}
   >
-    <Text style={{ ...buttonTextStyle(ctaTone), fontSize: 16, color: primaryEnabled ? colors.accent : 'rgba(255,255,255,0.7)' }}>
+    <Text style={vividButtonTextStyle(ctaTone)}>
       {primaryEnabled ? '오늘의 도전 시작' : '콘텐츠 준비 중'}
     </Text>
   </Pressable>;
@@ -162,22 +172,32 @@ export function HomeScreen({ model }: Readonly<{ model: PublicHomeModel }>) {
     </View>
 
     {/* The one saturated surface on the screen: it fixes the eye before anything else. */}
-    <FadeInUp style={{ borderRadius: radius.xl, overflow: 'hidden' }}>
-      <VerticalGradient from={gradients.hero.from} to={gradients.hero.to} style={{ padding: spacing.xl, gap: spacing.lg }}>
-      <View style={{ gap: 6 }}>
-        <Text style={{ ...text.overline, color: 'rgba(255,255,255,0.78)' }}>오늘의 도전 · 약 3분</Text>
-        <Text style={{ ...text.title, color: colors.onAccent, fontSize: 24, lineHeight: 31 }}>그림을 찾고{`\n`}단어를 잡아보세요</Text>
+    <FadeInUp style={{ ...vividSurface.heroShell, ...glow(vivid.violet, 'strong') }}>
+      <VerticalGradient
+        from={vividGradients.hero.from}
+        via={vividGradients.hero.via}
+        to={vividGradients.hero.to}
+        style={{ padding: spacing.xl, gap: spacing.lg }}
+      >
+      {/* Implies a light source, so the ramp stops reading as a flat wash. */}
+      <Sheen size={300} top={-130} left={-80} opacity={0.18} />
+      <View style={{ gap: 8 }}>
+        <View style={{ ...vividSurface.glassChip }}>
+          <Text style={{ ...textOnDark.overline, color: onDark.primary }}>오늘의 도전 · 약 3분</Text>
+        </View>
+        <Text style={{ ...textOnDark.title, fontSize: 27, lineHeight: 34, letterSpacing: -0.6 }}>그림을 찾고{`\n`}단어를 잡아보세요</Text>
       </View>
       <View style={{ gap: spacing.xs }}>
         {/* The three dots never said three of what. */}
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline' }}>
-          <Text style={{ ...text.caption, color: 'rgba(255,255,255,0.78)' }}>오늘 진행</Text>
-          <Text style={{ ...text.caption, fontWeight: '700', color: colors.onAccent }}>{doneToday} / {DAILY_ROUNDS}판</Text>
+          <Text style={textOnDark.caption}>오늘 진행</Text>
+          <Text style={{ ...textOnDark.caption, fontWeight: '800', color: onDark.primary }}>{doneToday} / {DAILY_ROUNDS}판</Text>
         </View>
-        <View accessibilityLabel={`오늘의 진행 ${doneToday} / ${DAILY_ROUNDS}`} style={{ flexDirection: 'row', gap: 4 }}>
+        <View accessibilityLabel={`오늘의 진행 ${doneToday} / ${DAILY_ROUNDS}`} style={{ flexDirection: 'row', gap: 5 }}>
           {Array.from({ length: DAILY_ROUNDS }, (_unused, step) => <View key={step} style={{
-            flex: 1, height: 5, borderRadius: radius.pill,
-            backgroundColor: step < doneToday ? colors.onAccent : 'rgba(255,255,255,0.26)',
+            flex: 1, height: 7, borderRadius: radius.pill,
+            backgroundColor: step < doneToday ? onDark.primary : glass.base,
+            ...(step < doneToday ? glow(onDark.primary, 'soft') : {}),
           }} />)}
         </View>
       </View>
@@ -213,12 +233,23 @@ function RankingRow({ card }: Readonly<{ card: PublicHomeCard }>) {
     </Text>;
   }
   return <Link href={card.route as never} asChild>
-    <Pressable accessibilityRole="button" accessibilityLabel={card.label} style={{ ...surface.card, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: spacing.md }}>
-      <View style={{ gap: 2 }}>
-        <Text style={text.bodyStrong}>주간 랭킹</Text>
+    <Pressable accessibilityRole="button" accessibilityLabel={card.label} style={{ ...glowCard(vivid.amber), flexDirection: 'row', alignItems: 'center', gap: spacing.md, paddingVertical: spacing.md }}>
+      {/* A trophy tile gives the row the same weight as the mode cards above it, which is
+          what stops the leaderboard reading as a footnote. */}
+      <VerticalGradient
+        from={vividGradients.podium.from}
+        via={vividGradients.podium.via}
+        to={vividGradients.podium.to}
+        style={{ width: 48, height: 48, borderRadius: radius.card, alignItems: 'center', justifyContent: 'center' }}
+      >
+        <Sheen size={60} top={-30} left={-16} opacity={0.3} />
+        <Text style={{ fontSize: 21, lineHeight: 26 }}>🏆</Text>
+      </VerticalGradient>
+      <View style={{ gap: 2, flex: 1 }}>
+        <Text style={text.subtitle}>주간 랭킹</Text>
         <Text style={text.caption}>검증된 기록만 반영돼요</Text>
       </View>
-      <Text style={{ ...text.subtitle, color: colors.accent }}>›</Text>
+      <Text style={{ ...text.subtitle, color: vivid.amber }}>›</Text>
     </Pressable>
   </Link>;
 }

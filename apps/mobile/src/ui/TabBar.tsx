@@ -1,6 +1,7 @@
 import { Link } from 'expo-router';
 import { Pressable, Text, View } from 'react-native';
-import { colors, layout, spacing } from './design-tokens';
+import { colors, glow, onDark, radius, layout, spacing, vividGradients, type VividGradientKey } from './design-tokens';
+import { VerticalGradient } from './Gradient';
 import { tabBar } from './ui-kit';
 
 /**
@@ -13,12 +14,16 @@ import { tabBar } from './ui-kit';
 
 export type TabKey = 'home' | 'pets' | 'ranking' | 'profile';
 
+/**
+ * Each tab carries the gradient its screen leads with, so the bar tells you where you are by
+ * colour before you read the label — and arriving on the screen confirms it.
+ */
 const TABS = [
-  { key: 'home', route: '/', glyph: '⌂', label: '홈' },
-  { key: 'pets', route: '/pets', glyph: '❍', label: '펫' },
-  { key: 'ranking', route: '/ranking', glyph: '△', label: '랭킹' },
-  { key: 'profile', route: '/profile', glyph: '○', label: '내 정보' },
-] as const satisfies readonly { key: TabKey; route: string; glyph: string; label: string }[];
+  { key: 'home', route: '/', glyph: '⌂', label: '홈', tone: 'hero' },
+  { key: 'pets', route: '/pets', glyph: '❍', label: '펫', tone: 'collection' },
+  { key: 'ranking', route: '/ranking', glyph: '△', label: '랭킹', tone: 'podium' },
+  { key: 'profile', route: '/profile', glyph: '○', label: '내 정보', tone: 'profile' },
+] as const satisfies readonly { key: TabKey; route: string; glyph: string; label: string; tone: VividGradientKey }[];
 
 /**
  * Pinned to the bottom of the window, not scrolled with the content.
@@ -38,6 +43,7 @@ export function TabBar({ active }: Readonly<{ active: TabKey }>) {
     <View accessibilityRole="tablist" style={{ ...tabBar.wrap, marginTop: 0, maxWidth: layout.maxContentWidth, width: '100%', alignSelf: 'center' }}>
     {TABS.map((tab) => {
       const selected = tab.key === active;
+      const ramp = vividGradients[tab.tone];
       const body = <>
         <Text style={tabBar.glyph(selected)}>{tab.glyph}</Text>
         <Text style={tabBar.label(selected)}>{tab.label}</Text>
@@ -46,7 +52,19 @@ export function TabBar({ active }: Readonly<{ active: TabKey }>) {
       // as a dead tap, and on a stack router it can push a duplicate entry.
       if (selected) {
         return <View key={tab.key} accessibilityRole="tab" accessibilityLabel={tab.label} accessibilityState={{ selected: true }} style={tabBar.item}>
-          {body}
+          {/* The active tab is filled, not just tinted. A colour-only difference is easy to
+              miss at 11pt; a solid pill is not. */}
+          <VerticalGradient
+            from={ramp.from}
+            via={ramp.via}
+            to={ramp.to}
+            style={{
+              position: 'absolute', top: 2, left: -2, right: -2, bottom: 2,
+              borderRadius: radius.pill, ...glow(ramp.via, 'soft'),
+            }}
+          />
+          <Text style={{ ...tabBar.glyph(true), color: onDark.primary }}>{tab.glyph}</Text>
+          <Text style={{ ...tabBar.label(true), color: onDark.primary }}>{tab.label}</Text>
         </View>;
       }
       return <Link key={tab.key} href={tab.route as never} asChild>

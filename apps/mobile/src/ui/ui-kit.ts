@@ -5,7 +5,7 @@
  * consumed by screens whose tests mock the React Native surface down to a few
  * host components.
  */
-import { colors, layout, radius, rarityPalette, shadow, spacing, typography, type RarityKey } from './design-tokens';
+import { colors, glass, glow, layout, onDark, radius, rarityPalette, shadow, spacing, typography, vivid, type RarityKey } from './design-tokens';
 
 export const screen = {
   scroll: {
@@ -229,6 +229,130 @@ export const progress = {
       height: '100%' as const,
       borderRadius: radius.pill,
       backgroundColor: colors.accent,
+    };
+  },
+} as const;
+
+/* ------------------------------------------------------------------ *
+ *  Vivid layer. Styles for surfaces that sit on a gradient or a dark
+ *  ground. Everything above stays the Minimal Light system.
+ * ------------------------------------------------------------------ */
+
+/** Type on a vivid or dark ground. `text.*` above assumes a white one and goes invisible here. */
+export const textOnDark = {
+  display: { ...typography.display, color: onDark.primary },
+  title: { ...typography.title, color: onDark.primary },
+  subtitle: { ...typography.subtitle, color: onDark.primary },
+  body: { ...typography.body, color: onDark.secondary },
+  bodyStrong: { ...typography.bodyStrong, color: onDark.primary },
+  caption: { ...typography.caption, color: onDark.secondary },
+  overline: { ...typography.overline, color: onDark.muted },
+} as const;
+
+export const vividSurface = {
+  /**
+   * A panel on top of a gradient. Translucent rather than white: a solid fill would punch a
+   * hole in the gradient behind it, and the hairline is a lightened edge rather than a border
+   * colour so it catches the fill instead of cutting it.
+   */
+  glass: {
+    padding: spacing.md,
+    borderRadius: radius.card,
+    backgroundColor: glass.base,
+    borderWidth: 1,
+    borderColor: glass.edge,
+  },
+  glassQuiet: {
+    padding: spacing.sm,
+    borderRadius: radius.card,
+    backgroundColor: glass.thin,
+    borderWidth: 1,
+    borderColor: glass.edge,
+  },
+  /** Inline chip on a gradient — counts, streaks, ranks. */
+  glassChip: {
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 5,
+    borderRadius: radius.pill,
+    backgroundColor: glass.thick,
+    alignSelf: 'flex-start' as const,
+  },
+  /** Full-bleed dark panel for screens that lead with one. */
+  dark: {
+    padding: spacing.xl,
+    borderRadius: radius.xl,
+    backgroundColor: vivid.ink,
+  },
+  /** The clipping shell a gradient fill is poured into. */
+  heroShell: {
+    borderRadius: radius.xl,
+    overflow: 'hidden' as const,
+  },
+} as const;
+
+/**
+ * A white card that is lit by its own colour rather than shadowed by a neutral grey.
+ *
+ * Passing the card's dominant hue is the whole point: a grey shadow under a coloured card
+ * reads as dirt under it.
+ */
+export function glowCard(color: string, strength: 'soft' | 'strong' = 'soft') {
+  return {
+    padding: spacing.lg,
+    borderRadius: radius.xl,
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.line,
+    ...glow(color, strength),
+  };
+}
+
+export type VividTone = 'bright' | 'glass' | 'disabled';
+
+/** The CTA on a vivid ground. White wins there; a coloured button on a coloured field does not. */
+export function vividButtonStyle(tone: VividTone, options?: { block?: boolean }) {
+  const base = {
+    minHeight: 56,
+    paddingVertical: 15,
+    paddingHorizontal: spacing.xl,
+    borderRadius: radius.pill,
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
+    flexDirection: 'row' as const,
+    borderWidth: 1,
+    alignSelf: (options?.block ? 'stretch' : 'flex-start') as 'stretch' | 'flex-start',
+  };
+  if (tone === 'bright') {
+    return { ...base, backgroundColor: onDark.primary, borderColor: 'transparent', ...glow('#000000', 'soft') };
+  }
+  if (tone === 'glass') {
+    return { ...base, backgroundColor: glass.thick, borderColor: glass.edgeStrong };
+  }
+  return { ...base, backgroundColor: glass.thin, borderColor: 'transparent' };
+}
+
+export function vividButtonTextStyle(tone: VividTone) {
+  const base = { fontSize: 16, lineHeight: 21, fontWeight: '800' as const, textAlign: 'center' as const };
+  if (tone === 'bright') return { ...base, color: vivid.indigo };
+  if (tone === 'glass') return { ...base, color: onDark.primary };
+  return { ...base, color: onDark.faint };
+}
+
+/** Progress rail drawn on a gradient, where the light base track disappears. */
+export const progressOnDark = {
+  track: {
+    height: 8,
+    borderRadius: radius.pill,
+    backgroundColor: 'rgba(255,255,255,0.22)',
+    overflow: 'hidden' as const,
+  },
+  fill(ratio: number) {
+    const clamped = Math.max(0, Math.min(1, Number.isFinite(ratio) ? ratio : 0));
+    return {
+      width: `${Math.round(clamped * 100)}%` as `${number}%`,
+      height: '100%' as const,
+      borderRadius: radius.pill,
+      backgroundColor: onDark.primary,
     };
   },
 } as const;

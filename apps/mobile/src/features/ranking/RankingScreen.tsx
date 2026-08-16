@@ -1,6 +1,7 @@
 import { Text, View } from 'react-native';
 import type { RankingModel } from './ranking-model';
-import { colors, podiumPalette, radius, spacing } from '../../ui/design-tokens';
+import { colors, glow, podiumGradients, podiumPalette, radius, spacing } from '../../ui/design-tokens';
+import { Sheen, VerticalGradient } from '../../ui/Gradient';
 import { text } from '../../ui/ui-kit';
 
 const stateCopy = {
@@ -19,10 +20,28 @@ const PREVIEW_STATES = new Set(['EMPTY', 'DISABLED', 'LOADING']);
  * keep their meaning.
  */
 function RankChip({ rank, ghost = false }: Readonly<{ rank: number; ghost?: boolean }>) {
-  const podium = podiumPalette[rank as 1 | 2 | 3];
-  const tint = podium ?? { bg: colors.surfaceMuted, fg: colors.muted };
+  const medal = podiumGradients[rank as 1 | 2 | 3];
+  // Ranks 1–3 become metal: a gold, silver and bronze ramp reads as a podium instantly and
+  // needs no label. Everyone below stays a flat tint so the three keep meaning something.
+  if (medal !== undefined) {
+    return <VerticalGradient
+      from={medal.from}
+      via={medal.via}
+      to={medal.to}
+      style={{
+        minWidth: 32, height: 32, borderRadius: radius.pill, paddingHorizontal: 6,
+        alignItems: 'center', justifyContent: 'center',
+        opacity: ghost ? 0.5 : 1,
+        ...(ghost ? {} : glow(medal.via, 'soft')),
+      }}
+    >
+      {ghost ? null : <Sheen size={34} top={-15} left={-6} opacity={0.4} />}
+      <Text style={{ fontSize: 14, lineHeight: 18, fontWeight: '900', color: '#3A2A05' }}>{rank}</Text>
+    </VerticalGradient>;
+  }
+  const tint = podiumPalette[rank as 1 | 2 | 3] ?? { bg: colors.surfaceMuted, fg: colors.muted };
   return <View style={{
-    minWidth: 26, height: 26, borderRadius: radius.pill, paddingHorizontal: 6,
+    minWidth: 32, height: 32, borderRadius: radius.pill, paddingHorizontal: 6,
     alignItems: 'center', justifyContent: 'center',
     backgroundColor: tint.bg, opacity: ghost ? 0.55 : 1,
   }}>
@@ -63,14 +82,25 @@ export function RankingScreen({ model }: Readonly<{ model: RankingModel }>) {
           alignItems: 'center',
           justifyContent: 'space-between',
           paddingVertical: spacing.sm,
-          borderTopWidth: index === 0 ? 0 : 1,
-          borderTopColor: colors.line,
+          // The podium rows lift out of the list rather than sitting in it. Below rank 3 the
+          // hairline rule comes back, so the break between the two groups is the design.
+          ...(row.rank <= 3
+            ? {
+                paddingHorizontal: spacing.sm,
+                marginBottom: 6,
+                borderRadius: radius.card,
+                backgroundColor: podiumPalette[row.rank as 1 | 2 | 3]?.bg ?? colors.surfaceMuted,
+              }
+            : {
+                borderTopWidth: index === 0 ? 0 : 1,
+                borderTopColor: colors.line,
+              }),
           gap: spacing.sm,
         }}
       >
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.sm, flex: 1 }}>
           <RankChip rank={row.rank} />
-          <Text numberOfLines={1} style={{ ...text.bodyStrong, flex: 1 }}>{row.nickname}</Text>
+          <Text numberOfLines={1} style={{ ...text.bodyStrong, flex: 1, ...(row.rank === 1 ? { fontSize: 17, lineHeight: 24 } : {}) }}>{row.nickname}</Text>
         </View>
         {/* The score is the reason the row is where it is, so it stops being a caption. */}
         <Text style={{ ...text.bodyStrong, color: row.rank <= 3 ? colors.ink : colors.muted }}>{row.score.toLocaleString()}점</Text>

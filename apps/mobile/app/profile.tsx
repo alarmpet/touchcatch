@@ -3,9 +3,9 @@ import { Pressable, ScrollView, Text, TextInput, View } from 'react-native';
 import type { PublicSessionState } from '../src/auth/session-controller';
 import type { OAuthProvider } from '../src/auth/oauth-coordinator';
 import { useMobileRuntime, useMobileSession } from '../src/runtime/mobile-runtime';
-import { colors, spacing } from '../src/ui/design-tokens';
-import { buttonStyle, buttonTextStyle, field, screen, surface, tabs, text } from '../src/ui/ui-kit';
-import { ScreenHeader } from '../src/ui/atoms';
+import { colors, spacing, vivid } from '../src/ui/design-tokens';
+import { buttonStyle, buttonTextStyle, field, glowCard, screen, surface, tabs, text } from '../src/ui/ui-kit';
+import { VividScreenHeader } from '../src/ui/atoms';
 import { TabBar } from '../src/ui/TabBar';
 import { MusicSettingsCard } from '../src/features/feedback/MusicSettingsCard';
 
@@ -36,8 +36,8 @@ export function ProfileRouteView(props: Readonly<{
     || (registering && props.password.length < MIN_PASSWORD);
   return <View style={{ flex: 1, backgroundColor: colors.canvas }}>
     <ScrollView style={{ flex: 1, backgroundColor: colors.canvas }} contentContainerStyle={{ ...screen.scroll, ...screen.content }}>
-    <ScreenHeader eyebrow="ACCOUNT" title="내 정보" />
-    <View style={{ ...surface.cardLifted, gap: 6 }}>
+    <VividScreenHeader tone="profile" eyebrow="ACCOUNT" title="내 정보" lede="계정과 소리 설정을 여기서 관리해요." />
+    <View style={{ ...glowCard(vivid.violet, 'strong'), gap: 6 }}>
       <Text style={text.overline}>{signedIn ? 'SIGNED IN' : 'GUEST'}</Text>
       <Text numberOfLines={1} style={text.title}>{signedIn ? (props.session.email ?? 'TouchCatch 학습자') : '학습 기록을 이어가세요'}</Text>
       <Text style={text.caption}>{signedIn ? '펫과 주간 랭킹이 이 계정에 안전하게 연결돼요.' : '로그인하면 서버에 저장된 펫과 기록을 다시 불러와요.'}</Text>

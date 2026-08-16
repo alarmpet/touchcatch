@@ -6,7 +6,7 @@ import { DailyFreeDraw } from '../src/features/pets/DailyFreeDraw';
 import { createPetsRouteController, type PetsRouteState } from '../src/features/pets/pets-route-controller';
 import { colors, spacing } from '../src/ui/design-tokens';
 import { buttonStyle, buttonTextStyle, screen, surface, text } from '../src/ui/ui-kit';
-import { ScreenHeader } from '../src/ui/atoms';
+import { VividScreenHeader } from '../src/ui/atoms';
 import { LockedPetSlots } from '../src/ui/LockedPetSlots';
 import { TabBar } from '../src/ui/TabBar';
 import { useMobileRuntime, useMobileSession } from '../src/runtime/mobile-runtime';
@@ -41,7 +41,7 @@ export function PetsRouteView({ state, onClaim, onPromote, onRetry, onDismissRev
   })();
   return <View style={{ flex: 1, backgroundColor: colors.canvas }}>
     <ScrollView accessibilityLabel={`펫 화면 상태 ${state.status}`} style={{ flex: 1, backgroundColor: colors.canvas }} contentContainerStyle={{ ...screen.scroll, ...screen.content }}>
-      <ScreenHeader eyebrow="COLLECTION" title="펫 보상" lede="학습을 완료하고 만난 친구를 모아 보세요." />
+      <VividScreenHeader tone="collection" eyebrow="COLLECTION" title="펫 보상" lede="학습을 완료하고 만난 친구를 모아 보세요." />
       <View style={{ gap: spacing.sm }}>{body}</View>
     </ScrollView>
     <TabBar active="pets" />

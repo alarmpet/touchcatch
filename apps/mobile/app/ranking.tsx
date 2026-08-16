@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useSyncExternalStore } from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
-import { colors, spacing } from '../src/ui/design-tokens';
-import { buttonStyle, buttonTextStyle, screen, surface, tabs, text } from '../src/ui/ui-kit';
-import { ScreenHeader } from '../src/ui/atoms';
+import { colors, spacing, vivid } from '../src/ui/design-tokens';
+import { buttonStyle, buttonTextStyle, glowCard, screen, tabs, text } from '../src/ui/ui-kit';
+import { VividScreenHeader } from '../src/ui/atoms';
 import { TabBar } from '../src/ui/TabBar';
 import { GhostBoard, RankingScreen } from '../src/features/ranking/RankingScreen';
 import { WeeklyCategoryBoard } from '../src/features/leaderboard/WeeklyCategoryBoard';
@@ -17,14 +17,14 @@ export function RankingRouteView({ state, onCategory, onRetry }: Readonly<{
 }>) {
   return <View style={{ flex: 1, backgroundColor: colors.canvas }}>
     <ScrollView style={{ flex: 1, backgroundColor: colors.canvas }} contentContainerStyle={{ ...screen.scroll, ...screen.content }}>
-    <ScreenHeader eyebrow="THIS WEEK" title="주간 랭킹" lede="서버에서 검증된 학습 기록만 순위에 반영돼요." />
+    <VividScreenHeader tone="podium" eyebrow="THIS WEEK" title="주간 랭킹" lede="서버에서 검증된 학습 기록만 순위에 반영돼요." />
     <View style={tabs.bar}>
       {(['ENGLISH', 'PROVERB'] as const).map((category) => {
         const selected = state.category === category;
         return <Pressable key={category} accessibilityRole="tab" accessibilityState={{ selected }} accessibilityLabel={category === 'ENGLISH' ? '영어 랭킹' : '속담 랭킹'} onPress={() => onCategory(category)} style={tabs.item(selected)}><Text style={tabs.label(selected)}>{category === 'ENGLISH' ? '영어' : '속담'}</Text></Pressable>;
       })}
     </View>
-    <View accessibilityLabel={`랭킹 상태 ${state.model.state}`} style={{ ...surface.card, marginTop: spacing.md, gap: spacing.sm }}>
+    <View accessibilityLabel={`랭킹 상태 ${state.model.state}`} style={{ ...glowCard(vivid.magenta), marginTop: spacing.md, gap: spacing.sm }}>
       {/* Signed out is "not started", not "broken", so it gets the same shape preview the
           empty board does rather than a bare line of grey text. */}
       {state.reason === 'SIGNED_OUT' ? <><Text style={text.caption}>로그인하면 이번 주 순위에 이름을 올릴 수 있어요.</Text><GhostBoard /></>
