@@ -12,9 +12,12 @@ import { createSubjectResolver } from './auth/subject-resolver.js';
 import { createPgRpcClient, createSubjectResolutionRpc, type PgPoolLike } from './database/pg-rpc.js';
 import { createMobileApiRouter } from './http/router.js';
 import { createMobileApiHandlers, createPetHandlers } from './http/pet-handlers.js';
+import { createAttemptHandlers } from './http/attempt-handlers.js';
 import { createMeHandler } from './http/me-handler.js';
 import { createRankingHandler } from './http/ranking-handler.js';
 import { startNodeServer, type NodeServerHandle } from './http/node-server.js';
+import { AttemptVerifierAdapter } from './learning/attempt-verifier.js';
+import { PostgresAttemptRepository } from './learning/postgres-attempt-repository.js';
 import { PostgresWeeklyCategoryBoard } from './learning/weekly-category-board.js';
 import { PostgresPetRepository } from './pets/postgres-pet-repository.js';
 import { loadMobileRuntimePolicy, type MobileRuntimePolicy } from './policy/mobile-runtime-policy.js';
@@ -115,6 +118,8 @@ export function loadRuntimeConfiguration(input: Readonly<{
   const catalog = readJson(root, 'config/pet-catalog.v1.json');
   const dailyPetLoop = readJson(root, 'config/daily-pet-loop.v1.json');
   const weeklyCompetition = readJson(root, 'config/weekly-competition.v1.json');
+  const hintPolicy = readOptionalJson(root, 'config/hint-policy.v1.json');
+  const ruleset = readOptionalJson(root, 'config/ruleset.v1.json');
   const petRuntimeArt = readOptionalJson(root, 'config/pet-runtime-art.v1.json');
   const sourceManifest = readOptionalJson(root, 'content/pets/source-manifest.v1.json');
   const rightsEvidence = readOptionalJson(root, 'config/pet-rights-evidence.v1.json');
@@ -128,7 +133,7 @@ export function loadRuntimeConfiguration(input: Readonly<{
   const trustedApprovalSignerRegistrySha256 = env['PET_APPROVAL_SIGNER_REGISTRY_SHA256']?.trim();
   const assetFileHashes = verifiedRuntimeAssetHashes(root, petRuntimeArt);
   const policy = loadMobileRuntimePolicy({
-    economy, catalog, dailyPetLoop, weeklyCompetition, petRuntimeArt, sourceManifest, rightsEvidence, approvalRecords, trustedApprovalSigners, assetFileHashes,
+    economy, catalog, dailyPetLoop, weeklyCompetition, hintPolicy, ruleset, petRuntimeArt, sourceManifest, rightsEvidence, approvalRecords, trustedApprovalSigners, assetFileHashes,
     ...(trustedApprovalSignerRegistrySha256 === undefined ? {} : { trustedApprovalSignerRegistrySha256 }),
   });
   const artByPetId = new Map<string, ApprovedPetArtV1>();
@@ -219,8 +224,15 @@ export async function startMobileApiRuntime(input: Readonly<{
     board: new PostgresWeeklyCategoryBoard(rpc),
   });
   const me = createMeHandler({ verifier, subjectResolver });
+  const attempts = createAttemptHandlers({
+    verifier,
+    subjectResolver,
+    getPolicy: () => configuration.policy,
+    repository: new PostgresAttemptRepository(rpc),
+    attemptVerifier: new AttemptVerifierAdapter(),
+  });
   const router = createMobileApiRouter({
-    handlers: createMobileApiHandlers(pets, me, ranking),
+    handlers: createMobileApiHandlers(pets, me, ranking, attempts),
     allowedOrigins: configuration.allowedOrigins,
   });
   try {
@@ -250,6 +262,7 @@ async function main(): Promise<void> {
     origin: server.origin,
     rewards: configuration.policy.rewards.enabled ? 'enabled' : configuration.policy.rewards.code,
     ranking: configuration.policy.ranking.enabled ? 'enabled' : configuration.policy.ranking.code,
+    attempts: configuration.policy.attempts.enabled ? 'enabled' : configuration.policy.attempts.code,
   })}\n`);
   await server.closed;
 }

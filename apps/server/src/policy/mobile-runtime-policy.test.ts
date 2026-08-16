@@ -110,6 +110,7 @@ describe('mobile runtime policy gates', () => {
     expect(state).toEqual({
       rewards: { enabled: false, code: 'PET_ART_NOT_APPROVED' },
       ranking: { enabled: false, code: 'RANKING_POLICY_NOT_APPROVED' },
+      attempts: { enabled: false, code: 'RANKING_POLICY_NOT_APPROVED' },
     });
   });
 
@@ -172,6 +173,7 @@ describe('mobile runtime policy gates', () => {
     expect(loadMobileRuntimePolicy({ ...approved, approvalRecords: [] })).toEqual({
       rewards: { enabled: false, code: 'PET_ART_NOT_APPROVED' },
       ranking: { enabled: false, code: 'RANKING_POLICY_NOT_APPROVED' },
+      attempts: { enabled: false, code: 'RANKING_POLICY_NOT_APPROVED' },
     });
   });
 
@@ -221,6 +223,7 @@ describe('mobile runtime policy gates', () => {
     })).toEqual({
       rewards: { enabled: false, code: 'REWARD_POLICY_NOT_APPROVED' },
       ranking: { enabled: false, code: 'RANKING_POLICY_NOT_APPROVED' },
+      attempts: { enabled: false, code: 'RANKING_POLICY_NOT_APPROVED' },
     });
   });
 });

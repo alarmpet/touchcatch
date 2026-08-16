@@ -3,6 +3,7 @@ import type {
   PinnedPetPolicyV1,
 } from '../../../../packages/contracts/src/daily-pet-loop.js';
 import type { PetRarity } from '../../../../packages/contracts/src/pet-catalog.js';
+import { PET_RARITY_LADDER, resolvePromotionTargetRarity } from '../../../../packages/contracts/src/pet-catalog.js';
 import {
   duplicatePromotionV1Schema,
   pinnedPetPolicyV1Schema,
@@ -48,13 +49,21 @@ export function normalizeDuplicateMaterialsV1(
   return { petId: sourcePetId, count: 10 };
 }
 
+export type PromotableTargetRarity = Exclude<PetRarity, 'COMMON'>;
+
+/**
+ * Promotion always moves up the admitted ladder. A tier can be admitted before any art
+ * exists in it, so the target steps up to the nearest tier that has catalog entries.
+ * `populatedRarities` defaults to the full ladder for callers that pin an already-populated catalog.
+ */
 export function evaluateDuplicatePromotionV1(input: {
   rarity: PetRarity;
   ownedCopies: number;
   sourcePetId: string;
   materials: readonly DuplicateMaterialV1[];
+  populatedRarities?: readonly PetRarity[];
 }): {
-  targetRarity: 'RARE' | 'LEGENDARY';
+  targetRarity: PromotableTargetRarity;
   consumedCopies: 10;
   remainingCopies: number;
 } {
@@ -62,11 +71,13 @@ export function evaluateDuplicatePromotionV1(input: {
   if (!Number.isSafeInteger(input.ownedCopies) || input.ownedCopies < 11) {
     throw new PetLoopError('INSUFFICIENT_DUPLICATES');
   }
-  if (input.rarity === 'LEGENDARY') {
+  const populated = input.populatedRarities ?? PET_RARITY_LADDER;
+  const targetRarity = resolvePromotionTargetRarity(input.rarity, populated);
+  if (targetRarity === null) {
     throw new PetLoopError('COSMETIC_REWARD_POLICY_REQUIRED');
   }
   return {
-    targetRarity: input.rarity === 'COMMON' ? 'RARE' : 'LEGENDARY',
+    targetRarity: targetRarity as PromotableTargetRarity,
     consumedCopies: 10,
     remainingCopies: input.ownedCopies - 10,
   };

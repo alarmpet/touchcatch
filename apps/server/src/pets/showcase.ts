@@ -36,7 +36,9 @@ export function getPetCollectionV1(input: {
   const ownedIds = new Set(positiveInventory.map((pet) => pet.petId));
   const rarityProgress = {
     COMMON: { ownedCount: 0, totalCount: 0 },
+    UNCOMMON: { ownedCount: 0, totalCount: 0 },
     RARE: { ownedCount: 0, totalCount: 0 },
+    EPIC: { ownedCount: 0, totalCount: 0 },
     LEGENDARY: { ownedCount: 0, totalCount: 0 },
   };
   for (const pet of input.catalog) {

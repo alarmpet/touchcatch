@@ -5,11 +5,22 @@ import {
   type PinnedPetPolicyV1,
 } from '../../../../packages/contracts/src/daily-pet-loop.js';
 
+/** Admitted five-tier daily draw distribution. Mirrors config/daily-pet-loop.v1.json. */
+export const DAILY_DRAW_PROBABILITIES_V1 = {
+  COMMON: 0.6,
+  UNCOMMON: 0.25,
+  RARE: 0.1,
+  EPIC: 0.04,
+  LEGENDARY: 0.01,
+} as const;
+
 export interface DailyDrawEffectInputV1 extends PinnedPetPolicyV1 {
   subjectKey: string;
   claimDate: string;
   seriesId: 'DAILY_FREE_DRAW_V1';
-  probabilities: { COMMON: 0.8; RARE: 0.18; LEGENDARY: 0.02 };
+  probabilities: typeof DAILY_DRAW_PROBABILITIES_V1;
+  /** A tier may be admitted before art exists in it; rolls resolve down to the nearest populated tier. */
+  emptyTierResolution: 'STEP_DOWN_TO_NEAREST_POPULATED';
 }
 
 export interface DailyDrawRepositoryV1 {
@@ -62,7 +73,8 @@ export async function claimDailyFreeDrawV1(input: {
     subjectKey,
     claimDate: kstClaimDateV1(input.now),
     seriesId: 'DAILY_FREE_DRAW_V1',
-    probabilities: { COMMON: 0.8, RARE: 0.18, LEGENDARY: 0.02 },
+    probabilities: DAILY_DRAW_PROBABILITIES_V1,
+    emptyTierResolution: 'STEP_DOWN_TO_NEAREST_POPULATED',
     ...policy,
   });
   return dailyFreeDrawV1Schema.parse(response);

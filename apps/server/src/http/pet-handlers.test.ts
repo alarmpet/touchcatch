@@ -4,6 +4,8 @@ import type { MobileRuntimePolicyState } from '../policy/mobile-runtime-policy.j
 import { PgRpcError } from '../database/pg-rpc.js';
 
 const pins = { enabled: true as const, economyVersion: 'e1', economyHash: 'a'.repeat(64), catalogRevision: 'c1', catalogHash: 'b'.repeat(64), competitionPolicyHash: 'c'.repeat(64) };
+const attemptPins = { enabled: true as const, rulesetHash: 'd'.repeat(64), hintPolicyHash: 'e'.repeat(64), competitionPolicyHash: 'c'.repeat(64), catalogRevision: 'c1', catalogHash: 'b'.repeat(64) };
+const attemptHandlers = { getWeeklyChallenges: vi.fn(), startAttempt: vi.fn(), attestAttemptAssets: vi.fn(), tapAttempt: vi.fn(), completeAttempt: vi.fn() };
 const userId = '10000000-0000-4000-8000-000000000001';
 const subjectKey = '20000000-0000-4000-8000-000000000001';
 
@@ -14,7 +16,7 @@ function fixture(policy: MobileRuntimePolicyState = pins) {
     claimEffectOnce: vi.fn().mockResolvedValue({ claimDate: '2026-08-11', seriesId: 'DAILY_FREE_DRAW_V1', pet: { userPetId: '30000000-0000-4000-8000-000000000001', petId: '40000000-0000-4000-8000-000000000001', rarity: 'COMMON', copies: 1 }, economyVersion: 'e1', economyHash: 'a'.repeat(64), catalogRevision: 'c1', catalogHash: 'b'.repeat(64) }),
     promoteEffectOnce: vi.fn().mockResolvedValue({ consumed: { petId: '40000000-0000-4000-8000-000000000001', copies: 10, rows: [{ userPetId: '30000000-0000-4000-8000-000000000001', copies: 10 }] }, remainingCopies: 1, output: { userPetId: '50000000-0000-4000-8000-000000000001', petId: '60000000-0000-4000-8000-000000000001', rarity: 'RARE', copies: 1 }, economyVersion: 'e1', economyHash: 'a'.repeat(64), catalogRevision: 'c1', catalogHash: 'b'.repeat(64) }),
   };
-  return { resolver, repository, handlers: createPetHandlers({ verifier: { verify: async () => ({ authenticatedUserId: userId }) }, subjectResolver: resolver, getPolicy: () => ({ rewards: policy, ranking: pins }), repository, now: () => new Date('2026-08-11T00:00:00Z') }) };
+  return { resolver, repository, handlers: createPetHandlers({ verifier: { verify: async () => ({ authenticatedUserId: userId }) }, subjectResolver: resolver, getPolicy: () => ({ rewards: policy, ranking: pins, attempts: attemptPins }), repository, now: () => new Date('2026-08-11T00:00:00Z') }) };
 }
 
 describe('pet HTTP handlers', () => {
@@ -47,7 +49,7 @@ describe('pet HTTP handlers', () => {
   });
 
   it('maps authentication and domain errors to stable public statuses', async () => {
-    const unauthorized = createPetHandlers({ verifier: { verify: async () => { throw new Error('UNAUTHORIZED'); } }, subjectResolver: { ensureAndResolve: vi.fn() }, getPolicy: () => ({ rewards: pins, ranking: pins }), repository: fixture().repository });
+    const unauthorized = createPetHandlers({ verifier: { verify: async () => { throw new Error('UNAUTHORIZED'); } }, subjectResolver: { ensureAndResolve: vi.fn() }, getPolicy: () => ({ rewards: pins, ranking: pins, attempts: attemptPins }), repository: fixture().repository });
     const authResponse = await unauthorized.getPetCollection(new Request('https://api.test/v1/pets/collection'));
     expect(authResponse.status).toBe(401);
     expect(await authResponse.json()).toEqual({ code: 'UNAUTHORIZED' });
@@ -66,11 +68,11 @@ describe('pet HTTP handlers', () => {
     expect(f.repository.claimEffectOnce).not.toHaveBeenCalled();
     const me = vi.fn();
     const ranking = vi.fn();
-    const combined = createMobileApiHandlers(f.handlers, me, ranking);
+    const combined = createMobileApiHandlers(f.handlers, me, ranking, attemptHandlers);
     await combined.getMe(new Request('https://api.test/v1/me'));
     await combined.getWeeklyLeaderboard(new Request('https://api.test/v1/learning/leaderboard'));
     expect(me).toHaveBeenCalledOnce();
     expect(ranking).toHaveBeenCalledOnce();
-    expect(Object.keys(combined).sort()).toEqual(['claimDailyDraw', 'getMe', 'getPetCollection', 'getWeeklyLeaderboard', 'promoteDuplicates']);
+    expect(Object.keys(combined).sort()).toEqual(['attestAttemptAssets', 'claimDailyDraw', 'completeAttempt', 'getMe', 'getPetCollection', 'getWeeklyChallenges', 'getWeeklyLeaderboard', 'promoteDuplicates', 'startAttempt', 'tapAttempt']);
   });
 });

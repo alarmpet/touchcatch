@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import type { MobileApiHandlers } from './pet-handlers.js';
 import { createMobileApiRouter } from './router.js';
 
-function handlers(): MobileApiHandlers {
+function handlers() {
   const ok = (route: string) => Promise.resolve(Response.json({ route }));
   return {
     getMe: vi.fn(() => ok('me')),
@@ -10,11 +10,18 @@ function handlers(): MobileApiHandlers {
     claimDailyDraw: vi.fn(() => ok('daily-draw')),
     promoteDuplicates: vi.fn(() => ok('duplicate-promotion')),
     getWeeklyLeaderboard: vi.fn(() => ok('leaderboard')),
-  };
+    getWeeklyChallenges: vi.fn((_request: Request) => ok('challenges')),
+    startAttempt: vi.fn((_request: Request) => ok('attempt-start')),
+    attestAttemptAssets: vi.fn((_request: Request, _attemptId: string) => ok('attempt-assets-ready')),
+    tapAttempt: vi.fn((_request: Request, _attemptId: string) => ok('attempt-tap')),
+    completeAttempt: vi.fn((_request: Request, _attemptId: string) => ok('attempt-complete')),
+  } satisfies MobileApiHandlers;
 }
 
+const attemptId = '80000000-0000-4000-8000-000000000001';
+
 describe('mobile API router', () => {
-  it('matches only the five exact method/path pairs and exposes a non-secret health probe', async () => {
+  it('matches only the declared method/path pairs and exposes a non-secret health probe', async () => {
     const api = handlers();
     const route = createMobileApiRouter({ handlers: api });
 
@@ -30,6 +37,19 @@ describe('mobile API router', () => {
     expect((await route(new Request('http://127.0.0.1:8787/v1/pets/duplicate-promotion', {
       method: 'POST', headers: { 'content-type': 'application/json' }, body: '{}',
     }))).status).toBe(200);
+
+    const json = { method: 'POST', headers: { 'content-type': 'application/json' }, body: '{}' } as const;
+    expect((await route(new Request('http://127.0.0.1:8787/v1/learning/attempts', json))).status).toBe(200);
+    expect((await route(new Request(`http://127.0.0.1:8787/v1/learning/attempts/${attemptId}/assets-ready`, json))).status).toBe(200);
+    expect((await route(new Request(`http://127.0.0.1:8787/v1/learning/attempts/${attemptId}/complete`, json))).status).toBe(200);
+    expect(api.startAttempt).toHaveBeenCalledOnce();
+    expect(api.attestAttemptAssets.mock.calls[0]?.[1]).toBe(attemptId);
+    expect(api.completeAttempt.mock.calls[0]?.[1]).toBe(attemptId);
+    expect((await route(new Request(`http://127.0.0.1:8787/v1/learning/attempts/${attemptId}/tap`, json))).status).toBe(200);
+    expect(api.tapAttempt.mock.calls[0]?.[1]).toBe(attemptId);
+    expect((await route(new Request(`http://127.0.0.1:8787/v1/learning/attempts/${attemptId}`, json))).status).toBe(404);
+    expect((await route(new Request(`http://127.0.0.1:8787/v1/learning/attempts/${attemptId}/abandon`, json))).status).toBe(404);
+    expect((await route(new Request('http://127.0.0.1:8787/v1/learning/attempts/short/complete', json))).status).toBe(404);
 
     const wrongMethod = await route(new Request('http://127.0.0.1:8787/v1/pets/collection', { method: 'POST' }));
     expect(wrongMethod.status).toBe(405);

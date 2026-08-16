@@ -3,8 +3,9 @@ import { canonicalJsonSha256 } from '../../../../packages/contracts/src/canonica
 import type { BearerVerifier } from '../auth/bearer.js';
 import type { SubjectResolver } from '../auth/subject-resolver.js';
 import type { MobileRuntimePolicy } from '../policy/mobile-runtime-policy.js';
-import { kstClaimDateV1 } from '../pets/daily-draw.js';
+import { DAILY_DRAW_PROBABILITIES_V1, kstClaimDateV1 } from '../pets/daily-draw.js';
 import type { PetRuntimeRepository } from '../pets/postgres-pet-repository.js';
+import type { AttemptHandlers } from './attempt-handlers.js';
 import { jsonResponse, petErrorResponse } from './errors.js';
 
 const uuidV4 = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/iu;
@@ -17,7 +18,7 @@ export type PetHandlers = Readonly<{
   claimDailyDraw(request: Request): Promise<Response>;
   promoteDuplicates(request: Request): Promise<Response>;
 }>;
-export type MobileApiHandlers = PetHandlers & Readonly<{
+export type MobileApiHandlers = PetHandlers & AttemptHandlers & Readonly<{
   getMe(request: Request): Promise<Response>;
   getWeeklyLeaderboard(request: Request): Promise<Response>;
 }>;
@@ -26,8 +27,9 @@ export function createMobileApiHandlers(
   pets: PetHandlers,
   getMe: (request: Request) => Promise<Response>,
   getWeeklyLeaderboard: (request: Request) => Promise<Response>,
+  attempts: AttemptHandlers,
 ): MobileApiHandlers {
-  return { ...pets, getMe, getWeeklyLeaderboard };
+  return { ...pets, ...attempts, getMe, getWeeklyLeaderboard };
 }
 
 export function createPetHandlers(input: Readonly<{
@@ -77,7 +79,7 @@ export function createPetHandlers(input: Readonly<{
         idempotencyKey(request);
         await requireEmptyBody(request);
         const subjectKey = await resolve(userId);
-        return jsonResponse(200, await input.repository.claimEffectOnce({ subjectKey, claimDate: kstClaimDateV1(input.now?.()), seriesId: 'DAILY_FREE_DRAW_V1', probabilities: { COMMON: 0.8, RARE: 0.18, LEGENDARY: 0.02 }, economyVersion: policy.economyVersion, economyHash: policy.economyHash, catalogRevision: policy.catalogRevision, catalogHash: policy.catalogHash }));
+        return jsonResponse(200, await input.repository.claimEffectOnce({ subjectKey, claimDate: kstClaimDateV1(input.now?.()), seriesId: 'DAILY_FREE_DRAW_V1', probabilities: DAILY_DRAW_PROBABILITIES_V1, emptyTierResolution: 'STEP_DOWN_TO_NEAREST_POPULATED', economyVersion: policy.economyVersion, economyHash: policy.economyHash, catalogRevision: policy.catalogRevision, catalogHash: policy.catalogHash }));
       } catch (error) { return petErrorResponse(error); }
     },
     async promoteDuplicates(request) {

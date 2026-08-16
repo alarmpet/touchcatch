@@ -33,7 +33,9 @@ describe('pet collection projection', () => {
       totalCount: 3,
       rarityProgress: {
         COMMON: { ownedCount: 1, totalCount: 2 },
+        UNCOMMON: { ownedCount: 0, totalCount: 0 },
         RARE: { ownedCount: 0, totalCount: 1 },
+        EPIC: { ownedCount: 0, totalCount: 0 },
         LEGENDARY: { ownedCount: 0, totalCount: 0 },
       },
       pets: [{
@@ -112,7 +114,9 @@ describe('pet collection projection', () => {
       totalCount: 3,
       rarityProgress: {
         COMMON: { ownedCount: 1, totalCount: 2 },
+        UNCOMMON: { ownedCount: 0, totalCount: 0 },
         RARE: { ownedCount: 0, totalCount: 1 },
+        EPIC: { ownedCount: 0, totalCount: 0 },
         LEGENDARY: { ownedCount: 0, totalCount: 0 },
       },
     }));

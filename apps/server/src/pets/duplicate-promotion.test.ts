@@ -53,8 +53,10 @@ class PromotionSubjectResolver implements AuthenticatedEconomySubjectResolverV1 
 
 describe('same-pet duplicate promotion', () => {
   it.each([
-    ['COMMON', 'RARE'],
-    ['RARE', 'LEGENDARY'],
+    ['COMMON', 'UNCOMMON'],
+    ['UNCOMMON', 'RARE'],
+    ['RARE', 'EPIC'],
+    ['EPIC', 'LEGENDARY'],
   ] as const)('consumes ten %s spares, retains the base, and issues one %s target', (rarity, targetRarity) => {
     expect(evaluateDuplicatePromotionV1({
       rarity,
@@ -62,6 +64,29 @@ describe('same-pet duplicate promotion', () => {
       sourcePetId: 'pet-a',
       materials: [{ petId: 'pet-a', count: 10 }],
     })).toEqual({ targetRarity, consumedCopies: 10, remainingCopies: 1 });
+  });
+
+  it.each([
+    ['COMMON', 'RARE'],
+    ['RARE', 'LEGENDARY'],
+  ] as const)('steps %s past tiers with no admitted art and promotes to %s', (rarity, targetRarity) => {
+    expect(evaluateDuplicatePromotionV1({
+      rarity,
+      ownedCopies: 11,
+      sourcePetId: 'pet-a',
+      materials: [{ petId: 'pet-a', count: 10 }],
+      populatedRarities: ['COMMON', 'RARE', 'LEGENDARY'],
+    })).toEqual({ targetRarity, consumedCopies: 10, remainingCopies: 1 });
+  });
+
+  it('requires a cosmetic reward policy when no populated tier sits above the source', () => {
+    expect(() => evaluateDuplicatePromotionV1({
+      rarity: 'RARE',
+      ownedCopies: 11,
+      sourcePetId: 'pet-a',
+      materials: [{ petId: 'pet-a', count: 10 }],
+      populatedRarities: ['COMMON', 'RARE'],
+    })).toThrow('COSMETIC_REWARD_POLICY_REQUIRED');
   });
 
   it('rejects nine spare copies', () => {

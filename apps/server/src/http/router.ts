@@ -3,9 +3,19 @@ import { jsonResponse } from './errors.js';
 
 type Route = Readonly<{
   method: 'GET' | 'POST';
-  handle(request: Request): Promise<Response>;
+  handle(request: Request, attemptId: string): Promise<Response>;
   requiresJson?: boolean;
+  maxBodyBytes?: number;
 }>;
+
+/**
+ * Loose on the identifier by design: the attempt handlers answer a malformed id with
+ * 400 INVALID_REQUEST, which is more useful than the 404 a stricter pattern would give.
+ */
+const attemptSubPath = /^\/v1\/learning\/attempts\/([0-9a-fA-F-]{36})\/(assets-ready|tap|complete)$/u;
+
+/** A completed attempt ships its whole command log, so it needs more room than a claim. */
+const ATTEMPT_COMPLETE_MAX_BODY_BYTES = 64 * 1024;
 
 export type MobileApiRouterOptions = Readonly<{
   handlers: MobileApiHandlers;
@@ -96,7 +106,31 @@ export function createMobileApiRouter(options: MobileApiRouterOptions): (request
     ['/v1/learning/leaderboard', { method: 'GET', handle: options.handlers.getWeeklyLeaderboard }],
     ['/v1/pets/daily-draw', { method: 'POST', handle: options.handlers.claimDailyDraw }],
     ['/v1/pets/duplicate-promotion', { method: 'POST', handle: options.handlers.promoteDuplicates, requiresJson: true }],
+    ['/v1/learning/challenges', { method: 'GET', handle: options.handlers.getWeeklyChallenges }],
+    ['/v1/learning/attempts', { method: 'POST', handle: options.handlers.startAttempt, requiresJson: true }],
   ]);
+  const attemptSubRoutes: Readonly<Record<string, Route>> = {
+    'assets-ready': { method: 'POST', handle: options.handlers.attestAttemptAssets, requiresJson: true },
+    // A tap carries four numbers and no idempotency key: it is an append to a log, and two
+    // taps at the same point are two real events, not a retry of one.
+    tap: { method: 'POST', handle: options.handlers.tapAttempt, requiresJson: true },
+    complete: {
+      method: 'POST',
+      handle: options.handlers.completeAttempt,
+      requiresJson: true,
+      maxBodyBytes: ATTEMPT_COMPLETE_MAX_BODY_BYTES,
+    },
+  };
+
+  function resolve(pathname: string): Readonly<{ route: Route; attemptId: string }> | undefined {
+    const exact = routes.get(pathname);
+    if (exact !== undefined) return { route: exact, attemptId: '' };
+    const match = attemptSubPath.exec(pathname);
+    if (match === null) return undefined;
+    const route = attemptSubRoutes[match[2]!];
+    if (route === undefined) return undefined;
+    return { route, attemptId: match[1]! };
+  }
 
   return async (request) => {
     const url = new URL(request.url);
@@ -109,8 +143,9 @@ export function createMobileApiRouter(options: MobileApiRouterOptions): (request
       return jsonResponse(200, { status: 'ok' });
     }
 
-    const route = routes.get(url.pathname);
-    if (route === undefined) return jsonResponse(404, { code: 'NOT_FOUND' });
+    const matched = resolve(url.pathname);
+    if (matched === undefined) return jsonResponse(404, { code: 'NOT_FOUND' });
+    const { route, attemptId } = matched;
     const origin = request.headers.get('origin');
     if (origin !== null && !isLoopbackOrigin(origin) && !allowedOrigins.has(origin)) {
       return jsonResponse(403, { code: 'ORIGIN_NOT_ALLOWED' });
@@ -139,8 +174,9 @@ export function createMobileApiRouter(options: MobileApiRouterOptions): (request
     }
 
     try {
-      const body = route.method === 'POST' ? await readLimitedBody(request, maxRequestBodyBytes) : null;
-      return corsResponse(await route.handle(replaceBody(request, body)), origin);
+      const limit = route.maxBodyBytes ?? maxRequestBodyBytes;
+      const body = route.method === 'POST' ? await readLimitedBody(request, limit) : null;
+      return corsResponse(await route.handle(replaceBody(request, body), attemptId), origin);
     } catch (error) {
       if (error instanceof RangeError && error.message === 'REQUEST_TOO_LARGE') {
         return corsResponse(jsonResponse(413, { code: 'REQUEST_TOO_LARGE' }), origin);

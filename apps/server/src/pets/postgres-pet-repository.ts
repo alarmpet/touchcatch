@@ -27,7 +27,7 @@ const rawCollectionSchema = z.object({
   catalogRevision: z.string().optional(), catalogHash: z.string().optional(),
   claimedToday: z.boolean(),
   ownedCount: z.number().int().nonnegative(), totalCount: z.number().int().nonnegative(),
-  rarityProgress: z.object({ COMMON: progress, RARE: progress, LEGENDARY: progress }).strict(),
+  rarityProgress: z.object({ COMMON: progress, UNCOMMON: progress, RARE: progress, EPIC: progress, LEGENDARY: progress }).strict(),
   pets: z.array(rawPetSchema),
 }).strict();
 

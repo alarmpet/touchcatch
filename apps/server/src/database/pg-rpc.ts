@@ -3,7 +3,13 @@ export type MobileRpcName =
   | 'read_pet_inventory_v1'
   | 'read_weekly_category_board_v1'
   | 'claim_daily_free_draw_v1'
-  | 'promote_duplicate_cards_v1';
+  | 'promote_duplicate_cards_v1'
+  | 'start_learning_attempt_v1'
+  | 'attest_learning_assets_ready_owned_v1'
+  | 'commit_learning_attempt_owned_v1'
+  | 'read_weekly_challenges_v1'
+  | 'read_learning_attempt_board_v1'
+  | 'record_learning_tap_v1';
 
 const statements: Record<MobileRpcName, string> = {
   ensure_mobile_account_v1: 'select private.ensure_mobile_account_v1($1::uuid) response',
@@ -11,6 +17,14 @@ const statements: Record<MobileRpcName, string> = {
   read_weekly_category_board_v1: 'select private.read_weekly_category_board_v1($1::uuid,$2::uuid,$3::text,$4::integer) response',
   claim_daily_free_draw_v1: 'select private.claim_daily_free_draw_v1($1::uuid,$2::text,$3::text,$4::text) response',
   promote_duplicate_cards_v1: 'select private.promote_duplicate_cards_v1($1::uuid,$2::uuid,$3::text,$4::jsonb,$5::text,$6::text,$7::text) response',
+  start_learning_attempt_v1: 'select private.start_learning_attempt_v1($1::uuid,$2::uuid,$3::uuid,$4::uuid,$5::text,$6::text,$7::text,$8::text,$9::text,$10::text,$11::text) response',
+  // The owned_ variants take the caller's subject first and refuse an attempt that is not
+  // theirs; economy_server has no grant on the unguarded pair.
+  attest_learning_assets_ready_owned_v1: 'select private.attest_learning_assets_ready_owned_v1($1::uuid,$2::uuid,$3::text,$4::text,$5::text,$6::text) response',
+  commit_learning_attempt_owned_v1: 'select private.commit_learning_attempt_owned_v1($1::uuid,$2::uuid,$3::uuid,$4::text,$5::text,$6::text,$7::text,$8::text,$9::integer,$10::integer,$11::integer,$12::integer,$13::text) response',
+  read_weekly_challenges_v1: 'select private.read_weekly_challenges_v1($1::uuid,$2::uuid) response',
+  read_learning_attempt_board_v1: 'select private.read_learning_attempt_board_v1($1::uuid,$2::uuid,$3::text,$4::text,$5::text,$6::text) response',
+  record_learning_tap_v1: 'select private.record_learning_tap_v1($1::uuid,$2::uuid,$3::text,$4::text,$5::text,$6::text,$7::text,$8::uuid) response',
 };
 
 type QueryResult = Readonly<{ rows: readonly Record<string, unknown>[] }>;
@@ -49,6 +63,10 @@ const publicCodes = new Set([
   'NOT_OWNED', 'IDEMPOTENCY_CONFLICT', 'INSUFFICIENT_DUPLICATES',
   'COSMETIC_REWARD_POLICY_REQUIRED', 'INVALID_MATERIALS',
   'RANKING_POLICY_NOT_APPROVED', 'INVALID_CATEGORY', 'INVALID_LIMIT',
+  'INVALID_ATTEMPT_START', 'SEASON_NOT_FOUND', 'SEASON_NOT_OPEN',
+  'CHALLENGE_PIN_MISMATCH', 'SELECTED_PET_REQUIRED',
+  'ATTEMPT_NOT_FOUND', 'ATTEMPT_TERMINAL', 'INVALID_VERIFIED_METRICS',
+  'ASSETS_NOT_READY', 'OBJECTIVE_NOT_FOUND',
 ]);
 
 export function createPgRpcClient(pool: PgPoolLike): MobileRpcClient {

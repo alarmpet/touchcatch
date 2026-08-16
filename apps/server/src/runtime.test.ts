@@ -20,6 +20,8 @@ describe('mobile API runtime configuration', () => {
     expect(config.policy).toEqual({
       rewards: { enabled: false, code: 'PET_ART_NOT_APPROVED' },
       ranking: { enabled: false, code: 'RANKING_POLICY_NOT_APPROVED' },
+      // Ranked attempts inherit the ranking gate, so a closed season closes them too.
+      attempts: { enabled: false, code: 'RANKING_POLICY_NOT_APPROVED' },
     });
   });
 
