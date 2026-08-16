@@ -3,8 +3,12 @@ import {
   copiesUntilPromotion,
   nextRevealPhase,
   orderedRarityProgress,
+  revealDurationMs,
   revealEmphasis,
+  revealLadder,
   revealPresentation,
+  REVEAL_OPENING_MS,
+  REVEAL_STEP_MS,
   type PetRevealV1,
 } from './reveal-model';
 
@@ -22,6 +26,29 @@ describe('pet reveal model', () => {
     expect(nextRevealPhase('SEALED')).toBe('OPENING');
     expect(nextRevealPhase('OPENING')).toBe('REVEALED');
     expect(nextRevealPhase('REVEALED')).toBe('REVEALED');
+  });
+
+  it('climbs the ladder up to the awarded tier and stops there', () => {
+    expect(revealLadder('COMMON')).toEqual(['COMMON']);
+    expect(revealLadder('RARE')).toEqual(['COMMON', 'UNCOMMON', 'RARE']);
+    expect(revealLadder('LEGENDARY')).toEqual(['COMMON', 'UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY']);
+  });
+
+  it('never shows a tier above the one awarded', () => {
+    // The climb is theatre over a settled result. Showing EPIC on the way to a RARE would
+    // be the one thing this presentation must not do: claim an outcome that did not happen.
+    for (const rarity of ['COMMON', 'UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY'] as const) {
+      const ladder = revealLadder(rarity);
+      expect(ladder.at(-1)).toBe(rarity);
+      expect(new Set(ladder).size).toBe(ladder.length);
+    }
+  });
+
+  it('spends longer on rarer outcomes, and keeps the common case brisk', () => {
+    expect(revealDurationMs('COMMON')).toBe(REVEAL_OPENING_MS);
+    expect(revealDurationMs('LEGENDARY')).toBe(4 * REVEAL_STEP_MS + REVEAL_OPENING_MS);
+    const durations = (['COMMON', 'UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY'] as const).map(revealDurationMs);
+    expect(durations).toEqual([...durations].sort((left, right) => left - right));
   });
 
   it.each([

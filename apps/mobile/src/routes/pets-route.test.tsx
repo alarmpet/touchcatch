@@ -2,6 +2,7 @@ import React from 'react';
 import { act, create } from 'react-test-renderer';
 import { describe, expect, it, vi } from 'vitest';
 import { PetsRouteView } from '../../app/pets.js';
+import { revealDurationMs } from '../features/pets/reveal-model.js';
 
 vi.mock('react-native', () => ({ ScrollView: 'ScrollView', Text: 'Text', View: 'View', Pressable: 'Pressable', Image: 'Image' }));
 vi.mock('expo-router', () => ({ Link: 'Link' }));
@@ -84,7 +85,9 @@ describe('pets live route view', () => {
     expect(tree.root.findByProps({ testID: 'reveal-pending' })).toBeTruthy();
     expect(tree.root.findByProps({ accessibilityLabel: '획득 결과 닫기' }).props.disabled).toBe(true);
 
-    await act(async () => { vi.advanceTimersByTime(1000); });
+    // Driven from the model rather than a fixed 1000: a LEGENDARY climbs the whole rarity
+    // ladder before it settles, so the wait belongs to the tier, not to this test.
+    await act(async () => { vi.advanceTimersByTime(revealDurationMs('LEGENDARY')); });
 
     expect(tree.root.findAllByProps({ testID: 'reveal-pending' })).toHaveLength(0);
     const close = tree.root.findByProps({ accessibilityLabel: '획득 결과 닫기' });

@@ -7,8 +7,17 @@ import { PET_RARITY_LADDER, petRarityRank, type PetRarity } from '../../../../..
  * so this module never randomises anything. It only sequences how an already-decided
  * result is presented, and derives honest progress copy from data the client already has.
  *
- * Deliberately excluded: near-miss teasing, escalating "almost!" states, or any
- * presentation that implies a future pull is owed. This is a study reward, not a slot machine.
+ * This module used to exclude escalating presentation outright. That has been narrowed
+ * rather than dropped, because the two things it lumped together are not the same:
+ *
+ *   - Climbing the tier ladder up to an outcome the server already decided is theatre over
+ *     a settled fact. It cannot mislead, because nothing about the result depends on it.
+ *   - Implying a future pull is owed — "you're due", a meter that fills faster near the
+ *     end, a tease that suggests the next one will be better — is still excluded. That is
+ *     the part that manipulates, and it stays out.
+ *
+ * The pity counter is disclosure, not a promise: it reports a threshold the economy already
+ * guarantees. Nothing here randomises, and nothing here can change what was awarded.
  */
 
 export type RevealSource = 'DAILY_DRAW' | 'PROMOTION';
@@ -23,13 +32,39 @@ export type PetRevealV1 = Readonly<{
   isFirstCopy: boolean;
 }>;
 
-/** How long the opening beat holds before the result is shown. */
+/** How long the final beat holds before the result is shown. */
 export const REVEAL_OPENING_MS = 620;
+
+/** How long the presentation rests on each tier it climbs through on the way up. */
+export const REVEAL_STEP_MS = 360;
 
 export function nextRevealPhase(phase: RevealPhase): RevealPhase {
   if (phase === 'SEALED') return 'OPENING';
   if (phase === 'OPENING') return 'REVEALED';
   return 'REVEALED';
+}
+
+/**
+ * The tiers the reveal climbs through, ending on the one actually awarded.
+ *
+ * A COMMON draw is a single step and stays brisk — 60% of draws are COMMON, and a long
+ * ceremony on the ordinary outcome is a toll rather than a reward. A LEGENDARY climbs the
+ * whole ladder, so the rarity is legible from how far the presentation travelled before it
+ * stopped. Every step shows a tier that was genuinely passed on the ladder; none of them
+ * claims the result is still open.
+ */
+export function revealLadder(rarity: PetRarity): readonly PetRarity[] {
+  return PET_RARITY_LADDER.slice(0, petRarityRank(rarity) + 1);
+}
+
+/**
+ * Total run time for a reveal, derived from how many tiers it has to climb.
+ *
+ * COMMON 620ms through LEGENDARY 2060ms. The player can always cut it short, so this is a
+ * ceiling on the ceremony rather than a duration anyone is held to.
+ */
+export function revealDurationMs(rarity: PetRarity): number {
+  return petRarityRank(rarity) * REVEAL_STEP_MS + REVEAL_OPENING_MS;
 }
 
 export type RevealEmphasis = 'QUIET' | 'NOTABLE' | 'CELEBRATE';

@@ -31,10 +31,82 @@ export type PulseStyle = Readonly<{
   label: string | null;
 }>;
 
-export function pulseStyle(kind: FeedbackKind, palette: Readonly<{ success: string; danger: string; accent: string }>): PulseStyle {
+/**
+ * Heat ladder for consecutive finds.
+ *
+ * The audio already climbs eight steps (`findToneStep`), and until now nothing on screen
+ * followed it — the first find and the seventh were drawn identically. These are the eight
+ * matching visual rungs, so a player with the sound off gets the same rising signal.
+ */
+export const STREAK_HEAT = [
+  '#5FD86F', '#8ED75A', '#BFD24A', '#FFC93C', '#FFA22E', '#FF7A45', '#FF4D6D',
+] as const;
+
+/** Steps in the ladder. Mirrors FIND_TONE_STEPS so sound and picture cannot drift apart. */
+export const STREAK_STEPS = STREAK_HEAT.length + 1;
+
+export function streakStep(streak: number): number {
+  if (!Number.isFinite(streak) || streak <= 0) return 0;
+  return Math.min(STREAK_STEPS - 1, Math.floor(streak) - 1);
+}
+
+/**
+ * Colour for a streak.
+ *
+ * The first rung is the palette's own success colour, not a new one: a single find has to
+ * look exactly as it always did, so the ladder is something the round heats *into* rather
+ * than a restyling of the base case.
+ */
+export function streakColor(streak: number, base: string): string {
+  const step = streakStep(streak);
+  return step === 0 ? base : STREAK_HEAT[step - 1] ?? base;
+}
+
+export function pulseStyle(
+  kind: FeedbackKind,
+  palette: Readonly<{ success: string; danger: string; accent: string }>,
+  streak = 1,
+): PulseStyle {
   if (kind === 'MISS') return { size: 0.11, color: palette.danger, label: null };
   if (kind === 'MISSION_HIT') return { size: 0.26, color: palette.accent, label: '단어 발견!' };
-  return { size: 0.2, color: palette.success, label: '+1' };
+  const step = streakStep(streak);
+  // The ring grows and heats with the streak, so the seventh find lands harder than the
+  // first without any new component.
+  return {
+    size: 0.2 + step * 0.018,
+    color: streakColor(streak, palette.success),
+    label: step === 0 ? '+1' : `+1 ×${Math.min(Math.floor(streak), STREAK_STEPS)}`,
+  };
+}
+
+/**
+ * Consecutive-find combo.
+ *
+ * The window is what breaks a combo, never a missed tap. Breaking on a miss would punish
+ * the player for looking, which is the one behaviour this game exists to encourage — and
+ * for a child guessing at the picture it would read as the game turning on them.
+ */
+export const COMBO_WINDOW_MS = 4000;
+
+/** Streak at which the combo becomes worth announcing. Below this it is just "a find". */
+export const COMBO_ANNOUNCE_AT = 3;
+
+export type ComboState = Readonly<{ count: number; lastFindAtMs: number }>;
+
+export const EMPTY_COMBO: ComboState = { count: 0, lastFindAtMs: 0 };
+
+export function advanceCombo(previous: ComboState, atMs: number): ComboState {
+  const continued = previous.count > 0 && atMs - previous.lastFindAtMs <= COMBO_WINDOW_MS;
+  return { count: continued ? previous.count + 1 : 1, lastFindAtMs: atMs };
+}
+
+/** Whether the combo has lapsed at `atMs` without a further find. */
+export function comboExpired(combo: ComboState, atMs: number): boolean {
+  return combo.count > 0 && atMs - combo.lastFindAtMs > COMBO_WINDOW_MS;
+}
+
+export function comboLabel(combo: ComboState): string | null {
+  return combo.count >= COMBO_ANNOUNCE_AT ? `${combo.count}연속` : null;
 }
 
 /**

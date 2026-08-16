@@ -55,15 +55,17 @@ function rampAt(from: string, via: string | undefined, to: string, ratio: number
   return ratio < 0.5 ? mix(from, via, ratio * 2) : mix(via, to, (ratio - 0.5) * 2);
 }
 
-export function VerticalGradient({ from, via, to, style, children }: Readonly<{
+export function VerticalGradient({ from, via, to, style, testID, children }: Readonly<{
   from: string;
   /** Optional middle stop. Two related hues alone wash out; the middle stop carries the character. */
   via?: string;
   to: string;
   style?: ViewStyle;
+  /** Passed through so a gradient can stand in for a plain view a test already targets. */
+  testID?: string;
   children?: React.ReactNode;
 }>) {
-  return <View style={{ ...style, overflow: 'hidden', position: 'relative' }}>
+  return <View {...(testID === undefined ? {} : { testID })} style={{ ...style, overflow: 'hidden', position: 'relative' }}>
     {/* The bands sit behind the content, filling the parent. `pointerEvents` is none so a
         button inside still receives every touch. */}
     <View pointerEvents="none" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>

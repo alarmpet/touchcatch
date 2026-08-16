@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import type { HintStepV1 } from '../../../../packages/contracts/src/content';
 import { createDemoState, pendingWordHunt, reduceDemoState, scoreDemoState, type Circle, type DemoScoreBreakdown, type DemoState, type DemoWordHunt } from './controller';
 import ruleset from '../../../../config/ruleset.v1.json' with { type: 'json' };
-import { FEEDBACK_MS, FLIGHT_MS, SLOT_POP_MS, missNudge, nextPulse, pulseStyle, type FeedbackPulse, type LetterFlight } from './feedback-model';
+import { EMPTY_COMBO, FEEDBACK_MS, FLIGHT_MS, SLOT_POP_MS, advanceCombo, comboExpired, comboLabel, missNudge, nextPulse, pulseStyle, streakColor, type ComboState, type FeedbackPulse, type LetterFlight } from './feedback-model';
 import { answerUnits, buildAnswerPattern, evaluatePreviewAnswer, newlyOpenedUnitIndex, revealAnswerPattern } from '../features/answer-modes/answer-mode';
 import { buildShareCard, buildShareGrid } from './share-card';
 import { COACH_MS, COACH_TEXT, nextCoachStep, type CoachStep } from './coach-model';
@@ -77,6 +77,9 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
   const [settledScore, setSettledScore] = useState<DemoScoreBreakdown | null>(null);
   const [answerInput, setAnswerInput] = useState('');
   const [pulse, setPulse] = useState<FeedbackPulse | null>(null);
+  // Wall clock rather than the round's 1s tick: a 4s combo window needs finer resolution
+  // than the countdown does. The tick still drives the re-render that retires a lapsed chip.
+  const [combo, setCombo] = useState<ComboState>(EMPTY_COMBO);
   const [boardArea, setBoardArea] = useState({ width: 0, height: 0 });
   const [elapsedMs, setElapsedMs] = useState(0);
   const [keyboardHeight, setKeyboardHeight] = useState(0);
@@ -351,6 +354,21 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
         </View>
       </View>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+        {/* The combo reads at a glance or not at all, so it is the streak's own colour rather
+            than a neutral chip with a number in it. It lapses on the window alone — a missed
+            tap never breaks it, because looking is the behaviour this game wants. */}
+        {(() => {
+          const label = comboLabel(combo);
+          if (label === null || comboExpired(combo, Date.now())) return null;
+          const heat = streakColor(combo.count, colors.success);
+          return <View
+            testID="hud-combo"
+            accessibilityLabel={`${combo.count}연속 발견`}
+            style={{ paddingHorizontal: spacing.sm, paddingVertical: 5, borderRadius: radius.pill, backgroundColor: heat }}
+          >
+            <Text style={{ fontSize: 12, lineHeight: 16, fontWeight: '800', color: colors.onAccent }}>{label}</Text>
+          </View>;
+        })()}
         {/* The live clock is the most important number on the screen while it runs, so it is
             filled rather than left as grey chrome. At zero it drops back to neutral because
             the round carries on — it is a bonus timer, not a threat. */}
@@ -528,6 +546,7 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
             ? { kind: 'MISS' }
             : { kind: 'FIND', foundCount: next.claimedIds.length, differenceCount: selected.differences.length });
           if (kind === 'HIT') {
+            setCombo((previous) => advanceCombo(previous, Date.now()));
             launchLetterFlight(side, tapX, tapY, state.claimedIds.length, next.claimedIds.length);
             const found = next.claimedIds.at(-1);
             if (found !== undefined) recordedFinds.current.push({ id: found, atMs: elapsedMs });
@@ -546,7 +565,7 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
           return <View key={`ghost-${difference.id}`} testID={`ghost-${side}-${difference.id}`} pointerEvents="none" style={{ position: 'absolute', left: `${(circle.cx - displayR) * 100}%`, top: `${(circle.cy - displayR) * 100}%`, width: `${displayR * 200}%`, height: `${displayR * 200}%`, borderRadius: radius.pill, borderWidth: 3, borderStyle: 'dashed', borderColor: colors.reward, backgroundColor: 'rgba(255, 212, 71, 0.16)' }} />;
         })}
         {pulse !== null && pulse.side === side ? (() => {
-          const shape = pulseStyle(pulse.kind, { success: colors.success, danger: colors.danger, accent: colors.accent });
+          const shape = pulseStyle(pulse.kind, { success: colors.success, danger: colors.danger, accent: colors.accent }, combo.count);
           const half = shape.size / 2;
           return <View testID={`pulse-${side}`} accessibilityLabel={`피드백 ${pulse.kind}`} pointerEvents="none" style={{ position: 'absolute', left: `${(pulse.x - half) * 100}%`, top: `${(pulse.y - half) * 100}%`, width: `${shape.size * 100}%`, aspectRatio: 1, borderRadius: radius.pill, borderWidth: 3, borderColor: shape.color, alignItems: 'center', justifyContent: 'center', transform: [{ translateX: missNudge(pulse) }] }}>
             {shape.label !== null ? <Text style={{ fontSize: 13, fontWeight: '700', color: shape.color }}>{shape.label}</Text> : null}
