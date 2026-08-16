@@ -96,7 +96,20 @@ export async function startLocalAuthenticatedRuntime(): Promise<void> {
       allowedOrigins: [],
       supabaseUrl,
       databaseUrl,
-      policy: { rewards: enabled, ranking: enabled },
+      // Mirrors the season row that prepare-local-authenticated-fixture.ts seeds; the SQL
+      // compares these against that row, so drifting either side fails closed.
+      policy: {
+        rewards: enabled,
+        ranking: enabled,
+        attempts: {
+          enabled: true,
+          rulesetHash: 'd'.repeat(64),
+          hintPolicyHash: 'e'.repeat(64),
+          competitionPolicyHash: weekly.canonicalHash,
+          catalogRevision: bundle.catalog.catalogRevision,
+          catalogHash: bundle.catalog.catalogHash,
+        },
+      },
       artByPetId,
     },
     verifier: createLoopbackSupabaseJwtVerifier({ supabaseUrl }),
@@ -108,6 +121,7 @@ export async function startLocalAuthenticatedRuntime(): Promise<void> {
     classification: 'LOCAL_TEST_RUNTIME',
     rewards: 'test-fixture-enabled',
     ranking: 'test-fixture-enabled',
+    attempts: 'test-fixture-enabled',
   })}\n`);
   await server.closed;
 }

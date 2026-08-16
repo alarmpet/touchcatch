@@ -3,6 +3,7 @@ import { convertNonDestructive } from './convert-png.js';
 import { findChangedRegions } from './auto-detect-delta.js';
 import { generateMobileRegistry } from './generate-registry.js';
 import { validateCatalog } from './validate-catalog.js';
+import { ADAPTIVE_RETRY_POLICY } from './pipeline-constants.js';
 import { execSync } from 'node:child_process';
 
 async function fileExists(filePath) {
@@ -50,8 +51,9 @@ export async function batchBuildKey(key) {
   const geomPath = `content/learning/geometry/${key}.json`;
 
   // 3. Preserve existing geometry if valid, or auto-detect non-overlapping regions
+  const forceDetect = process.env.FORCE_DETECT === '1';
   let hasValidGeom = false;
-  if (await fileExists(geomPath)) {
+  if (!forceDetect && await fileExists(geomPath)) {
     try {
       execSync(`node tools/content/build-learning-entry.js ${key}`, { stdio: 'pipe' });
       hasValidGeom = true;
@@ -62,30 +64,69 @@ export async function batchBuildKey(key) {
   }
 
   if (!hasValidGeom) {
-    const regions = await findChangedRegions(
-      `content/learning/source/${key}-a.png`,
-      `content/learning/source/${key}-b.png`,
-      difficulty
-    );
+    // AI pairs often have large soft recolors. Raise pixel threshold first so only
+    // high-contrast local diffs count, then expand hit radii if still undeclared.
+    const detectDifficulty = difficulty;
 
-    const r1 = regions[0] ?? { cx: 0.3, cy: 0.3, r: 0.07 };
-    const r2 = regions[1] ?? { cx: 0.7, cy: 0.3, r: 0.07 };
-    const r3 = regions[2] ?? { cx: 0.5, cy: 0.7, r: 0.07 };
+    let built = false;
+    let lastError = null;
+    for (const attempt of ADAPTIVE_RETRY_POLICY) {
+      const regions = await findChangedRegions(
+        `content/learning/source/${key}-a.png`,
+        `content/learning/source/${key}-b.png`,
+        detectDifficulty,
+        attempt.threshold
+      );
+      if (regions.length < 5) {
+        console.log(`[RETRY] ${key}: only ${regions.length} clusters at thr=${attempt.thr}`);
+        continue;
+      }
 
-    const geomData = {
-      policy: { pixelThreshold: 60, minChangedPixelsPerRegion: 24, maxOutsideChangedRatio: 0.15 },
-      differences: regions,
-      wordHunts: [
-        { id: "word_1", kind: "NORMAL", publicPrompt: `Find item 1 in ${key}`, cx: r1.cx, cy: r1.cy, r: r1.r + 0.005 },
-        { id: "word_2", kind: "NORMAL", publicPrompt: `Find item 2 in ${key}`, cx: r2.cx, cy: r2.cy, r: r2.r },
-        { id: "word_3", kind: "SPECIAL", publicPrompt: `Find item 3 in ${key}`, cx: r3.cx, cy: r3.cy, r: r3.r }
-      ],
-      suddenDeath: { id: "sudden_1", cx: r1.cx, cy: r1.cy, r: r1.r + 0.010 }
-    };
+      const scaled = regions.map((region, index) => ({
+        id: region.id,
+        tier: index < 7 ? 'NORMAL' : 'HARD',
+        cx: region.cx,
+        cy: region.cy,
+        r: Math.min(0.22, (region.r ?? 0.07) * attempt.radiusScale),
+      }));
+      const r1 = scaled[0] ?? { cx: 0.3, cy: 0.3, r: 0.07 };
+      const r2 = scaled[1] ?? { cx: 0.7, cy: 0.3, r: 0.07 };
+      const r3 = scaled[2] ?? { cx: 0.5, cy: 0.7, r: 0.07 };
 
-    await fs.writeFile(geomPath, JSON.stringify(geomData, null, 2), 'utf-8');
-    console.log(`[GEOMETRY WRITTEN] ${geomPath} (${regions.length} non-overlapping regions)`);
-    execSync(`node tools/content/build-learning-entry.js ${key}`, { stdio: 'inherit' });
+      const geomData = {
+        policy: {
+          pixelThreshold: attempt.threshold,
+          minChangedPixelsPerRegion: 24,
+          maxOutsideChangedRatio: attempt.maxOutsideChangedRatio,
+        },
+        differences: scaled,
+        wordHunts: [
+          { id: 'word_1', kind: 'NORMAL', publicPrompt: `Find item 1 in ${key}`, cx: r1.cx, cy: r1.cy, r: r1.r + 0.005 },
+          { id: 'word_2', kind: 'NORMAL', publicPrompt: `Find item 2 in ${key}`, cx: r2.cx, cy: r2.cy, r: r2.r },
+          { id: 'word_3', kind: 'SPECIAL', publicPrompt: `Find item 3 in ${key}`, cx: r3.cx, cy: r3.cy, r: r3.r },
+        ],
+        suddenDeath: { id: 'sudden_1', cx: r1.cx, cy: r1.cy, r: r1.r + 0.010 },
+      };
+
+      await fs.writeFile(geomPath, JSON.stringify(geomData, null, 2), 'utf-8');
+      console.log(
+        `[GEOMETRY WRITTEN] ${geomPath} (${scaled.length} regions, thr=${attempt.threshold}, rScale=${attempt.radiusScale}, maxOutside=${attempt.maxOutsideChangedRatio})`
+      );
+      try {
+        execSync(`node tools/content/build-learning-entry.js ${key}`, { stdio: 'inherit' });
+        built = true;
+        break;
+      } catch (err) {
+        lastError = err;
+        console.log(`[RETRY] ${key} visual-delta failed; raising threshold/radius...`);
+      }
+    }
+
+    if (!built) {
+      console.error(`[FAIL] ${key}: could not pass visual-delta after adaptive detect`);
+      if (lastError) throw lastError;
+      return false;
+    }
   }
 
   return true;
@@ -99,9 +140,19 @@ export async function runBatchBuildAll() {
   const targetKeys = keys.length > 0 ? keys : catalog.entries.map(e => e.key);
 
   let successCount = 0;
+  const failures = [];
   for (const k of targetKeys) {
-    const success = await batchBuildKey(k);
-    if (success) successCount++;
+    try {
+      const success = await batchBuildKey(k);
+      if (success) successCount++;
+      else failures.push(k);
+    } catch (err) {
+      failures.push(k);
+      console.error(`[CONTINUE] ${k} failed:`, err?.message ?? err);
+    }
+  }
+  if (failures.length) {
+    console.error(`[FAILURES] ${failures.join(', ')}`);
   }
 
   // 6. Write Manifest

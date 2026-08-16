@@ -1,5 +1,5 @@
 import { readFile, readdir, stat } from 'node:fs/promises';
-import { extname, resolve } from 'node:path';
+import { dirname, extname, resolve } from 'node:path';
 
 const root = resolve('apps/admin');
 async function walk(directory) { const output = []; for (const name of await readdir(directory)) { const path = resolve(directory, name); const info = await stat(path); if (info.isDirectory()) output.push(...await walk(path)); else output.push(path); } return output; }
@@ -8,7 +8,11 @@ for (const file of clientFiles) {
   const source = await readFile(file, 'utf8');
   for (const match of source.matchAll(/(?:from\s+|import\s*)['"]([^'"]+)['"]/gu)) if (match[1].includes('/server') || match[1].startsWith('../server')) throw new Error(`client imports privileged module: ${file} -> ${match[1]}`);
 }
-const staticRoot = resolve(root, '.next/static');
+const activeBuild = JSON.parse(await readFile(resolve(root, '.next-build-active.json'), 'utf8'));
+if (typeof activeBuild.distDir !== 'string' || !/^\.next-build-\d+-\d+$/u.test(activeBuild.distDir)) throw new Error('invalid active Next build marker');
+const buildRoot = resolve(root, activeBuild.distDir);
+if (dirname(buildRoot) !== root) throw new Error('active Next build escaped the admin root');
+const staticRoot = resolve(buildRoot, 'static');
 const chunks = (await walk(staticRoot)).filter((file) => file.endsWith('.js'));
 if (!chunks.length) throw new Error('Next client build emitted no JavaScript chunks');
 const forbiddenNames = ['SUPABASE_SECRET_KEY', 'ADMIN_ATTESTATION_KEY', 'ADMIN_AUDIT_KEY', 'ADMIN_DATABASE_URL', 'privateSolution', 'canonicalAnswer'];

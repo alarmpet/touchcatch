@@ -65,7 +65,7 @@ export async function checkRulesetProjection(_unused?: string, migrationOverride
   if (migration.slice(start, finish) !== renderRulesetProjection()) throw new Error('RULESET_PROJECTION_BYTE_DRIFT');
   const before = migration.slice(0, start);
   const after = migration.slice(finish);
-  if (!/  end if;\r?\n$/.test(before) || !/^\r?\n  if not \(requested_private_solution->'suddenDeath'\)/.test(after)) {
+  if (!/ {2}end if;\r?\n$/.test(before) || !/^\r?\n {2}if not \(requested_private_solution->'suddenDeath'\)/.test(after)) {
     throw new Error('RULESET_PROJECTION_ADJACENCY');
   }
   assertNoCompetingPredicates(migration.slice(ownedFunction.start, start) + migration.slice(finish, ownedFunction.finish));

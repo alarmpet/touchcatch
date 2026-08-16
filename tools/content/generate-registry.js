@@ -36,6 +36,42 @@ function sha256(value) {
   return createHash('sha256').update(canonicalJson(value), 'utf8').digest('hex');
 }
 
+function expectedModeMetadata(category) {
+  if (category === 'ENGLISH') {
+    return { preferredInputSurface: 'FREE_TEXT', assistPattern: 'SPELLING' };
+  }
+  if (category === 'PROVERB' || category === 'IDIOM') {
+    return { preferredInputSurface: 'FREE_TEXT', assistPattern: 'INITIAL_PATTERN' };
+  }
+  return { preferredInputSurface: 'MULTIPLE_CHOICE', assistPattern: 'NONE' };
+}
+
+function validateModeMetadata(entry, challenge) {
+  const expected = expectedModeMetadata(entry.category);
+  if (
+    entry.preferredInputSurface !== expected.preferredInputSurface ||
+    entry.assistPattern !== expected.assistPattern
+  ) {
+    throw new Error(`MODE_METADATA_MISMATCH:${entry.key}`);
+  }
+  const meaning = challenge.meaning ?? {};
+  const options = Array.isArray(meaning.options) ? meaning.options : [];
+  const hasCorrectOption = options.some(
+    (option) => option?.id === meaning.correctOptionId,
+  );
+  if (
+    typeof challenge.canonicalAnswer !== 'string' ||
+    challenge.canonicalAnswer.length === 0 ||
+    !Array.isArray(challenge.hintUnits) ||
+    challenge.hintUnits.length === 0 ||
+    typeof meaning.prompt !== 'string' ||
+    meaning.prompt.length === 0 ||
+    !hasCorrectOption
+  ) {
+    throw new Error(`ANSWER_METADATA_INVALID:${entry.key}`);
+  }
+}
+
 export async function generateMobileRegistry({
   manifestPath = 'content/learning/manifest.v1.json',
   draftsRoot = 'content/learning/drafts',
@@ -82,9 +118,12 @@ export async function generateMobileRegistry({
     }
     const variable = toCamelCase(entry.key);
     const challenge = bundle.privateSolution.finalChallenge;
+    validateModeMetadata(entry, challenge);
     const snapshot = {
       key: entry.key,
       category: entry.category,
+      preferredInputSurface: entry.preferredInputSurface,
+      assistPattern: entry.assistPattern,
       title: challenge.canonicalAnswer,
       canonicalAnswer: challenge.canonicalAnswer,
       contentRevisionId: entry.contentRevisionId,
@@ -116,7 +155,7 @@ export async function generateMobileRegistry({
 
 import { buildDemoEntry, type MobileSemanticSnapshot } from './data';
 
-declare const require: (path: string) => unknown;
+declare const require: (path: string) => import('react-native').ImageSourcePropType;
 
 ${imports.join('\n')}
 

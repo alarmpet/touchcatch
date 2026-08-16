@@ -23,6 +23,8 @@ type LearningBundle = Readonly<{
 export type LearningManifestEntry = Readonly<{
   key: string;
   category: string;
+  preferredInputSurface: 'MULTIPLE_CHOICE' | 'FREE_TEXT';
+  assistPattern: 'SPELLING' | 'INITIAL_PATTERN' | 'NONE';
   contentId: string;
   contentRevisionId: string;
   bundle: string;
@@ -34,6 +36,19 @@ export type LearningManifestEntry = Readonly<{
   rankedEligible: boolean;
   publishBlocked: true;
 }>;
+
+export function learningModeMetadata(category: string): Readonly<{
+  preferredInputSurface: 'MULTIPLE_CHOICE' | 'FREE_TEXT';
+  assistPattern: 'SPELLING' | 'INITIAL_PATTERN' | 'NONE';
+}> {
+  if (category === 'ENGLISH') {
+    return { preferredInputSurface: 'FREE_TEXT', assistPattern: 'SPELLING' };
+  }
+  if (category === 'PROVERB' || category === 'IDIOM') {
+    return { preferredInputSurface: 'FREE_TEXT', assistPattern: 'INITIAL_PATTERN' };
+  }
+  return { preferredInputSurface: 'MULTIPLE_CHOICE', assistPattern: 'NONE' };
+}
 
 export type LearningManifest = Readonly<{
   schemaVersion: '1.0.0';
@@ -88,6 +103,7 @@ export async function buildLearningManifest(
     entries.push({
       key: catalogEntry.key,
       category: catalogEntry.category,
+      ...learningModeMetadata(catalogEntry.category),
       contentId: bundle.publicContent.contentId,
       contentRevisionId: bundle.publicContent.contentRevisionId,
       bundle: `drafts/${file}`,

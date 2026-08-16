@@ -1,20 +1,16 @@
 import sharp from 'sharp';
 import fs from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import { RADIUS_BY_DIFFICULTY, PIXEL_THRESHOLD, MIN_CLUSTER_CHANGED_PIXELS } from './pipeline-constants.js';
 
-const RADIUS_BY_DIFFICULTY = {
-  BEGINNER: 0.085,
-  INTERMEDIATE: 0.070,
-  ADVANCED: 0.055
-};
-
-export async function findChangedRegions(imageAPath, imageBPath, difficulty = 'INTERMEDIATE', pixelThreshold = 60) {
+export async function findChangedRegions(imageAPath, imageBPath, difficulty = 'INTERMEDIATE', pixelThreshold = PIXEL_THRESHOLD) {
   const [a, b] = await Promise.all([
     sharp(imageAPath).ensureAlpha().raw().toBuffer({ resolveWithObject: true }),
     sharp(imageBPath).ensureAlpha().raw().toBuffer({ resolveWithObject: true }),
   ]);
   const { width, height, channels } = a.info;
 
-  const r = RADIUS_BY_DIFFICULTY[difficulty] ?? 0.070;
+  const r = RADIUS_BY_DIFFICULTY[difficulty] ?? RADIUS_BY_DIFFICULTY.INTERMEDIATE;
 
   const points = [];
   for (let y = 0; y < height; y += 4) {
@@ -50,77 +46,63 @@ export async function findChangedRegions(imageAPath, imageBPath, difficulty = 'I
     }
   }
 
-  // Compute exact changed pixel count for each cluster using ROUNDED cx/cy and pixelThreshold 60 matching visual-delta.js
-  const clustersWithPixels = rawClusters.map(c => {
-    const cx = Number(c.cx.toFixed(3));
-    const cy = Number(c.cy.toFixed(3));
-    let pixelCount = 0;
+  // Filter valid clusters
+  const validClusters = rawClusters.filter(c => c.points.length >= Math.floor(MIN_CLUSTER_CHANGED_PIXELS / 10));
 
-    for (let y = 0; y < height; y++) {
-      for (let x = 0; x < width; x++) {
-        const nx = (x + 0.5) / width;
-        const ny = (y + 0.5) / height;
-        const dx = nx - cx;
-        const dy = ny - cy;
-        if (dx * dx + dy * dy <= r * r) {
-          const offset = (y * width + x) * channels;
-          const diff = Math.max(
-            Math.abs((a.data[offset] ?? 0) - (b.data[offset] ?? 0)),
-            Math.abs((a.data[offset + 1] ?? 0) - (b.data[offset + 1] ?? 0)),
-            Math.abs((a.data[offset + 2] ?? 0) - (b.data[offset + 2] ?? 0))
-          );
-          if (diff >= pixelThreshold) {
-            pixelCount++;
-          }
-        }
-      }
-    }
-    return { pointsCount: c.points.length, cx, cy, pixelCount };
-  });
-
-  // Filter out clusters with < 50 exact changed pixels (guaranteeing it easily passes minChangedPixelsPerRegion: 24)
-  const validClusters = clustersWithPixels.filter(c => c.pixelCount >= 50).sort((x, y) => y.pixelCount - x.pixelCount);
-
-  // Non-overlap filter (REQ CONTENT-017: distance >= 2r)
-  const selectedClusters = [];
-  const minDistance = 2 * r;
+  // Non-overlap filter
+  const finalClusters = [];
+  validClusters.sort((a, b) => b.points.length - a.points.length);
 
   for (const c of validClusters) {
-    const overlaps = selectedClusters.some(sc => Math.hypot(sc.cx - c.cx, sc.cy - c.cy) < minDistance);
-    if (!overlaps) {
-      selectedClusters.push(c);
-      if (selectedClusters.length >= 10) break;
+    let overlap = false;
+    for (const existing of finalClusters) {
+      const dx = c.cx - existing.cx;
+      const dy = c.cy - existing.cy;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 2 * r) {
+        overlap = true;
+        break;
+      }
     }
+    if (!overlap) {
+      finalClusters.push(c);
+    }
+    if (finalClusters.length >= 10) break;
   }
 
-  return selectedClusters.map((c, idx) => ({
-    id: `difference_${idx + 1}`,
-    tier: idx < 7 ? 'NORMAL' : 'HARD',
+  return finalClusters.map((c, index) => ({
+    id: `diff_${index + 1}`,
+    tier: index < 7 ? 'NORMAL' : 'HARD',
     cx: c.cx,
     cy: c.cy,
-    r
+    r,
+    points: c.points
   }));
 }
 
-const key = process.argv[2];
-if (key) {
-  let difficulty = 'INTERMEDIATE';
-  try {
-    const catalogBuf = await fs.readFile('content/learning/catalog.v1.json', 'utf-8');
-    const catalog = JSON.parse(catalogBuf);
-    const entry = catalog.entries.find(e => e.key === key);
-    if (entry && entry.difficulty) {
-      difficulty = entry.difficulty;
+// Only run CLI block when executed directly
+const isDirectRun = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
+if (isDirectRun) {
+  const key = process.argv[2];
+  if (key) {
+    let difficulty = 'INTERMEDIATE';
+    try {
+      const catalogBuf = await fs.readFile('content/learning/catalog.v1.json', 'utf-8');
+      const catalog = JSON.parse(catalogBuf);
+      const entry = catalog.entries.find(e => e.key === key);
+      if (entry && entry.difficulty) {
+        difficulty = entry.difficulty;
+      }
+    } catch (err) {
+      // fallback
     }
-  } catch (err) {
-    // fallback to default
-  }
 
-  const regions = await findChangedRegions(
-    `content/learning/source/${key}-a.png`,
-    `content/learning/source/${key}-b.png`,
-    difficulty,
-    60
-  );
-  console.log(JSON.stringify(regions, null, 2));
+    const regions = await findChangedRegions(
+      `content/learning/source/${key}-a.png`,
+      `content/learning/source/${key}-b.png`,
+      difficulty,
+      PIXEL_THRESHOLD
+    );
+    console.log(JSON.stringify(regions, null, 2));
+  }
 }

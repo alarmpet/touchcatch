@@ -6,6 +6,7 @@ import {
   type LearningBundleInput,
   type LearningGeometry,
 } from './write-learning-bundle.js';
+import { validateChallengeGeometry } from './learning-geometry.js';
 
 type GeometryFile = LearningGeometry & { policy: VisualDeltaPolicy };
 type Catalog = { entries: LearningBundleInput[] };
@@ -18,6 +19,14 @@ const catalog = JSON.parse(await readFile(resolve(learningRoot, 'catalog.v1.json
 const entry = catalog.entries.find((candidate) => candidate.key === key);
 if (!entry) throw new Error(`UNKNOWN_LEARNING_KEY:${key}`);
 const geometry = JSON.parse(await readFile(resolve(learningRoot, 'geometry', `${key}.json`), 'utf8')) as GeometryFile;
+if (!geometry.differences || !geometry.wordHunts || !geometry.suddenDeath) {
+  throw new Error(`INCOMPLETE_CHALLENGE_GEOMETRY:${key}`);
+}
+validateChallengeGeometry({
+  differences: geometry.differences,
+  wordHunts: geometry.wordHunts,
+  suddenDeath: geometry.suddenDeath,
+});
 const imageA = resolve(learningRoot, 'source', `${key}-a.png`);
 const imageB = resolve(learningRoot, 'source', `${key}-b.png`);
 const evidencePath = resolve(learningRoot, 'evidence', `${key}.visual-delta.json`);

@@ -89,6 +89,8 @@ describe('learning manifest hint admission', () => {
       const challenge = bundle.privateSolution.finalChallenge;
 
       expect(admitted).toMatchObject({
+        preferredInputSurface: 'FREE_TEXT',
+        assistPattern: 'SPELLING',
         hintLadderAdmission: {
           status: 'ADMITTED',
           stepCount: 5,
@@ -107,6 +109,8 @@ describe('learning manifest hint admission', () => {
         rankedEligible: true,
       });
       expect(missing).toMatchObject({
+        preferredInputSurface: 'FREE_TEXT',
+        assistPattern: 'SPELLING',
         hintLadderAdmission: {
           status: 'MISSING',
           stepCount: 0,
@@ -188,6 +192,25 @@ describe('learning manifest hint admission', () => {
     });
   });
 
+  it('rejects category-incompatible answer mode metadata', async () => {
+    await withRepresentativeLearningRoot(async (learningRoot) => {
+      const manifest = await buildLearningManifest(learningRoot);
+      const manifestPath = resolve(learningRoot, 'manifest.v1.json');
+      const registryPath = resolve(learningRoot, 'registry.ts');
+      (manifest.entries[0] as { assistPattern: string }).assistPattern =
+        'INITIAL_PATTERN';
+      await writeFile(manifestPath, JSON.stringify(manifest), 'utf8');
+
+      await expect(
+        generateMobileRegistry({
+          manifestPath,
+          draftsRoot: resolve(learningRoot, 'drafts'),
+          outputPath: registryPath,
+        }),
+      ).rejects.toThrow('MODE_METADATA_MISMATCH:en-resilience');
+    });
+  });
+
   it('reproduces the committed 79-entry snapshot through manifest and registry', async () => {
     const learningRoot = await mkdtemp(resolve(tmpdir(), 'learning-snapshot-'));
     try {
@@ -239,6 +262,9 @@ describe('learning manifest hint admission', () => {
         outputPath: registryPath,
       });
       const registry = await readFile(registryPath, 'utf8');
+      expect(registry).toContain(
+        "declare const require: (path: string) => import('react-native').ImageSourcePropType;",
+      );
       expect(registry.match(/buildDemoEntry\(/g)).toHaveLength(79);
       expect(registry.match(/"hintAdmissionStatus":"ADMITTED"/g)).toHaveLength(3);
       expect(registry.match(/"hintAdmissionStatus":"MISSING"/g)).toHaveLength(76);
@@ -246,5 +272,9 @@ describe('learning manifest hint admission', () => {
     } finally {
       await rm(learningRoot, { recursive: true, force: true });
     }
-  });
+    // Real disk I/O for all 79 entries plus a full manifest and registry build. The reads
+    // are already batched; the work is simply larger than the 5s default, and it flakes on
+    // a loaded machine. Budgeted explicitly here rather than by raising the global timeout,
+    // which would hide genuinely slow tests elsewhere.
+  }, 30_000);
 });

@@ -3,7 +3,7 @@ import { readFile, readdir, writeFile } from 'node:fs/promises';
 import { basename, extname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-export type PetRarity = 'COMMON' | 'RARE' | 'LEGENDARY';
+export type PetRarity = 'COMMON' | 'UNCOMMON' | 'RARE' | 'EPIC' | 'LEGENDARY';
 export type CoachArchetype = 'SCOUT' | 'LINGUIST' | 'SAGE' | 'CHEER';
 
 export type PetArtAdmissionV1 = Readonly<{
@@ -93,7 +93,7 @@ export async function auditPetAssets(roots: Roots): Promise<{
   const candidates = roots.readEntries ? await roots.readEntries() : await diskEntries(roots);
   const entries: Array<PetArtAdmissionV1 & { fileName: string; width: number; height: number; pixelFormat: string }> = [];
   const seen = new Set<string>();
-  const counts: Record<PetRarity, number> = { COMMON: 0, RARE: 0, LEGENDARY: 0 };
+  const counts: Record<PetRarity, number> = { COMMON: 0, UNCOMMON: 0, RARE: 0, EPIC: 0, LEGENDARY: 0 };
 
   for (const candidate of candidates) {
     if (extname(candidate.fileName).toLowerCase() !== '.png') {
