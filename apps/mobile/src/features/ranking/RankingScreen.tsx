@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native';
 import type { RankingModel } from './ranking-model';
 import { colors, glow, podiumGradients, podiumPalette, radius, spacing } from '../../ui/design-tokens';
-import { Sheen, VerticalGradient } from '../../ui/Gradient';
+import { VerticalGradient } from '../../ui/Gradient';
 import { text } from '../../ui/ui-kit';
 
 const stateCopy = {
@@ -35,7 +35,8 @@ function RankChip({ rank, ghost = false }: Readonly<{ rank: number; ghost?: bool
         ...(ghost ? {} : glow(medal.via, 'soft')),
       }}
     >
-      {ghost ? null : <Sheen size={34} top={-15} left={-6} opacity={0.4} />}
+      {/* No sheen here. Its rings are a few pixels apart inside a 32pt chip, which reads as
+          a moiré texture on the metal rather than as a highlight. */}
       <Text style={{ fontSize: 14, lineHeight: 18, fontWeight: '900', color: '#3A2A05' }}>{rank}</Text>
     </VerticalGradient>;
   }

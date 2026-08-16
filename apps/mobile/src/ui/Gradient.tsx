@@ -12,8 +12,19 @@ import { View, type ViewStyle, type ColorValue } from 'react-native';
  * contract already specifies; this renders what the contract asked for.
  */
 
-/** Bands across the fill. 24 puts each band under 4px on a 90px header — below a pixel seam. */
-const BANDS = 24;
+/** Bands across the fill. 28 keeps each step under a perceptible colour jump at phone density. */
+const BANDS = 28;
+
+/**
+ * How much taller each band is drawn than its slot.
+ *
+ * Laying the bands out with `flex: 1` looked right and rendered wrong: Android rounds each
+ * child's height independently, and the accumulated rounding error opens hairline gaps that
+ * show the parent through as bright horizontal stripes — worst on small tiles, and worse the
+ * more bands there are. Positioning each band absolutely and drawing it half again as tall as
+ * its slot makes consecutive bands overlap, so there is no seam left for rounding to expose.
+ */
+const BAND_OVERLAP = 1.6;
 
 function hexToRgb(hex: string): readonly [number, number, number] {
   const value = hex.replace('#', '');
@@ -55,10 +66,17 @@ export function VerticalGradient({ from, via, to, style, children }: Readonly<{
   return <View style={{ ...style, overflow: 'hidden', position: 'relative' }}>
     {/* The bands sit behind the content, filling the parent. `pointerEvents` is none so a
         button inside still receives every touch. */}
-    <View pointerEvents="none" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, flexDirection: 'column' }}>
+    <View pointerEvents="none" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
       {Array.from({ length: BANDS }, (_unused, index) => <View
         key={index}
-        style={{ flex: 1, backgroundColor: rampAt(from, via, to, index / (BANDS - 1)) as ColorValue }}
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: `${(index * 100) / BANDS}%`,
+          height: `${(100 / BANDS) * BAND_OVERLAP}%`,
+          backgroundColor: rampAt(from, via, to, index / (BANDS - 1)) as ColorValue,
+        }}
       />)}
     </View>
     {children}
@@ -72,18 +90,36 @@ export function VerticalGradient({ from, via, to, style, children }: Readonly<{
  * very low-opacity white circle bled off the top corner is enough to imply one, and it costs
  * a single view — no native module, no blur, no image.
  */
+/**
+ * Concentric ring scales. Each adds its share of the opacity, so the centre reaches the
+ * requested value and the outer edge is a sixth of it.
+ *
+ * Three rings was not enough: at a third of the opacity each, every ring boundary was its own
+ * visible arc. Six at a sixth puts each step near the limit of what the eye picks out.
+ */
+const SHEEN_RINGS = [1, 0.87, 0.74, 0.61, 0.47, 0.32] as const;
+
 export function Sheen({ size = 260, top = -110, left = -70, opacity = 0.16 }: Readonly<{
   size?: number;
   top?: number;
   left?: number;
   opacity?: number;
 }>) {
-  return <View
-    pointerEvents="none"
-    style={{
-      position: 'absolute', top, left,
-      width: size, height: size, borderRadius: size / 2,
-      backgroundColor: '#FFFFFF', opacity,
-    }}
-  />;
+  // One flat circle has a hard edge, and a hard-edged white disc on a gradient reads as a
+  // rendering fault rather than as light. Nesting a few rings and splitting the opacity
+  // between them approximates a radial falloff — still just views, no blur, no native module.
+  return <View pointerEvents="none" style={{
+    position: 'absolute', top, left,
+    width: size, height: size,
+    alignItems: 'center', justifyContent: 'center',
+  }}>
+    {SHEEN_RINGS.map((scale) => <View
+      key={scale}
+      style={{
+        position: 'absolute',
+        width: size * scale, height: size * scale, borderRadius: (size * scale) / 2,
+        backgroundColor: '#FFFFFF', opacity: opacity / SHEEN_RINGS.length,
+      }}
+    />)}
+  </View>;
 }
