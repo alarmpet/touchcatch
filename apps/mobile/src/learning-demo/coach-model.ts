@@ -10,6 +10,8 @@
  * seen a letter arrive does not yet know what they would be answering from.
  */
 
+import type { DemoState } from './controller';
+
 export type CoachStep = 'FIND' | 'LETTER' | 'EARLY_ANSWER';
 
 export const COACH_TEXT: Readonly<Record<CoachStep, string>> = {
@@ -22,7 +24,12 @@ export const COACH_TEXT: Readonly<Record<CoachStep, string>> = {
 export const COACH_MS = 2800;
 
 export type CoachInput = Readonly<{
-  phase: 'FIND' | 'QUIZ' | 'COMPLETE';
+  /**
+   * Taken from the state rather than restated, so a new phase cannot be added to the round
+   * without this file being made to say what coaching does during it. Sudden death gets
+   * none, for the reason a word hunt gets none.
+   */
+  phase: DemoState['phase'];
   claimedCount: number;
   finalUnlocked: boolean;
   missionActive: boolean;

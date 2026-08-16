@@ -33,7 +33,11 @@ export type DemoState = Readonly<{
   solvedMissionIds: string[];
   endedMissionIds: string[];
   activeMission: DemoActiveMission | null;
-  phase: 'FIND' | 'QUIZ' | 'COMPLETE';
+  /**
+   * `SUDDEN_DEATH` is the ten seconds the deadline grants a board that was not cleared.
+   * The differences stay live during it; only the clock is different.
+   */
+  phase: 'FIND' | 'SUDDEN_DEATH' | 'QUIZ' | 'COMPLETE';
   wrongAnswers: number;
   /**
    * Mirrors the match rule: the final answer opens on the first find or at
@@ -42,6 +46,15 @@ export type DemoState = Readonly<{
    */
   finalUnlocked: boolean;
   hintsUsed: number;
+  /**
+   * Why the board stopped taking finds, or null while it is still open.
+   *
+   * The quiz screen used to be reachable only by clearing the board, so it could congratulate
+   * unconditionally. Once the clock became a deadline that stopped being true, and a screen
+   * that says "차이점을 모두 찾았어요" to someone who ran out of time is simply lying. `null`
+   * covers the run that answered while the board was still open.
+   */
+  boardClosedBy: 'CLEAR' | 'SUDDEN_DEATH_WIN' | 'DEADLINE' | null;
 }>;
 
 export type DemoAction =
@@ -50,6 +63,9 @@ export type DemoAction =
   | Readonly<{ type: 'START_WORD_HUNT'; missionId: string }>
   | Readonly<{ type: 'OPEN_WORD_HUNT'; missionId: string }>
   | Readonly<{ type: 'END_WORD_HUNT'; missionId: string }>
+  /** The play clock reached zero. Closes the board, or opens sudden death if anything is left. */
+  | Readonly<{ type: 'DEADLINE' }>
+  | Readonly<{ type: 'END_SUDDEN_DEATH' }>
   | Readonly<{ type: 'UNLOCK_FINAL' }>
   | Readonly<{ type: 'USE_HINT' }>;
 
@@ -64,7 +80,13 @@ export function createDemoState(content: DemoContent): DemoState {
     wrongAnswers: 0,
     finalUnlocked: false,
     hintsUsed: 0,
+    boardClosedBy: null,
   };
+}
+
+/** The differences still on the board. Sudden death accepts any one of them. */
+function unclaimed(state: DemoState, content: DemoContent): DemoContent['differences'] {
+  return content.differences.filter((difference) => !state.claimedIds.includes(difference.id));
 }
 
 /**
@@ -111,9 +133,11 @@ export function pendingWordHunt(content: DemoContent, state: DemoState): DemoWor
  * with it, the ordering "clear more, faster" holds at any difference count. Stated to the
  * player: 빨리 푼 보너스는 그림을 찾은 만큼만 붙는다.
  *
- * The clock is a bonus, never a gate. When it runs out the multiplier simply reaches 1.0
- * and play continues — this is a casual screen for every age, and locking someone out of
- * the board for being slow punishes the players least able to hurry.
+ * The clock closes the board and nothing else. When it runs out the multiplier reaches 1.0
+ * and the finding stops, but the final answer and the hints stay open for as long as the
+ * player wants them: this is a casual screen for every age, and locking someone out of the
+ * *learning* for being slow punishes the players least able to hurry. Losing the unfound
+ * differences is the whole cost of being slow, and it is enough of one.
  */
 export const DEMO_SPEED_BONUS_MAX = 0.8;
 export const DEMO_HINT_PENALTY_PER_USE = 0.12;
@@ -201,6 +225,36 @@ export function reduceDemoState(state: DemoState, content: DemoContent, action: 
       endedMissionIds: [...state.endedMissionIds, action.missionId],
     };
   }
+  /**
+   * The deadline. The board closes here — everything not found is lost, which is the whole
+   * point of giving the clock teeth — but the round does not end: the final answer and the
+   * hints stay open afterwards, so running out of time costs points and never costs learning.
+   *
+   * Anything still unfound buys ten more seconds. The target is any remaining difference
+   * rather than one nominated spot: the drafts do carry a `privateSolution.suddenDeath`
+   * hitbox, but two thirds of those coordinates do not sit on the artwork's actual
+   * differences — the same defect that already keeps the drafts' word-hunt coordinates out
+   * of the preview registry. A last chance the player cannot hit is worse than none.
+   */
+  if (action.type === 'DEADLINE') {
+    if (state.phase !== 'FIND') return state;
+    // A prompt caught by the buzzer is spent, not resumed. The board is closing either way.
+    const closing = {
+      ...state,
+      activeMission: null,
+      endedMissionIds: state.activeMission === null
+        ? state.endedMissionIds
+        : [...state.endedMissionIds, state.activeMission.missionId],
+      finalUnlocked: true,
+    };
+    return unclaimed(state, content).length > 0
+      ? { ...closing, phase: 'SUDDEN_DEATH' as const }
+      : { ...closing, phase: 'QUIZ' as const, boardClosedBy: 'DEADLINE' as const };
+  }
+  if (action.type === 'END_SUDDEN_DEATH') {
+    if (state.phase !== 'SUDDEN_DEATH') return state;
+    return { ...state, phase: 'QUIZ', boardClosedBy: 'DEADLINE' };
+  }
   if (action.type === 'UNLOCK_FINAL') {
     return state.finalUnlocked ? state : { ...state, finalUnlocked: true };
   }
@@ -215,7 +269,21 @@ export function reduceDemoState(state: DemoState, content: DemoContent, action: 
       : { ...state, wrongAnswers: state.wrongAnswers + 1 };
   }
 
-  if (state.phase !== 'FIND' || !Number.isFinite(action.x) || !Number.isFinite(action.y)) return state;
+  if ((state.phase !== 'FIND' && state.phase !== 'SUDDEN_DEATH') || !Number.isFinite(action.x) || !Number.isFinite(action.y)) return state;
+
+  // One find ends sudden death, whichever difference it was. Nothing else about the board
+  // changes, so the player is looking for the same things in the same places as a second ago.
+  if (state.phase === 'SUDDEN_DEATH') {
+    const found = unclaimed(state, content).find((difference) =>
+      hits(action.side === 'A' ? difference.imageA : difference.imageB, action.x, action.y));
+    if (!found) return state;
+    return {
+      ...state,
+      claimedIds: [...state.claimedIds, found.id],
+      phase: 'QUIZ',
+      boardClosedBy: 'SUDDEN_DEATH_WIN',
+    };
+  }
 
   // While a prompt is on screen the mission owns the board, exactly as the match engine does.
   if (state.activeMission !== null) {
@@ -232,16 +300,16 @@ export function reduceDemoState(state: DemoState, content: DemoContent, action: 
     };
   }
 
-  const match = content.differences.find((difference) => {
-    if (state.claimedIds.includes(difference.id)) return false;
-    return hits(action.side === 'A' ? difference.imageA : difference.imageB, action.x, action.y);
-  });
+  const match = unclaimed(state, content).find((difference) =>
+    hits(action.side === 'A' ? difference.imageA : difference.imageB, action.x, action.y));
   if (!match) return state;
   const claimedIds = [...state.claimedIds, match.id];
+  const cleared = claimedIds.length === content.differences.length;
   return {
     ...state,
     claimedIds,
     finalUnlocked: true,
-    phase: claimedIds.length === content.differences.length ? 'QUIZ' : 'FIND',
+    phase: cleared ? 'QUIZ' : 'FIND',
+    ...(cleared ? { boardClosedBy: 'CLEAR' as const } : {}),
   };
 }

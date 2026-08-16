@@ -165,29 +165,48 @@ describe('LearningDemoScreen', () => {
     expect(tree.root.findByProps({ testID: 'current-hint' }).props.children).toContain('r _ _ _ _ _ _ _ _ _');
   });
 
-  it('keeps the board playable after the bonus clock runs out', () => {
+  const twoDiff = {
+    ...entry,
+    key: 'two-diff',
+    differences: [
+      { id: 'd1', imageA: { cx: .5, cy: .5, r: .2 }, imageB: { cx: .5, cy: .5, r: .2 } },
+      { id: 'd2', imageA: { cx: .1, cy: .1, r: .05 }, imageB: { cx: .1, cy: .1, r: .05 } },
+    ],
+  };
+
+  it('turns the deadline into ten seconds for one last find', () => {
     vi.useFakeTimers();
     try {
-      const twoDiff = {
-        ...entry,
-        key: 'two-diff',
-        differences: [
-          { id: 'd1', imageA: { cx: .5, cy: .5, r: .2 }, imageB: { cx: .5, cy: .5, r: .2 } },
-          { id: 'd2', imageA: { cx: .1, cy: .1, r: .05 }, imageB: { cx: .1, cy: .1, r: .05 } },
-        ],
-      };
+      let tree: any;
+      act(() => { tree = create(<LearningDemoScreen entries={[twoDiff]} />); });
+      // Exactly to the buzzer, with a difference still on the board.
+      act(() => { vi.advanceTimersByTime(75_000); });
+
+      expect(tree.root.findByProps({ testID: 'sudden-death-banner' })).toBeTruthy();
+      expect(tree.root.findByProps({ testID: 'hud-timer' }).props.children.props.children).toBe('SD 10');
+      // The board is still the board: same differences, same places, one more chance.
+      const board = tree.root.findByProps({ testID: 'demo-board-A' });
+      act(() => board.props.onLayout({ nativeEvent: { layout: { width: 300, height: 300 } } }));
+      act(() => tree.root.findByProps({ testID: 'demo-board-A' }).props.onPress({ nativeEvent: { locationX: 150, locationY: 150 } }));
+
+      expect(tree.root.findByProps({ testID: 'quiz-status' }).props.children).toBe('SUDDEN DEATH');
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('closes the board when the clock runs out and still lets the answer through', () => {
+    vi.useFakeTimers();
+    try {
       let tree: any;
       act(() => { tree = create(<LearningDemoScreen entries={[twoDiff]} />); });
       act(() => { vi.advanceTimersByTime(600_000); });
 
-      // The clock decides the size of the bonus, never whether the game is over. Locking a
-      // slow player out of the board is the one outcome this screen must not produce.
-      expect(tree.root.findByProps({ testID: 'hud-timer' }).props.children.props.children).toBe('보너스 종료');
-      expect(tree.root.findAllByProps({ accessibilityLabel: 'Meaning quiz' })).toHaveLength(0);
-      const board = tree.root.findByProps({ testID: 'demo-board-A' });
-      act(() => board.props.onLayout({ nativeEvent: { layout: { width: 300, height: 300 } } }));
-      act(() => tree.root.findByProps({ testID: 'demo-board-A' }).props.onPress({ nativeEvent: { locationX: 150, locationY: 150 } }));
-      expect(tree.root.findByProps({ testID: 'claimed-A-d1' })).toBeTruthy();
+      // Being slow costs the differences that were never found — that is the whole cost.
+      // It must never cost the learning, so the answer screen is what the buzzer leads to.
+      expect(tree.root.findAllByProps({ testID: 'demo-board-A' })).toHaveLength(0);
+      expect(tree.root.findByProps({ testID: 'quiz-status' }).props.children).toBe('TIME UP');
+      expect(tree.root.findByProps({ accessibilityLabel: 'Answer input' })).toBeTruthy();
     } finally {
       vi.useRealTimers();
     }

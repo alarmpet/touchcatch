@@ -102,6 +102,59 @@ describe('learning demo controller', () => {
     expect(state.phase).toBe('QUIZ');
   });
 
+  it('grants sudden death at the deadline and ends it on any remaining difference', () => {
+    let state = createDemoState(content);
+    state = reduceDemoState(state, content, { type: 'TAP', side: 'A', x: .2, y: .3 });
+    state = reduceDemoState(state, content, { type: 'DEADLINE' });
+    expect(state.phase).toBe('SUDDEN_DEATH');
+    // The board closing must never close the answer with it.
+    expect(state.finalUnlocked).toBe(true);
+
+    // Any one of the leftovers wins it. Nominating a single spot is what the drafts'
+    // `suddenDeath` hitbox would do, and two thirds of those are not on the artwork.
+    state = reduceDemoState(state, content, { type: 'TAP', side: 'B', x: .5, y: .5 });
+    expect(state.phase).toBe('SUDDEN_DEATH');
+    state = reduceDemoState(state, content, { type: 'TAP', side: 'B', x: .8, y: .7 });
+    expect(state.phase).toBe('QUIZ');
+    expect(state.boardClosedBy).toBe('SUDDEN_DEATH_WIN');
+    expect(state.claimedIds).toEqual(['a', 'b']);
+  });
+
+  it('records how the board closed so the result cannot congratulate a run that ran out', () => {
+    let cleared = createDemoState(content);
+    cleared = reduceDemoState(cleared, content, { type: 'TAP', side: 'A', x: .2, y: .3 });
+    cleared = reduceDemoState(cleared, content, { type: 'TAP', side: 'B', x: .8, y: .7 });
+    expect(cleared).toMatchObject({ phase: 'QUIZ', boardClosedBy: 'CLEAR' });
+
+    let expired = createDemoState(content);
+    expired = reduceDemoState(expired, content, { type: 'DEADLINE' });
+    expired = reduceDemoState(expired, content, { type: 'END_SUDDEN_DEATH' });
+    expect(expired).toMatchObject({ phase: 'QUIZ', boardClosedBy: 'DEADLINE' });
+    // Nothing was found, so nothing was scored — but the answer is still worth its points.
+    expired = reduceDemoState(expired, content, { type: 'ANSWER', optionId: 'right' });
+    expect(expired.phase).toBe('COMPLETE');
+    expect(scoreDemoState(expired, content, rules, { remainingMs: 0, totalMs: 90000 }).total).toBe(40);
+  });
+
+  it('skips sudden death when the deadline finds nothing left to look for', () => {
+    // Reachable only from a board with no differences at all: a cleared one is already
+    // past FIND. It must still land on the answer rather than hanging on an empty stage.
+    const empty: DemoContent = { ...content, key: 'empty', differences: [] };
+    let state = createDemoState(empty);
+    state = reduceDemoState(state, empty, { type: 'DEADLINE' });
+    expect(state).toMatchObject({ phase: 'QUIZ', boardClosedBy: 'DEADLINE' });
+  });
+
+  it('spends a word hunt caught by the buzzer instead of resuming it', () => {
+    let state = createDemoState(hunted);
+    state = reduceDemoState(state, hunted, { type: 'TAP', side: 'A', x: .2, y: .3 });
+    state = reduceDemoState(state, hunted, { type: 'START_WORD_HUNT', missionId: 'sun' });
+    state = reduceDemoState(state, hunted, { type: 'DEADLINE' });
+    expect(state.activeMission).toBeNull();
+    expect(state.endedMissionIds).toEqual(['sun']);
+    expect(pendingWordHunt(hunted, state)).toBeNull();
+  });
+
   it('opens the final answer on the first find and accepts it before the board is cleared', () => {
     let state = createDemoState(content);
     // Nothing found yet: answering is not yet available.

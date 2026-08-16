@@ -112,8 +112,6 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
    */
   const feedback = useMemo(() => createFeedbackPlayer(), []);
   useEffect(() => () => feedback.dispose(), [feedback]);
-  /** No timed-failure mode exists yet, so every board plays the calm mood. */
-  useMusicMood('RELAX');
 
   /**
    * The manifest asks for `adjustResize`, but Android edge-to-edge (the SDK 57 default)
@@ -128,24 +126,40 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
   }, []);
 
   /**
-   * The clock runs on the match duration so the bonus means the same thing here, but it
-   * only ever decides how large the speed bonus is. It does not end the round: once it
-   * reaches zero the bonus is gone and the board stays open for as long as the player
-   * wants. Stopping the tick at zero also keeps a finished countdown from re-rendering
+   * Every clock on this screen comes off one elapsed counter and the admitted ruleset, so
+   * practice runs on the numbers a real match runs on. Three moments come out of it:
+   * the final rush at `finalRushStartsAtMs`, the deadline at `playingMs`, and the end of
+   * sudden death `suddenDeathMs` after that.
+   *
+   * The tick stops once the board closes, which keeps a finished countdown from re-rendering
    * the screen once a second forever.
    */
-  const bonusExpired = elapsedMs >= ruleset.time.playingMs;
+  const boardOpen = state.phase === 'FIND' || state.phase === 'SUDDEN_DEATH';
+  const remainingMs = Math.max(0, ruleset.time.playingMs - elapsedMs);
+  const finalRush = state.phase === 'FIND' && remainingMs > 0 && elapsedMs >= ruleset.time.finalRushStartsAtMs;
+  const suddenDeathRemainingMs = Math.max(0, ruleset.time.playingMs + ruleset.time.suddenDeathMs - elapsedMs);
   useEffect(() => {
-    if (state.phase !== 'FIND' || bonusExpired) return undefined;
+    if (!boardOpen) return undefined;
     const tick = setInterval(() => setElapsedMs((current) => current + 1000), 1000);
     return () => clearInterval(tick);
-  }, [state.phase, state.contentKey, bonusExpired]);
-  const remainingMs = Math.max(0, ruleset.time.playingMs - elapsedMs);
+  }, [boardOpen, state.contentKey]);
+  /**
+   * The two moments the clock decides, kept out of the tick itself: a state updater must
+   * stay pure, and both of these are reductions.
+   */
+  useEffect(() => {
+    if (state.phase === 'FIND' && remainingMs <= 0) act({ type: 'DEADLINE' });
+  }, [remainingMs, state.phase]);
+  useEffect(() => {
+    if (state.phase === 'SUDDEN_DEATH' && suddenDeathRemainingMs <= 0) act({ type: 'END_SUDDEN_DEATH' });
+  }, [suddenDeathRemainingMs, state.phase]);
   useEffect(() => {
     if (state.phase === 'FIND' && !state.finalUnlocked && elapsedMs >= ruleset.finalChallenge.unlock.atMs) {
       act({ type: 'UNLOCK_FINAL' });
     }
   }, [elapsedMs, state.phase, state.finalUnlocked]);
+  /** The only two stretches of this screen that are a race are the only two that sound like one. */
+  useMusicMood(finalRush || state.phase === 'SUDDEN_DEATH' ? 'RUSH' : 'RELAX');
 
   useEffect(() => {
     if (pulse === null) return undefined;
@@ -372,17 +386,31 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
       </View>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
         {/* The live clock is the most important number on the screen while it runs, so it is
-            filled rather than left as grey chrome. At zero it drops back to neutral because
-            the round carries on — it is a bonus timer, not a threat. */}
-        <View
-          testID="hud-timer"
-          accessibilityLabel={bonusExpired ? '속도 보너스 종료, 계속 플레이할 수 있어요' : `보너스 시간 ${Math.ceil(remainingMs / 1000)}초 남음`}
-          style={badgeStyle(bonusExpired ? 'neutral' : remainingMs <= 10000 ? 'danger' : 'accent')}
-        >
-          <Text style={badgeTextStyle(bonusExpired ? 'neutral' : remainingMs <= 10000 ? 'danger' : 'accent')}>{bonusExpired ? '보너스 종료' : formatClock(remainingMs)}</Text>
-        </View>
+            filled rather than left as grey chrome. It is now a deadline, so the last stretch
+            has to be legible with the sound off: the badge turns red and grows. It does not
+            blink — a full-screen flicker above 3Hz is the photosensitivity threshold, and a
+            timer is exactly the element an eye is already locked onto. */}
+        {(() => {
+          const tone = state.phase === 'SUDDEN_DEATH' || finalRush ? 'danger' : boardOpen ? 'accent' : 'neutral';
+          const urgent = state.phase === 'SUDDEN_DEATH' || finalRush;
+          const label = state.phase === 'SUDDEN_DEATH'
+            ? `서든데스 ${Math.ceil(suddenDeathRemainingMs / 1000)}초 남음`
+            : boardOpen
+              ? `${finalRush ? '파이널 러시, ' : ''}남은 시간 ${Math.ceil(remainingMs / 1000)}초`
+              : '시간 종료';
+          const shown = state.phase === 'SUDDEN_DEATH'
+            ? `SD ${Math.ceil(suddenDeathRemainingMs / 1000)}`
+            : boardOpen ? formatClock(remainingMs) : '시간 종료';
+          return <View
+            testID="hud-timer"
+            accessibilityLabel={label}
+            style={{ ...badgeStyle(tone), ...(urgent ? { transform: [{ scale: 1.14 }] } : {}) }}
+          >
+            <Text style={badgeTextStyle(tone)}>{shown}</Text>
+          </View>;
+        })()}
         {/* Named as your own record, never dressed up as another player. */}
-        {ghost !== null && state.phase === 'FIND' ? <View
+        {ghost !== null && boardOpen ? <View
           testID="hud-ghost"
           accessibilityLabel={`내 기록 ${ghostFinds}개, 나 ${state.claimedIds.length}개`}
           style={badgeStyle(standing === 'AHEAD' ? 'success' : standing === 'BEHIND' ? 'danger' : 'neutral')}
@@ -399,7 +427,7 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
 
     {/* Discrete slots, shown from the first second with every unit masked. Boxes make the
         rule visible — one find fills one box — in a way a run of underscores cannot. */}
-    {state.phase === 'FIND' && patternUnits !== null && answerPattern !== null ? <View
+    {boardOpen && patternUnits !== null && answerPattern !== null ? <View
       testID="hud-pattern"
       accessibilityLabel={`정답 패턴 ${answerPattern}`}
       style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 3, marginHorizontal: spacing.md, marginTop: 2, paddingVertical: 5, paddingHorizontal: spacing.sm, borderRadius: radius.card, backgroundColor: colors.surfaceMuted }}
@@ -496,7 +524,7 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
     </View> : null}
 
     {/* Play boards */}
-    {state.phase === 'FIND' && <ScrollView
+    {boardOpen && <ScrollView
       accessibilityLabel="Difference boards"
       scrollEnabled={false}
       onLayout={({ nativeEvent }: { nativeEvent: { layout: { width: number; height: number } } }) => {
@@ -573,7 +601,14 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
             if (found !== undefined) recordedFinds.current.push({ id: found, atMs: elapsedMs });
           }
         }
-      }} style={{ ...boardSize, minHeight: 48, borderRadius: radius.card, overflow: 'hidden', backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.line }}>
+      }} style={{
+        ...boardSize, minHeight: 48, borderRadius: radius.card, overflow: 'hidden',
+        backgroundColor: colors.surface, borderWidth: 1,
+        // The warning bleeds in at the edge of the artwork itself, which is where the eye
+        // already is. Colour only — widening the border would move the image by a pixel and
+        // every difference with it, mid-play.
+        borderColor: finalRush || state.phase === 'SUDDEN_DEATH' ? colors.danger : colors.line,
+      }}>
         <Image source={side === 'A' ? selected.imageA : selected.imageB} resizeMode="contain" style={{ width: '100%', height: '100%' }} />
         {selected.differences.filter((difference) => state.claimedIds.includes(difference.id)).map((difference) => { const circle = side === 'A' ? difference.imageA : difference.imageB; const displayR = Math.max(circle.r, 0.08); return <View key={difference.id} testID={`claimed-${side}-${difference.id}`} style={{ position: 'absolute', left: `${(circle.cx - displayR) * 100}%`, top: `${(circle.cy - displayR) * 100}%`, width: `${displayR * 200}%`, height: `${displayR * 200}%`, borderRadius: radius.pill, borderWidth: 3, borderColor: colors.success, backgroundColor: 'rgba(0, 135, 90, 0.14)', pointerEvents: 'none' }} />; })}
         {/* Where the record was by now, drawn only for spots you have not reached yet.
@@ -597,24 +632,33 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
 
     {/* Quiz */}
     {state.phase === 'QUIZ' && <View accessibilityLabel="Meaning quiz" style={{ flex: 1, justifyContent: 'center', gap: spacing.md, padding: spacing.xl, backgroundColor: colors.surface, margin: spacing.md, borderRadius: radius.xl, borderWidth: 1, borderColor: colors.line, ...shadow.lifted }}>
-      {/* Only a full clear reaches this screen — the clock never forces anyone here — so
-          the congratulation is always true when it is shown. */}
-      <View style={{ gap: spacing.xs, alignItems: 'center' }}>
-        {/* The clear is an achievement, so it is stated as one. A bare overline made the most
-            satisfying moment of the round look like a section label. */}
-        <View style={{
-          flexDirection: 'row', alignItems: 'center', gap: 6,
-          paddingHorizontal: spacing.sm, paddingVertical: 5,
-          borderRadius: radius.pill, backgroundColor: colors.successSoft,
-        }}>
-          <Text testID="quiz-status" style={{ ...textStyle.overline, color: colors.success }}>STAGE CLEAR</Text>
-          <Text style={{ fontSize: 12, lineHeight: 16, fontWeight: '800', color: colors.success }}>
-            {selected.differences.length}/{selected.differences.length}
-          </Text>
-        </View>
-        <Text style={{ ...textStyle.title, textAlign: 'center' }}>차이점을 모두 찾았어요</Text>
-        <Text style={{ ...textStyle.caption, textAlign: 'center' }}>{`그림과 힌트를 바탕으로 ${categoryLabel} 정답을 직접 입력해 보세요.`}</Text>
-      </View>
+      {/* Three ways in, and the screen has to be honest about which one happened. It used to
+          congratulate unconditionally, which was true while a full clear was the only way
+          here; the deadline made that a lie. What never changes is the sentence underneath —
+          the answer is open whichever way the board ended. */}
+      {(() => {
+        const ending = state.boardClosedBy === 'SUDDEN_DEATH_WIN'
+          ? { status: 'SUDDEN DEATH', tone: colors.success, soft: colors.successSoft, headline: '마지막 순간에 하나 더 찾았어요' }
+          : state.boardClosedBy === 'DEADLINE'
+            ? { status: 'TIME UP', tone: colors.warning, soft: colors.warningSoft, headline: '시간이 끝났어요' }
+            : { status: 'STAGE CLEAR', tone: colors.success, soft: colors.successSoft, headline: '차이점을 모두 찾았어요' };
+        return <View style={{ gap: spacing.xs, alignItems: 'center' }}>
+          {/* The result is stated as one. A bare overline made the most satisfying moment of
+              the round look like a section label. */}
+          <View style={{
+            flexDirection: 'row', alignItems: 'center', gap: 6,
+            paddingHorizontal: spacing.sm, paddingVertical: 5,
+            borderRadius: radius.pill, backgroundColor: ending.soft,
+          }}>
+            <Text testID="quiz-status" style={{ ...textStyle.overline, color: ending.tone }}>{ending.status}</Text>
+            <Text style={{ fontSize: 12, lineHeight: 16, fontWeight: '800', color: ending.tone }}>
+              {state.claimedIds.length}/{selected.differences.length}
+            </Text>
+          </View>
+          <Text style={{ ...textStyle.title, textAlign: 'center' }}>{ending.headline}</Text>
+          <Text style={{ ...textStyle.caption, textAlign: 'center' }}>{`그림과 힌트를 바탕으로 ${categoryLabel} 정답을 직접 입력해 보세요.`}</Text>
+        </View>;
+      })()}
       <TextInput accessibilityLabel="Answer input" value={answerInput} onChangeText={setAnswerInput} autoCapitalize="none" autoCorrect={false} placeholder="정답 입력" placeholderTextColor={colors.faint} style={{ ...field.input, fontSize: 17, textAlign: 'center' }} />
       <Pressable accessibilityRole="button" accessibilityLabel="Submit answer" onPress={() => submitAnswer()} style={{ ...buttonStyle('primary', { block: true }), minHeight: 56, borderRadius: radius.pill }}><Text style={{ ...buttonTextStyle('primary'), fontSize: 16 }}>정답 제출</Text></Pressable>
       {state.wrongAnswers > 0 && <Text accessibilityLiveRegion="polite" style={{ ...textStyle.danger, textAlign: 'center' }}>다시 생각해 보세요.</Text>}
@@ -685,8 +729,8 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
     {/* Footer: answer, submit and hint share one row. Two stacked full-width rows cost the
         boards roughly a fifth of the screen, and the artwork is what the game is about. */}
     <View style={{ backgroundColor: colors.surface, borderTopWidth: 1, borderTopColor: colors.line, paddingVertical: spacing.xs, paddingHorizontal: spacing.sm, gap: 6, ...shadow.lifted }}>
-      {state.phase === 'FIND' && currentHintText ? <View style={surfaceStyle.quiet}><Text testID="current-hint" accessibilityLiveRegion="polite" style={{ ...textStyle.caption, textAlign: 'center', color: colors.ink }}>{currentHintText}</Text></View> : null}
-      {state.phase === 'FIND' && (showEarlyAnswer || totalHintSteps > 0) ? <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+      {boardOpen && currentHintText ? <View style={surfaceStyle.quiet}><Text testID="current-hint" accessibilityLiveRegion="polite" style={{ ...textStyle.caption, textAlign: 'center', color: colors.ink }}>{currentHintText}</Text></View> : null}
+      {boardOpen && (showEarlyAnswer || totalHintSteps > 0) ? <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
         {showEarlyAnswer ? <View testID="early-answer" style={{ flexDirection: 'row', alignItems: 'center', gap: 6, flex: 1 }}>
           <TextInput
             accessibilityLabel="Early answer input"
@@ -733,6 +777,36 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
         </Pressable> : null}
       </View> : null}
     </View>
+
+    {/* Sudden death: the deadline passed with differences still on the board, so ten seconds
+        buy one more find — any one of them.
+
+        It floats for the same reason the coach note does. Laying a banner into the column at
+        the moment the phase flips would resize both boards and move every difference under
+        the player's finger, which is the one thing a ten-second stage cannot afford. It is
+        also `pointerEvents="none"`: the board underneath stays tappable through it. */}
+    {state.phase === 'SUDDEN_DEATH' ? <View
+      testID="sudden-death-banner"
+      accessibilityLiveRegion="assertive"
+      accessibilityLabel={`서든데스, ${Math.ceil(suddenDeathRemainingMs / 1000)}초 안에 하나만 더 찾으세요`}
+      pointerEvents="none"
+      style={{
+        position: 'absolute', left: spacing.md, right: spacing.md, bottom: 104,
+        paddingVertical: spacing.sm, paddingHorizontal: spacing.md,
+        borderRadius: radius.card, backgroundColor: colors.danger,
+        flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: spacing.sm,
+      }}
+    >
+      {/* The seconds are the largest thing here on purpose: this is the number the plan
+          says must never be set in small type. */}
+      <Text testID="sudden-death-clock" style={{ ...textStyle.display, fontSize: 30, lineHeight: 34, color: colors.onAccent }}>
+        {Math.ceil(suddenDeathRemainingMs / 1000)}
+      </Text>
+      <View style={{ flexShrink: 1 }}>
+        <Text style={{ ...textStyle.overline, color: 'rgba(255,255,255,0.82)' }}>서든데스</Text>
+        <Text style={{ ...textStyle.bodyStrong, color: colors.onAccent }}>하나만 더 찾으면 돼요</Text>
+      </View>
+    </View> : null}
 
     {/* Coaching floats over the layout rather than sitting in it: pushing the boards down
         for three seconds would resize the artwork and re-measure every slot mid-play. */}
