@@ -21,9 +21,9 @@
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/ec6af23e2e1acbb6735723235a9dde7751f9708415fe5ddb7ba0d43a0aeae911.png",
-      "sha256": "ec6af23e2e1acbb6735723235a9dde7751f9708415fe5ddb7ba0d43a0aeae911",
-      "encodedBytes": 1991696,
+      "url": "https://cdn.spot-learn.test/assets/0711c7a46c8533853183930538b7e59a6b8a84a3b03f7c113f21bced1a001a99.png",
+      "sha256": "0711c7a46c8533853183930538b7e59a6b8a84a3b03f7c113f21bced1a001a99",
+      "encodedBytes": 2060876,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
@@ -301,6 +301,6 @@
   },
   "assetFiles": {
     "4ddefe8b390e9a758120cd44050dbcb3f36d7bb526b3f7b32a35a6fb389a368e": "D:\\touchcatch\\content\\learning\\source\\en-metaphor-library-a.png",
-    "ec6af23e2e1acbb6735723235a9dde7751f9708415fe5ddb7ba0d43a0aeae911": "D:\\touchcatch\\content\\learning\\source\\en-metaphor-library-b.png"
+    "0711c7a46c8533853183930538b7e59a6b8a84a3b03f7c113f21bced1a001a99": "D:\\touchcatch\\content\\learning\\source\\en-metaphor-library-b.png"
   }
 }

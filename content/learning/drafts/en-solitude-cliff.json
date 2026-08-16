@@ -6,93 +6,189 @@
   "publicContent": {
     "contentId": "9a920f74-158e-4ef9-8dfd-e58e9c2e5b71",
     "version": 1,
-    "contentRevisionId": "400a9dfa-9dcb-4def-8e13-8cd9885758ce",
+    "contentRevisionId": "eba00ff1-1ed2-41b0-86be-3b571f611e2a",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "en-solitude-cliff",
     "language": "en",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/a04fe08aaa2700acc0a9b6271a58bbc9505c272f5795de2c7bde210f87c0778b.png",
-      "sha256": "a04fe08aaa2700acc0a9b6271a58bbc9505c272f5795de2c7bde210f87c0778b",
-      "encodedBytes": 2094800,
+      "url": "https://cdn.spot-learn.test/assets/c266b24010ac177da5a764447f00dfbfaad5fd2c70ca21a062c81bfdda372e77.png",
+      "sha256": "c266b24010ac177da5a764447f00dfbfaad5fd2c70ca21a062c81bfdda372e77",
+      "encodedBytes": 2159295,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/23721dba195673fa979e4960eb0f09c6e54dc9ba6bfca7cede0adda393f1007a.png",
-      "sha256": "23721dba195673fa979e4960eb0f09c6e54dc9ba6bfca7cede0adda393f1007a",
-      "encodedBytes": 2221192,
+      "url": "https://cdn.spot-learn.test/assets/c711074cff78e51266f551361e06c00ba9f51cadd738e4201cc53d140535133d.png",
+      "sha256": "c711074cff78e51266f551361e06c00ba9f51cadd738e4201cc53d140535133d",
+      "encodedBytes": 2144357,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "400a9dfa-9dcb-4def-8e13-8cd9885758ce",
+    "contentRevisionId": "eba00ff1-1ed2-41b0-86be-3b571f611e2a",
     "schemaVersion": "1.0.0",
     "differences": [
       {
-        "objectiveId": "difference_1",
+        "objectiveId": "diff_1",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.609,
-            "cy": 0.629,
+            "cx": 0.6293857531601124,
+            "cy": 0.24047248068820223,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.609,
-            "cy": 0.629,
+            "cx": 0.6293857531601124,
+            "cy": 0.24047248068820223,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_2",
+        "objectiveId": "diff_2",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.749,
-            "cy": 0.596,
+            "cx": 0.39412801473348347,
+            "cy": 0.11230322118993993,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.749,
-            "cy": 0.596,
+            "cx": 0.39412801473348347,
+            "cy": 0.11230322118993993,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_3",
+        "objectiveId": "diff_3",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.739,
-            "cy": 0.195,
+            "cx": 0.12655970982142858,
+            "cy": 0.32602399553571426,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.739,
-            "cy": 0.195,
+            "cx": 0.12655970982142858,
+            "cy": 0.32602399553571426,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_4",
+        "objectiveId": "diff_4",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.607,
-            "cy": 0.224,
+            "cx": 0.6706500137061403,
+            "cy": 0.40889699835526316,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.607,
-            "cy": 0.224,
+            "cx": 0.6706500137061403,
+            "cy": 0.40889699835526316,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7932022758152174,
+            "cy": 0.3241550611413043,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.7932022758152174,
+            "cy": 0.3241550611413043,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7112134850543478,
+            "cy": 0.5706734035326086,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.7112134850543478,
+            "cy": 0.5706734035326086,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.37769342237903225,
+            "cy": 0.4851783014112903,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.37769342237903225,
+            "cy": 0.4851783014112903,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.4355897066885965,
+            "cy": 0.25144771107456143,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.4355897066885965,
+            "cy": 0.25144771107456143,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.504893201462766,
+            "cy": 0.5548433344414894,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.504893201462766,
+            "cy": 0.5548433344414894,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8594520970394737,
+            "cy": 0.10431229440789473,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.8594520970394737,
+            "cy": 0.10431229440789473,
             "r": 0.055
           }
         }
@@ -105,13 +201,13 @@
         "publicPrompt": "Find item 1 in en-solitude-cliff",
         "hitboxes": {
           "imageA": {
-            "cx": 0.609,
-            "cy": 0.629,
+            "cx": 0.6293857531601124,
+            "cy": 0.24047248068820223,
             "r": 0.06
           },
           "imageB": {
-            "cx": 0.609,
-            "cy": 0.629,
+            "cx": 0.6293857531601124,
+            "cy": 0.24047248068820223,
             "r": 0.06
           }
         }
@@ -122,13 +218,13 @@
         "publicPrompt": "Find item 2 in en-solitude-cliff",
         "hitboxes": {
           "imageA": {
-            "cx": 0.749,
-            "cy": 0.596,
+            "cx": 0.39412801473348347,
+            "cy": 0.11230322118993993,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.749,
-            "cy": 0.596,
+            "cx": 0.39412801473348347,
+            "cy": 0.11230322118993993,
             "r": 0.055
           }
         }
@@ -139,13 +235,13 @@
         "publicPrompt": "Find item 3 in en-solitude-cliff",
         "hitboxes": {
           "imageA": {
-            "cx": 0.739,
-            "cy": 0.195,
+            "cx": 0.12655970982142858,
+            "cy": 0.32602399553571426,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.739,
-            "cy": 0.195,
+            "cx": 0.12655970982142858,
+            "cy": 0.32602399553571426,
             "r": 0.055
           }
         }
@@ -155,13 +251,13 @@
       "objectiveId": "sudden_1",
       "hitboxes": {
         "imageA": {
-          "cx": 0.609,
-          "cy": 0.629,
+          "cx": 0.6293857531601124,
+          "cy": 0.24047248068820223,
           "r": 0.065
         },
         "imageB": {
-          "cx": 0.609,
-          "cy": 0.629,
+          "cx": 0.6293857531601124,
+          "cy": 0.24047248068820223,
           "r": 0.065
         }
       }
@@ -202,10 +298,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "e2ef10a7894e8f26a7ee45420d15a8fdff3f672d73e32d0edccafc3828f69775"
+    "privateSolutionHash": "b111af292d739454d3cda70322396d85aa2421921e7e9ed71c4b525dfb8e66f1"
   },
   "assetFiles": {
-    "a04fe08aaa2700acc0a9b6271a58bbc9505c272f5795de2c7bde210f87c0778b": "D:\\touchcatch\\content\\learning\\source\\en-solitude-cliff-a.png",
-    "23721dba195673fa979e4960eb0f09c6e54dc9ba6bfca7cede0adda393f1007a": "D:\\touchcatch\\content\\learning\\source\\en-solitude-cliff-b.png"
+    "c266b24010ac177da5a764447f00dfbfaad5fd2c70ca21a062c81bfdda372e77": "D:\\touchcatch\\content\\learning\\source\\en-solitude-cliff-a.png",
+    "c711074cff78e51266f551361e06c00ba9f51cadd738e4201cc53d140535133d": "D:\\touchcatch\\content\\learning\\source\\en-solitude-cliff-b.png"
   }
 }

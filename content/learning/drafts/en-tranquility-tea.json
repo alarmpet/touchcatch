@@ -6,125 +6,189 @@
   "publicContent": {
     "contentId": "9c81697f-6793-4f9e-8e83-c5cf0aefb88e",
     "version": 1,
-    "contentRevisionId": "01f7dcfc-cb35-4726-8943-8aa41aaf7628",
+    "contentRevisionId": "56402029-d8c6-4c45-8b58-5c761626cb1b",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "en-tranquility-tea",
     "language": "en",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/045f1e50b3668ecefbce893130515989f9c1175c30434a22f2e1ce606b0780b5.png",
-      "sha256": "045f1e50b3668ecefbce893130515989f9c1175c30434a22f2e1ce606b0780b5",
-      "encodedBytes": 2414943,
+      "url": "https://cdn.spot-learn.test/assets/5ea1df19e7bb69d9f1da44c9150ad5086745c5d098dc413b8388345a9a377b8b.png",
+      "sha256": "5ea1df19e7bb69d9f1da44c9150ad5086745c5d098dc413b8388345a9a377b8b",
+      "encodedBytes": 2350072,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/5c1a630f90ada617771180677cd6cf70643b4595ac0496f46dcfe6859762357d.png",
-      "sha256": "5c1a630f90ada617771180677cd6cf70643b4595ac0496f46dcfe6859762357d",
-      "encodedBytes": 2484729,
+      "url": "https://cdn.spot-learn.test/assets/3c994683a427a7e4670f2b5f6935df7c6a30a942f899f700b147c69d2f1e1fc9.png",
+      "sha256": "3c994683a427a7e4670f2b5f6935df7c6a30a942f899f700b147c69d2f1e1fc9",
+      "encodedBytes": 2401348,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "01f7dcfc-cb35-4726-8943-8aa41aaf7628",
+    "contentRevisionId": "56402029-d8c6-4c45-8b58-5c761626cb1b",
     "schemaVersion": "1.0.0",
     "differences": [
       {
-        "objectiveId": "difference_1",
+        "objectiveId": "diff_1",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.269,
-            "cy": 0.842,
+            "cx": 0.8793252268145161,
+            "cy": 0.7257213961693548,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.269,
-            "cy": 0.842,
+            "cx": 0.8793252268145161,
+            "cy": 0.7257213961693548,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_2",
+        "objectiveId": "diff_2",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.142,
-            "cy": 0.507,
+            "cx": 0.45354684842687076,
+            "cy": 0.153363493835034,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.142,
-            "cy": 0.507,
+            "cx": 0.45354684842687076,
+            "cy": 0.153363493835034,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_3",
+        "objectiveId": "diff_3",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.603,
-            "cy": 0.54,
+            "cx": 0.4605675291966119,
+            "cy": 0.26929763699948667,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.603,
-            "cy": 0.54,
+            "cx": 0.4605675291966119,
+            "cy": 0.26929763699948667,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_4",
+        "objectiveId": "diff_4",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.797,
-            "cy": 0.613,
+            "cx": 0.6008667866199284,
+            "cy": 0.6838209930638425,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.797,
-            "cy": 0.613,
+            "cx": 0.6008667866199284,
+            "cy": 0.6838209930638425,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_5",
+        "objectiveId": "diff_5",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.159,
-            "cy": 0.685,
+            "cx": 0.47644542671783624,
+            "cy": 0.6619694581505848,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.159,
-            "cy": 0.685,
+            "cx": 0.47644542671783624,
+            "cy": 0.6619694581505848,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_6",
+        "objectiveId": "diff_6",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.697,
-            "cy": 0.428,
+            "cx": 0.4558296801528213,
+            "cy": 0.38132928830329155,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.697,
-            "cy": 0.428,
+            "cx": 0.4558296801528213,
+            "cy": 0.38132928830329155,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7203841145833333,
+            "cy": 0.73705078125,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.7203841145833333,
+            "cy": 0.73705078125,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8363918138586957,
+            "cy": 0.4659434442934783,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.8363918138586957,
+            "cy": 0.4659434442934783,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.6839911882267442,
+            "cy": 0.45324990915697677,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.6839911882267442,
+            "cy": 0.45324990915697677,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.16796875,
+            "cy": 0.4662109375,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.16796875,
+            "cy": 0.4662109375,
             "r": 0.055
           }
         }
@@ -137,13 +201,13 @@
         "publicPrompt": "Find item 1 in en-tranquility-tea",
         "hitboxes": {
           "imageA": {
-            "cx": 0.269,
-            "cy": 0.842,
+            "cx": 0.8793252268145161,
+            "cy": 0.7257213961693548,
             "r": 0.06
           },
           "imageB": {
-            "cx": 0.269,
-            "cy": 0.842,
+            "cx": 0.8793252268145161,
+            "cy": 0.7257213961693548,
             "r": 0.06
           }
         }
@@ -154,13 +218,13 @@
         "publicPrompt": "Find item 2 in en-tranquility-tea",
         "hitboxes": {
           "imageA": {
-            "cx": 0.142,
-            "cy": 0.507,
+            "cx": 0.45354684842687076,
+            "cy": 0.153363493835034,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.142,
-            "cy": 0.507,
+            "cx": 0.45354684842687076,
+            "cy": 0.153363493835034,
             "r": 0.055
           }
         }
@@ -171,13 +235,13 @@
         "publicPrompt": "Find item 3 in en-tranquility-tea",
         "hitboxes": {
           "imageA": {
-            "cx": 0.603,
-            "cy": 0.54,
+            "cx": 0.4605675291966119,
+            "cy": 0.26929763699948667,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.603,
-            "cy": 0.54,
+            "cx": 0.4605675291966119,
+            "cy": 0.26929763699948667,
             "r": 0.055
           }
         }
@@ -187,13 +251,13 @@
       "objectiveId": "sudden_1",
       "hitboxes": {
         "imageA": {
-          "cx": 0.269,
-          "cy": 0.842,
+          "cx": 0.8793252268145161,
+          "cy": 0.7257213961693548,
           "r": 0.065
         },
         "imageB": {
-          "cx": 0.269,
-          "cy": 0.842,
+          "cx": 0.8793252268145161,
+          "cy": 0.7257213961693548,
           "r": 0.065
         }
       }
@@ -237,10 +301,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "e2c08453489cc9340bd5201498890f7795b7f7dd705d39676b367ec69b73f844"
+    "privateSolutionHash": "d86a64506269618c2ac67917c3fcfe56dfa64e48f3e1ed8e2dc9811112dd8626"
   },
   "assetFiles": {
-    "045f1e50b3668ecefbce893130515989f9c1175c30434a22f2e1ce606b0780b5": "D:\\touchcatch\\content\\learning\\source\\en-tranquility-tea-a.png",
-    "5c1a630f90ada617771180677cd6cf70643b4595ac0496f46dcfe6859762357d": "D:\\touchcatch\\content\\learning\\source\\en-tranquility-tea-b.png"
+    "5ea1df19e7bb69d9f1da44c9150ad5086745c5d098dc413b8388345a9a377b8b": "D:\\touchcatch\\content\\learning\\source\\en-tranquility-tea-a.png",
+    "3c994683a427a7e4670f2b5f6935df7c6a30a942f899f700b147c69d2f1e1fc9": "D:\\touchcatch\\content\\learning\\source\\en-tranquility-tea-b.png"
   }
 }

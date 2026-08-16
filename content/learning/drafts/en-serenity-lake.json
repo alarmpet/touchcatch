@@ -6,141 +6,189 @@
   "publicContent": {
     "contentId": "b84e622a-e7f5-46f8-84cd-aa1da145b5c6",
     "version": 1,
-    "contentRevisionId": "f880d2d8-1d01-460d-8813-1820facc9419",
+    "contentRevisionId": "fecce841-dfc0-4a2f-85cc-cd1c4591277d",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "en-serenity-lake",
     "language": "en",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/746942d5480330152582c18832a5c0b3dc21e112f622078403d4827f0af39a7a.png",
-      "sha256": "746942d5480330152582c18832a5c0b3dc21e112f622078403d4827f0af39a7a",
-      "encodedBytes": 1331370,
+      "url": "https://cdn.spot-learn.test/assets/bb5ae9cf0b6847de101405b607c5f8732874e6dfb6983f549c6bcefa011268b8.png",
+      "sha256": "bb5ae9cf0b6847de101405b607c5f8732874e6dfb6983f549c6bcefa011268b8",
+      "encodedBytes": 1979561,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/ad134fc83a8566ec056a13bf294055b766b54d79847231d18f4348e39b3eaff0.png",
-      "sha256": "ad134fc83a8566ec056a13bf294055b766b54d79847231d18f4348e39b3eaff0",
-      "encodedBytes": 1530245,
+      "url": "https://cdn.spot-learn.test/assets/c4b033f73d7ad4eb7935fbbf333b772b2219435946925b922e3955987b7648ac.png",
+      "sha256": "c4b033f73d7ad4eb7935fbbf333b772b2219435946925b922e3955987b7648ac",
+      "encodedBytes": 2098515,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "f880d2d8-1d01-460d-8813-1820facc9419",
+    "contentRevisionId": "fecce841-dfc0-4a2f-85cc-cd1c4591277d",
     "schemaVersion": "1.0.0",
     "differences": [
       {
-        "objectiveId": "difference_1",
+        "objectiveId": "diff_1",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.273,
-            "cy": 0.688,
+            "cx": 0.3118345047055985,
+            "cy": 0.8924480423503861,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.273,
-            "cy": 0.688,
+            "cx": 0.3118345047055985,
+            "cy": 0.8924480423503861,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_2",
+        "objectiveId": "diff_2",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.782,
-            "cy": 0.622,
+            "cx": 0.42362846343623484,
+            "cy": 0.9149540580718624,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.782,
-            "cy": 0.622,
+            "cx": 0.42362846343623484,
+            "cy": 0.9149540580718624,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_3",
+        "objectiveId": "diff_3",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.897,
-            "cy": 0.737,
+            "cx": 0.8730220836782561,
+            "cy": 0.835089205642936,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.897,
-            "cy": 0.737,
+            "cx": 0.8730220836782561,
+            "cy": 0.835089205642936,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_4",
+        "objectiveId": "diff_4",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.09,
-            "cy": 0.855,
+            "cx": 0.9351075659107669,
+            "cy": 0.5798692731379056,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.09,
-            "cy": 0.855,
+            "cx": 0.9351075659107669,
+            "cy": 0.5798692731379056,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_5",
+        "objectiveId": "diff_5",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.611,
-            "cy": 0.72,
+            "cx": 0.5181551846590909,
+            "cy": 0.56181640625,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.611,
-            "cy": 0.72,
+            "cx": 0.5181551846590909,
+            "cy": 0.56181640625,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_6",
+        "objectiveId": "diff_6",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.345,
-            "cy": 0.504,
+            "cx": 0.6709556235923423,
+            "cy": 0.8414581573761262,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.345,
-            "cy": 0.504,
+            "cx": 0.6709556235923423,
+            "cy": 0.8414581573761262,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_7",
+        "objectiveId": "diff_7",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.046,
-            "cy": 0.657,
+            "cx": 0.8703049879807693,
+            "cy": 0.4626277043269231,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.046,
-            "cy": 0.657,
+            "cx": 0.8703049879807693,
+            "cy": 0.4626277043269231,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7679161658653846,
+            "cy": 0.1203371823489011,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.7679161658653846,
+            "cy": 0.1203371823489011,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.35283203125,
+            "cy": 0.7553841145833333,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.35283203125,
+            "cy": 0.7553841145833333,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.68728515625,
+            "cy": 0.50822265625,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.68728515625,
+            "cy": 0.50822265625,
             "r": 0.055
           }
         }
@@ -153,13 +201,13 @@
         "publicPrompt": "Find item 1 in en-serenity-lake",
         "hitboxes": {
           "imageA": {
-            "cx": 0.273,
-            "cy": 0.688,
+            "cx": 0.3118345047055985,
+            "cy": 0.8924480423503861,
             "r": 0.06
           },
           "imageB": {
-            "cx": 0.273,
-            "cy": 0.688,
+            "cx": 0.3118345047055985,
+            "cy": 0.8924480423503861,
             "r": 0.06
           }
         }
@@ -170,13 +218,13 @@
         "publicPrompt": "Find item 2 in en-serenity-lake",
         "hitboxes": {
           "imageA": {
-            "cx": 0.782,
-            "cy": 0.622,
+            "cx": 0.42362846343623484,
+            "cy": 0.9149540580718624,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.782,
-            "cy": 0.622,
+            "cx": 0.42362846343623484,
+            "cy": 0.9149540580718624,
             "r": 0.055
           }
         }
@@ -187,13 +235,13 @@
         "publicPrompt": "Find item 3 in en-serenity-lake",
         "hitboxes": {
           "imageA": {
-            "cx": 0.897,
-            "cy": 0.737,
+            "cx": 0.8730220836782561,
+            "cy": 0.835089205642936,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.897,
-            "cy": 0.737,
+            "cx": 0.8730220836782561,
+            "cy": 0.835089205642936,
             "r": 0.055
           }
         }
@@ -203,13 +251,13 @@
       "objectiveId": "sudden_1",
       "hitboxes": {
         "imageA": {
-          "cx": 0.273,
-          "cy": 0.688,
+          "cx": 0.3118345047055985,
+          "cy": 0.8924480423503861,
           "r": 0.065
         },
         "imageB": {
-          "cx": 0.273,
-          "cy": 0.688,
+          "cx": 0.3118345047055985,
+          "cy": 0.8924480423503861,
           "r": 0.065
         }
       }
@@ -250,10 +298,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "976a108b908a26d01e1d2bdcbd525583e0a337208ee2a9e178ef2c709c4a0ff0"
+    "privateSolutionHash": "0ef51581265fa051542ca4a924352331e708099b0ee11b67d1d2fb2133ae0c2f"
   },
   "assetFiles": {
-    "746942d5480330152582c18832a5c0b3dc21e112f622078403d4827f0af39a7a": "D:\\touchcatch\\content\\learning\\source\\en-serenity-lake-a.png",
-    "ad134fc83a8566ec056a13bf294055b766b54d79847231d18f4348e39b3eaff0": "D:\\touchcatch\\content\\learning\\source\\en-serenity-lake-b.png"
+    "bb5ae9cf0b6847de101405b607c5f8732874e6dfb6983f549c6bcefa011268b8": "D:\\touchcatch\\content\\learning\\source\\en-serenity-lake-a.png",
+    "c4b033f73d7ad4eb7935fbbf333b772b2219435946925b922e3955987b7648ac": "D:\\touchcatch\\content\\learning\\source\\en-serenity-lake-b.png"
   }
 }

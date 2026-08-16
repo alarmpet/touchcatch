@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-07-30",
+  "rules": [
+    "9-zone distributed local differences (prompted by zone names, NOT visual multi-panel grid)",
+    "Complementary color swaps on single objects (Red/Teal, Yellow/Violet, White/RoyalBlue)",
+    "Independent add/remove props preferred over family bulk recolor",
+    "Single continuous full-bleed A/B only"
+  ],
+  "completePairs": 10,
+  "keys": [
+    "ko-proverb-monkeys-tree",
+    "ko-proverb-spilled-water",
+    "ko-idiom-cheongchul-eoram",
+    "en-phonics-bear",
+    "en-phonics-cat",
+    "en-phonics-dolphin",
+    "en-space-blackhole",
+    "en-future-robotics",
+    "en-profession-architect",
+    "en-scenery-coral-reef"
+  ],
+  "catalog": "changes[] updated for 9 packs + cheongchul already; validate-catalog PASS 91",
+  "knownLimitations": [
+    "image_edit can still drift composition (cat, dolphin, architect camera differ somewhat from A)",
+    "Saying 3x3 grid in prompt causes multi-panel collage — avoid that wording",
+    "Next: human A/B side-by-side QA, then auto-detect-delta / draft build"
+  ]
+}

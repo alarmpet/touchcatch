@@ -21,9 +21,9 @@
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/83c6d217f9567a1bb897e32716935675547987f5eaec3bc415b02a736e1982e0.png",
-      "sha256": "83c6d217f9567a1bb897e32716935675547987f5eaec3bc415b02a736e1982e0",
-      "encodedBytes": 2537822,
+      "url": "https://cdn.spot-learn.test/assets/2d2158853cedfd9012465b4aeaacdf019c432b667614c6df9b8002f335d54d42.png",
+      "sha256": "2d2158853cedfd9012465b4aeaacdf019c432b667614c6df9b8002f335d54d42",
+      "encodedBytes": 2506529,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
@@ -306,6 +306,6 @@
   },
   "assetFiles": {
     "0107d99f82c6642e1d6278439b0c9d9d6ffd1b8733803ba0ba27b0da4a295bdb": "D:\\touchcatch\\content\\learning\\source\\en-juxtaposition-market-a.png",
-    "83c6d217f9567a1bb897e32716935675547987f5eaec3bc415b02a736e1982e0": "D:\\touchcatch\\content\\learning\\source\\en-juxtaposition-market-b.png"
+    "2d2158853cedfd9012465b4aeaacdf019c432b667614c6df9b8002f335d54d42": "D:\\touchcatch\\content\\learning\\source\\en-juxtaposition-market-b.png"
   }
 }

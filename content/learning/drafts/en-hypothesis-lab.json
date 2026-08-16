@@ -21,9 +21,9 @@
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/3c653dc07ec2c8fb69477ea82742b9f70f4893e3a3a87e5c89d7c252ec432e18.png",
-      "sha256": "3c653dc07ec2c8fb69477ea82742b9f70f4893e3a3a87e5c89d7c252ec432e18",
-      "encodedBytes": 1803537,
+      "url": "https://cdn.spot-learn.test/assets/02090fce5bda2a1f7c80a613afe63cb1e801cf16ab0c598ff178d566d89ef625.png",
+      "sha256": "02090fce5bda2a1f7c80a613afe63cb1e801cf16ab0c598ff178d566d89ef625",
+      "encodedBytes": 1838254,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
@@ -303,6 +303,6 @@
   },
   "assetFiles": {
     "a5da04860df98f117bae7cf8058984d6e7c01fb63c41dd178ac6f2bd998ce456": "D:\\touchcatch\\content\\learning\\source\\en-hypothesis-lab-a.png",
-    "3c653dc07ec2c8fb69477ea82742b9f70f4893e3a3a87e5c89d7c252ec432e18": "D:\\touchcatch\\content\\learning\\source\\en-hypothesis-lab-b.png"
+    "02090fce5bda2a1f7c80a613afe63cb1e801cf16ab0c598ff178d566d89ef625": "D:\\touchcatch\\content\\learning\\source\\en-hypothesis-lab-b.png"
   }
 }

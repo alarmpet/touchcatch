@@ -21,9 +21,9 @@
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/422fb41208e1cc3dd6bc4e71a18806b414a97ad51e24c14564a34972931dbfa4.png",
-      "sha256": "422fb41208e1cc3dd6bc4e71a18806b414a97ad51e24c14564a34972931dbfa4",
-      "encodedBytes": 2782032,
+      "url": "https://cdn.spot-learn.test/assets/2b61936c96ffe30072f2de7e9b27f45bc61892784abac0dbc29c50abff0f5aa3.png",
+      "sha256": "2b61936c96ffe30072f2de7e9b27f45bc61892784abac0dbc29c50abff0f5aa3",
+      "encodedBytes": 2757775,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
@@ -306,6 +306,6 @@
   },
   "assetFiles": {
     "7c82132148c3cb648396ab2c207c599cd0528a81a359c7080925ce63d61117ae": "D:\\touchcatch\\content\\learning\\source\\en-chrysanthemum-greenhouse-a.png",
-    "422fb41208e1cc3dd6bc4e71a18806b414a97ad51e24c14564a34972931dbfa4": "D:\\touchcatch\\content\\learning\\source\\en-chrysanthemum-greenhouse-b.png"
+    "2b61936c96ffe30072f2de7e9b27f45bc61892784abac0dbc29c50abff0f5aa3": "D:\\touchcatch\\content\\learning\\source\\en-chrysanthemum-greenhouse-b.png"
   }
 }

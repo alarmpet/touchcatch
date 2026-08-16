@@ -1,0 +1,306 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "81bb3081-372b-4fdc-8d43-326a4a51a488",
+    "version": 1,
+    "contentRevisionId": "58534000-b624-4f94-8f2c-89d9136c3aee",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-future-robotics",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/16c972d2864c670348042eab205b1ad0b8ede8fc46d33a6963a7ddb2caeb9b49.png",
+      "sha256": "16c972d2864c670348042eab205b1ad0b8ede8fc46d33a6963a7ddb2caeb9b49",
+      "encodedBytes": 2623721,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/4015b700ca03aaeeebe6e11112a6d154906d5b25cfc372be625627940cb8bf45.png",
+      "sha256": "4015b700ca03aaeeebe6e11112a6d154906d5b25cfc372be625627940cb8bf45",
+      "encodedBytes": 2652152,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "58534000-b624-4f94-8f2c-89d9136c3aee",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.09117604094529086,
+            "cy": 0.46039241040512463,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.09117604094529086,
+            "cy": 0.46039241040512463,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.1997518662571736,
+            "cy": 0.36245250291427544,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.1997518662571736,
+            "cy": 0.36245250291427544,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.0896790803702346,
+            "cy": 0.34018311262829914,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.0896790803702346,
+            "cy": 0.34018311262829914,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.4952255199959807,
+            "cy": 0.8116506104300643,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.4952255199959807,
+            "cy": 0.8116506104300643,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8488046466681185,
+            "cy": 0.4967793853440767,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.8488046466681185,
+            "cy": 0.4967793853440767,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8497395217982041,
+            "cy": 0.6526326574314745,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.8497395217982041,
+            "cy": 0.6526326574314745,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8133270886479592,
+            "cy": 0.15752551020408162,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.8133270886479592,
+            "cy": 0.15752551020408162,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.25375338383358664,
+            "cy": 0.16011024173632218,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.25375338383358664,
+            "cy": 0.16011024173632218,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.1535861335666023,
+            "cy": 0.10291045789092663,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.1535861335666023,
+            "cy": 0.10291045789092663,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.694539027931416,
+            "cy": 0.5453410190818584,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.694539027931416,
+            "cy": 0.5453410190818584,
+            "r": 0.06875
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-future-robotics",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.09117604094529086,
+            "cy": 0.46039241040512463,
+            "r": 0.07375000000000001
+          },
+          "imageB": {
+            "cx": 0.09117604094529086,
+            "cy": 0.46039241040512463,
+            "r": 0.07375000000000001
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-future-robotics",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.1997518662571736,
+            "cy": 0.36245250291427544,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.1997518662571736,
+            "cy": 0.36245250291427544,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-future-robotics",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.0896790803702346,
+            "cy": 0.34018311262829914,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.0896790803702346,
+            "cy": 0.34018311262829914,
+            "r": 0.06875
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.09117604094529086,
+          "cy": 0.46039241040512463,
+          "r": 0.07875
+        },
+        "imageB": {
+          "cx": 0.09117604094529086,
+          "cy": 0.46039241040512463,
+          "r": 0.07875
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "robotics",
+      "aliases": [
+        "Robotics"
+      ],
+      "hintUnits": [
+        "r",
+        "o",
+        "b",
+        "o",
+        "t",
+        "i",
+        "c",
+        "s"
+      ],
+      "meaning": {
+        "prompt": "Which field designs and builds robots?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "로봇공학 (robotics)"
+          },
+          {
+            "id": "option_2",
+            "label": "식물학 (botany)"
+          },
+          {
+            "id": "option_3",
+            "label": "지리학 (geography)"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "7d3fd6f776e434d48637550f56882e0ecef1d353817101e4587973ef9d5b05ed"
+  },
+  "assetFiles": {
+    "16c972d2864c670348042eab205b1ad0b8ede8fc46d33a6963a7ddb2caeb9b49": "D:\\touchcatch\\content\\learning\\source\\en-future-robotics-a.png",
+    "4015b700ca03aaeeebe6e11112a6d154906d5b25cfc372be625627940cb8bf45": "D:\\touchcatch\\content\\learning\\source\\en-future-robotics-b.png"
+  }
+}

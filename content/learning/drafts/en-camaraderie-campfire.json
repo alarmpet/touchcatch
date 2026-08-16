@@ -6,141 +6,189 @@
   "publicContent": {
     "contentId": "b6022722-3234-496e-828a-a6859dfe2c12",
     "version": 1,
-    "contentRevisionId": "b0c589a6-9455-49d5-877c-e9d4bad03d61",
+    "contentRevisionId": "43a6c49e-0c43-4558-89d6-33b0f8af3c60",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "en-camaraderie-campfire",
     "language": "en",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/fbeec9af7fc24de6e8146708da8686533a77699cb1529b6633e4d0c45ccc6fe0.png",
-      "sha256": "fbeec9af7fc24de6e8146708da8686533a77699cb1529b6633e4d0c45ccc6fe0",
-      "encodedBytes": 2173138,
+      "url": "https://cdn.spot-learn.test/assets/b9a410d8e13b89530728662a084e5bea8e1e61f55eeb22f19c5fa85d09ded9a0.png",
+      "sha256": "b9a410d8e13b89530728662a084e5bea8e1e61f55eeb22f19c5fa85d09ded9a0",
+      "encodedBytes": 2409158,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/21e87f6a13faf0dba4f32e5cd54d58e39fcc154d512011d1cd522e3b5dea2e24.png",
-      "sha256": "21e87f6a13faf0dba4f32e5cd54d58e39fcc154d512011d1cd522e3b5dea2e24",
-      "encodedBytes": 2304694,
+      "url": "https://cdn.spot-learn.test/assets/fdff79382db8dbc78819423ddd87dc8cc6462d87450835086173f864ee80e1ba.png",
+      "sha256": "fdff79382db8dbc78819423ddd87dc8cc6462d87450835086173f864ee80e1ba",
+      "encodedBytes": 2387742,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "b0c589a6-9455-49d5-877c-e9d4bad03d61",
+    "contentRevisionId": "43a6c49e-0c43-4558-89d6-33b0f8af3c60",
     "schemaVersion": "1.0.0",
     "differences": [
       {
-        "objectiveId": "difference_1",
+        "objectiveId": "diff_1",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.268,
-            "cy": 0.553,
+            "cx": 0.9033154780321783,
+            "cy": 0.3989064433787129,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.268,
-            "cy": 0.553,
+            "cx": 0.9033154780321783,
+            "cy": 0.3989064433787129,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_2",
+        "objectiveId": "diff_2",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.063,
-            "cy": 0.639,
+            "cx": 0.7571941948477338,
+            "cy": 0.58235354328966,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.063,
-            "cy": 0.639,
+            "cx": 0.7571941948477338,
+            "cy": 0.58235354328966,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_3",
+        "objectiveId": "diff_3",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.887,
-            "cy": 0.818,
+            "cx": 0.2781815378289474,
+            "cy": 0.6291683799342105,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.887,
-            "cy": 0.818,
+            "cx": 0.2781815378289474,
+            "cy": 0.6291683799342105,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_4",
+        "objectiveId": "diff_4",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.862,
-            "cy": 0.614,
+            "cx": 0.4342595880681818,
+            "cy": 0.5562411221590909,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.862,
-            "cy": 0.614,
+            "cx": 0.4342595880681818,
+            "cy": 0.5562411221590909,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_5",
+        "objectiveId": "diff_5",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.456,
-            "cy": 0.577,
+            "cx": 0.9160920227465986,
+            "cy": 0.5341830091411565,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.456,
-            "cy": 0.577,
+            "cx": 0.9160920227465986,
+            "cy": 0.5341830091411565,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_6",
+        "objectiveId": "diff_6",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.334,
-            "cy": 0.817,
+            "cx": 0.2981957607581967,
+            "cy": 0.75830078125,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.334,
-            "cy": 0.817,
+            "cx": 0.2981957607581967,
+            "cy": 0.75830078125,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_7",
+        "objectiveId": "diff_7",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.623,
-            "cy": 0.695,
+            "cx": 0.34409360532407407,
+            "cy": 0.34763816550925924,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.623,
-            "cy": 0.695,
+            "cx": 0.34409360532407407,
+            "cy": 0.34763816550925924,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.61767578125,
+            "cy": 0.33251953125,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.61767578125,
+            "cy": 0.33251953125,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.06201171875,
+            "cy": 0.33251953125,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.06201171875,
+            "cy": 0.33251953125,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.48779296875,
+            "cy": 0.33251953125,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.48779296875,
+            "cy": 0.33251953125,
             "r": 0.055
           }
         }
@@ -153,13 +201,13 @@
         "publicPrompt": "Find item 1 in en-camaraderie-campfire",
         "hitboxes": {
           "imageA": {
-            "cx": 0.268,
-            "cy": 0.553,
+            "cx": 0.9033154780321783,
+            "cy": 0.3989064433787129,
             "r": 0.06
           },
           "imageB": {
-            "cx": 0.268,
-            "cy": 0.553,
+            "cx": 0.9033154780321783,
+            "cy": 0.3989064433787129,
             "r": 0.06
           }
         }
@@ -170,13 +218,13 @@
         "publicPrompt": "Find item 2 in en-camaraderie-campfire",
         "hitboxes": {
           "imageA": {
-            "cx": 0.063,
-            "cy": 0.639,
+            "cx": 0.7571941948477338,
+            "cy": 0.58235354328966,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.063,
-            "cy": 0.639,
+            "cx": 0.7571941948477338,
+            "cy": 0.58235354328966,
             "r": 0.055
           }
         }
@@ -187,13 +235,13 @@
         "publicPrompt": "Find item 3 in en-camaraderie-campfire",
         "hitboxes": {
           "imageA": {
-            "cx": 0.887,
-            "cy": 0.818,
+            "cx": 0.2781815378289474,
+            "cy": 0.6291683799342105,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.887,
-            "cy": 0.818,
+            "cx": 0.2781815378289474,
+            "cy": 0.6291683799342105,
             "r": 0.055
           }
         }
@@ -203,13 +251,13 @@
       "objectiveId": "sudden_1",
       "hitboxes": {
         "imageA": {
-          "cx": 0.268,
-          "cy": 0.553,
+          "cx": 0.9033154780321783,
+          "cy": 0.3989064433787129,
           "r": 0.065
         },
         "imageB": {
-          "cx": 0.268,
-          "cy": 0.553,
+          "cx": 0.9033154780321783,
+          "cy": 0.3989064433787129,
           "r": 0.065
         }
       }
@@ -252,10 +300,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "21301113366da14d10193f09a2aaf6b1589c6d0aa32d73311a1371e57245ffdc"
+    "privateSolutionHash": "303ae5700f469f6ebba641087f171eab6691c5d3f2e74362ec5f31fec19573f3"
   },
   "assetFiles": {
-    "fbeec9af7fc24de6e8146708da8686533a77699cb1529b6633e4d0c45ccc6fe0": "D:\\touchcatch\\content\\learning\\source\\en-camaraderie-campfire-a.png",
-    "21e87f6a13faf0dba4f32e5cd54d58e39fcc154d512011d1cd522e3b5dea2e24": "D:\\touchcatch\\content\\learning\\source\\en-camaraderie-campfire-b.png"
+    "b9a410d8e13b89530728662a084e5bea8e1e61f55eeb22f19c5fa85d09ded9a0": "D:\\touchcatch\\content\\learning\\source\\en-camaraderie-campfire-a.png",
+    "fdff79382db8dbc78819423ddd87dc8cc6462d87450835086173f864ee80e1ba": "D:\\touchcatch\\content\\learning\\source\\en-camaraderie-campfire-b.png"
   }
 }

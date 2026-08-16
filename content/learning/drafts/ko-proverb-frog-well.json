@@ -1,0 +1,306 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "86f0ccd5-c265-4299-8985-aee3b51887bd",
+    "version": 1,
+    "contentRevisionId": "2ad9ebf4-c26d-4253-85ff-e76f0040295e",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "ko-proverb-frog-well",
+    "language": "ko",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/eb9ed9a8697543996b5ce5b59ed56d8223fbc8e2a9347ba8263623ae05058244.png",
+      "sha256": "eb9ed9a8697543996b5ce5b59ed56d8223fbc8e2a9347ba8263623ae05058244",
+      "encodedBytes": 2486648,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/5db39e37ac23a5e5eac58728d2bd5376d9bfb52e8a13e56a8ddf768b61e0a661.png",
+      "sha256": "5db39e37ac23a5e5eac58728d2bd5376d9bfb52e8a13e56a8ddf768b61e0a661",
+      "encodedBytes": 2488901,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "2ad9ebf4-c26d-4253-85ff-e76f0040295e",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7611971768465909,
+            "cy": 0.5840398615056818,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.7611971768465909,
+            "cy": 0.5840398615056818,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.25118461277173915,
+            "cy": 0.5353218410326087,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.25118461277173915,
+            "cy": 0.5353218410326087,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8361333347259359,
+            "cy": 0.1475262157419786,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.8361333347259359,
+            "cy": 0.1475262157419786,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.756591796875,
+            "cy": 0.7382405598958334,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.756591796875,
+            "cy": 0.7382405598958334,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5244032118055556,
+            "cy": 0.9319986979166667,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.5244032118055556,
+            "cy": 0.9319986979166667,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.6539933488175675,
+            "cy": 0.8973949535472973,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.6539933488175675,
+            "cy": 0.8973949535472973,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.68955078125,
+            "cy": 0.2975864955357143,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.68955078125,
+            "cy": 0.2975864955357143,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.71728515625,
+            "cy": 0.42576729910714284,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.71728515625,
+            "cy": 0.42576729910714284,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5706190952034884,
+            "cy": 0.33306458938953487,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.5706190952034884,
+            "cy": 0.33306458938953487,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.48823686079545453,
+            "cy": 0.7233220880681818,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.48823686079545453,
+            "cy": 0.7233220880681818,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in ko-proverb-frog-well",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7611971768465909,
+            "cy": 0.5840398615056818,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.7611971768465909,
+            "cy": 0.5840398615056818,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in ko-proverb-frog-well",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.25118461277173915,
+            "cy": 0.5353218410326087,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.25118461277173915,
+            "cy": 0.5353218410326087,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in ko-proverb-frog-well",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8361333347259359,
+            "cy": 0.1475262157419786,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.8361333347259359,
+            "cy": 0.1475262157419786,
+            "r": 0.055
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.7611971768465909,
+          "cy": 0.5840398615056818,
+          "r": 0.065
+        },
+        "imageB": {
+          "cx": 0.7611971768465909,
+          "cy": 0.5840398615056818,
+          "r": 0.065
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "우물 안 개구리",
+      "aliases": [
+        "우물안개구리",
+        "井底之蛙"
+      ],
+      "hintUnits": [
+        "우",
+        "물",
+        " ",
+        "안",
+        " ",
+        "개",
+        "구",
+        "리"
+      ],
+      "meaning": {
+        "prompt": "이 속담의 뜻은 무엇인가요?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "가까운 곳의 일을 오히려 알아차리기 어렵다"
+          },
+          {
+            "id": "option_2",
+            "label": "밤에는 모든 일을 멈춰야 한다"
+          },
+          {
+            "id": "option_3",
+            "label": "멀리 있는 것만 중요하다"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "4cd061c780d91232995e06bba9120d1de2e59480ec9405f22acbcb18f42d99de"
+  },
+  "assetFiles": {
+    "eb9ed9a8697543996b5ce5b59ed56d8223fbc8e2a9347ba8263623ae05058244": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-frog-well-a.png",
+    "5db39e37ac23a5e5eac58728d2bd5376d9bfb52e8a13e56a8ddf768b61e0a661": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-frog-well-b.png"
+  }
+}

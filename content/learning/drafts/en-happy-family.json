@@ -21,9 +21,9 @@
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/a8a3870e6123e577899e62395ae83433c61aa974cce1a8c969214412fd009453.png",
-      "sha256": "a8a3870e6123e577899e62395ae83433c61aa974cce1a8c969214412fd009453",
-      "encodedBytes": 2007724,
+      "url": "https://cdn.spot-learn.test/assets/1121a042f9249378eea8add2dffc0596b67352a5d0e6c1a386e88308152a75d1.png",
+      "sha256": "1121a042f9249378eea8add2dffc0596b67352a5d0e6c1a386e88308152a75d1",
+      "encodedBytes": 1985418,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
@@ -299,6 +299,6 @@
   },
   "assetFiles": {
     "555d7a8c1add5b4e79deca138a1ba986f9d6d92a47830e2f9ec868c247affc27": "D:\\touchcatch\\content\\learning\\source\\en-happy-family-a.png",
-    "a8a3870e6123e577899e62395ae83433c61aa974cce1a8c969214412fd009453": "D:\\touchcatch\\content\\learning\\source\\en-happy-family-b.png"
+    "1121a042f9249378eea8add2dffc0596b67352a5d0e6c1a386e88308152a75d1": "D:\\touchcatch\\content\\learning\\source\\en-happy-family-b.png"
   }
 }

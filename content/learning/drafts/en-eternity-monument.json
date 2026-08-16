@@ -6,157 +6,189 @@
   "publicContent": {
     "contentId": "d6ce69cb-cc9e-4c55-893b-5884264b7152",
     "version": 1,
-    "contentRevisionId": "4fca89aa-8335-448d-80b4-2166e153755f",
+    "contentRevisionId": "9b2f6eff-e5cb-4967-828a-3ca62e48d277",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "en-eternity-monument",
     "language": "en",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/d5134d0b720cd8f2b331de6ec665cd9bbd2092d41a0dd33149e37e591a07cf2b.png",
-      "sha256": "d5134d0b720cd8f2b331de6ec665cd9bbd2092d41a0dd33149e37e591a07cf2b",
-      "encodedBytes": 2109702,
+      "url": "https://cdn.spot-learn.test/assets/55eabdb891b63fd21651b1ad92ba27a819b1c8514dd973aaae2a863c34954615.png",
+      "sha256": "55eabdb891b63fd21651b1ad92ba27a819b1c8514dd973aaae2a863c34954615",
+      "encodedBytes": 2611270,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/8f149e649a23b4fc6e1e0c13958b1c80e484df849072244bea43cbec9219e0a0.png",
-      "sha256": "8f149e649a23b4fc6e1e0c13958b1c80e484df849072244bea43cbec9219e0a0",
-      "encodedBytes": 2249286,
+      "url": "https://cdn.spot-learn.test/assets/d7a7d78c6dc8bf1a8e08becec3757a58858e11236e98126c74160fa9fa5bf523.png",
+      "sha256": "d7a7d78c6dc8bf1a8e08becec3757a58858e11236e98126c74160fa9fa5bf523",
+      "encodedBytes": 2585196,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "4fca89aa-8335-448d-80b4-2166e153755f",
+    "contentRevisionId": "9b2f6eff-e5cb-4967-828a-3ca62e48d277",
     "schemaVersion": "1.0.0",
     "differences": [
       {
-        "objectiveId": "difference_1",
+        "objectiveId": "diff_1",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.655,
-            "cy": 0.485,
+            "cx": 0.22624283385791366,
+            "cy": 0.4846033329586331,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.655,
-            "cy": 0.485,
+            "cx": 0.22624283385791366,
+            "cy": 0.4846033329586331,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_2",
+        "objectiveId": "diff_2",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.636,
-            "cy": 0.767,
+            "cx": 0.6025992232270774,
+            "cy": 0.4967946924247851,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.636,
-            "cy": 0.767,
+            "cx": 0.6025992232270774,
+            "cy": 0.4967946924247851,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_3",
+        "objectiveId": "diff_3",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.403,
-            "cy": 0.757,
+            "cx": 0.4210134150420489,
+            "cy": 0.48449296397171254,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.403,
-            "cy": 0.757,
+            "cx": 0.4210134150420489,
+            "cy": 0.48449296397171254,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_4",
+        "objectiveId": "diff_4",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.752,
-            "cy": 0.77,
+            "cx": 0.7650553385416666,
+            "cy": 0.5314453125,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.752,
-            "cy": 0.77,
+            "cx": 0.7650553385416666,
+            "cy": 0.5314453125,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_5",
+        "objectiveId": "diff_5",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.667,
-            "cy": 0.333,
+            "cx": 0.31981850785818716,
+            "cy": 0.056066680372807015,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.667,
-            "cy": 0.333,
+            "cx": 0.31981850785818716,
+            "cy": 0.056066680372807015,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_6",
+        "objectiveId": "diff_6",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.667,
-            "cy": 0.606,
+            "cx": 0.9440880408653847,
+            "cy": 0.8032827524038462,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.667,
-            "cy": 0.606,
+            "cx": 0.9440880408653847,
+            "cy": 0.8032827524038462,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_7",
+        "objectiveId": "diff_7",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.514,
-            "cy": 0.462,
+            "cx": 0.3678980881605691,
+            "cy": 0.15915189913617886,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.514,
-            "cy": 0.462,
+            "cx": 0.3678980881605691,
+            "cy": 0.15915189913617886,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_8",
+        "objectiveId": "diff_8",
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.534,
-            "cy": 0.591,
+            "cx": 0.5477120535714286,
+            "cy": 0.7502790178571429,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.534,
-            "cy": 0.591,
+            "cx": 0.5477120535714286,
+            "cy": 0.7502790178571429,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.6781141493055556,
+            "cy": 0.7007921006944444,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.6781141493055556,
+            "cy": 0.7007921006944444,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.1866375219042056,
+            "cy": 0.8710344261098131,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.1866375219042056,
+            "cy": 0.8710344261098131,
             "r": 0.055
           }
         }
@@ -169,13 +201,13 @@
         "publicPrompt": "Find item 1 in en-eternity-monument",
         "hitboxes": {
           "imageA": {
-            "cx": 0.655,
-            "cy": 0.485,
+            "cx": 0.22624283385791366,
+            "cy": 0.4846033329586331,
             "r": 0.06
           },
           "imageB": {
-            "cx": 0.655,
-            "cy": 0.485,
+            "cx": 0.22624283385791366,
+            "cy": 0.4846033329586331,
             "r": 0.06
           }
         }
@@ -186,13 +218,13 @@
         "publicPrompt": "Find item 2 in en-eternity-monument",
         "hitboxes": {
           "imageA": {
-            "cx": 0.636,
-            "cy": 0.767,
+            "cx": 0.6025992232270774,
+            "cy": 0.4967946924247851,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.636,
-            "cy": 0.767,
+            "cx": 0.6025992232270774,
+            "cy": 0.4967946924247851,
             "r": 0.055
           }
         }
@@ -203,13 +235,13 @@
         "publicPrompt": "Find item 3 in en-eternity-monument",
         "hitboxes": {
           "imageA": {
-            "cx": 0.403,
-            "cy": 0.757,
+            "cx": 0.4210134150420489,
+            "cy": 0.48449296397171254,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.403,
-            "cy": 0.757,
+            "cx": 0.4210134150420489,
+            "cy": 0.48449296397171254,
             "r": 0.055
           }
         }
@@ -219,13 +251,13 @@
       "objectiveId": "sudden_1",
       "hitboxes": {
         "imageA": {
-          "cx": 0.655,
-          "cy": 0.485,
+          "cx": 0.22624283385791366,
+          "cy": 0.4846033329586331,
           "r": 0.065
         },
         "imageB": {
-          "cx": 0.655,
-          "cy": 0.485,
+          "cx": 0.22624283385791366,
+          "cy": 0.4846033329586331,
           "r": 0.065
         }
       }
@@ -266,10 +298,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "970e39768d95691d2d4eb721c6ff8317e83dd1097d994573306e337e0c29908f"
+    "privateSolutionHash": "c42b675943aa0dac77763ab2fe84b5cb214ee2d7970b0be5cf19e73ef6c22861"
   },
   "assetFiles": {
-    "d5134d0b720cd8f2b331de6ec665cd9bbd2092d41a0dd33149e37e591a07cf2b": "D:\\touchcatch\\content\\learning\\source\\en-eternity-monument-a.png",
-    "8f149e649a23b4fc6e1e0c13958b1c80e484df849072244bea43cbec9219e0a0": "D:\\touchcatch\\content\\learning\\source\\en-eternity-monument-b.png"
+    "55eabdb891b63fd21651b1ad92ba27a819b1c8514dd973aaae2a863c34954615": "D:\\touchcatch\\content\\learning\\source\\en-eternity-monument-a.png",
+    "d7a7d78c6dc8bf1a8e08becec3757a58858e11236e98126c74160fa9fa5bf523": "D:\\touchcatch\\content\\learning\\source\\en-eternity-monument-b.png"
   }
 }

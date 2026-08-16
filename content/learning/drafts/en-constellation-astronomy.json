@@ -21,9 +21,9 @@
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/5032db03d0fe55e3fb3fcff3320fc23fbef98e0183287807a1c922112224ca4f.png",
-      "sha256": "5032db03d0fe55e3fb3fcff3320fc23fbef98e0183287807a1c922112224ca4f",
-      "encodedBytes": 2168474,
+      "url": "https://cdn.spot-learn.test/assets/82b814301eeddc476c9df213c52a0491cb2fbde615639e783e35a488ee21b3ad.png",
+      "sha256": "82b814301eeddc476c9df213c52a0491cb2fbde615639e783e35a488ee21b3ad",
+      "encodedBytes": 2138997,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
@@ -306,6 +306,6 @@
   },
   "assetFiles": {
     "ba8c106752ab2c9501bc8c83fcc2facacf77a6d7fa3c45c803bda4f8bb2b3ca8": "D:\\touchcatch\\content\\learning\\source\\en-constellation-astronomy-a.png",
-    "5032db03d0fe55e3fb3fcff3320fc23fbef98e0183287807a1c922112224ca4f": "D:\\touchcatch\\content\\learning\\source\\en-constellation-astronomy-b.png"
+    "82b814301eeddc476c9df213c52a0491cb2fbde615639e783e35a488ee21b3ad": "D:\\touchcatch\\content\\learning\\source\\en-constellation-astronomy-b.png"
   }
 }

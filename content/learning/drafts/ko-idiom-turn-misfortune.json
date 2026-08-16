@@ -10,6 +10,7 @@
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "ko-idiom-turn-misfortune",
+    "category": "IDIOM",
     "language": "ko",
     "difficulty": "ADVANCED",
     "imageA": {
@@ -27,8 +28,7 @@
       "width": 1536,
       "height": 1024,
       "mimeType": "image/png"
-    },
-    "category": "IDIOM"
+    }
   },
   "privateSolution": {
     "contentRevisionId": "0acd4bf2-3806-4ee9-8b6f-84f70a62bd8b",
@@ -272,24 +272,6 @@
         "위",
         "복"
       ],
-      "meaning": {
-        "prompt": "전화위복의 뜻은 무엇인가요?",
-        "options": [
-          {
-            "id": "option_1",
-            "label": "나쁜 일이 계기가 되어 좋은 결과로 바뀜"
-          },
-          {
-            "id": "option_2",
-            "label": "좋은 기회를 스스로 포기함"
-          },
-          {
-            "id": "option_3",
-            "label": "같은 실수를 계속 반복함"
-          }
-        ],
-        "correctOptionId": "option_1"
-      },
       "hintLadder": [
         {
           "ordinal": 1,
@@ -346,7 +328,25 @@
           ],
           "rankedPenaltyUnits": 1
         }
-      ]
+      ],
+      "meaning": {
+        "prompt": "전화위복의 뜻은 무엇인가요?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "나쁜 일이 계기가 되어 좋은 결과로 바뀜"
+          },
+          {
+            "id": "option_2",
+            "label": "좋은 기회를 스스로 포기함"
+          },
+          {
+            "id": "option_3",
+            "label": "같은 실수를 계속 반복함"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
     },
     "privateSolutionHash": "e86fd95fd2ac62b95b1824a53bb0235fdedec00743df751d1b79def400dfebc1"
   },

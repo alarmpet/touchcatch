@@ -1,0 +1,368 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "5d7b57b9-ac0c-4c99-86c9-861d8212c4cb",
+    "version": 1,
+    "contentRevisionId": "2bf1de57-4b7c-4076-8e95-c60fd2bf40d2",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-clay-pirate-ship",
+    "category": "ENGLISH",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/18368e830cde4c246610ef833594e79ab4ba3f2ab6083ea3b552c3fff94c8ff1.png",
+      "sha256": "18368e830cde4c246610ef833594e79ab4ba3f2ab6083ea3b552c3fff94c8ff1",
+      "encodedBytes": 2400932,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/bbc3504ebc1d022ab2eb9a2065bca1ea906b23d34ac1809eafa749ce55838dd0.png",
+      "sha256": "bbc3504ebc1d022ab2eb9a2065bca1ea906b23d34ac1809eafa749ce55838dd0",
+      "encodedBytes": 2490886,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "2bf1de57-4b7c-4076-8e95-c60fd2bf40d2",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8607428342301324,
+            "cy": 0.6688019539873068,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.8607428342301324,
+            "cy": 0.6688019539873068,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.43016353595219436,
+            "cy": 0.14291334002742948,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.43016353595219436,
+            "cy": 0.14291334002742948,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.2946576535443723,
+            "cy": 0.5726778104707793,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.2946576535443723,
+            "cy": 0.5726778104707793,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8556829084429824,
+            "cy": 0.11089124177631579,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.8556829084429824,
+            "cy": 0.11089124177631579,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5412115222679641,
+            "cy": 0.8701318066991018,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.5412115222679641,
+            "cy": 0.8701318066991018,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.199005126953125,
+            "cy": 0.10638427734375,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.199005126953125,
+            "cy": 0.10638427734375,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5564778645833334,
+            "cy": 0.63525390625,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.5564778645833334,
+            "cy": 0.63525390625,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.19111328125,
+            "cy": 0.8125418526785714,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.19111328125,
+            "cy": 0.8125418526785714,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.6124674479166666,
+            "cy": 0.15035807291666667,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.6124674479166666,
+            "cy": 0.15035807291666667,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.24148692255434784,
+            "cy": 0.9187967051630435,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.24148692255434784,
+            "cy": 0.9187967051630435,
+            "r": 0.06875
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-clay-pirate-ship",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8607428342301324,
+            "cy": 0.6688019539873068,
+            "r": 0.07375000000000001
+          },
+          "imageB": {
+            "cx": 0.8607428342301324,
+            "cy": 0.6688019539873068,
+            "r": 0.07375000000000001
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-clay-pirate-ship",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.43016353595219436,
+            "cy": 0.14291334002742948,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.43016353595219436,
+            "cy": 0.14291334002742948,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-clay-pirate-ship",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.2946576535443723,
+            "cy": 0.5726778104707793,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.2946576535443723,
+            "cy": 0.5726778104707793,
+            "r": 0.06875
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.8607428342301324,
+          "cy": 0.6688019539873068,
+          "r": 0.07875
+        },
+        "imageB": {
+          "cx": 0.8607428342301324,
+          "cy": 0.6688019539873068,
+          "r": 0.07875
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "resilience",
+      "aliases": [
+        "resiliency"
+      ],
+      "hintUnits": [
+        "r",
+        "e",
+        "s",
+        "i",
+        "l",
+        "i",
+        "e",
+        "n",
+        "c",
+        "e"
+      ],
+      "hintLadder": [
+        {
+          "ordinal": 1,
+          "kind": "SEMANTIC_CATEGORY",
+          "localizedText": {
+            "ko": "역경을 이겨 내고 다시 회복하는 힘을 나타내는 말이에요.",
+            "en": "A quality for recovering and adapting after difficulty."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 2,
+          "kind": "CONTEXT_SENTENCE",
+          "localizedText": {
+            "ko": "공동체는 폭풍 뒤 놀라운 ____을 보여 주었어요.",
+            "en": "The community showed remarkable ____ after the storm."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 3,
+          "kind": "ANSWER_LENGTH",
+          "localizedText": {
+            "ko": "정답은 10글자예요.",
+            "en": "The answer has 10 graphemes."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 4,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "첫 글자를 공개해요.",
+            "en": "Reveal the first grapheme."
+          },
+          "revealIndexes": [
+            0
+          ],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 5,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "남은 글자를 번갈아 공개해요.",
+            "en": "Reveal alternating unrevealed graphemes."
+          },
+          "revealIndexes": [
+            1,
+            3,
+            5,
+            7,
+            9
+          ],
+          "rankedPenaltyUnits": 1
+        }
+      ],
+      "meaning": {
+        "prompt": "What does resilience mean?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "회복탄력성"
+          },
+          {
+            "id": "option_2",
+            "label": "무관심"
+          },
+          {
+            "id": "option_3",
+            "label": "고립"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "30d753245abaa31eecbf7277712d6f9bdb4e86b0058b443899428202129420b1"
+  },
+  "assetFiles": {
+    "18368e830cde4c246610ef833594e79ab4ba3f2ab6083ea3b552c3fff94c8ff1": "D:\\touchcatch\\content\\learning\\source\\en-clay-pirate-ship-a.png",
+    "bbc3504ebc1d022ab2eb9a2065bca1ea906b23d34ac1809eafa749ce55838dd0": "D:\\touchcatch\\content\\learning\\source\\en-clay-pirate-ship-b.png"
+  }
+}

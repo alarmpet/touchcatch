@@ -21,9 +21,9 @@
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/5d65ebda93e7e5a3f8282f15fda5fa5757842d650834ca11eee7a3acaf20feec.png",
-      "sha256": "5d65ebda93e7e5a3f8282f15fda5fa5757842d650834ca11eee7a3acaf20feec",
-      "encodedBytes": 1573133,
+      "url": "https://cdn.spot-learn.test/assets/2f72d06972c2891d7b36e6736b46ae0c850127f878c77d07ef7fd3ff744d0e52.png",
+      "sha256": "2f72d06972c2891d7b36e6736b46ae0c850127f878c77d07ef7fd3ff744d0e52",
+      "encodedBytes": 1567476,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
@@ -302,6 +302,6 @@
   },
   "assetFiles": {
     "9115763937ea3f88201ca7c22593ce8999b626f3f93e1d6a33c2980c033e1532": "D:\\touchcatch\\content\\learning\\source\\en-ambiguity-gallery-a.png",
-    "5d65ebda93e7e5a3f8282f15fda5fa5757842d650834ca11eee7a3acaf20feec": "D:\\touchcatch\\content\\learning\\source\\en-ambiguity-gallery-b.png"
+    "2f72d06972c2891d7b36e6736b46ae0c850127f878c77d07ef7fd3ff744d0e52": "D:\\touchcatch\\content\\learning\\source\\en-ambiguity-gallery-b.png"
   }
 }

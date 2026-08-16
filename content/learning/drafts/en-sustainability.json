@@ -6,190 +6,191 @@
   "publicContent": {
     "contentId": "204a1f03-2833-4b0c-8ae1-43e557b03c1b",
     "version": 1,
-    "contentRevisionId": "6b655b64-edaa-4c8f-8813-5bc74aba8c91",
+    "contentRevisionId": "e8c68064-6607-4525-80eb-1f67e329124b",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "en-sustainability",
+    "category": "ENGLISH",
     "language": "en",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/46501fe660ec24256128122c3ed70bb7c571ba84699f338fe9e913411c22f8cf.png",
-      "sha256": "46501fe660ec24256128122c3ed70bb7c571ba84699f338fe9e913411c22f8cf",
-      "encodedBytes": 4168350,
-      "width": 1536,
+      "url": "https://cdn.spot-learn.test/assets/222aa234cbe564e8f5ca939ed04de59511a80f89723be6e42d438cd25fec2048.png",
+      "sha256": "222aa234cbe564e8f5ca939ed04de59511a80f89723be6e42d438cd25fec2048",
+      "encodedBytes": 2899848,
+      "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/47ecbab4b8d49763ebdbe0884476e225a9e1bb011b6f0d2a95dccc30dcbe7e27.png",
-      "sha256": "47ecbab4b8d49763ebdbe0884476e225a9e1bb011b6f0d2a95dccc30dcbe7e27",
-      "encodedBytes": 4118348,
-      "width": 1536,
+      "url": "https://cdn.spot-learn.test/assets/a3703297aa3746c14c1767b5521a28fc0fe7c29ae3cb857eadba5813096738fc.png",
+      "sha256": "a3703297aa3746c14c1767b5521a28fc0fe7c29ae3cb857eadba5813096738fc",
+      "encodedBytes": 2921913,
+      "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "6b655b64-edaa-4c8f-8813-5bc74aba8c91",
+    "contentRevisionId": "e8c68064-6607-4525-80eb-1f67e329124b",
     "schemaVersion": "1.0.0",
     "differences": [
       {
-        "objectiveId": "difference_1",
+        "objectiveId": "diff_1",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.36,
-            "cy": 0.601,
-            "r": 0.05
+            "cx": 0.2589875944368132,
+            "cy": 0.741351212961146,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.36,
-            "cy": 0.601,
-            "r": 0.05
+            "cx": 0.2589875944368132,
+            "cy": 0.741351212961146,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_2",
+        "objectiveId": "diff_2",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.365,
-            "cy": 0.71,
-            "r": 0.05
+            "cx": 0.0597718253968254,
+            "cy": 0.6974826388888888,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.365,
-            "cy": 0.71,
-            "r": 0.05
+            "cx": 0.0597718253968254,
+            "cy": 0.6974826388888888,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_3",
+        "objectiveId": "diff_3",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.069,
-            "cy": 0.955,
-            "r": 0.05
+            "cx": 0.28033854166666666,
+            "cy": 0.25078125,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.069,
-            "cy": 0.955,
-            "r": 0.05
+            "cx": 0.28033854166666666,
+            "cy": 0.25078125,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_4",
+        "objectiveId": "diff_4",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.779,
-            "cy": 0.608,
-            "r": 0.05
+            "cx": 0.47677825218023256,
+            "cy": 0.1645962027616279,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.779,
-            "cy": 0.608,
-            "r": 0.05
+            "cx": 0.47677825218023256,
+            "cy": 0.1645962027616279,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_5",
+        "objectiveId": "diff_5",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.647,
-            "cy": 0.301,
-            "r": 0.05
+            "cx": 0.4810511577560241,
+            "cy": 0.5056652390813253,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.647,
-            "cy": 0.301,
-            "r": 0.05
+            "cx": 0.4810511577560241,
+            "cy": 0.5056652390813253,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_6",
+        "objectiveId": "diff_6",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.036,
-            "cy": 0.748,
-            "r": 0.05
+            "cx": 0.1688910590277778,
+            "cy": 0.1397629726080247,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.036,
-            "cy": 0.748,
-            "r": 0.05
+            "cx": 0.1688910590277778,
+            "cy": 0.1397629726080247,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_7",
+        "objectiveId": "diff_7",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.906,
-            "cy": 0.692,
-            "r": 0.05
+            "cx": 0.36940061891233766,
+            "cy": 0.13370662540584416,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.906,
-            "cy": 0.692,
-            "r": 0.05
+            "cx": 0.36940061891233766,
+            "cy": 0.13370662540584416,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_8",
+        "objectiveId": "diff_8",
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.648,
-            "cy": 0.419,
-            "r": 0.05
+            "cx": 0.7939165900735294,
+            "cy": 0.3034524356617647,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.648,
-            "cy": 0.419,
-            "r": 0.05
+            "cx": 0.7939165900735294,
+            "cy": 0.3034524356617647,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_9",
+        "objectiveId": "diff_9",
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.246,
-            "cy": 0.675,
-            "r": 0.05
+            "cx": 0.9104998553240741,
+            "cy": 0.30879267939814814,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.246,
-            "cy": 0.675,
-            "r": 0.05
+            "cx": 0.9104998553240741,
+            "cy": 0.30879267939814814,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_10",
+        "objectiveId": "diff_10",
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.023,
-            "cy": 0.312,
-            "r": 0.05
+            "cx": 0.6670178865131579,
+            "cy": 0.2757761101973684,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.023,
-            "cy": 0.312,
-            "r": 0.05
+            "cx": 0.6670178865131579,
+            "cy": 0.2757761101973684,
+            "r": 0.055
           }
         }
       }
@@ -198,51 +199,51 @@
       {
         "missionId": "word_1",
         "kind": "NORMAL",
-        "publicPrompt": "Find the green canopy.",
+        "publicPrompt": "Find the greenhouse.",
         "hitboxes": {
           "imageA": {
-            "cx": 0.135,
-            "cy": 0.235,
-            "r": 0.1
+            "cx": 0.17,
+            "cy": 0.4,
+            "r": 0.05
           },
           "imageB": {
-            "cx": 0.135,
-            "cy": 0.235,
-            "r": 0.1
+            "cx": 0.17,
+            "cy": 0.4,
+            "r": 0.05
           }
         }
       },
       {
         "missionId": "word_2",
         "kind": "NORMAL",
-        "publicPrompt": "Find the bicycle frame.",
+        "publicPrompt": "Find the wind turbine.",
         "hitboxes": {
           "imageA": {
-            "cx": 0.47,
-            "cy": 0.56,
-            "r": 0.075
+            "cx": 0.72,
+            "cy": 0.78,
+            "r": 0.07
           },
           "imageB": {
-            "cx": 0.47,
-            "cy": 0.56,
-            "r": 0.075
+            "cx": 0.72,
+            "cy": 0.78,
+            "r": 0.07
           }
         }
       },
       {
         "missionId": "word_3",
         "kind": "SPECIAL",
-        "publicPrompt": "Find the school windows.",
+        "publicPrompt": "Find the Eco-Festival sign.",
         "hitboxes": {
           "imageA": {
-            "cx": 0.35,
-            "cy": 0.205,
-            "r": 0.085
+            "cx": 0.61,
+            "cy": 0.41,
+            "r": 0.04
           },
           "imageB": {
-            "cx": 0.35,
-            "cy": 0.205,
-            "r": 0.085
+            "cx": 0.61,
+            "cy": 0.41,
+            "r": 0.04
           }
         }
       }
@@ -251,14 +252,14 @@
       "objectiveId": "sudden_1",
       "hitboxes": {
         "imageA": {
-          "cx": 0.463,
-          "cy": 0.315,
-          "r": 0.06
+          "cx": 0.55,
+          "cy": 0.08,
+          "r": 0.04
         },
         "imageB": {
-          "cx": 0.463,
-          "cy": 0.315,
-          "r": 0.06
+          "cx": 0.55,
+          "cy": 0.08,
+          "r": 0.04
         }
       }
     },
@@ -300,10 +301,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "aed4787b14e0f8aa1e512e756eba52f55ba449cc89da053ce9c1955459191161"
+    "privateSolutionHash": "33d06e607cc2342487e6cd636e8eb85e3454edcc6624c7ba7ebcbe4e318b79cd"
   },
   "assetFiles": {
-    "46501fe660ec24256128122c3ed70bb7c571ba84699f338fe9e913411c22f8cf": "D:\\touchcatch\\content\\learning\\source\\en-sustainability-a.png",
-    "47ecbab4b8d49763ebdbe0884476e225a9e1bb011b6f0d2a95dccc30dcbe7e27": "D:\\touchcatch\\content\\learning\\source\\en-sustainability-b.png"
+    "222aa234cbe564e8f5ca939ed04de59511a80f89723be6e42d438cd25fec2048": "D:\\touchcatch\\content\\learning\\source\\en-sustainability-a.png",
+    "a3703297aa3746c14c1767b5521a28fc0fe7c29ae3cb857eadba5813096738fc": "D:\\touchcatch\\content\\learning\\source\\en-sustainability-b.png"
   }
 }

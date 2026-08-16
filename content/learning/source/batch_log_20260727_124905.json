@@ -1,0 +1,47 @@
+{
+  "timestamp": "2026-07-27T12:49:05.414918",
+  "mode": "dry_run",
+  "baseProvider": "imagen4_fast_batch",
+  "editProvider": "fal_flux2_turbo_edit",
+  "packsProcessed": 5,
+  "totalApiCalls": 55,
+  "totalCostUsd": 0.8500000000000001,
+  "totalCostKrw": 1190.0000000000002,
+  "results": [
+    {
+      "packId": "en-resilience",
+      "status": "SIMULATED",
+      "imageA": "d:\\touchcatch\\content\\learning\\source\\en-resilience-a.png",
+      "imageB": "d:\\touchcatch\\content\\learning\\source\\en-resilience-b.png",
+      "editsApplied": 10
+    },
+    {
+      "packId": "en-dilemma",
+      "status": "SIMULATED",
+      "imageA": "d:\\touchcatch\\content\\learning\\source\\en-dilemma-a.png",
+      "imageB": "d:\\touchcatch\\content\\learning\\source\\en-dilemma-b.png",
+      "editsApplied": 10
+    },
+    {
+      "packId": "en-sustainability",
+      "status": "SIMULATED",
+      "imageA": "d:\\touchcatch\\content\\learning\\source\\en-sustainability-a.png",
+      "imageB": "d:\\touchcatch\\content\\learning\\source\\en-sustainability-b.png",
+      "editsApplied": 10
+    },
+    {
+      "packId": "ko-proverb-dark-under-lamp",
+      "status": "SIMULATED",
+      "imageA": "d:\\touchcatch\\content\\learning\\source\\ko-proverb-dark-under-lamp-a.png",
+      "imageB": "d:\\touchcatch\\content\\learning\\source\\ko-proverb-dark-under-lamp-b.png",
+      "editsApplied": 10
+    },
+    {
+      "packId": "ko-proverb-seeing-is-believing",
+      "status": "SIMULATED",
+      "imageA": "d:\\touchcatch\\content\\learning\\source\\ko-proverb-seeing-is-believing-a.png",
+      "imageB": "d:\\touchcatch\\content\\learning\\source\\ko-proverb-seeing-is-believing-b.png",
+      "editsApplied": 10
+    }
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "0f2992f6-c09b-493f-8b67-528324579d8b",
+    "version": 1,
+    "contentRevisionId": "85401ac8-106b-4baf-8aaf-d8b1cf2b7611",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-neon-alien-lab",
+    "category": "ENGLISH",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/8ca68e4fcdd311d15084173aad6a6ae56c1c6c46a7c9e358c64e58a9b9c4c1dd.png",
+      "sha256": "8ca68e4fcdd311d15084173aad6a6ae56c1c6c46a7c9e358c64e58a9b9c4c1dd",
+      "encodedBytes": 2791627,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/2f0eb0dde567a9a93f2fc8171845cfa3998c5ecb349ec0bcf034c2c2920f462b.png",
+      "sha256": "2f0eb0dde567a9a93f2fc8171845cfa3998c5ecb349ec0bcf034c2c2920f462b",
+      "encodedBytes": 2800535,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "85401ac8-106b-4baf-8aaf-d8b1cf2b7611",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.11245223158388981,
+            "cy": 0.40825774076585974,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.11245223158388981,
+            "cy": 0.40825774076585974,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.47750826998873874,
+            "cy": 0.46127797719594593,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.47750826998873874,
+            "cy": 0.46127797719594593,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.15869627688591023,
+            "cy": 0.8841482718983791,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.15869627688591023,
+            "cy": 0.8841482718983791,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7615481457078314,
+            "cy": 0.05461102221385542,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.7615481457078314,
+            "cy": 0.05461102221385542,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.08941291360294118,
+            "cy": 0.04158344527714932,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.08941291360294118,
+            "cy": 0.04158344527714932,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8300223851312786,
+            "cy": 0.1463929616152968,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.8300223851312786,
+            "cy": 0.1463929616152968,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9665424185739436,
+            "cy": 0.4980124889964789,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.9665424185739436,
+            "cy": 0.4980124889964789,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9503805226293104,
+            "cy": 0.18899851831896552,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.9503805226293104,
+            "cy": 0.18899851831896552,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.6776694589956648,
+            "cy": 0.7492915688222543,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.6776694589956648,
+            "cy": 0.7492915688222543,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.34323790015243905,
+            "cy": 0.04193264100609756,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.34323790015243905,
+            "cy": 0.04193264100609756,
+            "r": 0.06875
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-neon-alien-lab",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.11245223158388981,
+            "cy": 0.40825774076585974,
+            "r": 0.07375000000000001
+          },
+          "imageB": {
+            "cx": 0.11245223158388981,
+            "cy": 0.40825774076585974,
+            "r": 0.07375000000000001
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-neon-alien-lab",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.47750826998873874,
+            "cy": 0.46127797719594593,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.47750826998873874,
+            "cy": 0.46127797719594593,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-neon-alien-lab",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.15869627688591023,
+            "cy": 0.8841482718983791,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.15869627688591023,
+            "cy": 0.8841482718983791,
+            "r": 0.06875
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.11245223158388981,
+          "cy": 0.40825774076585974,
+          "r": 0.07875
+        },
+        "imageB": {
+          "cx": 0.11245223158388981,
+          "cy": 0.40825774076585974,
+          "r": 0.07875
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "resilience",
+      "aliases": [
+        "resiliency"
+      ],
+      "hintUnits": [
+        "r",
+        "e",
+        "s",
+        "i",
+        "l",
+        "i",
+        "e",
+        "n",
+        "c",
+        "e"
+      ],
+      "hintLadder": [
+        {
+          "ordinal": 1,
+          "kind": "SEMANTIC_CATEGORY",
+          "localizedText": {
+            "ko": "역경을 이겨 내고 다시 회복하는 힘을 나타내는 말이에요.",
+            "en": "A quality for recovering and adapting after difficulty."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 2,
+          "kind": "CONTEXT_SENTENCE",
+          "localizedText": {
+            "ko": "공동체는 폭풍 뒤 놀라운 ____을 보여 주었어요.",
+            "en": "The community showed remarkable ____ after the storm."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 3,
+          "kind": "ANSWER_LENGTH",
+          "localizedText": {
+            "ko": "정답은 10글자예요.",
+            "en": "The answer has 10 graphemes."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 4,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "첫 글자를 공개해요.",
+            "en": "Reveal the first grapheme."
+          },
+          "revealIndexes": [
+            0
+          ],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 5,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "남은 글자를 번갈아 공개해요.",
+            "en": "Reveal alternating unrevealed graphemes."
+          },
+          "revealIndexes": [
+            1,
+            3,
+            5,
+            7,
+            9
+          ],
+          "rankedPenaltyUnits": 1
+        }
+      ],
+      "meaning": {
+        "prompt": "What does resilience mean?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "회복탄력성"
+          },
+          {
+            "id": "option_2",
+            "label": "무관심"
+          },
+          {
+            "id": "option_3",
+            "label": "고립"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "16fb175b1f6121f25a5a9fb1b6564fb4357845d6a1037606191bc7d6a0835044"
+  },
+  "assetFiles": {
+    "8ca68e4fcdd311d15084173aad6a6ae56c1c6c46a7c9e358c64e58a9b9c4c1dd": "D:\\touchcatch\\content\\learning\\source\\en-neon-alien-lab-a.png",
+    "2f0eb0dde567a9a93f2fc8171845cfa3998c5ecb349ec0bcf034c2c2920f462b": "D:\\touchcatch\\content\\learning\\source\\en-neon-alien-lab-b.png"
+  }
+}

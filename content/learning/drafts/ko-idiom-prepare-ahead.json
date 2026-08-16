@@ -10,6 +10,7 @@
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "ko-idiom-prepare-ahead",
+    "category": "IDIOM",
     "language": "ko",
     "difficulty": "ADVANCED",
     "imageA": {
@@ -235,14 +236,14 @@
         "publicPrompt": "점검판을 찾으세요.",
         "hitboxes": {
           "imageA": {
-            "cx": 0.55,
-            "cy": 0.78,
-            "r": 0.09
+            "cx": 0.65,
+            "cy": 0.76,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.55,
-            "cy": 0.78,
-            "r": 0.09
+            "cx": 0.65,
+            "cy": 0.76,
+            "r": 0.055
           }
         }
       }
@@ -290,7 +291,7 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "f8a8a583565a5d3e631ffe8f0b04af6512912be24f23668b8be37aad434d800c"
+    "privateSolutionHash": "d5bb177df030ee8560006154e8ad27fa90a07f2dc5196c69bac9207692f5a6c0"
   },
   "assetFiles": {
     "54b659b40cf0ad23fdf0e374024a5e76cd4c27a1ec2a4c9cc99ef6ea1b8f8531": "D:\\touchcatch\\content\\learning\\source\\ko-idiom-prepare-ahead-a.png",

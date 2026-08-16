@@ -1,0 +1,305 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "da7061ce-16ff-49b5-8b65-833ca4aea287",
+    "version": 1,
+    "contentRevisionId": "18124923-5744-452b-8f4d-2966e155feb8",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-phonics-dolphin",
+    "category": "ENGLISH",
+    "language": "en",
+    "difficulty": "BEGINNER",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/974be87199b3ec974f15c0124c04f75514ee50230713e3286206f37c3b7282a6.png",
+      "sha256": "974be87199b3ec974f15c0124c04f75514ee50230713e3286206f37c3b7282a6",
+      "encodedBytes": 2757531,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/dd4dfa7d00dcd88a5f7e56d0dea253c160b959cf89567a67889f4e0b00a33285.png",
+      "sha256": "dd4dfa7d00dcd88a5f7e56d0dea253c160b959cf89567a67889f4e0b00a33285",
+      "encodedBytes": 2741925,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "18124923-5744-452b-8f4d-2966e155feb8",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.40759091449873097,
+            "cy": 0.21269085104695432,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.40759091449873097,
+            "cy": 0.21269085104695432,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.13010641793224298,
+            "cy": 0.12724518107476634,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.13010641793224298,
+            "cy": 0.12724518107476634,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.18029137927712702,
+            "cy": 0.3614286712006782,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.18029137927712702,
+            "cy": 0.3614286712006782,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.6074283508786472,
+            "cy": 0.2115552988229443,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.6074283508786472,
+            "cy": 0.2115552988229443,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8374754198554422,
+            "cy": 0.46230269451530615,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.8374754198554422,
+            "cy": 0.46230269451530615,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.17116244490280288,
+            "cy": 0.8807366424615732,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.17116244490280288,
+            "cy": 0.8807366424615732,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8753249974879421,
+            "cy": 0.062259784465434086,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.8753249974879421,
+            "cy": 0.062259784465434086,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8889641679282007,
+            "cy": 0.80517578125,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.8889641679282007,
+            "cy": 0.80517578125,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.4631768588362069,
+            "cy": 0.9114078214798851,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.4631768588362069,
+            "cy": 0.9114078214798851,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.4140203028549383,
+            "cy": 0.5136055652006173,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.4140203028549383,
+            "cy": 0.5136055652006173,
+            "r": 0.10625000000000001
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-phonics-dolphin",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.40759091449873097,
+            "cy": 0.21269085104695432,
+            "r": 0.11125000000000002
+          },
+          "imageB": {
+            "cx": 0.40759091449873097,
+            "cy": 0.21269085104695432,
+            "r": 0.11125000000000002
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-phonics-dolphin",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.13010641793224298,
+            "cy": 0.12724518107476634,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.13010641793224298,
+            "cy": 0.12724518107476634,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-phonics-dolphin",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.18029137927712702,
+            "cy": 0.3614286712006782,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.18029137927712702,
+            "cy": 0.3614286712006782,
+            "r": 0.10625000000000001
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.40759091449873097,
+          "cy": 0.21269085104695432,
+          "r": 0.11625
+        },
+        "imageB": {
+          "cx": 0.40759091449873097,
+          "cy": 0.21269085104695432,
+          "r": 0.11625
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "dolphin",
+      "aliases": [
+        "Dolphin"
+      ],
+      "hintUnits": [
+        "d",
+        "o",
+        "l",
+        "p",
+        "h",
+        "i",
+        "n"
+      ],
+      "meaning": {
+        "prompt": "What sea creature starts with D in this scene?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "돌고래 (dolphin)"
+          },
+          {
+            "id": "option_2",
+            "label": "상어 (shark)"
+          },
+          {
+            "id": "option_3",
+            "label": "문어 (octopus)"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "410edff0b7de73630607adae3703148bb083008a056dd692a9fbedf6bdde1548"
+  },
+  "assetFiles": {
+    "974be87199b3ec974f15c0124c04f75514ee50230713e3286206f37c3b7282a6": "D:\\touchcatch\\content\\learning\\source\\en-phonics-dolphin-a.png",
+    "dd4dfa7d00dcd88a5f7e56d0dea253c160b959cf89567a67889f4e0b00a33285": "D:\\touchcatch\\content\\learning\\source\\en-phonics-dolphin-b.png"
+  }
+}

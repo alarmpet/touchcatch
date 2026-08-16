@@ -6,173 +6,189 @@
   "publicContent": {
     "contentId": "a0f8f7b7-4c22-450d-8e0c-ebda2ab86d24",
     "version": 1,
-    "contentRevisionId": "02fc24a2-dd77-4721-82c7-2575a19df786",
+    "contentRevisionId": "24210f1f-96db-4f02-865e-5e221457f7bf",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "en-transmutation-alchemist",
     "language": "en",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/fb13f1be669e55637091fb17604f74888a7f8e40995afedaaeb3bb18b2380f38.png",
-      "sha256": "fb13f1be669e55637091fb17604f74888a7f8e40995afedaaeb3bb18b2380f38",
-      "encodedBytes": 1932622,
+      "url": "https://cdn.spot-learn.test/assets/308f583203fc1daa2f18ccf7b5b40dde5f8e84f707e7b56269e69f58fa4006b5.png",
+      "sha256": "308f583203fc1daa2f18ccf7b5b40dde5f8e84f707e7b56269e69f58fa4006b5",
+      "encodedBytes": 2703134,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/8c3e042b7c3c51af87ba5cf63766a54db3ea53b845e0d4378f1aaae0997c4452.png",
-      "sha256": "8c3e042b7c3c51af87ba5cf63766a54db3ea53b845e0d4378f1aaae0997c4452",
-      "encodedBytes": 2114522,
+      "url": "https://cdn.spot-learn.test/assets/850495f2da25ae315b05ae6a1e8d79b16ceeaec5c4f112335cde53e5bef38693.png",
+      "sha256": "850495f2da25ae315b05ae6a1e8d79b16ceeaec5c4f112335cde53e5bef38693",
+      "encodedBytes": 2695931,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "02fc24a2-dd77-4721-82c7-2575a19df786",
+    "contentRevisionId": "24210f1f-96db-4f02-865e-5e221457f7bf",
     "schemaVersion": "1.0.0",
     "differences": [
       {
-        "objectiveId": "difference_1",
+        "objectiveId": "diff_1",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.766,
-            "cy": 0.714,
+            "cx": 0.3763400199718045,
+            "cy": 0.4930869654605263,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.766,
-            "cy": 0.714,
+            "cx": 0.3763400199718045,
+            "cy": 0.4930869654605263,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_2",
+        "objectiveId": "diff_2",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.701,
-            "cy": 0.624,
+            "cx": 0.5837561832600503,
+            "cy": 0.6773687774811558,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.701,
-            "cy": 0.624,
+            "cx": 0.5837561832600503,
+            "cy": 0.6773687774811558,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_3",
+        "objectiveId": "diff_3",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.701,
-            "cy": 0.855,
+            "cx": 0.6558328590645696,
+            "cy": 0.5901509468129139,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.701,
-            "cy": 0.855,
+            "cx": 0.6558328590645696,
+            "cy": 0.5901509468129139,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_4",
+        "objectiveId": "diff_4",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.732,
-            "cy": 0.473,
+            "cx": 0.11045189426369863,
+            "cy": 0.2566954730308219,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.732,
-            "cy": 0.473,
+            "cx": 0.11045189426369863,
+            "cy": 0.2566954730308219,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_5",
+        "objectiveId": "diff_5",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.726,
-            "cy": 0.291,
+            "cx": 0.8669686153017241,
+            "cy": 0.3517140355603448,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.726,
-            "cy": 0.291,
+            "cx": 0.8669686153017241,
+            "cy": 0.3517140355603448,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_6",
+        "objectiveId": "diff_6",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.506,
-            "cy": 0.349,
+            "cx": 0.4658203125,
+            "cy": 0.6447566105769231,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.506,
-            "cy": 0.349,
+            "cx": 0.4658203125,
+            "cy": 0.6447566105769231,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_7",
+        "objectiveId": "diff_7",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.53,
-            "cy": 0.601,
+            "cx": 0.89306640625,
+            "cy": 0.52392578125,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.53,
-            "cy": 0.601,
+            "cx": 0.89306640625,
+            "cy": 0.52392578125,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_8",
+        "objectiveId": "diff_8",
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.509,
-            "cy": 0.463,
+            "cx": 0.50107421875,
+            "cy": 0.1658203125,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.509,
-            "cy": 0.463,
+            "cx": 0.50107421875,
+            "cy": 0.1658203125,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_9",
+        "objectiveId": "diff_9",
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.435,
-            "cy": 0.877,
+            "cx": 0.5706824100378788,
+            "cy": 0.4984759706439394,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.435,
-            "cy": 0.877,
+            "cx": 0.5706824100378788,
+            "cy": 0.4984759706439394,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7535863415948276,
+            "cy": 0.6475787984913793,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.7535863415948276,
+            "cy": 0.6475787984913793,
             "r": 0.055
           }
         }
@@ -185,13 +201,13 @@
         "publicPrompt": "Find item 1 in en-transmutation-alchemist",
         "hitboxes": {
           "imageA": {
-            "cx": 0.766,
-            "cy": 0.714,
+            "cx": 0.3763400199718045,
+            "cy": 0.4930869654605263,
             "r": 0.06
           },
           "imageB": {
-            "cx": 0.766,
-            "cy": 0.714,
+            "cx": 0.3763400199718045,
+            "cy": 0.4930869654605263,
             "r": 0.06
           }
         }
@@ -202,13 +218,13 @@
         "publicPrompt": "Find item 2 in en-transmutation-alchemist",
         "hitboxes": {
           "imageA": {
-            "cx": 0.701,
-            "cy": 0.624,
+            "cx": 0.5837561832600503,
+            "cy": 0.6773687774811558,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.701,
-            "cy": 0.624,
+            "cx": 0.5837561832600503,
+            "cy": 0.6773687774811558,
             "r": 0.055
           }
         }
@@ -219,13 +235,13 @@
         "publicPrompt": "Find item 3 in en-transmutation-alchemist",
         "hitboxes": {
           "imageA": {
-            "cx": 0.701,
-            "cy": 0.855,
+            "cx": 0.6558328590645696,
+            "cy": 0.5901509468129139,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.701,
-            "cy": 0.855,
+            "cx": 0.6558328590645696,
+            "cy": 0.5901509468129139,
             "r": 0.055
           }
         }
@@ -235,13 +251,13 @@
       "objectiveId": "sudden_1",
       "hitboxes": {
         "imageA": {
-          "cx": 0.766,
-          "cy": 0.714,
+          "cx": 0.3763400199718045,
+          "cy": 0.4930869654605263,
           "r": 0.065
         },
         "imageB": {
-          "cx": 0.766,
-          "cy": 0.714,
+          "cx": 0.3763400199718045,
+          "cy": 0.4930869654605263,
           "r": 0.065
         }
       }
@@ -286,10 +302,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "8b26b693cdbc3f520e5f0813be1507c8e57b1bc97720c1d8d2098d5a2af959f6"
+    "privateSolutionHash": "788288ae48ff76ff8064fcad64692ed3185dbcf526430cd57053a57f82cd0236"
   },
   "assetFiles": {
-    "fb13f1be669e55637091fb17604f74888a7f8e40995afedaaeb3bb18b2380f38": "D:\\touchcatch\\content\\learning\\source\\en-transmutation-alchemist-a.png",
-    "8c3e042b7c3c51af87ba5cf63766a54db3ea53b845e0d4378f1aaae0997c4452": "D:\\touchcatch\\content\\learning\\source\\en-transmutation-alchemist-b.png"
+    "308f583203fc1daa2f18ccf7b5b40dde5f8e84f707e7b56269e69f58fa4006b5": "D:\\touchcatch\\content\\learning\\source\\en-transmutation-alchemist-a.png",
+    "850495f2da25ae315b05ae6a1e8d79b16ceeaec5c4f112335cde53e5bef38693": "D:\\touchcatch\\content\\learning\\source\\en-transmutation-alchemist-b.png"
   }
 }

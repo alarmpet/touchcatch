@@ -1,0 +1,302 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "6fd076e6-bca5-491a-8278-28b4d94fa053",
+    "version": 1,
+    "contentRevisionId": "4f392ae3-affc-4d32-8364-b53403ec2147",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-phonics-bear",
+    "category": "ENGLISH",
+    "language": "en",
+    "difficulty": "BEGINNER",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/19e3b9fd92ff37cfdaa299fe2a92fc8ed0b1678e06da825e31ea68a4bfed6ffb.png",
+      "sha256": "19e3b9fd92ff37cfdaa299fe2a92fc8ed0b1678e06da825e31ea68a4bfed6ffb",
+      "encodedBytes": 2775668,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/a19e95e30f0a0e78834bedfb294e0da715f84ef6a550286997dddf66a599d41a.png",
+      "sha256": "a19e95e30f0a0e78834bedfb294e0da715f84ef6a550286997dddf66a599d41a",
+      "encodedBytes": 2817047,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "4f392ae3-affc-4d32-8364-b53403ec2147",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.19026826888396536,
+            "cy": 0.48257685297300085,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.19026826888396536,
+            "cy": 0.48257685297300085,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5802957484784644,
+            "cy": 0.049652899695692886,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.5802957484784644,
+            "cy": 0.049652899695692886,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8474664652122641,
+            "cy": 0.14689158313679246,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.8474664652122641,
+            "cy": 0.14689158313679246,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.4436110353567762,
+            "cy": 0.8873032838167351,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.4436110353567762,
+            "cy": 0.8873032838167351,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7731836753001043,
+            "cy": 0.6387891032750522,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.7731836753001043,
+            "cy": 0.6387891032750522,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8677715226715687,
+            "cy": 0.39028990502450983,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.8677715226715687,
+            "cy": 0.39028990502450983,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.06584651295731707,
+            "cy": 0.7749843855860433,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.06584651295731707,
+            "cy": 0.7749843855860433,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8396055640243902,
+            "cy": 0.8696646341463414,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.8396055640243902,
+            "cy": 0.8696646341463414,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5595915421195652,
+            "cy": 0.585218051781401,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.5595915421195652,
+            "cy": 0.585218051781401,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.2855375107020548,
+            "cy": 0.1685105415239726,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.2855375107020548,
+            "cy": 0.1685105415239726,
+            "r": 0.10625000000000001
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-phonics-bear",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.19026826888396536,
+            "cy": 0.48257685297300085,
+            "r": 0.11125000000000002
+          },
+          "imageB": {
+            "cx": 0.19026826888396536,
+            "cy": 0.48257685297300085,
+            "r": 0.11125000000000002
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-phonics-bear",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5802957484784644,
+            "cy": 0.049652899695692886,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.5802957484784644,
+            "cy": 0.049652899695692886,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-phonics-bear",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8474664652122641,
+            "cy": 0.14689158313679246,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.8474664652122641,
+            "cy": 0.14689158313679246,
+            "r": 0.10625000000000001
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.19026826888396536,
+          "cy": 0.48257685297300085,
+          "r": 0.11625
+        },
+        "imageB": {
+          "cx": 0.19026826888396536,
+          "cy": 0.48257685297300085,
+          "r": 0.11625
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "bear",
+      "aliases": [
+        "Bear"
+      ],
+      "hintUnits": [
+        "b",
+        "e",
+        "a",
+        "r"
+      ],
+      "meaning": {
+        "prompt": "What animal starts with B in this scene?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "곰 (bear)"
+          },
+          {
+            "id": "option_2",
+            "label": "고양이 (cat)"
+          },
+          {
+            "id": "option_3",
+            "label": "돌고래 (dolphin)"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "9c9fcee908e74e7a093f1dfb2260b2b31bbd3e68fbc17e95377815e6ecc7a36e"
+  },
+  "assetFiles": {
+    "19e3b9fd92ff37cfdaa299fe2a92fc8ed0b1678e06da825e31ea68a4bfed6ffb": "D:\\touchcatch\\content\\learning\\source\\en-phonics-bear-a.png",
+    "a19e95e30f0a0e78834bedfb294e0da715f84ef6a550286997dddf66a599d41a": "D:\\touchcatch\\content\\learning\\source\\en-phonics-bear-b.png"
+  }
+}

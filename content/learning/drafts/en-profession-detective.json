@@ -1,0 +1,307 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "136662a1-c38f-4ac3-8763-87b25beca65d",
+    "version": 1,
+    "contentRevisionId": "a158a71b-062d-430b-8560-09e4a14421cd",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-profession-detective",
+    "language": "en",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/3fe44e53d4654ac5c074ea20b32ad83a60561c3703f6be773b56e28c51b5bbe7.png",
+      "sha256": "3fe44e53d4654ac5c074ea20b32ad83a60561c3703f6be773b56e28c51b5bbe7",
+      "encodedBytes": 2444797,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/7a2da57053d55420afa67b99213592b010d3ef24178e48cfd4b28004d2145558.png",
+      "sha256": "7a2da57053d55420afa67b99213592b010d3ef24178e48cfd4b28004d2145558",
+      "encodedBytes": 2453613,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "a158a71b-062d-430b-8560-09e4a14421cd",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8470731026785714,
+            "cy": 0.19218024553571428,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.8470731026785714,
+            "cy": 0.19218024553571428,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8540785845588236,
+            "cy": 0.5238223805147059,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.8540785845588236,
+            "cy": 0.5238223805147059,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.22982564786585366,
+            "cy": 0.7560975609756098,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.22982564786585366,
+            "cy": 0.7560975609756098,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.3668410567090985,
+            "cy": 0.8162424027024207,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.3668410567090985,
+            "cy": 0.8162424027024207,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.42211261280080214,
+            "cy": 0.5062118775066845,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.42211261280080214,
+            "cy": 0.5062118775066845,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8695909077091439,
+            "cy": 0.7418322136429961,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.8695909077091439,
+            "cy": 0.7418322136429961,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5746500888301749,
+            "cy": 0.5011829787718659,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.5746500888301749,
+            "cy": 0.5011829787718659,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.6461188950224551,
+            "cy": 0.7514589960703593,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.6461188950224551,
+            "cy": 0.7514589960703593,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.1510339161706349,
+            "cy": 0.23876953125,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.1510339161706349,
+            "cy": 0.23876953125,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.16179342830882354,
+            "cy": 0.3976236979166667,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.16179342830882354,
+            "cy": 0.3976236979166667,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-profession-detective",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8470731026785714,
+            "cy": 0.19218024553571428,
+            "r": 0.07500000000000001
+          },
+          "imageB": {
+            "cx": 0.8470731026785714,
+            "cy": 0.19218024553571428,
+            "r": 0.07500000000000001
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-profession-detective",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8540785845588236,
+            "cy": 0.5238223805147059,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.8540785845588236,
+            "cy": 0.5238223805147059,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-profession-detective",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.22982564786585366,
+            "cy": 0.7560975609756098,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.22982564786585366,
+            "cy": 0.7560975609756098,
+            "r": 0.07
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.8470731026785714,
+          "cy": 0.19218024553571428,
+          "r": 0.08
+        },
+        "imageB": {
+          "cx": 0.8470731026785714,
+          "cy": 0.19218024553571428,
+          "r": 0.08
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "Detective",
+      "aliases": [
+        "탐정",
+        "Detective Office"
+      ],
+      "hintUnits": [
+        "D",
+        "e",
+        "t",
+        "e",
+        "c",
+        "t",
+        "i",
+        "v",
+        "e"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '호기심'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Curiosity"
+          },
+          {
+            "id": "option_2",
+            "label": "Boredom"
+          },
+          {
+            "id": "option_3",
+            "label": "Anxiety"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "2cd933c2eb1cf491e26403ec6d5c23f3e7a8f241cb867b922828e94940f7490f"
+  },
+  "assetFiles": {
+    "3fe44e53d4654ac5c074ea20b32ad83a60561c3703f6be773b56e28c51b5bbe7": "D:\\touchcatch\\content\\learning\\source\\en-profession-detective-a.png",
+    "7a2da57053d55420afa67b99213592b010d3ef24178e48cfd4b28004d2145558": "D:\\touchcatch\\content\\learning\\source\\en-profession-detective-b.png"
+  }
+}

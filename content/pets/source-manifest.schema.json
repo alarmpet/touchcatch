@@ -15,7 +15,7 @@
         "properties": {
           "sourceSha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
           "normalizedSlug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
-          "candidateRarity": { "enum": ["COMMON", "RARE", "LEGENDARY"] },
+          "candidateRarity": { "enum": ["COMMON", "UNCOMMON", "RARE", "EPIC", "LEGENDARY"] },
           "familySlug": { "type": ["string", "null"] },
           "rightsStatus": { "enum": ["PENDING", "APPROVED", "REJECTED"] },
           "provenanceNote": { "type": "string", "minLength": 1 },

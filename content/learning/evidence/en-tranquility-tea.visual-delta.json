@@ -2,51 +2,75 @@
   "dimensionsMatch": true,
   "width": 1024,
   "height": 1024,
-  "changedRegions": 6,
+  "changedRegions": 10,
   "missingRegions": [],
-  "outsideChangedPixels": 8047,
-  "outsideChangedRatio": 0.008138311859058637,
+  "outsideChangedPixels": 35279,
+  "outsideChangedRatio": 0.03717864275138186,
   "outsidePolicy": "PASS",
   "policy": {
     "pixelThreshold": 60,
     "minChangedPixelsPerRegion": 24,
-    "maxOutsideChangedRatio": 0.05
+    "maxOutsideChangedRatio": 0.15
   },
   "regions": [
     {
-      "id": "difference_1",
-      "cx": 0.269,
-      "cy": 0.842,
+      "id": "diff_1",
+      "cx": 0.8793252268145161,
+      "cy": 0.7257213961693548,
       "r": 0.055
     },
     {
-      "id": "difference_2",
-      "cx": 0.142,
-      "cy": 0.507,
+      "id": "diff_2",
+      "cx": 0.45354684842687076,
+      "cy": 0.153363493835034,
       "r": 0.055
     },
     {
-      "id": "difference_3",
-      "cx": 0.603,
-      "cy": 0.54,
+      "id": "diff_3",
+      "cx": 0.4605675291966119,
+      "cy": 0.26929763699948667,
       "r": 0.055
     },
     {
-      "id": "difference_4",
-      "cx": 0.797,
-      "cy": 0.613,
+      "id": "diff_4",
+      "cx": 0.6008667866199284,
+      "cy": 0.6838209930638425,
       "r": 0.055
     },
     {
-      "id": "difference_5",
-      "cx": 0.159,
-      "cy": 0.685,
+      "id": "diff_5",
+      "cx": 0.47644542671783624,
+      "cy": 0.6619694581505848,
       "r": 0.055
     },
     {
-      "id": "difference_6",
-      "cx": 0.697,
-      "cy": 0.428,
+      "id": "diff_6",
+      "cx": 0.4558296801528213,
+      "cy": 0.38132928830329155,
+      "r": 0.055
+    },
+    {
+      "id": "diff_7",
+      "cx": 0.7203841145833333,
+      "cy": 0.73705078125,
+      "r": 0.055
+    },
+    {
+      "id": "diff_8",
+      "cx": 0.8363918138586957,
+      "cy": 0.4659434442934783,
+      "r": 0.055
+    },
+    {
+      "id": "diff_9",
+      "cx": 0.6839911882267442,
+      "cy": 0.45324990915697677,
+      "r": 0.055
+    },
+    {
+      "id": "diff_10",
+      "cx": 0.16796875,
+      "cy": 0.4662109375,
       "r": 0.055
     }
   ]

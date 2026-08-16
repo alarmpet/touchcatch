@@ -1,0 +1,301 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "efdd8379-f699-43b4-8f2b-c703ff684902",
+    "version": 1,
+    "contentRevisionId": "bd3bc656-b8fc-4c0a-873c-fc1474014f9d",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-phonics-cat",
+    "category": "ENGLISH",
+    "language": "en",
+    "difficulty": "BEGINNER",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/3ee648abe533ec3b1b46740bec14a94c836952ccd7a4265d8e9282cf19bc4a7b.png",
+      "sha256": "3ee648abe533ec3b1b46740bec14a94c836952ccd7a4265d8e9282cf19bc4a7b",
+      "encodedBytes": 2487214,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/c2606c85e17ac9695ef758c9d59760d92b1cb3bea6313b2be8b5f65ea6a9219c.png",
+      "sha256": "c2606c85e17ac9695ef758c9d59760d92b1cb3bea6313b2be8b5f65ea6a9219c",
+      "encodedBytes": 2595921,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "bd3bc656-b8fc-4c0a-873c-fc1474014f9d",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.2554276127518315,
+            "cy": 0.3617434323489011,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.2554276127518315,
+            "cy": 0.3617434323489011,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.09430028521825397,
+            "cy": 0.7969292534722222,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.09430028521825397,
+            "cy": 0.7969292534722222,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.24474834800279932,
+            "cy": 0.603988765746124,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.24474834800279932,
+            "cy": 0.603988765746124,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9409105140744275,
+            "cy": 0.8548537392652672,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.9409105140744275,
+            "cy": 0.8548537392652672,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.4609217489919355,
+            "cy": 0.8128832745295699,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.4609217489919355,
+            "cy": 0.8128832745295699,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7371598128434066,
+            "cy": 0.31590723729395603,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.7371598128434066,
+            "cy": 0.31590723729395603,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.758072679060219,
+            "cy": 0.5015432538777372,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.758072679060219,
+            "cy": 0.5015432538777372,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7725991303066038,
+            "cy": 0.12648326945754718,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.7725991303066038,
+            "cy": 0.12648326945754718,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.753662109375,
+            "cy": 0.7304280598958334,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.753662109375,
+            "cy": 0.7304280598958334,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.248046875,
+            "cy": 0.1112060546875,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.248046875,
+            "cy": 0.1112060546875,
+            "r": 0.10625000000000001
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-phonics-cat",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.2554276127518315,
+            "cy": 0.3617434323489011,
+            "r": 0.11125000000000002
+          },
+          "imageB": {
+            "cx": 0.2554276127518315,
+            "cy": 0.3617434323489011,
+            "r": 0.11125000000000002
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-phonics-cat",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.09430028521825397,
+            "cy": 0.7969292534722222,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.09430028521825397,
+            "cy": 0.7969292534722222,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-phonics-cat",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.24474834800279932,
+            "cy": 0.603988765746124,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.24474834800279932,
+            "cy": 0.603988765746124,
+            "r": 0.10625000000000001
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.2554276127518315,
+          "cy": 0.3617434323489011,
+          "r": 0.11625
+        },
+        "imageB": {
+          "cx": 0.2554276127518315,
+          "cy": 0.3617434323489011,
+          "r": 0.11625
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "cat",
+      "aliases": [
+        "Cat"
+      ],
+      "hintUnits": [
+        "c",
+        "a",
+        "t"
+      ],
+      "meaning": {
+        "prompt": "What animal starts with C in this scene?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "고양이 (cat)"
+          },
+          {
+            "id": "option_2",
+            "label": "곰 (bear)"
+          },
+          {
+            "id": "option_3",
+            "label": "개 (dog)"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "fb15502caacc08444b05e1d5dbefa72d766f47ca8e2745d84e97c64a648a5f76"
+  },
+  "assetFiles": {
+    "3ee648abe533ec3b1b46740bec14a94c836952ccd7a4265d8e9282cf19bc4a7b": "D:\\touchcatch\\content\\learning\\source\\en-phonics-cat-a.png",
+    "c2606c85e17ac9695ef758c9d59760d92b1cb3bea6313b2be8b5f65ea6a9219c": "D:\\touchcatch\\content\\learning\\source\\en-phonics-cat-b.png"
+  }
+}

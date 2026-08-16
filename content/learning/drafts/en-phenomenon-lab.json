@@ -6,141 +6,189 @@
   "publicContent": {
     "contentId": "b9ded798-4ee2-4a1a-8a63-201a53ca7c0f",
     "version": 1,
-    "contentRevisionId": "368c7910-cd53-47de-883e-27ac84630559",
+    "contentRevisionId": "4cf644e6-b49f-4c4f-8e64-d3744e0c3bcd",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "en-phenomenon-lab",
     "language": "en",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/ccccb4cb4cfa059f28c5eae890839325b257aaf80b31e14d99cd56413b4701dd.png",
-      "sha256": "ccccb4cb4cfa059f28c5eae890839325b257aaf80b31e14d99cd56413b4701dd",
-      "encodedBytes": 1692126,
+      "url": "https://cdn.spot-learn.test/assets/1b82437356dea89a51e8cc04e8e0093a56b51f982e458d066bc1ebfa1eb32466.png",
+      "sha256": "1b82437356dea89a51e8cc04e8e0093a56b51f982e458d066bc1ebfa1eb32466",
+      "encodedBytes": 2708422,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/19119f9798335557331b50bf69b1db0ec226d861810e2b662637246d9b87360d.png",
-      "sha256": "19119f9798335557331b50bf69b1db0ec226d861810e2b662637246d9b87360d",
-      "encodedBytes": 1878558,
+      "url": "https://cdn.spot-learn.test/assets/5a24176910004b9d2f65c92920542c1db5ebf6f1d7256a5709c1914ffa2a7024.png",
+      "sha256": "5a24176910004b9d2f65c92920542c1db5ebf6f1d7256a5709c1914ffa2a7024",
+      "encodedBytes": 2712180,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "368c7910-cd53-47de-883e-27ac84630559",
+    "contentRevisionId": "4cf644e6-b49f-4c4f-8e64-d3744e0c3bcd",
     "schemaVersion": "1.0.0",
     "differences": [
       {
-        "objectiveId": "difference_1",
+        "objectiveId": "diff_1",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.898,
-            "cy": 0.53,
+            "cx": 0.36300590343045114,
+            "cy": 0.06087851464598997,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.898,
-            "cy": 0.53,
+            "cx": 0.36300590343045114,
+            "cy": 0.06087851464598997,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_2",
+        "objectiveId": "diff_2",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.786,
-            "cy": 0.541,
+            "cx": 0.2589572482638889,
+            "cy": 0.24307183159722223,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.786,
-            "cy": 0.541,
+            "cx": 0.2589572482638889,
+            "cy": 0.24307183159722223,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_3",
+        "objectiveId": "diff_3",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.354,
-            "cy": 0.412,
+            "cx": 0.8526957667151163,
+            "cy": 0.5120707667151163,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.354,
-            "cy": 0.412,
+            "cx": 0.8526957667151163,
+            "cy": 0.5120707667151163,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_4",
+        "objectiveId": "diff_4",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.238,
-            "cy": 0.436,
+            "cx": 0.7304336448120915,
+            "cy": 0.48962482128267976,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.238,
-            "cy": 0.436,
+            "cx": 0.7304336448120915,
+            "cy": 0.48962482128267976,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_5",
+        "objectiveId": "diff_5",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.743,
-            "cy": 0.373,
+            "cx": 0.4162399704391892,
+            "cy": 0.7289722339527027,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.743,
-            "cy": 0.373,
+            "cx": 0.4162399704391892,
+            "cy": 0.7289722339527027,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_6",
+        "objectiveId": "diff_6",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.129,
-            "cy": 0.54,
+            "cx": 0.1637898234577922,
+            "cy": 0.7534560166396104,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.129,
-            "cy": 0.54,
+            "cx": 0.1637898234577922,
+            "cy": 0.7534560166396104,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_7",
+        "objectiveId": "diff_7",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.515,
-            "cy": 0.54,
+            "cx": 0.5216519939365671,
+            "cy": 0.8437718633395522,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.515,
-            "cy": 0.54,
+            "cx": 0.5216519939365671,
+            "cy": 0.8437718633395522,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.14471905048076922,
+            "cy": 0.3829144488324176,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.14471905048076922,
+            "cy": 0.3829144488324176,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.54248046875,
+            "cy": 0.4763997395833333,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.54248046875,
+            "cy": 0.4763997395833333,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.3099640877016129,
+            "cy": 0.6900044102822581,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.3099640877016129,
+            "cy": 0.6900044102822581,
             "r": 0.055
           }
         }
@@ -153,13 +201,13 @@
         "publicPrompt": "Find item 1 in en-phenomenon-lab",
         "hitboxes": {
           "imageA": {
-            "cx": 0.898,
-            "cy": 0.53,
+            "cx": 0.36300590343045114,
+            "cy": 0.06087851464598997,
             "r": 0.06
           },
           "imageB": {
-            "cx": 0.898,
-            "cy": 0.53,
+            "cx": 0.36300590343045114,
+            "cy": 0.06087851464598997,
             "r": 0.06
           }
         }
@@ -170,13 +218,13 @@
         "publicPrompt": "Find item 2 in en-phenomenon-lab",
         "hitboxes": {
           "imageA": {
-            "cx": 0.786,
-            "cy": 0.541,
+            "cx": 0.2589572482638889,
+            "cy": 0.24307183159722223,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.786,
-            "cy": 0.541,
+            "cx": 0.2589572482638889,
+            "cy": 0.24307183159722223,
             "r": 0.055
           }
         }
@@ -187,13 +235,13 @@
         "publicPrompt": "Find item 3 in en-phenomenon-lab",
         "hitboxes": {
           "imageA": {
-            "cx": 0.354,
-            "cy": 0.412,
+            "cx": 0.8526957667151163,
+            "cy": 0.5120707667151163,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.354,
-            "cy": 0.412,
+            "cx": 0.8526957667151163,
+            "cy": 0.5120707667151163,
             "r": 0.055
           }
         }
@@ -203,13 +251,13 @@
       "objectiveId": "sudden_1",
       "hitboxes": {
         "imageA": {
-          "cx": 0.898,
-          "cy": 0.53,
+          "cx": 0.36300590343045114,
+          "cy": 0.06087851464598997,
           "r": 0.065
         },
         "imageB": {
-          "cx": 0.898,
-          "cy": 0.53,
+          "cx": 0.36300590343045114,
+          "cy": 0.06087851464598997,
           "r": 0.065
         }
       }
@@ -251,10 +299,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "2c16b3d4e34f0426cd44561229016a90c36339ee766b64d897a521d6c195c5c5"
+    "privateSolutionHash": "d54ef705bdcb8482be8e9964516c7111643c19ddda8646b5b74fb1436a2ae91c"
   },
   "assetFiles": {
-    "ccccb4cb4cfa059f28c5eae890839325b257aaf80b31e14d99cd56413b4701dd": "D:\\touchcatch\\content\\learning\\source\\en-phenomenon-lab-a.png",
-    "19119f9798335557331b50bf69b1db0ec226d861810e2b662637246d9b87360d": "D:\\touchcatch\\content\\learning\\source\\en-phenomenon-lab-b.png"
+    "1b82437356dea89a51e8cc04e8e0093a56b51f982e458d066bc1ebfa1eb32466": "D:\\touchcatch\\content\\learning\\source\\en-phenomenon-lab-a.png",
+    "5a24176910004b9d2f65c92920542c1db5ebf6f1d7256a5709c1914ffa2a7024": "D:\\touchcatch\\content\\learning\\source\\en-phenomenon-lab-b.png"
   }
 }

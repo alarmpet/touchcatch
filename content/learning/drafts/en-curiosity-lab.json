@@ -21,9 +21,9 @@
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/554e6a503b4a77d6f8dd8a7034b369f3812ea7b8d5ca86396a16512089701b9d.png",
-      "sha256": "554e6a503b4a77d6f8dd8a7034b369f3812ea7b8d5ca86396a16512089701b9d",
-      "encodedBytes": 1948576,
+      "url": "https://cdn.spot-learn.test/assets/8b0aeb28928cb1e8a3613fabaef6cee46a1f6749227af30674b39e9d8a29ca16.png",
+      "sha256": "8b0aeb28928cb1e8a3613fabaef6cee46a1f6749227af30674b39e9d8a29ca16",
+      "encodedBytes": 1931448,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
@@ -302,6 +302,6 @@
   },
   "assetFiles": {
     "e03cc5dfb8bf9020428ba8f5ba5f139b4b1c53f60964196f7c2877a74523bbd3": "D:\\touchcatch\\content\\learning\\source\\en-curiosity-lab-a.png",
-    "554e6a503b4a77d6f8dd8a7034b369f3812ea7b8d5ca86396a16512089701b9d": "D:\\touchcatch\\content\\learning\\source\\en-curiosity-lab-b.png"
+    "8b0aeb28928cb1e8a3613fabaef6cee46a1f6749227af30674b39e9d8a29ca16": "D:\\touchcatch\\content\\learning\\source\\en-curiosity-lab-b.png"
   }
 }

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1",
+  "note": "Hand-placed word hunt targets, read off the source artwork. See _why.",
+  "_why": [
+    "The drafts carry wordHunts for every pack, but 286 of their 315 hitboxes are byte-identical",
+    "to a difference coordinate — the prompt text was written by a person and the coordinates were",
+    "copied from the difference list. Those difference coordinates do not sit on the artwork either,",
+    "so wiring the draft data would reproduce the exact bug it looks like it fixes: the prompt names",
+    "an object, you tap that object, and the game says you missed.",
+    "",
+    "Unlike differences, this cannot be measured. 'Where do the two pictures differ' is arithmetic;",
+    "'where is the prism' is not. So these are placed by eye against the source image, which is how",
+    "the three original preview packs were built. Only packs listed here get word hunts.",
+    "",
+    "Coordinates are normalised to the source image (0..1), origin top-left. Radius must stay at or",
+    "above 0.06 so the tap target clears 44pt on a ~390pt board, and two targets in the same pack",
+    "must be further apart than the sum of their radii."
+  ],
+  "packs": {
+    "en-paradox-labyrinth": [
+      { "missionId": "labyrinth-traveler", "kind": "NORMAL", "publicPrompt": "여행자", "cx": 0.315, "cy": 0.615, "r": 0.062 },
+      { "missionId": "labyrinth-cube", "kind": "NORMAL", "publicPrompt": "불가능한 정육면체", "cx": 0.5, "cy": 0.505, "r": 0.085 },
+      { "missionId": "labyrinth-compass", "kind": "SPECIAL", "publicPrompt": "나침반", "cx": 0.495, "cy": 0.352, "r": 0.06 }
+    ],
+    "en-tranquility-garden": [
+      { "missionId": "garden-lantern", "kind": "NORMAL", "publicPrompt": "석등", "cx": 0.115, "cy": 0.715, "r": 0.07 },
+      { "missionId": "garden-tea-table", "kind": "NORMAL", "publicPrompt": "찻상", "cx": 0.71, "cy": 0.735, "r": 0.085 },
+      { "missionId": "garden-bridge", "kind": "SPECIAL", "publicPrompt": "다리", "cx": 0.28, "cy": 0.315, "r": 0.1 }
+    ]
+  }
+}

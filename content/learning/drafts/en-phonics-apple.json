@@ -6,157 +6,189 @@
   "publicContent": {
     "contentId": "c5745911-5397-48ae-8cd6-1a9d546bf2bd",
     "version": 1,
-    "contentRevisionId": "7aed0653-a06e-4f37-8d47-b71fde6aa378",
+    "contentRevisionId": "e23be621-88e1-44bd-83a9-3c7bd50b7d5f",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "en-phonics-apple",
     "language": "en",
     "difficulty": "BEGINNER",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/31e4f0669bb9c90921402cf6a4e979ea53bb588042d9b7da8b44299b323e954b.png",
-      "sha256": "31e4f0669bb9c90921402cf6a4e979ea53bb588042d9b7da8b44299b323e954b",
-      "encodedBytes": 1761360,
+      "url": "https://cdn.spot-learn.test/assets/9cc08804b015c05095124d7dc05576416829802ba665b78480ee731138756ca1.png",
+      "sha256": "9cc08804b015c05095124d7dc05576416829802ba665b78480ee731138756ca1",
+      "encodedBytes": 1647595,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/45f43584a0908fe07b36be3b72f7448ef300398dbdf59c7074dc0d92cb78300c.png",
-      "sha256": "45f43584a0908fe07b36be3b72f7448ef300398dbdf59c7074dc0d92cb78300c",
-      "encodedBytes": 1941651,
+      "url": "https://cdn.spot-learn.test/assets/7a63ac600229aba0d08388129d9f290a3d47f2669a5cf3967601c3b802d1c87c.png",
+      "sha256": "7a63ac600229aba0d08388129d9f290a3d47f2669a5cf3967601c3b802d1c87c",
+      "encodedBytes": 1772010,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "7aed0653-a06e-4f37-8d47-b71fde6aa378",
+    "contentRevisionId": "e23be621-88e1-44bd-83a9-3c7bd50b7d5f",
     "schemaVersion": "1.0.0",
     "differences": [
       {
-        "objectiveId": "difference_1",
+        "objectiveId": "diff_1",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.555,
-            "cy": 0.856,
+            "cx": 0.23182352891690597,
+            "cy": 0.5729375813217875,
             "r": 0.085
           },
           "imageB": {
-            "cx": 0.555,
-            "cy": 0.856,
+            "cx": 0.23182352891690597,
+            "cy": 0.5729375813217875,
             "r": 0.085
           }
         }
       },
       {
-        "objectiveId": "difference_2",
+        "objectiveId": "diff_2",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.805,
-            "cy": 0.127,
+            "cx": 0.5417554215520668,
+            "cy": 0.47161059842011127,
             "r": 0.085
           },
           "imageB": {
-            "cx": 0.805,
-            "cy": 0.127,
+            "cx": 0.5417554215520668,
+            "cy": 0.47161059842011127,
             "r": 0.085
           }
         }
       },
       {
-        "objectiveId": "difference_3",
+        "objectiveId": "diff_3",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.152,
-            "cy": 0.695,
+            "cx": 0.8831699499102871,
+            "cy": 0.3085119804126794,
             "r": 0.085
           },
           "imageB": {
-            "cx": 0.152,
-            "cy": 0.695,
+            "cx": 0.8831699499102871,
+            "cy": 0.3085119804126794,
             "r": 0.085
           }
         }
       },
       {
-        "objectiveId": "difference_4",
+        "objectiveId": "diff_4",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.906,
-            "cy": 0.698,
+            "cx": 0.19250594429347825,
+            "cy": 0.22467306385869565,
             "r": 0.085
           },
           "imageB": {
-            "cx": 0.906,
-            "cy": 0.698,
+            "cx": 0.19250594429347825,
+            "cy": 0.22467306385869565,
             "r": 0.085
           }
         }
       },
       {
-        "objectiveId": "difference_5",
+        "objectiveId": "diff_5",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.686,
-            "cy": 0.353,
+            "cx": 0.20197687922297297,
+            "cy": 0.7838497677364865,
             "r": 0.085
           },
           "imageB": {
-            "cx": 0.686,
-            "cy": 0.353,
+            "cx": 0.20197687922297297,
+            "cy": 0.7838497677364865,
             "r": 0.085
           }
         }
       },
       {
-        "objectiveId": "difference_6",
+        "objectiveId": "diff_6",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.541,
-            "cy": 0.56,
+            "cx": 0.39892578125,
+            "cy": 0.79150390625,
             "r": 0.085
           },
           "imageB": {
-            "cx": 0.541,
-            "cy": 0.56,
+            "cx": 0.39892578125,
+            "cy": 0.79150390625,
             "r": 0.085
           }
         }
       },
       {
-        "objectiveId": "difference_7",
+        "objectiveId": "diff_7",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.838,
-            "cy": 0.878,
+            "cx": 0.3788583792892157,
+            "cy": 0.19457529105392157,
             "r": 0.085
           },
           "imageB": {
-            "cx": 0.838,
-            "cy": 0.878,
+            "cx": 0.3788583792892157,
+            "cy": 0.19457529105392157,
             "r": 0.085
           }
         }
       },
       {
-        "objectiveId": "difference_8",
+        "objectiveId": "diff_8",
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.318,
-            "cy": 0.521,
+            "cx": 0.80126953125,
+            "cy": 0.6874432231104651,
             "r": 0.085
           },
           "imageB": {
-            "cx": 0.318,
-            "cy": 0.521,
+            "cx": 0.80126953125,
+            "cy": 0.6874432231104651,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.69306640625,
+            "cy": 0.19970703125,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.69306640625,
+            "cy": 0.19970703125,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9755483774038461,
+            "cy": 0.8404822716346154,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.9755483774038461,
+            "cy": 0.8404822716346154,
             "r": 0.085
           }
         }
@@ -169,14 +201,14 @@
         "publicPrompt": "Find item 1 in en-phonics-apple",
         "hitboxes": {
           "imageA": {
-            "cx": 0.555,
-            "cy": 0.856,
-            "r": 0.09
+            "cx": 0.23182352891690597,
+            "cy": 0.5729375813217875,
+            "r": 0.09000000000000001
           },
           "imageB": {
-            "cx": 0.555,
-            "cy": 0.856,
-            "r": 0.09
+            "cx": 0.23182352891690597,
+            "cy": 0.5729375813217875,
+            "r": 0.09000000000000001
           }
         }
       },
@@ -186,13 +218,13 @@
         "publicPrompt": "Find item 2 in en-phonics-apple",
         "hitboxes": {
           "imageA": {
-            "cx": 0.805,
-            "cy": 0.127,
+            "cx": 0.5417554215520668,
+            "cy": 0.47161059842011127,
             "r": 0.085
           },
           "imageB": {
-            "cx": 0.805,
-            "cy": 0.127,
+            "cx": 0.5417554215520668,
+            "cy": 0.47161059842011127,
             "r": 0.085
           }
         }
@@ -203,13 +235,13 @@
         "publicPrompt": "Find item 3 in en-phonics-apple",
         "hitboxes": {
           "imageA": {
-            "cx": 0.152,
-            "cy": 0.695,
+            "cx": 0.8831699499102871,
+            "cy": 0.3085119804126794,
             "r": 0.085
           },
           "imageB": {
-            "cx": 0.152,
-            "cy": 0.695,
+            "cx": 0.8831699499102871,
+            "cy": 0.3085119804126794,
             "r": 0.085
           }
         }
@@ -219,13 +251,13 @@
       "objectiveId": "sudden_1",
       "hitboxes": {
         "imageA": {
-          "cx": 0.555,
-          "cy": 0.856,
+          "cx": 0.23182352891690597,
+          "cy": 0.5729375813217875,
           "r": 0.095
         },
         "imageB": {
-          "cx": 0.555,
-          "cy": 0.856,
+          "cx": 0.23182352891690597,
+          "cy": 0.5729375813217875,
           "r": 0.095
         }
       }
@@ -262,10 +294,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "b12f07f94b7200b43a15ff1a30c34172658443760e059c9d27b823595b444284"
+    "privateSolutionHash": "5cb1be8009fa8570f5b0eb1d66bd4344064c9fdb1f87483da9cb6118e4fd4683"
   },
   "assetFiles": {
-    "31e4f0669bb9c90921402cf6a4e979ea53bb588042d9b7da8b44299b323e954b": "D:\\touchcatch\\content\\learning\\source\\en-phonics-apple-a.png",
-    "45f43584a0908fe07b36be3b72f7448ef300398dbdf59c7074dc0d92cb78300c": "D:\\touchcatch\\content\\learning\\source\\en-phonics-apple-b.png"
+    "9cc08804b015c05095124d7dc05576416829802ba665b78480ee731138756ca1": "D:\\touchcatch\\content\\learning\\source\\en-phonics-apple-a.png",
+    "7a63ac600229aba0d08388129d9f290a3d47f2669a5cf3967601c3b802d1c87c": "D:\\touchcatch\\content\\learning\\source\\en-phonics-apple-b.png"
   }
 }

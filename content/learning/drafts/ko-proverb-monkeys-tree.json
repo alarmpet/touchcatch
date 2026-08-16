@@ -1,0 +1,312 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "f7ebd2bb-77f2-4421-8abd-559b03301223",
+    "version": 1,
+    "contentRevisionId": "a4f2fb5a-cf84-4d0b-8117-f81446ab64d6",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "ko-proverb-monkeys-tree",
+    "category": "PROVERB",
+    "language": "ko",
+    "difficulty": "BEGINNER",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/abc604832d415ec6a0a267bd948ce2525fb24b03913a29d956ec146c7fe4041d.png",
+      "sha256": "abc604832d415ec6a0a267bd948ce2525fb24b03913a29d956ec146c7fe4041d",
+      "encodedBytes": 2898825,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/e6d2fa4bc2672c91321077385091c8ac4930bd807f1977647a76ef2ae56b4c3f.png",
+      "sha256": "e6d2fa4bc2672c91321077385091c8ac4930bd807f1977647a76ef2ae56b4c3f",
+      "encodedBytes": 2915987,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "a4f2fb5a-cf84-4d0b-8117-f81446ab64d6",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8885674168221394,
+            "cy": 0.2233453500725539,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.8885674168221394,
+            "cy": 0.2233453500725539,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.1817466817876344,
+            "cy": 0.10779674899193549,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.1817466817876344,
+            "cy": 0.10779674899193549,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7360045371882423,
+            "cy": 0.9540679279245843,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.7360045371882423,
+            "cy": 0.9540679279245843,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.20304337243541035,
+            "cy": 0.35528026453267475,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.20304337243541035,
+            "cy": 0.35528026453267475,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.10599286840596331,
+            "cy": 0.7748217101490825,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.10599286840596331,
+            "cy": 0.7748217101490825,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5386179454291045,
+            "cy": 0.16831127565298507,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.5386179454291045,
+            "cy": 0.16831127565298507,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9092179008152174,
+            "cy": 0.8940344769021739,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.9092179008152174,
+            "cy": 0.8940344769021739,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.6640556227992958,
+            "cy": 0.7335153499119719,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.6640556227992958,
+            "cy": 0.7335153499119719,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.45975167410714285,
+            "cy": 0.9075109460851648,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.45975167410714285,
+            "cy": 0.9075109460851648,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5164388020833334,
+            "cy": 0.4998372395833333,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.5164388020833334,
+            "cy": 0.4998372395833333,
+            "r": 0.10625000000000001
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in ko-proverb-monkeys-tree",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8885674168221394,
+            "cy": 0.2233453500725539,
+            "r": 0.11125000000000002
+          },
+          "imageB": {
+            "cx": 0.8885674168221394,
+            "cy": 0.2233453500725539,
+            "r": 0.11125000000000002
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in ko-proverb-monkeys-tree",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.1817466817876344,
+            "cy": 0.10779674899193549,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.1817466817876344,
+            "cy": 0.10779674899193549,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in ko-proverb-monkeys-tree",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7360045371882423,
+            "cy": 0.9540679279245843,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.7360045371882423,
+            "cy": 0.9540679279245843,
+            "r": 0.10625000000000001
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.8885674168221394,
+          "cy": 0.2233453500725539,
+          "r": 0.11625
+        },
+        "imageB": {
+          "cx": 0.8885674168221394,
+          "cy": 0.2233453500725539,
+          "r": 0.11625
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "원숭이도 나무에서 떨어진다",
+      "aliases": [
+        "원숭이도나무에서떨어진다"
+      ],
+      "hintUnits": [
+        "원",
+        "숭",
+        "이",
+        "도",
+        " ",
+        "나",
+        "무",
+        "에",
+        "서",
+        " ",
+        "떨",
+        "어",
+        "진",
+        "다"
+      ],
+      "meaning": {
+        "prompt": "아무리 능숙한 사람도 실수할 수 있다는 뜻은?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "원숭이도 나무에서 떨어진다"
+          },
+          {
+            "id": "option_2",
+            "label": "호랑이도 제 말하면 온다"
+          },
+          {
+            "id": "option_3",
+            "label": "토끼가 거북이를 이긴다"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "8a9833d03feeedb4d94dfafef88d5eb030424f8f1cfafacab26984e3871bb836"
+  },
+  "assetFiles": {
+    "abc604832d415ec6a0a267bd948ce2525fb24b03913a29d956ec146c7fe4041d": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-monkeys-tree-a.png",
+    "e6d2fa4bc2672c91321077385091c8ac4930bd807f1977647a76ef2ae56b4c3f": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-monkeys-tree-b.png"
+  }
+}

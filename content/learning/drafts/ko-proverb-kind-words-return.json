@@ -10,6 +10,7 @@
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "ko-proverb-kind-words-return",
+    "category": "PROVERB",
     "language": "ko",
     "difficulty": "ADVANCED",
     "imageA": {
@@ -251,14 +252,14 @@
       "objectiveId": "sudden_1",
       "hitboxes": {
         "imageA": {
-          "cx": 0.38,
-          "cy": 0.42,
-          "r": 0.075
+          "cx": 0.4,
+          "cy": 0.45,
+          "r": 0.07
         },
         "imageB": {
-          "cx": 0.38,
-          "cy": 0.42,
-          "r": 0.075
+          "cx": 0.4,
+          "cy": 0.45,
+          "r": 0.07
         }
       }
     },
@@ -304,7 +305,7 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "bed7c9694a8938b02151a57c7e3c0b15a449730c9afa1f4127c590bbde3881fb"
+    "privateSolutionHash": "ff5a20619fe763d431e09d4620c4b54002e1bce85e24f6e7e2077f66936f7dd9"
   },
   "assetFiles": {
     "61f564e177adc43fc5ce813ae0dc67641ac8347711aea80b1edfa14c497f8fe8": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-kind-words-return-a.png",

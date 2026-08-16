@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-07-30",
+  "provider": "xAI Imagine (Grok Build image_gen/image_edit)",
+  "workflow": "image_gen Image A -> image_edit Image B with catalog changes[]",
+  "output": "content/learning/source/{key}-a.png|b.png @ 1024x1024",
+  "catalogStatus": "schema-valid after fix-10-new-packs-schema.js (91 entries)",
+  "pairs": [
+    "ko-proverb-monkeys-tree",
+    "ko-proverb-spilled-water",
+    "ko-idiom-cheongchul-eoram",
+    "en-phonics-bear",
+    "en-phonics-cat",
+    "en-phonics-dolphin",
+    "en-space-blackhole",
+    "en-future-robotics",
+    "en-profession-architect",
+    "en-scenery-coral-reef"
+  ],
+  "completePairs": 10,
+  "nextSteps": [
+    "auto-detect-delta.js per pack",
+    "build-learning-entry / write-learning-bundle",
+    "write-learning-manifest",
+    "generate-registry",
+    "human visual QA of A/B difference visibility",
+    "optional: remove embedded text artifacts (scroll Hangul, MEOW bowl) on re-edit"
+  ],
+  "notes": [
+    "User claim that catalog schema already passed was incorrect for the raw 10-pack registration; fixed before generation.",
+    "all-content.test.ts only asserts manifest drafts, not catalog.v1.json schema.",
+    "Rate-limit (HTTP 429) required sequential batches for generation.",
+    "JPG intermediates retained alongside PNG."
+  ]
+}

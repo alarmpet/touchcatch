@@ -2,63 +2,75 @@
   "dimensionsMatch": true,
   "width": 1024,
   "height": 1024,
-  "changedRegions": 8,
+  "changedRegions": 10,
   "missingRegions": [],
-  "outsideChangedPixels": 14030,
-  "outsideChangedRatio": 0.01447839592169489,
+  "outsideChangedPixels": 85807,
+  "outsideChangedRatio": 0.09022742185134089,
   "outsidePolicy": "PASS",
   "policy": {
     "pixelThreshold": 60,
     "minChangedPixelsPerRegion": 24,
-    "maxOutsideChangedRatio": 0.05
+    "maxOutsideChangedRatio": 0.15
   },
   "regions": [
     {
-      "id": "difference_1",
-      "cx": 0.779,
-      "cy": 0.711,
+      "id": "diff_1",
+      "cx": 0.6421720805921053,
+      "cy": 0.7581568667763158,
       "r": 0.055
     },
     {
-      "id": "difference_2",
-      "cx": 0.69,
-      "cy": 0.499,
+      "id": "diff_2",
+      "cx": 0.9313637093321918,
+      "cy": 0.84423828125,
       "r": 0.055
     },
     {
-      "id": "difference_3",
-      "cx": 0.87,
-      "cy": 0.615,
+      "id": "diff_3",
+      "cx": 0.8766965207394894,
+      "cy": 0.6734894073761262,
       "r": 0.055
     },
     {
-      "id": "difference_4",
-      "cx": 0.585,
-      "cy": 0.608,
+      "id": "diff_4",
+      "cx": 0.58251953125,
+      "cy": 0.4316178735439068,
       "r": 0.055
     },
     {
-      "id": "difference_5",
-      "cx": 0.95,
-      "cy": 0.792,
+      "id": "diff_5",
+      "cx": 0.8944081182065218,
+      "cy": 0.20064113451086957,
       "r": 0.055
     },
     {
-      "id": "difference_6",
-      "cx": 0.624,
-      "cy": 0.736,
+      "id": "diff_6",
+      "cx": 0.9470738002232143,
+      "cy": 0.32053920200892855,
       "r": 0.055
     },
     {
-      "id": "difference_7",
-      "cx": 0.729,
-      "cy": 0.254,
+      "id": "diff_7",
+      "cx": 0.964864001296083,
+      "cy": 0.44666483654953915,
       "r": 0.055
     },
     {
-      "id": "difference_8",
-      "cx": 0.213,
-      "cy": 0.349,
+      "id": "diff_8",
+      "cx": 0.7400653545673077,
+      "cy": 0.8200495793269231,
+      "r": 0.055
+    },
+    {
+      "id": "diff_9",
+      "cx": 0.9604231074532086,
+      "cy": 0.10998861547459893,
+      "r": 0.055
+    },
+    {
+      "id": "diff_10",
+      "cx": 0.7718786555815508,
+      "cy": 0.2574025526403743,
       "r": 0.055
     }
   ]

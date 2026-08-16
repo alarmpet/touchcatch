@@ -6,141 +6,189 @@
   "publicContent": {
     "contentId": "31899ad5-871a-408d-8182-f38553f58049",
     "version": 1,
-    "contentRevisionId": "82434e24-6e4b-4de1-8edf-5f29b0952c06",
+    "contentRevisionId": "6b4b212d-08eb-47bd-85b3-5180a54076e9",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "en-cataclysm-volcano",
     "language": "en",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/d2c942429902de90a86e5bcd805c79bed777f15a95e94735eb01e2f2b2a3964c.png",
-      "sha256": "d2c942429902de90a86e5bcd805c79bed777f15a95e94735eb01e2f2b2a3964c",
-      "encodedBytes": 1597550,
+      "url": "https://cdn.spot-learn.test/assets/ff92405d3ba53e0da38c59c4bc7ed37cdb4ea95827e88cb3c327b516314c9288.png",
+      "sha256": "ff92405d3ba53e0da38c59c4bc7ed37cdb4ea95827e88cb3c327b516314c9288",
+      "encodedBytes": 2701642,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/83403c8eac9b9128b046f1f549da121bb0b51dcbc09a9a0094cd0bfb3f34a656.png",
-      "sha256": "83403c8eac9b9128b046f1f549da121bb0b51dcbc09a9a0094cd0bfb3f34a656",
-      "encodedBytes": 1749254,
+      "url": "https://cdn.spot-learn.test/assets/14fc0cd931b5f4a8841c29f97633620907b24425949d767727d4ebae7c653077.png",
+      "sha256": "14fc0cd931b5f4a8841c29f97633620907b24425949d767727d4ebae7c653077",
+      "encodedBytes": 2697896,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "82434e24-6e4b-4de1-8edf-5f29b0952c06",
+    "contentRevisionId": "6b4b212d-08eb-47bd-85b3-5180a54076e9",
     "schemaVersion": "1.0.0",
     "differences": [
       {
-        "objectiveId": "difference_1",
+        "objectiveId": "diff_1",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.734,
-            "cy": 0.743,
+            "cx": 0.18219058388157894,
+            "cy": 0.16864206414473684,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.734,
-            "cy": 0.743,
+            "cx": 0.18219058388157894,
+            "cy": 0.16864206414473684,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_2",
+        "objectiveId": "diff_2",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.668,
-            "cy": 0.879,
+            "cx": 0.5039376599049707,
+            "cy": 0.6452251233552632,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.668,
-            "cy": 0.879,
+            "cx": 0.5039376599049707,
+            "cy": 0.6452251233552632,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_3",
+        "objectiveId": "diff_3",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.819,
-            "cy": 0.318,
+            "cx": 0.08324291087962964,
+            "cy": 0.5416726948302469,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.819,
-            "cy": 0.318,
+            "cx": 0.08324291087962964,
+            "cy": 0.5416726948302469,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_4",
+        "objectiveId": "diff_4",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.448,
-            "cy": 0.894,
+            "cx": 0.893359375,
+            "cy": 0.6921875,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.448,
-            "cy": 0.894,
+            "cx": 0.893359375,
+            "cy": 0.6921875,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_5",
+        "objectiveId": "diff_5",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.447,
-            "cy": 0.781,
+            "cx": 0.6880998883928572,
+            "cy": 0.22068917410714287,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.447,
-            "cy": 0.781,
+            "cx": 0.6880998883928572,
+            "cy": 0.22068917410714287,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_6",
+        "objectiveId": "diff_6",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.919,
-            "cy": 0.457,
+            "cx": 0.6159396701388888,
+            "cy": 0.7044813368055556,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.919,
-            "cy": 0.457,
+            "cx": 0.6159396701388888,
+            "cy": 0.7044813368055556,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_7",
+        "objectiveId": "diff_7",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.796,
-            "cy": 0.435,
+            "cx": 0.9511561239919355,
+            "cy": 0.29320501512096775,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.796,
-            "cy": 0.435,
+            "cx": 0.9511561239919355,
+            "cy": 0.29320501512096775,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.04406317349137931,
+            "cy": 0.2900895743534483,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.04406317349137931,
+            "cy": 0.2900895743534483,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8277762276785714,
+            "cy": 0.3708379836309524,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.8277762276785714,
+            "cy": 0.3708379836309524,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7238456530448718,
+            "cy": 0.5767102363782052,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.7238456530448718,
+            "cy": 0.5767102363782052,
             "r": 0.055
           }
         }
@@ -153,13 +201,13 @@
         "publicPrompt": "Find item 1 in en-cataclysm-volcano",
         "hitboxes": {
           "imageA": {
-            "cx": 0.734,
-            "cy": 0.743,
+            "cx": 0.18219058388157894,
+            "cy": 0.16864206414473684,
             "r": 0.06
           },
           "imageB": {
-            "cx": 0.734,
-            "cy": 0.743,
+            "cx": 0.18219058388157894,
+            "cy": 0.16864206414473684,
             "r": 0.06
           }
         }
@@ -170,13 +218,13 @@
         "publicPrompt": "Find item 2 in en-cataclysm-volcano",
         "hitboxes": {
           "imageA": {
-            "cx": 0.668,
-            "cy": 0.879,
+            "cx": 0.5039376599049707,
+            "cy": 0.6452251233552632,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.668,
-            "cy": 0.879,
+            "cx": 0.5039376599049707,
+            "cy": 0.6452251233552632,
             "r": 0.055
           }
         }
@@ -187,13 +235,13 @@
         "publicPrompt": "Find item 3 in en-cataclysm-volcano",
         "hitboxes": {
           "imageA": {
-            "cx": 0.819,
-            "cy": 0.318,
+            "cx": 0.08324291087962964,
+            "cy": 0.5416726948302469,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.819,
-            "cy": 0.318,
+            "cx": 0.08324291087962964,
+            "cy": 0.5416726948302469,
             "r": 0.055
           }
         }
@@ -203,13 +251,13 @@
       "objectiveId": "sudden_1",
       "hitboxes": {
         "imageA": {
-          "cx": 0.734,
-          "cy": 0.743,
+          "cx": 0.18219058388157894,
+          "cy": 0.16864206414473684,
           "r": 0.065
         },
         "imageB": {
-          "cx": 0.734,
-          "cy": 0.743,
+          "cx": 0.18219058388157894,
+          "cy": 0.16864206414473684,
           "r": 0.065
         }
       }
@@ -250,10 +298,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "fffb8129fed09b1699d93667caa4a5c7f3b1c6e70692b66f81749b13f8243bd5"
+    "privateSolutionHash": "5cd1fc5abea17de3a467994474f71465f56239e3d431fcc2bd00daa0de0b4ef0"
   },
   "assetFiles": {
-    "d2c942429902de90a86e5bcd805c79bed777f15a95e94735eb01e2f2b2a3964c": "D:\\touchcatch\\content\\learning\\source\\en-cataclysm-volcano-a.png",
-    "83403c8eac9b9128b046f1f549da121bb0b51dcbc09a9a0094cd0bfb3f34a656": "D:\\touchcatch\\content\\learning\\source\\en-cataclysm-volcano-b.png"
+    "ff92405d3ba53e0da38c59c4bc7ed37cdb4ea95827e88cb3c327b516314c9288": "D:\\touchcatch\\content\\learning\\source\\en-cataclysm-volcano-a.png",
+    "14fc0cd931b5f4a8841c29f97633620907b24425949d767727d4ebae7c653077": "D:\\touchcatch\\content\\learning\\source\\en-cataclysm-volcano-b.png"
   }
 }

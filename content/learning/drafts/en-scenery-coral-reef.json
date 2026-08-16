@@ -1,0 +1,309 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "9722d795-91d3-4885-89a2-5d2f4fd9f82d",
+    "version": 1,
+    "contentRevisionId": "7cd81273-20f0-4e3f-87ea-2623ec808953",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-scenery-coral-reef",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "en",
+    "difficulty": "BEGINNER",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/098b756191a057a0cb6d6af103091fec83181d93100677e109666681ccf220e8.png",
+      "sha256": "098b756191a057a0cb6d6af103091fec83181d93100677e109666681ccf220e8",
+      "encodedBytes": 2741843,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/dcc7dbf97cf9d5fbc657a0589b5f2a457de03888d7a53cc98a4c689db473696f.png",
+      "sha256": "dcc7dbf97cf9d5fbc657a0589b5f2a457de03888d7a53cc98a4c689db473696f",
+      "encodedBytes": 2669687,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "7cd81273-20f0-4e3f-87ea-2623ec808953",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.4135774038853555,
+            "cy": 0.07368269171966732,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.4135774038853555,
+            "cy": 0.07368269171966732,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.08578907970814978,
+            "cy": 0.12782858962004406,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.08578907970814978,
+            "cy": 0.12782858962004406,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.25701366439176243,
+            "cy": 0.1477808459051724,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.25701366439176243,
+            "cy": 0.1477808459051724,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8538263494318182,
+            "cy": 0.47558754192908,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.8538263494318182,
+            "cy": 0.47558754192908,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5092848972720995,
+            "cy": 0.8021673213052486,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.5092848972720995,
+            "cy": 0.8021673213052486,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7631261488970589,
+            "cy": 0.3180075252757353,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.7631261488970589,
+            "cy": 0.3180075252757353,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.10050422512755101,
+            "cy": 0.8311244419642857,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.10050422512755101,
+            "cy": 0.8311244419642857,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8365234375,
+            "cy": 0.8211292613636364,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.8365234375,
+            "cy": 0.8211292613636364,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.17059326171875,
+            "cy": 0.43017578125,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.17059326171875,
+            "cy": 0.43017578125,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.4212800354516807,
+            "cy": 0.5041647518382353,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.4212800354516807,
+            "cy": 0.5041647518382353,
+            "r": 0.10625000000000001
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-scenery-coral-reef",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.4135774038853555,
+            "cy": 0.07368269171966732,
+            "r": 0.11125000000000002
+          },
+          "imageB": {
+            "cx": 0.4135774038853555,
+            "cy": 0.07368269171966732,
+            "r": 0.11125000000000002
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-scenery-coral-reef",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.08578907970814978,
+            "cy": 0.12782858962004406,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.08578907970814978,
+            "cy": 0.12782858962004406,
+            "r": 0.10625000000000001
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-scenery-coral-reef",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.25701366439176243,
+            "cy": 0.1477808459051724,
+            "r": 0.10625000000000001
+          },
+          "imageB": {
+            "cx": 0.25701366439176243,
+            "cy": 0.1477808459051724,
+            "r": 0.10625000000000001
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.4135774038853555,
+          "cy": 0.07368269171966732,
+          "r": 0.11625
+        },
+        "imageB": {
+          "cx": 0.4135774038853555,
+          "cy": 0.07368269171966732,
+          "r": 0.11625
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "coral reef",
+      "aliases": [
+        "Coral Reef",
+        "coral"
+      ],
+      "hintUnits": [
+        "c",
+        "o",
+        "r",
+        "a",
+        "l",
+        " ",
+        "r",
+        "e",
+        "e",
+        "f"
+      ],
+      "meaning": {
+        "prompt": "What underwater ecosystem is built by coral polyps?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "산호초 (coral reef)"
+          },
+          {
+            "id": "option_2",
+            "label": "사막 (desert)"
+          },
+          {
+            "id": "option_3",
+            "label": "초원 (grassland)"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "3053704afd6eebd1fc85af048f45cf0bc9c6d9209d36dbd608334230cda18c6e"
+  },
+  "assetFiles": {
+    "098b756191a057a0cb6d6af103091fec83181d93100677e109666681ccf220e8": "D:\\touchcatch\\content\\learning\\source\\en-scenery-coral-reef-a.png",
+    "dcc7dbf97cf9d5fbc657a0589b5f2a457de03888d7a53cc98a4c689db473696f": "D:\\touchcatch\\content\\learning\\source\\en-scenery-coral-reef-b.png"
+  }
+}

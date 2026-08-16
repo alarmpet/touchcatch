@@ -6,173 +6,190 @@
   "publicContent": {
     "contentId": "7822b9cb-31b5-4024-81ee-cbc35310d344",
     "version": 1,
-    "contentRevisionId": "f528ad3a-daf3-4475-8ec4-21ad1010321c",
+    "contentRevisionId": "56bad18b-7146-4f3b-803a-338a97c482f8",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "en-clay-bakery",
+    "category": "ENGLISH",
     "language": "en",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/edd06a8300e16693cd0cd404e90569e13bc5948b9796c171387930860cb126ec.png",
-      "sha256": "edd06a8300e16693cd0cd404e90569e13bc5948b9796c171387930860cb126ec",
-      "encodedBytes": 2462159,
+      "url": "https://cdn.spot-learn.test/assets/5219cbe7a5628ca8ffd90a7f29721a0ac42d188ec38bd88822d85fa81e5d4e72.png",
+      "sha256": "5219cbe7a5628ca8ffd90a7f29721a0ac42d188ec38bd88822d85fa81e5d4e72",
+      "encodedBytes": 2384353,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/52b34e5e20288bcd959d49069e998d93a9e0a6d19599ffe24741f565e4f402e7.png",
-      "sha256": "52b34e5e20288bcd959d49069e998d93a9e0a6d19599ffe24741f565e4f402e7",
-      "encodedBytes": 2516772,
+      "url": "https://cdn.spot-learn.test/assets/d3911d961318b0b88834c049a3954845ac3f7744186de5c7777b51db340d833d.png",
+      "sha256": "d3911d961318b0b88834c049a3954845ac3f7744186de5c7777b51db340d833d",
+      "encodedBytes": 2398093,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "f528ad3a-daf3-4475-8ec4-21ad1010321c",
+    "contentRevisionId": "56bad18b-7146-4f3b-803a-338a97c482f8",
     "schemaVersion": "1.0.0",
     "differences": [
       {
-        "objectiveId": "difference_1",
+        "objectiveId": "diff_1",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.907,
-            "cy": 0.633,
+            "cx": 0.9011447161612426,
+            "cy": 0.8688545904215976,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.907,
-            "cy": 0.633,
+            "cx": 0.9011447161612426,
+            "cy": 0.8688545904215976,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_2",
+        "objectiveId": "diff_2",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.734,
-            "cy": 0.729,
+            "cx": 0.6364222935267857,
+            "cy": 0.4649571010044643,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.734,
-            "cy": 0.729,
+            "cx": 0.6364222935267857,
+            "cy": 0.4649571010044643,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_3",
+        "objectiveId": "diff_3",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.446,
-            "cy": 0.436,
+            "cx": 0.9304534767476303,
+            "cy": 0.20954670838270142,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.446,
-            "cy": 0.436,
+            "cx": 0.9304534767476303,
+            "cy": 0.20954670838270142,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_4",
+        "objectiveId": "diff_4",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.617,
-            "cy": 0.534,
+            "cx": 0.6406177122201493,
+            "cy": 0.6456462803171642,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.617,
-            "cy": 0.534,
+            "cx": 0.6406177122201493,
+            "cy": 0.6456462803171642,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_5",
+        "objectiveId": "diff_5",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.305,
-            "cy": 0.657,
+            "cx": 0.3034930889423077,
+            "cy": 0.21085486778846155,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.305,
-            "cy": 0.657,
+            "cx": 0.3034930889423077,
+            "cy": 0.21085486778846155,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_6",
+        "objectiveId": "diff_6",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.953,
-            "cy": 0.463,
+            "cx": 0.10126953125,
+            "cy": 0.21923828125,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.953,
-            "cy": 0.463,
+            "cx": 0.10126953125,
+            "cy": 0.21923828125,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_7",
+        "objectiveId": "diff_7",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.582,
-            "cy": 0.777,
+            "cx": 0.49018831073113206,
+            "cy": 0.5700821786556604,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.582,
-            "cy": 0.777,
+            "cx": 0.49018831073113206,
+            "cy": 0.5700821786556604,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_8",
+        "objectiveId": "diff_8",
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.636,
-            "cy": 0.265,
+            "cx": 0.36962890625,
+            "cy": 0.5654296875,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.636,
-            "cy": 0.265,
+            "cx": 0.36962890625,
+            "cy": 0.5654296875,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_9",
+        "objectiveId": "diff_9",
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.423,
-            "cy": 0.594,
+            "cx": 0.07756029211956522,
+            "cy": 0.7874108355978261,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.423,
-            "cy": 0.594,
+            "cx": 0.07756029211956522,
+            "cy": 0.7874108355978261,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9173354347153465,
+            "cy": 0.5481754718440595,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.9173354347153465,
+            "cy": 0.5481754718440595,
             "r": 0.055
           }
         }
@@ -185,13 +202,13 @@
         "publicPrompt": "Find item 1 in en-clay-bakery",
         "hitboxes": {
           "imageA": {
-            "cx": 0.907,
-            "cy": 0.633,
+            "cx": 0.9011447161612426,
+            "cy": 0.8688545904215976,
             "r": 0.06
           },
           "imageB": {
-            "cx": 0.907,
-            "cy": 0.633,
+            "cx": 0.9011447161612426,
+            "cy": 0.8688545904215976,
             "r": 0.06
           }
         }
@@ -202,13 +219,13 @@
         "publicPrompt": "Find item 2 in en-clay-bakery",
         "hitboxes": {
           "imageA": {
-            "cx": 0.734,
-            "cy": 0.729,
+            "cx": 0.6364222935267857,
+            "cy": 0.4649571010044643,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.734,
-            "cy": 0.729,
+            "cx": 0.6364222935267857,
+            "cy": 0.4649571010044643,
             "r": 0.055
           }
         }
@@ -219,13 +236,13 @@
         "publicPrompt": "Find item 3 in en-clay-bakery",
         "hitboxes": {
           "imageA": {
-            "cx": 0.446,
-            "cy": 0.436,
+            "cx": 0.9304534767476303,
+            "cy": 0.20954670838270142,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.446,
-            "cy": 0.436,
+            "cx": 0.9304534767476303,
+            "cy": 0.20954670838270142,
             "r": 0.055
           }
         }
@@ -235,13 +252,13 @@
       "objectiveId": "sudden_1",
       "hitboxes": {
         "imageA": {
-          "cx": 0.907,
-          "cy": 0.633,
+          "cx": 0.9011447161612426,
+          "cy": 0.8688545904215976,
           "r": 0.065
         },
         "imageB": {
-          "cx": 0.907,
-          "cy": 0.633,
+          "cx": 0.9011447161612426,
+          "cy": 0.8688545904215976,
           "r": 0.065
         }
       }
@@ -284,10 +301,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "61f95c5ae6908333abf2a36cdb48a279c2f41bc7b55393c94dc1b31f24ff4fdd"
+    "privateSolutionHash": "9f9e2950afdca7efd8970a98126fca878866b7b9293165853611bedb5535e71f"
   },
   "assetFiles": {
-    "edd06a8300e16693cd0cd404e90569e13bc5948b9796c171387930860cb126ec": "D:\\touchcatch\\content\\learning\\source\\en-clay-bakery-a.png",
-    "52b34e5e20288bcd959d49069e998d93a9e0a6d19599ffe24741f565e4f402e7": "D:\\touchcatch\\content\\learning\\source\\en-clay-bakery-b.png"
+    "5219cbe7a5628ca8ffd90a7f29721a0ac42d188ec38bd88822d85fa81e5d4e72": "D:\\touchcatch\\content\\learning\\source\\en-clay-bakery-a.png",
+    "d3911d961318b0b88834c049a3954845ac3f7744186de5c7777b51db340d833d": "D:\\touchcatch\\content\\learning\\source\\en-clay-bakery-b.png"
   }
 }

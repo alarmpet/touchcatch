@@ -5,8 +5,10 @@
     {
       "key": "en-resilience",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "a913582e-ad85-4687-8d07-0891a60cc415",
-      "contentRevisionId": "6abea107-ace8-4bdb-872b-7d165bc26dbe",
+      "contentRevisionId": "a0daa245-1ed6-4816-8b59-3ed4d5a23daf",
       "bundle": "drafts/en-resilience.json",
       "evidence": "evidence/en-resilience.visual-delta.json",
       "images": [
@@ -14,21 +16,21 @@
         "source/en-resilience-b.png"
       ],
       "imageHashes": [
-        "cb29e67a65ed7a192a81c3eb5fd00bbbdc58c14085c60b5405a8a19ab1d74669",
-        "41c330b7546190bbc6c16712786f8b6b8631536010d8a6cf263cee39e7f88e57"
+        "cb222bdb5a5eb73aae2d5ebb107f92c2f9a0c852500203f5c78e83250502f449",
+        "170778218b0073b964039261103e463353e0ef4c700d67eb007788bbb4bbae37"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-resilience-base.txt",
-          "sha256": "f1dc49de847869c9d94b7389b5ceb4ab95103e4454f57d8d74880a5f8b105565"
+          "sha256": "901fdb9a9506d6f560f41287c5b3ed62d36de87a90a8fc56c0424837a12d0b6e"
         },
         {
           "file": "prompts/en-resilience-correction.txt",
-          "sha256": "ebe0d353c794a0125552e2adc5cb627a8637bd00816d97dfca5a864d87c9b97f"
+          "sha256": "268ed5538a482fe9897ab25d36c3809bd5bf20cf9f17a209a496156b9c2a0189"
         },
         {
           "file": "prompts/en-resilience-edit.txt",
-          "sha256": "b9b040883534a3e9f40ae4fcf7f4392a16e1dea66f47fbf89f71edcd60030d2d"
+          "sha256": "d083d4bc9d0f6ec56685256ceeb9c3e0a8b93e838499927d56c2e9309bec79b4"
         },
         {
           "file": "prompts/en-resilience-garden-base.txt",
@@ -43,7 +45,7 @@
         "status": "ADMITTED",
         "stepCount": 5,
         "errors": [],
-        "hash": "b75e755322376b9d358ac4757b4aaac60ec52593d615a904a3f792f5bcb8e81c"
+        "hash": "d1448f58b8455b432c1535607f656a9888d756a20866a69b245c22d5dd02bd88"
       },
       "rankedEligible": true,
       "publishBlocked": true
@@ -51,8 +53,10 @@
     {
       "key": "en-dilemma",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "f97068ec-055f-495c-88da-81ce80d6212c",
-      "contentRevisionId": "f9fcd5e6-f37b-4f0c-8243-8a262dd9af2c",
+      "contentRevisionId": "0275ef2c-605f-41fd-85e9-647437a314fc",
       "bundle": "drafts/en-dilemma.json",
       "evidence": "evidence/en-dilemma.visual-delta.json",
       "images": [
@@ -60,17 +64,17 @@
         "source/en-dilemma-b.png"
       ],
       "imageHashes": [
-        "ef6ef9e05212f12adcc209168abcfbcf07c8d03a2b937dfcbca07c5664383cf8",
-        "090ffdaf91a9d2c2decac61a24109346350100c589d8ff12f6daad7390bb827e"
+        "68febc1e3e98c511e2629570299cd20ab0965c7da8c053f4586d94d64f43099b",
+        "8815108f787468c69f3084a15d7e6fd8ed1bf2532f80b9a52849cee1022762d3"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-dilemma-base.txt",
-          "sha256": "2ac84e9e7ff3b3499c808954c904239c33b953b254f4728b324e0146ef134f8c"
+          "sha256": "0ee8078978300f7e923960b508a997769b8339033aff7334c947ecca64d893a6"
         },
         {
           "file": "prompts/en-dilemma-edit.txt",
-          "sha256": "152a067ebe623c6e37f02d2b95e3dff71afe7f056f4a55f7104a3b90e5eb624a"
+          "sha256": "f5772cf0e69237c86c0c9f6ff1b331d9e0fe295fa70eba22856695bdfa28b0bf"
         }
       ],
       "hintLadderAdmission": {
@@ -87,8 +91,10 @@
     {
       "key": "en-sustainability",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "204a1f03-2833-4b0c-8ae1-43e557b03c1b",
-      "contentRevisionId": "6b655b64-edaa-4c8f-8813-5bc74aba8c91",
+      "contentRevisionId": "e8c68064-6607-4525-80eb-1f67e329124b",
       "bundle": "drafts/en-sustainability.json",
       "evidence": "evidence/en-sustainability.visual-delta.json",
       "images": [
@@ -96,17 +102,17 @@
         "source/en-sustainability-b.png"
       ],
       "imageHashes": [
-        "46501fe660ec24256128122c3ed70bb7c571ba84699f338fe9e913411c22f8cf",
-        "47ecbab4b8d49763ebdbe0884476e225a9e1bb011b6f0d2a95dccc30dcbe7e27"
+        "222aa234cbe564e8f5ca939ed04de59511a80f89723be6e42d438cd25fec2048",
+        "a3703297aa3746c14c1767b5521a28fc0fe7c29ae3cb857eadba5813096738fc"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-sustainability-base.txt",
-          "sha256": "ba4ab3d5e71237c9750fe5a6e5e3f760f3047e192c91e17825fb4eb567dc512d"
+          "sha256": "68cbc4ed3ea48f351a837c08d5c0c897cfdd11ee1f3c802e9ceab19cdda7272f"
         },
         {
           "file": "prompts/en-sustainability-edit.txt",
-          "sha256": "12fd9a2c3aad47dfe9b6a0b0dfe27325056563d81641c1330955cf543f3bb40f"
+          "sha256": "de65b09525ab32e87a4665c24d6ea4646fee659bc81a67a7101f42199999b18c"
         },
         {
           "file": "prompts/en-sustainability-greenhouse-base.txt",
@@ -131,8 +137,10 @@
     {
       "key": "ko-proverb-dark-under-lamp",
       "category": "PROVERB",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "INITIAL_PATTERN",
       "contentId": "38c312af-4b10-4ccc-863d-2da2f4cc4ac7",
-      "contentRevisionId": "67849373-b573-46eb-8034-f3fa50c96289",
+      "contentRevisionId": "0179c08d-3271-4778-8dc4-b1ff7a9d6169",
       "bundle": "drafts/ko-proverb-dark-under-lamp.json",
       "evidence": "evidence/ko-proverb-dark-under-lamp.visual-delta.json",
       "images": [
@@ -140,17 +148,17 @@
         "source/ko-proverb-dark-under-lamp-b.png"
       ],
       "imageHashes": [
-        "056d847df68c402db04f5ccfbff328e1778d0481c04f7fc8f5e304a0630593cc",
-        "d18c0ab0556e43e04832d98da3fe30019635d400a034feb5d3544f9c60e2020a"
+        "e4dce6ea38d8b33bf09711ee72ac2f8fda3156985d5576890d2727bd4d815287",
+        "35648d5499d8491b666cfe5a9d878cf6cbbbce5d2199c10bd27be26cd86838fe"
       ],
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-dark-under-lamp-base.txt",
-          "sha256": "a88180115b1bccd4384084588b27488b39fa99a06bfc59ebf16a7b304c618fd0"
+          "sha256": "22eaa9fa4e142506b569d701a3487f7fcb49c8d430555ef9eb6749f4160818e0"
         },
         {
           "file": "prompts/ko-proverb-dark-under-lamp-edit.txt",
-          "sha256": "e943b0f8e4544c6f525bcc8febe26810bf4f83ab7bdb020779b9f0383310a432"
+          "sha256": "791f3879ecdbddfc2941a9619a6fa1d951cf5bc859d86668c2bbbbcc9f251038"
         }
       ],
       "hintLadderAdmission": {
@@ -167,8 +175,10 @@
     {
       "key": "ko-proverb-seeing-is-believing",
       "category": "PROVERB",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "INITIAL_PATTERN",
       "contentId": "03e72cd5-fd13-4e9b-85cf-7f6b23e5a5d2",
-      "contentRevisionId": "1aea2997-0944-493c-8739-acd0c27af4ac",
+      "contentRevisionId": "008e4c98-c1ae-4ab4-80ec-253f3292d256",
       "bundle": "drafts/ko-proverb-seeing-is-believing.json",
       "evidence": "evidence/ko-proverb-seeing-is-believing.visual-delta.json",
       "images": [
@@ -176,24 +186,24 @@
         "source/ko-proverb-seeing-is-believing-b.png"
       ],
       "imageHashes": [
-        "340f4b221ce65d4443157444b7919ff727132815c47cf7c2f57871fa84daf29a",
-        "cfdf2fbf64b3f9cd226b81242ee893545b698afd74bc23598d5b756b857aaa3b"
+        "1d67380b512fb1a9f0d8bd6769f78349e71b6280da219e04cdde6a7c70e81994",
+        "6cb49b1cb885c25973ed25cae66325954a0e82d10591f863b20b0f8561e1e461"
       ],
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-seeing-is-believing-base.txt",
-          "sha256": "2005dc4a0753dbe92509165e3c77ec830968b5240c2ca89fd23ec27ac931f40d"
+          "sha256": "7e82360481bed452307e111cb7e724c08d0f18d6ac6d433d34664f36645ba8aa"
         },
         {
           "file": "prompts/ko-proverb-seeing-is-believing-edit.txt",
-          "sha256": "be9bd8efb1449ca8fdf7a6e162d4ef2b20b8b8ac58a05385d6b9c6895e37acd2"
+          "sha256": "64501d036999627e5096e1884d9cd79340f22f4355173cb9914e22c51e553905"
         }
       ],
       "hintLadderAdmission": {
         "status": "ADMITTED",
         "stepCount": 5,
         "errors": [],
-        "hash": "8e902db25573ee495679b843ef46132dbb7aa0132aef2441ba3da7f7a9110ac3"
+        "hash": "85f9c11261c566696ee3d22629c89b879aedb7488ecf68d7004537cf41eef320"
       },
       "rankedEligible": true,
       "publishBlocked": true
@@ -201,6 +211,8 @@
     {
       "key": "ko-proverb-kind-words-return",
       "category": "PROVERB",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "INITIAL_PATTERN",
       "contentId": "29a97946-d408-49ed-84f1-b7a948cb1ce9",
       "contentRevisionId": "b3d8c6e0-d825-416e-8122-c140926d7374",
       "bundle": "drafts/ko-proverb-kind-words-return.json",
@@ -216,15 +228,15 @@
       "promptEvidence": [
         {
           "file": "prompts/ko-proverb-kind-words-return-base.txt",
-          "sha256": "a85e2f95c9d3353f8961b4dbcca585e65f5f3573cd0ccaf2d16c3a1c9dace835"
+          "sha256": "eee485c6c9faafdb3cc4d54f37b5ebe4a89bb4cfb2de4e9c1d86109be8e63486"
         },
         {
           "file": "prompts/ko-proverb-kind-words-return-correction.txt",
-          "sha256": "8e4d8bfb35c5e344744b29208977dccf8d320b61a3b40e27b00ccbfa8fd0bc39"
+          "sha256": "2a94e63fd9a03c31bf6cb22a4a142006198e221948ed618177b7cf6e540c40c4"
         },
         {
           "file": "prompts/ko-proverb-kind-words-return-edit.txt",
-          "sha256": "46ec5ecdc67a0e88fbf6693732f8717616a3997930794f6836f80e9628bd7320"
+          "sha256": "4e53a3060acbcd48b41aff02993f094649cf73eaabca49cb29f5803119b403f3"
         }
       ],
       "hintLadderAdmission": {
@@ -241,6 +253,8 @@
     {
       "key": "ko-idiom-turn-misfortune",
       "category": "IDIOM",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "INITIAL_PATTERN",
       "contentId": "a456f270-5396-4d7b-8dde-905c465657b3",
       "contentRevisionId": "0acd4bf2-3806-4ee9-8b6f-84f70a62bd8b",
       "bundle": "drafts/ko-idiom-turn-misfortune.json",
@@ -256,11 +270,11 @@
       "promptEvidence": [
         {
           "file": "prompts/ko-idiom-turn-misfortune-base.txt",
-          "sha256": "36b001ce8d9d4e27c4c6b0325fb0172610301e6a5bf57cf083f15b7ec16f0d07"
+          "sha256": "38fdb5c15edd0e75bfb667e1f9b6d26a5824409996d99e1f54d0ca7d775913c8"
         },
         {
           "file": "prompts/ko-idiom-turn-misfortune-edit.txt",
-          "sha256": "1bac6fcda1b10b7474691856467060582da2fcf1001979e0a3d36be5a96a44fb"
+          "sha256": "bfceca7604ecc1b779c802dca3ceba6b7fbab9e484aa17e698d6ce325b1158c3"
         }
       ],
       "hintLadderAdmission": {
@@ -275,6 +289,8 @@
     {
       "key": "ko-idiom-prepare-ahead",
       "category": "IDIOM",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "INITIAL_PATTERN",
       "contentId": "a05608c2-7737-40f0-8116-d1eefc9bf3f7",
       "contentRevisionId": "61a3ee34-75c6-4d55-85d9-7067b05f1d37",
       "bundle": "drafts/ko-idiom-prepare-ahead.json",
@@ -290,11 +306,11 @@
       "promptEvidence": [
         {
           "file": "prompts/ko-idiom-prepare-ahead-base.txt",
-          "sha256": "ed234c664a756a7f3359d4798a62d5fbf8b11cbc561d1ac07b953a834fb4a88e"
+          "sha256": "515f3aec19bf8c299169260dc9a406b7f00d5b9ed100d8d023b4212ee1f9c807"
         },
         {
           "file": "prompts/ko-idiom-prepare-ahead-edit.txt",
-          "sha256": "8826ee37c40aaeec3f935e2f9250b39538d8473091d692f494040e98cbb2fd4b"
+          "sha256": "411901a11f066af3ae8359dbe724a25bf7149a00272accfb6e1ddf0229cec056"
         }
       ],
       "hintLadderAdmission": {
@@ -311,6 +327,8 @@
     {
       "key": "ko-idiom-perspective",
       "category": "IDIOM",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "INITIAL_PATTERN",
       "contentId": "050caabc-d151-4f1a-86ee-80a163dfa185",
       "contentRevisionId": "d6675c1e-ca02-49d5-8eb6-0526d9dff213",
       "bundle": "drafts/ko-idiom-perspective.json",
@@ -326,11 +344,11 @@
       "promptEvidence": [
         {
           "file": "prompts/ko-idiom-perspective-base.txt",
-          "sha256": "0e8c1ee64b1ff7e5f85ae0dce24a89ec374afd58ee773a04ff231d4fbc9a80ce"
+          "sha256": "81ba0d1d724186bdce925217be1a67bd859dc54202f5f0b7d8e5c0a9ab9bb654"
         },
         {
           "file": "prompts/ko-idiom-perspective-edit.txt",
-          "sha256": "3b8cf2baea59b5cdd0b62ae7810547b55d04980be9de042cae73506e15b57ab8"
+          "sha256": "42075c733816fd481da0e4feed3123a82835782422b5d2759a3b0e59399fda06"
         }
       ],
       "hintLadderAdmission": {
@@ -347,8 +365,10 @@
     {
       "key": "en-phonics-apple",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "c5745911-5397-48ae-8cd6-1a9d546bf2bd",
-      "contentRevisionId": "7aed0653-a06e-4f37-8d47-b71fde6aa378",
+      "contentRevisionId": "e23be621-88e1-44bd-83a9-3c7bd50b7d5f",
       "bundle": "drafts/en-phonics-apple.json",
       "evidence": "evidence/en-phonics-apple.visual-delta.json",
       "images": [
@@ -356,8 +376,8 @@
         "source/en-phonics-apple-b.png"
       ],
       "imageHashes": [
-        "31e4f0669bb9c90921402cf6a4e979ea53bb588042d9b7da8b44299b323e954b",
-        "45f43584a0908fe07b36be3b72f7448ef300398dbdf59c7074dc0d92cb78300c"
+        "9cc08804b015c05095124d7dc05576416829802ba665b78480ee731138756ca1",
+        "7a63ac600229aba0d08388129d9f290a3d47f2669a5cf3967601c3b802d1c87c"
       ],
       "promptEvidence": [
         {
@@ -383,6 +403,8 @@
     {
       "key": "gk-space-rover",
       "category": "GENERAL_KNOWLEDGE",
+      "preferredInputSurface": "MULTIPLE_CHOICE",
+      "assistPattern": "NONE",
       "contentId": "2e4f9f07-9b07-4dd1-8d28-21dca394e5f9",
       "contentRevisionId": "3c7a2d7a-aa14-458d-8763-aa27a882ccd2",
       "bundle": "drafts/gk-space-rover.json",
@@ -419,6 +441,8 @@
     {
       "key": "ko-proverb-cow-barn",
       "category": "PROVERB",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "INITIAL_PATTERN",
       "contentId": "8a62ab0d-c122-419c-8129-f3ba724d7924",
       "contentRevisionId": "c88160aa-eab6-4e4b-80b7-961e47ba2a05",
       "bundle": "drafts/ko-proverb-cow-barn.json",
@@ -455,6 +479,8 @@
     {
       "key": "ko-idiom-birds-one-stone",
       "category": "IDIOM",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "INITIAL_PATTERN",
       "contentId": "dc26779c-6512-4a71-8800-480994c0ec74",
       "contentRevisionId": "34af5227-b3fd-4b67-8a9a-c5e1f68a883f",
       "bundle": "drafts/ko-idiom-birds-one-stone.json",
@@ -491,6 +517,8 @@
     {
       "key": "en-school-classroom",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "c472b82d-7e97-478a-87ac-580d8b3453ed",
       "contentRevisionId": "531f8ec6-9e47-4879-8643-826d841b7870",
       "bundle": "drafts/en-school-classroom.json",
@@ -527,6 +555,8 @@
     {
       "key": "en-happy-family",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "235a1582-b282-4638-88c2-db56b5e8a1fe",
       "contentRevisionId": "63ffb4b1-3d5c-416d-8b13-a5894b8e2c78",
       "bundle": "drafts/en-happy-family.json",
@@ -537,7 +567,7 @@
       ],
       "imageHashes": [
         "555d7a8c1add5b4e79deca138a1ba986f9d6d92a47830e2f9ec868c247affc27",
-        "a8a3870e6123e577899e62395ae83433c61aa974cce1a8c969214412fd009453"
+        "1121a042f9249378eea8add2dffc0596b67352a5d0e6c1a386e88308152a75d1"
       ],
       "promptEvidence": [
         {
@@ -563,6 +593,8 @@
     {
       "key": "en-curiosity-lab",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "057869c5-7a3f-4751-8a38-95b21178621d",
       "contentRevisionId": "c7d11d18-c531-4e17-89c2-bec36041f9cb",
       "bundle": "drafts/en-curiosity-lab.json",
@@ -573,7 +605,7 @@
       ],
       "imageHashes": [
         "e03cc5dfb8bf9020428ba8f5ba5f139b4b1c53f60964196f7c2877a74523bbd3",
-        "554e6a503b4a77d6f8dd8a7034b369f3812ea7b8d5ca86396a16512089701b9d"
+        "8b0aeb28928cb1e8a3613fabaef6cee46a1f6749227af30674b39e9d8a29ca16"
       ],
       "promptEvidence": [
         {
@@ -599,6 +631,8 @@
     {
       "key": "en-ambiguity-gallery",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "56355ac4-ee2d-46e9-8c1c-f102e710370b",
       "contentRevisionId": "0c7466d2-0fd4-4749-8979-abf1ac20b5de",
       "bundle": "drafts/en-ambiguity-gallery.json",
@@ -609,7 +643,7 @@
       ],
       "imageHashes": [
         "9115763937ea3f88201ca7c22593ce8999b626f3f93e1d6a33c2980c033e1532",
-        "5d65ebda93e7e5a3f8282f15fda5fa5757842d650834ca11eee7a3acaf20feec"
+        "2f72d06972c2891d7b36e6736b46ae0c850127f878c77d07ef7fd3ff744d0e52"
       ],
       "promptEvidence": [
         {
@@ -635,6 +669,8 @@
     {
       "key": "en-toy-hospital",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "fbf8d862-0a02-41f0-87c6-aa2337935fb1",
       "contentRevisionId": "122cf8b4-8850-4a74-8b07-a2377a1ecb54",
       "bundle": "drafts/en-toy-hospital.json",
@@ -671,6 +707,8 @@
     {
       "key": "en-city-park",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "6d79ca99-25c0-4331-8041-66e1e4c708d9",
       "contentRevisionId": "228cf169-9768-4afd-8ce5-16b24ec772eb",
       "bundle": "drafts/en-city-park.json",
@@ -707,6 +745,8 @@
     {
       "key": "en-yellow-bus",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "b3c387b1-0060-4f96-8044-2be9e11f7f26",
       "contentRevisionId": "33ecc8ea-a41c-403e-873d-9e4961a26d75",
       "bundle": "drafts/en-yellow-bus.json",
@@ -743,6 +783,8 @@
     {
       "key": "en-funny-zoo",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "6ff26934-759a-4478-81b1-dcec0473c2b2",
       "contentRevisionId": "f6233028-710c-4ed1-83aa-fcfbbfb61726",
       "bundle": "drafts/en-funny-zoo.json",
@@ -779,6 +821,8 @@
     {
       "key": "en-sweet-bakery",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "16acd5c3-9f4a-4e4d-8a05-4fc9d719b5eb",
       "contentRevisionId": "56f31071-bffa-47c2-86c7-98432ef4b23b",
       "bundle": "drafts/en-sweet-bakery.json",
@@ -789,7 +833,7 @@
       ],
       "imageHashes": [
         "1302c300ad7c13d714c7faca22950cd66821eee7c0e6499a5c010de799c81164",
-        "88d13fcb932e0346c047d9c3f2b2580f35e4d8d04d0274835988b57c75820fce"
+        "0324284240cdcd947a522cf939f1526fd9f51fb486e0057f68a5ec7b3cd0df54"
       ],
       "promptEvidence": [
         {
@@ -815,6 +859,8 @@
     {
       "key": "en-summer-beach",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "e665d756-6007-4e0d-8f6c-04a7abfb4a84",
       "contentRevisionId": "c4f2f7ba-5933-456a-88f0-e524dad6f6e8",
       "bundle": "drafts/en-summer-beach.json",
@@ -851,6 +897,8 @@
     {
       "key": "en-space-rocket",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "0ac198a3-1c92-4221-8993-e7ded734a48e",
       "contentRevisionId": "171059c4-593d-4f31-8ed9-ed0b50a045a6",
       "bundle": "drafts/en-space-rocket.json",
@@ -887,6 +935,8 @@
     {
       "key": "en-sustainability-greenhouse",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "f97ba7a4-9f6d-4e4d-82b6-1b07723042e4",
       "contentRevisionId": "9fea7882-c424-47dc-84a4-a123cf4dc49b",
       "bundle": "drafts/en-sustainability-greenhouse.json",
@@ -923,6 +973,8 @@
     {
       "key": "en-architecture-studio",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "1c0af010-5445-46ba-8a6f-14096410edf1",
       "contentRevisionId": "41d2866a-8874-4770-865f-33bf98094d95",
       "bundle": "drafts/en-architecture-studio.json",
@@ -959,6 +1011,8 @@
     {
       "key": "en-ecosystem-coral",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "86a56029-db4e-453d-8185-2c178644fbf6",
       "contentRevisionId": "d9e5ae04-81e2-41fd-848e-14a73cd46e9f",
       "bundle": "drafts/en-ecosystem-coral.json",
@@ -995,6 +1049,8 @@
     {
       "key": "en-astronomy-observatory",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "29517bf2-7ccc-47dc-84bb-f0a388ab222c",
       "contentRevisionId": "530e2611-4c7a-42bd-8a32-4777b1c1842b",
       "bundle": "drafts/en-astronomy-observatory.json",
@@ -1031,6 +1087,8 @@
     {
       "key": "en-archaeology-dig",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "ae44a484-6a00-412d-8942-4d5249769b39",
       "contentRevisionId": "6d51a444-5172-4cdb-826a-5ffe4918345b",
       "bundle": "drafts/en-archaeology-dig.json",
@@ -1067,6 +1125,8 @@
     {
       "key": "en-symphony-orchestra",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "a525f1c1-45d5-441c-8b12-8e3f9d3fbd5a",
       "contentRevisionId": "0e61de2b-7019-465f-86aa-1e3ca9c702ce",
       "bundle": "drafts/en-symphony-orchestra.json",
@@ -1103,6 +1163,8 @@
     {
       "key": "en-hypothesis-lab",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "956b5775-2497-4f37-8ed1-9e5e153d23d4",
       "contentRevisionId": "1fda99a7-d748-4cf6-88ab-130aa3809f96",
       "bundle": "drafts/en-hypothesis-lab.json",
@@ -1113,7 +1175,7 @@
       ],
       "imageHashes": [
         "a5da04860df98f117bae7cf8058984d6e7c01fb63c41dd178ac6f2bd998ce456",
-        "3c653dc07ec2c8fb69477ea82742b9f70f4893e3a3a87e5c89d7c252ec432e18"
+        "02090fce5bda2a1f7c80a613afe63cb1e801cf16ab0c598ff178d566d89ef625"
       ],
       "promptEvidence": [
         {
@@ -1139,6 +1201,8 @@
     {
       "key": "en-journalism-press",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "4ec07a70-dc45-4097-8c2d-96e0494b3b8d",
       "contentRevisionId": "930c3a70-9eff-4449-8ff8-415a410259d8",
       "bundle": "drafts/en-journalism-press.json",
@@ -1175,6 +1239,8 @@
     {
       "key": "en-metaphor-library",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "4c4cdc2d-214c-440e-8d70-35466cb15f7b",
       "contentRevisionId": "4ff4f419-0d8e-4b94-869e-44b9c7d3cc94",
       "bundle": "drafts/en-metaphor-library.json",
@@ -1185,7 +1251,7 @@
       ],
       "imageHashes": [
         "4ddefe8b390e9a758120cd44050dbcb3f36d7bb526b3f7b32a35a6fb389a368e",
-        "ec6af23e2e1acbb6735723235a9dde7751f9708415fe5ddb7ba0d43a0aeae911"
+        "0711c7a46c8533853183930538b7e59a6b8a84a3b03f7c113f21bced1a001a99"
       ],
       "promptEvidence": [
         {
@@ -1211,6 +1277,8 @@
     {
       "key": "en-paradox-labyrinth",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "686e2052-ff09-4072-89f5-738abaf21f92",
       "contentRevisionId": "290e6ce6-9794-47f1-86d4-24b9b76f2dcb",
       "bundle": "drafts/en-paradox-labyrinth.json",
@@ -1247,6 +1315,8 @@
     {
       "key": "en-serendipity-garden",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "947e5c47-6cee-4534-8402-ccd554230a43",
       "contentRevisionId": "e1bb63e1-54ed-4cf2-8515-fd7eb0ebf301",
       "bundle": "drafts/en-serendipity-garden.json",
@@ -1283,8 +1353,10 @@
     {
       "key": "en-synergy-cradle",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "ee76f0da-79f7-4235-8943-6398e5ebf708",
-      "contentRevisionId": "e985a196-7af4-46bd-8dfd-8022100fcd4b",
+      "contentRevisionId": "07f460d4-fb8b-4a35-8fa4-12fbc07a7401",
       "bundle": "drafts/en-synergy-cradle.json",
       "evidence": "evidence/en-synergy-cradle.visual-delta.json",
       "images": [
@@ -1292,8 +1364,8 @@
         "source/en-synergy-cradle-b.png"
       ],
       "imageHashes": [
-        "48a43efd1e53783936679fa146e58bbbd42aae5741855c873a5b0a37fc62908f",
-        "13e5923b0fd66ce094c0079436007a50e54e60994490d132ff15084918f9b456"
+        "69a1afd827758675ce46dc819b612de84954ca32463d92bac465c67e4d8b6cd2",
+        "75a6d9475a1e5606d71f8eb1412302f3f2fba8005e0a23d9903b639472ee2bd3"
       ],
       "promptEvidence": [
         {
@@ -1319,8 +1391,10 @@
     {
       "key": "en-resilience-garden",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "b441c41f-26e2-45b5-8e2e-46cc0a79b579",
-      "contentRevisionId": "47eb839a-51bc-459b-8ac3-d57ce3944b54",
+      "contentRevisionId": "4bc8aac8-4025-451e-8e2d-21f6e748cf59",
       "bundle": "drafts/en-resilience-garden.json",
       "evidence": "evidence/en-resilience-garden.visual-delta.json",
       "images": [
@@ -1328,8 +1402,8 @@
         "source/en-resilience-garden-b.png"
       ],
       "imageHashes": [
-        "b425fd79d5c90efd520e660aceb002b2ccf1adc705d9cea106ac6af9fc1b8be9",
-        "bb58f697c1604996e27530da835b56ffda21c0427cc79a6fbd80b1cffa97ed8d"
+        "e85784b310d7bdb6b584d9822ea2ed20e61f59949099ad0019879b61bf77ab6c",
+        "336eafb2631ca3aa58601251653f1128772374d3c65fb3cd908c74c8e4a2a823"
       ],
       "promptEvidence": [
         {
@@ -1355,6 +1429,8 @@
     {
       "key": "en-nostalgia-attic",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "a73b2cf4-bded-4b6f-87a1-aa2319faed9b",
       "contentRevisionId": "93cbebff-8dd1-4dcd-8dae-02fb1f77cc37",
       "bundle": "drafts/en-nostalgia-attic.json",
@@ -1391,8 +1467,10 @@
     {
       "key": "en-epiphany-lighthouse",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "35a75ed2-d22f-44db-8c1b-b44cfee4a739",
-      "contentRevisionId": "5aaa666b-234c-449c-82b9-8d5ef11249dc",
+      "contentRevisionId": "102ecbb5-5aae-4db9-8d3b-91b1e30b9346",
       "bundle": "drafts/en-epiphany-lighthouse.json",
       "evidence": "evidence/en-epiphany-lighthouse.visual-delta.json",
       "images": [
@@ -1400,8 +1478,8 @@
         "source/en-epiphany-lighthouse-b.png"
       ],
       "imageHashes": [
-        "80d8433f800d34095d26c1976683f1af7375c278377eb8f105ab5e53bca0a46f",
-        "7f1157d880a5022e84dd099ef2d39eada181f9489d329e951595de5139e78b59"
+        "ace7c145925a3e9ef2bf61d45c473f0719f2b047deaaecb3fcb4e3e263cff2f6",
+        "aa9f869e578d619eb784ab07f4fa89eac332c557d80aa9cf80bfc3d9fe69ca11"
       ],
       "promptEvidence": [
         {
@@ -1427,8 +1505,10 @@
     {
       "key": "en-equilibrium-cliff",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "f8d8b966-0b85-4db4-8633-847ea608a7b3",
-      "contentRevisionId": "e9ef2b41-b3d9-49af-89f7-f20bb1550637",
+      "contentRevisionId": "9f674e05-77e6-4856-8d0e-4ff09815c225",
       "bundle": "drafts/en-equilibrium-cliff.json",
       "evidence": "evidence/en-equilibrium-cliff.visual-delta.json",
       "images": [
@@ -1436,8 +1516,8 @@
         "source/en-equilibrium-cliff-b.png"
       ],
       "imageHashes": [
-        "5a27e5ca600d2b8441bb84f92505c08758d3a88654a91fa2f8ca033acc2c3b57",
-        "58d094521ee79d41e45449e76a99d70d55cad2833ccea9224f506c8643a146c6"
+        "f251e13d3f61207074ca2865aca8261296f68f8a6a77d8240b8a0347e6e8a33d",
+        "4b57227a57a1f73b5b885d3ba6f143d0843e19d9efbe58531a8ad9e2456480a0"
       ],
       "promptEvidence": [
         {
@@ -1463,8 +1543,10 @@
     {
       "key": "en-transmutation-alchemist",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "a0f8f7b7-4c22-450d-8e0c-ebda2ab86d24",
-      "contentRevisionId": "02fc24a2-dd77-4721-82c7-2575a19df786",
+      "contentRevisionId": "24210f1f-96db-4f02-865e-5e221457f7bf",
       "bundle": "drafts/en-transmutation-alchemist.json",
       "evidence": "evidence/en-transmutation-alchemist.visual-delta.json",
       "images": [
@@ -1472,8 +1554,8 @@
         "source/en-transmutation-alchemist-b.png"
       ],
       "imageHashes": [
-        "fb13f1be669e55637091fb17604f74888a7f8e40995afedaaeb3bb18b2380f38",
-        "8c3e042b7c3c51af87ba5cf63766a54db3ea53b845e0d4378f1aaae0997c4452"
+        "308f583203fc1daa2f18ccf7b5b40dde5f8e84f707e7b56269e69f58fa4006b5",
+        "850495f2da25ae315b05ae6a1e8d79b16ceeaec5c4f112335cde53e5bef38693"
       ],
       "promptEvidence": [
         {
@@ -1499,6 +1581,8 @@
     {
       "key": "en-transcendence-galaxy",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "00ae802e-f432-44ea-8c84-e003c1cdf2b2",
       "contentRevisionId": "17b988c1-17f4-4170-8a7e-f7537f5b74a3",
       "bundle": "drafts/en-transcendence-galaxy.json",
@@ -1535,8 +1619,10 @@
     {
       "key": "en-phenomenon-lab",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "b9ded798-4ee2-4a1a-8a63-201a53ca7c0f",
-      "contentRevisionId": "368c7910-cd53-47de-883e-27ac84630559",
+      "contentRevisionId": "4cf644e6-b49f-4c4f-8e64-d3744e0c3bcd",
       "bundle": "drafts/en-phenomenon-lab.json",
       "evidence": "evidence/en-phenomenon-lab.visual-delta.json",
       "images": [
@@ -1544,8 +1630,8 @@
         "source/en-phenomenon-lab-b.png"
       ],
       "imageHashes": [
-        "ccccb4cb4cfa059f28c5eae890839325b257aaf80b31e14d99cd56413b4701dd",
-        "19119f9798335557331b50bf69b1db0ec226d861810e2b662637246d9b87360d"
+        "1b82437356dea89a51e8cc04e8e0093a56b51f982e458d066bc1ebfa1eb32466",
+        "5a24176910004b9d2f65c92920542c1db5ebf6f1d7256a5709c1914ffa2a7024"
       ],
       "promptEvidence": [
         {
@@ -1567,6 +1653,8 @@
     {
       "key": "en-juxtaposition-market",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "6456971c-f966-4a0d-81d0-56f2e4ddbab9",
       "contentRevisionId": "c950a6a1-1b4f-42ad-807d-42aba2d6763c",
       "bundle": "drafts/en-juxtaposition-market.json",
@@ -1577,7 +1665,7 @@
       ],
       "imageHashes": [
         "0107d99f82c6642e1d6278439b0c9d9d6ffd1b8733803ba0ba27b0da4a295bdb",
-        "83c6d217f9567a1bb897e32716935675547987f5eaec3bc415b02a736e1982e0"
+        "2d2158853cedfd9012465b4aeaacdf019c432b667614c6df9b8002f335d54d42"
       ],
       "promptEvidence": [
         {
@@ -1603,6 +1691,8 @@
     {
       "key": "en-kaleidoscope-chamber",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "7ca80062-0e49-47ab-865a-e494135261eb",
       "contentRevisionId": "4660479b-d113-490c-8723-d4c16bc50700",
       "bundle": "drafts/en-kaleidoscope-chamber.json",
@@ -1639,6 +1729,8 @@
     {
       "key": "en-metamorphosis-cocoon",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "76eece06-071a-430d-8430-f09652e41bf0",
       "contentRevisionId": "68627982-e2eb-44f9-8ff0-e17669365098",
       "bundle": "drafts/en-metamorphosis-cocoon.json",
@@ -1675,8 +1767,10 @@
     {
       "key": "en-panoramic-observatory",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "5aaa9fa9-549e-4ef8-8904-2c05462fc0df",
-      "contentRevisionId": "f02588dd-4d22-4eed-84b7-1dd2b0da018d",
+      "contentRevisionId": "ed491324-3fc2-4461-8867-ec75577fb1bf",
       "bundle": "drafts/en-panoramic-observatory.json",
       "evidence": "evidence/en-panoramic-observatory.visual-delta.json",
       "images": [
@@ -1684,8 +1778,8 @@
         "source/en-panoramic-observatory-b.png"
       ],
       "imageHashes": [
-        "4ca0a0a5d47cbad02ef6ac5ff551e0411ab8f9af4180ed47a31ce017b0a79a94",
-        "959f4ef6a4dac908bf5e5a3c5ae5c5c29d2bc6ada2b62265be114592d47ad68f"
+        "df8c6f6cfa007d69387a9e7819b1e1e0ba41ee378d2da4022d3e8e99a9df587a",
+        "8664dd967fb3c82d5bcc554f24645b35b9fb6c3cef9c0e71d5f86fe50a044308"
       ],
       "promptEvidence": [
         {
@@ -1711,8 +1805,10 @@
     {
       "key": "en-cataclysm-volcano",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "31899ad5-871a-408d-8182-f38553f58049",
-      "contentRevisionId": "82434e24-6e4b-4de1-8edf-5f29b0952c06",
+      "contentRevisionId": "6b4b212d-08eb-47bd-85b3-5180a54076e9",
       "bundle": "drafts/en-cataclysm-volcano.json",
       "evidence": "evidence/en-cataclysm-volcano.visual-delta.json",
       "images": [
@@ -1720,8 +1816,8 @@
         "source/en-cataclysm-volcano-b.png"
       ],
       "imageHashes": [
-        "d2c942429902de90a86e5bcd805c79bed777f15a95e94735eb01e2f2b2a3964c",
-        "83403c8eac9b9128b046f1f549da121bb0b51dcbc09a9a0094cd0bfb3f34a656"
+        "ff92405d3ba53e0da38c59c4bc7ed37cdb4ea95827e88cb3c327b516314c9288",
+        "14fc0cd931b5f4a8841c29f97633620907b24425949d767727d4ebae7c653077"
       ],
       "promptEvidence": [
         {
@@ -1747,6 +1843,8 @@
     {
       "key": "en-quintessence-alchemy",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "1eb05211-c2d9-4de6-85ab-76d40a45e5d4",
       "contentRevisionId": "7400bf49-8ff1-4714-84e6-530412be9a82",
       "bundle": "drafts/en-quintessence-alchemy.json",
@@ -1783,6 +1881,8 @@
     {
       "key": "en-chrysanthemum-greenhouse",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "21806eb8-28f1-403f-83a9-fb22984c8aa8",
       "contentRevisionId": "453e3025-60a7-4093-83ae-c3e395816822",
       "bundle": "drafts/en-chrysanthemum-greenhouse.json",
@@ -1793,7 +1893,7 @@
       ],
       "imageHashes": [
         "7c82132148c3cb648396ab2c207c599cd0528a81a359c7080925ce63d61117ae",
-        "422fb41208e1cc3dd6bc4e71a18806b414a97ad51e24c14564a34972931dbfa4"
+        "2b61936c96ffe30072f2de7e9b27f45bc61892784abac0dbc29c50abff0f5aa3"
       ],
       "promptEvidence": [
         {
@@ -1819,8 +1919,10 @@
     {
       "key": "en-archipelago-island",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "bdcf2372-929a-4c4a-8393-c6cd6fb1d1b3",
-      "contentRevisionId": "c234e952-82dc-4f03-84b4-95ccc89dc47a",
+      "contentRevisionId": "23ef9269-c648-4e45-8b9e-b389c4a9c56f",
       "bundle": "drafts/en-archipelago-island.json",
       "evidence": "evidence/en-archipelago-island.visual-delta.json",
       "images": [
@@ -1828,8 +1930,8 @@
         "source/en-archipelago-island-b.png"
       ],
       "imageHashes": [
-        "18efd460f50558f7564a04dff155b0718a4c0fdf86edb754796cc8484b464250",
-        "f670f059b6bece6b14a04e88665303cbb0242a529c464f170cc17b22c0e4f0b5"
+        "db1bf15d6936844ffd1fd2a9a04eaedc3cf4b0745832f570879753a0f2a93d3e",
+        "520a3d6dc64659bd36fe94e994b7af7e966da6321bfca43eecbcb663f1863a9b"
       ],
       "promptEvidence": [
         {
@@ -1855,6 +1957,8 @@
     {
       "key": "en-constellation-astronomy",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "58a701c3-a427-4c63-873e-5345acd7d973",
       "contentRevisionId": "a604f109-8da1-4d16-879a-dc1fd317ef79",
       "bundle": "drafts/en-constellation-astronomy.json",
@@ -1865,7 +1969,7 @@
       ],
       "imageHashes": [
         "ba8c106752ab2c9501bc8c83fcc2facacf77a6d7fa3c45c803bda4f8bb2b3ca8",
-        "5032db03d0fe55e3fb3fcff3320fc23fbef98e0183287807a1c922112224ca4f"
+        "82b814301eeddc476c9df213c52a0491cb2fbde615639e783e35a488ee21b3ad"
       ],
       "promptEvidence": [
         {
@@ -1891,6 +1995,8 @@
     {
       "key": "en-synchronicity-clock",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "78cc41e7-f5e4-412d-8430-f6f1155df005",
       "contentRevisionId": "c8fb2e16-7695-4f07-851a-5dbb33851da4",
       "bundle": "drafts/en-synchronicity-clock.json",
@@ -1927,8 +2033,10 @@
     {
       "key": "en-camaraderie-campfire",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "b6022722-3234-496e-828a-a6859dfe2c12",
-      "contentRevisionId": "b0c589a6-9455-49d5-877c-e9d4bad03d61",
+      "contentRevisionId": "43a6c49e-0c43-4558-89d6-33b0f8af3c60",
       "bundle": "drafts/en-camaraderie-campfire.json",
       "evidence": "evidence/en-camaraderie-campfire.visual-delta.json",
       "images": [
@@ -1936,8 +2044,8 @@
         "source/en-camaraderie-campfire-b.png"
       ],
       "imageHashes": [
-        "fbeec9af7fc24de6e8146708da8686533a77699cb1529b6633e4d0c45ccc6fe0",
-        "21e87f6a13faf0dba4f32e5cd54d58e39fcc154d512011d1cd522e3b5dea2e24"
+        "b9a410d8e13b89530728662a084e5bea8e1e61f55eeb22f19c5fa85d09ded9a0",
+        "fdff79382db8dbc78819423ddd87dc8cc6462d87450835086173f864ee80e1ba"
       ],
       "promptEvidence": [
         {
@@ -1963,8 +2071,10 @@
     {
       "key": "en-solitude-sanctuary",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "ccd07ed6-fdf5-4f9b-8023-4680e3b0ea2a",
-      "contentRevisionId": "f40296b7-14b6-47f3-8d93-7eb498514cc6",
+      "contentRevisionId": "1866f225-4ec4-45de-8808-3373e9a23048",
       "bundle": "drafts/en-solitude-sanctuary.json",
       "evidence": "evidence/en-solitude-sanctuary.visual-delta.json",
       "images": [
@@ -1972,8 +2082,8 @@
         "source/en-solitude-sanctuary-b.png"
       ],
       "imageHashes": [
-        "1f535d1d1f3e52a7ca080e1f6cff25a6267e59bc021766844ee3d41260d05668",
-        "9d6b7786c537279d3cd1182737e7b819d96ac3d6debb9bfbbcc3e208d5618d9f"
+        "ea3d561ccd7083147a3c817f3caf0d66eab1e557b133f4c4e5c17a8784bde6f9",
+        "f4368dd2d523531ffb3bdba5a7ba79815eba1dd3147d568402208acb82808b83"
       ],
       "promptEvidence": [
         {
@@ -1999,8 +2109,10 @@
     {
       "key": "en-serenity-lake",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "b84e622a-e7f5-46f8-84cd-aa1da145b5c6",
-      "contentRevisionId": "f880d2d8-1d01-460d-8813-1820facc9419",
+      "contentRevisionId": "fecce841-dfc0-4a2f-85cc-cd1c4591277d",
       "bundle": "drafts/en-serenity-lake.json",
       "evidence": "evidence/en-serenity-lake.visual-delta.json",
       "images": [
@@ -2008,8 +2120,8 @@
         "source/en-serenity-lake-b.png"
       ],
       "imageHashes": [
-        "746942d5480330152582c18832a5c0b3dc21e112f622078403d4827f0af39a7a",
-        "ad134fc83a8566ec056a13bf294055b766b54d79847231d18f4348e39b3eaff0"
+        "bb5ae9cf0b6847de101405b607c5f8732874e6dfb6983f549c6bcefa011268b8",
+        "c4b033f73d7ad4eb7935fbbf333b772b2219435946925b922e3955987b7648ac"
       ],
       "promptEvidence": [
         {
@@ -2035,8 +2147,10 @@
     {
       "key": "en-tranquility-tea",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "9c81697f-6793-4f9e-8e83-c5cf0aefb88e",
-      "contentRevisionId": "01f7dcfc-cb35-4726-8943-8aa41aaf7628",
+      "contentRevisionId": "56402029-d8c6-4c45-8b58-5c761626cb1b",
       "bundle": "drafts/en-tranquility-tea.json",
       "evidence": "evidence/en-tranquility-tea.visual-delta.json",
       "images": [
@@ -2044,17 +2158,17 @@
         "source/en-tranquility-tea-b.png"
       ],
       "imageHashes": [
-        "045f1e50b3668ecefbce893130515989f9c1175c30434a22f2e1ce606b0780b5",
-        "5c1a630f90ada617771180677cd6cf70643b4595ac0496f46dcfe6859762357d"
+        "5ea1df19e7bb69d9f1da44c9150ad5086745c5d098dc413b8388345a9a377b8b",
+        "3c994683a427a7e4670f2b5f6935df7c6a30a942f899f700b147c69d2f1e1fc9"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-tranquility-tea-base.txt",
-          "sha256": "eeca5f2ff7f3d396fb5353c34d65359e11314940bc97559c62d3f792aa63a092"
+          "sha256": "e8d737fc3142853a053268dd29efe218ac361b00735cd494ea437b0515e5c77f"
         },
         {
           "file": "prompts/en-tranquility-tea-edit.txt",
-          "sha256": "e49f3513b215e6c9c091ddafec7871efd1b50739ea011ca199d45506765b768a"
+          "sha256": "8d5eb7708d755c3172c878ec1e6a1193c7dc4130b0aa40c0260163a14ee703d7"
         }
       ],
       "hintLadderAdmission": {
@@ -2071,6 +2185,8 @@
     {
       "key": "en-creativity-workshop",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "313d26fe-c80e-41ae-8ed4-928531b31e3d",
       "contentRevisionId": "23761b41-0582-442d-8605-b5c93f05b48a",
       "bundle": "drafts/en-creativity-workshop.json",
@@ -2086,11 +2202,11 @@
       "promptEvidence": [
         {
           "file": "prompts/en-creativity-workshop-base.txt",
-          "sha256": "4670aeea5c63cde2b6c39f3045d55b21eb05cba87ba3f60e9de4a037b96f0712"
+          "sha256": "8b88abd5ef1ea48e35291a566ab594c778745fe9a2edb8344b9165abe8e8a35c"
         },
         {
           "file": "prompts/en-creativity-workshop-edit.txt",
-          "sha256": "c745e1253562b09d4769ab7227ad73a9b5ee5b72378a4eecd01be27d256ebeba"
+          "sha256": "787203e687df0968c99aeaf917694681cdc99bc5cdb62bb5f73d0f8bfd1f7fd2"
         }
       ],
       "hintLadderAdmission": {
@@ -2107,6 +2223,8 @@
     {
       "key": "en-illumination-library",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "b391ec91-226e-49ba-82ba-4df204bdda9f",
       "contentRevisionId": "d7abe680-090e-4af7-8f05-7d8248f4c339",
       "bundle": "drafts/en-illumination-library.json",
@@ -2122,11 +2240,11 @@
       "promptEvidence": [
         {
           "file": "prompts/en-illumination-library-base.txt",
-          "sha256": "56b939c2f6262977be878e2ad99a5a1efd8bb1d928dbe4f8b3a92c62a520a65c"
+          "sha256": "6aed0b20a2b7cbb34f33d6ba1a16187a91d59da920c4eb83bf670c9e17aedfa2"
         },
         {
           "file": "prompts/en-illumination-library-edit.txt",
-          "sha256": "de51eab633a1ecfac67ea42dcb7ecb265368710705235592256efc3fb5f86bfb"
+          "sha256": "9762ef27a152bf173a5d20d56fc82516bfbdcf2a8da5a7d15715a4c350945f3c"
         }
       ],
       "hintLadderAdmission": {
@@ -2143,6 +2261,8 @@
     {
       "key": "en-resonance-concert",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "cc8961c3-25de-4be9-8749-c0dfa05594c9",
       "contentRevisionId": "f91b6e59-5c71-4ddc-87c5-382e494d2e8e",
       "bundle": "drafts/en-resonance-concert.json",
@@ -2153,16 +2273,16 @@
       ],
       "imageHashes": [
         "b5b82a1923db3e91b3d32b508072f03e58c79c14d35cec96712f7e945bda8cab",
-        "4bf33ead82ad4f931635ad7fc4f8ba24b6f1fcd4933dec1620fa22e1db17ba63"
+        "bae8516b8d1bfbd71516b19d5525730238edce4aedde44ad8a0b36c56b1d6831"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-resonance-concert-base.txt",
-          "sha256": "46a89fb8688edb0510d2e9cfe3b20fe26bb7b22b9d4e6d677ae2ceb8a59da6c7"
+          "sha256": "27b8e92aec16d052ca5ca70046bce1e4354529132d8057ccb3c48715af2d063a"
         },
         {
           "file": "prompts/en-resonance-concert-edit.txt",
-          "sha256": "067bc62a83859d8ed7ee090e3aeaf526d65d8da2b426a025bd80dc4030e8ae87"
+          "sha256": "1916abf47561d2d5a2b34f185ded58c245e129dbecfe1fa0f7553a4088033821"
         }
       ],
       "hintLadderAdmission": {
@@ -2179,6 +2299,8 @@
     {
       "key": "en-harmony-orchestra",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "8ab771d3-69c5-4285-8ec9-2a1fb1e390b0",
       "contentRevisionId": "986735e7-17bc-41f9-8312-4f56ee03be88",
       "bundle": "drafts/en-harmony-orchestra.json",
@@ -2194,11 +2316,11 @@
       "promptEvidence": [
         {
           "file": "prompts/en-harmony-orchestra-base.txt",
-          "sha256": "67de100fbaacffc5493f5d337c51fa0c62e3c516439bbf49fa04508bc776c2cc"
+          "sha256": "0fcdc48c3a36b4f1f6cc96f1a6f58f74bc98e7815b59d595d5364dba335c5fc3"
         },
         {
           "file": "prompts/en-harmony-orchestra-edit.txt",
-          "sha256": "94da7661d63cd0afe71ad9bec253117c9118a8ca4593e82bf47d280537f213ed"
+          "sha256": "9549af51001c54072c3e54eab81c7dc0b61943b7c3fea5f19172215173a16b9c"
         }
       ],
       "hintLadderAdmission": {
@@ -2215,8 +2337,10 @@
     {
       "key": "en-eternity-monument",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "d6ce69cb-cc9e-4c55-893b-5884264b7152",
-      "contentRevisionId": "4fca89aa-8335-448d-80b4-2166e153755f",
+      "contentRevisionId": "9b2f6eff-e5cb-4967-828a-3ca62e48d277",
       "bundle": "drafts/en-eternity-monument.json",
       "evidence": "evidence/en-eternity-monument.visual-delta.json",
       "images": [
@@ -2224,17 +2348,17 @@
         "source/en-eternity-monument-b.png"
       ],
       "imageHashes": [
-        "d5134d0b720cd8f2b331de6ec665cd9bbd2092d41a0dd33149e37e591a07cf2b",
-        "8f149e649a23b4fc6e1e0c13958b1c80e484df849072244bea43cbec9219e0a0"
+        "55eabdb891b63fd21651b1ad92ba27a819b1c8514dd973aaae2a863c34954615",
+        "d7a7d78c6dc8bf1a8e08becec3757a58858e11236e98126c74160fa9fa5bf523"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-eternity-monument-base.txt",
-          "sha256": "ec8f11d473714f087230f28ffc26e973ab8b73b4ba3e8984583d307d879477c5"
+          "sha256": "3be925f826c4d7f45bcb08d5211b5d032dd7ba691242eb394a376603306947c3"
         },
         {
           "file": "prompts/en-eternity-monument-edit.txt",
-          "sha256": "477d45e66c68713ddbd988aca7117210c5262f71a9e93c024942b76437863c76"
+          "sha256": "fefd818aa3bf3ff7931e2c085649cad37aadffa54f68372c8376b0dd81da0988"
         }
       ],
       "hintLadderAdmission": {
@@ -2251,8 +2375,10 @@
     {
       "key": "en-tranquility-garden",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "85ed951d-0b69-40a3-8345-9357eb8c074b",
-      "contentRevisionId": "18c761f8-754e-472c-8ab4-7fec14354c86",
+      "contentRevisionId": "5adae70c-ea4e-4636-8575-23552c14b98a",
       "bundle": "drafts/en-tranquility-garden.json",
       "evidence": "evidence/en-tranquility-garden.visual-delta.json",
       "images": [
@@ -2260,17 +2386,17 @@
         "source/en-tranquility-garden-b.png"
       ],
       "imageHashes": [
-        "748d966eda3ca6a5bce909b9d2c279bb927ab7f1a0dae60122f169ac2d4c05c3",
-        "84247e2659a6b5afe2121c57dd9a42731dc55aad391e3fef1588d341c0f95165"
+        "cc39623f743a31a5bf3bfbbdc59d47a256b5c6cf04861ade37bf5b09e2dbb500",
+        "47b199feae792fd34ffc8d1dfc59d4943d95d11cff08c325fdf207d93f64e734"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-tranquility-garden-base.txt",
-          "sha256": "01cda54ff005869fcdef1e780aafbe85b46c1ec2a2ea7550a27873e24311b094"
+          "sha256": "fb7908ffea1272b5c8d76621417bf6fefda41345fcf9215e6491d81c3f90974d"
         },
         {
           "file": "prompts/en-tranquility-garden-edit.txt",
-          "sha256": "d9c1cc4707d023959a094ac1a12992f90760640b531e3f8efb236006b1fe3046"
+          "sha256": "125eb474b94b49654af6d5d395e59ac22760ec80254fa690bcacf24b93afa99e"
         }
       ],
       "hintLadderAdmission": {
@@ -2287,6 +2413,8 @@
     {
       "key": "en-creativity-studio",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "02a77503-1b54-4117-85a9-fa1888898d67",
       "contentRevisionId": "13babd86-7ad1-4e78-8eed-ac8dbe6d9581",
       "bundle": "drafts/en-creativity-studio.json",
@@ -2297,16 +2425,16 @@
       ],
       "imageHashes": [
         "fb143eb5fef831c2ce52db843dcc71c82c3a8bbf803b7f94782b1b0b4b46a8ac",
-        "625d99af133d8b4913312fb94412a4a5ae0ae07d9d668a18aa5ef8c03143302a"
+        "00ddda7147b0e72a5428aa61e907e9f42280084f8d058cdffed03550232ed803"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-creativity-studio-base.txt",
-          "sha256": "00012a4815d308bb7099785382e345cefb7e2823a93eaecce59212b5c227c28e"
+          "sha256": "17e992d0f5e42379cf839b5964f8b674c3d02926f84868763d225adf21b392ad"
         },
         {
           "file": "prompts/en-creativity-studio-edit.txt",
-          "sha256": "63a989af10a35d64c02d116729dc0d3ad019a1104a89f2f7be080ece6cac9763"
+          "sha256": "6400eff0a8af415a8bd26e104d56071335c563e2525a69658a8dddf14b81e5f4"
         }
       ],
       "hintLadderAdmission": {
@@ -2323,6 +2451,8 @@
     {
       "key": "en-resonance-stage",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "9c7b2e49-51fc-4c8a-8c88-7db279ebdb5e",
       "contentRevisionId": "f9f307a8-78af-4be8-8118-5cf0f09fbb68",
       "bundle": "drafts/en-resonance-stage.json",
@@ -2333,16 +2463,16 @@
       ],
       "imageHashes": [
         "cbd0d589fb055654041b50d486daa68bcdf715b1d7706c9ae3e00eafcf1e1bf5",
-        "e3bef2f6504fce15c4b70cf18f781542da157ed7af608b7ea83572ad187b3cf6"
+        "0c3a89150f0578be1efa5b7bf243ba42b9f1ab16ec68a0aa3d57bb3bd3464a67"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-resonance-stage-base.txt",
-          "sha256": "3174a49635273be7c36c81c4d0ad04d9055ef0cd67affcd08f4353e632359c9a"
+          "sha256": "ee7dd5c03d89c911b4cf5080fb16f80323356f1a227326952b9b4191a0e76ca4"
         },
         {
           "file": "prompts/en-resonance-stage-edit.txt",
-          "sha256": "f71557982f60cbb4bcc52431f41727840ec01e937f59cfe7220c66734f986d05"
+          "sha256": "8c15c32973102f4eb7f66ec51da8560950fc85e5fa8645344d97597a70e79470"
         }
       ],
       "hintLadderAdmission": {
@@ -2359,6 +2489,8 @@
     {
       "key": "en-serenity-haven",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "f01a6609-5626-4123-822f-c7ed7fa86c23",
       "contentRevisionId": "494dcb84-9cbb-4160-8eff-e46cb5b45522",
       "bundle": "drafts/en-serenity-haven.json",
@@ -2374,11 +2506,11 @@
       "promptEvidence": [
         {
           "file": "prompts/en-serenity-haven-base.txt",
-          "sha256": "4b855584720825387689fec52a9d7c891a7fbd24aca6c8b2419f29318c2f658c"
+          "sha256": "a21be4d917f4488dc3011558d71e117cf2202340ea982aa9abeabad097907fc0"
         },
         {
           "file": "prompts/en-serenity-haven-edit.txt",
-          "sha256": "9c1d5fb6cf26ba6594a9f863b63b18cc4fb22fb0b4266c7221c0361450555e0c"
+          "sha256": "d629622b1fd3bb7cde52f031b5c37570ce714741d59d7ece95118cf2aa765e92"
         }
       ],
       "hintLadderAdmission": {
@@ -2395,8 +2527,10 @@
     {
       "key": "en-solitude-cliff",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "9a920f74-158e-4ef9-8dfd-e58e9c2e5b71",
-      "contentRevisionId": "400a9dfa-9dcb-4def-8e13-8cd9885758ce",
+      "contentRevisionId": "eba00ff1-1ed2-41b0-86be-3b571f611e2a",
       "bundle": "drafts/en-solitude-cliff.json",
       "evidence": "evidence/en-solitude-cliff.visual-delta.json",
       "images": [
@@ -2404,17 +2538,17 @@
         "source/en-solitude-cliff-b.png"
       ],
       "imageHashes": [
-        "a04fe08aaa2700acc0a9b6271a58bbc9505c272f5795de2c7bde210f87c0778b",
-        "23721dba195673fa979e4960eb0f09c6e54dc9ba6bfca7cede0adda393f1007a"
+        "c266b24010ac177da5a764447f00dfbfaad5fd2c70ca21a062c81bfdda372e77",
+        "c711074cff78e51266f551361e06c00ba9f51cadd738e4201cc53d140535133d"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-solitude-cliff-base.txt",
-          "sha256": "f1ec8d5b0b709238f915b17a83bdf8ac1e324744798cf5f0c042b2902d473492"
+          "sha256": "b45ea29dcb2b9578a596af6dce4be9fa51302a3f0c8a5bad9c8af73d4603819f"
         },
         {
           "file": "prompts/en-solitude-cliff-edit.txt",
-          "sha256": "7c9072bf1ee8dd65c986436bc64155ba86eb2e0406bb8a9256c757e3e75601d2"
+          "sha256": "4237f2e001583df64f80fa87b8fffd39e6a9b0395cdc84af62a957bc28b4138d"
         }
       ],
       "hintLadderAdmission": {
@@ -2431,8 +2565,10 @@
     {
       "key": "en-3d-serenity",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "c2e78295-9ba5-4036-82e0-b1faf8746a24",
-      "contentRevisionId": "d46fb09c-f6fa-414a-8433-eff0c0580536",
+      "contentRevisionId": "0168c9c2-73c8-4021-8254-8ed6ec88ce8b",
       "bundle": "drafts/en-3d-serenity.json",
       "evidence": "evidence/en-3d-serenity.visual-delta.json",
       "images": [
@@ -2440,17 +2576,17 @@
         "source/en-3d-serenity-b.png"
       ],
       "imageHashes": [
-        "4a5ee9cbc20c1626e3a97c8bc923fc5ac859b4fe77e10bcc42d7d9b527b52c16",
-        "0f6e5e1ffbb2c2bc10926fa86daec44b64af9a4ca8e804ed92e0f3fc29b3f180"
+        "33e0767ef30c55da2a7f49df3c1e03a7c998b9043078155299d6b4cdf22881a7",
+        "5a7fdad1e1475e21fa4d40e181dbfc5cff794d6ed8725b87b735a55f15e3451f"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-3d-serenity-base.txt",
-          "sha256": "d69e3eca3bde12a9a16ddf3f39ce38ce5743d608af2c30ac297d03e8f64cc3be"
+          "sha256": "2d1d6716779930c6433ddf867e698f77cdadacd87458d4bdff97297560ad3ceb"
         },
         {
           "file": "prompts/en-3d-serenity-edit.txt",
-          "sha256": "9f6a0953547cb841a9f5dbd1806faeacdc3c23b81021430ed181685e79a16630"
+          "sha256": "3b536b1bb450492374e40d853d943855e72b7de57de9415c0d47406f043678d2"
         }
       ],
       "hintLadderAdmission": {
@@ -2467,6 +2603,8 @@
     {
       "key": "en-3d-creativity",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "3454d50c-4cdb-43d4-8139-e0bce4e16a88",
       "contentRevisionId": "d9397ef8-fc32-46ec-81c0-c4fafc2a5cb3",
       "bundle": "drafts/en-3d-creativity.json",
@@ -2477,23 +2615,25 @@
       ],
       "imageHashes": [
         "fb45d1041654683b779ff2eb1cc305e79d22f246b5abd697199ab44be1fceabd",
-        "fd6334d9ba446dc61b6a8dacdcd488580d6a352a6e16622924d011a993cd3d1a"
+        "1297dcdd4c660d11e862ffcb3dfeebdaa4bc31c112f9d4ac687e6f33a75e558d"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-3d-creativity-base.txt",
-          "sha256": "429e3b039ca7efa6c4daf0dfb0e6bbebea0d7082317de26b0d795c247df4b999"
+          "sha256": "fee3afb46ff594262cc045ffb3d8f1df9be237821c889d81e175d351155dda0e"
         },
         {
           "file": "prompts/en-3d-creativity-edit.txt",
-          "sha256": "594d398c7b13ea38fba6f0a44f23daba141ef9df772aba6c7faab5f7e79721da"
+          "sha256": "adf32bdc953607ec06c7842903afef1af4f832af6ec21934eae5243d84fc903e"
         }
       ],
       "hintLadderAdmission": {
-        "status": "MISSING",
-        "stepCount": 0,
+        "status": "REJECTED",
+        "stepCount": 5,
         "errors": [
-          "MISSING_HINT_LADDER"
+          "CATALOG_DRAFT_CATEGORY_MISMATCH",
+          "CATALOG_HINT_LADDER_MISSING",
+          "CATALOG_DRAFT_LADDER_MISMATCH"
         ],
         "hash": null
       },
@@ -2503,6 +2643,8 @@
     {
       "key": "en-3d-harmony",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "694ddeed-5046-4f8d-81c0-d812e72deced",
       "contentRevisionId": "f5f8b165-de64-4790-8118-f8766a3aaa51",
       "bundle": "drafts/en-3d-harmony.json",
@@ -2513,23 +2655,25 @@
       ],
       "imageHashes": [
         "3e47a09688273e7ed409e20c4ce89281ffc0ebc36b92bb6b1e5b472c778ce7f1",
-        "78e6bc9a9481659f28003f264b8d1b86cfa9edeee0bdaf7e473e041b970a4948"
+        "6086924473f971ba6eff26c38bdd2fa9f3a84bde8f1022f92ad0fa1b3eb0ea8f"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-3d-harmony-base.txt",
-          "sha256": "f3209eb70093d0ca4e6981f8ce45d42d2e3bc4d8c3d7fef960499493306e7f01"
+          "sha256": "67f00d1c72cb0ffb8781eef9987491eaa0961fb636ab492fb0fd456b7f5371b0"
         },
         {
           "file": "prompts/en-3d-harmony-edit.txt",
-          "sha256": "5ef90b829a4a2184903844179089a905aaa2c0e4bb2e1c9b01924ab3ff7782b8"
+          "sha256": "5c92b36d4dde8922938668a12b539c8991a02ab882c84a808e0e47f337d82300"
         }
       ],
       "hintLadderAdmission": {
-        "status": "MISSING",
-        "stepCount": 0,
+        "status": "REJECTED",
+        "stepCount": 5,
         "errors": [
-          "MISSING_HINT_LADDER"
+          "CATALOG_DRAFT_CATEGORY_MISMATCH",
+          "CATALOG_HINT_LADDER_MISSING",
+          "CATALOG_DRAFT_LADDER_MISMATCH"
         ],
         "hash": null
       },
@@ -2539,8 +2683,10 @@
     {
       "key": "en-clay-bakery",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "7822b9cb-31b5-4024-81ee-cbc35310d344",
-      "contentRevisionId": "f528ad3a-daf3-4475-8ec4-21ad1010321c",
+      "contentRevisionId": "56bad18b-7146-4f3b-803a-338a97c482f8",
       "bundle": "drafts/en-clay-bakery.json",
       "evidence": "evidence/en-clay-bakery.visual-delta.json",
       "images": [
@@ -2548,17 +2694,17 @@
         "source/en-clay-bakery-b.png"
       ],
       "imageHashes": [
-        "edd06a8300e16693cd0cd404e90569e13bc5948b9796c171387930860cb126ec",
-        "52b34e5e20288bcd959d49069e998d93a9e0a6d19599ffe24741f565e4f402e7"
+        "5219cbe7a5628ca8ffd90a7f29721a0ac42d188ec38bd88822d85fa81e5d4e72",
+        "d3911d961318b0b88834c049a3954845ac3f7744186de5c7777b51db340d833d"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-clay-bakery-base.txt",
-          "sha256": "81a9c7fc6edd9a4e78c355f7cdb193fa4fe20bc3e2009c63d52f8143e45fa4e7"
+          "sha256": "ac522861fdd16c89a9d86ca916afa4afb7b9048f926b42072b732eeb2f5b1ba1"
         },
         {
           "file": "prompts/en-clay-bakery-edit.txt",
-          "sha256": "de5395fd4e72e665d5c9d586ae489454c854d04443765da8ce05fccc9bc314b3"
+          "sha256": "da5f294cb1d49f0e8b4d73b5d2a562114701dde0e3f1892f6d77456bfb20fe52"
         }
       ],
       "hintLadderAdmission": {
@@ -2575,6 +2721,8 @@
     {
       "key": "en-papercut-forest",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "38de2fa9-8fc2-4689-8dea-aeed1c6e23a1",
       "contentRevisionId": "03d180a2-c587-45f3-8a06-43080abdf810",
       "bundle": "drafts/en-papercut-forest.json",
@@ -2590,11 +2738,11 @@
       "promptEvidence": [
         {
           "file": "prompts/en-papercut-forest-base.txt",
-          "sha256": "0fb550bd193b9f95fdc3b327d8d3fe0af314e09a24988e19b2fd94c9f04bef2a"
+          "sha256": "c3218314d30af072d44a21b3061e68c51a4d6308f4cbaf0cda4a88f4b781cbca"
         },
         {
           "file": "prompts/en-papercut-forest-edit.txt",
-          "sha256": "11218eb6f768edc6fec598f016906415eed28ca3f4008f3bd7913d35846b6b5c"
+          "sha256": "5a4c26195a90a6ede72c20380bb5f72a6d18232c5e6289312b69627a7347764a"
         }
       ],
       "hintLadderAdmission": {
@@ -2611,6 +2759,8 @@
     {
       "key": "en-cyberpunk-space",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "a5a7013b-bdf9-4c15-8865-630d99c1a9be",
       "contentRevisionId": "a09c775d-72b2-4fc5-8a5f-4a1fd739143f",
       "bundle": "drafts/en-cyberpunk-space.json",
@@ -2621,16 +2771,16 @@
       ],
       "imageHashes": [
         "2c47f8c26ea1d7f129283e5e7f3dccfac123c0f1878eabd06353829105e334fe",
-        "1628e7da9340c65a81f684667e14b8903411543e0b3f84b4b9cc8e3e7f9c0649"
+        "af648af511d960795abe2b0a9bad9c418f2f95dd1b1ac757d43f1d7dd3473b01"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-cyberpunk-space-base.txt",
-          "sha256": "a5bce3f88305b79c1b690bfbcd71bab9c00aee384e47d4517fda76b7816d2ba4"
+          "sha256": "8b7e48492982203a76cb0e5ec0582b8f7f22e41c7f5f2f7671d52eab0c5a40e7"
         },
         {
           "file": "prompts/en-cyberpunk-space-edit.txt",
-          "sha256": "d1e2228310562efd69b6b2eb4f4ca81b462e34e1bfc517a713979be2e29192dc"
+          "sha256": "a805a47dd2d24a6939ab2e245e1c5ad6e8fffd9d6225d1e18fb68247e0ed256b"
         }
       ],
       "hintLadderAdmission": {
@@ -2647,6 +2797,8 @@
     {
       "key": "en-clay-zoo",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "601bf8cc-e62d-4416-89ea-ec8ecbfab4f5",
       "contentRevisionId": "e8a5d227-346b-4e22-80bd-d0c396f57063",
       "bundle": "drafts/en-clay-zoo.json",
@@ -2662,11 +2814,11 @@
       "promptEvidence": [
         {
           "file": "prompts/en-clay-zoo-base.txt",
-          "sha256": "6246786477ae14ea0dbdada27e76b59cb80229a063ff436f53897c2427893dbc"
+          "sha256": "2ca3416ba4349f206059c2c625bb2fd32ee4a1aebf0e3401df08165c45437dfe"
         },
         {
           "file": "prompts/en-clay-zoo-edit.txt",
-          "sha256": "304c7d1eaedbcb59ea1d4d5b2b287d3c1925af373cac845dbf24dddc6f86cd46"
+          "sha256": "2a50808d7707e61ecdf7a548e807bd28301200ad9d429fb4564c0f27d11c6b75"
         }
       ],
       "hintLadderAdmission": {
@@ -2683,6 +2835,8 @@
     {
       "key": "en-papercut-sakura",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "931947f8-d490-4b20-88de-af040b3a178a",
       "contentRevisionId": "66d9efa1-17eb-47d8-8319-6c59bdb49fc1",
       "bundle": "drafts/en-papercut-sakura.json",
@@ -2693,16 +2847,16 @@
       ],
       "imageHashes": [
         "9bb1643c0e0299c0855fa46103e7453a8f2825d68f941fa3d7d17830664203dc",
-        "e55b6ef3ef46c3b1c2a40adc5fcb0f86b114a25e1108fdf181210bea7d495dc2"
+        "1a5472d5196ff6759bc9d5a7bd8fec2c064c243502d8da16510abf7ff150f2e4"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-papercut-sakura-base.txt",
-          "sha256": "116362910abc0907e4967c4825f04cdb33c3b96822c3c7bc8ebb4f3f1a80603c"
+          "sha256": "dc09b0647e2c4c11d54c47c02d847dcbedb3f3b787a61491e0074151f89f65e2"
         },
         {
           "file": "prompts/en-papercut-sakura-edit.txt",
-          "sha256": "f7311fd623d154f3593772a9dd5c18724ddd2ec326798703f13fafb1af93d065"
+          "sha256": "29a4f279a23ea238e3f83d99e71b0321415acfce82070bddaba6cb2e1e1d7610"
         }
       ],
       "hintLadderAdmission": {
@@ -2719,6 +2873,8 @@
     {
       "key": "en-cyberpunk-neon",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "0829b81b-335b-460f-8881-99cdee136b02",
       "contentRevisionId": "e9774406-fc5f-49bd-8c97-8fd5487dd570",
       "bundle": "drafts/en-cyberpunk-neon.json",
@@ -2734,11 +2890,11 @@
       "promptEvidence": [
         {
           "file": "prompts/en-cyberpunk-neon-base.txt",
-          "sha256": "8495ce549ab94d6f090d55643e3312846bf3176753667e1e24904a995c734858"
+          "sha256": "13fbb1119e9cc4d422d8ca1e52e524f58e1c5e177e2324d041b1629945a2c564"
         },
         {
           "file": "prompts/en-cyberpunk-neon-edit.txt",
-          "sha256": "0781293d03b8b9cfca4fd96989558da77dd825d9a7ce603ce77f04ac3aeaded6"
+          "sha256": "6932ca8d614b328a77a2acbb1dc424bdc2eeb0b1f00c5b6b8c921faa2c892c5c"
         }
       ],
       "hintLadderAdmission": {
@@ -2755,8 +2911,10 @@
     {
       "key": "en-clay-family",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "81a1bc6b-e8f1-4d6d-8499-dcfba0cff56d",
-      "contentRevisionId": "3fd39cbc-13b1-422d-8250-4df8cc63b19f",
+      "contentRevisionId": "a7502e1d-0584-42f3-8791-edfa861da83a",
       "bundle": "drafts/en-clay-family.json",
       "evidence": "evidence/en-clay-family.visual-delta.json",
       "images": [
@@ -2764,17 +2922,17 @@
         "source/en-clay-family-b.png"
       ],
       "imageHashes": [
-        "2b15e05b41c62136f7bfc11b88015c7965552fbd00f502c1e3f67464f7e695fc",
-        "adca95244186c9ce0dda2a48a38301104aaf849d383afdb2d7dd485e639fa755"
+        "dbddaf2e9ac66ab79da8384bc81a251fd0d7ea2758aa0b8d14bf513e63d4b448",
+        "50ed295681c42e0cf78afdc295e699fc296f3e5d45454b5f6e6b9238d4fe7699"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-clay-family-base.txt",
-          "sha256": "da952380273fbe8d36d5adcb0a8ecfa333ad0b9e692eac2fbed330c2d1c3daaf"
+          "sha256": "3cbcdc3f1081c1b9d6109005778ba6feb402c509bf9e3730f34728844b5421e9"
         },
         {
           "file": "prompts/en-clay-family-edit.txt",
-          "sha256": "dd9118f46945413a9699a5212fd0ad67c9b913a74201efd8d8d5b54f2ff2bb62"
+          "sha256": "c238a3c499d815a04a258339b9205202bdd1c691dd392b03f348c284037ef108"
         }
       ],
       "hintLadderAdmission": {
@@ -2791,8 +2949,10 @@
     {
       "key": "en-papercut-lighthouse",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "6f09bc8b-9207-4dcc-8f7a-f0eb62b8c7e5",
-      "contentRevisionId": "2630983a-1628-4b4f-8925-172d3f7693bf",
+      "contentRevisionId": "1a867b3b-035f-40c3-8c18-7cce3e6ebe24",
       "bundle": "drafts/en-papercut-lighthouse.json",
       "evidence": "evidence/en-papercut-lighthouse.visual-delta.json",
       "images": [
@@ -2800,17 +2960,17 @@
         "source/en-papercut-lighthouse-b.png"
       ],
       "imageHashes": [
-        "716608a78c266990ec455e0918d95e65afa76c0d16db8c4344a9c4605c191ebd",
-        "282259b6e81af5b01202bc2a6c2c7871a630650c149b7c0e9a2dcaeff603a6c2"
+        "005dc8cc848514fdd69486f78febdd83a571550730afdf6b65cf3b89436d9c1d",
+        "e8f7385639f1bd1da1ae3d3f78a336d7f4722eb5a9f3bf9ac8d44cf6bcbddf58"
       ],
       "promptEvidence": [
         {
           "file": "prompts/en-papercut-lighthouse-base.txt",
-          "sha256": "75a3505a72807272ac1914d4bada990aa1948defe7f856ed92583c9ca664a794"
+          "sha256": "f6fb015fee9f74b94c3f9d579bf3eb22106352c0b334a964037ab7243e31b4fa"
         },
         {
           "file": "prompts/en-papercut-lighthouse-edit.txt",
-          "sha256": "d8e1abf473dd3c1aeb2e00c359e57795ee34499d16b710188839d78cd6a8505e"
+          "sha256": "639f46dffea1670c8399977c644c285df706af4cb8b3124046204effdd9f0b91"
         }
       ],
       "hintLadderAdmission": {
@@ -2827,6 +2987,8 @@
     {
       "key": "en-cyberpunk-city",
       "category": "ENGLISH",
+      "preferredInputSurface": "FREE_TEXT",
+      "assistPattern": "SPELLING",
       "contentId": "013f6886-e5aa-42b6-87c7-38f6dde7712a",
       "contentRevisionId": "a0583ad7-3b86-4fc9-8a52-1a733c089a98",
       "bundle": "drafts/en-cyberpunk-city.json",
@@ -2842,11 +3004,11 @@
       "promptEvidence": [
         {
           "file": "prompts/en-cyberpunk-city-base.txt",
-          "sha256": "3e6ace0a31de9736070d8214509f16e70182b4604cb2129162ce7ca5957c3a53"
+          "sha256": "57150ae36d7d0459b2910da1ed661cf297517d87900978ef5c4f307231ba462f"
         },
         {
           "file": "prompts/en-cyberpunk-city-edit.txt",
-          "sha256": "d728be0eb32a95d8ea02af7d2c0665fe05d69a1a943adb6b74a353353c4c07c0"
+          "sha256": "c4092b9700af82cbb2e09bf3667fc922717fe660ea9b8d7f3586a5616dee606e"
         }
       ],
       "hintLadderAdmission": {

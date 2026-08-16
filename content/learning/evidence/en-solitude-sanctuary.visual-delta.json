@@ -2,45 +2,75 @@
   "dimensionsMatch": true,
   "width": 1024,
   "height": 1024,
-  "changedRegions": 5,
+  "changedRegions": 10,
   "missingRegions": [],
-  "outsideChangedPixels": 4124,
-  "outsideChangedRatio": 0.004122903307720146,
+  "outsideChangedPixels": 15403,
+  "outsideChangedRatio": 0.016231573112683136,
   "outsidePolicy": "PASS",
   "policy": {
     "pixelThreshold": 60,
     "minChangedPixelsPerRegion": 24,
-    "maxOutsideChangedRatio": 0.05
+    "maxOutsideChangedRatio": 0.15
   },
   "regions": [
     {
-      "id": "difference_1",
-      "cx": 0.759,
-      "cy": 0.61,
+      "id": "diff_1",
+      "cx": 0.5187601023706897,
+      "cy": 0.6913018588362069,
       "r": 0.055
     },
     {
-      "id": "difference_2",
-      "cx": 0.883,
-      "cy": 0.537,
+      "id": "diff_2",
+      "cx": 0.16620519301470588,
+      "cy": 0.2539005055147059,
       "r": 0.055
     },
     {
-      "id": "difference_3",
-      "cx": 0.498,
-      "cy": 0.568,
+      "id": "diff_3",
+      "cx": 0.22737437592455623,
+      "cy": 0.6415408884985208,
       "r": 0.055
     },
     {
-      "id": "difference_4",
-      "cx": 0.487,
-      "cy": 0.446,
+      "id": "diff_4",
+      "cx": 0.12493258041317992,
+      "cy": 0.7231772195345189,
       "r": 0.055
     },
     {
-      "id": "difference_5",
-      "cx": 0.941,
-      "cy": 0.968,
+      "id": "diff_5",
+      "cx": 0.16560575387773724,
+      "cy": 0.3756878706660584,
+      "r": 0.055
+    },
+    {
+      "id": "diff_6",
+      "cx": 0.3044245793269231,
+      "cy": 0.7752028245192307,
+      "r": 0.055
+    },
+    {
+      "id": "diff_7",
+      "cx": 0.9342637172965116,
+      "cy": 0.6433843568313954,
+      "r": 0.055
+    },
+    {
+      "id": "diff_8",
+      "cx": 0.63330078125,
+      "cy": 0.5906767003676471,
+      "r": 0.055
+    },
+    {
+      "id": "diff_9",
+      "cx": 0.6697591145833334,
+      "cy": 0.7441948784722222,
+      "r": 0.055
+    },
+    {
+      "id": "diff_10",
+      "cx": 0.06528607536764706,
+      "cy": 0.6195140165441176,
       "r": 0.055
     }
   ]

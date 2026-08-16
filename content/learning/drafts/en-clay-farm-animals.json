@@ -1,0 +1,368 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "ab037fde-00d5-4dab-80f4-0c909b45964b",
+    "version": 1,
+    "contentRevisionId": "703fa56c-c705-4615-821e-6b66660f734c",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-clay-farm-animals",
+    "category": "ENGLISH",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/2eadc901e7357a09b84b9fd608a2a3349792abf76dce3815b086d1ade3c8603c.png",
+      "sha256": "2eadc901e7357a09b84b9fd608a2a3349792abf76dce3815b086d1ade3c8603c",
+      "encodedBytes": 2803135,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/fcf07fba48072ffed5abbdea2689d552419df062d4c6d0f2c5abe99122717942.png",
+      "sha256": "fcf07fba48072ffed5abbdea2689d552419df062d4c6d0f2c5abe99122717942",
+      "encodedBytes": 2830320,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "703fa56c-c705-4615-821e-6b66660f734c",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8412739120911215,
+            "cy": 0.8400910849883177,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.8412739120911215,
+            "cy": 0.8400910849883177,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.4994798428227003,
+            "cy": 0.13274440142804153,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.4994798428227003,
+            "cy": 0.13274440142804153,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.504150390625,
+            "cy": 0.8904052734375,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.504150390625,
+            "cy": 0.8904052734375,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.10483903556034482,
+            "cy": 0.7104559536637931,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.10483903556034482,
+            "cy": 0.7104559536637931,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.606294942149654,
+            "cy": 0.8353309499351211,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.606294942149654,
+            "cy": 0.8353309499351211,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.24459339488636364,
+            "cy": 0.07978515625,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.24459339488636364,
+            "cy": 0.07978515625,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8513997395833334,
+            "cy": 0.13392857142857142,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.8513997395833334,
+            "cy": 0.13392857142857142,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.15300064635791366,
+            "cy": 0.4555523549910072,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.15300064635791366,
+            "cy": 0.4555523549910072,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.940807224548969,
+            "cy": 0.5983458843427835,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.940807224548969,
+            "cy": 0.5983458843427835,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.3907051655783582,
+            "cy": 0.887323635727612,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.3907051655783582,
+            "cy": 0.887323635727612,
+            "r": 0.06875
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-clay-farm-animals",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8412739120911215,
+            "cy": 0.8400910849883177,
+            "r": 0.07375000000000001
+          },
+          "imageB": {
+            "cx": 0.8412739120911215,
+            "cy": 0.8400910849883177,
+            "r": 0.07375000000000001
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-clay-farm-animals",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.4994798428227003,
+            "cy": 0.13274440142804153,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.4994798428227003,
+            "cy": 0.13274440142804153,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-clay-farm-animals",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.504150390625,
+            "cy": 0.8904052734375,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.504150390625,
+            "cy": 0.8904052734375,
+            "r": 0.06875
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.8412739120911215,
+          "cy": 0.8400910849883177,
+          "r": 0.07875
+        },
+        "imageB": {
+          "cx": 0.8412739120911215,
+          "cy": 0.8400910849883177,
+          "r": 0.07875
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "resilience",
+      "aliases": [
+        "resiliency"
+      ],
+      "hintUnits": [
+        "r",
+        "e",
+        "s",
+        "i",
+        "l",
+        "i",
+        "e",
+        "n",
+        "c",
+        "e"
+      ],
+      "hintLadder": [
+        {
+          "ordinal": 1,
+          "kind": "SEMANTIC_CATEGORY",
+          "localizedText": {
+            "ko": "역경을 이겨 내고 다시 회복하는 힘을 나타내는 말이에요.",
+            "en": "A quality for recovering and adapting after difficulty."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 2,
+          "kind": "CONTEXT_SENTENCE",
+          "localizedText": {
+            "ko": "공동체는 폭풍 뒤 놀라운 ____을 보여 주었어요.",
+            "en": "The community showed remarkable ____ after the storm."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 3,
+          "kind": "ANSWER_LENGTH",
+          "localizedText": {
+            "ko": "정답은 10글자예요.",
+            "en": "The answer has 10 graphemes."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 4,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "첫 글자를 공개해요.",
+            "en": "Reveal the first grapheme."
+          },
+          "revealIndexes": [
+            0
+          ],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 5,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "남은 글자를 번갈아 공개해요.",
+            "en": "Reveal alternating unrevealed graphemes."
+          },
+          "revealIndexes": [
+            1,
+            3,
+            5,
+            7,
+            9
+          ],
+          "rankedPenaltyUnits": 1
+        }
+      ],
+      "meaning": {
+        "prompt": "What does resilience mean?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "회복탄력성"
+          },
+          {
+            "id": "option_2",
+            "label": "무관심"
+          },
+          {
+            "id": "option_3",
+            "label": "고립"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "b1fc90f42ab3c97dda4d89ee05f5561643fcaf9585c4691fd37c629f3b6a4a2e"
+  },
+  "assetFiles": {
+    "2eadc901e7357a09b84b9fd608a2a3349792abf76dce3815b086d1ade3c8603c": "D:\\touchcatch\\content\\learning\\source\\en-clay-farm-animals-a.png",
+    "fcf07fba48072ffed5abbdea2689d552419df062d4c6d0f2c5abe99122717942": "D:\\touchcatch\\content\\learning\\source\\en-clay-farm-animals-b.png"
+  }
+}

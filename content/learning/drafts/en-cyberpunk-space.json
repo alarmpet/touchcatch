@@ -21,9 +21,9 @@
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/1628e7da9340c65a81f684667e14b8903411543e0b3f84b4b9cc8e3e7f9c0649.png",
-      "sha256": "1628e7da9340c65a81f684667e14b8903411543e0b3f84b4b9cc8e3e7f9c0649",
-      "encodedBytes": 2885623,
+      "url": "https://cdn.spot-learn.test/assets/af648af511d960795abe2b0a9bad9c418f2f95dd1b1ac757d43f1d7dd3473b01.png",
+      "sha256": "af648af511d960795abe2b0a9bad9c418f2f95dd1b1ac757d43f1d7dd3473b01",
+      "encodedBytes": 2865392,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
@@ -306,6 +306,6 @@
   },
   "assetFiles": {
     "2c47f8c26ea1d7f129283e5e7f3dccfac123c0f1878eabd06353829105e334fe": "D:\\touchcatch\\content\\learning\\source\\en-cyberpunk-space-a.png",
-    "1628e7da9340c65a81f684667e14b8903411543e0b3f84b4b9cc8e3e7f9c0649": "D:\\touchcatch\\content\\learning\\source\\en-cyberpunk-space-b.png"
+    "af648af511d960795abe2b0a9bad9c418f2f95dd1b1ac757d43f1d7dd3473b01": "D:\\touchcatch\\content\\learning\\source\\en-cyberpunk-space-b.png"
   }
 }

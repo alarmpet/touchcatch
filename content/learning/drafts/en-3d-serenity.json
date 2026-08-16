@@ -6,173 +6,189 @@
   "publicContent": {
     "contentId": "c2e78295-9ba5-4036-82e0-b1faf8746a24",
     "version": 1,
-    "contentRevisionId": "d46fb09c-f6fa-414a-8433-eff0c0580536",
+    "contentRevisionId": "0168c9c2-73c8-4021-8254-8ed6ec88ce8b",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "en-3d-serenity",
     "language": "en",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/4a5ee9cbc20c1626e3a97c8bc923fc5ac859b4fe77e10bcc42d7d9b527b52c16.png",
-      "sha256": "4a5ee9cbc20c1626e3a97c8bc923fc5ac859b4fe77e10bcc42d7d9b527b52c16",
-      "encodedBytes": 2278963,
+      "url": "https://cdn.spot-learn.test/assets/33e0767ef30c55da2a7f49df3c1e03a7c998b9043078155299d6b4cdf22881a7.png",
+      "sha256": "33e0767ef30c55da2a7f49df3c1e03a7c998b9043078155299d6b4cdf22881a7",
+      "encodedBytes": 2135401,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/0f6e5e1ffbb2c2bc10926fa86daec44b64af9a4ca8e804ed92e0f3fc29b3f180.png",
-      "sha256": "0f6e5e1ffbb2c2bc10926fa86daec44b64af9a4ca8e804ed92e0f3fc29b3f180",
-      "encodedBytes": 2341860,
+      "url": "https://cdn.spot-learn.test/assets/5a7fdad1e1475e21fa4d40e181dbfc5cff794d6ed8725b87b735a55f15e3451f.png",
+      "sha256": "5a7fdad1e1475e21fa4d40e181dbfc5cff794d6ed8725b87b735a55f15e3451f",
+      "encodedBytes": 2279560,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "d46fb09c-f6fa-414a-8433-eff0c0580536",
+    "contentRevisionId": "0168c9c2-73c8-4021-8254-8ed6ec88ce8b",
     "schemaVersion": "1.0.0",
     "differences": [
       {
-        "objectiveId": "difference_1",
+        "objectiveId": "diff_1",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.52,
-            "cy": 0.551,
+            "cx": 0.12301097196691177,
+            "cy": 0.37277401194852944,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.52,
-            "cy": 0.551,
+            "cx": 0.12301097196691177,
+            "cy": 0.37277401194852944,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_2",
+        "objectiveId": "diff_2",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.106,
-            "cy": 0.404,
+            "cx": 0.05175309024419729,
+            "cy": 0.17881577157882012,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.106,
-            "cy": 0.404,
+            "cx": 0.05175309024419729,
+            "cy": 0.17881577157882012,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_3",
+        "objectiveId": "diff_3",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.86,
-            "cy": 0.377,
+            "cx": 0.4899281647245763,
+            "cy": 0.8187814486228814,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.86,
-            "cy": 0.377,
+            "cx": 0.4899281647245763,
+            "cy": 0.8187814486228814,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_4",
+        "objectiveId": "diff_4",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.358,
-            "cy": 0.594,
+            "cx": 0.04134185657751092,
+            "cy": 0.044906949372270744,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.358,
-            "cy": 0.594,
+            "cx": 0.04134185657751092,
+            "cy": 0.044906949372270744,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_5",
+        "objectiveId": "diff_5",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.256,
-            "cy": 0.405,
+            "cx": 0.1539333528359031,
+            "cy": 0.05395400261563876,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.256,
-            "cy": 0.405,
+            "cx": 0.1539333528359031,
+            "cy": 0.05395400261563876,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_6",
+        "objectiveId": "diff_6",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.333,
-            "cy": 0.318,
+            "cx": 0.5858355034722222,
+            "cy": 0.7487348090277778,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.333,
-            "cy": 0.318,
+            "cx": 0.5858355034722222,
+            "cy": 0.7487348090277778,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_7",
+        "objectiveId": "diff_7",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.737,
-            "cy": 0.564,
+            "cx": 0.8446170691287879,
+            "cy": 0.8073538115530303,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.737,
-            "cy": 0.564,
+            "cx": 0.8446170691287879,
+            "cy": 0.8073538115530303,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_8",
+        "objectiveId": "diff_8",
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.734,
-            "cy": 0.399,
+            "cx": 0.2858335433467742,
+            "cy": 0.17702557963709678,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.734,
-            "cy": 0.399,
+            "cx": 0.2858335433467742,
+            "cy": 0.17702557963709678,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_9",
+        "objectiveId": "diff_9",
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.537,
-            "cy": 0.276,
+            "cx": 0.7158759394778481,
+            "cy": 0.6235598793512658,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.537,
-            "cy": 0.276,
+            "cx": 0.7158759394778481,
+            "cy": 0.6235598793512658,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.3629557291666667,
+            "cy": 0.7886284722222222,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.3629557291666667,
+            "cy": 0.7886284722222222,
             "r": 0.055
           }
         }
@@ -185,13 +201,13 @@
         "publicPrompt": "Find item 1 in en-3d-serenity",
         "hitboxes": {
           "imageA": {
-            "cx": 0.52,
-            "cy": 0.551,
+            "cx": 0.12301097196691177,
+            "cy": 0.37277401194852944,
             "r": 0.06
           },
           "imageB": {
-            "cx": 0.52,
-            "cy": 0.551,
+            "cx": 0.12301097196691177,
+            "cy": 0.37277401194852944,
             "r": 0.06
           }
         }
@@ -202,13 +218,13 @@
         "publicPrompt": "Find item 2 in en-3d-serenity",
         "hitboxes": {
           "imageA": {
-            "cx": 0.106,
-            "cy": 0.404,
+            "cx": 0.05175309024419729,
+            "cy": 0.17881577157882012,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.106,
-            "cy": 0.404,
+            "cx": 0.05175309024419729,
+            "cy": 0.17881577157882012,
             "r": 0.055
           }
         }
@@ -219,13 +235,13 @@
         "publicPrompt": "Find item 3 in en-3d-serenity",
         "hitboxes": {
           "imageA": {
-            "cx": 0.86,
-            "cy": 0.377,
+            "cx": 0.4899281647245763,
+            "cy": 0.8187814486228814,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.86,
-            "cy": 0.377,
+            "cx": 0.4899281647245763,
+            "cy": 0.8187814486228814,
             "r": 0.055
           }
         }
@@ -235,13 +251,13 @@
       "objectiveId": "sudden_1",
       "hitboxes": {
         "imageA": {
-          "cx": 0.52,
-          "cy": 0.551,
+          "cx": 0.12301097196691177,
+          "cy": 0.37277401194852944,
           "r": 0.065
         },
         "imageB": {
-          "cx": 0.52,
-          "cy": 0.551,
+          "cx": 0.12301097196691177,
+          "cy": 0.37277401194852944,
           "r": 0.065
         }
       }
@@ -282,10 +298,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "954ad28f1f278e7bf395dc6280194214f7a95d396bf1ed6d0ce161b15c21dba4"
+    "privateSolutionHash": "5ff215477a775423ddd019accd024deb845be2b0b65d9dd4fdcb3dcebcc2fd2e"
   },
   "assetFiles": {
-    "4a5ee9cbc20c1626e3a97c8bc923fc5ac859b4fe77e10bcc42d7d9b527b52c16": "D:\\touchcatch\\content\\learning\\source\\en-3d-serenity-a.png",
-    "0f6e5e1ffbb2c2bc10926fa86daec44b64af9a4ca8e804ed92e0f3fc29b3f180": "D:\\touchcatch\\content\\learning\\source\\en-3d-serenity-b.png"
+    "33e0767ef30c55da2a7f49df3c1e03a7c998b9043078155299d6b4cdf22881a7": "D:\\touchcatch\\content\\learning\\source\\en-3d-serenity-a.png",
+    "5a7fdad1e1475e21fa4d40e181dbfc5cff794d6ed8725b87b735a55f15e3451f": "D:\\touchcatch\\content\\learning\\source\\en-3d-serenity-b.png"
   }
 }

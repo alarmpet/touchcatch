@@ -1,0 +1,307 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "6b804ae6-76a4-42ca-8352-5d25b2377e83",
+    "version": 1,
+    "contentRevisionId": "6fd4e934-56f5-4785-8971-af238aee8e5b",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-profession-architect",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "en",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/0861f0445481f096086e4e56af7962ed0ba54dbd65cc68fd69958e6cc97acb95.png",
+      "sha256": "0861f0445481f096086e4e56af7962ed0ba54dbd65cc68fd69958e6cc97acb95",
+      "encodedBytes": 2544851,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/2bf1f3c510929f8f2021b1d040765f8a31319ecaf2f9367f7170f6893ddabe4e.png",
+      "sha256": "2bf1f3c510929f8f2021b1d040765f8a31319ecaf2f9367f7170f6893ddabe4e",
+      "encodedBytes": 2665462,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "6fd4e934-56f5-4785-8971-af238aee8e5b",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8671001233552632,
+            "cy": 0.87395568555622,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.8671001233552632,
+            "cy": 0.87395568555622,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.914911716421386,
+            "cy": 0.73896746344076,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.914911716421386,
+            "cy": 0.73896746344076,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8639985408814908,
+            "cy": 0.18508967362855946,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.8639985408814908,
+            "cy": 0.18508967362855946,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9623111979166666,
+            "cy": 0.28516090029761904,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.9623111979166666,
+            "cy": 0.28516090029761904,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.07469115218495935,
+            "cy": 0.9203228213922764,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.07469115218495935,
+            "cy": 0.9203228213922764,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.06839354366534989,
+            "cy": 0.4460476774125282,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.06839354366534989,
+            "cy": 0.4460476774125282,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.15817323022959184,
+            "cy": 0.5684623458758503,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.15817323022959184,
+            "cy": 0.5684623458758503,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.06316764987244898,
+            "cy": 0.05362125318877551,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.06316764987244898,
+            "cy": 0.05362125318877551,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.6781255395372928,
+            "cy": 0.379761416609116,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.6781255395372928,
+            "cy": 0.379761416609116,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9572088068181818,
+            "cy": 0.5196200284090909,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.9572088068181818,
+            "cy": 0.5196200284090909,
+            "r": 0.08750000000000001
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-profession-architect",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8671001233552632,
+            "cy": 0.87395568555622,
+            "r": 0.09250000000000001
+          },
+          "imageB": {
+            "cx": 0.8671001233552632,
+            "cy": 0.87395568555622,
+            "r": 0.09250000000000001
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-profession-architect",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.914911716421386,
+            "cy": 0.73896746344076,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.914911716421386,
+            "cy": 0.73896746344076,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-profession-architect",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8639985408814908,
+            "cy": 0.18508967362855946,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.8639985408814908,
+            "cy": 0.18508967362855946,
+            "r": 0.08750000000000001
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.8671001233552632,
+          "cy": 0.87395568555622,
+          "r": 0.0975
+        },
+        "imageB": {
+          "cx": 0.8671001233552632,
+          "cy": 0.87395568555622,
+          "r": 0.0975
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "architect",
+      "aliases": [
+        "Architect"
+      ],
+      "hintUnits": [
+        "a",
+        "r",
+        "c",
+        "h",
+        "i",
+        "t",
+        "e",
+        "c",
+        "t"
+      ],
+      "meaning": {
+        "prompt": "Who designs buildings and construction plans?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "건축가 (architect)"
+          },
+          {
+            "id": "option_2",
+            "label": "조종사 (pilot)"
+          },
+          {
+            "id": "option_3",
+            "label": "요리사 (chef)"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "6f8a1698b96b986c5b25e63f213ffee4fe2d05fecf069df6d041eb08350e07ac"
+  },
+  "assetFiles": {
+    "0861f0445481f096086e4e56af7962ed0ba54dbd65cc68fd69958e6cc97acb95": "D:\\touchcatch\\content\\learning\\source\\en-profession-architect-a.png",
+    "2bf1f3c510929f8f2021b1d040765f8a31319ecaf2f9367f7170f6893ddabe4e": "D:\\touchcatch\\content\\learning\\source\\en-profession-architect-b.png"
+  }
+}

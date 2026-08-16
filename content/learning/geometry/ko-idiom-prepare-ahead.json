@@ -97,9 +97,9 @@
       "id": "word_3",
       "kind": "SPECIAL",
       "publicPrompt": "점검판을 찾으세요.",
-      "cx": 0.55,
-      "cy": 0.78,
-      "r": 0.09
+      "cx": 0.65,
+      "cy": 0.76,
+      "r": 0.055
     }
   ],
   "suddenDeath": {

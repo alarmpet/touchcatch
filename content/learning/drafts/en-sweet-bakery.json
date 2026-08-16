@@ -21,9 +21,9 @@
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/88d13fcb932e0346c047d9c3f2b2580f35e4d8d04d0274835988b57c75820fce.png",
-      "sha256": "88d13fcb932e0346c047d9c3f2b2580f35e4d8d04d0274835988b57c75820fce",
-      "encodedBytes": 1855024,
+      "url": "https://cdn.spot-learn.test/assets/0324284240cdcd947a522cf939f1526fd9f51fb486e0057f68a5ec7b3cd0df54.png",
+      "sha256": "0324284240cdcd947a522cf939f1526fd9f51fb486e0057f68a5ec7b3cd0df54",
+      "encodedBytes": 1880941,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
@@ -299,6 +299,6 @@
   },
   "assetFiles": {
     "1302c300ad7c13d714c7faca22950cd66821eee7c0e6499a5c010de799c81164": "D:\\touchcatch\\content\\learning\\source\\en-sweet-bakery-a.png",
-    "88d13fcb932e0346c047d9c3f2b2580f35e4d8d04d0274835988b57c75820fce": "D:\\touchcatch\\content\\learning\\source\\en-sweet-bakery-b.png"
+    "0324284240cdcd947a522cf939f1526fd9f51fb486e0057f68a5ec7b3cd0df54": "D:\\touchcatch\\content\\learning\\source\\en-sweet-bakery-b.png"
   }
 }

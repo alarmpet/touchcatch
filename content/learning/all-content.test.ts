@@ -12,9 +12,13 @@ describe('nine-pack learning manifest', () => {
     expect(new Set(manifest.entries.map((entry: { contentId: string }) => entry.contentId)).size).toBe(manifest.entries.length);
     expect(new Set(manifest.entries.map((entry: { contentRevisionId: string }) => entry.contentRevisionId)).size).toBe(manifest.entries.length);
     expect(new Set(manifest.entries.flatMap((entry: { imageHashes: string[] }) => entry.imageHashes)).size).toBe(manifest.entries.length * 2);
-    for (const entry of manifest.entries) {
-      const bundle = JSON.parse(await readFile(resolve(root, entry.bundle), 'utf8'));
-      const evidence = JSON.parse(await readFile(resolve(root, entry.evidence), 'utf8'));
+    // Read the pack files concurrently: awaiting ~20 reads one at a time pushed this
+    // past the 5s budget whenever the suite ran under parallel workers.
+    const packs = await Promise.all(manifest.entries.map(async (entry: { bundle: string; evidence: string }) => ({
+      bundle: JSON.parse(await readFile(resolve(root, entry.bundle), 'utf8')),
+      evidence: JSON.parse(await readFile(resolve(root, entry.evidence), 'utf8')),
+    })));
+    for (const { bundle, evidence } of packs) {
       expect(bundle.status).toBe('DRAFT');
       expect(bundle.rightsReviewStatus).toBe('REVIEW_REQUIRED');
       expect(bundle.educationReviewStatus).toBe('REVIEW_REQUIRED');

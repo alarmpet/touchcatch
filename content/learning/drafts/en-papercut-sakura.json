@@ -21,9 +21,9 @@
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/e55b6ef3ef46c3b1c2a40adc5fcb0f86b114a25e1108fdf181210bea7d495dc2.png",
-      "sha256": "e55b6ef3ef46c3b1c2a40adc5fcb0f86b114a25e1108fdf181210bea7d495dc2",
-      "encodedBytes": 2688135,
+      "url": "https://cdn.spot-learn.test/assets/1a5472d5196ff6759bc9d5a7bd8fec2c064c243502d8da16510abf7ff150f2e4.png",
+      "sha256": "1a5472d5196ff6759bc9d5a7bd8fec2c064c243502d8da16510abf7ff150f2e4",
+      "encodedBytes": 2663726,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
@@ -305,6 +305,6 @@
   },
   "assetFiles": {
     "9bb1643c0e0299c0855fa46103e7453a8f2825d68f941fa3d7d17830664203dc": "D:\\touchcatch\\content\\learning\\source\\en-papercut-sakura-a.png",
-    "e55b6ef3ef46c3b1c2a40adc5fcb0f86b114a25e1108fdf181210bea7d495dc2": "D:\\touchcatch\\content\\learning\\source\\en-papercut-sakura-b.png"
+    "1a5472d5196ff6759bc9d5a7bd8fec2c064c243502d8da16510abf7ff150f2e4": "D:\\touchcatch\\content\\learning\\source\\en-papercut-sakura-b.png"
   }
 }

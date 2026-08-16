@@ -6,141 +6,189 @@
   "publicContent": {
     "contentId": "6f09bc8b-9207-4dcc-8f7a-f0eb62b8c7e5",
     "version": 1,
-    "contentRevisionId": "2630983a-1628-4b4f-8925-172d3f7693bf",
+    "contentRevisionId": "1a867b3b-035f-40c3-8c18-7cce3e6ebe24",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "en-papercut-lighthouse",
     "language": "en",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/716608a78c266990ec455e0918d95e65afa76c0d16db8c4344a9c4605c191ebd.png",
-      "sha256": "716608a78c266990ec455e0918d95e65afa76c0d16db8c4344a9c4605c191ebd",
-      "encodedBytes": 2487396,
+      "url": "https://cdn.spot-learn.test/assets/005dc8cc848514fdd69486f78febdd83a571550730afdf6b65cf3b89436d9c1d.png",
+      "sha256": "005dc8cc848514fdd69486f78febdd83a571550730afdf6b65cf3b89436d9c1d",
+      "encodedBytes": 2448501,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/282259b6e81af5b01202bc2a6c2c7871a630650c149b7c0e9a2dcaeff603a6c2.png",
-      "sha256": "282259b6e81af5b01202bc2a6c2c7871a630650c149b7c0e9a2dcaeff603a6c2",
-      "encodedBytes": 2485005,
+      "url": "https://cdn.spot-learn.test/assets/e8f7385639f1bd1da1ae3d3f78a336d7f4722eb5a9f3bf9ac8d44cf6bcbddf58.png",
+      "sha256": "e8f7385639f1bd1da1ae3d3f78a336d7f4722eb5a9f3bf9ac8d44cf6bcbddf58",
+      "encodedBytes": 2430825,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "2630983a-1628-4b4f-8925-172d3f7693bf",
+    "contentRevisionId": "1a867b3b-035f-40c3-8c18-7cce3e6ebe24",
     "schemaVersion": "1.0.0",
     "differences": [
       {
-        "objectiveId": "difference_1",
+        "objectiveId": "diff_1",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.524,
-            "cy": 0.398,
+            "cx": 0.21006743505658437,
+            "cy": 0.5874706629372428,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.524,
-            "cy": 0.398,
+            "cx": 0.21006743505658437,
+            "cy": 0.5874706629372428,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_2",
+        "objectiveId": "diff_2",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.703,
-            "cy": 0.146,
+            "cx": 0.8579555777616279,
+            "cy": 0.7181118277616279,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.703,
-            "cy": 0.146,
+            "cx": 0.8579555777616279,
+            "cy": 0.7181118277616279,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_3",
+        "objectiveId": "diff_3",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.548,
-            "cy": 0.512,
+            "cx": 0.6122938368055556,
+            "cy": 0.5916124131944445,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.548,
-            "cy": 0.512,
+            "cx": 0.6122938368055556,
+            "cy": 0.5916124131944445,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_4",
+        "objectiveId": "diff_4",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.143,
-            "cy": 0.647,
+            "cx": 0.8866383999208861,
+            "cy": 0.09797146954113924,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.143,
-            "cy": 0.647,
+            "cx": 0.8866383999208861,
+            "cy": 0.09797146954113924,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_5",
+        "objectiveId": "diff_5",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.656,
-            "cy": 0.351,
+            "cx": 0.6623878163739669,
+            "cy": 0.9068351304235537,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.656,
-            "cy": 0.351,
+            "cx": 0.6623878163739669,
+            "cy": 0.9068351304235537,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_6",
+        "objectiveId": "diff_6",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.677,
-            "cy": 0.475,
+            "cx": 0.15635117539414414,
+            "cy": 0.18126671593468469,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.677,
-            "cy": 0.475,
+            "cx": 0.15635117539414414,
+            "cy": 0.18126671593468469,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_7",
+        "objectiveId": "diff_7",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.839,
-            "cy": 0.467,
+            "cx": 0.2550547425176056,
+            "cy": 0.2350283340669014,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.839,
-            "cy": 0.467,
+            "cx": 0.2550547425176056,
+            "cy": 0.2350283340669014,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.6213030133928571,
+            "cy": 0.47286551339285715,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.6213030133928571,
+            "cy": 0.47286551339285715,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.2368755918560606,
+            "cy": 0.7558149857954546,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.2368755918560606,
+            "cy": 0.7558149857954546,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.06298828125,
+            "cy": 0.75048828125,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.06298828125,
+            "cy": 0.75048828125,
             "r": 0.055
           }
         }
@@ -153,13 +201,13 @@
         "publicPrompt": "Find item 1 in en-papercut-lighthouse",
         "hitboxes": {
           "imageA": {
-            "cx": 0.524,
-            "cy": 0.398,
+            "cx": 0.21006743505658437,
+            "cy": 0.5874706629372428,
             "r": 0.06
           },
           "imageB": {
-            "cx": 0.524,
-            "cy": 0.398,
+            "cx": 0.21006743505658437,
+            "cy": 0.5874706629372428,
             "r": 0.06
           }
         }
@@ -170,13 +218,13 @@
         "publicPrompt": "Find item 2 in en-papercut-lighthouse",
         "hitboxes": {
           "imageA": {
-            "cx": 0.703,
-            "cy": 0.146,
+            "cx": 0.8579555777616279,
+            "cy": 0.7181118277616279,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.703,
-            "cy": 0.146,
+            "cx": 0.8579555777616279,
+            "cy": 0.7181118277616279,
             "r": 0.055
           }
         }
@@ -187,13 +235,13 @@
         "publicPrompt": "Find item 3 in en-papercut-lighthouse",
         "hitboxes": {
           "imageA": {
-            "cx": 0.548,
-            "cy": 0.512,
+            "cx": 0.6122938368055556,
+            "cy": 0.5916124131944445,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.548,
-            "cy": 0.512,
+            "cx": 0.6122938368055556,
+            "cy": 0.5916124131944445,
             "r": 0.055
           }
         }
@@ -203,13 +251,13 @@
       "objectiveId": "sudden_1",
       "hitboxes": {
         "imageA": {
-          "cx": 0.524,
-          "cy": 0.398,
+          "cx": 0.21006743505658437,
+          "cy": 0.5874706629372428,
           "r": 0.065
         },
         "imageB": {
-          "cx": 0.524,
-          "cy": 0.398,
+          "cx": 0.21006743505658437,
+          "cy": 0.5874706629372428,
           "r": 0.065
         }
       }
@@ -250,10 +298,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "7bc49f5797bc14b396cb728694f2711a1a393aef231ff275fb5fa0fd0659f516"
+    "privateSolutionHash": "35da375e5dd13120ef4968e8ef428881e835c3af4d973826ee526ab34122f016"
   },
   "assetFiles": {
-    "716608a78c266990ec455e0918d95e65afa76c0d16db8c4344a9c4605c191ebd": "D:\\touchcatch\\content\\learning\\source\\en-papercut-lighthouse-a.png",
-    "282259b6e81af5b01202bc2a6c2c7871a630650c149b7c0e9a2dcaeff603a6c2": "D:\\touchcatch\\content\\learning\\source\\en-papercut-lighthouse-b.png"
+    "005dc8cc848514fdd69486f78febdd83a571550730afdf6b65cf3b89436d9c1d": "D:\\touchcatch\\content\\learning\\source\\en-papercut-lighthouse-a.png",
+    "e8f7385639f1bd1da1ae3d3f78a336d7f4722eb5a9f3bf9ac8d44cf6bcbddf58": "D:\\touchcatch\\content\\learning\\source\\en-papercut-lighthouse-b.png"
   }
 }

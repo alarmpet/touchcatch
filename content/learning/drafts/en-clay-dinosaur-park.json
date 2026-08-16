@@ -1,0 +1,368 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "56ef28e4-e479-46e5-8958-2bb98f4ba7c3",
+    "version": 1,
+    "contentRevisionId": "19b3b9bc-6d7f-407d-8c8a-6fc7efe04f10",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-clay-dinosaur-park",
+    "category": "ENGLISH",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/604f61d40e2a7d0d3fd8f2418c8e03f9890367cbf287b7875255e07fc0ef6e68.png",
+      "sha256": "604f61d40e2a7d0d3fd8f2418c8e03f9890367cbf287b7875255e07fc0ef6e68",
+      "encodedBytes": 2773730,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/57eacd1bacaabf4552789a9a08167c79909306873fdebbf1b027c20d51358ac7.png",
+      "sha256": "57eacd1bacaabf4552789a9a08167c79909306873fdebbf1b027c20d51358ac7",
+      "encodedBytes": 2816577,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "19b3b9bc-6d7f-407d-8c8a-6fc7efe04f10",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9547457909399225,
+            "cy": 0.9373463238856589,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.9547457909399225,
+            "cy": 0.9373463238856589,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8447495705170157,
+            "cy": 0.7601414226112565,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.8447495705170157,
+            "cy": 0.7601414226112565,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9569340119780514,
+            "cy": 0.8062631741836188,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.9569340119780514,
+            "cy": 0.8062631741836188,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.1469041255482456,
+            "cy": 0.8263346354166666,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.1469041255482456,
+            "cy": 0.8263346354166666,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5193054855510753,
+            "cy": 0.7974367859543011,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.5193054855510753,
+            "cy": 0.7974367859543011,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.2356874322615607,
+            "cy": 0.033860752348265896,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.2356874322615607,
+            "cy": 0.033860752348265896,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7902444144275701,
+            "cy": 0.8628811940225857,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.7902444144275701,
+            "cy": 0.8628811940225857,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.35018076795212766,
+            "cy": 0.01964552859042553,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.35018076795212766,
+            "cy": 0.01964552859042553,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5035789405906593,
+            "cy": 0.3685986864697802,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.5035789405906593,
+            "cy": 0.3685986864697802,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8967268987996688,
+            "cy": 0.46287445674668876,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.8967268987996688,
+            "cy": 0.46287445674668876,
+            "r": 0.06875
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-clay-dinosaur-park",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9547457909399225,
+            "cy": 0.9373463238856589,
+            "r": 0.07375000000000001
+          },
+          "imageB": {
+            "cx": 0.9547457909399225,
+            "cy": 0.9373463238856589,
+            "r": 0.07375000000000001
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-clay-dinosaur-park",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8447495705170157,
+            "cy": 0.7601414226112565,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.8447495705170157,
+            "cy": 0.7601414226112565,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-clay-dinosaur-park",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9569340119780514,
+            "cy": 0.8062631741836188,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.9569340119780514,
+            "cy": 0.8062631741836188,
+            "r": 0.06875
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.9547457909399225,
+          "cy": 0.9373463238856589,
+          "r": 0.07875
+        },
+        "imageB": {
+          "cx": 0.9547457909399225,
+          "cy": 0.9373463238856589,
+          "r": 0.07875
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "resilience",
+      "aliases": [
+        "resiliency"
+      ],
+      "hintUnits": [
+        "r",
+        "e",
+        "s",
+        "i",
+        "l",
+        "i",
+        "e",
+        "n",
+        "c",
+        "e"
+      ],
+      "hintLadder": [
+        {
+          "ordinal": 1,
+          "kind": "SEMANTIC_CATEGORY",
+          "localizedText": {
+            "ko": "역경을 이겨 내고 다시 회복하는 힘을 나타내는 말이에요.",
+            "en": "A quality for recovering and adapting after difficulty."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 2,
+          "kind": "CONTEXT_SENTENCE",
+          "localizedText": {
+            "ko": "공동체는 폭풍 뒤 놀라운 ____을 보여 주었어요.",
+            "en": "The community showed remarkable ____ after the storm."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 3,
+          "kind": "ANSWER_LENGTH",
+          "localizedText": {
+            "ko": "정답은 10글자예요.",
+            "en": "The answer has 10 graphemes."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 4,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "첫 글자를 공개해요.",
+            "en": "Reveal the first grapheme."
+          },
+          "revealIndexes": [
+            0
+          ],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 5,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "남은 글자를 번갈아 공개해요.",
+            "en": "Reveal alternating unrevealed graphemes."
+          },
+          "revealIndexes": [
+            1,
+            3,
+            5,
+            7,
+            9
+          ],
+          "rankedPenaltyUnits": 1
+        }
+      ],
+      "meaning": {
+        "prompt": "What does resilience mean?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "회복탄력성"
+          },
+          {
+            "id": "option_2",
+            "label": "무관심"
+          },
+          {
+            "id": "option_3",
+            "label": "고립"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "68ffa5744b81dd118c87d38b6016137c1d2d5cfb8f4faa6a903f07a8117e7b25"
+  },
+  "assetFiles": {
+    "604f61d40e2a7d0d3fd8f2418c8e03f9890367cbf287b7875255e07fc0ef6e68": "D:\\touchcatch\\content\\learning\\source\\en-clay-dinosaur-park-a.png",
+    "57eacd1bacaabf4552789a9a08167c79909306873fdebbf1b027c20d51358ac7": "D:\\touchcatch\\content\\learning\\source\\en-clay-dinosaur-park-b.png"
+  }
+}

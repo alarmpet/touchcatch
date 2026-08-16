@@ -1,0 +1,308 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "110f608b-dbf8-4181-83c0-256bf843a647",
+    "version": 1,
+    "contentRevisionId": "bf8557ae-e534-4921-8dea-fb46e8ec2649",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-space-blackhole",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/f7a9e70031f7ddba58e358d7bb76df632e12f96b35fe80f15a34888d549827f7.png",
+      "sha256": "f7a9e70031f7ddba58e358d7bb76df632e12f96b35fe80f15a34888d549827f7",
+      "encodedBytes": 2318303,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/414384150d31098661645fbd13e4ccc3f0e3cd291371892a293d9249cb75ffcb.png",
+      "sha256": "414384150d31098661645fbd13e4ccc3f0e3cd291371892a293d9249cb75ffcb",
+      "encodedBytes": 2420753,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "bf8557ae-e534-4921-8dea-fb46e8ec2649",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.10930898071452476,
+            "cy": 0.14822506170515395,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.10930898071452476,
+            "cy": 0.14822506170515395,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.24621336910140562,
+            "cy": 0.19405159701305222,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.24621336910140562,
+            "cy": 0.19405159701305222,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7073449502444135,
+            "cy": 0.6315549711941341,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.7073449502444135,
+            "cy": 0.6315549711941341,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7374089273174157,
+            "cy": 0.21296194698033707,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.7374089273174157,
+            "cy": 0.21296194698033707,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9266783248546512,
+            "cy": 0.11576807776162791,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.9266783248546512,
+            "cy": 0.11576807776162791,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.43510105298913043,
+            "cy": 0.9163765285326086,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.43510105298913043,
+            "cy": 0.9163765285326086,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.4139791349085366,
+            "cy": 0.4609017721036585,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.4139791349085366,
+            "cy": 0.4609017721036585,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.240576171875,
+            "cy": 0.760888671875,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.240576171875,
+            "cy": 0.760888671875,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7828755439082279,
+            "cy": 0.4912418413765823,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.7828755439082279,
+            "cy": 0.4912418413765823,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.09963262648809523,
+            "cy": 0.8943374875992064,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.09963262648809523,
+            "cy": 0.8943374875992064,
+            "r": 0.06875
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-space-blackhole",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.10930898071452476,
+            "cy": 0.14822506170515395,
+            "r": 0.07375000000000001
+          },
+          "imageB": {
+            "cx": 0.10930898071452476,
+            "cy": 0.14822506170515395,
+            "r": 0.07375000000000001
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-space-blackhole",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.24621336910140562,
+            "cy": 0.19405159701305222,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.24621336910140562,
+            "cy": 0.19405159701305222,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-space-blackhole",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7073449502444135,
+            "cy": 0.6315549711941341,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.7073449502444135,
+            "cy": 0.6315549711941341,
+            "r": 0.06875
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.10930898071452476,
+          "cy": 0.14822506170515395,
+          "r": 0.07875
+        },
+        "imageB": {
+          "cx": 0.10930898071452476,
+          "cy": 0.14822506170515395,
+          "r": 0.07875
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "blackhole",
+      "aliases": [
+        "black hole",
+        "Blackhole"
+      ],
+      "hintUnits": [
+        "b",
+        "l",
+        "a",
+        "c",
+        "k",
+        "h",
+        "o",
+        "l",
+        "e"
+      ],
+      "meaning": {
+        "prompt": "What region of spacetime lets nothing escape, not even light?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "블랙홀 (blackhole)"
+          },
+          {
+            "id": "option_2",
+            "label": "혜성 (comet)"
+          },
+          {
+            "id": "option_3",
+            "label": "성운 (nebula)"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "851178f0d4f700b7f47c85d28bdca1c88cb15e20659efde6ed87a3024c0ecd11"
+  },
+  "assetFiles": {
+    "f7a9e70031f7ddba58e358d7bb76df632e12f96b35fe80f15a34888d549827f7": "D:\\touchcatch\\content\\learning\\source\\en-space-blackhole-a.png",
+    "414384150d31098661645fbd13e4ccc3f0e3cd291371892a293d9249cb75ffcb": "D:\\touchcatch\\content\\learning\\source\\en-space-blackhole-b.png"
+  }
+}

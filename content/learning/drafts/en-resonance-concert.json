@@ -21,9 +21,9 @@
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/4bf33ead82ad4f931635ad7fc4f8ba24b6f1fcd4933dec1620fa22e1db17ba63.png",
-      "sha256": "4bf33ead82ad4f931635ad7fc4f8ba24b6f1fcd4933dec1620fa22e1db17ba63",
-      "encodedBytes": 2163481,
+      "url": "https://cdn.spot-learn.test/assets/bae8516b8d1bfbd71516b19d5525730238edce4aedde44ad8a0b36c56b1d6831.png",
+      "sha256": "bae8516b8d1bfbd71516b19d5525730238edce4aedde44ad8a0b36c56b1d6831",
+      "encodedBytes": 2256521,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
@@ -303,6 +303,6 @@
   },
   "assetFiles": {
     "b5b82a1923db3e91b3d32b508072f03e58c79c14d35cec96712f7e945bda8cab": "D:\\touchcatch\\content\\learning\\source\\en-resonance-concert-a.png",
-    "4bf33ead82ad4f931635ad7fc4f8ba24b6f1fcd4933dec1620fa22e1db17ba63": "D:\\touchcatch\\content\\learning\\source\\en-resonance-concert-b.png"
+    "bae8516b8d1bfbd71516b19d5525730238edce4aedde44ad8a0b36c56b1d6831": "D:\\touchcatch\\content\\learning\\source\\en-resonance-concert-b.png"
   }
 }

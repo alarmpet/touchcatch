@@ -6,191 +6,191 @@
   "publicContent": {
     "contentId": "a913582e-ad85-4687-8d07-0891a60cc415",
     "version": 1,
-    "contentRevisionId": "6abea107-ace8-4bdb-872b-7d165bc26dbe",
+    "contentRevisionId": "a0daa245-1ed6-4816-8b59-3ed4d5a23daf",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "en-resilience",
+    "category": "ENGLISH",
     "language": "en",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/cb29e67a65ed7a192a81c3eb5fd00bbbdc58c14085c60b5405a8a19ab1d74669.png",
-      "sha256": "cb29e67a65ed7a192a81c3eb5fd00bbbdc58c14085c60b5405a8a19ab1d74669",
-      "encodedBytes": 4281243,
-      "width": 1536,
+      "url": "https://cdn.spot-learn.test/assets/cb222bdb5a5eb73aae2d5ebb107f92c2f9a0c852500203f5c78e83250502f449.png",
+      "sha256": "cb222bdb5a5eb73aae2d5ebb107f92c2f9a0c852500203f5c78e83250502f449",
+      "encodedBytes": 2841480,
+      "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/41c330b7546190bbc6c16712786f8b6b8631536010d8a6cf263cee39e7f88e57.png",
-      "sha256": "41c330b7546190bbc6c16712786f8b6b8631536010d8a6cf263cee39e7f88e57",
-      "encodedBytes": 4232442,
-      "width": 1536,
+      "url": "https://cdn.spot-learn.test/assets/170778218b0073b964039261103e463353e0ef4c700d67eb007788bbb4bbae37.png",
+      "sha256": "170778218b0073b964039261103e463353e0ef4c700d67eb007788bbb4bbae37",
+      "encodedBytes": 2852446,
+      "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
-    },
-    "category": "ENGLISH"
+    }
   },
   "privateSolution": {
-    "contentRevisionId": "6abea107-ace8-4bdb-872b-7d165bc26dbe",
+    "contentRevisionId": "a0daa245-1ed6-4816-8b59-3ed4d5a23daf",
     "schemaVersion": "1.0.0",
     "differences": [
       {
-        "objectiveId": "difference_1",
+        "objectiveId": "diff_1",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.561,
-            "cy": 0.098,
-            "r": 0.05
+            "cx": 0.4271228966346154,
+            "cy": 0.62970703125,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.561,
-            "cy": 0.098,
-            "r": 0.05
+            "cx": 0.4271228966346154,
+            "cy": 0.62970703125,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_2",
+        "objectiveId": "diff_2",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.534,
-            "cy": 0.341,
-            "r": 0.05
+            "cx": 0.14409600888578275,
+            "cy": 0.6834829897164537,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.534,
-            "cy": 0.341,
-            "r": 0.05
+            "cx": 0.14409600888578275,
+            "cy": 0.6834829897164537,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_3",
+        "objectiveId": "diff_3",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.13,
-            "cy": 0.855,
-            "r": 0.05
+            "cx": 0.11965741902372262,
+            "cy": 0.8443808451186131,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.13,
-            "cy": 0.855,
-            "r": 0.05
+            "cx": 0.11965741902372262,
+            "cy": 0.8443808451186131,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_4",
+        "objectiveId": "diff_4",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.252,
-            "cy": 0.444,
-            "r": 0.05
+            "cx": 0.5985576923076923,
+            "cy": 0.7026554987980769,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.252,
-            "cy": 0.444,
-            "r": 0.05
+            "cx": 0.5985576923076923,
+            "cy": 0.7026554987980769,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_5",
+        "objectiveId": "diff_5",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.891,
-            "cy": 0.384,
-            "r": 0.05
+            "cx": 0.25312836745689654,
+            "cy": 0.5699656519396552,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.891,
-            "cy": 0.384,
-            "r": 0.05
+            "cx": 0.25312836745689654,
+            "cy": 0.5699656519396552,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_6",
+        "objectiveId": "diff_6",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.637,
-            "cy": 0.405,
-            "r": 0.05
+            "cx": 0.815906202936747,
+            "cy": 0.4641554499246988,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.637,
-            "cy": 0.405,
-            "r": 0.05
+            "cx": 0.815906202936747,
+            "cy": 0.4641554499246988,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_7",
+        "objectiveId": "diff_7",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.05,
-            "cy": 0.559,
-            "r": 0.05
+            "cx": 0.82939453125,
+            "cy": 0.10205078125,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.05,
-            "cy": 0.559,
-            "r": 0.05
+            "cx": 0.82939453125,
+            "cy": 0.10205078125,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_8",
+        "objectiveId": "diff_8",
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.717,
-            "cy": 0.344,
-            "r": 0.05
+            "cx": 0.6305486505681818,
+            "cy": 0.4361239346590909,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.717,
-            "cy": 0.344,
-            "r": 0.05
+            "cx": 0.6305486505681818,
+            "cy": 0.4361239346590909,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_9",
+        "objectiveId": "diff_9",
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.687,
-            "cy": 0.682,
-            "r": 0.05
+            "cx": 0.24628155048076922,
+            "cy": 0.42186247996794873,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.687,
-            "cy": 0.682,
-            "r": 0.05
+            "cx": 0.24628155048076922,
+            "cy": 0.42186247996794873,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_10",
+        "objectiveId": "diff_10",
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.507,
-            "cy": 0.762,
-            "r": 0.05
+            "cx": 0.26053292410714285,
+            "cy": 0.7711356026785714,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.507,
-            "cy": 0.762,
-            "r": 0.05
+            "cx": 0.26053292410714285,
+            "cy": 0.7711356026785714,
+            "r": 0.055
           }
         }
       }
@@ -199,33 +199,33 @@
       {
         "missionId": "word_1",
         "kind": "NORMAL",
-        "publicPrompt": "Find the broom.",
+        "publicPrompt": "Find the rain barrel.",
         "hitboxes": {
           "imageA": {
-            "cx": 0.714,
-            "cy": 0.5,
-            "r": 0.055
+            "cx": 0.88,
+            "cy": 0.57,
+            "r": 0.04
           },
           "imageB": {
-            "cx": 0.714,
-            "cy": 0.5,
-            "r": 0.055
+            "cx": 0.88,
+            "cy": 0.57,
+            "r": 0.04
           }
         }
       },
       {
         "missionId": "word_2",
         "kind": "NORMAL",
-        "publicPrompt": "Find the garden gloves.",
+        "publicPrompt": "Find the garden rake.",
         "hitboxes": {
           "imageA": {
-            "cx": 0.891,
-            "cy": 0.54,
+            "cx": 0.68,
+            "cy": 0.91,
             "r": 0.045
           },
           "imageB": {
-            "cx": 0.891,
-            "cy": 0.54,
+            "cx": 0.68,
+            "cy": 0.91,
             "r": 0.045
           }
         }
@@ -236,14 +236,14 @@
         "publicPrompt": "Find the flowerpot.",
         "hitboxes": {
           "imageA": {
-            "cx": 0.54,
-            "cy": 0.665,
-            "r": 0.05
+            "cx": 0.93,
+            "cy": 0.68,
+            "r": 0.04
           },
           "imageB": {
-            "cx": 0.54,
-            "cy": 0.665,
-            "r": 0.05
+            "cx": 0.93,
+            "cy": 0.68,
+            "r": 0.04
           }
         }
       }
@@ -252,14 +252,14 @@
       "objectiveId": "sudden_1",
       "hitboxes": {
         "imageA": {
-          "cx": 0.285,
-          "cy": 0.13,
-          "r": 0.09
+          "cx": 0.7,
+          "cy": 0.1,
+          "r": 0.04
         },
         "imageB": {
-          "cx": 0.285,
-          "cy": 0.13,
-          "r": 0.09
+          "cx": 0.7,
+          "cy": 0.1,
+          "r": 0.04
         }
       }
     },
@@ -280,24 +280,6 @@
         "c",
         "e"
       ],
-      "meaning": {
-        "prompt": "What does resilience mean?",
-        "options": [
-          {
-            "id": "option_1",
-            "label": "회복탄력성"
-          },
-          {
-            "id": "option_2",
-            "label": "무관심"
-          },
-          {
-            "id": "option_3",
-            "label": "고립"
-          }
-        ],
-        "correctOptionId": "option_1"
-      },
       "hintLadder": [
         {
           "ordinal": 1,
@@ -357,12 +339,30 @@
           ],
           "rankedPenaltyUnits": 1
         }
-      ]
+      ],
+      "meaning": {
+        "prompt": "What does resilience mean?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "회복탄력성"
+          },
+          {
+            "id": "option_2",
+            "label": "무관심"
+          },
+          {
+            "id": "option_3",
+            "label": "고립"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
     },
-    "privateSolutionHash": "e1a86d22b104c71e91a15e4b1dc8a8550aac95e5d2ac5c73be366c4d50cdabc6"
+    "privateSolutionHash": "56acdf31be0dbc1dea7464c09f402ec2ada2d2f918599daf879ff8fc7c28043d"
   },
   "assetFiles": {
-    "cb29e67a65ed7a192a81c3eb5fd00bbbdc58c14085c60b5405a8a19ab1d74669": "D:\\touchcatch\\content\\learning\\source\\en-resilience-a.png",
-    "41c330b7546190bbc6c16712786f8b6b8631536010d8a6cf263cee39e7f88e57": "D:\\touchcatch\\content\\learning\\source\\en-resilience-b.png"
+    "cb222bdb5a5eb73aae2d5ebb107f92c2f9a0c852500203f5c78e83250502f449": "D:\\touchcatch\\content\\learning\\source\\en-resilience-a.png",
+    "170778218b0073b964039261103e463353e0ef4c700d67eb007788bbb4bbae37": "D:\\touchcatch\\content\\learning\\source\\en-resilience-b.png"
   }
 }

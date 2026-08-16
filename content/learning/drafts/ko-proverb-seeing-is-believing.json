@@ -6,191 +6,191 @@
   "publicContent": {
     "contentId": "03e72cd5-fd13-4e9b-85cf-7f6b23e5a5d2",
     "version": 1,
-    "contentRevisionId": "1aea2997-0944-493c-8739-acd0c27af4ac",
+    "contentRevisionId": "008e4c98-c1ae-4ab4-80ec-253f3292d256",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "ko-proverb-seeing-is-believing",
+    "category": "PROVERB",
     "language": "ko",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/340f4b221ce65d4443157444b7919ff727132815c47cf7c2f57871fa84daf29a.png",
-      "sha256": "340f4b221ce65d4443157444b7919ff727132815c47cf7c2f57871fa84daf29a",
-      "encodedBytes": 3441684,
-      "width": 1536,
+      "url": "https://cdn.spot-learn.test/assets/1d67380b512fb1a9f0d8bd6769f78349e71b6280da219e04cdde6a7c70e81994.png",
+      "sha256": "1d67380b512fb1a9f0d8bd6769f78349e71b6280da219e04cdde6a7c70e81994",
+      "encodedBytes": 2351218,
+      "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/cfdf2fbf64b3f9cd226b81242ee893545b698afd74bc23598d5b756b857aaa3b.png",
-      "sha256": "cfdf2fbf64b3f9cd226b81242ee893545b698afd74bc23598d5b756b857aaa3b",
-      "encodedBytes": 3413886,
-      "width": 1536,
+      "url": "https://cdn.spot-learn.test/assets/6cb49b1cb885c25973ed25cae66325954a0e82d10591f863b20b0f8561e1e461.png",
+      "sha256": "6cb49b1cb885c25973ed25cae66325954a0e82d10591f863b20b0f8561e1e461",
+      "encodedBytes": 2427771,
+      "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
-    },
-    "category": "PROVERB"
+    }
   },
   "privateSolution": {
-    "contentRevisionId": "1aea2997-0944-493c-8739-acd0c27af4ac",
+    "contentRevisionId": "008e4c98-c1ae-4ab4-80ec-253f3292d256",
     "schemaVersion": "1.0.0",
     "differences": [
       {
-        "objectiveId": "difference_1",
+        "objectiveId": "diff_1",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.23,
-            "cy": 0.439,
-            "r": 0.05
+            "cx": 0.5779898081229642,
+            "cy": 0.6833694905333876,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.23,
-            "cy": 0.439,
-            "r": 0.05
+            "cx": 0.5779898081229642,
+            "cy": 0.6833694905333876,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_2",
+        "objectiveId": "diff_2",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.924,
-            "cy": 0.288,
-            "r": 0.05
+            "cx": 0.38290082391211605,
+            "cy": 0.49688866520904434,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.924,
-            "cy": 0.288,
-            "r": 0.05
+            "cx": 0.38290082391211605,
+            "cy": 0.49688866520904434,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_3",
+        "objectiveId": "diff_3",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.083,
-            "cy": 0.625,
-            "r": 0.05
+            "cx": 0.3730921794458763,
+            "cy": 0.7182113804768041,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.083,
-            "cy": 0.625,
-            "r": 0.05
+            "cx": 0.3730921794458763,
+            "cy": 0.7182113804768041,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_4",
+        "objectiveId": "diff_4",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.878,
-            "cy": 0.654,
-            "r": 0.05
+            "cx": 0.23266050869360902,
+            "cy": 0.17706252937030076,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.878,
-            "cy": 0.654,
-            "r": 0.05
+            "cx": 0.23266050869360902,
+            "cy": 0.17706252937030076,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_5",
+        "objectiveId": "diff_5",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.73,
-            "cy": 0.694,
-            "r": 0.05
+            "cx": 0.7357933407738095,
+            "cy": 0.8479895213293651,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.73,
-            "cy": 0.694,
-            "r": 0.05
+            "cx": 0.7357933407738095,
+            "cy": 0.8479895213293651,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_6",
+        "objectiveId": "diff_6",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.054,
-            "cy": 0.525,
-            "r": 0.05
+            "cx": 0.42580078125,
+            "cy": 0.08257161458333333,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.054,
-            "cy": 0.525,
-            "r": 0.05
+            "cx": 0.42580078125,
+            "cy": 0.08257161458333333,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_7",
+        "objectiveId": "diff_7",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.483,
-            "cy": 0.593,
-            "r": 0.05
+            "cx": 0.23894186580882354,
+            "cy": 0.2966164981617647,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.483,
-            "cy": 0.593,
-            "r": 0.05
+            "cx": 0.23894186580882354,
+            "cy": 0.2966164981617647,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_8",
+        "objectiveId": "diff_8",
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.775,
-            "cy": 0.102,
-            "r": 0.05
+            "cx": 0.9047221522177419,
+            "cy": 0.2252866683467742,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.775,
-            "cy": 0.102,
-            "r": 0.05
+            "cx": 0.9047221522177419,
+            "cy": 0.2252866683467742,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_9",
+        "objectiveId": "diff_9",
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.455,
-            "cy": 0.774,
-            "r": 0.05
+            "cx": 0.9043689164959017,
+            "cy": 0.34993756403688525,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.455,
-            "cy": 0.774,
-            "r": 0.05
+            "cx": 0.9043689164959017,
+            "cy": 0.34993756403688525,
+            "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_10",
+        "objectiveId": "diff_10",
         "tier": "HARD",
         "hitboxes": {
           "imageA": {
-            "cx": 0.724,
-            "cy": 0.797,
-            "r": 0.05
+            "cx": 0.2579752604166667,
+            "cy": 0.4187825520833333,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.724,
-            "cy": 0.797,
-            "r": 0.05
+            "cx": 0.2579752604166667,
+            "cy": 0.4187825520833333,
+            "r": 0.055
           }
         }
       }
@@ -199,51 +199,51 @@
       {
         "missionId": "word_1",
         "kind": "NORMAL",
-        "publicPrompt": "창가 화분을 찾으세요.",
+        "publicPrompt": "왼쪽 학생을 찾으세요.",
         "hitboxes": {
           "imageA": {
-            "cx": 0.08,
-            "cy": 0.285,
-            "r": 0.045
+            "cx": 0.12,
+            "cy": 0.5,
+            "r": 0.06
           },
           "imageB": {
-            "cx": 0.08,
-            "cy": 0.285,
-            "r": 0.045
+            "cx": 0.12,
+            "cy": 0.5,
+            "r": 0.06
           }
         }
       },
       {
         "missionId": "word_2",
         "kind": "NORMAL",
-        "publicPrompt": "유리장 속 플라스크를 찾으세요.",
+        "publicPrompt": "칠판의 무지개를 찾으세요.",
         "hitboxes": {
           "imageA": {
-            "cx": 0.49,
-            "cy": 0.08,
-            "r": 0.055
+            "cx": 0.5,
+            "cy": 0.28,
+            "r": 0.06
           },
           "imageB": {
-            "cx": 0.49,
-            "cy": 0.08,
-            "r": 0.055
+            "cx": 0.5,
+            "cy": 0.28,
+            "r": 0.06
           }
         }
       },
       {
         "missionId": "word_3",
         "kind": "SPECIAL",
-        "publicPrompt": "스위치 상자를 찾으세요.",
+        "publicPrompt": "선생님을 찾으세요.",
         "hitboxes": {
           "imageA": {
-            "cx": 0.82,
-            "cy": 0.87,
-            "r": 0.05
+            "cx": 0.68,
+            "cy": 0.3,
+            "r": 0.055
           },
           "imageB": {
-            "cx": 0.82,
-            "cy": 0.87,
-            "r": 0.05
+            "cx": 0.68,
+            "cy": 0.3,
+            "r": 0.055
           }
         }
       }
@@ -252,14 +252,14 @@
       "objectiveId": "sudden_1",
       "hitboxes": {
         "imageA": {
-          "cx": 0.63,
-          "cy": 0.35,
-          "r": 0.08
+          "cx": 0.9,
+          "cy": 0.63,
+          "r": 0.05
         },
         "imageB": {
-          "cx": 0.63,
-          "cy": 0.35,
-          "r": 0.08
+          "cx": 0.9,
+          "cy": 0.63,
+          "r": 0.05
         }
       }
     },
@@ -276,24 +276,6 @@
         "일",
         "견"
       ],
-      "meaning": {
-        "prompt": "이 속담의 뜻은 무엇인가요?",
-        "options": [
-          {
-            "id": "option_1",
-            "label": "여러 번 듣는 것보다 직접 보는 것이 낫다"
-          },
-          {
-            "id": "option_2",
-            "label": "질문을 하지 않는 것이 낫다"
-          },
-          {
-            "id": "option_3",
-            "label": "책은 한 번만 읽어야 한다"
-          }
-        ],
-        "correctOptionId": "option_1"
-      },
       "hintLadder": [
         {
           "ordinal": 1,
@@ -351,12 +333,30 @@
           ],
           "rankedPenaltyUnits": 1
         }
-      ]
+      ],
+      "meaning": {
+        "prompt": "이 속담의 뜻은 무엇인가요?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "여러 번 듣는 것보다 직접 보는 것이 낫다"
+          },
+          {
+            "id": "option_2",
+            "label": "질문을 하지 않는 것이 낫다"
+          },
+          {
+            "id": "option_3",
+            "label": "책은 한 번만 읽어야 한다"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
     },
-    "privateSolutionHash": "ddbae7821b9d9428e1b092678a8d453d241813d98ab041dc33e03a28df2971a2"
+    "privateSolutionHash": "27ae2bc0f994a421fba40d5400e90e3ec6a11045b88185a10adde73ee3008a61"
   },
   "assetFiles": {
-    "340f4b221ce65d4443157444b7919ff727132815c47cf7c2f57871fa84daf29a": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-seeing-is-believing-a.png",
-    "cfdf2fbf64b3f9cd226b81242ee893545b698afd74bc23598d5b756b857aaa3b": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-seeing-is-believing-b.png"
+    "1d67380b512fb1a9f0d8bd6769f78349e71b6280da219e04cdde6a7c70e81994": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-seeing-is-believing-a.png",
+    "6cb49b1cb885c25973ed25cae66325954a0e82d10591f863b20b0f8561e1e461": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-seeing-is-believing-b.png"
   }
 }

@@ -21,9 +21,9 @@
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/625d99af133d8b4913312fb94412a4a5ae0ae07d9d668a18aa5ef8c03143302a.png",
-      "sha256": "625d99af133d8b4913312fb94412a4a5ae0ae07d9d668a18aa5ef8c03143302a",
-      "encodedBytes": 2332213,
+      "url": "https://cdn.spot-learn.test/assets/00ddda7147b0e72a5428aa61e907e9f42280084f8d058cdffed03550232ed803.png",
+      "sha256": "00ddda7147b0e72a5428aa61e907e9f42280084f8d058cdffed03550232ed803",
+      "encodedBytes": 2298561,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
@@ -304,6 +304,6 @@
   },
   "assetFiles": {
     "fb143eb5fef831c2ce52db843dcc71c82c3a8bbf803b7f94782b1b0b4b46a8ac": "D:\\touchcatch\\content\\learning\\source\\en-creativity-studio-a.png",
-    "625d99af133d8b4913312fb94412a4a5ae0ae07d9d668a18aa5ef8c03143302a": "D:\\touchcatch\\content\\learning\\source\\en-creativity-studio-b.png"
+    "00ddda7147b0e72a5428aa61e907e9f42280084f8d058cdffed03550232ed803": "D:\\touchcatch\\content\\learning\\source\\en-creativity-studio-b.png"
   }
 }

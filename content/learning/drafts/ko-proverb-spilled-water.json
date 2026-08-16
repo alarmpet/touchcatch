@@ -1,0 +1,304 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "d8f51ddf-01c5-4433-8556-bb98e28db962",
+    "version": 1,
+    "contentRevisionId": "6d4703d7-ce56-4eb4-8b0f-2229f792fd50",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "ko-proverb-spilled-water",
+    "category": "PROVERB",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/c78ef88f7fd0bb1a3a63a15d92a854fa102be9d5a9e2fe0476fd9f32b28d3ae8.png",
+      "sha256": "c78ef88f7fd0bb1a3a63a15d92a854fa102be9d5a9e2fe0476fd9f32b28d3ae8",
+      "encodedBytes": 2425845,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/62c65084b2b23b045b2dfd38a2b307f558420fd88d9a627326bcccc5d2438008.png",
+      "sha256": "62c65084b2b23b045b2dfd38a2b307f558420fd88d9a627326bcccc5d2438008",
+      "encodedBytes": 2482302,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "6d4703d7-ce56-4eb4-8b0f-2229f792fd50",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7674877025462963,
+            "cy": 0.6098760467728758,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.7674877025462963,
+            "cy": 0.6098760467728758,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5041947798295454,
+            "cy": 0.86572265625,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.5041947798295454,
+            "cy": 0.86572265625,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.08342399853187919,
+            "cy": 0.33642578125,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.08342399853187919,
+            "cy": 0.33642578125,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.25832362481725146,
+            "cy": 0.4479023894371345,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.25832362481725146,
+            "cy": 0.4479023894371345,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8532729821702454,
+            "cy": 0.899429040452454,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.8532729821702454,
+            "cy": 0.899429040452454,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.6455335115131579,
+            "cy": 0.27202405427631576,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.6455335115131579,
+            "cy": 0.27202405427631576,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.821566712622549,
+            "cy": 0.19989851409313725,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.821566712622549,
+            "cy": 0.19989851409313725,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.3906603826992754,
+            "cy": 0.49409108922101447,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.3906603826992754,
+            "cy": 0.49409108922101447,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9200439453125,
+            "cy": 0.711669921875,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.9200439453125,
+            "cy": 0.711669921875,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.2701822916666667,
+            "cy": 0.10319010416666667,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.2701822916666667,
+            "cy": 0.10319010416666667,
+            "r": 0.08750000000000001
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in ko-proverb-spilled-water",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.7674877025462963,
+            "cy": 0.6098760467728758,
+            "r": 0.09250000000000001
+          },
+          "imageB": {
+            "cx": 0.7674877025462963,
+            "cy": 0.6098760467728758,
+            "r": 0.09250000000000001
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in ko-proverb-spilled-water",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5041947798295454,
+            "cy": 0.86572265625,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.5041947798295454,
+            "cy": 0.86572265625,
+            "r": 0.08750000000000001
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in ko-proverb-spilled-water",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.08342399853187919,
+            "cy": 0.33642578125,
+            "r": 0.08750000000000001
+          },
+          "imageB": {
+            "cx": 0.08342399853187919,
+            "cy": 0.33642578125,
+            "r": 0.08750000000000001
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.7674877025462963,
+          "cy": 0.6098760467728758,
+          "r": 0.0975
+        },
+        "imageB": {
+          "cx": 0.7674877025462963,
+          "cy": 0.6098760467728758,
+          "r": 0.0975
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "엎질러진 물",
+      "aliases": [
+        "엎질러진물"
+      ],
+      "hintUnits": [
+        "엎",
+        "질",
+        "러",
+        "진",
+        " ",
+        "물"
+      ],
+      "meaning": {
+        "prompt": "이미 벌어진 일은 되돌릴 수 없다는 뜻은?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "엎질러진 물"
+          },
+          {
+            "id": "option_2",
+            "label": "우물 안 개구리"
+          },
+          {
+            "id": "option_3",
+            "label": "소 잃고 외양간 고친다"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "4a57c006734f411c9ca544eb96f7df18f09d360e51e545d45173462c63f30cd2"
+  },
+  "assetFiles": {
+    "c78ef88f7fd0bb1a3a63a15d92a854fa102be9d5a9e2fe0476fd9f32b28d3ae8": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-spilled-water-a.png",
+    "62c65084b2b23b045b2dfd38a2b307f558420fd88d9a627326bcccc5d2438008": "D:\\touchcatch\\content\\learning\\source\\ko-proverb-spilled-water-b.png"
+  }
+}

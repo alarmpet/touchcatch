@@ -1,0 +1,368 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "15547ae1-31c6-4791-88c3-32099ff0577e",
+    "version": 1,
+    "contentRevisionId": "5c2a2638-5dd5-40cc-8485-e20d4c9edd7a",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-clay-space-station",
+    "category": "ENGLISH",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/47b8240a119e245ac573c4443ba49bce115381a5bb139f6af79aaf7eb40e6eb8.png",
+      "sha256": "47b8240a119e245ac573c4443ba49bce115381a5bb139f6af79aaf7eb40e6eb8",
+      "encodedBytes": 2627021,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/d25e7acb071d096371701915e7f48ef94aeabde9d53e77b6ba789307fb607719.png",
+      "sha256": "d25e7acb071d096371701915e7f48ef94aeabde9d53e77b6ba789307fb607719",
+      "encodedBytes": 2637247,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "5c2a2638-5dd5-40cc-8485-e20d4c9edd7a",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.22496744791666667,
+            "cy": 0.5432783139297386,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.22496744791666667,
+            "cy": 0.5432783139297386,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.15121328125,
+            "cy": 0.44280078125,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.15121328125,
+            "cy": 0.44280078125,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.17556544174382716,
+            "cy": 0.14098789544753088,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.17556544174382716,
+            "cy": 0.14098789544753088,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.4029432852056962,
+            "cy": 0.9224621736550633,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.4029432852056962,
+            "cy": 0.9224621736550633,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8636550623855311,
+            "cy": 0.4898140596382784,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.8636550623855311,
+            "cy": 0.4898140596382784,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9285166750672043,
+            "cy": 0.22702977990591397,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.9285166750672043,
+            "cy": 0.22702977990591397,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8490939670138888,
+            "cy": 0.8537326388888888,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.8490939670138888,
+            "cy": 0.8537326388888888,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.6845555160984849,
+            "cy": 0.09574751420454546,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.6845555160984849,
+            "cy": 0.09574751420454546,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9475474784044715,
+            "cy": 0.08785489710365854,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.9475474784044715,
+            "cy": 0.08785489710365854,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.6428858652836135,
+            "cy": 0.43953108587184875,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.6428858652836135,
+            "cy": 0.43953108587184875,
+            "r": 0.06875
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "word_1",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 1 in en-clay-space-station",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.22496744791666667,
+            "cy": 0.5432783139297386,
+            "r": 0.07375000000000001
+          },
+          "imageB": {
+            "cx": 0.22496744791666667,
+            "cy": 0.5432783139297386,
+            "r": 0.07375000000000001
+          }
+        }
+      },
+      {
+        "missionId": "word_2",
+        "kind": "NORMAL",
+        "publicPrompt": "Find item 2 in en-clay-space-station",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.15121328125,
+            "cy": 0.44280078125,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.15121328125,
+            "cy": 0.44280078125,
+            "r": 0.06875
+          }
+        }
+      },
+      {
+        "missionId": "word_3",
+        "kind": "SPECIAL",
+        "publicPrompt": "Find item 3 in en-clay-space-station",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.17556544174382716,
+            "cy": 0.14098789544753088,
+            "r": 0.06875
+          },
+          "imageB": {
+            "cx": 0.17556544174382716,
+            "cy": 0.14098789544753088,
+            "r": 0.06875
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "sudden_1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.22496744791666667,
+          "cy": 0.5432783139297386,
+          "r": 0.07875
+        },
+        "imageB": {
+          "cx": 0.22496744791666667,
+          "cy": 0.5432783139297386,
+          "r": 0.07875
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "resilience",
+      "aliases": [
+        "resiliency"
+      ],
+      "hintUnits": [
+        "r",
+        "e",
+        "s",
+        "i",
+        "l",
+        "i",
+        "e",
+        "n",
+        "c",
+        "e"
+      ],
+      "hintLadder": [
+        {
+          "ordinal": 1,
+          "kind": "SEMANTIC_CATEGORY",
+          "localizedText": {
+            "ko": "역경을 이겨 내고 다시 회복하는 힘을 나타내는 말이에요.",
+            "en": "A quality for recovering and adapting after difficulty."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 2,
+          "kind": "CONTEXT_SENTENCE",
+          "localizedText": {
+            "ko": "공동체는 폭풍 뒤 놀라운 ____을 보여 주었어요.",
+            "en": "The community showed remarkable ____ after the storm."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 3,
+          "kind": "ANSWER_LENGTH",
+          "localizedText": {
+            "ko": "정답은 10글자예요.",
+            "en": "The answer has 10 graphemes."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 4,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "첫 글자를 공개해요.",
+            "en": "Reveal the first grapheme."
+          },
+          "revealIndexes": [
+            0
+          ],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 5,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "남은 글자를 번갈아 공개해요.",
+            "en": "Reveal alternating unrevealed graphemes."
+          },
+          "revealIndexes": [
+            1,
+            3,
+            5,
+            7,
+            9
+          ],
+          "rankedPenaltyUnits": 1
+        }
+      ],
+      "meaning": {
+        "prompt": "What does resilience mean?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "회복탄력성"
+          },
+          {
+            "id": "option_2",
+            "label": "무관심"
+          },
+          {
+            "id": "option_3",
+            "label": "고립"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    },
+    "privateSolutionHash": "4b4d5f4ef9a5ef2a7fb7b37181fbde0ed4964086abfc2e8e6cef7e90c0f7dff7"
+  },
+  "assetFiles": {
+    "47b8240a119e245ac573c4443ba49bce115381a5bb139f6af79aaf7eb40e6eb8": "D:\\touchcatch\\content\\learning\\source\\en-clay-space-station-a.png",
+    "d25e7acb071d096371701915e7f48ef94aeabde9d53e77b6ba789307fb607719": "D:\\touchcatch\\content\\learning\\source\\en-clay-space-station-b.png"
+  }
+}

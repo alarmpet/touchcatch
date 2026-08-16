@@ -6,109 +6,189 @@
   "publicContent": {
     "contentId": "ccd07ed6-fdf5-4f9b-8023-4680e3b0ea2a",
     "version": 1,
-    "contentRevisionId": "f40296b7-14b6-47f3-8d93-7eb498514cc6",
+    "contentRevisionId": "1866f225-4ec4-45de-8808-3373e9a23048",
     "schemaVersion": "1.0.0",
     "assetPolicyVersion": "1.0.0",
     "theme": "en-solitude-sanctuary",
     "language": "en",
     "difficulty": "ADVANCED",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/1f535d1d1f3e52a7ca080e1f6cff25a6267e59bc021766844ee3d41260d05668.png",
-      "sha256": "1f535d1d1f3e52a7ca080e1f6cff25a6267e59bc021766844ee3d41260d05668",
-      "encodedBytes": 1789495,
+      "url": "https://cdn.spot-learn.test/assets/ea3d561ccd7083147a3c817f3caf0d66eab1e557b133f4c4e5c17a8784bde6f9.png",
+      "sha256": "ea3d561ccd7083147a3c817f3caf0d66eab1e557b133f4c4e5c17a8784bde6f9",
+      "encodedBytes": 2119744,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/9d6b7786c537279d3cd1182737e7b819d96ac3d6debb9bfbbcc3e208d5618d9f.png",
-      "sha256": "9d6b7786c537279d3cd1182737e7b819d96ac3d6debb9bfbbcc3e208d5618d9f",
-      "encodedBytes": 1936736,
+      "url": "https://cdn.spot-learn.test/assets/f4368dd2d523531ffb3bdba5a7ba79815eba1dd3147d568402208acb82808b83.png",
+      "sha256": "f4368dd2d523531ffb3bdba5a7ba79815eba1dd3147d568402208acb82808b83",
+      "encodedBytes": 2223265,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     }
   },
   "privateSolution": {
-    "contentRevisionId": "f40296b7-14b6-47f3-8d93-7eb498514cc6",
+    "contentRevisionId": "1866f225-4ec4-45de-8808-3373e9a23048",
     "schemaVersion": "1.0.0",
     "differences": [
       {
-        "objectiveId": "difference_1",
+        "objectiveId": "diff_1",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.759,
-            "cy": 0.61,
+            "cx": 0.5187601023706897,
+            "cy": 0.6913018588362069,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.759,
-            "cy": 0.61,
+            "cx": 0.5187601023706897,
+            "cy": 0.6913018588362069,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_2",
+        "objectiveId": "diff_2",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.883,
-            "cy": 0.537,
+            "cx": 0.16620519301470588,
+            "cy": 0.2539005055147059,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.883,
-            "cy": 0.537,
+            "cx": 0.16620519301470588,
+            "cy": 0.2539005055147059,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_3",
+        "objectiveId": "diff_3",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.498,
-            "cy": 0.568,
+            "cx": 0.22737437592455623,
+            "cy": 0.6415408884985208,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.498,
-            "cy": 0.568,
+            "cx": 0.22737437592455623,
+            "cy": 0.6415408884985208,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_4",
+        "objectiveId": "diff_4",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.487,
-            "cy": 0.446,
+            "cx": 0.12493258041317992,
+            "cy": 0.7231772195345189,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.487,
-            "cy": 0.446,
+            "cx": 0.12493258041317992,
+            "cy": 0.7231772195345189,
             "r": 0.055
           }
         }
       },
       {
-        "objectiveId": "difference_5",
+        "objectiveId": "diff_5",
         "tier": "NORMAL",
         "hitboxes": {
           "imageA": {
-            "cx": 0.941,
-            "cy": 0.968,
+            "cx": 0.16560575387773724,
+            "cy": 0.3756878706660584,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.941,
-            "cy": 0.968,
+            "cx": 0.16560575387773724,
+            "cy": 0.3756878706660584,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.3044245793269231,
+            "cy": 0.7752028245192307,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.3044245793269231,
+            "cy": 0.7752028245192307,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9342637172965116,
+            "cy": 0.6433843568313954,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.9342637172965116,
+            "cy": 0.6433843568313954,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.63330078125,
+            "cy": 0.5906767003676471,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.63330078125,
+            "cy": 0.5906767003676471,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_9",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.6697591145833334,
+            "cy": 0.7441948784722222,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.6697591145833334,
+            "cy": 0.7441948784722222,
+            "r": 0.055
+          }
+        }
+      },
+      {
+        "objectiveId": "diff_10",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.06528607536764706,
+            "cy": 0.6195140165441176,
+            "r": 0.055
+          },
+          "imageB": {
+            "cx": 0.06528607536764706,
+            "cy": 0.6195140165441176,
             "r": 0.055
           }
         }
@@ -121,13 +201,13 @@
         "publicPrompt": "Find item 1 in en-solitude-sanctuary",
         "hitboxes": {
           "imageA": {
-            "cx": 0.759,
-            "cy": 0.61,
+            "cx": 0.5187601023706897,
+            "cy": 0.6913018588362069,
             "r": 0.06
           },
           "imageB": {
-            "cx": 0.759,
-            "cy": 0.61,
+            "cx": 0.5187601023706897,
+            "cy": 0.6913018588362069,
             "r": 0.06
           }
         }
@@ -138,13 +218,13 @@
         "publicPrompt": "Find item 2 in en-solitude-sanctuary",
         "hitboxes": {
           "imageA": {
-            "cx": 0.883,
-            "cy": 0.537,
+            "cx": 0.16620519301470588,
+            "cy": 0.2539005055147059,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.883,
-            "cy": 0.537,
+            "cx": 0.16620519301470588,
+            "cy": 0.2539005055147059,
             "r": 0.055
           }
         }
@@ -155,13 +235,13 @@
         "publicPrompt": "Find item 3 in en-solitude-sanctuary",
         "hitboxes": {
           "imageA": {
-            "cx": 0.498,
-            "cy": 0.568,
+            "cx": 0.22737437592455623,
+            "cy": 0.6415408884985208,
             "r": 0.055
           },
           "imageB": {
-            "cx": 0.498,
-            "cy": 0.568,
+            "cx": 0.22737437592455623,
+            "cy": 0.6415408884985208,
             "r": 0.055
           }
         }
@@ -171,13 +251,13 @@
       "objectiveId": "sudden_1",
       "hitboxes": {
         "imageA": {
-          "cx": 0.759,
-          "cy": 0.61,
+          "cx": 0.5187601023706897,
+          "cy": 0.6913018588362069,
           "r": 0.065
         },
         "imageB": {
-          "cx": 0.759,
-          "cy": 0.61,
+          "cx": 0.5187601023706897,
+          "cy": 0.6913018588362069,
           "r": 0.065
         }
       }
@@ -217,10 +297,10 @@
         "correctOptionId": "option_1"
       }
     },
-    "privateSolutionHash": "bc34563c19be27e8ad06cd78e3b8500b0430267fb7d85fa0823488e7e25274fd"
+    "privateSolutionHash": "291e529bcd0086744e0519ac632612cfa941de40b5257d796a3e87984373f63a"
   },
   "assetFiles": {
-    "1f535d1d1f3e52a7ca080e1f6cff25a6267e59bc021766844ee3d41260d05668": "D:\\touchcatch\\content\\learning\\source\\en-solitude-sanctuary-a.png",
-    "9d6b7786c537279d3cd1182737e7b819d96ac3d6debb9bfbbcc3e208d5618d9f": "D:\\touchcatch\\content\\learning\\source\\en-solitude-sanctuary-b.png"
+    "ea3d561ccd7083147a3c817f3caf0d66eab1e557b133f4c4e5c17a8784bde6f9": "D:\\touchcatch\\content\\learning\\source\\en-solitude-sanctuary-a.png",
+    "f4368dd2d523531ffb3bdba5a7ba79815eba1dd3147d568402208acb82808b83": "D:\\touchcatch\\content\\learning\\source\\en-solitude-sanctuary-b.png"
   }
 }

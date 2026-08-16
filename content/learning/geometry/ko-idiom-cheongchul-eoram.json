@@ -1,0 +1,111 @@
+{
+  "policy": {
+    "pixelThreshold": 90,
+    "minChangedPixelsPerRegion": 24,
+    "maxOutsideChangedRatio": 0.15
+  },
+  "differences": [
+    {
+      "id": "diff_1",
+      "tier": "NORMAL",
+      "cx": 0.28623599339642264,
+      "cy": 0.09305535695715474,
+      "r": 0.06875
+    },
+    {
+      "id": "diff_2",
+      "tier": "NORMAL",
+      "cx": 0.2995795933067376,
+      "cy": 0.21313418846040189,
+      "r": 0.06875
+    },
+    {
+      "id": "diff_3",
+      "tier": "NORMAL",
+      "cx": 0.17180524553571427,
+      "cy": 0.5208875868055556,
+      "r": 0.06875
+    },
+    {
+      "id": "diff_4",
+      "tier": "NORMAL",
+      "cx": 0.4867994225543478,
+      "cy": 0.93173828125,
+      "r": 0.06875
+    },
+    {
+      "id": "diff_5",
+      "tier": "NORMAL",
+      "cx": 0.4072797416460396,
+      "cy": 0.8346466970915841,
+      "r": 0.06875
+    },
+    {
+      "id": "diff_6",
+      "tier": "NORMAL",
+      "cx": 0.8594970703125,
+      "cy": 0.8042399088541666,
+      "r": 0.06875
+    },
+    {
+      "id": "diff_7",
+      "tier": "NORMAL",
+      "cx": 0.8417080965909091,
+      "cy": 0.92822265625,
+      "r": 0.06875
+    },
+    {
+      "id": "diff_8",
+      "tier": "HARD",
+      "cx": 0.582177734375,
+      "cy": 0.511572265625,
+      "r": 0.06875
+    },
+    {
+      "id": "diff_9",
+      "tier": "HARD",
+      "cx": 0.6126354586693549,
+      "cy": 0.8068768901209677,
+      "r": 0.06875
+    },
+    {
+      "id": "diff_10",
+      "tier": "HARD",
+      "cx": 0.9776885363520408,
+      "cy": 0.8219168526785714,
+      "r": 0.06875
+    }
+  ],
+  "wordHunts": [
+    {
+      "id": "word_1",
+      "kind": "NORMAL",
+      "publicPrompt": "Find item 1 in ko-idiom-cheongchul-eoram",
+      "cx": 0.28623599339642264,
+      "cy": 0.09305535695715474,
+      "r": 0.07375000000000001
+    },
+    {
+      "id": "word_2",
+      "kind": "NORMAL",
+      "publicPrompt": "Find item 2 in ko-idiom-cheongchul-eoram",
+      "cx": 0.2995795933067376,
+      "cy": 0.21313418846040189,
+      "r": 0.06875
+    },
+    {
+      "id": "word_3",
+      "kind": "SPECIAL",
+      "publicPrompt": "Find item 3 in ko-idiom-cheongchul-eoram",
+      "cx": 0.17180524553571427,
+      "cy": 0.5208875868055556,
+      "r": 0.06875
+    }
+  ],
+  "suddenDeath": {
+    "id": "sudden_1",
+    "cx": 0.28623599339642264,
+    "cy": 0.09305535695715474,
+    "r": 0.07875
+  }
+}
