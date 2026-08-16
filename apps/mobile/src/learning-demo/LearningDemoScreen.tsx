@@ -71,6 +71,18 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
   );
   const selected = useMemo(() => entries.find((entry) => entry.key === selectedKey) ?? entries[0]!, [entries, selectedKey]);
   const [state, setState] = useState<DemoState>(() => createDemoState(selected));
+  /**
+   * The freshest reduced state, updated synchronously inside the tap handler.
+   *
+   * Reducing from the render closure's `state` loses finds as soon as anyone taps quickly:
+   * two taps landing in one React batch both reduce from the same stale value, and the
+   * second `setState` overwrites the first one's claim. The bug was invisible while nothing
+   * rewarded speed, and the combo made it the first thing you hit.
+   *
+   * A ref rather than a functional updater on purpose: the updater has to stay pure, and the
+   * pulse and the letter flight are decided by comparing before against after out here.
+   */
+  const latestState = useRef(state);
   const [layouts, setLayouts] = useState({ A: { width: 1, height: 1 }, B: { width: 1, height: 1 } });
   const [hintIndex, setHintIndex] = useState(0);
   /** Frozen at the moment of the correct answer, so the clock ticking on cannot change it. */
@@ -166,6 +178,7 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
   const choose = (entry: LearningDemoEntry) => {
     setSelectedKey(entry.key);
     setState(createDemoState(entry));
+    latestState.current = createDemoState(entry);
     setHintIndex(0);
     setSettledScore(null);
     setElapsedMs(0);
@@ -173,7 +186,11 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
     recordedFinds.current = [];
     setGhost(readGhostRun(entry.key));
   };
-  const act = (action: Parameters<typeof reduceDemoState>[2]) => setState((current) => reduceDemoState(current, selected, action));
+  const act = (action: Parameters<typeof reduceDemoState>[2]) => setState((current) => {
+    const next = reduceDemoState(current, selected, action);
+    latestState.current = next;
+    return next;
+  });
 
   // Word hunts run on the same clock the match engine uses, so practice teaches real timing.
   const pending = pendingWordHunt(selected, state);
@@ -354,21 +371,6 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
         </View>
       </View>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
-        {/* The combo reads at a glance or not at all, so it is the streak's own colour rather
-            than a neutral chip with a number in it. It lapses on the window alone — a missed
-            tap never breaks it, because looking is the behaviour this game wants. */}
-        {(() => {
-          const label = comboLabel(combo);
-          if (label === null || comboExpired(combo, Date.now())) return null;
-          const heat = streakColor(combo.count, colors.success);
-          return <View
-            testID="hud-combo"
-            accessibilityLabel={`${combo.count}연속 발견`}
-            style={{ paddingHorizontal: spacing.sm, paddingVertical: 5, borderRadius: radius.pill, backgroundColor: heat }}
-          >
-            <Text style={{ fontSize: 12, lineHeight: 16, fontWeight: '800', color: colors.onAccent }}>{label}</Text>
-          </View>;
-        })()}
         {/* The live clock is the most important number on the screen while it runs, so it is
             filled rather than left as grey chrome. At zero it drops back to neutral because
             the round carries on — it is a bonus timer, not a threat. */}
@@ -445,6 +447,23 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
           return <View key={idx} style={{ flex: 1, height: 6, borderRadius: radius.pill, backgroundColor: isFound ? colors.accent : colors.line }} />;
         })}
       </View>
+      {/* The combo sits on the progress row rather than in the top bar. The bar already
+          carries a back button, a title, a category, a clock and a score, and adding a
+          sixth thing there pushed the chevron over the title. This is also where the eye
+          already is between finds. It reads as its own streak colour or not at all, and it
+          lapses on the window alone — a missed tap never breaks it, because looking is the
+          behaviour this game wants. */}
+      {(() => {
+        const label = comboLabel(combo);
+        if (label === null || comboExpired(combo, Date.now())) return null;
+        return <View
+          testID="hud-combo"
+          accessibilityLabel={`${combo.count}연속 발견`}
+          style={{ paddingHorizontal: spacing.xs, paddingVertical: 3, borderRadius: radius.pill, backgroundColor: streakColor(combo.count, colors.success) }}
+        >
+          <Text style={{ fontSize: 12, lineHeight: 16, fontWeight: '800', color: colors.onAccent }}>{label}</Text>
+        </View>;
+      })()}
       <Text style={{ fontSize: 12, lineHeight: 16, fontWeight: '800', color: colors.accent }}>
         {state.claimedIds.length}/{selected.differences.length}
       </Text>
@@ -533,11 +552,13 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
         // Compare before and after so the pulse reports what actually happened, rather
         // than re-deciding the hit test here. Both setters run in the event handler:
         // a state updater must stay pure, so the pulse is never raised from inside one.
-        const next = reduceDemoState(state, selected, { type: 'TAP', side, x: tapX, y: tapY });
+        const base = latestState.current;
+        const next = reduceDemoState(base, selected, { type: 'TAP', side, x: tapX, y: tapY });
+        latestState.current = next;
         setState(next);
-        if (state.activeMission?.stage !== 'READING') {
-          const kind = next.solvedMissionIds.length > state.solvedMissionIds.length ? 'MISSION_HIT'
-            : next.claimedIds.length > state.claimedIds.length ? 'HIT'
+        if (base.activeMission?.stage !== 'READING') {
+          const kind = next.solvedMissionIds.length > base.solvedMissionIds.length ? 'MISSION_HIT'
+            : next.claimedIds.length > base.claimedIds.length ? 'HIT'
               : 'MISS';
           setPulse((previous) => nextPulse(previous, { kind, side, x: tapX, y: tapY }));
           // The hand and the ear get told at the same instant as the eye. Fire-and-forget:
@@ -547,7 +568,7 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
             : { kind: 'FIND', foundCount: next.claimedIds.length, differenceCount: selected.differences.length });
           if (kind === 'HIT') {
             setCombo((previous) => advanceCombo(previous, Date.now()));
-            launchLetterFlight(side, tapX, tapY, state.claimedIds.length, next.claimedIds.length);
+            launchLetterFlight(side, tapX, tapY, base.claimedIds.length, next.claimedIds.length);
             const found = next.claimedIds.at(-1);
             if (found !== undefined) recordedFinds.current.push({ id: found, atMs: elapsedMs });
           }
@@ -658,7 +679,7 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
       >
         <Text style={buttonTextStyle('secondary')}>결과 공유하기</Text>
       </Pressable>
-      <Pressable accessibilityRole="button" accessibilityLabel="Play again" onPress={() => { setState(createDemoState(selected)); setHintIndex(0); setSettledScore(null); setElapsedMs(0); setAnswerInput(''); recordedFinds.current = []; }} style={buttonStyle('primary', { block: true })}><Text style={buttonTextStyle('primary')}>{ghost !== null ? '내 기록에 다시 도전' : '다시 도전하기'}</Text></Pressable>
+      <Pressable accessibilityRole="button" accessibilityLabel="Play again" onPress={() => { const fresh = createDemoState(selected); setState(fresh); latestState.current = fresh; setHintIndex(0); setSettledScore(null); setElapsedMs(0); setAnswerInput(''); recordedFinds.current = []; }} style={buttonStyle('primary', { block: true })}><Text style={buttonTextStyle('primary')}>{ghost !== null ? '내 기록에 다시 도전' : '다시 도전하기'}</Text></Pressable>
     </ScrollView>}
 
     {/* Footer: answer, submit and hint share one row. Two stacked full-width rows cost the

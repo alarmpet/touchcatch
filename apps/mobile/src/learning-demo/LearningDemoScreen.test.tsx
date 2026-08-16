@@ -40,6 +40,32 @@ describe('LearningDemoScreen', () => {
     expect(onExit).toHaveBeenCalledOnce();
   });
 
+  it('keeps every find when two taps land in the same batch', () => {
+    // Reducing from the render closure lost finds the moment anyone tapped quickly: both
+    // taps reduced from the same stale state and the second setState overwrote the first
+    // one's claim. Nothing rewarded speed before the combo, so nobody hit it. Two taps
+    // inside one act() is exactly that batch.
+    const pair: LearningDemoEntry = {
+      ...entry,
+      key: 'pair',
+      differences: [
+        { id: 'left', imageA: { cx: .3, cy: .5, r: .15 }, imageB: { cx: .3, cy: .5, r: .15 } },
+        { id: 'right', imageA: { cx: .7, cy: .5, r: .15 }, imageB: { cx: .7, cy: .5, r: .15 } },
+      ],
+    };
+    let tree: any;
+    act(() => { tree = create(<LearningDemoScreen entries={[pair]} />); });
+    const board = tree.root.findByProps({ testID: 'demo-board-A' });
+    act(() => board.props.onLayout({ nativeEvent: { layout: { width: 300, height: 200 } } }));
+    act(() => {
+      const target = tree.root.findByProps({ testID: 'demo-board-A' });
+      target.props.onPress({ nativeEvent: { locationX: 90, locationY: 100 } });
+      target.props.onPress({ nativeEvent: { locationX: 210, locationY: 100 } });
+    });
+    // Both claims survived, so the board cleared and the quiz opened.
+    expect(tree.root.findByProps({ accessibilityLabel: 'Meaning quiz' })).toBeTruthy();
+  });
+
   it('plays from image tap through meaning completion and restart', () => {
     let tree: any;
     act(() => { tree = create(<LearningDemoScreen entries={[entry]} />); });
