@@ -17,6 +17,21 @@ function runCheck(nodeVersion: string, userAgent: string): string {
   );
 }
 
+/**
+ * Builds a child environment where `npm_config_user_agent` actually takes effect.
+ *
+ * Windows environment variables are case-insensitive, but spreading `process.env` into an object
+ * literal is not: the inherited `NPM_CONFIG_USER_AGENT` and a lowercase override become two
+ * separate keys, and the child reads the inherited one. The override silently does nothing and
+ * the assertion degrades into a statement about whoever launched the test runner — green under
+ * `pnpm test`, red under `npx vitest`, for reasons that have nothing to do with the gate.
+ */
+function childEnv(overrides: Readonly<Record<string, string>>): NodeJS.ProcessEnv {
+  const env: NodeJS.ProcessEnv = { ...process.env };
+  for (const key of Object.keys(env)) if (/^npm_config_user_agent$/iu.test(key)) delete env[key];
+  return Object.assign(env, overrides);
+}
+
 describe('runtime gate', () => {
   it('accepts exactly Node 24.18.0 and pnpm 11.13.0', () => {
     expect(runCheck('v24.18.0', 'pnpm/11.13.0 npm/? node/v24.18.0 win32 x64')).toBe('');
@@ -37,15 +52,14 @@ describe('runtime gate', () => {
   it('uses the real process runtime at the CLI entrypoint and ignores override-like environment values', () => {
     const result = spawnSync(process.execPath, [resolve('tools/check-runtime.mjs')], {
       encoding: 'utf8',
-      env: {
-        ...process.env,
+      env: childEnv({
         NODE_ENV: 'test',
         TOUCHCATCH_RUNTIME_TEST_INPUT: JSON.stringify({
           nodeVersion: 'v24.18.0',
           userAgent: 'pnpm/11.13.0 npm/? node/v24.18.0 win32 x64',
         }),
         npm_config_user_agent: 'pnpm/11.13.0 npm/? node/v24.18.0 win32 x64',
-      },
+      }),
     });
 
     if (process.version === 'v24.18.0') {
