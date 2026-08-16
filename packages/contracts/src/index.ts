@@ -22,6 +22,7 @@ export * from './pet-runtime-art.js';
 export * from './daily-pet-loop.js';
 export * from './learning-policy.js';
 export * from './learning-leaderboard.js';
+export * from './learning-attempt.js';
 export {
   PRIVACY_OPERATOR_ROLE,
   parseQuarantinePolicy,

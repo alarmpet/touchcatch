@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { lstat, open, readFile, readdir, realpath } from 'node:fs/promises';
-import { basename, extname, relative, resolve, sep } from 'node:path';
+import { basename, dirname, extname, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Ajv2020, type ErrorObject, type ValidateFunction } from 'ajv/dist/2020.js';
 import addFormatsImport from 'ajv-formats';
@@ -60,9 +60,9 @@ type Asset = {
   mimeType: 'image/png' | 'image/jpeg' | 'image/webp';
 };
 
-const workspaceRoot = resolve(fileURLToPath(new URL('../../..', import.meta.url)));
+const workspaceRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 function configuredAssetOrigins(): readonly string[] {
-  const configured = process.env.CONTENT_ASSET_ORIGINS?.split(',').map((value) => value.trim()).filter(Boolean);
+  const configured = process.env.CONTENT_ASSET_ORIGINS?.split(',').map((value: string) => value.trim()).filter(Boolean);
   if (configured?.length) {
     return parseContentAssetOrigins(configured.join(','));
   }

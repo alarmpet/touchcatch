@@ -375,13 +375,13 @@ it.each([[512,true],[513,false]] as const)('counts %i astral hint characters as 
 });
 
 it.each([
-  ['ordinal',(s:any)=>s[0].ordinal=2],
-  ['kind',(s:any)=>s[0].kind='FORGED'],
-  ['localized keys',(s:any)=>s[0].localizedText.ja='x'],
-  ['negative reveal',(s:any)=>s[0].revealIndexes=[-1]],
-  ['large reveal',(s:any)=>s[0].revealIndexes=[64]],
-  ['duplicate reveal',(s:any)=>s[0].revealIndexes=[1,1]],
-  ['penalty',(s:any)=>s[0].rankedPenaltyUnits=2],
+  ['ordinal',(s:any):void=>{s[0].ordinal=2;}],
+  ['kind',(s:any):void=>{s[0].kind='FORGED';}],
+  ['localized keys',(s:any):void=>{s[0].localizedText.ja='x';}],
+  ['negative reveal',(s:any):void=>{s[0].revealIndexes=[-1];}],
+  ['large reveal',(s:any):void=>{s[0].revealIndexes=[64];}],
+  ['duplicate reveal',(s:any):void=>{s[0].revealIndexes=[1,1];}],
+  ['penalty',(s:any):void=>{s[0].rankedPenaltyUnits=2;}],
 ] as const)('rejects HintStep shared-schema constraint: %s',(_label,mutate)=>{
   const state=startedState().state;
   const {privateSolutionHash:_,...body}=structuredClone(solution);

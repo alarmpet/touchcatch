@@ -1,5 +1,5 @@
 import { z } from "zod";
-import type { CompatibilityHelloV1, PinnedCompatibilityV1 } from "./socket.js";
+import type { CompatibilityHelloV1, MatchSnapshotV1, PinnedCompatibilityV1 } from "./socket.js";
 import { isValidFinalAnswerSubmission } from "./content.js";
 const uuid = z
     .string()
@@ -555,7 +555,8 @@ export const matchSnapshotV1Schema = z
       .strict()
       .nullable(),
   })
-  .strict();
+  .strict()
+  .transform((value): MatchSnapshotV1 => value as MatchSnapshotV1);
 const immutableAsset = asset;
 export const matchmakingNotificationSchema = z
   .object({

@@ -108,9 +108,48 @@ export const hintStepV1Schema = {
     publicRegion: publicHintRegionV1Schema,
   },
   allOf: [
-    {if:{properties:{kind:{const:'VISUAL_REGION'}},required:['kind']},then:{required:['publicRegion']},else:{not:{required:['publicRegion']}}},
-    {if:{properties:{kind:{const:'VISUAL_REGION'},ordinal:{const:5}},required:['kind','ordinal']},then:{properties:{publicRegion:{properties:{kind:{const:'EXACT_CIRCLE'}}}}}},
-    {if:{properties:{kind:{const:'VISUAL_REGION'},ordinal:{enum:[1,2,3,4]}},required:['kind','ordinal']},then:{properties:{publicRegion:{properties:{kind:{const:'REGION'}}}}}},
+    {
+      if: { properties: { kind: { const: 'VISUAL_REGION' } }, required: ['kind'] },
+      then: {
+        type: 'object',
+        required: ['publicRegion'],
+        properties: { publicRegion: publicHintRegionV1Schema },
+      },
+      else: {
+        type: 'object',
+        properties: { publicRegion: false },
+      },
+    },
+    {
+      if: {
+        properties: { kind: { const: 'VISUAL_REGION' }, ordinal: { const: 5 } },
+        required: ['kind', 'ordinal'],
+      },
+      then: {
+        type: 'object',
+        properties: {
+          publicRegion: {
+            type: 'object',
+            properties: { kind: { const: 'EXACT_CIRCLE' } },
+          },
+        },
+      },
+    },
+    {
+      if: {
+        properties: { kind: { const: 'VISUAL_REGION' }, ordinal: { enum: [1, 2, 3, 4] } },
+        required: ['kind', 'ordinal'],
+      },
+      then: {
+        type: 'object',
+        properties: {
+          publicRegion: {
+            type: 'object',
+            properties: { kind: { const: 'REGION' } },
+          },
+        },
+      },
+    },
   ],
 } as const;
 

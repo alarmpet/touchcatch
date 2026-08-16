@@ -21,6 +21,21 @@ const approvalShape = {
   approvedAt: z.iso.datetime({ precision: 3, offset: false }),
 } as const;
 
+/**
+ * Finding a difference opens one unit of the answer mask, free of charge.
+ *
+ * This is a separate track from the paid hint ladder above, and the split is what keeps
+ * both worth having: a find buys *shape*, a hint buys *characters*. `unresolvedTailUnits`
+ * is the load-bearing number — the last stage of each track never opens that many trailing
+ * units, so clearing a whole board can never spell the answer out and delete the final
+ * challenge. It is the same reasoning the demo score uses for its speed multiplier: a
+ * reward for work already done must never substitute for the work.
+ */
+const findRevealTrackShape = (stages: z.ZodTypeAny) => z.object({
+  stages,
+  unresolvedTailUnits: z.literal(1),
+}).strict();
+
 const hintShape = {
   schemaVersion: z.literal('1.0.0'),
   policyVersion: z.literal('hint-policy-v1-candidate'),
@@ -29,6 +44,16 @@ const hintShape = {
   ranked: z.object({
     petEffects: z.literal('COSMETIC_ONLY'),
     penaltyPerStep: z.literal(15_000),
+  }).strict(),
+  findReveal: z.object({
+    unitsPerFind: z.literal(1),
+    order: z.literal('LEFT_TO_RIGHT'),
+    /** Free by design. The paid track is `ranked.penaltyPerStep`. */
+    rankedPenaltyPerUnit: z.literal(0),
+    tracks: z.object({
+      SPELLING: findRevealTrackShape(z.tuple([z.literal('GRAPHEME')])),
+      INITIAL_PATTERN: findRevealTrackShape(z.tuple([z.literal('INITIAL'), z.literal('SYLLABLE')])),
+    }).strict(),
   }).strict(),
 } as const;
 

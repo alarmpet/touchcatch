@@ -8,6 +8,7 @@ import {
   parsePetCatalog,
   pityTransition,
 } from './economy.schema.js';
+import type { DraftPetCatalogAdmissionInputV1 } from './economy.schema.js';
 import { Ajv2020 } from 'ajv/dist/2020.js';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -41,6 +42,9 @@ function catalog(status: 'DRAFT' | 'APPROVED' = 'DRAFT') {
   };
 }
 
+const asDraftAdmission = (value: ReturnType<typeof catalog>) =>
+  value as unknown as DraftPetCatalogAdmissionInputV1;
+
 function economy(status: 'DRAFT' | 'APPROVED' = 'DRAFT') {
   const cat = catalog(status);
   return {
@@ -52,7 +56,7 @@ function economy(status: 'DRAFT' | 'APPROVED' = 'DRAFT') {
     pitySeriesId: 'pity-50-150-v1',
     pitySemantics: pityProjection,
     pitySemanticsHash: canonicalJsonSha256(pityProjection),
-    draw: { cost: 100, probabilities: { COMMON: 0.8, RARE: 0.18, LEGENDARY: 0.02 } },
+    draw: { cost: 100, probabilities: { COMMON: 0.6, UNCOMMON: 0.25, RARE: 0.1, EPIC: 0.04, LEGENDARY: 0.01 } },
     fusion: { materialCount: 5, excludeSelected: true, excludeLocked: true },
     exp: { win: 100, loss: 60, perfectWordMeaning: 40 },
     simulationPolicy: 'simulation-policy-v0',
@@ -84,7 +88,7 @@ describe('economy and catalog admission', () => {
     expect(validateEconomy(economy())).toBe(true);
     expect(validateCatalog(catalog())).toBe(true);
     const negatives = [
-      { ...economy(), draw: { ...economy().draw, probabilities: { COMMON: 0.79, RARE: 0.18, LEGENDARY: 0.02 } } },
+      { ...economy(), draw: { ...economy().draw, probabilities: { COMMON: 0.59, UNCOMMON: 0.25, RARE: 0.1, EPIC: 0.04, LEGENDARY: 0.01 } } },
       { ...economy(), pitySemantics: { ...pityProjection, extra: true } },
       { ...economy(), exp: { ...economy().exp, win: 101 } },
     ];
@@ -111,26 +115,26 @@ describe('economy and catalog admission', () => {
     delete (draft.entries[0] as { coachArchetype?: string }).coachArchetype;
     delete (draft as { catalogHash?: string }).catalogHash;
     const warnings: string[] = [];
-    expect(admitDraftPetCatalog(draft, (warning) => warnings.push(warning.code)).entries[0]?.coachArchetype).toBe('CHEER');
+    expect(admitDraftPetCatalog(asDraftAdmission(draft), (warning) => warnings.push(warning.code)).entries[0]?.coachArchetype).toBe('CHEER');
     expect(warnings).toEqual(['PET_COACH_ARCHETYPE_DEFAULTED']);
   });
 
   it('rejects supplied stale hashes before DRAFT admission whether or not a default is needed', () => {
     const explicit = catalog();
     explicit.catalogHash = '0'.repeat(64);
-    expect(() => admitDraftPetCatalog(explicit)).toThrow(/hashless/i);
+    expect(() => admitDraftPetCatalog(asDraftAdmission(explicit))).toThrow(/hashless/i);
     const needsDefault = catalog();
     delete (needsDefault.entries[0] as { coachArchetype?: string }).coachArchetype;
     needsDefault.catalogHash = 'f'.repeat(64);
-    expect(() => admitDraftPetCatalog(needsDefault)).toThrow(/hashless/i);
+    expect(() => admitDraftPetCatalog(asDraftAdmission(needsDefault))).toThrow(/hashless/i);
   });
 
   it('returns a stable normalized catalog from a hashless DRAFT admission input', () => {
     const input = catalog();
     delete (input as { catalogHash?: string }).catalogHash;
     delete (input.entries[0] as { coachArchetype?: string }).coachArchetype;
-    const first = admitDraftPetCatalog(input);
-    const second = admitDraftPetCatalog(input);
+    const first = admitDraftPetCatalog(asDraftAdmission(input));
+    const second = admitDraftPetCatalog(asDraftAdmission(input));
     expect(first).toEqual(second);
     expect(parsePetCatalog(first)).toEqual(first);
   });

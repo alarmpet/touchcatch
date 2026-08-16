@@ -1,6 +1,7 @@
 import { canonicalJsonSha256 } from './canonical-json.js';
 import type { EconomyV1, LoadedApprovedEconomyV1 } from './economy.js';
 import type { CoachArchetype, PetCatalogEntryV1, PetCatalogRevisionV1, PetRarity } from './pet-catalog.js';
+import { PET_RARITY_LADDER, petRarityRank } from './pet-catalog.js';
 import { Ajv2020 } from 'ajv/dist/2020.js';
 import economyJsonSchema from '../../../schemas/economy.schema.json' with { type: 'json' };
 import catalogJsonSchema from '../../../schemas/pet-catalog.schema.json' with { type: 'json' };
@@ -36,14 +37,15 @@ export function parsePetCatalog(input: unknown): PetCatalogRevisionV1 {
   if (!validateCatalogStructure(input)) throw new TypeError(`catalog schema: ${ajv.errorsText(validateCatalogStructure.errors)}`);
   const value = object(input, 'catalog'); exactKeys(value, catalogKeys, 'catalog'); approval(value);
   if (value.schemaVersion !== 1 || !['DRAFT','APPROVED'].includes(String(value.status)) || typeof value.catalogRevision !== 'string' || !Array.isArray(value.entries)) throw new TypeError('invalid catalog structure');
-  const ids = new Set<string>(); const counts: Record<PetRarity, number> = { COMMON: 0, RARE: 0, LEGENDARY: 0 };
+  const ids = new Set<string>(); const counts: Record<PetRarity, number> = { COMMON: 0, UNCOMMON: 0, RARE: 0, EPIC: 0, LEGENDARY: 0 };
   for (const raw of value.entries) {
     const entry = object(raw, 'catalog entry'); exactKeys(entry, new Set(['petId','rarity','displayKey','coachArchetype']), 'catalog entry');
     const coachArchetype = entry.coachArchetype;
-    if (typeof entry.petId !== 'string' || !uuidV4Pattern.test(entry.petId) || ids.has(entry.petId) || typeof entry.displayKey !== 'string' || !(entry.rarity === 'COMMON' || entry.rarity === 'RARE' || entry.rarity === 'LEGENDARY') || !(coachArchetype === 'SCOUT' || coachArchetype === 'LINGUIST' || coachArchetype === 'SAGE' || coachArchetype === 'CHEER')) throw new TypeError('catalog entries require unique opaque UUIDv4 IDs, valid rarity, and coachArchetype');
-    ids.add(entry.petId); counts[entry.rarity] += 1;
+    if (typeof entry.petId !== 'string' || !uuidV4Pattern.test(entry.petId) || ids.has(entry.petId) || typeof entry.displayKey !== 'string' || !(PET_RARITY_LADDER as readonly string[]).includes(String(entry.rarity)) || !(coachArchetype === 'SCOUT' || coachArchetype === 'LINGUIST' || coachArchetype === 'SAGE' || coachArchetype === 'CHEER')) throw new TypeError('catalog entries require unique opaque UUIDv4 IDs, valid rarity, and coachArchetype');
+    ids.add(entry.petId); counts[entry.rarity as PetRarity] += 1;
   }
-  if (counts.COMMON !== 30 || counts.RARE !== 15 || counts.LEGENDARY !== 5) throw new TypeError('catalog requires exact 30/15/5 rarity grouping');
+  // UNCOMMON and EPIC are admitted tiers with no admitted art yet; draws step down to a populated tier.
+  if (counts.COMMON !== 30 || counts.UNCOMMON !== 0 || counts.RARE !== 15 || counts.EPIC !== 0 || counts.LEGENDARY !== 5) throw new TypeError('catalog requires exact 30/0/15/0/5 rarity grouping');
   const projection = { schemaVersion: value.schemaVersion, catalogRevision: value.catalogRevision, entries: value.entries };
   if (!hashPattern.test(String(value.catalogHash)) || canonicalJsonSha256(projection) !== value.catalogHash) throw new TypeError('catalogHash mismatch');
   return value as unknown as PetCatalogRevisionV1;
@@ -63,7 +65,7 @@ export function admitDraftPetCatalog(input: DraftPetCatalogAdmissionInputV1, onW
     defaultedPetIds.push(entry.petId);
     return { ...entry, coachArchetype: 'CHEER' };
   });
-  const normalized = { ...rawCatalog, entries };
+  const normalized: Record<string, unknown> = { ...rawCatalog, entries };
   normalized.catalogHash = canonicalJsonSha256({ schemaVersion: normalized.schemaVersion, catalogRevision: normalized.catalogRevision, entries });
   const catalog = parsePetCatalog(normalized);
   defaultedPetIds.forEach((petId) => onWarning({ code: 'PET_COACH_ARCHETYPE_DEFAULTED', petId }));
@@ -78,7 +80,8 @@ export function parseEconomy(input: unknown): EconomyV1 {
   if (thresholds.rareOrBetter !== 50 || thresholds.legendary !== 150) throw new TypeError('pity threshold must be 50/150');
   if (canonicalJsonSha256(pity) !== value.pitySemanticsHash) throw new TypeError('pitySemanticsHash mismatch');
   const draw = object(value.draw, 'draw'); const probabilities = object(draw.probabilities, 'probabilities');
-  const sum = Number(probabilities.COMMON) + Number(probabilities.RARE) + Number(probabilities.LEGENDARY);
+  exactKeys(probabilities, new Set(PET_RARITY_LADDER), 'probabilities');
+  const sum = PET_RARITY_LADDER.reduce((total, rarity) => total + Number(probabilities[rarity]), 0);
   if (!(Number(draw.cost) > 0) || Math.abs(sum - 1) > 1e-12) throw new TypeError('draw cost/probabilities invalid');
   const fusion = object(value.fusion, 'fusion');
   if (fusion.materialCount !== 5 || fusion.excludeSelected !== true || fusion.excludeLocked !== true) throw new TypeError('fusion requires five materials and excludeSelected/excludeLocked protection');
@@ -113,7 +116,8 @@ export function normalizeFusionMaterials(materials: ReadonlyArray<{ userPetId: s
 
 export function pityTransition(state: { rareCounter: number; legendaryCounter: number }, rolled: PetRarity): { rarity: PetRarity; rareCounter: number; legendaryCounter: number } {
   const rareCounter = state.rareCounter + 1; const legendaryCounter = state.legendaryCounter + 1;
-  const rarity: PetRarity = legendaryCounter >= 150 ? 'LEGENDARY' : rareCounter >= 50 && rolled === 'COMMON' ? 'RARE' : rolled;
+  const rareFloorRank = petRarityRank('RARE');
+  const rarity: PetRarity = legendaryCounter >= 150 ? 'LEGENDARY' : rareCounter >= 50 && petRarityRank(rolled) < rareFloorRank ? 'RARE' : rolled;
   if (rarity === 'LEGENDARY') return { rarity, rareCounter: 0, legendaryCounter: 0 };
-  return { rarity, rareCounter: rarity === 'RARE' ? 0 : rareCounter, legendaryCounter };
+  return { rarity, rareCounter: petRarityRank(rarity) >= rareFloorRank ? 0 : rareCounter, legendaryCounter };
 }

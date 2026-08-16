@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import type { PetRarity } from './pet-catalog.js';
 
-export const petRarityV1Schema = z.enum(['COMMON', 'RARE', 'LEGENDARY']);
+export const petRarityV1Schema = z.enum(['COMMON', 'UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY']);
 
 const sha256Schema = z.string().regex(/^[0-9a-f]{64}$/);
 const uuidSchema = z.string().uuid();
@@ -33,10 +33,14 @@ const dailyPetLoopPolicyV1Shape = {
     accumulates: z.literal(false),
     usesDirectDrawPity: z.literal(false),
     probabilities: z.object({
-      COMMON: z.literal(0.8),
-      RARE: z.literal(0.18),
-      LEGENDARY: z.literal(0.02),
+      COMMON: z.literal(0.6),
+      UNCOMMON: z.literal(0.25),
+      RARE: z.literal(0.1),
+      EPIC: z.literal(0.04),
+      LEGENDARY: z.literal(0.01),
     }).strict(),
+    /** A tier may be admitted before art exists in it; rolls step down to the nearest populated tier. */
+    emptyTierResolution: z.literal('STEP_DOWN_TO_NEAREST_POPULATED'),
   }).strict(),
   duplicatePromotion: z.object({
     seriesId: z.literal('DAILY_PET_PROMOTION_V1'),
@@ -44,9 +48,12 @@ const dailyPetLoopPolicyV1Shape = {
     spareCopiesConsumed: z.literal(10),
     retainBaseCopies: z.literal(1),
     transitions: z.object({
-      COMMON: z.literal('RARE'),
-      RARE: z.literal('LEGENDARY'),
+      COMMON: z.literal('UNCOMMON'),
+      UNCOMMON: z.literal('RARE'),
+      RARE: z.literal('EPIC'),
+      EPIC: z.literal('LEGENDARY'),
     }).strict(),
+    emptyTierResolution: z.literal('STEP_UP_TO_NEAREST_POPULATED'),
     legendaryOutcome: z.literal('COSMETIC_REWARD_POLICY_REQUIRED'),
   }).strict(),
   showcase: z.object({
@@ -130,7 +137,9 @@ export const petCollectionV1Schema = z.object({
   totalCount: z.number().int().nonnegative(),
   rarityProgress: z.object({
     COMMON: rarityProgressV1Schema,
+    UNCOMMON: rarityProgressV1Schema,
     RARE: rarityProgressV1Schema,
+    EPIC: rarityProgressV1Schema,
     LEGENDARY: rarityProgressV1Schema,
   }).strict(),
   pets: z.array(petCollectionItemV1Schema),
@@ -171,7 +180,7 @@ export const duplicatePromotionV1Schema = pinnedPetPolicyV1Schema.extend({
   output: z.object({
     userPetId: uuidSchema,
     petId: uuidSchema,
-    rarity: z.enum(['RARE', 'LEGENDARY']),
+    rarity: z.enum(['UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY']),
     copies: z.number().int().positive(),
   }).strict(),
 }).strict();

@@ -17,13 +17,15 @@ describe('daily pet loop contract', () => {
   it('pins the DRAFT daily rarity candidates and duplicate promotion thresholds', () => {
     const parsed = parseDailyPetLoopPolicyV1(policy);
     expect(parsed.status).toBe('DRAFT');
-    expect(parsed.dailyDraw.probabilities).toEqual({ COMMON: 0.8, RARE: 0.18, LEGENDARY: 0.02 });
+    expect(parsed.dailyDraw.probabilities).toEqual({ COMMON: 0.6, UNCOMMON: 0.25, RARE: 0.1, EPIC: 0.04, LEGENDARY: 0.01 });
+    expect(parsed.dailyDraw.emptyTierResolution).toBe('STEP_DOWN_TO_NEAREST_POPULATED');
     expect(parsed.duplicatePromotion).toEqual({
       seriesId: 'DAILY_PET_PROMOTION_V1',
       ownedCopiesRequired: 11,
       spareCopiesConsumed: 10,
       retainBaseCopies: 1,
-      transitions: { COMMON: 'RARE', RARE: 'LEGENDARY' },
+      transitions: { COMMON: 'UNCOMMON', UNCOMMON: 'RARE', RARE: 'EPIC', EPIC: 'LEGENDARY' },
+      emptyTierResolution: 'STEP_UP_TO_NEAREST_POPULATED',
       legendaryOutcome: 'COSMETIC_REWARD_POLICY_REQUIRED',
     });
   });
@@ -84,7 +86,7 @@ describe('daily pet loop contract', () => {
       ...(policy as Record<string, unknown>),
       dailyDraw: {
         ...((policy as { dailyDraw: Record<string, unknown> }).dailyDraw),
-        probabilities: { COMMON: 0.79, RARE: 0.19, LEGENDARY: 0.02 },
+        probabilities: { COMMON: 0.59, UNCOMMON: 0.26, RARE: 0.1, EPIC: 0.04, LEGENDARY: 0.01 },
       },
     })).toBe(false);
     expect(() => parseDailyPetLoopPolicyV1({ ...(policy as object), privateKey: 'leak' })).toThrow(/additional|unrecognized/i);
@@ -149,7 +151,9 @@ describe('daily pet loop contract', () => {
       totalCount: 0,
       rarityProgress: {
         COMMON: { ownedCount: 0, totalCount: 0 },
+        UNCOMMON: { ownedCount: 0, totalCount: 0 },
         RARE: { ownedCount: 0, totalCount: 0 },
+        EPIC: { ownedCount: 0, totalCount: 0 },
         LEGENDARY: { ownedCount: 0, totalCount: 0 },
       },
       pets: [],
