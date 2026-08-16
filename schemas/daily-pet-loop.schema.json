@@ -32,7 +32,8 @@
         "maxClaimsPerKstDate",
         "accumulates",
         "usesDirectDrawPity",
-        "probabilities"
+        "probabilities",
+        "emptyTierResolution"
       ],
       "properties": {
         "seriesId": { "const": "DAILY_FREE_DRAW_V1" },
@@ -53,13 +54,16 @@
         "probabilities": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["COMMON", "RARE", "LEGENDARY"],
+          "required": ["COMMON", "UNCOMMON", "RARE", "EPIC", "LEGENDARY"],
           "properties": {
-            "COMMON": { "const": 0.8 },
-            "RARE": { "const": 0.18 },
-            "LEGENDARY": { "const": 0.02 }
+            "COMMON": { "const": 0.6 },
+            "UNCOMMON": { "const": 0.25 },
+            "RARE": { "const": 0.1 },
+            "EPIC": { "const": 0.04 },
+            "LEGENDARY": { "const": 0.01 }
           }
-        }
+        },
+        "emptyTierResolution": { "const": "STEP_DOWN_TO_NEAREST_POPULATED" }
       }
     },
     "duplicatePromotion": {
@@ -71,6 +75,7 @@
         "spareCopiesConsumed",
         "retainBaseCopies",
         "transitions",
+        "emptyTierResolution",
         "legendaryOutcome"
       ],
       "properties": {
@@ -81,12 +86,15 @@
         "transitions": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["COMMON", "RARE"],
+          "required": ["COMMON", "UNCOMMON", "RARE", "EPIC"],
           "properties": {
-            "COMMON": { "const": "RARE" },
-            "RARE": { "const": "LEGENDARY" }
+            "COMMON": { "const": "UNCOMMON" },
+            "UNCOMMON": { "const": "RARE" },
+            "RARE": { "const": "EPIC" },
+            "EPIC": { "const": "LEGENDARY" }
           }
         },
+        "emptyTierResolution": { "const": "STEP_UP_TO_NEAREST_POPULATED" },
         "legendaryOutcome": { "const": "COSMETIC_REWARD_POLICY_REQUIRED" }
       }
     },

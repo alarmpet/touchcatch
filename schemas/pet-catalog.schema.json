@@ -19,7 +19,7 @@
         "required": ["petId", "rarity", "displayKey", "coachArchetype"],
         "properties": {
           "petId": { "type": "string", "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$" },
-          "rarity": { "type": "string", "enum": ["COMMON", "RARE", "LEGENDARY"] },
+          "rarity": { "type": "string", "enum": ["COMMON", "UNCOMMON", "RARE", "EPIC", "LEGENDARY"] },
           "displayKey": { "type": "string", "minLength": 1 },
           "coachArchetype": { "type": "string", "enum": ["SCOUT", "LINGUIST", "SAGE", "CHEER"] }
         }

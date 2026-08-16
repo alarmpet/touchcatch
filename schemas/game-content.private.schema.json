@@ -480,15 +480,87 @@
                   ]
                 },
                 "then": {
+                  "type": "object",
                   "required": [
                     "publicRegion"
-                  ]
+                  ],
+                  "properties": {
+                    "publicRegion": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "required": [
+                            "kind",
+                            "imageSide",
+                            "region"
+                          ],
+                          "properties": {
+                            "kind": {
+                              "const": "REGION"
+                            },
+                            "imageSide": {
+                              "enum": [
+                                "A",
+                                "B"
+                              ]
+                            },
+                            "region": {
+                              "enum": [
+                                "TOP_LEFT",
+                                "TOP_RIGHT",
+                                "BOTTOM_LEFT",
+                                "BOTTOM_RIGHT",
+                                "CENTER"
+                              ]
+                            }
+                          }
+                        },
+                        {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "required": [
+                            "kind",
+                            "imageSide",
+                            "centerX",
+                            "centerY",
+                            "radius"
+                          ],
+                          "properties": {
+                            "kind": {
+                              "const": "EXACT_CIRCLE"
+                            },
+                            "imageSide": {
+                              "enum": [
+                                "A",
+                                "B"
+                              ]
+                            },
+                            "centerX": {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 1
+                            },
+                            "centerY": {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 1
+                            },
+                            "radius": {
+                              "type": "number",
+                              "exclusiveMinimum": 0,
+                              "maximum": 0.25
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
                 },
                 "else": {
-                  "not": {
-                    "required": [
-                      "publicRegion"
-                    ]
+                  "type": "object",
+                  "properties": {
+                    "publicRegion": false
                   }
                 }
               },
@@ -508,8 +580,10 @@
                   ]
                 },
                 "then": {
+                  "type": "object",
                   "properties": {
                     "publicRegion": {
+                      "type": "object",
                       "properties": {
                         "kind": {
                           "const": "EXACT_CIRCLE"
@@ -540,8 +614,10 @@
                   ]
                 },
                 "then": {
+                  "type": "object",
                   "properties": {
                     "publicRegion": {
+                      "type": "object",
                       "properties": {
                         "kind": {
                           "const": "REGION"

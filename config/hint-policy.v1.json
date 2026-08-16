@@ -7,5 +7,20 @@
   "ranked": {
     "petEffects": "COSMETIC_ONLY",
     "penaltyPerStep": 15000
+  },
+  "findReveal": {
+    "unitsPerFind": 1,
+    "order": "LEFT_TO_RIGHT",
+    "rankedPenaltyPerUnit": 0,
+    "tracks": {
+      "SPELLING": {
+        "stages": ["GRAPHEME"],
+        "unresolvedTailUnits": 1
+      },
+      "INITIAL_PATTERN": {
+        "stages": ["INITIAL", "SYLLABLE"],
+        "unresolvedTailUnits": 1
+      }
+    }
   }
 }

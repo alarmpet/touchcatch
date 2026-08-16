@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "status": "DRAFT",
+  "summary": "Every audio file that ships is accounted for here. Synthesised files are generated from arithmetic and are ours outright. Licensed files are third-party work and each one records where it came from, under what licence, and the credit line it obliges us to show. tools/audio/check-audio-provenance.mjs fails the build on any file that is in neither list.",
+  "directories": {
+    "synthesised": "apps/mobile/assets/audio",
+    "licensed": "apps/mobile/assets/audio/licensed"
+  },
+  "generator": {
+    "path": "tools/audio/generate-feedback-sounds.mjs",
+    "reproduce": "pnpm audio:feedback",
+    "verify": "pnpm audio:feedback:check",
+    "dependencies": "none beyond the Node standard library",
+    "note": "The check regenerates in memory and byte-compares. A file that does not match the generator did not come from it, which is the whole point of the gate."
+  },
+  "synthesised": [
+    {
+      "files": [
+        "find-1.wav",
+        "find-2.wav",
+        "find-3.wav",
+        "find-4.wav",
+        "find-5.wav",
+        "find-6.wav",
+        "find-7.wav",
+        "find-8.wav"
+      ],
+      "origin": "SYNTHESISED",
+      "rights": {
+        "status": "OWNED",
+        "holder": "project",
+        "thirdPartyMaterial": false
+      },
+      "description": "Struck-bar tones on a C major pentatonic scale from C5 to E6, one step per consecutive find. Sine fundamental plus a quiet fourth harmonic under an exponential decay."
+    },
+    {
+      "files": [
+        "miss.wav"
+      ],
+      "origin": "SYNTHESISED",
+      "rights": {
+        "status": "OWNED",
+        "holder": "project",
+        "thirdPartyMaterial": false
+      },
+      "description": "A short, dull A3. Deliberately quiet and low: a wrong tap should read as 'not here', not as punishment."
+    },
+    {
+      "files": [
+        "complete.wav"
+      ],
+      "origin": "SYNTHESISED",
+      "rights": {
+        "status": "OWNED",
+        "holder": "project",
+        "thirdPartyMaterial": false
+      },
+      "description": "A C major triad with the octave (C5 E5 G5 C6) on a long decay, played when the board resolves."
+    }
+  ],
+  "licensed": [
+    {
+      "file": "relax-pleasant-porridge.mp3",
+      "mood": "RELAX",
+      "gain": 1,
+      "title": "Pleasant Porridge",
+      "author": "Kevin MacLeod",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Pleasant%20Porridge.mp3",
+      "catalogueUrl": "https://incompetech.com/music/royalty-free/music.html",
+      "downloadedAt": "2026-08-14",
+      "lengthSeconds": 171,
+      "feel": "Calm, Grooving, Relaxed",
+      "attribution": "\"Pleasant Porridge\" Kevin MacLeod (incompetech.com) — Licensed under Creative Commons: By Attribution 4.0 — http://creativecommons.org/licenses/by/4.0/",
+      "sha256": "8848912d11bfa9b26ddaa2b0df9ab9c6634d962233c16f78439c8aa86df6cea0",
+      "note": "The default track, so it is the one heard most. Picked over the better-known 'Morning' precisely because a daily-play app should not sound like every other app."
+    },
+    {
+      "file": "rush-brain-dance.mp3",
+      "mood": "RUSH",
+      "gain": 0.85,
+      "title": "Brain Dance",
+      "author": "Kevin MacLeod",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Brain%20Dance.mp3",
+      "catalogueUrl": "https://incompetech.com/music/royalty-free/music.html",
+      "downloadedAt": "2026-08-14",
+      "lengthSeconds": 215,
+      "feel": "Grooving, Driving",
+      "attribution": "\"Brain Dance\" Kevin MacLeod (incompetech.com) — Licensed under Creative Commons: By Attribution 4.0 — http://creativecommons.org/licenses/by/4.0/",
+      "sha256": "59daa6423c9d61238dd9c31f7139606267238b6e448dc42e12e0d6d77d663b8e",
+      "note": "Trimmed to 0.85 because electronica sits louder than the acoustic tracks at the same nominal level. Driving without being aggressive, which suits a clock rather than a fight."
+    },
+    {
+      "file": "lobby-sergios-magic-dustbin.mp3",
+      "mood": "LOBBY",
+      "gain": 0.9,
+      "title": "Sergio's Magic Dustbin",
+      "author": "Kevin MacLeod",
+      "licence": "CC-BY-4.0",
+      "sourceUrl": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sergio%27s%20Magic%20Dustbin.mp3",
+      "catalogueUrl": "https://incompetech.com/music/royalty-free/music.html",
+      "downloadedAt": "2026-08-14",
+      "lengthSeconds": 151,
+      "feel": "Bouncy, Driving, Humorous",
+      "attribution": "\"Sergio's Magic Dustbin\" Kevin MacLeod (incompetech.com) — Licensed under Creative Commons: By Attribution 4.0 — http://creativecommons.org/licenses/by/4.0/",
+      "sha256": "c7732bf0e41a419208359132d3f105f2e542157f7e5eeb52d26b722015c6140f",
+      "note": "Playful rather than grand. The home screen sets the tone for a puzzle you play on a bus, not an epic."
+    }
+  ],
+  "acceptedLicences": [
+    {
+      "id": "CC0-1.0",
+      "attributionRequired": false,
+      "note": "Public domain dedication. Nothing to show, nothing to track."
+    },
+    {
+      "id": "CC-BY-3.0",
+      "attributionRequired": true,
+      "note": "Credit must be reachable from the app. The credits screen is generated from this file so a new track cannot ship uncredited."
+    },
+    {
+      "id": "CC-BY-4.0",
+      "attributionRequired": true,
+      "note": "As CC-BY-3.0."
+    },
+    {
+      "id": "INCOMPETECH-NO-ATTRIBUTION",
+      "attributionRequired": false,
+      "note": "Paid per-track licence from incompetech.com that removes the CC-BY credit obligation. Keep the receipt with the entry."
+    },
+    {
+      "id": "PIXABAY-CONTENT-LICENSE",
+      "attributionRequired": false,
+      "note": "Permitted, but discouraged as a primary source: Pixabay is an open upload platform, so provenance is weaker than a single-author catalogue. If used, keep the download URL and a dated copy of the licence summary."
+    }
+  ],
+  "openItems": [
+    "Only one track per mood. A second RELAX track would help before a player hears the first one for the hundredth time, but three is enough to ship."
+  ]
+}

@@ -10,19 +10,26 @@
     "accumulates": false,
     "usesDirectDrawPity": false,
     "probabilities": {
-      "COMMON": 0.8,
-      "RARE": 0.18,
-      "LEGENDARY": 0.02
-    }
+      "COMMON": 0.6,
+      "UNCOMMON": 0.25,
+      "RARE": 0.1,
+      "EPIC": 0.04,
+      "LEGENDARY": 0.01
+    },
+    "emptyTierResolution": "STEP_DOWN_TO_NEAREST_POPULATED"
   },
   "duplicatePromotion": {
+    "seriesId": "DAILY_PET_PROMOTION_V1",
     "ownedCopiesRequired": 11,
     "spareCopiesConsumed": 10,
     "retainBaseCopies": 1,
     "transitions": {
-      "COMMON": "RARE",
-      "RARE": "LEGENDARY"
+      "COMMON": "UNCOMMON",
+      "UNCOMMON": "RARE",
+      "RARE": "EPIC",
+      "EPIC": "LEGENDARY"
     },
+    "emptyTierResolution": "STEP_UP_TO_NEAREST_POPULATED",
     "legendaryOutcome": "COSMETIC_REWARD_POLICY_REQUIRED"
   },
   "showcase": {

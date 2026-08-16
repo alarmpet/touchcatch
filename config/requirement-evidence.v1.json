@@ -1499,15 +1499,23 @@
         "assertions": [
           {
             "pointer": "/draw/probabilities/COMMON",
-            "expected": 0.8
+            "expected": 0.6
+          },
+          {
+            "pointer": "/draw/probabilities/UNCOMMON",
+            "expected": 0.25
           },
           {
             "pointer": "/draw/probabilities/RARE",
-            "expected": 0.18
+            "expected": 0.1
+          },
+          {
+            "pointer": "/draw/probabilities/EPIC",
+            "expected": 0.04
           },
           {
             "pointer": "/draw/probabilities/LEGENDARY",
-            "expected": 0.02
+            "expected": 0.01
           }
         ]
       },
@@ -1976,7 +1984,7 @@
       "phase": "PLANNED",
       "closureCondition": "Implement an exercised NestJS/Socket.IO realtime service backed by Redis and BullMQ on the existing Node/PostgreSQL foundation",
       "blockerReason": "PLANNED_NOT_IMPLEMENTED:REALTIME_SERVICE_SURFACE",
-      "closureArtifact": "apps/server/package.json",
+      "closureArtifact": "apps/server/src/realtime/server.ts",
       "closureArtifactState": "ABSENT"
     },
     {

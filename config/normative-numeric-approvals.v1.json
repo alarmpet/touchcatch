@@ -604,7 +604,7 @@
           "expected": 1
         }
       ],
-      "ssotHash": "8df77043f581acb3ac0123a635155510dce76da2b174b4bc7dbf8beb4a3d1e8a",
+      "ssotHash": "fa957534c6be8185501fba82789218dea6b644d8008d53c215700af019c85418",
       "sourceHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f"
     },
     {
@@ -715,14 +715,16 @@
           "expected": 100
         }
       ],
-      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+      "ssotHash": "2af3fb2ab4d67c4a541307918cc8f0ecf96dd9fe47d567278f9b981773efb681"
     },
     {
       "id": "ECON-009",
       "approvedTokens": [
-        "80%",
-        "18%",
-        "2%"
+        "60%",
+        "25%",
+        "10%",
+        "4%",
+        "1%"
       ],
       "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
@@ -732,18 +734,26 @@
       "ssotAssertions": [
         {
           "pointer": "/draw/probabilities/COMMON",
-          "expected": 0.8
+          "expected": 0.6
+        },
+        {
+          "pointer": "/draw/probabilities/UNCOMMON",
+          "expected": 0.25
         },
         {
           "pointer": "/draw/probabilities/RARE",
-          "expected": 0.18
+          "expected": 0.1
+        },
+        {
+          "pointer": "/draw/probabilities/EPIC",
+          "expected": 0.04
         },
         {
           "pointer": "/draw/probabilities/LEGENDARY",
-          "expected": 0.02
+          "expected": 0.01
         }
       ],
-      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+      "ssotHash": "2af3fb2ab4d67c4a541307918cc8f0ecf96dd9fe47d567278f9b981773efb681"
     },
     {
       "id": "ECON-010",
@@ -761,7 +771,7 @@
           "expected": 50
         }
       ],
-      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+      "ssotHash": "2af3fb2ab4d67c4a541307918cc8f0ecf96dd9fe47d567278f9b981773efb681"
     },
     {
       "id": "ECON-011",
@@ -779,7 +789,7 @@
           "expected": 150
         }
       ],
-      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+      "ssotHash": "2af3fb2ab4d67c4a541307918cc8f0ecf96dd9fe47d567278f9b981773efb681"
     },
     {
       "id": "ECON-013",
@@ -798,7 +808,7 @@
           "expected": 5
         }
       ],
-      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+      "ssotHash": "2af3fb2ab4d67c4a541307918cc8f0ecf96dd9fe47d567278f9b981773efb681"
     },
     {
       "id": "ECON-014",
@@ -817,7 +827,7 @@
           "expected": 5
         }
       ],
-      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+      "ssotHash": "2af3fb2ab4d67c4a541307918cc8f0ecf96dd9fe47d567278f9b981773efb681"
     },
     {
       "id": "ECON-016",
@@ -835,7 +845,7 @@
           "expected": "catalog-v1"
         }
       ],
-      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+      "ssotHash": "2af3fb2ab4d67c4a541307918cc8f0ecf96dd9fe47d567278f9b981773efb681"
     },
     {
       "id": "ECON-017",
@@ -853,7 +863,7 @@
           "expected": "catalog-v1"
         }
       ],
-      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+      "ssotHash": "2af3fb2ab4d67c4a541307918cc8f0ecf96dd9fe47d567278f9b981773efb681"
     },
     {
       "id": "ECON-018",
@@ -871,7 +881,7 @@
           "expected": "catalog-v1"
         }
       ],
-      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+      "ssotHash": "2af3fb2ab4d67c4a541307918cc8f0ecf96dd9fe47d567278f9b981773efb681"
     },
     {
       "id": "ECON-019",
@@ -889,7 +899,7 @@
           "expected": "catalog-v1"
         }
       ],
-      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+      "ssotHash": "2af3fb2ab4d67c4a541307918cc8f0ecf96dd9fe47d567278f9b981773efb681"
     },
     {
       "id": "ECON-020",
@@ -907,7 +917,7 @@
           "expected": 100
         }
       ],
-      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+      "ssotHash": "2af3fb2ab4d67c4a541307918cc8f0ecf96dd9fe47d567278f9b981773efb681"
     },
     {
       "id": "ECON-021",
@@ -925,7 +935,7 @@
           "expected": 60
         }
       ],
-      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+      "ssotHash": "2af3fb2ab4d67c4a541307918cc8f0ecf96dd9fe47d567278f9b981773efb681"
     },
     {
       "id": "ECON-022",
@@ -943,7 +953,7 @@
           "expected": 40
         }
       ],
-      "ssotHash": "b5ce21e4acf09dc4f00a29f518ba2d27621b5911bd4f7f046230fe17768bd621"
+      "ssotHash": "2af3fb2ab4d67c4a541307918cc8f0ecf96dd9fe47d567278f9b981773efb681"
     },
     {
       "id": "SEC-002",
@@ -1101,7 +1111,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact repository-local 1:1 revision projection oracle green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "5e2cceb8081ab0bacbbf477a4f88f4f49fe5c3e81f0e6cc2b835c79276942027",
+      "ssotHash": "f9d811d6e256f6d7ae5cafca00086ec1be16db1e56408823069c01af78fd3fcc",
       "ssotAssertions": [
         {
           "pointer": "/entries/111/oracle/expected",
@@ -1121,7 +1131,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact seat and 20-session concurrency predicate green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "5e2cceb8081ab0bacbbf477a4f88f4f49fe5c3e81f0e6cc2b835c79276942027",
+      "ssotHash": "f9d811d6e256f6d7ae5cafca00086ec1be16db1e56408823069c01af78fd3fcc",
       "ssotAssertions": [
         {
           "pointer": "/entries/124/oracle/expected",
@@ -1139,7 +1149,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact 20-session concurrency evidence green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "5e2cceb8081ab0bacbbf477a4f88f4f49fe5c3e81f0e6cc2b835c79276942027",
+      "ssotHash": "f9d811d6e256f6d7ae5cafca00086ec1be16db1e56408823069c01af78fd3fcc",
       "ssotAssertions": [
         {
           "pointer": "/entries/134/oracle/expected",

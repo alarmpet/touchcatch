@@ -9,36 +9,157 @@
     "status",
     "stepsPerChallenge",
     "runtimeLlmGeneration",
-    "ranked"
+    "ranked",
+    "findReveal"
   ],
   "properties": {
-    "schemaVersion": { "const": "1.0.0" },
-    "policyVersion": { "const": "hint-policy-v1-candidate" },
-    "status": { "enum": ["DRAFT", "APPROVED"] },
-    "stepsPerChallenge": { "type": "integer", "const": 5 },
-    "runtimeLlmGeneration": { "const": false },
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "policyVersion": {
+      "const": "hint-policy-v1-candidate"
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "APPROVED"
+      ]
+    },
+    "stepsPerChallenge": {
+      "type": "integer",
+      "const": 5
+    },
+    "runtimeLlmGeneration": {
+      "const": false
+    },
     "ranked": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["petEffects", "penaltyPerStep"],
+      "required": [
+        "petEffects",
+        "penaltyPerStep"
+      ],
       "properties": {
-        "petEffects": { "const": "COSMETIC_ONLY" },
-        "penaltyPerStep": { "type": "integer", "const": 15000 }
+        "petEffects": {
+          "const": "COSMETIC_ONLY"
+        },
+        "penaltyPerStep": {
+          "type": "integer",
+          "const": 15000
+        }
       }
     },
-    "approvalDecisionId": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
-    "approvedBy": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
+    "approvalDecisionId": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": ".*\\S.*"
+    },
+    "approvedBy": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": ".*\\S.*"
+    },
     "approvedAt": {
       "type": "string",
       "format": "date-time",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:[0-5][0-9]\\.\\d{3}Z$"
+    },
+    "findReveal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unitsPerFind",
+        "order",
+        "rankedPenaltyPerUnit",
+        "tracks"
+      ],
+      "properties": {
+        "unitsPerFind": {
+          "type": "integer",
+          "const": 1
+        },
+        "order": {
+          "const": "LEFT_TO_RIGHT"
+        },
+        "rankedPenaltyPerUnit": {
+          "type": "integer",
+          "const": 0
+        },
+        "tracks": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "SPELLING",
+            "INITIAL_PATTERN"
+          ],
+          "properties": {
+            "SPELLING": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "stages",
+                "unresolvedTailUnits"
+              ],
+              "properties": {
+                "stages": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 1,
+                  "prefixItems": [
+                    {
+                      "const": "GRAPHEME"
+                    }
+                  ]
+                },
+                "unresolvedTailUnits": {
+                  "type": "integer",
+                  "const": 1
+                }
+              }
+            },
+            "INITIAL_PATTERN": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "stages",
+                "unresolvedTailUnits"
+              ],
+              "properties": {
+                "stages": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "prefixItems": [
+                    {
+                      "const": "INITIAL"
+                    },
+                    {
+                      "const": "SYLLABLE"
+                    }
+                  ]
+                },
+                "unresolvedTailUnits": {
+                  "type": "integer",
+                  "const": 1
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "allOf": [
     {
       "if": {
-        "properties": { "status": { "const": "DRAFT" } },
-        "required": ["status"]
+        "properties": {
+          "status": {
+            "const": "DRAFT"
+          }
+        },
+        "required": [
+          "status"
+        ]
       },
       "then": {
         "properties": {
@@ -49,15 +170,27 @@
       },
       "else": {
         "properties": {
-          "approvalDecisionId": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
-          "approvedBy": { "type": "string", "minLength": 1, "pattern": ".*\\S.*" },
+          "approvalDecisionId": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": ".*\\S.*"
+          },
+          "approvedBy": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": ".*\\S.*"
+          },
           "approvedAt": {
             "type": "string",
             "format": "date-time",
             "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:[0-5][0-9]\\.\\d{3}Z$"
           }
         },
-        "required": ["approvalDecisionId", "approvedBy", "approvedAt"]
+        "required": [
+          "approvalDecisionId",
+          "approvedBy",
+          "approvedAt"
+        ]
       }
     }
   ]
