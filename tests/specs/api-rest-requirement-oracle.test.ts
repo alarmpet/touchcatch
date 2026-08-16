@@ -19,7 +19,10 @@ describe("REST requirement oracle", () => {
     const getMutated = source.replace("summary: Get the authenticated profile", "summary: Get the authenticated profile\n      parameters: [{ $ref: \"#/components/parameters/IdempotencyKey\" }]");
     expect(() => evaluateOpenApiRequirement("API-001", getMutated)).toThrow(/idempotency/i);
 
-    const postMutated = source.replace('parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]', "parameters: []");
+    const postMutated = source.replace(
+      'summary: Draw a pet\n      parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]',
+      'summary: Draw a pet\n      parameters: []',
+    );
     expect(() => evaluateOpenApiRequirement("API-006", postMutated)).toThrow(/idempotency/i);
   });
 

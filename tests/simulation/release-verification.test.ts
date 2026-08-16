@@ -49,7 +49,7 @@ describe('release evidence harnesses', () => {
   it('separates deterministic 10k match and 100k economy evidence', () => {
     const matches=runMatchSimulation({seed:42,matches:10000,botModelVersion:'bot-v1'}),draws=runEconomySimulation({seed:42,draws:100000});
     expect(runMatchSimulation({seed:42,matches:10000,botModelVersion:'bot-v1'})).toEqual(matches);expect(runEconomySimulation({seed:42,draws:100000})).toEqual(draws);
-    expect(matches).toMatchObject({matches:10000,rulesetVersion:'1.0.0',evidenceClass:'DRAFT_TEST_ONLY'});expect(draws).toMatchObject({drawCount:100000,economyVersion:'1.0.0',economyStatus:'DRAFT'});expect(draws.draws.COMMON+draws.draws.RARE+draws.draws.LEGENDARY).toBe(100000);
+    expect(matches).toMatchObject({matches:10000,rulesetVersion:'1.0.0',evidenceClass:'DRAFT_TEST_ONLY'});expect(draws).toMatchObject({drawCount:100000,economyVersion:'1.0.0',economyStatus:'DRAFT'});expect(Object.values(draws.draws).reduce((total,count)=>total+count,0)).toBe(100000);
   });
 
   it('enforces a strict versioned A/B contract and string cell bucket', () => {
