@@ -2628,12 +2628,10 @@
         }
       ],
       "hintLadderAdmission": {
-        "status": "REJECTED",
-        "stepCount": 5,
+        "status": "MISSING",
+        "stepCount": 0,
         "errors": [
-          "CATALOG_DRAFT_CATEGORY_MISMATCH",
-          "CATALOG_HINT_LADDER_MISSING",
-          "CATALOG_DRAFT_LADDER_MISMATCH"
+          "MISSING_HINT_LADDER"
         ],
         "hash": null
       },
@@ -2668,12 +2666,10 @@
         }
       ],
       "hintLadderAdmission": {
-        "status": "REJECTED",
-        "stepCount": 5,
+        "status": "MISSING",
+        "stepCount": 0,
         "errors": [
-          "CATALOG_DRAFT_CATEGORY_MISMATCH",
-          "CATALOG_HINT_LADDER_MISSING",
-          "CATALOG_DRAFT_LADDER_MISMATCH"
+          "MISSING_HINT_LADDER"
         ],
         "hash": null
       },
