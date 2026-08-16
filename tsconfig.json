@@ -1,18 +1,20 @@
 {
   "compilerOptions": {
     "target": "ES2023",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "useUnknownInCatchVariables": true,
     "noEmit": true,
     "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": false,
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "skipLibCheck": true,
     "types": ["node", "vitest/globals"]
   },
-  "include": ["apps/mobile/src/**/*.ts", "apps/mobile/src/**/*.tsx", "packages/**/*.ts", "tests/**/*.ts", "vitest*.ts"]
+  "include": ["apps/mobile/src/**/*.ts", "apps/mobile/src/**/*.tsx", "packages/**/*.ts", "tests/**/*.ts", "tools/**/*.ts", "vitest*.ts"]
 }

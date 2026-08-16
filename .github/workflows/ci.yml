@@ -7,6 +7,7 @@ on:
 
 jobs:
   check:
+    name: local contract/build evidence (check)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,6 +22,7 @@ jobs:
       - run: pnpm check
 
   database:
+    name: local contract/build evidence (database)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -36,3 +38,33 @@ jobs:
       - run: pnpm check:db
       - if: always()
         run: pnpm exec supabase stop --no-backup
+
+  server:
+    name: local contract/build evidence (server)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.13.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.18.0
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm server:check
+
+  mobile:
+    name: local contract/build evidence (mobile)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.13.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.18.0
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm mobile:check
