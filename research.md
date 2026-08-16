@@ -19,7 +19,7 @@ flowchart TD
     C --> D[3. auto-detect-delta.js: Visual Delta 픽셀 차이 탐지 & 탐욕적 클러스터링]
     D --> E[4. build-learning-entry.js: 지오메트리 & Visual Delta 평가]
     E --> F[5. write-learning-bundle.ts: active writer (.js wrapper delegates to TS)]
-    F --> G[6. write-learning-manifest.ts: 마니페스트 수집 & 검증]
+    F --> G[6. write-learning-manifest.js wrapper → write-learning-manifest.ts: 마니페스트 수집 & 검증]
     G --> H[7. generate-registry.js: 모바일 레지스트리 생성]
 ```
 
@@ -36,16 +36,16 @@ flowchart TD
   - `BEGINNER`: $r = 0.085$
   - `INTERMEDIATE`: $r = 0.070$
   - `ADVANCED`: $r = 0.055$
-- **픽셀 임계값 (`pixelThreshold = 60`)**: A/B 이미지 간 RGB 채널 최대 차이가 60 이상인 픽셀만 변경 픽셀로 간주합니다.
+- **기본 픽셀 임계값 (`PIXEL_THRESHOLD = 75`)**: A/B 이미지 간 RGB 채널 최대 차이가 75 이상인 픽셀만 변경 픽셀로 간주합니다. batch retry가 선택한 임계값은 별도 evidence에 기록하며 기본값을 대체하는 전역 상수가 아닙니다.
 - **탐욕적 클러스터링 (Greedy Clustering)**:
   - 픽셀 좌표를 정규화($(x + 0.5)/width, (y + 0.5)/height$)한 후 거리 $r \times 1.2$ 범위 내 픽셀을 하나의 클러스터로 그룹화합니다.
-  - 정확히 변경된 픽셀 수가 50개 이상인 유효 클러스터만 필터링합니다.
+   - 정확히 변경된 픽셀 수가 150개 이상인 유효 클러스터만 필터링합니다(`MIN_CLUSTER_CHANGED_PIXELS = 150`). 구현은 내부 점 샘플링 기준으로 변환할 수 있지만 exported policy 값은 150입니다.
 - **비겹침 처리 (Non-overlap Filter)**:
   - 영역 간 중심거리가 $2r$ 이상 떨어지도록 제약 조건(REQ CONTENT-017)을 적용하여 최대 10개의 겹치지 않는 변경 영역을 선별합니다.
 
 ### 3.3 `visual-delta.ts` (Visual Delta 노이즈 및 게이트 검증)
 - 선언된 지오메트리 영역 내 변경 픽셀 수(`minChangedPixelsPerRegion`)가 부족하면 `MISSING_DECLARED_VISUAL_DELTA` 에러를 발생시킵니다.
-- 지오메트리 영역 외부에서 무단 변경된 픽셀 비율(`outsideChangedRatio`)이 허용 기준(`maxOutsideChangedRatio = 0.05` 또는 `0.08`)을 초과하면 `UNDECLARED_VISUAL_DELTA` 에러로 차단합니다.
+- 지오메트리 영역 외부에서 무단 변경된 픽셀 비율(`outsideChangedRatio`)이 기본 허용 기준(`MAX_OUTSIDE_CHANGED_RATIO = 0.08`)을 초과하면 `UNDECLARED_VISUAL_DELTA` 에러로 차단합니다. adaptive retry가 더 큰 값을 쓰는 경우에는 비랭크/검토 대상 evidence로 남겨야 합니다.
 
 ### 3.4 `write-learning-bundle.ts` (불변 카노니컬 번들 생성)
 - **SHA-256 & UUID 식별자**: 이미지 파일 바이너리의 SHA-256 해시값과 메타데이터를 결합하여 불변 리비전 ID (`contentRevisionId`)를 UUID v4 형식으로 생성합니다.
@@ -55,6 +55,16 @@ flowchart TD
 - `catalog.v1.json`과 `drafts/`, `evidence/` 파일들을 검증한 후 `manifest.v1.json`을 갱신합니다.
 - `hintUnits`는 canonical answer grapheme 배열로 보존하고, 교육 검토자가 쓴 `hintLadder`는 별도 필드로 전달합니다. 런타임에서 힌트 문구나 단계를 생성하지 않습니다.
 - manifest는 사다리 입수 상태와 canonical hash를 기록하며, 다섯 단계가 입수되지 않은 bundle을 ranked 후보에서 제외합니다.
+
+### 3.6 실제 batch-build 호출 순서
+
+`tools/content/batch-build.js`는 catalog를 읽고 source A/B를 준비한 뒤
+`build-learning-entry.js`와 visual-delta/geometry 검증을 호출하고, 마지막에
+`write-learning-manifest.js`를 통해 manifest를 갱신합니다. adaptive retry는
+`ADAPTIVE_RETRY_POLICY`에 기록되며 baseline 상수를 변경하지 않습니다.
+
+파라미터별 source/export/consumer/normative 여부는
+`docs/testing/content-pipeline-parameters.md`에 정리했습니다.
 - `apps/mobile/src/learning-demo/registry.ts` 파일을 자동 생성하여 모바일 개발 환경(`__DEV__`)에서 로컬 플레이가 가능하도록 바인딩합니다.
 
 ---
@@ -73,8 +83,13 @@ flowchart TD
 
 ## 5. 결론 및 현재 상태 (Conclusion)
 
-- **Committed snapshot**: **79 packs**; 3 admitted five-step ladders and 76
-  legacy `MISSING` ladders that remain casual-only/non-ranked.
+- **Pipeline snapshot (2026-08-01)**: **91 manifest/catalog packs**; 3 admitted
+  five-step ladders and 88 non-admitted or legacy ladders. The working tree
+  also contains 95 draft JSON files, including four drafts not present in the
+  manifest: `en-3d-serenity-temple`, `en-isometric-lab`,
+  `en-3d-solitude-peak`, and `en-3d-tranquility-tea`.
+  This document remains non-normative; season readiness and publication status
+  come from the manifest, policy contracts, and human approval evidence.
 - **Focused verification**:
   `.\node_modules\.bin\vitest.CMD run packages/contracts/src/content.test.ts packages/contracts/src/match.schema.test.ts packages/game-engine/src packages/content-validator/src tools/content/write-learning-bundle.test.ts tools/content/learning-manifest.test.ts apps/mobile/src/learning-demo/data.test.ts apps/mobile/src/learning-demo/registry.test.ts`
 - **안전 장치**: `__DEV__` 조건부 로딩 및 사람의 승인(`REVIEW_REQUIRED`)을 위한 퍼블리시 게이트 보존

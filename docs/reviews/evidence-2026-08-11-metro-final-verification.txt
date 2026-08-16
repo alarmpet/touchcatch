@@ -1,0 +1,55 @@
+=== Final verified diagnostic (2026-08-11) ===
+runtimeNode=v24.18.0
+runtimePnpm=11.13.0
+expo=57.0.1
+expoCli=57.0.9
+ws=7.5.13
+config.app.config.js=True
+config.babel.config.cjs=True
+config.metro.config.cjs=True
+manifestStatus=200
+bundleUrl=http://127.0.0.1:8081/node_modules/expo-router/entry.bundle?platform=android&dev=true&hot=false&lazy=true&transform.engine=hermes&transform.bytecode=1&transform.routerRoot=app&unstable_transformProfile=hermes-stable
+bundleStatus=200
+bundleBytes=6620191
+androidExportModules=1402
+androidExportAssets=185
+androidHermesBundle=2.8MB
+androidExportPath=D:\tcbuild\expo-export-final-57.0.1
+focusedActivity=com.touchcatch.mobile/.MainActivity
+mobileFocusedTests=18 files, 52 tests passed
+emulatorScreenshot=D:\tcbuild\touchcatch-restored-runtime-valid.png
+hintScreenshot=D:\tcbuild\touchcatch-restored-hint.png
+runtimeErrorFilter=empty (ReactNativeJS:E, AndroidRuntime:E, Expo:E)
+
+=== Integrated mobile acceptance update (2026-08-11) ===
+androidExportModules=1404
+androidExportAssets=185
+androidHermesBundle=2.8MB
+androidExportPath=D:\tcbuild\expo-export-integrated-final
+mobileTypecheck=PASS
+mobileFocusedTests=18 files, 57 tests passed
+homeScreenshot=D:\tcbuild\touchcatch-home-final.png
+homeToGameScreenshot=D:\tcbuild\touchcatch-home-to-game.png
+hiddenAnswerScreenshot=D:\tcbuild\touchcatch-integrated-hidden-answer.png
+answerInputEvidence=D:\tcbuild\integrated-answer.xml
+completionEvidence=D:\tcbuild\integrated-complete.xml
+completionScreenshot=D:\tcbuild\touchcatch-integrated-complete.png
+koreanInitialHintEvidence=D:\tcbuild\korean-initial-hint.xml
+petPolicyGateEvidence=D:\tcbuild\pets-fixed.xml (enabled=false)
+rankingEvidence=D:\tcbuild\ranking.xml
+profileEvidence=D:\tcbuild\profile.xml
+runtimeErrorFilter=empty (ReactNativeJS:E, AndroidRuntime:E, Expo:E)
+schemaByteDrift=RESOLVED (generated private content schema synchronized)
+fullNonDbTests=1185 passed, 0 failed, 1185 total (121 files)
+repositoryCheck=PASS (runtime, admin build/boundary, mobile tests/typecheck/web export, lint, typecheck, tests, OpenAPI, docs, release reports, content, secret scan)
+contentGeometryRegression=PASS (4 files, 11 tests; builder overlap guard enabled)
+registryGeneration=PASS (79 entries; explicit input/assist mode metadata)
+registryUtf8Gate=PASS (26 Korean values checked)
+contentPublicationState=BLOCKED_BY_POLICY (all manifest entries remain publishBlocked=true)
+repeatableAndroidSmoke=PASS
+androidSmokeEvidence=D:\tcbuild\android-smoke\20260811-172156
+petRouteEvidence=D:\tcbuild\android-smoke\20260811-152004-pets
+rankingRouteEvidence=D:\tcbuild\android-smoke\20260811-152004-ranking
+coldLaunchUiRendered=PASS
+
+Root cause: Expo/Metro was launched through Node v22.16.0 or v24.14.0 instead of the repository's exact Node v24.18.0 contract. The same dependency graph succeeds under the pinned runtime. The Router root and minimal Expo Metro/Babel configuration remain defensive monorepo settings; custom disableHierarchicalLookup/watchFolders were not required.

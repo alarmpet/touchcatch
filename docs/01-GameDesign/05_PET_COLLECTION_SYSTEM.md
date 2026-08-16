@@ -1,3 +1,11 @@
+---
+title: "05_PET_COLLECTION_SYSTEM"
+tags: [pet, gacha, balance]
+updated: 2026-07-30
+status: "VERIFIED"
+related: [[[02_CORE_RULES_AND_BALANCE]], [[08_DATABASE_SCHEMA]]]
+---
+
 # 05. 펫 수집 시스템
 
 ## 등급

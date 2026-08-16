@@ -8,4 +8,10 @@ The repository freezes only values already present in the product specification:
 
 No production point reward schedule, match-mode mapping, within-rarity weighting, EXP recipient, optional lock-behaviour distribution, retention job, active-generation dispatcher, outbox delivery/retry, or incompatible pity-series migration is approved. The only point award in transaction tests is the isolated `TEST_ONLY_TRANSACTION_PROBE` policy `MATCH_GACHA_POINTS +1`. Unsupported reward policies must commit no ledger, balance, or outbox effect.
 
+The daily loop's `DAILY_PET_PROMOTION_V1` series is a separate, deployment-blocked
+11-copy rule: the player must own 11 copies, 10 spare copies are consumed, and
+one base copy is retained. It must not be interpreted as or silently replace the
+five-copy fusion values described above; the daily-loop policy and its hash are
+the SSOT for that series.
+
 An approved revision is immutable. Compatible versions may retain pity only when both series ID and the complete semantics projection/hash are identical. Any incompatible activation fails closed as `UNSUPPORTED_SERIES_MIGRATION` until a later activation ADR and migration provide generation fencing and counter migration.

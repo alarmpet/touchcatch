@@ -5,14 +5,16 @@
   "drawCount": 100000,
   "economyVersion": "1.0.0",
   "economyStatus": "DRAFT",
-  "economyHash": "257dc0f7944208179e9619aec7d2530b838c3305b8d1d4e44bf6b5a7b6260689",
+  "economyHash": "416e367d78c951bada60df38e66f558cd131a972faad2f05a26424ec373e2333",
   "draws": {
-    "COMMON": 79942,
-    "RARE": 17995,
-    "LEGENDARY": 2063
+    "COMMON": 59811,
+    "UNCOMMON": 24993,
+    "RARE": 9850,
+    "EPIC": 4103,
+    "LEGENDARY": 1243
   },
   "pityFinal": {
     "rareCounter": 7,
-    "legendaryCounter": 40
+    "legendaryCounter": 124
   }
 }

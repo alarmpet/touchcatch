@@ -1267,8 +1267,8 @@
       "source": "05_PET_COLLECTION_SYSTEM.md",
       "sourceLine": 16,
       "section": "뽑기",
-      "text": "일반 80%, 희귀 18%, 전설 2%",
-      "fingerprint": "afd34e3fb35d842cb7dbf63286f424174f379632b24c66c3d76153ad02e3bb13",
+      "text": "일반 60%, 고급 25%, 희귀 10%, 영웅 4%, 전설 1%",
+      "fingerprint": "45d91929609479e15a2041a36ae650f1376fd30d300a72244e24fe8669eec652",
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
@@ -1278,7 +1278,7 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "economy",
       "closureCondition": "Keep exact executable oracle green",
-      "linkageProof": "ad7ed01c279dcf3bc564c1165a323eacd4b06c997345a5dfb6d319f5863d9650"
+      "linkageProof": "2dc911d804fb9c3d1638c893075272fbe82329972ac1d888aa3cf6f2e17a2c0c"
     },
     {
       "id": "ECON-010",
@@ -1339,8 +1339,8 @@
       "source": "05_PET_COLLECTION_SYSTEM.md",
       "sourceLine": 22,
       "section": "합성",
-      "text": "일반 5장 → 희귀 랜덤 1장",
-      "fingerprint": "e8a9f6fd65ac9448626d37a5a98ae82d8c491fec0864d93450c1541770f8b9c6",
+      "text": "일반 5장 → 상위 등급 랜덤 1장",
+      "fingerprint": "c0b4a30eea82d8c3fe68cfc3e251b901223203eaeacb4194e195df6ebae709d1",
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
@@ -1350,15 +1350,15 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "economy",
       "closureCondition": "Keep exact executable oracle green",
-      "linkageProof": "b55c7792af64dfbbe0d5366474a6fea65222bb79eebb94d75420db5c73b00efd"
+      "linkageProof": "732c45b4afee734877524df63da14e5ca6bcc5b43d532edbfc0ca251e475f163"
     },
     {
       "id": "ECON-014",
       "source": "05_PET_COLLECTION_SYSTEM.md",
       "sourceLine": 23,
       "section": "합성",
-      "text": "희귀 5장 → 전설 랜덤 1장",
-      "fingerprint": "b7c92172f0641edfa6f64ce0c83871a4acec9210326128c6b50cad38181c1ae7",
+      "text": "희귀 5장 → 상위 등급 랜덤 1장",
+      "fingerprint": "bb45b235cc594598663573003a4938e435fb1a3edd5b390f1eb4b3800e8c9e36",
       "schema": "packages/contracts/src/economy.schema.ts",
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
@@ -1368,7 +1368,7 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "economy",
       "closureCondition": "Keep exact executable oracle green",
-      "linkageProof": "74b2590d9cb585f0d3234916be612d46bbae28110d524e4d413a7b3606d86de1"
+      "linkageProof": "e43d6b35c1629d6743855bb0955f791530916ac97f79aad664c6be58d22da951"
     },
     {
       "id": "ECON-015",

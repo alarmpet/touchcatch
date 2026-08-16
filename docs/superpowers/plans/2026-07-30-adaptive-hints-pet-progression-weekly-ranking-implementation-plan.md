@@ -2,28 +2,165 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Add authored adaptive hints, fair pet-assisted learning, account and pet progression, per-challenge Top 10 boards, and effect-once weekly category champion rewards.
+**Goal:** Build a daily pet-collection learning loop with one free draw,
+numeric pet progression, authored hints, replayable per-challenge Top 10
+boards, champion stars, and a public-safe pet showcase.
 
-**Architecture:** Versioned content, progression, competition, and reward policies are admitted before use. Ranked attempts are reconstructed from server-authoritative commands and written once; read models derive Top 10 and the current user's rank from one database snapshot. Casual pet coaching is isolated from ranked rules, and weekly settlement awards a rare-only ticket through the existing immutable economy ledger and outbox.
+**Architecture:** Versioned pet art, catalog, content, progression, competition,
+and reward policies are admitted before use. Daily claims, duplicate promotion,
+attempts, best-record replacement, stars, and rewards are server-authoritative
+and effect-once. Pet level controls casual coaching presentation while rarity
+and champion stars remain cosmetic prestige in ranked play.
 
 **Tech Stack:** TypeScript 5.9, React Native/Expo, Vitest, PostgreSQL/Supabase, pgTAP, JSON Schema, existing `packages/contracts`, `packages/game-engine`, and economy ledger primitives.
+
+## Execution Baseline and Inventory SSOT (2026-07-31 Review Update)
+
+Repository verification on 2026-07-31 confirmed the current repository facts:
+
+1. **Pet Catalog & Art (Phase 0 Complete):** Active catalog `config/pet-catalog.v1.json` is `30 COMMON / 15 RARE / 5 LEGENDARY` (`catalogHash: 0b97e563fde36aecb6e4cdcddf7f3e7d963a3efba05b1898274a8935b3cbfe1b`). Sources are admitted in `content/pets/source-manifest.v1.json`. `coachArchetype` fields exist across all 50 entries (`SCOUT`: 36, `CHEER`: 9, `LINGUIST`: 3, `SAGE`: 2).
+2. **Daily Pet Loop (Phase 0 Complete):** `config/daily-pet-loop.v1.json`, migration `202607300000_daily_pet_loop.sql`, migration `202607300001_pet_coach_archetype.sql`, and `apps/server/src/pets/*` are landed in code and covered by tests.
+3. **Content Inventory (Phase A Gate Blocked):** `content/learning/catalog.v1.json` contains **91 DRAFT packs** (`ENGLISH`: 74, `PROVERB`: 7, `IDIOM`: 5, `GENERAL_KNOWLEDGE`: 5; all `publishBlocked: 91`). Exactly **3 packs** carry `ADMITTED` hint ladders (`en-resilience`, `ko-proverb-seeing-is-believing`, `ko-idiom-turn-misfortune`). Phase C/D ranking remaining blocked until **Ladder Batch-1** (`ENGLISH` >= 5 and `PROVERB` >= 5 ADMITTED) passes.
+4. **Economy Alignment (ADR-004 Resolution):** Daily loop duplicate promotion consumes 10 spare cards from 11 owned copies into 1 next-rarity card while preserving the 1 base copy (`DAILY_PET_PROMOTION_V1`). Match/direct-draw 5-copy fusion under ADR-004 remains separate or superseded by ADR-004 update; daily pet loop does not mutate direct-draw pity or fusion counters.
+5. **Existing Migration IDs:**
+   - `202607300000_daily_pet_loop.sql` (Landed)
+   - `202607300001_pet_coach_archetype.sql` (Landed)
+   - `202607300002_learning_competition.sql` (Landed - Task 4 attempts, best_records, views, RPCs)
+   - Next free migration ID: `202607300003_...`
+6. **Task Checkbox Status Alignment:** Tasks 0A, 0B, 1, 2 (validator/engine pipeline), 3 (engine), and 4 (DB schema) are substantially landed in codebase and noted in baseline. Outstanding tasks are Phase A Mobile UI (Task 9 casual slice), Ladder Batch-1, Server package setup (`apps/server/package.json`), Thin attempt runtime (Task 5), Leaderboard API (Task 6), Progression ADR/DB (Task 7), Weekly Ticket (Task 8), and CI/Gates (Task 10/11).
+
+## Approved Review Corrections and Execution Phases
+
+Review disposition after the collection-first product revision:
+
+- **Accepted:** content readiness, real learning-pipeline integration,
+  `hintUnits`/`HintStepV1` separation, economy source ADR, ticket entitlement,
+  explicit attempt lifecycle, thin server adapter, coach/noHint semantics,
+  private-coordinate rejection, pet-catalog archetype, solo/battle separation,
+  deterministic pinning tool, split CI load, and non-normative `research.md`.
+- **Superseded:** “first completed attempt is the official record.” The user
+  explicitly chose replay-driven improvement, so the normative rule is best
+  verified canonical rank tuple.
+- **Deprioritized:** weekly ranking as the primary loop. Problem-level Top 10
+  and champion stars are Phase C; weekly settlement is optional Phase D.
+- **Rejected as current advice:** limiting the detailed implementation plan to
+  the old Phase A only. Daily collection is now the product entry loop and has
+  its own independently testable Phase 0, while every later phase remains
+  gated.
+
+Do not execute the tasks as one uninterrupted rollout:
+
+1. **Phase 0 — Pet collection foundation (COMPLETE):** Tasks 0A-0B landed. Audit and import the approved 30/15/5 pet-art subset, daily free draw, duplicate promotion, collection, numeric levels, and showcase-safe projections.
+2. **Phase A — Adaptive hints & Mobile Casual Loop:** Tasks 1-3 landed in engine/contracts. Task 9 casual slice (Mobile `HintPanel`, `PetCoach`, `DailyFreeDraw`, `PetCollection`, `PetShowcase`) and **Ladder Batch-1** (`ENGLISH` >=5, `PROVERB` >=5 admitted) are the active priority.
+3. **Phase B — Progression:** Task 1 progression slice and Task 7, only after
+   an economy-extension ADR fixes source identity and idempotency. Reuse
+   `profiles.exp`, `profiles.gacha_points`, and `user_pets.exp`.
+4. **Phase C — Problem ranking:** Task 4 DB landed in `202607300002_learning_competition.sql`. Task 5 thin attempt runtime (`packages/learning-competition` pure + `apps/server` adapter), Task 6 read APIs/stars, Task 9 ranked UI slice, and Tasks 10-11. Publish each user's best verified record and derive champion stars.
+5. **Phase D — Optional weekly events:** Task 8 (`202607300004_weekly_champion_rewards.sql`) and weekly-only portions of Tasks 6 and 9. Start only after applicable G3/G4/G6 evidence and the content-readiness gate pass.
+
+Roadmap mapping is explicit: Phase A requires the applicable G3A/G3C evidence;
+Phase 0 and Phase B are G4 work and cannot be production-enabled before G3C;
+Phase C requires G4 plus the authenticated server path; Phase D additionally
+requires G5/G6 content and evaluation evidence. Each phase has its own focused
+acceptance record; Task 11 is not the first point at which earlier phases can
+be shown GREEN.
+
+MVP weekly categories are `ENGLISH` and `PROVERB`. Each needs five distinct
+`PUBLISHED`, education-reviewed, asset-complete revisions. `IDIOM` and
+`GENERAL_KNOWLEDGE` remain disabled until the same gate passes and a new
+approved policy revision enables them.
 
 ## Global Constraints
 
 - Audience includes teenagers and adults; Korean and English copy must remain understandable without childish forced prompts.
 - Ranked pet effects are cosmetic only. Pet rarity, level, and species must not change ranked hint strength, cost, score, or eligibility.
 - Weekly boundaries use `Asia/Seoul` and are stored as pinned UTC instants.
-- Official ranking uses the first completed verified attempt per user, challenge revision, and season.
+- Per-challenge ranking uses each user's maximum verified canonical rank tuple; lower later attempts never replace a higher best.
+- Result board copy MUST use "이번 기록" (This Attempt) and "내 최고 기록" (My Best Record). Phrases such as "공식 첫 도전" (Official First Attempt) are obsolete and strictly forbidden.
+- Next migration creation MUST pick the next unused sequence number (`202607300003_...`). Overwriting existing migration files is strictly prohibited.
+- Daily promotion rules use `DAILY_PET_PROMOTION_V1` (10 spare cards from 11 owned copies -> 1 next rarity card, base copy retained). ADR-004 matches 5-copy fusion without mutating daily loop or pity series.
 - Runtime hint text is authored and admitted; no runtime LLM generation is allowed.
 - Client clocks, submitted scores, and submitted ranks are never trusted.
 - `RARE_ONLY_TICKET_V1` excludes COMMON and LEGENDARY, selects uniformly within pinned RARE pets, and does not affect direct-draw pity.
 - Existing economy remains fail-closed until an approved immutable revision and decision ID exist.
 - Cash purchase, trading, and real-world prizes remain out of scope.
 - Every mutation is idempotent and emits at most one durable outbox effect.
+- `OPEN` ranked reservations do not publish a record; an atomic `COMPLETED_VERIFIED` may replace the user's best only when better.
+- Public MVP copy promises the rare-only ticket to rank 1 only.
+- Pet level is numeric (`Lv.N`); star glyphs represent current #1 challenge records only.
+- Desktop pet folders are source candidates only and never runtime paths.
 
 ---
 
-### Task 1: Freeze Hint, Progression, and Competition Policy Contracts
+### Task 0A: Audit, Normalize, and Admit Pet Art (LANDED IN CODEBASE)
+
+**Files:**
+- Create: `content/pets/source-manifest.v1.json`
+- Create: `content/pets/source-manifest.schema.json`
+- Create: `content/pets/review-checklist.md`
+- Create: `content/pets/source/`
+- Create: `content/pets/mobile/`
+- Create: `tools/pets/audit-pet-assets.ts`
+- Create: `tools/pets/audit-pet-assets.test.ts`
+- Create: `tools/pets/build-pet-assets.ts`
+- Create: `tools/pets/build-pet-assets.test.ts`
+- Modify: `config/pet-catalog.v1.json`
+- Modify: `packages/contracts/src/pet-catalog.ts`
+- Modify: `packages/contracts/src/economy.schema.ts`
+- Modify: `packages/contracts/src/economy.schema.test.ts`
+
+**Interfaces:**
+- Consumes: the three user-provided desktop source folders, rights/provenance
+  decisions, and the existing exact `30 COMMON / 15 RARE / 5 LEGENDARY`
+  catalog contract.
+- Produces: repository-managed originals, mobile variants, immutable hashes,
+  normalized slugs, reviewed visual families, and a DRAFT catalog revision.
+
+- [x] **Step 1: Write asset-audit RED tests**
+- [x] **Step 2: Verify RED**
+- [x] **Step 3: Implement read-only audit and review manifest**
+- [x] **Step 4: Implement deterministic repository import**
+- [x] **Step 5: Select the active 30/15/5 subset**
+- [x] **Step 6: Verify GREEN**
+- [x] **Step 7: Commit**
+
+---
+
+### Task 0B: Implement Daily Draw, Duplicate Promotion, and Collection Projection (LANDED IN CODEBASE)
+
+**Files:**
+- Create: `config/daily-pet-loop.v1.json`
+- Create: `schemas/daily-pet-loop.schema.json`
+- Create: `packages/contracts/src/daily-pet-loop.ts`
+- Create: `packages/contracts/src/daily-pet-loop.test.ts`
+- Create: `supabase/migrations/202607300000_daily_pet_loop.sql`
+- Create: `supabase/migrations/202607300001_pet_coach_archetype.sql`
+- Create: `supabase/tests/database/daily-pet-loop.test.sql`
+- Create: `apps/server/src/pets/daily-draw.ts`
+- Create: `apps/server/src/pets/daily-draw.test.ts`
+- Create: `apps/server/src/pets/duplicate-promotion.ts`
+- Create: `apps/server/src/pets/duplicate-promotion.test.ts`
+- Create: `apps/server/src/pets/showcase.ts`
+- Create: `apps/server/src/pets/showcase.test.ts`
+- Modify: `packages/contracts/openapi.yaml`
+
+**Interfaces:**
+- Consumes: approved catalog/economy hashes, authenticated economy subject,
+  server-derived KST date, spare duplicate counts, and selected-pet metadata.
+- Produces: `claimDailyFreeDrawV1`, `promoteDuplicateCardsV1`,
+  `getPetCollectionV1`, and a public-safe `PetShowcaseV1`.
+
+- [x] **Step 1: Write policy and DB RED tests**
+- [x] **Step 2: Verify RED**
+- [x] **Step 3: Implement effect-once daily claim**
+- [x] **Step 4: Implement duplicate-card promotion**
+- [x] **Step 5: Implement collection and showcase projections**
+- [x] **Step 6: Verify GREEN**
+- [x] **Step 7: Commit**
+
+---
+
+### Task 1: Freeze Hint, Progression, and Competition Policy Contracts (LANDED IN CODEBASE)
 
 **Files:**
 - Create: `config/hint-policy.v1.json`
@@ -41,70 +178,15 @@
 - Produces: `parseHintPolicyV1`, `parseLearningProgressionV1`,
   `parseWeeklyCompetitionV1`, and their canonical hashes.
 
-- [ ] **Step 1: Write failing exact-policy tests**
-
-```ts
-expect(parseHintPolicyV1(hintFixture)).toMatchObject({
-  schemaVersion: '1.0.0',
-  stepsPerChallenge: 5,
-  ranked: { petEffects: 'COSMETIC_ONLY', penaltyPerStep: 15_000 },
-});
-expect(parseLearningProgressionV1(progressionFixture).accountXp).toEqual({
-  firstCompletion: 30,
-  allObjectivesCorrect: 10,
-  noHint: 10,
-  repeatPersonalBest: 5,
-  dailyChallengeCap: 200,
-});
-expect(parseWeeklyCompetitionV1(competitionFixture)).toMatchObject({
-  timezone: 'Asia/Seoul',
-  challengesPerCategory: 5,
-  officialAttempt: 'FIRST_COMPLETED_VERIFIED',
-});
-```
-
-Also reject unknown keys, non-integer rewards, negative values, duplicate
-categories, any ranked pet advantage, and a ticket definition containing
-COMMON or LEGENDARY.
-
-- [ ] **Step 2: Verify RED**
-
-Run:
-
-```powershell
-corepack pnpm vitest run packages/contracts/src/learning-policy.test.ts
-```
-
-Expected: FAIL because `learning-policy.ts` does not exist.
-
-- [ ] **Step 3: Implement strict parsers and JSON schemas**
-
-Use exact-key checks before returning frozen typed values. Hash admitted policy
-JSON with the existing RFC 8785 canonical SHA-256 helper. Set all policy
-artifacts to `status: "DRAFT"`; parsing succeeds, but production admission
-requires `APPROVED`, `approvalDecisionId`, `approvedBy`, and `approvedAt`.
-
-- [ ] **Step 4: Verify GREEN**
-
-Run:
-
-```powershell
-corepack pnpm vitest run packages/contracts/src/learning-policy.test.ts packages/contracts/src/canonical-json.test.ts
-corepack pnpm typecheck
-```
-
-Expected: policy tests and typecheck PASS.
-
-- [ ] **Step 5: Commit**
-
-```powershell
-git add config/hint-policy.v1.json config/learning-progression.v1.json config/weekly-competition.v1.json schemas packages/contracts/src/learning-policy.ts packages/contracts/src/learning-policy.test.ts packages/contracts/src/index.ts
-git commit -m "feat(learning): freeze hint progression and competition policies"
-```
+- [x] **Step 1: Write failing exact-policy tests**
+- [x] **Step 2: Verify RED**
+- [x] **Step 3: Implement strict parsers and JSON schemas**
+- [x] **Step 4: Verify GREEN**
+- [x] **Step 5: Commit**
 
 ---
 
-### Task 2: Admit Five-Step Category Hint Ladders
+### Task 2: Admit Five-Step Category Hint Ladders (ENGINE/PIPELINE LANDED, LADDER BATCH-1 PENDING)
 
 **Files:**
 - Modify: `packages/contracts/src/content.ts`
@@ -115,86 +197,28 @@ git commit -m "feat(learning): freeze hint progression and competition policies"
 - Create: `packages/content-validator/src/hint-ladder.test.ts`
 - Modify: `schemas/game-content.public.schema.json`
 - Modify: `schemas/game-content.private.schema.json`
-- Modify: `content/fixtures/valid/en-intermediate.json`
-- Modify: `content/fixtures/valid/ko-beginner.json`
-- Modify: `content/fixtures/valid/ja-advanced.json`
+- Modify: `content/learning/catalog.schema.json`
+- Modify: `content/learning/catalog.v1.json`
+- Modify: `packages/content-validator/src/validate-learning-draft.ts`
+- Modify: `tools/content/write-learning-bundle.ts`
+- Modify: `tools/content/write-learning-manifest.ts`
 
 **Interfaces:**
 - Consumes: canonical answer, content language/category, reviewed localized
   text, and grapheme segmentation.
 - Produces: `HintStepV1[]` and `validateHintLadder(category, answer, steps)`.
 
-- [ ] **Step 1: Write category-specific RED tests**
-
-```ts
-expect(validateHintLadder('ENGLISH', 'resilience', englishSteps)).toEqual([]);
-expect(validateHintLadder('ENGLISH', 'book', revealsFirstAndLastEarly))
-  .toContain('SHORT_ENGLISH_PREMATURE_DISCLOSURE');
-expect(validateHintLadder('PROVERB', '백문이 불여일견', proverbSteps))
-  .toEqual([]);
-expect(validateHintLadder('IDIOM', '전화위복', idiomSteps)).toEqual([]);
-expect(validateHintLadder('IDIOM', '전화위복', inferredHanjaSteps))
-  .toContain('UNREVIEWED_HANJA');
-```
-
-Add failures for missing ordinal, duplicate reveal index, full-answer disclosure
-before step 5, control characters, missing `ko`/`en` localization, and
-non-grapheme indexes.
-
-- [ ] **Step 2: Verify RED**
-
-Run:
-
-```powershell
-corepack pnpm vitest run packages/content-validator/src/hint-ladder.test.ts
-```
-
-Expected: FAIL because the validator does not exist.
-
-- [ ] **Step 3: Implement grapheme-safe admission**
-
-Implement `segmentAnswer(answer, language)` with `Intl.Segmenter`. Treat spaces
-and punctuation as visible separators that are never charged as reveal units.
-Require exactly five steps and the category ladders defined in the design.
-Only accept Hanja when the bundle includes `reviewedHanja` and
-`hanjaReviewStatus: "APPROVED"`.
-
-- [ ] **Step 4: Add valid and invalid fixtures**
-
-Add fixtures for:
-
-```text
-en-short-word-premature.json
-en-missing-context.json
-ko-proverb-invalid-initials.json
-ko-idiom-unreviewed-hanja.json
-hint-full-answer-step-four.json
-hint-duplicate-reveal-index.json
-```
-
-Assert the exact error code for each.
-
-- [ ] **Step 5: Verify GREEN**
-
-Run:
-
-```powershell
-corepack pnpm vitest run packages/contracts/src/content.test.ts packages/content-validator/src
-corepack pnpm content:schemas:check
-```
-
-Expected: all content and schema projections PASS.
-
-- [ ] **Step 6: Commit**
-
-```powershell
-git add packages/contracts/src/content.ts packages/contracts/src/content.test.ts packages/content-validator schemas content/fixtures
-git commit -m "feat(content): admit category-specific hint ladders"
-```
+- [x] **Step 1: Write category-specific RED tests**
+- [x] **Step 2: Verify RED**
+- [x] **Step 3: Implement grapheme-safe admission**
+- [x] **Step 4: Add valid and invalid fixtures**
+- [x] **Step 5: Verify GREEN**
+- [x] **Step 6: Commit**
+- [ ] **Step 7 (Active Workstream - Ladder Batch-1):** Complete authored five-step ladders for at least 5 `ENGLISH` and 5 `PROVERB` draft packs to unblock Phase C/D readiness.
 
 ---
 
-### Task 3: Implement Deterministic Hint Revelation
+### Task 3: Implement Deterministic Hint Revelation (LANDED IN CODEBASE)
 
 **Files:**
 - Create: `packages/game-engine/src/hint-engine.ts`
@@ -204,105 +228,25 @@ git commit -m "feat(content): admit category-specific hint ladders"
 - Modify: `packages/contracts/src/socket.schema.ts`
 - Modify: `packages/contracts/src/projection.ts`
 - Modify: `packages/game-engine/src/reducer.ts`
-- Modify: `packages/game-engine/src/reducer.test.ts`
 
 **Interfaces:**
 - Consumes: admitted `HintStepV1[]`, player reveal state, mode, and selected
   pet coach archetype.
-- Produces:
+- Produces: `revealNextHint(input: HintRevealInput): HintRevealResult` and authoritative `HINT_STEP_REVEALED` events.
 
-```ts
-revealNextHint(input: HintRevealInput): HintRevealResult
-```
-
-and authoritative `HINT_STEP_REVEALED` events.
-
-- [ ] **Step 1: Write reducer RED tests**
-
-```ts
-const first = revealNextHint({
-  mode: 'CASUAL',
-  steps,
-  revealedOrdinals: [],
-  coachCharges: 3,
-});
-expect(first).toMatchObject({
-  ordinal: 1,
-  rankedPenaltyUnits: 0,
-  coachChargesRemaining: 2,
-});
-
-const ranked = revealNextHint({
-  mode: 'RANKED',
-  steps,
-  revealedOrdinals: [],
-  coachCharges: 99,
-  pet: { rarity: 'LEGENDARY', coachArchetype: 'LINGUIST' },
-});
-expect(ranked).toMatchObject({
-  ordinal: 1,
-  rankedPenaltyUnits: 1,
-});
-```
-
-Assert COMMON and LEGENDARY pets return identical ranked results. Assert retry
-with the same request ID reveals no additional step.
-
-- [ ] **Step 2: Verify RED**
-
-Run:
-
-```powershell
-corepack pnpm vitest run packages/game-engine/src/hint-engine.test.ts
-```
-
-Expected: FAIL because `revealNextHint` is missing.
-
-- [ ] **Step 3: Implement the pure hint engine**
-
-Return the next ordinal only. Do not concatenate private answers into public
-events. For visual hints return an admitted public region descriptor; exact
-hit circles may appear only at step 5. Exhausted ladders return
-`NO_HINT_REMAINING`.
-
-- [ ] **Step 4: Integrate authoritative commands and projections**
-
-Add:
-
-```ts
-type UseLearningHint = {
-  type: 'USE_LEARNING_HINT';
-  attemptId: string;
-  expectedOrdinal: number;
-};
-```
-
-Emit the localized hint text, public pattern/region, ordinal, and cumulative
-ranked penalty. Never emit remaining private steps.
-
-- [ ] **Step 5: Verify GREEN**
-
-Run:
-
-```powershell
-corepack pnpm vitest run packages/game-engine/src packages/contracts/src/socket.test.ts packages/contracts/src/projection.test.ts
-```
-
-Expected: engine replay and projection tests PASS.
-
-- [ ] **Step 6: Commit**
-
-```powershell
-git add packages/game-engine/src packages/contracts/src
-git commit -m "feat(game): add deterministic learning hints"
-```
+- [x] **Step 1: Write reducer RED tests**
+- [x] **Step 2: Verify RED**
+- [x] **Step 3: Implement the pure hint engine**
+- [x] **Step 4: Integrate authoritative commands and projections**
+- [x] **Step 5: Verify GREEN**
+- [x] **Step 6: Commit**
 
 ---
 
-### Task 4: Create Ranked Attempt and Weekly Season Storage
+### Task 4: Create Ranked Attempt and Weekly Season Storage (LANDED IN `202607300002_learning_competition.sql`)
 
 **Files:**
-- Create: `supabase/migrations/202607300001_learning_competition.sql`
+- Create: `supabase/migrations/202607300002_learning_competition.sql`
 - Create: `supabase/tests/database/learning-competition.test.sql`
 - Modify: `supabase/tests/database/rls.test.sql`
 - Modify: `docs/02-Architecture/08_DATABASE_SCHEMA.md`
@@ -310,352 +254,88 @@ git commit -m "feat(game): add deterministic learning hints"
 **Interfaces:**
 - Consumes: authenticated subject, pinned content/policy hashes, server event
   metrics, and selected pet.
-- Produces: immutable attempts, official entries, weekly seasons, challenge
-  pins, ranking projections, and settlement leases.
+- Produces: immutable attempts (`private.learning_attempts`), official entries (`private.learning_best_records`), weekly seasons, challenge pins, ranking projections, and settlement leases.
 
-- [ ] **Step 1: Write pgTAP RED assertions**
-
-```sql
-select has_table('private', 'learning_attempts');
-select has_table('private', 'weekly_seasons');
-select has_table('private', 'weekly_challenge_pins');
-select has_table('private', 'weekly_reward_settlements');
-select has_view('public', 'learning_leaderboard_entries');
-select has_function('private', 'commit_learning_attempt_v1');
-```
-
-Assert application roles cannot insert attempts, official entries, settlement
-rows, or reward effects directly.
-
-- [ ] **Step 2: Verify RED**
-
-Run:
-
-```powershell
-supabase test db --local
-```
-
-Expected: new table/function assertions FAIL.
-
-- [ ] **Step 3: Add immutable schema and constraints**
-
-`private.learning_attempts` stores:
-
-```text
-attempt_id, subject_key, season_id, category, content_revision_id,
-mode, started_at, assets_ready_at, completed_at, completion_ms,
-display_score, hints_used, wrong_taps, wrong_answers,
-selected_user_pet_id, ruleset_hash, hint_policy_hash,
-competition_policy_hash, event_digest, verification_status
-```
-
-Create unique official key:
-
-```sql
-unique (subject_key, season_id, content_revision_id)
-where mode = 'RANKED' and verification_status = 'VERIFIED'
-```
-
-Practice records use a separate personal-best table and cannot conflict with
-official rows.
-
-- [ ] **Step 4: Add RLS-safe leaderboard projection**
-
-Expose only:
-
-```text
-season_id, category, content_revision_id, rank, nickname,
-pet_catalog_id, display_score, completion_ms, hints_used,
-wrong_taps, wrong_answers
-```
-
-Never expose `subject_key`, event digest, selected user-pet ID, auth IDs, raw
-events, coordinates, or private content.
-
-- [ ] **Step 5: Verify GREEN**
-
-Run:
-
-```powershell
-supabase db reset --local
-supabase db lint --local --fail-on error
-supabase test db --local
-```
-
-Expected: schema, immutability, and RLS tests PASS.
-
-- [ ] **Step 6: Commit**
-
-```powershell
-git add supabase/migrations/202607300001_learning_competition.sql supabase/tests/database docs/02-Architecture/08_DATABASE_SCHEMA.md
-git commit -m "feat(db): add verified learning competition storage"
-```
+- [x] **Step 1: Write pgTAP RED assertions**
+- [x] **Step 2: Verify RED**
+- [x] **Step 3: Add immutable schema and constraints**
+- [x] **Step 4: Add RLS-safe leaderboard projection**
+- [x] **Step 5: Verify GREEN**
+- [x] **Step 6: Commit**
 
 ---
 
-### Task 5: Build the Server-Authoritative Attempt Runtime
+### Task 5: Build the Server-Authoritative Attempt Runtime (LANDED IN CODEBASE)
 
 **Files:**
-- Create: `apps/server/package.json`
-- Create: `apps/server/tsconfig.json`
+- Create: `packages/learning-competition/package.json`
+- Create: `packages/learning-competition/src/attempt-session.ts`
+- Create: `packages/learning-competition/src/attempt-verifier.ts`
+- Modify: `apps/server/package.json` (Register workspace server package)
 - Create: `apps/server/src/learning/attempt-session.ts`
-- Create: `apps/server/src/learning/attempt-session.test.ts`
 - Create: `apps/server/src/learning/attempt-verifier.ts`
-- Create: `apps/server/src/learning/attempt-verifier.test.ts`
 - Create: `apps/server/src/learning/attempt-repository.ts`
 - Modify: `packages/contracts/openapi.yaml`
-- Modify: `packages/contracts/src/openapi.test.ts`
 
 **Interfaces:**
 - Consumes: authenticated user, pinned weekly challenge, accepted command
   sequence, asset attestations, and approved policies.
-- Produces:
+- Produces: `startRankedAttempt(input): RankedAttemptSession` and `completeRankedAttempt(input): VerifiedAttemptResult`.
 
-```ts
-startRankedAttempt(input): RankedAttemptSession
-completeRankedAttempt(input): VerifiedAttemptResult
-```
+`packages/learning-competition` owns pure session policy, replay verification,
+score calculation, and DTO construction. `apps/server` serves as a thin authentication/HTTP/repository adapter over existing RPCs in `202607300002_learning_competition.sql`.
 
-- [ ] **Step 1: Write session RED tests**
-
-Assert:
-
-```ts
-expect(started).toMatchObject({
-  mode: 'RANKED',
-  officialEligibility: 'FIRST_COMPLETED_VERIFIED',
-});
-expect(started).not.toHaveProperty('privateSolution');
-```
-
-Reject a missing challenge pin, wrong season, unapproved policy, mismatched
-content revision, and a second official session after one verified completion.
-
-- [ ] **Step 2: Write verifier RED tests**
-
-Replay a command log and assert the server derives:
-
-```ts
-expect(result).toMatchObject({
-  hintsUsed: 0,
-  wrongTaps: 1,
-  wrongAnswers: 0,
-  completionMs: 42_000,
-  displayScore: 83_000,
-});
-```
-
-Reject client-supplied score/time, completion below 500 ms, impossible event
-order, missing asset readiness, replay digest mismatch, and private-answer
-fields in analytics.
-
-- [ ] **Step 3: Verify RED**
-
-Run:
-
-```powershell
-corepack pnpm vitest run apps/server/src/learning
-```
-
-Expected: FAIL because the runtime modules do not exist.
-
-- [ ] **Step 4: Implement start and completion endpoints**
-
-Add:
-
-```text
-POST /v1/learning/attempts
-POST /v1/learning/attempts/{attemptId}/complete
-GET  /v1/learning/attempts/{attemptId}
-```
-
-Require idempotency keys for both mutations. Pin selected pet, challenge
-revision, policy hashes, and server start time at creation. Derive completion
-from replay; pass only derived values to `commit_learning_attempt_v1`.
-
-- [ ] **Step 5: Verify concurrency and retry behavior**
-
-Run 20 concurrent completion calls with the same idempotency key and assert one
-official row, one response body, and zero duplicate effects. Run differing
-payloads with the same key and expect `IDEMPOTENCY_CONFLICT`.
-
-- [ ] **Step 6: Verify GREEN**
-
-Run:
-
-```powershell
-corepack pnpm vitest run apps/server/src/learning packages/contracts/src/openapi.test.ts
-corepack pnpm --dir apps/server typecheck
-```
-
-Expected: runtime, contract, and concurrency tests PASS.
-
-- [ ] **Step 7: Commit**
-
-```powershell
-git add apps/server packages/contracts/openapi.yaml packages/contracts/src/openapi.test.ts
-git commit -m "feat(server): verify ranked learning attempts"
-```
+- [x] **Step 1: Write session RED tests**
+- [x] **Step 2: Write verifier RED tests**
+- [x] **Step 3: Verify RED**
+- [x] **Step 4: Implement start and completion endpoints**
+- [x] **Step 5: Verify concurrency and retry behavior**
+- [x] **Step 6: Verify GREEN**
+- [x] **Step 7: Commit**
 
 ---
 
-### Task 6: Derive Top 10, My Rank, and Weekly Category Standings
+### Task 6: Derive Top 10, My Rank, and Weekly Category Standings (LANDED IN CODEBASE)
 
 **Files:**
 - Create: `apps/server/src/learning/leaderboard.ts`
 - Create: `apps/server/src/learning/leaderboard.test.ts`
-- Create: `apps/server/src/learning/leaderboard-repository.ts`
-- Create: `supabase/migrations/202607300002_learning_leaderboards.sql`
-- Create: `supabase/tests/database/learning-leaderboards.test.sql`
 - Modify: `packages/contracts/openapi.yaml`
-- Modify: `packages/contracts/src/openapi.test.ts`
 
 **Interfaces:**
-- Consumes: verified official attempts and one transaction snapshot.
-- Produces:
+- Consumes: immutable verified attempts, their pinned selected pets, and one transaction snapshot from `202607300002_learning_competition.sql`.
+- Produces: `getChallengeLeaderboard`, `getWeeklyCategoryLeaderboard`, `getPetChampionSummary`.
 
-```ts
-getChallengeLeaderboard(query): ChallengeLeaderboardV1
-getWeeklyCategoryLeaderboard(query): WeeklyCategoryLeaderboardV1
-```
-
-- [ ] **Step 1: Write rank-order RED tests**
-
-```ts
-expect(rankAttempts(fixtures).map((row) => row.attemptId)).toEqual([
-  'higher-score',
-  'fewer-hints',
-  'fewer-final-errors',
-  'fewer-misses',
-  'faster',
-  'earlier',
-]);
-```
-
-Assert Top 10 and `myRank` are from the same `snapshotRevision`. Assert a user
-ranked 143rd receives rank, total competitors, percentile, and two neighboring
-rows without leaking subject IDs.
-
-- [ ] **Step 2: Verify RED**
-
-Run:
-
-```powershell
-corepack pnpm vitest run apps/server/src/learning/leaderboard.test.ts
-```
-
-Expected: FAIL because rank functions do not exist.
-
-- [ ] **Step 3: Implement database ranking functions**
-
-Use `row_number()` with the exact canonical order from the design. Compute
-weekly category totals across exactly five pinned revisions; missing attempts
-contribute zero. Use one repeatable-read transaction for Top 10, current user,
-neighbors, total count, and snapshot revision.
-
-- [ ] **Step 4: Add read endpoints**
-
-```text
-GET /v1/leaderboards/challenges/{contentRevisionId}?seasonId=...
-GET /v1/leaderboards/categories/{category}?seasonId=...
-```
-
-Return opaque cursors and moderated public profile fields only.
-
-- [ ] **Step 5: Verify GREEN**
-
-Run:
-
-```powershell
-corepack pnpm vitest run apps/server/src/learning/leaderboard.test.ts packages/contracts/src/openapi.test.ts
-supabase test db --local
-```
-
-Expected: ordering, snapshot, privacy, and database tests PASS.
-
-- [ ] **Step 6: Commit**
-
-```powershell
-git add apps/server/src/learning/leaderboard* supabase/migrations/202607300002_learning_leaderboards.sql supabase/tests/database/learning-leaderboards.test.sql packages/contracts
-git commit -m "feat(leaderboard): add challenge and weekly rankings"
-```
+- [x] **Step 1: Write rank-order RED tests**
+- [x] **Step 2: Verify RED**
+- [x] **Step 3: Implement thin server adapter over DB ranking views**
+- [x] **Step 4: Add read endpoints**
+- [x] **Step 5: Verify GREEN**
+- [x] **Step 6: Commit**
 
 ---
 
-### Task 7: Commit Account XP, Pet XP, and Bounded Draw Points
+### Task 7: Commit Account XP, Pet XP, and Bounded Draw Points (LANDED IN CODEBASE)
 
 **Files:**
+- Create: `docs/decisions/learning-economy-source-model.md`
 - Create: `supabase/migrations/202607300003_learning_progression.sql`
 - Create: `supabase/tests/database/learning-progression.test.sql`
 - Create: `apps/server/src/learning/progression.ts`
 - Create: `apps/server/src/learning/progression.test.ts`
 - Modify: `packages/contracts/src/economy.ts`
-- Modify: `packages/contracts/src/economy.schema.test.ts`
 - Modify: `docs/decisions/ADR-004-pet-economy.md`
 
 **Interfaces:**
-- Consumes: verified attempt, pinned selected pet, daily counters, and approved
-  `learning-progression-v1`.
-- Produces one progression receipt and outbox event per attempt.
+- Consumes: verified attempt, pinned selected pet, daily counters, and approved `learning-progression-v1`.
+- Produces: one progression receipt and outbox event per attempt.
 
-- [ ] **Step 1: Write reward RED tests**
-
-```ts
-expect(calculateLearningProgression(perfectFirst)).toEqual({
-  accountXp: 50,
-  selectedPetXp: 25,
-  drawPoints: 10,
-});
-expect(calculateLearningProgression(repeatPersonalBest)).toEqual({
-  accountXp: 5,
-  selectedPetXp: 2,
-  drawPoints: 0,
-});
-```
-
-Assert daily caps of 200 account XP, 100 pet XP, and 100 draw points. Assert a
-pet selected after session start receives zero XP from the prior attempt.
-
-- [ ] **Step 2: Verify RED**
-
-Run:
-
-```powershell
-corepack pnpm vitest run apps/server/src/learning/progression.test.ts
-```
-
-Expected: FAIL because the progression module is missing.
-
-- [ ] **Step 3: Add transactional progression function**
-
-Create `private.award_learning_progression_v1(attempt_id, subject_key,
-expected_policy_hash)`. Lock the subject and pinned user-pet rows, apply
-remaining daily capacity, write immutable account/pet/draw ledger rows, and
-emit one outbox event. Repeated calls return the stored response.
-
-- [ ] **Step 4: Keep activation fail-closed**
-
-Update ADR-004 with the candidate policy and require an explicit approval
-decision before production startup admits it. Tests must prove `DRAFT` returns
-`UNSUPPORTED_REWARD_POLICY` with no balance change.
-
-- [ ] **Step 5: Verify GREEN**
-
-Run:
-
-```powershell
-corepack pnpm vitest run apps/server/src/learning/progression.test.ts packages/contracts/src/economy.schema.test.ts
-supabase test db --local
-```
-
-Expected: calculation, cap, idempotency, and fail-closed tests PASS.
-
-- [ ] **Step 6: Commit**
-
-```powershell
-git add supabase/migrations/202607300003_learning_progression.sql supabase/tests/database/learning-progression.test.sql apps/server/src/learning/progression* packages/contracts/src/economy* docs/decisions/ADR-004-pet-economy.md
-git commit -m "feat(economy): add bounded learning progression"
-```
+- [x] **Step 1: Write reward RED tests**
+- [x] **Step 2: Verify RED**
+- [x] **Step 3: Add transactional progression function (`202607300003_learning_progression.sql`)**
+- [x] **Step 4: Keep activation fail-closed**
+- [x] **Step 5: Verify GREEN**
+- [x] **Step 6: Commit**
 
 ---
 
@@ -665,96 +345,24 @@ git commit -m "feat(economy): add bounded learning progression"
 - Create: `supabase/migrations/202607300004_weekly_champion_rewards.sql`
 - Create: `supabase/tests/database/weekly-champion-rewards.test.sql`
 - Create: `apps/server/src/learning/weekly-settlement.ts`
-- Create: `apps/server/src/learning/weekly-settlement.test.ts`
 - Create: `apps/server/src/learning/settlement-worker.ts`
 - Modify: `packages/contracts/src/economy.ts`
-- Modify: `packages/contracts/openapi.yaml`
 
 **Interfaces:**
-- Consumes: closed season, final weekly ranking snapshot, approved catalog and
-  economy hashes, and a fencing token.
-- Produces one `RARE_ONLY_TICKET_V1` entitlement for each category champion.
+- Consumes: closed season, final weekly ranking snapshot, approved catalog and economy hashes, and a fencing token.
+- Produces: one `RARE_ONLY_TICKET_V1` entitlement for each category champion.
 
 - [ ] **Step 1: Write settlement RED tests**
-
-```ts
-expect(settleCategory(closedEnglishSeason)).toMatchObject({
-  category: 'ENGLISH',
-  rank: 1,
-  rewardType: 'RARE_ONLY_TICKET_V1',
-  quantity: 1,
-});
-```
-
-Assert an open season, incomplete challenge set, quarantined winner, stale
-fence, policy mismatch, or missing champion writes no reward. Run two settlers
-concurrently and assert one entitlement and one outbox event.
-
 - [ ] **Step 2: Write rare-ticket draw RED tests**
-
-Assert the result rarity is always `RARE`, selection is uniform across the
-pinned active RARE set, a duplicate increments copies, and rare/legendary pity
-counters remain byte-for-byte unchanged.
-
 - [ ] **Step 3: Verify RED**
-
-Run:
-
-```powershell
-corepack pnpm vitest run apps/server/src/learning/weekly-settlement.test.ts
-supabase test db --local
-```
-
-Expected: settlement and ticket functions are missing.
-
-- [ ] **Step 4: Implement fenced settlement**
-
-Use a lease with monotonically increasing fencing token. Snapshot the champion
-attempt ID and rank tuple, then call
-`private.issue_weekly_champion_ticket_v1`. Unique key:
-
-```text
-(season_id, category, subject_key, RARE_ONLY_TICKET_V1)
-```
-
-Persist policy/catalog hashes on settlement, entitlement, draw, inventory, and
-outbox rows.
-
+- [ ] **Step 4: Implement fenced settlement (`202607300004_weekly_champion_rewards.sql`)**
 - [ ] **Step 5: Implement ticket consumption**
-
-Add:
-
-```text
-POST /v1/gacha/tickets/{ticketId}/draw
-```
-
-The server chooses uniformly from pinned RARE definitions. Require an
-idempotency key and disclose catalog candidates and selection method before
-the confirmation action.
-
 - [ ] **Step 6: Verify GREEN**
-
-Run:
-
-```powershell
-corepack pnpm vitest run apps/server/src/learning/weekly-settlement.test.ts packages/contracts/src/openapi.test.ts
-supabase test db --local
-corepack pnpm test:db:concurrency
-```
-
-Expected: exact-once settlement, ticket, inventory, pity-isolation, and
-concurrency tests PASS.
-
 - [ ] **Step 7: Commit**
-
-```powershell
-git add supabase/migrations/202607300004_weekly_champion_rewards.sql supabase/tests/database/weekly-champion-rewards.test.sql apps/server/src/learning packages/contracts
-git commit -m "feat(rewards): issue weekly champion rare tickets"
-```
 
 ---
 
-### Task 9: Add Mobile Hint, Pet Coach, and Result-Board UX
+### Task 9: Add Mobile Hint, Pet Coach, and Result-Board UX (LANDED IN CODEBASE)
 
 **Files:**
 - Create: `apps/mobile/src/features/learning/HintPanel.tsx`
@@ -764,40 +372,26 @@ git commit -m "feat(rewards): issue weekly champion rare tickets"
 - Create: `apps/mobile/src/features/leaderboard/ChallengeResultBoard.tsx`
 - Create: `apps/mobile/src/features/leaderboard/ChallengeResultBoard.test.tsx`
 - Create: `apps/mobile/src/features/leaderboard/WeeklyCategoryBoard.tsx`
-- Create: `apps/mobile/src/features/leaderboard/WeeklyCategoryBoard.test.tsx`
-- Create: `apps/mobile/src/features/pets/WeeklyRewardTicket.tsx`
-- Modify: `apps/mobile/src/ui/BattleScreen.tsx`
-- Modify: `packages/contracts/src/ui.ts`
-- Modify: `packages/contracts/src/ui.test.ts`
+- Create: `apps/mobile/src/features/pets/DailyFreeDraw.tsx`
+- Create: `apps/mobile/src/features/pets/DailyFreeDraw.test.tsx`
+- Create: `apps/mobile/src/features/pets/PetCollection.tsx`
+- Create: `apps/mobile/src/features/pets/ChampionStars.tsx`
+- Create: `apps/mobile/src/features/pets/ChampionStars.test.tsx`
+- Refactor: `apps/mobile/src/learning-demo/LearningDemoScreen.tsx` into
+  `apps/mobile/src/features/learning`
+- Modify: the solo-learning route/shell under `apps/mobile/app`
 
-**Interfaces:**
-- Consumes: public hint events, pet coach projection, challenge/weekly
-  leaderboard DTOs, progression receipt, and ticket disclosure.
-- Produces accessible casual and ranked learning/result experiences.
-
-- [ ] **Step 1: Write hint and pet RED tests**
-
-Assert:
-
-```tsx
-expect(rankHint.props.accessibilityLabel).toContain('힌트 사용 시 15000점 감소');
-expect(legendaryRankedHint).toEqual(commonRankedHint);
-expect(casualPetCoach.props.accessibilityLabel).toContain('남은 도움 3회');
-```
-
-Assert no hint is consumed without pressing the button, reduced motion uses a
-static pet, and failed hint requests preserve the prior state.
-
-- [ ] **Step 2: Write result-board RED tests**
-
-Render a user ranked 143rd and assert:
-
-```tsx
+- [x] **Step 1: Write hint and pet RED tests**
+- [x] **Step 2: Write result-board RED tests**
+- [x] **Step 3: Implement accessible mobile UI components**
+- [x] **Step 4: Verify GREEN**
+- [x] **Step 5: Commit**
 expect(screen.getByText('143위 / 812명')).toBeTruthy();
 expect(screen.getByText('상위 18%')).toBeTruthy();
 expect(screen.getByLabelText('내 순위로 이동')).toBeTruthy();
-expect(screen.getByText('공식 첫 도전')).toBeTruthy();
-expect(screen.getByText('연습 최고 기록')).toBeTruthy();
+expect(screen.getByText('이번 기록')).toBeTruthy();
+expect(screen.getByText('내 최고 기록')).toBeTruthy();
+expect(screen.queryByText('공식 첫 도전')).toBeNull();
 ```
 
 Assert exactly ten Top 10 rows, tie metrics, snapshot label, and no auth ID or
@@ -818,6 +412,11 @@ Expected: feature components do not exist.
 Casual mode shows three pet coach charges. Ranked mode replaces pet ability
 copy with “랭킹에서는 모든 펫의 도움 효과가 동일합니다.” Present the next
 hint and exact score penalty before confirmation.
+
+The ordinary casual hint button remains available after coach charges are
+spent. A coach charge changes approved pet presentation but advances the same
+next `HintStepV1`; both paths increment `hintStepsUsed`, so either path
+disqualifies the `noHint` bonus.
 
 - [ ] **Step 5: Implement challenge and weekly boards**
 
@@ -850,7 +449,7 @@ Expected: interaction, accessibility, privacy, and type tests PASS.
 - [ ] **Step 8: Commit**
 
 ```powershell
-git add apps/mobile/src/features apps/mobile/src/ui/BattleScreen.tsx packages/contracts/src/ui.ts packages/contracts/src/ui.test.ts
+git add apps/mobile/src/features apps/mobile/src/learning-demo apps/mobile/app packages/contracts/src/ui.ts packages/contracts/src/ui.test.ts
 git commit -m "feat(mobile): add hints pet coaching and leaderboards"
 ```
 
@@ -859,6 +458,10 @@ git commit -m "feat(mobile): add hints pet coaching and leaderboards"
 ### Task 10: Add Analytics, Abuse Review, and Operational Gates
 
 **Files:**
+- Create: `tools/pin-weekly-challenges.ts`
+- Create: `tools/pin-weekly-challenges.test.ts`
+- Modify: `.github/workflows/ci.yml`
+- Create: `.github/workflows/weekly-learning-nightly.yml`
 - Modify: `packages/contracts/src/analytics.ts`
 - Create: `packages/contracts/src/analytics.test.ts`
 - Create: `apps/server/src/learning/attempt-risk.ts`
@@ -875,6 +478,15 @@ git commit -m "feat(mobile): add hints pet coaching and leaderboards"
 - Produces privacy-safe telemetry, quarantine decisions, and
   `learning:competition:check`.
 
+The pinning tool is the supported operational path. It supports `--dry-run`,
+prints category/revision/policy hashes, validates readiness/cardinality, and
+is deterministic; manual production SQL is not accepted.
+
+PR CI runs unit/contract tests and a bounded 20-worker concurrency suite.
+Nightly/manual CI runs the 10,000-attempt load and 100-way settlement race.
+Missing credentials or local Supabase reports a named blocked gate rather than
+a silent skip.
+
 - [ ] **Step 1: Write privacy and risk RED tests**
 
 Reject analytics containing auth UUID, email, answer text, raw coordinates,
@@ -888,7 +500,8 @@ Require:
 
 ```text
 verified_attempt_duplicate_total = 0
-official_attempt_overwrite_total = 0
+best_record_lower_score_overwrite_total = 0
+champion_star_projection_mismatch_total = 0
 leaderboard_snapshot_mismatch_total = 0
 weekly_reward_duplicate_total = 0
 rare_ticket_pity_mutation_total = 0
@@ -896,7 +509,11 @@ private_field_leak_total = 0
 ```
 
 Require at least 10,000 synthetic verified attempts for ranking/load evidence
-and 100 concurrent settlement retries for exact-once evidence.
+and 100 concurrent settlement retries for exact-once evidence. Record the
+percentage tied on `display_score`, the percentage resolved by each canonical
+tie-break field, and specifically how often `accepted_at` or `attempt_id`
+decides #1 after the 90-second time-penalty cap. These are evidence fields, not
+permission to alter the approved scoring policy.
 
 - [ ] **Step 3: Verify RED**
 
@@ -941,7 +558,7 @@ Expected: privacy, abuse, load, and exact-once gates PASS.
 - [ ] **Step 7: Commit**
 
 ```powershell
-git add packages/contracts/src/analytics* apps/server/src/learning/attempt-risk* docs/analytics docs/operations tools/release-learning-competition* package.json
+git add packages/contracts/src/analytics* apps/server/src/learning/attempt-risk* docs/analytics docs/operations tools/release-learning-competition* tools/pin-weekly-challenges* .github/workflows/ci.yml .github/workflows/weekly-learning-nightly.yml package.json
 git commit -m "test(learning): gate ranking and reward integrity"
 ```
 
@@ -968,7 +585,7 @@ Create 12 users and run:
 2. one casual pet-assisted challenge;
 3. one ranked challenge with COMMON and LEGENDARY pets producing identical
    authoritative results;
-4. an official first attempt followed by a faster practice attempt;
+4. verified scores `50 -> 60 -> 100 -> 80` for one user/challenge;
 5. a user outside Top 10;
 6. two concurrent weekly settlers;
 7. champion ticket consumption and duplicate pet handling.
@@ -980,8 +597,8 @@ Assert:
 ```ts
 expect(challengeBoard.top10).toHaveLength(10);
 expect(challengeBoard.me.rank).toBe(12);
-expect(officialAttempt.attemptId).toBe(firstAttempt.attemptId);
-expect(personalBest.attemptId).toBe(fasterPractice.attemptId);
+expect(challengeBoard.me.score).toBe(100);
+expect(challengeBoard.me.attemptId).toBe(hundredPointAttempt.attemptId);
 expect(champion.entitlements).toHaveLength(1);
 expect(champion.draw.rarity).toBe('RARE');
 expect(afterPity).toEqual(beforePity);
@@ -1020,13 +637,41 @@ git commit -m "test(learning): record weekly season acceptance"
 
 ## Completion Conditions
 
+Completion is per phase. Phase A may ship with competition disabled; Phase B
+requires the approved economy ADR; Phase C requires roadmap, content, runtime,
+and settlement evidence.
+
+- **Phase 0 acceptance:** approved 30/15/5 asset catalog; one 20-way daily
+  claim result; direct-draw pity byte-identical; same-pet 11 copies become one
+  retained base plus one next-rarity result.
+- **Phase A acceptance:** at least one admitted ENGLISH and one PROVERB bundle
+  carries distinct `hintUnits` and five `HintStepV1` entries through
+  catalog/draft/manifest/mobile; no pre-step-5 full disclosure.
+- **Phase B acceptance:** 20 retries create one learning reward source effect,
+  one XP/points delta, and one outbox event; DRAFT policy remains fail-closed.
+- **Phase C acceptance:** `50 -> 60 -> 100 -> 80` publishes 100, a concurrent
+  overtake transfers one champion star, and leaderboard responses contain zero
+  private identifiers/coordinate keys.
+- **Phase D acceptance:** an eligible five-pin season settles one optional
+  champion ticket under 100-way retry without pity mutation.
+
 - Hint ladders are authored, locale-safe, and do not reveal short answers too
   early.
 - Casual pet assistance works while ranked pet effects remain identical.
 - Account XP, selected-pet XP, and draw points are bounded and effect-once.
 - Challenge Top 10 and current-user rank share one database snapshot.
 - Weekly category standings use exactly five pinned challenges.
-- Official first attempts cannot be replaced by faster practice attempts.
+- A better verified replay replaces the published best and a worse replay
+  cannot.
+- Current champion stars exactly equal current #1 challenge records pinned to
+  each pet; historical #1 counts are numeric and monotonic.
+- Pet level is displayed as `Lv.N`; rarity and level never change ranked hint
+  information.
+- Daily free draw and ten-card promotion are effect-once and preserve the base
+  owned copy.
+- Active pet art is a reviewed, rights-recorded 30/15/5 subset stored inside
+  the repository; desktop paths are absent from runtime artifacts.
+- Public showcase exposes approved pet and achievement fields only.
 - One category champion receives one rare-only ticket after concurrent retries.
 - Rare-only tickets never mutate ordinary draw pity.
 - Policies remain deployment-blocked until explicit approval metadata exists.

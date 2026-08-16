@@ -90,7 +90,7 @@
     },
     {
       "file": "config/economy.v1.json",
-      "sha256": "5351bb46c744286690b7f7ab18dd96e070991be1016b495b3db7d7b90b5a30ca",
+      "sha256": "8c393b080814599a117cac9c212bf42e34cee5deeca54abed407f875f29643c1",
       "value": {
         "schemaVersion": 1,
         "economyVersion": "1.0.0",
@@ -120,9 +120,11 @@
         "draw": {
           "cost": 100,
           "probabilities": {
-            "COMMON": 0.8,
-            "RARE": 0.18,
-            "LEGENDARY": 0.02
+            "COMMON": 0.6,
+            "UNCOMMON": 0.25,
+            "RARE": 0.1,
+            "EPIC": 0.04,
+            "LEGENDARY": 0.01
           }
         },
         "fusion": {
