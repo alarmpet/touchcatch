@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useSyncExternalStore } from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
-import { colors, radius, spacing } from '../src/ui/design-tokens';
-import { RankingScreen } from '../src/features/ranking/RankingScreen';
+import { colors, spacing } from '../src/ui/design-tokens';
+import { buttonStyle, buttonTextStyle, screen, surface, tabs, text } from '../src/ui/ui-kit';
+import { ScreenHeader } from '../src/ui/atoms';
+import { TabBar } from '../src/ui/TabBar';
+import { GhostBoard, RankingScreen } from '../src/features/ranking/RankingScreen';
 import { WeeklyCategoryBoard } from '../src/features/leaderboard/WeeklyCategoryBoard';
 import { createRankingRouteController, type RankingRouteState } from '../src/features/ranking/ranking-route-controller';
 import type { RankedCategory } from '../src/features/ranking/ranking-model';
@@ -12,20 +15,27 @@ export function RankingRouteView({ state, onCategory, onRetry }: Readonly<{
   onCategory(category: RankedCategory): void;
   onRetry(): void;
 }>) {
-  return <ScrollView contentContainerStyle={{ flexGrow: 1, padding: spacing.lg, backgroundColor: colors.canvas }}>
-    <Text accessibilityRole="header" style={{ marginTop: 18, color: colors.ink, fontSize: 28, fontWeight: '900' }}>주간 랭킹</Text>
-    <Text style={{ marginTop: 6, color: colors.muted }}>서버에서 검증된 학습 기록만 순위에 반영돼요.</Text>
-    <View style={{ flexDirection: 'row', gap: spacing.sm, marginTop: spacing.xl }}>
-      {(['ENGLISH', 'PROVERB'] as const).map((category) => <Pressable key={category} accessibilityRole="tab" accessibilityState={{ selected: state.category === category }} accessibilityLabel={category === 'ENGLISH' ? '영어 랭킹' : '속담 랭킹'} onPress={() => onCategory(category)} style={{ flex: 1, padding: 12, borderRadius: radius.button, backgroundColor: state.category === category ? colors.sky : colors.white }}><Text style={{ textAlign: 'center', color: state.category === category ? colors.white : colors.ink, fontWeight: '800' }}>{category === 'ENGLISH' ? '영어' : '속담'}</Text></Pressable>)}
+  return <View style={{ flex: 1, backgroundColor: colors.canvas }}>
+    <ScrollView style={{ flex: 1, backgroundColor: colors.canvas }} contentContainerStyle={{ ...screen.scroll, ...screen.content }}>
+    <ScreenHeader eyebrow="THIS WEEK" title="주간 랭킹" lede="서버에서 검증된 학습 기록만 순위에 반영돼요." />
+    <View style={tabs.bar}>
+      {(['ENGLISH', 'PROVERB'] as const).map((category) => {
+        const selected = state.category === category;
+        return <Pressable key={category} accessibilityRole="tab" accessibilityState={{ selected }} accessibilityLabel={category === 'ENGLISH' ? '영어 랭킹' : '속담 랭킹'} onPress={() => onCategory(category)} style={tabs.item(selected)}><Text style={tabs.label(selected)}>{category === 'ENGLISH' ? '영어' : '속담'}</Text></Pressable>;
+      })}
     </View>
-    <View accessibilityLabel={`랭킹 상태 ${state.model.state}`} style={{ marginTop: spacing.md, padding: spacing.xl, borderRadius: radius.card, backgroundColor: colors.white, borderColor: colors.line, borderWidth: 1 }}>
-      {state.reason === 'SIGNED_OUT' ? <Text>랭킹을 보려면 내 정보에서 로그인해 주세요.</Text>
+    <View accessibilityLabel={`랭킹 상태 ${state.model.state}`} style={{ ...surface.card, marginTop: spacing.md, gap: spacing.sm }}>
+      {/* Signed out is "not started", not "broken", so it gets the same shape preview the
+          empty board does rather than a bare line of grey text. */}
+      {state.reason === 'SIGNED_OUT' ? <><Text style={text.caption}>로그인하면 이번 주 순위에 이름을 올릴 수 있어요.</Text><GhostBoard /></>
         : state.board && (state.model.state === 'READY' || state.model.state === 'STALE')
-          ? <>{state.model.state === 'STALE' && <Text accessibilityLiveRegion="polite">저장된 랭킹이에요. 연결되면 갱신할게요.</Text>}<WeeklyCategoryBoard category={state.category} top10={state.model.rows.map((row) => ({ rank: row.rank, nickname: row.nickname, displayScore: row.score }))} {...(state.board.myRank === null ? {} : { myRank: state.board.myRank.rank })} /></>
+          ? <>{state.model.state === 'STALE' && <Text accessibilityLiveRegion="polite" style={text.caption}>저장된 랭킹이에요. 연결되면 갱신할게요.</Text>}<WeeklyCategoryBoard category={state.category} top10={state.model.rows.map((row) => ({ rank: row.rank, nickname: row.nickname, displayScore: row.score }))} {...(state.board.myRank === null ? {} : { myRank: state.board.myRank.rank })} /></>
           : <RankingScreen model={state.model} />}
-      {(state.model.state === 'ERROR' || state.model.state === 'STALE') && <Pressable accessibilityRole="button" accessibilityLabel="랭킹 다시 시도" onPress={onRetry} style={{ marginTop: spacing.md, padding: 12, borderRadius: radius.button, backgroundColor: colors.sky }}><Text style={{ color: colors.white, textAlign: 'center', fontWeight: '800' }}>다시 시도</Text></Pressable>}
+      {(state.model.state === 'ERROR' || state.model.state === 'STALE') && <Pressable accessibilityRole="button" accessibilityLabel="랭킹 다시 시도" onPress={onRetry} style={buttonStyle('secondary', { block: true })}><Text style={buttonTextStyle('secondary')}>다시 시도</Text></Pressable>}
     </View>
-  </ScrollView>;
+    </ScrollView>
+    <TabBar active="ranking" />
+  </View>;
 }
 
 export default function RankingRoute() {

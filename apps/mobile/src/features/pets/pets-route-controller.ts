@@ -1,5 +1,6 @@
 import { MobileApiError } from '../../api/mobile-api-transport';
 import type { createPetApi, PetCollectionResponse } from './pet-api';
+import type { PetRevealV1 } from './reveal-model';
 
 type PetApi = ReturnType<typeof createPetApi>;
 type SessionStatus = 'loading' | 'signed-out' | 'signed-in' | 'error';
@@ -10,8 +11,8 @@ export type PetsRouteState =
   | Readonly<{ status: 'SIGNED_OUT' }>
   | Readonly<{ status: 'DISABLED'; code: string }>
   | Readonly<{ status: 'ERROR'; code: string; retry: 'LOAD' | 'CLAIM' | 'PROMOTION'; petId?: string }>
-  | Readonly<{ status: 'EMPTY'; collection: PetCollectionResponse; claimedToday: boolean; operation: Operation }>
-  | Readonly<{ status: 'READY'; collection: PetCollectionResponse; claimedToday: boolean; operation: Operation }>;
+  | Readonly<{ status: 'EMPTY'; collection: PetCollectionResponse; claimedToday: boolean; operation: Operation; reveal?: PetRevealV1 }>
+  | Readonly<{ status: 'READY'; collection: PetCollectionResponse; claimedToday: boolean; operation: Operation; reveal?: PetRevealV1 }>;
 
 export interface PetsRouteController {
   getState(): PetsRouteState;
@@ -19,6 +20,8 @@ export interface PetsRouteController {
   load(): Promise<void>;
   claimDaily(): Promise<void>;
   promote(petId: string): Promise<void>;
+  /** Clears the pending reveal once the player has closed it. */
+  dismissReveal(): void;
   dispose(): void;
 }
 
@@ -42,6 +45,7 @@ export function createPetsRouteController(input: Readonly<{
 }>): PetsRouteController {
   let disposed = false;
   let claimedToday = false;
+  let pendingReveal: PetRevealV1 | null = null;
   let claimKey: string | null = null;
   const promotionKeys = new Map<string, string>();
   const listeners = new Set<(state: PetsRouteState) => void>();
@@ -61,10 +65,26 @@ export function createPetsRouteController(input: Readonly<{
   const requireSession = (): boolean => {
     if (input.session() === 'signed-in') return true;
     claimedToday = false;
+    pendingReveal = null;
     claimKey = null;
     promotionKeys.clear();
     publish({ status: 'SIGNED_OUT' });
     return false;
+  };
+  /** A pet the collection did not hold before this acquisition is a new 도감 entry. */
+  const ownsPet = (petId: string): boolean =>
+    (state.status === 'READY' || state.status === 'EMPTY')
+    && state.collection.pets.some((pet) => pet.petId === petId);
+  /**
+   * The reveal is presentational only. A committed acquisition must never be reported as
+   * a failure because the celebration could not be built, so this never throws.
+   */
+  const toReveal = (source: PetRevealV1['source'], awarded: unknown): PetRevealV1 | null => {
+    const pet = (awarded as { pet?: unknown; output?: unknown } | null | undefined)?.[source === 'DAILY_DRAW' ? 'pet' : 'output'];
+    if (!pet || typeof pet !== 'object') return null;
+    const { petId, rarity, copies } = pet as Record<string, unknown>;
+    if (typeof petId !== 'string' || typeof rarity !== 'string' || typeof copies !== 'number') return null;
+    return { source, petId, rarity: rarity as PetRevealV1['rarity'], copies, isFirstCopy: !ownsPet(petId) };
   };
 
   const controller: PetsRouteController = {
@@ -86,6 +106,7 @@ export function createPetsRouteController(input: Readonly<{
           collection,
           claimedToday,
           operation: 'IDLE',
+          ...(pendingReveal ? { reveal: pendingReveal } : {}),
         });
       } catch (error) {
         if (input.session() !== 'signed-in') { requireSession(); return; }
@@ -98,10 +119,11 @@ export function createPetsRouteController(input: Readonly<{
       if (state.status === 'READY') publish({ status: 'READY', collection: state.collection, claimedToday, operation: 'CLAIMING' });
       else if (state.status === 'EMPTY') publish({ status: 'EMPTY', collection: state.collection, claimedToday, operation: 'CLAIMING' });
       try {
-        await input.api.claimDailyDraw(claimKey);
+        const drawn = await input.api.claimDailyDraw(claimKey);
         if (!requireSession()) return;
         claimKey = null;
         claimedToday = true;
+        pendingReveal = toReveal('DAILY_DRAW', drawn);
         await controller.load();
       } catch (error) {
         if (input.session() !== 'signed-in') { publish({ status: 'SIGNED_OUT' }); return; }
@@ -116,15 +138,26 @@ export function createPetsRouteController(input: Readonly<{
       if (state.status === 'READY') publish({ status: 'READY', collection: state.collection, claimedToday, operation: 'PROMOTING' });
       else if (state.status === 'EMPTY') publish({ status: 'EMPTY', collection: state.collection, claimedToday, operation: 'PROMOTING' });
       try {
-        await input.api.promoteDuplicates(petId, key);
+        const promoted = await input.api.promoteDuplicates(petId, key);
         if (!requireSession()) return;
         promotionKeys.delete(petId);
+        pendingReveal = toReveal('PROMOTION', promoted);
         await controller.load();
       } catch (error) {
         if (input.session() !== 'signed-in') { publish({ status: 'SIGNED_OUT' }); return; }
         if (!isRetryable(error)) promotionKeys.delete(petId);
         failure(error, 'PROMOTION', petId);
       }
+    },
+    dismissReveal() {
+      pendingReveal = null;
+      if (state.status !== 'READY' && state.status !== 'EMPTY') return;
+      publish({
+        status: state.status,
+        collection: state.collection,
+        claimedToday: state.claimedToday,
+        operation: state.operation,
+      });
     },
     dispose() {
       disposed = true;

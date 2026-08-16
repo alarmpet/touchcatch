@@ -12,6 +12,11 @@ export interface SupabaseAuthPort {
   refreshSession(): AuthResult;
   onAuthStateChange(callback: (event: string, session: Session | null) => void): Readonly<{ data: Readonly<{ subscription: Readonly<{ unsubscribe(): void }> }> }>;
   signInWithPassword(input: Readonly<{ email: string; password: string }>): AuthResult;
+  /**
+   * Optional so an adapter that cannot register accounts still satisfies the port; the
+   * controller reports a closed sign-up rather than pretending the attempt failed.
+   */
+  signUpWithPassword?(input: Readonly<{ email: string; password: string }>): AuthResult;
   signInWithOAuth?(input: Readonly<{
     provider: 'google' | 'kakao';
     options: Readonly<{ redirectTo: string; skipBrowserRedirect: true }>;
@@ -28,6 +33,12 @@ export interface SessionController {
   getAccessToken(): Promise<string | null>;
   refreshAccessToken(): Promise<string | null>;
   signIn(email: string, password: string): Promise<void>;
+  /**
+   * Resolves `CONFIRM_EMAIL` when the project requires a confirmation click before the
+   * account can be used. The caller has to say so — silently landing on a signed-out screen
+   * after a successful registration reads as a failure.
+   */
+  signUp(email: string, password: string): Promise<'SIGNED_IN' | 'CONFIRM_EMAIL'>;
   signOut(): Promise<void>;
   dispose(): void;
 }
@@ -93,6 +104,23 @@ export function createSessionController(auth: SupabaseAuthPort): SessionControll
         fail();
         if (error instanceof Error && error.message === 'AUTH_SIGN_IN_FAILED') throw error;
         throw new Error('AUTH_SIGN_IN_FAILED');
+      }
+    },
+    async signUp(email, password) {
+      if (disposed) throw new Error('SESSION_CONTROLLER_DISPOSED');
+      const register = auth.signUpWithPassword;
+      if (register === undefined) throw new Error('AUTH_SIGN_UP_UNSUPPORTED');
+      try {
+        const result = await register.call(auth, { email: email.trim(), password });
+        if (result.error) throw new Error('AUTH_SIGN_UP_FAILED');
+        // A project with confirmations on returns no session. That is a success, not a
+        // failure, so the state is left signed-out without tripping the error path.
+        if (result.data.session === null) return 'CONFIRM_EMAIL';
+        publish(result.data.session);
+        return 'SIGNED_IN';
+      } catch (error) {
+        if (error instanceof Error && error.message === 'AUTH_SIGN_UP_FAILED') throw error;
+        throw new Error('AUTH_SIGN_UP_FAILED');
       }
     },
     async signOut() {

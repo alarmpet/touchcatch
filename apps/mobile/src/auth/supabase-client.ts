@@ -42,6 +42,10 @@ function authPort(client: SupabaseClient): SupabaseAuthPort {
       const result = await client.auth.signInWithPassword(input);
       return { data: { session: projectSession(result.data.session) }, error: result.error };
     },
+    async signUpWithPassword(input) {
+      const result = await client.auth.signUp(input);
+      return { data: { session: projectSession(result.data.session) }, error: result.error };
+    },
     async signInWithOAuth(input) {
       const result = await client.auth.signInWithOAuth(input);
       return { data: { url: result.data.url }, error: result.error };
@@ -74,6 +78,11 @@ export function createMobileSupabaseRuntime(
   const client = factory(environment.supabaseUrl, environment.supabasePublishableKey, {
     auth: {
       storage,
+      // supabase-js defaults to the implicit flow. Without this, signInWithOAuth omits
+      // code_challenge, GoTrue answers with tokens in the URL fragment instead of ?code=,
+      // and the coordinator rejects the callback — after the provider has already created
+      // the user, which makes it look like the account exists but the login failed.
+      flowType: 'pkce',
       autoRefreshToken: true,
       persistSession: true,
       detectSessionInUrl: false,

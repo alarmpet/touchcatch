@@ -1,6 +1,7 @@
 import type {MatchSnapshotV1} from '../../../../packages/contracts/src/socket';
 import {matchSnapshotV1Schema} from '../../../../packages/contracts/src/socket.schema';
 import theme from '../../../../config/ui-theme.v1.json' with {type:'json'};
+import rules from '../../../../config/ruleset.v1.json' with {type:'json'};
 import {useEffect,useMemo,useRef,useState} from 'react';
 import {AccessibilityInfo,findNodeHandle,Image,Modal,Platform,Pressable,Text,View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -23,6 +24,10 @@ export function BattleScreen({snapshot,pendingIntentId,connection,lastRejection=
  const [transform,setTransform]=useState<Transform>({scale:1,tx:0,ty:0});
  const modalFocus=useRef<View|null>(null),boardFocus=useRef<View|null>(null),base=useRef<Transform>(transform),motion=useRef({translationPx:0,scaleDelta:0});
  const layout=layoutBattleRegions(safeArea,chrome,{width:vm.assets[0].width,height:vm.assets[0].height},theme.space.baseGrid),pair=layout.pair;
+ // The server already sends the prompt; without this the word hunt is invisible to the player.
+ const mission=admitted.mission;
+ const missionReading=mission!==null&&admitted.serverNowMs<mission.startedAtMs+rules.time.wordHuntRevealMs;
+ const missionRemainingSeconds=mission===null?0:Math.max(0,Math.ceil((mission.endsAtMs-admitted.serverNowMs)/1000));
  useEffect(()=>setAnnouncement(`Score ${vm.scores.map(x=>x.absoluteScore).join(' to ')}. ${connection}. ${admitted.phase}.${lastRejection?` Rejected: ${lastRejection}.`:''}`),[vm.scores,connection,admitted.phase,lastRejection]);
  useEffect(()=>{const handle=findNodeHandle(vm.meaningQuiz?modalFocus.current:boardFocus.current);if(handle!==null)AccessibilityInfo.setAccessibilityFocus(handle)},[vm.meaningQuiz]);
 
@@ -44,7 +49,12 @@ export function BattleScreen({snapshot,pendingIntentId,connection,lastRejection=
  return <SafeAreaView accessibilityLabel="Battle" style={{flex:1,backgroundColor:canvasColor}} onLayout={({nativeEvent})=>setSafeArea({width:nativeEvent.layout.width,height:nativeEvent.layout.height})}>
   <View style={{flex:1}}>
    <View onLayout={({nativeEvent})=>setChrome(x=>({...x,headerHeight:nativeEvent.layout.height}))}><Text accessibilityRole="header" allowFontScaling maxFontSizeMultiplier={2} style={{color:inkColor,flexShrink:1}}>{admitted.phase}</Text></View>
-   <View onLayout={({nativeEvent})=>setChrome(x=>({...x,summaryHeight:nativeEvent.layout.height}))} accessibilityRole="summary" accessibilityLiveRegion="polite"><Text allowFontScaling maxFontSizeMultiplier={2} style={{color:inkColor,fontSize:theme.typography.body.lg.fontSize,lineHeight:theme.typography.body.lg.lineHeight,flexShrink:1}}>{announcement}</Text><Text allowFontScaling maxFontSizeMultiplier={2} style={{color:inkColor,flexShrink:1}}>{pendingIntentId?'Submitting':admitted.phase}</Text></View>
+   <View onLayout={({nativeEvent})=>setChrome(x=>({...x,summaryHeight:nativeEvent.layout.height}))} accessibilityRole="summary" accessibilityLiveRegion="polite"><Text allowFontScaling maxFontSizeMultiplier={2} style={{color:inkColor,fontSize:theme.typography.body.lg.fontSize,lineHeight:theme.typography.body.lg.lineHeight,flexShrink:1}}>{announcement}</Text><Text allowFontScaling maxFontSizeMultiplier={2} style={{color:inkColor,flexShrink:1}}>{pendingIntentId?'Submitting':admitted.phase}</Text>
+    {mission!==null?<View testID="word-hunt-banner" accessibilityLabel={`Word hunt ${mission.publicPrompt}`} style={{marginTop:theme.space.baseGrid,padding:theme.space.baseGrid,borderRadius:theme.radius.control,borderWidth:theme.depth.card.borderWidth,borderColor:missionReading?theme.color.border:theme.color.primary[600],backgroundColor:preferences.highContrast?'#000000':theme.color.surface}}>
+     <Text allowFontScaling maxFontSizeMultiplier={2} style={{color:inkColor,fontSize:theme.typography.label.sm.fontSize,lineHeight:theme.typography.label.sm.lineHeight,flexShrink:1}}>{mission.kind==='SPECIAL'?'SPECIAL WORD HUNT':'WORD HUNT'}</Text>
+     <Text testID="word-hunt-prompt" allowFontScaling maxFontSizeMultiplier={2} style={{color:inkColor,fontSize:theme.typography.heading.md.fontSize,lineHeight:theme.typography.heading.md.lineHeight,flexShrink:1}}>{mission.publicPrompt}</Text>
+     <Text testID="word-hunt-stage" allowFontScaling maxFontSizeMultiplier={2} style={{color:inkColor,fontSize:theme.typography.body.md.fontSize,lineHeight:theme.typography.body.md.lineHeight,flexShrink:1}}>{missionReading?'Get ready':`${missionRemainingSeconds}s left`}</Text>
+    </View>:null}</View>
    <View style={{height:safeArea.height-layout.boardsTop,gap:theme.space.baseGrid}}>{board('A',0)}{board('B',1)}</View>
    <Modal visible={vm.meaningQuiz!==null} accessibilityViewIsModal onRequestClose={()=>{}} transparent>
     <View ref={modalFocus} accessible accessibilityRole="alert" accessibilityLabel="Meaning quiz" accessibilityLiveRegion="polite" accessibilityViewIsModal importantForAccessibility="yes" onAccessibilityEscape={()=>{}} style={{flex:1,justifyContent:'center',padding:theme.space.screenX,backgroundColor:theme.color.overlay}}>

@@ -7,6 +7,7 @@ import { createRankingRouteController } from '../features/ranking/ranking-route-
 import { useMobileRuntime, useMobileSession } from '../runtime/mobile-runtime.js';
 
 vi.mock('react-native', () => ({ ScrollView: 'ScrollView', Text: 'Text', View: 'View', Pressable: 'Pressable' }));
+vi.mock('expo-router', () => ({ Link: 'Link' }));
 vi.mock('../runtime/mobile-runtime', () => ({ useMobileRuntime: vi.fn(), useMobileSession: vi.fn() }));
 vi.mock('../features/ranking/ranking-route-controller', async () => {
   const actual = await vi.importActual<typeof import('../features/ranking/ranking-route-controller.js')>('../features/ranking/ranking-route-controller.js');

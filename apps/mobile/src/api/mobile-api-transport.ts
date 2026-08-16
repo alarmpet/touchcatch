@@ -1,3 +1,4 @@
+import type { AttemptClientRequest, AttemptClientTransport } from '../features/learning/attempt-client';
 import type { PetApiRequest, PetApiTransport } from '../features/pets/pet-api';
 import type { RankingClientRequest, RankingClientTransport } from '../features/ranking/ranking-client';
 
@@ -13,7 +14,7 @@ export class MobileApiError extends Error {
   }
 }
 
-type RequestInput = PetApiRequest | RankingClientRequest;
+type RequestInput = PetApiRequest | RankingClientRequest | AttemptClientRequest;
 const uuidV4 = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/u;
 
 export function createIdempotencyKey(randomUUID: () => string = () => crypto.randomUUID()): string {
@@ -53,7 +54,7 @@ export function createMobileApiTransport(input: Readonly<{
   tokens: AccessTokenProvider;
   fetchImpl?: typeof fetch;
   timeoutMs?: number;
-}>): PetApiTransport & RankingClientTransport {
+}>): PetApiTransport & RankingClientTransport & AttemptClientTransport {
   const origin = normalizeOrigin(input.baseUrl);
   const fetchImpl = input.fetchImpl ?? fetch;
   const timeoutMs = input.timeoutMs ?? 15_000;

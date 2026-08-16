@@ -6,7 +6,7 @@ vi.mock('expo-sqlite/localStorage/install', () => ({}));
 vi.mock('react-native', () => ({ AppState: { addEventListener: vi.fn() }, Platform: { OS: 'android' } }));
 
 describe('mobile Supabase runtime', () => {
-  it('uses persistent storage, process lock, and native foreground refresh without exposing the client', () => {
+  it('uses the PKCE flow, persistent storage, process lock, and native foreground refresh without exposing the client', () => {
     const storage = { getItem: vi.fn(), setItem: vi.fn(), removeItem: vi.fn() };
     const remove = vi.fn();
     let appStateCallback: ((state: string) => void) | undefined;
@@ -27,7 +27,7 @@ describe('mobile Supabase runtime', () => {
       addAppStateListener: (callback) => { appStateCallback = callback; return { remove }; },
     });
     expect(createClient).toHaveBeenCalledWith(expect.any(String), expect.stringMatching(/^sb_publishable_/u), {
-      auth: expect.objectContaining({ storage, autoRefreshToken: true, persistSession: true, detectSessionInUrl: false }),
+      auth: expect.objectContaining({ storage, flowType: 'pkce', autoRefreshToken: true, persistSession: true, detectSessionInUrl: false }),
     });
     expect(runtime).not.toHaveProperty('client');
     appStateCallback?.('active');

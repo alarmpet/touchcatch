@@ -6,6 +6,7 @@ import { ProfileRouteView } from '../../app/profile';
 vi.mock('react-native', () => ({
   Pressable: 'Pressable', ScrollView: 'ScrollView', Text: 'Text', TextInput: 'TextInput', View: 'View',
 }));
+vi.mock('expo-router', () => ({ Link: 'Link' }));
 vi.mock('../runtime/mobile-runtime', () => ({ useMobileRuntime: vi.fn(), useMobileSession: vi.fn() }));
 (globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -16,7 +17,7 @@ describe('ProfileRouteView social login', () => {
     act(() => {
       tree = create(<ProfileRouteView
         session={{ status: 'signed-out' }} email="" password="" busy={false}
-        onEmail={vi.fn()} onPassword={vi.fn()} onSignIn={vi.fn()} onSignOut={vi.fn()} onOAuth={onOAuth}
+        onEmail={vi.fn()} onPassword={vi.fn()} mode="SIGN_IN" onMode={vi.fn()} onSignIn={vi.fn()} onSignUp={vi.fn()} onSignOut={vi.fn()} onOAuth={onOAuth}
       />);
     });
 
@@ -31,7 +32,7 @@ describe('ProfileRouteView social login', () => {
     act(() => {
       tree = create(<ProfileRouteView
         session={{ status: 'signed-in', email: null }} email="" password="" busy={false}
-        onEmail={vi.fn()} onPassword={vi.fn()} onSignIn={vi.fn()} onSignOut={vi.fn()} onOAuth={vi.fn()}
+        onEmail={vi.fn()} onPassword={vi.fn()} mode="SIGN_IN" onMode={vi.fn()} onSignIn={vi.fn()} onSignUp={vi.fn()} onSignOut={vi.fn()} onOAuth={vi.fn()}
       />);
     });
     expect(tree.root.findAllByProps({ accessibilityLabel: 'Google로 계속' })).toHaveLength(0);
@@ -45,7 +46,7 @@ describe('ProfileRouteView social login', () => {
       act(() => {
         tree = create(<ProfileRouteView
           session={session} email="" password="" busy={false}
-          onEmail={vi.fn()} onPassword={vi.fn()} onSignIn={vi.fn()} onSignOut={vi.fn()} onOAuth={vi.fn()}
+          onEmail={vi.fn()} onPassword={vi.fn()} mode="SIGN_IN" onMode={vi.fn()} onSignIn={vi.fn()} onSignUp={vi.fn()} onSignOut={vi.fn()} onOAuth={vi.fn()}
         />);
       });
       expect(tree.root.findAllByProps({ accessibilityLabel: 'Google로 계속' })).toHaveLength(0);

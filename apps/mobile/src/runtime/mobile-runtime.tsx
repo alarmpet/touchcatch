@@ -8,6 +8,7 @@ import { createOAuthCoordinator } from '../auth/oauth-coordinator';
 import { createMobileApiTransport, createIdempotencyKey } from '../api/mobile-api-transport';
 import { createPetApi } from '../features/pets/pet-api';
 import { createRankingClient } from '../features/ranking/ranking-client';
+import { createAttemptClient } from '../features/learning/attempt-client';
 
 type Runtime = Readonly<{ status: 'LOADING' }> | Readonly<{
   status: 'READY';
@@ -16,6 +17,7 @@ type Runtime = Readonly<{ status: 'LOADING' }> | Readonly<{
   oauth: ReturnType<typeof createOAuthCoordinator>;
   pets: ReturnType<typeof createPetApi>;
   ranking: ReturnType<typeof createRankingClient>;
+  attempts: ReturnType<typeof createAttemptClient>;
   createMutationKey(): string;
 }> | Readonly<{ status: 'CONFIG_ERROR'; code: string }>;
 
@@ -53,6 +55,7 @@ export function MobileRuntimeProvider({ children }: Readonly<{ children: React.R
       const ready: Runtime = {
         status: 'READY', environment, session, oauth,
         pets: createPetApi(transport), ranking: createRankingClient(transport),
+        attempts: createAttemptClient(transport),
         createMutationKey: () => createIdempotencyKey(Crypto.randomUUID),
       };
       dispose = () => { session.dispose(); supabase.dispose(); };

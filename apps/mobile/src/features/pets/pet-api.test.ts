@@ -6,7 +6,7 @@ describe('pet API boundary', () => {
     const request = vi.fn().mockResolvedValue({
       claimedToday: true,
       ownedCount: 0, totalCount: 0,
-      rarityProgress: { COMMON: { ownedCount: 0, totalCount: 0 }, RARE: { ownedCount: 0, totalCount: 0 }, LEGENDARY: { ownedCount: 0, totalCount: 0 } },
+      rarityProgress: { COMMON: { ownedCount: 0, totalCount: 0 }, UNCOMMON: { ownedCount: 0, totalCount: 0 }, RARE: { ownedCount: 0, totalCount: 0 }, EPIC: { ownedCount: 0, totalCount: 0 }, LEGENDARY: { ownedCount: 0, totalCount: 0 } },
       pets: [],
     });
     await createPetApi({ request }).getCollection();
@@ -48,7 +48,7 @@ describe('pet API boundary', () => {
 
   it('rejects malformed, private, or incomplete server projections', async () => {
     for (const payload of [
-      { claimedToday: false, ownedCount: 0, totalCount: 0, rarityProgress: { COMMON: { ownedCount: 0, totalCount: 0 }, RARE: { ownedCount: 0, totalCount: 0 }, LEGENDARY: { ownedCount: 0, totalCount: 0 } }, pets: [], subjectKey: 'private' },
+      { claimedToday: false, ownedCount: 0, totalCount: 0, rarityProgress: { COMMON: { ownedCount: 0, totalCount: 0 }, UNCOMMON: { ownedCount: 0, totalCount: 0 }, RARE: { ownedCount: 0, totalCount: 0 }, EPIC: { ownedCount: 0, totalCount: 0 }, LEGENDARY: { ownedCount: 0, totalCount: 0 } }, pets: [], subjectKey: 'private' },
       { ownedCount: 1, totalCount: 1, pets: [] },
     ]) {
       const api = createPetApi({ request: vi.fn().mockResolvedValue(payload) });

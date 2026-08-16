@@ -1,10 +1,30 @@
 import { describe, expect, it } from 'vitest';
-import { createDemoState, reduceDemoState, type DemoContent } from './controller.js';
+import {
+  createDemoState,
+  pendingWordHunt,
+  reduceDemoState,
+  scoreDemoState,
+  wordHuntMilestones,
+  type DemoContent,
+} from './controller.js';
+
+const rules = { normalDifference: 6, normalWordHunt: 10, specialWordHunt: 15, finalWord: 25, meaning: 15 };
 
 const content: DemoContent = {
   key: 'demo',
   differences: [{ id: 'a', imageA: { cx: .2, cy: .3, r: .1 }, imageB: { cx: .2, cy: .3, r: .1 } }, { id: 'b', imageA: { cx: .8, cy: .7, r: .1 }, imageB: { cx: .8, cy: .7, r: .1 } }],
   correctOptionId: 'right',
+};
+
+const hunted: DemoContent = {
+  ...content,
+  wordHunts: [{
+    missionId: 'sun',
+    kind: 'NORMAL',
+    publicPrompt: 'Sun',
+    imageA: { cx: .5, cy: .1, r: .08 },
+    imageB: { cx: .5, cy: .1, r: .08 },
+  }],
 };
 
 describe('learning demo controller', () => {
@@ -26,5 +46,147 @@ describe('learning demo controller', () => {
     expect(state.phase).toBe('QUIZ');
     state = reduceDemoState(state, content, { type: 'ANSWER', optionId: 'right' });
     expect(state.phase).toBe('COMPLETE');
+  });
+
+  it('spreads word hunt milestones across the board instead of clustering them', () => {
+    expect(wordHuntMilestones(10, 3)).toEqual([3, 5, 8]);
+    expect(wordHuntMilestones(0, 3)).toEqual([]);
+    expect(wordHuntMilestones(10, 0)).toEqual([]);
+    // A board too small to separate the prompts queues them rather than dropping any.
+    expect(wordHuntMilestones(1, 3)).toEqual([1, 1, 1]);
+  });
+
+  it('offers a word hunt only after its milestone and never while one is running', () => {
+    let state = createDemoState(hunted);
+    expect(pendingWordHunt(hunted, state)).toBeNull();
+    state = reduceDemoState(state, hunted, { type: 'TAP', side: 'A', x: .2, y: .3 });
+    expect(pendingWordHunt(hunted, state)?.missionId).toBe('sun');
+    state = reduceDemoState(state, hunted, { type: 'START_WORD_HUNT', missionId: 'sun' });
+    expect(pendingWordHunt(hunted, state)).toBeNull();
+  });
+
+  it('locks the board while the prompt is being read, then accepts the matching object', () => {
+    let state = createDemoState(hunted);
+    state = reduceDemoState(state, hunted, { type: 'TAP', side: 'A', x: .2, y: .3 });
+    state = reduceDemoState(state, hunted, { type: 'START_WORD_HUNT', missionId: 'sun' });
+    expect(state.activeMission).toEqual({ missionId: 'sun', stage: 'READING' });
+
+    // Reading grace: a correct tap is ignored rather than consumed.
+    state = reduceDemoState(state, hunted, { type: 'TAP', side: 'A', x: .5, y: .1 });
+    expect(state.solvedMissionIds).toEqual([]);
+
+    state = reduceDemoState(state, hunted, { type: 'OPEN_WORD_HUNT', missionId: 'sun' });
+    state = reduceDemoState(state, hunted, { type: 'TAP', side: 'A', x: .5, y: .1 });
+    expect(state.solvedMissionIds).toEqual(['sun']);
+    expect(state.activeMission).toBeNull();
+    expect(pendingWordHunt(hunted, state)).toBeNull();
+  });
+
+  it('holds the board for the mission and never penalises a miss', () => {
+    let state = createDemoState(hunted);
+    state = reduceDemoState(state, hunted, { type: 'TAP', side: 'A', x: .2, y: .3 });
+    state = reduceDemoState(state, hunted, { type: 'START_WORD_HUNT', missionId: 'sun' });
+    state = reduceDemoState(state, hunted, { type: 'OPEN_WORD_HUNT', missionId: 'sun' });
+
+    // The second difference is under the finger, but the mission owns the board.
+    const before = state;
+    state = reduceDemoState(state, hunted, { type: 'TAP', side: 'B', x: .8, y: .7 });
+    expect(state).toEqual(before);
+
+    state = reduceDemoState(state, hunted, { type: 'END_WORD_HUNT', missionId: 'sun' });
+    expect(state.solvedMissionIds).toEqual([]);
+    expect(state.endedMissionIds).toEqual(['sun']);
+    // A missed hunt is spent, not retried, and the board returns to the differences.
+    expect(pendingWordHunt(hunted, state)).toBeNull();
+    state = reduceDemoState(state, hunted, { type: 'TAP', side: 'B', x: .8, y: .7 });
+    expect(state.phase).toBe('QUIZ');
+  });
+
+  it('opens the final answer on the first find and accepts it before the board is cleared', () => {
+    let state = createDemoState(content);
+    // Nothing found yet: answering is not yet available.
+    state = reduceDemoState(state, content, { type: 'ANSWER', optionId: 'right' });
+    expect(state.phase).toBe('FIND');
+
+    state = reduceDemoState(state, content, { type: 'TAP', side: 'A', x: .2, y: .3 });
+    expect(state.finalUnlocked).toBe(true);
+    state = reduceDemoState(state, content, { type: 'ANSWER', optionId: 'right' });
+    expect(state.phase).toBe('COMPLETE');
+    expect(state.claimedIds).toHaveLength(1);
+  });
+
+  it('opens the final answer on the timed unlock even with nothing found', () => {
+    let state = createDemoState(content);
+    state = reduceDemoState(state, content, { type: 'UNLOCK_FINAL' });
+    state = reduceDemoState(state, content, { type: 'ANSWER', optionId: 'right' });
+    expect(state.phase).toBe('COMPLETE');
+  });
+
+  it('pays the speed bonus only on a solve, and only for what was found', () => {
+    let state = createDemoState(content);
+    state = reduceDemoState(state, content, { type: 'TAP', side: 'A', x: .2, y: .3 });
+    const unsolved = scoreDemoState(state, content, rules, { remainingMs: 60000, totalMs: 90000 });
+    // An unsolved run banks no clock, so waiting is never worth points.
+    expect(unsolved).toMatchObject({ finds: 6, finalAnswer: 0, speedMultiplier: 1, base: 6, total: 6 });
+
+    state = reduceDemoState(state, content, { type: 'ANSWER', optionId: 'right' });
+    const fast = scoreDemoState(state, content, rules, { remainingMs: 60000, totalMs: 90000 });
+    const slow = scoreDemoState(state, content, rules, { remainingMs: 5000, totalMs: 90000 });
+    expect(fast.base).toBe(6 + 25 + 15);
+    expect(fast.total).toBeGreaterThan(slow.total);
+    // Half the board found, two thirds of the clock left: 1 + 0.8 * 2/3 * 1/2.
+    expect(fast.speedMultiplier).toBeCloseTo(1.2667, 4);
+    expect(fast.total).toBe(58);
+  });
+
+  /**
+   * The property that keeps the picture relevant. A flat per-second bonus broke it: on a
+   * small board the clock was worth more than every difference on it, so the best line was
+   * to skip the board entirely.
+   */
+  it('ranks a slow full clear above a fast answer that found nothing', () => {
+    let guessed = createDemoState(content);
+    guessed = reduceDemoState(guessed, content, { type: 'UNLOCK_FINAL' });
+    guessed = reduceDemoState(guessed, content, { type: 'ANSWER', optionId: 'right' });
+    const guess = scoreDemoState(guessed, content, rules, { remainingMs: 78000, totalMs: 90000 });
+    expect(guess.speedMultiplier).toBe(1);
+    expect(guess.total).toBe(40);
+
+    let cleared = createDemoState(content);
+    cleared = reduceDemoState(cleared, content, { type: 'TAP', side: 'A', x: .2, y: .3 });
+    cleared = reduceDemoState(cleared, content, { type: 'TAP', side: 'B', x: .8, y: .7 });
+    cleared = reduceDemoState(cleared, content, { type: 'ANSWER', optionId: 'right' });
+    const slowClear = scoreDemoState(cleared, content, rules, { remainingMs: 10000, totalMs: 90000 });
+    expect(slowClear.total).toBeGreaterThan(guess.total);
+  });
+
+  it('scales the whole run down per hint rather than charging a flat fee', () => {
+    let state = createDemoState(content);
+    state = reduceDemoState(state, content, { type: 'TAP', side: 'A', x: .2, y: .3 });
+    state = reduceDemoState(state, content, { type: 'ANSWER', optionId: 'right' });
+    const clean = scoreDemoState(state, content, rules, { remainingMs: 60000, totalMs: 90000 });
+
+    let hinted = createDemoState(content);
+    hinted = reduceDemoState(hinted, content, { type: 'USE_HINT' });
+    hinted = reduceDemoState(hinted, content, { type: 'USE_HINT' });
+    hinted = reduceDemoState(hinted, content, { type: 'TAP', side: 'A', x: .2, y: .3 });
+    hinted = reduceDemoState(hinted, content, { type: 'ANSWER', optionId: 'right' });
+    const scored = scoreDemoState(hinted, content, rules, { remainingMs: 60000, totalMs: 90000 });
+    expect(scored.hintMultiplier).toBeCloseTo(0.76, 4);
+    expect(scored.total).toBeLessThan(clean.total);
+  });
+
+  it('floors the hint multiplier and never reports a negative total', () => {
+    let state = createDemoState(content);
+    for (let index = 0; index < 9; index += 1) state = reduceDemoState(state, content, { type: 'USE_HINT' });
+    // Hints stop compounding, so a long run is never worth less than playing it out.
+    expect(scoreDemoState(state, content, rules, { remainingMs: 0, totalMs: 90000 }).hintMultiplier).toBe(0.6);
+
+    let wrong = createDemoState(content);
+    wrong = reduceDemoState(wrong, content, { type: 'UNLOCK_FINAL' });
+    for (let index = 0; index < 4; index += 1) wrong = reduceDemoState(wrong, content, { type: 'ANSWER', optionId: 'nope' });
+    const scored = scoreDemoState(wrong, content, rules, { remainingMs: 0, totalMs: 90000 });
+    expect(scored.penalty).toBe(40);
+    expect(scored.total).toBe(0);
   });
 });
