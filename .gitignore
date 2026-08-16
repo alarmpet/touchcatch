@@ -9,7 +9,29 @@ apps/*/.env
 apps/*/.env.*
 !apps/*/.env.example
 apps/*/.expo/
+apps/admin/.next*/
 supabase/.temp/
 supabase/.branches/
 artifacts/
 coverage/
+
+# OAuth client credential downloads. The Google console hands these out as
+# client_secret_<id>.apps.googleusercontent.com.json, and they land in whatever folder the
+# browser saves to — which is how a client secret ends up one `git add .` away from a commit.
+client_secret_*.json
+
+# Local agent and editor state. These belong to whoever is sitting at the machine,
+# not to the repository. `CLAUDE.md` is the exception and is tracked on purpose.
+.serena/
+.grok/
+.obsidian/
+.expo/
+
+# Build scratch. `apps/admin/.next*/` above catches the directory but not these two.
+tsconfig.tsbuildinfo
+apps/admin/.next-build-active.json
+
+# Metro and Expo write their logs wherever they were launched from, which is usually
+# the repo root. No log file is tracked here, so the blanket pattern is safe.
+*.log
+
