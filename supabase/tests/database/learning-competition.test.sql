@@ -157,12 +157,12 @@ select ok(
   )
   and has_function_privilege(
     'economy_server',
-    'private.attest_learning_assets_ready_v1(uuid,text,text,text,text)',
+    'private.attest_learning_assets_ready_owned_v1(uuid,uuid,text,text,text,text)',
     'EXECUTE'
   )
   and has_function_privilege(
     'economy_server',
-    'private.commit_learning_attempt_v1(uuid,uuid,text,text,text,text,text,integer,integer,integer,integer,text)',
+    'private.commit_learning_attempt_owned_v1(uuid,uuid,uuid,text,text,text,text,text,integer,integer,integer,integer,text)',
     'EXECUTE'
   )
   and has_function_privilege(
@@ -292,13 +292,36 @@ begin
     '1.0.0'
   );
 
+  -- Two differences and a final answer, so the tap path has a real board to resolve.
+  -- An empty solution would let every tap test pass for the wrong reason.
   insert into private.game_content_solutions(
     content_revision_id,
     private_solution,
     private_solution_hash
   ) values (
     v_revision_id,
-    '{}'::jsonb,
+    pg_catalog.jsonb_build_object(
+      'differences', pg_catalog.jsonb_build_array(
+        pg_catalog.jsonb_build_object(
+          'objectiveId', 'difference_1',
+          'hitboxes', pg_catalog.jsonb_build_object(
+            'imageA', pg_catalog.jsonb_build_object('cx', 0.2, 'cy', 0.2, 'r', 0.05),
+            'imageB', pg_catalog.jsonb_build_object('cx', 0.2, 'cy', 0.2, 'r', 0.05)
+          )
+        ),
+        pg_catalog.jsonb_build_object(
+          'objectiveId', 'difference_2',
+          'hitboxes', pg_catalog.jsonb_build_object(
+            'imageA', pg_catalog.jsonb_build_object('cx', 0.8, 'cy', 0.8, 'r', 0.05),
+            'imageB', pg_catalog.jsonb_build_object('cx', 0.8, 'cy', 0.8, 'r', 0.05)
+          )
+        )
+      ),
+      'finalChallenge', pg_catalog.jsonb_build_object(
+        'canonicalAnswer',
+        case when p_category = 'ENGLISH' then 'cat' else '등잔 밑이 어둡다' end
+      )
+    ),
     v_private_hash
   );
 
@@ -1435,6 +1458,357 @@ select throws_ok(
   'P0001',
   'IMMUTABLE_LEARNING_COMPETITION_PIN',
   'season challenge pins are immutable'
+);
+
+-- ------------------------------------------------ ownership and the tap log
+
+select has_table(
+  'private',
+  'learning_attempt_taps',
+  'the ranked tap log is private'
+);
+
+-- The unguarded pair still exists for these tests, but the API role can no longer reach
+-- it: every ranked write has to go through a wrapper that checks the caller owns the row.
+select is(
+  (
+    select bool_or(
+      has_function_privilege('economy_server', p.oid, 'EXECUTE')
+    )
+    from pg_proc p
+    where p.oid = any(array[
+      'private.attest_learning_assets_ready_v1(uuid,text,text,text,text)'::regprocedure,
+      'private.commit_learning_attempt_v1(uuid,uuid,text,text,text,text,text,integer,integer,integer,integer,text)'::regprocedure
+    ])
+  ),
+  false,
+  'the API role cannot drive an attempt without proving ownership'
+);
+select is(
+  (
+    select bool_and(
+      has_function_privilege('economy_server', p.oid, 'EXECUTE')
+    )
+    from pg_proc p
+    where p.oid = any(array[
+      'private.attest_learning_assets_ready_owned_v1(uuid,uuid,text,text,text,text)'::regprocedure,
+      'private.commit_learning_attempt_owned_v1(uuid,uuid,uuid,text,text,text,text,text,integer,integer,integer,integer,text)'::regprocedure,
+      'private.read_learning_attempt_board_v1(uuid,uuid,text,text,text,text)'::regprocedure,
+      'private.record_learning_tap_v1(uuid,uuid,text,text,text,text,text,uuid)'::regprocedure
+    ])
+  ),
+  true,
+  'the API role reaches every ranked entry point through its guarded wrapper'
+);
+
+insert into auth.users(id, aud, role, email)
+values (
+  '95000000-0000-4000-8000-000000000099',
+  'authenticated',
+  'authenticated',
+  'learning-intruder@example.test'
+);
+insert into public.profiles(id, nickname)
+values ('95000000-0000-4000-8000-000000000099', 'intruder');
+insert into private.economy_subjects(subject_key, user_id)
+values (
+  '96000000-0000-4000-8000-000000000099',
+  '95000000-0000-4000-8000-000000000099'
+);
+
+create temp table tap_attempt(attempt_id uuid, content_hash text) on commit drop;
+insert into tap_attempt
+select
+  (private.start_learning_attempt_v1(
+    '96000000-0000-4000-8000-000000000001',
+    '94000000-0000-4000-8000-000000000001',
+    '91000000-0000-4000-8000-000000000003',
+    '98000000-0000-4000-8000-000000000099',
+    repeat('7', 64),
+    'RANKED',
+    r.public_content_hash,
+    repeat('a', 64),
+    repeat('b', 64),
+    repeat('c', 64),
+    repeat('d', 64)
+  ) ->> 'attemptId')::uuid,
+  r.public_content_hash
+from public.game_content_revisions r
+where r.content_revision_id = '91000000-0000-4000-8000-000000000003';
+
+-- A stranger holding the id is told the attempt does not exist. Saying "not yours" would
+-- confirm the id is real and turn the check into an oracle.
+select throws_ok(
+  format(
+    $sql$select private.record_learning_tap_v1(
+      '96000000-0000-4000-8000-000000000099',
+      %L::uuid, %L, %L, %L, %L, null,
+      '99000000-0000-4000-8000-000000000001'
+    )$sql$,
+    (select attempt_id from tap_attempt),
+    (select content_hash from tap_attempt),
+    repeat('a', 64), repeat('b', 64), repeat('c', 64)
+  ),
+  'P0001',
+  'ATTEMPT_NOT_FOUND',
+  'a tap on somebody else''s attempt is refused without confirming the id exists'
+);
+
+-- Playing the board before the clock starts would let a client solve everything and only
+-- then begin timing.
+select throws_ok(
+  format(
+    $sql$select private.record_learning_tap_v1(
+      '96000000-0000-4000-8000-000000000001',
+      %L::uuid, %L, %L, %L, %L, null,
+      '99000000-0000-4000-8000-000000000002'
+    )$sql$,
+    (select attempt_id from tap_attempt),
+    (select content_hash from tap_attempt),
+    repeat('a', 64), repeat('b', 64), repeat('c', 64)
+  ),
+  'P0001',
+  'ASSETS_NOT_READY',
+  'a tap before the assets-ready stamp is refused'
+);
+
+select is(
+  (
+    select private.attest_learning_assets_ready_owned_v1(
+      '96000000-0000-4000-8000-000000000001',
+      (select attempt_id from tap_attempt),
+      (select content_hash from tap_attempt),
+      repeat('a', 64), repeat('b', 64), repeat('c', 64)
+    ) ->> 'status'
+  ),
+  'OPEN',
+  'the owner can stamp assets ready through the guarded wrapper'
+);
+
+select throws_ok(
+  format(
+    $sql$select private.record_learning_tap_v1(
+      '96000000-0000-4000-8000-000000000001',
+      %L::uuid, %L, %L, %L, %L, 'difference_does_not_exist',
+      '99000000-0000-4000-8000-000000000003'
+    )$sql$,
+    (select attempt_id from tap_attempt),
+    (select content_hash from tap_attempt),
+    repeat('a', 64), repeat('b', 64), repeat('c', 64)
+  ),
+  'P0001',
+  'OBJECTIVE_NOT_FOUND',
+  'the API cannot claim an objective that is not on this board'
+);
+
+create temp table first_tap(response jsonb) on commit drop;
+insert into first_tap
+select private.record_learning_tap_v1(
+  '96000000-0000-4000-8000-000000000001',
+  (select attempt_id from tap_attempt),
+  (select content_hash from tap_attempt),
+  repeat('a', 64), repeat('b', 64), repeat('c', 64),
+  'difference_1',
+  '99000000-0000-4000-8000-000000000010'
+);
+
+select is(
+  (select response ->> 'outcome' from first_tap),
+  'HIT',
+  'the first claim of a difference is a hit'
+);
+select is(
+  (select (response ->> 'foundCount')::integer from first_tap),
+  1,
+  'the find count comes from the tap log'
+);
+select is(
+  (select (response ->> 'differenceCount')::integer from first_tap),
+  2,
+  'the board size comes from the pinned solution'
+);
+
+-- A dropped response the player retries must not cost a second tap of any kind.
+select is(
+  (
+    select private.record_learning_tap_v1(
+      '96000000-0000-4000-8000-000000000001',
+      (select attempt_id from tap_attempt),
+      (select content_hash from tap_attempt),
+      repeat('a', 64), repeat('b', 64), repeat('c', 64),
+      'difference_1',
+      '99000000-0000-4000-8000-000000000010'
+    ) ->> 'outcome'
+  ),
+  'HIT',
+  'replaying one idempotency key returns the stored outcome'
+);
+select is(
+  (
+    select count(*)::integer
+    from private.learning_attempt_taps
+    where attempt_id = (select attempt_id from tap_attempt)
+  ),
+  1,
+  'a replayed tap appends no second row'
+);
+
+-- Re-touching something already found is not an accuracy failure, so it must not be
+-- charged as a wrong tap, and it must not claim the difference twice.
+select is(
+  (
+    select private.record_learning_tap_v1(
+      '96000000-0000-4000-8000-000000000001',
+      (select attempt_id from tap_attempt),
+      (select content_hash from tap_attempt),
+      repeat('a', 64), repeat('b', 64), repeat('c', 64),
+      'difference_1',
+      '99000000-0000-4000-8000-000000000011'
+    ) ->> 'outcome'
+  ),
+  'DUPLICATE',
+  're-touching a found difference is a duplicate, not a second claim'
+);
+select is(
+  (
+    select count(*)::integer
+    from private.learning_attempt_taps
+    where attempt_id = (select attempt_id from tap_attempt)
+      and outcome = 'HIT'
+  ),
+  1,
+  'the partial unique index keeps one claim per difference'
+);
+
+select is(
+  (
+    select private.record_learning_tap_v1(
+      '96000000-0000-4000-8000-000000000001',
+      (select attempt_id from tap_attempt),
+      (select content_hash from tap_attempt),
+      repeat('a', 64), repeat('b', 64), repeat('c', 64),
+      null,
+      '99000000-0000-4000-8000-000000000012'
+    ) ->> 'wrongTaps'
+  ),
+  '1',
+  'a miss is the only thing that raises the wrong-tap count'
+);
+
+select ok(
+  not has_table_privilege('anon', 'private.learning_attempt_taps', 'SELECT')
+  and not has_table_privilege('authenticated', 'private.learning_attempt_taps', 'SELECT')
+  and not has_table_privilege('service_role', 'private.learning_attempt_taps', 'UPDATE')
+  and not has_table_privilege('economy_server', 'private.learning_attempt_taps', 'UPDATE')
+  and not has_table_privilege('economy_server', 'private.learning_attempt_taps', 'DELETE'),
+  'no role can touch the tap log outside the recording function'
+);
+select has_trigger(
+  'private',
+  'learning_attempt_taps',
+  'learning_attempt_taps_append_only',
+  'the tap log has an append-only guard behind the grant'
+);
+
+-- The board read hands the answer key to the API, and only to the API.
+select is(
+  (
+    select private.read_learning_attempt_board_v1(
+      '96000000-0000-4000-8000-000000000001',
+      (select attempt_id from tap_attempt),
+      (select content_hash from tap_attempt),
+      repeat('a', 64), repeat('b', 64), repeat('c', 64)
+    ) #>> '{claimedObjectiveIds,0}'
+  ),
+  'difference_1',
+  'the board read reports what has already been claimed'
+);
+select throws_ok(
+  format(
+    $sql$select private.read_learning_attempt_board_v1(
+      '96000000-0000-4000-8000-000000000099',
+      %L::uuid, %L, %L, %L, %L
+    )$sql$,
+    (select attempt_id from tap_attempt),
+    (select content_hash from tap_attempt),
+    repeat('a', 64), repeat('b', 64), repeat('c', 64)
+  ),
+  'P0001',
+  'ATTEMPT_NOT_FOUND',
+  'the answer key is never read for an attempt the caller does not own'
+);
+
+-- The clock runs from assets-ready to commit and a test transaction takes microseconds, so
+-- an instant commit would be quarantined by the sub-500ms anti-cheat. The stamp itself
+-- cannot be backdated — the transition guard lets it be written once and never moved, which
+-- is exactly the invariant that stops a client rewinding its own clock — so the test waits.
+select pg_catalog.pg_sleep(0.6);
+
+-- The wrong-tap count the client declares is now ignored in favour of the log.
+select is(
+  (
+    select private.commit_learning_attempt_owned_v1(
+      '96000000-0000-4000-8000-000000000001',
+      (select attempt_id from tap_attempt),
+      '99000000-0000-4000-8000-000000000020',
+      repeat('8', 64),
+      (select content_hash from tap_attempt),
+      repeat('a', 64), repeat('b', 64), repeat('c', 64),
+      50000, 0, 999, 0, repeat('9', 64)
+    ) ->> 'status'
+  ),
+  'COMPLETED_VERIFIED',
+  'the owner can commit through the guarded wrapper'
+);
+select is(
+  (
+    select wrong_taps
+    from private.learning_attempts
+    where attempt_id = (select attempt_id from tap_attempt)
+  ),
+  1,
+  'commit stores the logged wrong-tap count, not the 999 the caller declared'
+);
+
+-- The challenge listing must stay playable-but-unsolvable: sizes and gaps, never letters.
+select is(
+  (
+    select (challenge ->> 'differenceCount')::integer
+    from pg_catalog.jsonb_array_elements(
+      private.read_weekly_challenges_v1(
+        '96000000-0000-4000-8000-000000000001',
+        '94000000-0000-4000-8000-000000000001'
+      ) -> 'challenges'
+    ) challenge
+    limit 1
+  ),
+  2,
+  'the challenge listing reports the board size'
+);
+select is(
+  (
+    select (challenge ->> 'answerUnitCount')::integer
+    from pg_catalog.jsonb_array_elements(
+      private.read_weekly_challenges_v1(
+        '96000000-0000-4000-8000-000000000001',
+        '94000000-0000-4000-8000-000000000001'
+      ) -> 'challenges'
+    ) challenge
+    where challenge ->> 'category' = 'ENGLISH'
+    limit 1
+  ),
+  3,
+  'the English answer skeleton is a length, and "cat" is three units'
+);
+select is(
+  (
+    select private.read_weekly_challenges_v1(
+      '96000000-0000-4000-8000-000000000001',
+      '94000000-0000-4000-8000-000000000001'
+    )::text ~ '("cat"|등잔|canonicalAnswer|hitboxes|objectiveId|difference_)'
+  ),
+  false,
+  'the challenge listing carries no answer, hitbox, or objective material'
 );
 
 select * from finish();

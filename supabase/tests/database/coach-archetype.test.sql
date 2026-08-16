@@ -142,9 +142,11 @@ as $$
       'draw', jsonb_build_object(
         'cost', 100,
         'probabilities', jsonb_build_object(
-          'COMMON', 0.8,
-          'RARE', 0.18,
-          'LEGENDARY', 0.02
+          'COMMON', 0.6,
+          'UNCOMMON', 0.25,
+          'RARE', 0.1,
+          'EPIC', 0.04,
+          'LEGENDARY', 0.01
         )
       ),
       'fusion', jsonb_build_object(

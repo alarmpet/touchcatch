@@ -56,7 +56,13 @@ select is((select count(*)::int from pg_proc where prosecdef and pronamespace in
   'private.award_learning_progression_v1(uuid,uuid,uuid,integer,integer,integer,text)'::regprocedure,
   'private.ensure_mobile_account_v1(uuid)'::regprocedure,
   'private.read_pet_inventory_v1(uuid,text,text)'::regprocedure,
-  'private.read_weekly_category_board_v1(uuid,uuid,text,integer)'::regprocedure
+  'private.read_weekly_category_board_v1(uuid,uuid,text,integer)'::regprocedure,
+  'private.assert_learning_attempt_owner_v1(uuid,uuid)'::regprocedure,
+  'private.attest_learning_assets_ready_owned_v1(uuid,uuid,text,text,text,text)'::regprocedure,
+  'private.commit_learning_attempt_owned_v1(uuid,uuid,uuid,text,text,text,text,text,integer,integer,integer,integer,text)'::regprocedure,
+  'private.read_weekly_challenges_v1(uuid,uuid)'::regprocedure,
+  'private.read_learning_attempt_board_v1(uuid,uuid,text,text,text,text)'::regprocedure,
+  'private.record_learning_tap_v1(uuid,uuid,text,text,text,text,text,uuid)'::regprocedure
 )), 0, 'no unexpected security definer functions');
 select is((select count(*)::int from pg_default_acl d cross join lateral aclexplode(d.defaclacl) a where d.defaclnamespace in ('public'::regnamespace, 'private'::regnamespace) and d.defaclrole in ((select oid from pg_roles where rolname='postgres'), (select oid from pg_roles where rolname='game_security_owner')) and a.grantee in (0, (select oid from pg_roles where rolname='anon'), (select oid from pg_roles where rolname='authenticated'), (select oid from pg_roles where rolname='service_role'))), 0, 'future object default ACLs do not expose client/service roles');
 
