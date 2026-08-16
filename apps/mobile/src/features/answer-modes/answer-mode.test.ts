@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { answerUnits, buildAnswerPattern, evaluatePreviewAnswer, newlyOpenedUnitIndex, revealAnswerPattern } from './answer-mode';
+import { unitsPerFind, answerUnits, buildAnswerPattern, evaluatePreviewAnswer, newlyOpenedUnitIndex, revealAnswerPattern } from './answer-mode';
 import { parseHintPolicyV1 } from '../../../../../packages/contracts/src/learning-policy';
 import hintPolicy from '../../../../../config/hint-policy.v1.json' with { type: 'json' };
 
@@ -10,6 +10,44 @@ describe('find-reveal budget is pinned policy, not a screen constant', () => {
     expect(parsed.findReveal.rankedPenaltyPerUnit).toBe(0);
     expect(parsed.findReveal.tracks.SPELLING.stages).toEqual(['GRAPHEME']);
     expect(parsed.findReveal.tracks.INITIAL_PATTERN.stages).toEqual(['INITIAL', 'SYLLABLE']);
+  });
+
+  it('lets a full clear reach the tail however few differences the board has', () => {
+    // The shape that motivated SCALE_TO_COVER: en-cyberpunk-city is five differences against
+    // a thirteen-letter answer. At a flat one unit per find a perfect board opened 42% of it.
+    const tail = hintPolicy.findReveal.tracks.SPELLING.unresolvedTailUnits;
+    const answer = 'cyberpunk city';
+    const letters = [...answer].filter((character) => character !== ' ').length;
+
+    const scaled = answerUnits('ENGLISH', answer, 5, 5);
+    expect(scaled.filter((unit) => !unit.revealed && !unit.space)).toHaveLength(tail);
+
+    // Without a difference count the rate falls back to the policy floor, which is what
+    // every caller got before the rate could vary.
+    const flat = answerUnits('ENGLISH', answer, 5);
+    expect(flat.filter((unit) => unit.revealed)).toHaveLength(5);
+    expect(letters - 5).toBeGreaterThan(tail);
+  });
+
+  it('never opens the tail early, at any board size', () => {
+    const tail = hintPolicy.findReveal.tracks.SPELLING.unresolvedTailUnits;
+    // Scaling up the rate must not let a single find spill past the tail on a tiny board.
+    for (const differences of [1, 2, 3, 5, 8, 13, 40]) {
+      for (const finds of [1, 2, differences, differences * 2]) {
+        const units = answerUnits('ENGLISH', 'architecture', finds, differences);
+        expect(units.filter((unit) => !unit.revealed && !unit.space).length).toBeGreaterThanOrEqual(tail);
+      }
+    }
+  });
+
+  it('derives the per-find rate from what the board has to cover', () => {
+    // 11 openable units over 8 differences rounds up to 2; over 20 it floors at 1.
+    expect(unitsPerFind(11, 8)).toBe(2);
+    expect(unitsPerFind(11, 20)).toBe(1);
+    expect(unitsPerFind(12, 5)).toBe(3);
+    // A board with nothing to find cannot define a rate, so the floor stands.
+    expect(unitsPerFind(11, 0)).toBe(1);
+    expect(unitsPerFind(0, 8)).toBe(1);
   });
 
   it('leaves exactly the policy tail unresolved on a fully cleared board', () => {

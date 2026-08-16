@@ -283,8 +283,18 @@ describe('LearningDemoScreen', () => {
   it('draws the answer mask as one slot per unit so a letter can land in one', () => {
     const proverb = {
       ...entry, key: 'p', category: 'PROVERB' as const, assistPattern: 'INITIAL_PATTERN' as const, title: '백문이 불여일견',
-      // Two differences, so one find leaves the board — and the strip — still on screen.
-      differences: [...entry.differences, { id: 'd2', imageA: { cx: .1, cy: .1, r: .05 }, imageB: { cx: .1, cy: .1, r: .05 } }],
+      // Enough differences that the reveal rate floors at one unit per find. This test is
+      // about the slot structure and a single letter landing in a single slot, and under
+      // SCALE_TO_COVER a two-difference board on a seven-syllable answer opens seven units
+      // at once — correct behaviour, but it would leave nothing here to demonstrate.
+      differences: [
+        ...entry.differences,
+        ...Array.from({ length: 13 }, (_unused, index) => ({
+          id: `d${index + 2}`,
+          imageA: { cx: .05 + index * .06, cy: .1, r: .02 },
+          imageB: { cx: .05 + index * .06, cy: .1, r: .02 },
+        })),
+      ],
     };
     let tree: any;
     act(() => { tree = create(<LearningDemoScreen entries={[proverb]} initialCategory="PROVERB" />); });

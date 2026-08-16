@@ -13,6 +13,25 @@ const FIND_REVEAL = hintPolicy.findReveal;
 const SPELLING_TAIL = FIND_REVEAL.tracks.SPELLING.unresolvedTailUnits;
 const INITIAL_PATTERN_TAIL = FIND_REVEAL.tracks.INITIAL_PATTERN.unresolvedTailUnits;
 const UNITS_PER_FIND = FIND_REVEAL.unitsPerFind;
+const UNITS_PER_FIND_RULE = FIND_REVEAL.unitsPerFindRule;
+
+/**
+ * How many answer units one find opens on this board.
+ *
+ * Under `FIXED` it is the policy floor. Under `SCALE_TO_COVER` it is whatever it takes for
+ * a full clear to reach the answer's last openable unit — no more, because the tail must
+ * stay masked, and no fewer, because otherwise a long answer on a small board can never be
+ * more than part-filled however well the player plays.
+ *
+ * `differenceCount` of zero or less falls back to the floor: a board with nothing to find
+ * cannot define a per-find rate.
+ */
+export function unitsPerFind(openableUnits: number, differenceCount: number): number {
+  if (UNITS_PER_FIND_RULE !== 'SCALE_TO_COVER') return UNITS_PER_FIND;
+  if (!Number.isFinite(differenceCount) || differenceCount <= 0) return UNITS_PER_FIND;
+  if (!Number.isFinite(openableUnits) || openableUnits <= 0) return UNITS_PER_FIND;
+  return Math.max(UNITS_PER_FIND, Math.ceil(openableUnits / differenceCount));
+}
 
 export type AnswerInputSurface = 'MULTIPLE_CHOICE' | 'FREE_TEXT' | 'PATTERN_ASSISTED';
 export type LearningCategory = 'ENGLISH' | 'PROVERB' | 'IDIOM' | 'GENERAL_KNOWLEDGE';
@@ -85,13 +104,24 @@ export type AnswerUnit = Readonly<{ text: string; revealed: boolean; space: bool
  *
  * Both budgets come from `config/hint-policy.v1.json`, which the season row pins by hash.
  */
-export function answerUnits(category: LearningCategory, answer: string, revealedCount: number): readonly AnswerUnit[] {
-  const opened = Math.max(0, Math.floor(revealedCount)) * UNITS_PER_FIND;
+export function answerUnits(
+  category: LearningCategory,
+  answer: string,
+  revealedCount: number,
+  /**
+   * Differences on the board this answer belongs to. Omitted, the rate falls back to the
+   * policy floor, which is what every caller did before the rate could vary.
+   */
+  differenceCount = 0,
+): readonly AnswerUnit[] {
+  const finds = Math.max(0, Math.floor(revealedCount));
 
   if (category === 'ENGLISH') {
     const characters = [...answer.trim().toLowerCase()];
     const letters = characters.filter((character) => character !== ' ').length;
-    let budget = Math.min(opened, Math.max(0, letters - SPELLING_TAIL));
+    const openable = Math.max(0, letters - SPELLING_TAIL);
+    const opened = finds * unitsPerFind(openable, differenceCount);
+    let budget = Math.min(opened, openable);
     return characters.map((character) => {
       if (character === ' ') return { text: ' ', revealed: false, space: true };
       if (budget > 0) { budget -= 1; return { text: character, revealed: true, space: false }; }
@@ -101,6 +131,9 @@ export function answerUnits(category: LearningCategory, answer: string, revealed
 
   const characters = [...answer];
   const total = characters.filter((character) => character !== ' ').length;
+  // Two stages, so a full clear has to buy every initial and then all but the tail again.
+  const openable = total + Math.max(0, total - INITIAL_PATTERN_TAIL);
+  const opened = finds * unitsPerFind(openable, differenceCount);
   // Stage 1 spends finds on initials; stage 2 spends the surplus on whole syllables.
   let initialBudget = Math.min(opened, total);
   let syllableBudget = Math.min(Math.max(opened - total, 0), Math.max(0, total - INITIAL_PATTERN_TAIL));
@@ -116,22 +149,27 @@ export function answerUnits(category: LearningCategory, answer: string, revealed
 }
 
 /**
- * Index of the single slot that changes when the find count goes `from` → `to`, or null.
+ * Index of the first slot that changes when the find count goes `from` → `to`, or null.
  *
  * This is what the flying letter aims at. Comparing rendered text rather than recomputing
  * budgets keeps it correct for both reveal stages: in stage 2 the slot that changes is
  * already showing an initial, so "first slot that differs" is the honest answer and
  * "first masked slot" would be wrong.
+ *
+ * Under `SCALE_TO_COVER` one find can open more than one slot. The letter flies to the
+ * first of them and the rest simply appear — one travelling letter still teaches the rule
+ * that finding buys letters, and two or three in flight at once would only obscure it.
  */
 export function newlyOpenedUnitIndex(
   category: LearningCategory,
   answer: string,
   from: number,
   to: number,
+  differenceCount = 0,
 ): number | null {
   if (to <= from) return null;
-  const before = answerUnits(category, answer, from);
-  const after = answerUnits(category, answer, to);
+  const before = answerUnits(category, answer, from, differenceCount);
+  const after = answerUnits(category, answer, to, differenceCount);
   for (let index = 0; index < after.length; index += 1) {
     if (before[index]?.text !== after[index]?.text) return index;
   }

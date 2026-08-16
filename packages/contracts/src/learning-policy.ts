@@ -46,7 +46,26 @@ const hintShape = {
     penaltyPerStep: z.literal(15_000),
   }).strict(),
   findReveal: z.object({
+    /**
+     * Floor, not the whole story — see `unitsPerFindRule`.
+     *
+     * A flat 1 assumed the board carries about as many differences as the answer carries
+     * units. Measured against the shipped content that assumption is wrong for half of it:
+     * 39 of 77 playable packs have a longer answer than they have differences, so clearing
+     * the whole board leaves most of the word masked. `en-cyberpunk-city` is five finds
+     * against thirteen letters — a full clear opens 42% of it.
+     */
     unitsPerFind: z.literal(1),
+    /**
+     * `SCALE_TO_COVER` derives the per-find budget from the pack instead of fixing it:
+     * enough units that clearing the board covers the answer bar its unresolved tail, and
+     * never fewer than `unitsPerFind`. The tail is what keeps this from spelling the answer
+     * out, so the invariant above survives at any board size.
+     *
+     * Derived rather than authored per pack, because a hand-written number is exactly what
+     * drifts the next time content is added.
+     */
+    unitsPerFindRule: z.enum(['FIXED', 'SCALE_TO_COVER']),
     order: z.literal('LEFT_TO_RIGHT'),
     /** Free by design. The paid track is `ranked.penaltyPerStep`. */
     rankedPenaltyPerUnit: z.literal(0),

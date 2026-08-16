@@ -10,6 +10,7 @@
   },
   "findReveal": {
     "unitsPerFind": 1,
+    "unitsPerFindRule": "SCALE_TO_COVER",
     "order": "LEFT_TO_RIGHT",
     "rankedPenaltyPerUnit": 0,
     "tracks": {

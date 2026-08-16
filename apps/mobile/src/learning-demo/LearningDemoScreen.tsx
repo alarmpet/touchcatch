@@ -299,7 +299,7 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
   } as const;
   const patternUnits = selected.assistPattern === 'NONE'
     ? null
-    : answerUnits(selected.category, selected.title, state.claimedIds.length);
+    : answerUnits(selected.category, selected.title, state.claimedIds.length, selected.differences.length);
 
   /**
    * Sends the earned letter from the spot the player tapped into the slot it just opened.
@@ -312,9 +312,9 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
    */
   const launchLetterFlight = (side: 'A' | 'B', tapX: number, tapY: number, before: number, after: number) => {
     if (selected.assistPattern === 'NONE') return;
-    const slotIndex = newlyOpenedUnitIndex(selected.category, selected.title, before, after);
+    const slotIndex = newlyOpenedUnitIndex(selected.category, selected.title, before, after, selected.differences.length);
     if (slotIndex === null) return;
-    const char = answerUnits(selected.category, selected.title, after)[slotIndex]?.text;
+    const char = answerUnits(selected.category, selected.title, after, selected.differences.length)[slotIndex]?.text;
     if (char === undefined || char === ' ') return;
 
     const board = boardRefs.current[side];
