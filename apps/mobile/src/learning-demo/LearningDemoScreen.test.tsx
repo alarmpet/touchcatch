@@ -168,6 +168,8 @@ describe('LearningDemoScreen', () => {
   const twoDiff = {
     ...entry,
     key: 'two-diff',
+    // Carries hint units so the deadline tests can assert the hint survives the buzzer.
+    hintUnits: [...'resilience'],
     differences: [
       { id: 'd1', imageA: { cx: .5, cy: .5, r: .2 }, imageB: { cx: .5, cy: .5, r: .2 } },
       { id: 'd2', imageA: { cx: .1, cy: .1, r: .05 }, imageB: { cx: .1, cy: .1, r: .05 } },
@@ -207,6 +209,12 @@ describe('LearningDemoScreen', () => {
       expect(tree.root.findAllByProps({ testID: 'demo-board-A' })).toHaveLength(0);
       expect(tree.root.findByProps({ testID: 'quiz-status' }).props.children).toBe('TIME UP');
       expect(tree.root.findByProps({ accessibilityLabel: 'Answer input' })).toBeTruthy();
+      // The hint outlives the board. Someone who ran out of time arrives here with nothing
+      // revealed, so gating the hint on the finding stage would charge them the learning for
+      // being slow. Found on device: the buzzer took the hint button with it.
+      expect(tree.root.findByProps({ accessibilityLabel: 'Use hint' })).toBeTruthy();
+      // ...but not a second answer field competing with the quiz screen's own.
+      expect(tree.root.findAllByProps({ testID: 'early-answer' })).toHaveLength(0);
     } finally {
       vi.useRealTimers();
     }

@@ -294,8 +294,10 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
     ? selected.hintLadder?.[hintIndex - 1]?.localizedText.ko ?? fallbackHintText
     : undefined;
   const hintsExhausted = hintIndex >= totalHintSteps;
-  // A running word hunt owns the board, so the answer bar stands down until it ends.
-  const showEarlyAnswer = state.finalUnlocked && activeMission === null;
+  // A running word hunt owns the board, so the answer bar stands down until it ends. It also
+  // stands down once the board closes: from there the quiz screen carries the real input, and
+  // two answer fields on one screen is a way to type into the wrong one.
+  const showEarlyAnswer = boardOpen && state.finalUnlocked && activeMission === null;
   const finalBreakdown = settledScore ?? score;
   const ghostFinds = ghostFindCountBy(ghost, elapsedMs);
   const ghostIds = ghostRevealedIds(ghost, elapsedMs);
@@ -729,8 +731,15 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
     {/* Footer: answer, submit and hint share one row. Two stacked full-width rows cost the
         boards roughly a fifth of the screen, and the artwork is what the game is about. */}
     <View style={{ backgroundColor: colors.surface, borderTopWidth: 1, borderTopColor: colors.line, paddingVertical: spacing.xs, paddingHorizontal: spacing.sm, gap: 6, ...shadow.lifted }}>
-      {boardOpen && currentHintText ? <View style={surfaceStyle.quiet}><Text testID="current-hint" accessibilityLiveRegion="polite" style={{ ...textStyle.caption, textAlign: 'center', color: colors.ink }}>{currentHintText}</Text></View> : null}
-      {boardOpen && (showEarlyAnswer || totalHintSteps > 0) ? <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+      {/* Hints outlive the board.
+          They used to be gated on the finding stage, which was correct while a full clear was
+          the only way out of it — every letter was already open by then. The deadline broke
+          that: a player who ran out of time reaches the answer with nothing revealed, and
+          gating the hint there would take the learning away for being slow, which is the one
+          thing the clock must never do. The answer field is the quiz screen's own, so only
+          the hint half of this row survives past the buzzer. */}
+      {state.phase !== 'COMPLETE' && currentHintText ? <View style={surfaceStyle.quiet}><Text testID="current-hint" accessibilityLiveRegion="polite" style={{ ...textStyle.caption, textAlign: 'center', color: colors.ink }}>{currentHintText}</Text></View> : null}
+      {state.phase !== 'COMPLETE' && (showEarlyAnswer || totalHintSteps > 0) ? <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
         {showEarlyAnswer ? <View testID="early-answer" style={{ flexDirection: 'row', alignItems: 'center', gap: 6, flex: 1 }}>
           <TextInput
             accessibilityLabel="Early answer input"
@@ -791,9 +800,12 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
       accessibilityLabel={`서든데스, ${Math.ceil(suddenDeathRemainingMs / 1000)}초 안에 하나만 더 찾으세요`}
       pointerEvents="none"
       style={{
-        position: 'absolute', left: spacing.md, right: spacing.md, bottom: 104,
-        paddingVertical: spacing.sm, paddingHorizontal: spacing.md,
-        borderRadius: radius.card, backgroundColor: colors.danger,
+        // Sized to its content and centred rather than stretched edge to edge. On device the
+        // full-width pill covered the bottom of board B; a centred one leaves the artwork
+        // either side of it visible, and the seconds are repeated in the header anyway.
+        position: 'absolute', alignSelf: 'center', maxWidth: '92%', bottom: 104,
+        paddingVertical: spacing.xs, paddingHorizontal: spacing.md,
+        borderRadius: radius.pill, backgroundColor: colors.danger,
         flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: spacing.sm,
       }}
     >
