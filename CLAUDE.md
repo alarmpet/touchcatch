@@ -73,6 +73,59 @@ JAVA_HOME="/c/Program Files/Android/Android Studio/jbr" ./gradlew assembleDebug 
 
 ---
 
+## 에뮬레이터에서 확인하기 — 타입체크가 통과해도 확인한다
+
+**기기에서만 잡히는 버그가 계속 나온다.** vivid 레이어에서 3건, 마감·서든데스에서 2건.
+전부 타입체크·lint·테스트를 통과한 상태였다. UI를 건드렸으면 띄워본다.
+
+### 창 모드가 안 뜨면 헤드리스로 간다
+
+에뮬레이터가 크래시하는데 **프로세스는 살아 있고 `Responding`으로 보인다.** 그건
+에뮬레이터가 아니라 *"Android Emulator closed unexpectedly"* 크래시 리포터 대화상자다.
+adb에는 끝내 안 잡히고, 로그는 `Failed to load opengl32sw`에서 멈춘다. 스냅샷을 지우고
+콜드 부팅해도 같다. **화면을 직접 봐야 원인을 안다** — 이걸 모르면 부팅 실패를 5번 반복한다.
+
+창을 없애면 그 그래픽 경로를 통째로 우회한다:
+
+```bash
+"$LOCALAPPDATA/Android/Sdk/emulator/emulator.exe" -avd SpotLearn_x86_64 -no-window -no-snapshot -no-boot-anim -no-audio -gpu swiftshader_indirect
+```
+
+화면은 `adb exec-out screencap -p > shot.png`로 보고, 입력은 `adb shell input tap X Y`로
+넣는다. 창이 없어도 확인에 부족함이 없다.
+
+### 부팅 직후 레드박스는 대개 Metro 캐시다
+
+```
+[runtime not ready]: TypeError: Cannot read property 'EventEmitter' of undefined
+```
+
+네이티브·JS 불일치처럼 보여서 APK 재빌드로 가기 쉽지만, **`expo start --clear`로 끝난다.**
+재빌드 전에 캐시부터 지운다.
+
+### 펫·랭킹 화면은 로그인해도 안 열린다
+
+`config/economy.v1.json`과 `config/daily-pet-loop.v1.json`이 `status: "DRAFT"`라
+`mobile-runtime-policy`가 `REWARD_POLICY_NOT_APPROVED`를 내리고, 라우트가 그걸
+`DISABLED`("펫 보상 준비 중")로 렌더한다. **Supabase·API·구글 로그인을 다 갖춰도 컬렉션은
+렌더되지 않는다.** 정책을 승인 상태로 뒤집는 건 `normative-numeric-approvals.v1.json`과
+서명자를 건드리는 승인 변경이지, 확인용 토글이 아니다.
+
+그 화면들의 레이아웃을 봐야 하면 라우트에 **임시로 READY 픽스처를 넣고 되돌린다.**
+승인 산출물은 그대로 두는 쪽이 항상 맞다.
+
+### 로컬 백엔드
+
+구글 시크릿은 **사람이 연 PowerShell 창의 환경변수뿐이고 어디에도 저장돼 있지 않다**
+(user/machine 스코프 모두 비어 있다). 재부팅하면 사라지므로 `supabase start`는 그 사람이
+직접 해야 한다. 에뮬레이터를 재시작할 때마다 터널도 다시 건다:
+
+```bash
+adb reverse tcp:55321 tcp:55321; adb reverse tcp:18787 tcp:18787; adb reverse tcp:8081 tcp:8081
+```
+
+---
+
 ## 콘텐츠 경계 (깨뜨리면 정답 키가 배포된다)
 
 - `apps/mobile/src/learning-demo/registry.ts`는 79개 팩의 `canonicalAnswer`와
@@ -84,6 +137,18 @@ JAVA_HOME="/c/Program Files/Android/Android Studio/jbr" ./gradlew assembleDebug 
 - `content/learning/drafts/*.json`은 승인 산출물이다. `publicContent.imageA.sha256`이
   실제 파일에 고정돼 있어, 이미지를 고치면 해시·매니페스트·승인을 함께 갱신해야 한다.
   **드래프트를 조용히 수정하지 않는다.**
+- **드래프트의 손으로 적은 좌표는 아트 위에 있지 않다.** 게임에 쓸 좌표는 이미지 비교로
+  계산한 `content/learning/derived-hitboxes.v1.json`에서만 가져온다. 측정값:
+
+  | 드래프트가 손으로 적은 좌표 | 실제 차이점에 얹힌 비율 |
+  |---|---|
+  | `privateSolution.differences` (770개) | **49%** |
+  | `privateSolution.suddenDeath` (77개) | **25 / 77** |
+
+  `generate-preview-registry.js`가 워드헌트 좌표를 드래프트가 아닌 큐레이션 파일에서
+  가져오는 이유가 이것이다. 서든데스도 지목된 한 점 대신 **남은 derive 차이점 아무거나**를
+  받도록 만들었다. 계획서가 "데이터가 이미 디스크에 있다"고 말해도, **쓸 수 있는 데이터인지는
+  따로 재본다.**
 
 ---
 
@@ -99,6 +164,14 @@ JAVA_HOME="/c/Program Files/Android/Android Studio/jbr" ./gradlew assembleDebug 
 - **모킹 함정은 RN API에만 있는 게 아니다.** 화면이 `expo-router`처럼 새 모듈을 임포트하면
   그 화면을 렌더하는 테스트에 `vi.mock`을 함께 넣어야 한다. 안 그러면 실제 모듈을 파싱하다
   `SyntaxError`로 죽는데, 에러가 원인을 전혀 가리키지 않는다.
+- **Fast Refresh는 모듈 스코프를 다시 평가하지 않는다.** 컴포넌트만 갈아끼우기 때문에, 새로
+  추가한 모듈 상수는 `ReferenceError: Property 'X' doesn't exist`로 죽는다. 모듈 스코프에서
+  임포트하는 정책 JSON(`with { type: 'json' }`)도 같은 이유로 반영되지 않는다. 전체 리로드
+  (`adb shell am broadcast -a com.touchcatch.mobile.RELOAD_APP_ACTION`)나 `am force-stop`
+  후 재시작이 필요하다. **"고쳤는데 왜 그대로지"의 대부분이 이것이다.**
+- 테스트 픽스처가 기능을 끄고 있으면 그 기능의 회귀는 **구조적으로 못 잡는다.** 마감 후
+  힌트가 사라진 버그가 그랬다 — 픽스처에 `hintUnits`가 없어 힌트 버튼이 아예 렌더될 수
+  없었고, 어떤 단언을 써도 통과했을 것이다. 단언을 쓰기 전에 픽스처가 그 경로를 켜는지 본다.
 
 ---
 
