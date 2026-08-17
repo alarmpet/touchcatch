@@ -24,6 +24,8 @@ vi.mock('react-native', () => ({
 }));
 vi.mock('react-native-safe-area-context', () => ({ SafeAreaView: 'SafeAreaView' }));
 import { LearningDemoScreen } from './LearningDemoScreen.js';
+import { wordHuntSpawnMs } from './controller.js';
+import ruleset from '../../../../config/ruleset.v1.json' with { type: 'json' };
 
 const entry: LearningDemoEntry = {
   key: 'one', category: 'ENGLISH', preferredInputSurface: 'FREE_TEXT', assistPattern: 'SPELLING', title: 'resilience', imageA: 1, imageB: 2,
@@ -175,6 +177,35 @@ describe('LearningDemoScreen', () => {
       { id: 'd2', imageA: { cx: .1, cy: .1, r: .05 }, imageB: { cx: .1, cy: .1, r: .05 } },
     ],
   };
+
+  it('brings the word hunt in on the clock, not on how the board is going', () => {
+    vi.useFakeTimers();
+    try {
+      const hunted: LearningDemoEntry = {
+        ...twoDiff,
+        key: 'hunted-board',
+        wordHunts: [{
+          missionId: 'sun', kind: 'NORMAL', publicPrompt: '해',
+          imageA: { cx: .9, cy: .9, r: .05 }, imageB: { cx: .9, cy: .9, r: .05 },
+        }],
+      };
+      const spawnMs = wordHuntSpawnMs(hunted.key, 1, ruleset.wordHuntSchedule)[0]!;
+      let tree: any;
+      act(() => { tree = create(<LearningDemoScreen entries={[hunted]} />); });
+
+      // Nothing found and nothing prompted: the old trigger was a difference count, so a
+      // player who found nothing was never interrupted at all.
+      act(() => { vi.advanceTimersByTime(15_000); });
+      expect(tree.root.findAllByProps({ testID: 'word-hunt-banner' })).toHaveLength(0);
+
+      // The tick lands on whole seconds, so the prompt appears on the first one past the moment.
+      act(() => { vi.advanceTimersByTime(Math.ceil(spawnMs / 1000) * 1000 - 15_000); });
+      expect(tree.root.findByProps({ testID: 'word-hunt-banner' })).toBeTruthy();
+      expect(tree.root.findByProps({ testID: 'word-hunt-prompt' }).props.children).toBe('해');
+    } finally {
+      vi.useRealTimers();
+    }
+  });
 
   it('turns the deadline into ten seconds for one last find', () => {
     vi.useFakeTimers();

@@ -4,11 +4,19 @@ import {
   pendingWordHunt,
   reduceDemoState,
   scoreDemoState,
-  wordHuntMilestones,
+  wordHuntSpawnMs,
   type DemoContent,
+  type DemoWordHuntSchedule,
 } from './controller.js';
 
 const rules = { normalDifference: 6, normalWordHunt: 10, specialWordHunt: 15, finalWord: 25, meaning: 15 };
+
+/** The admitted ruleset's schedule, restated so the test pins the shape it reads. */
+const schedule: DemoWordHuntSchedule = [
+  { spawnWindowMs: [16000, 22000] },
+  { spawnWindowMs: [34000, 42000] },
+  { spawnAtMs: 60000 },
+];
 
 const content: DemoContent = {
   key: 'demo',
@@ -48,21 +56,35 @@ describe('learning demo controller', () => {
     expect(state.phase).toBe('COMPLETE');
   });
 
-  it('spreads word hunt milestones across the board instead of clustering them', () => {
-    expect(wordHuntMilestones(10, 3)).toEqual([3, 5, 8]);
-    expect(wordHuntMilestones(0, 3)).toEqual([]);
-    expect(wordHuntMilestones(10, 0)).toEqual([]);
-    // A board too small to separate the prompts queues them rather than dropping any.
-    expect(wordHuntMilestones(1, 3)).toEqual([1, 1, 1]);
+  it('schedules word hunts on the ruleset clock, repeatably per board', () => {
+    const spawns = wordHuntSpawnMs('demo', 3, schedule);
+    expect(spawns[0]).toBeGreaterThanOrEqual(16000);
+    expect(spawns[0]).toBeLessThanOrEqual(22000);
+    expect(spawns[1]).toBeGreaterThanOrEqual(34000);
+    expect(spawns[1]).toBeLessThanOrEqual(42000);
+    // The SPECIAL is an instant, not a window, and the ruleset puts it on the final rush.
+    expect(spawns[2]).toBe(60000);
+    // Same board, same moments — the ghost race compares two runs of one board, so a moment
+    // that moved between them would read as the player having done something different.
+    expect(wordHuntSpawnMs('demo', 3, schedule)).toEqual(spawns);
+    expect(wordHuntSpawnMs('other-board', 3, schedule)).not.toEqual(spawns);
+    // More hunts than the schedule covers simply never spawn, rather than all firing at zero.
+    expect(wordHuntSpawnMs('demo', 4, schedule)[3]).toBe(Number.MAX_SAFE_INTEGER);
+    expect(wordHuntSpawnMs('demo', 0, schedule)).toEqual([]);
   });
 
-  it('offers a word hunt only after its milestone and never while one is running', () => {
+  it('offers a word hunt on its moment, not on progress, and never while one is running', () => {
     let state = createDemoState(hunted);
-    expect(pendingWordHunt(hunted, state)).toBeNull();
+    const at = wordHuntSpawnMs(hunted.key, 1, schedule)[0]!;
+    // Finding things does not summon it any more: the clock does.
     state = reduceDemoState(state, hunted, { type: 'TAP', side: 'A', x: .2, y: .3 });
-    expect(pendingWordHunt(hunted, state)?.missionId).toBe('sun');
+    expect(pendingWordHunt(hunted, state, at - 1, schedule)).toBeNull();
+    // ...and neither does finding nothing hold it back.
+    expect(pendingWordHunt(hunted, createDemoState(hunted), at, schedule)?.missionId).toBe('sun');
+
+    expect(pendingWordHunt(hunted, state, at, schedule)?.missionId).toBe('sun');
     state = reduceDemoState(state, hunted, { type: 'START_WORD_HUNT', missionId: 'sun' });
-    expect(pendingWordHunt(hunted, state)).toBeNull();
+    expect(pendingWordHunt(hunted, state, at, schedule)).toBeNull();
   });
 
   it('locks the board while the prompt is being read, then accepts the matching object', () => {
@@ -79,7 +101,8 @@ describe('learning demo controller', () => {
     state = reduceDemoState(state, hunted, { type: 'TAP', side: 'A', x: .5, y: .1 });
     expect(state.solvedMissionIds).toEqual(['sun']);
     expect(state.activeMission).toBeNull();
-    expect(pendingWordHunt(hunted, state)).toBeNull();
+    // Late in the round, well past every spawn moment: a spent hunt never comes back.
+    expect(pendingWordHunt(hunted, state, 70000, schedule)).toBeNull();
   });
 
   it('holds the board for the mission and never penalises a miss', () => {
@@ -97,7 +120,8 @@ describe('learning demo controller', () => {
     expect(state.solvedMissionIds).toEqual([]);
     expect(state.endedMissionIds).toEqual(['sun']);
     // A missed hunt is spent, not retried, and the board returns to the differences.
-    expect(pendingWordHunt(hunted, state)).toBeNull();
+    // Late in the round, well past every spawn moment: a spent hunt never comes back.
+    expect(pendingWordHunt(hunted, state, 70000, schedule)).toBeNull();
     state = reduceDemoState(state, hunted, { type: 'TAP', side: 'B', x: .8, y: .7 });
     expect(state.phase).toBe('QUIZ');
   });
@@ -152,7 +176,8 @@ describe('learning demo controller', () => {
     state = reduceDemoState(state, hunted, { type: 'DEADLINE' });
     expect(state.activeMission).toBeNull();
     expect(state.endedMissionIds).toEqual(['sun']);
-    expect(pendingWordHunt(hunted, state)).toBeNull();
+    // Late in the round, well past every spawn moment: a spent hunt never comes back.
+    expect(pendingWordHunt(hunted, state, 70000, schedule)).toBeNull();
   });
 
   it('opens the final answer on the first find and accepts it before the board is cleared', () => {

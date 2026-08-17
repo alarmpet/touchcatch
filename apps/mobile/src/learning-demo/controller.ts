@@ -90,25 +90,74 @@ function unclaimed(state: DemoState, content: DemoContent): DemoContent['differe
 }
 
 /**
- * Difference counts at which each word hunt becomes available, spread across the board
- * so prompts do not cluster at the start. Always non-decreasing; when the board is too
- * small to separate them the extras simply queue behind one another.
+ * The ruleset's word hunt schedule, as this screen needs to read it.
+ *
+ * Two of the three entries give a window rather than an instant, which is the part that
+ * makes a hunt feel like an interruption instead of a fixture.
  */
-export function wordHuntMilestones(differenceCount: number, missionCount: number): readonly number[] {
-  if (missionCount <= 0 || differenceCount <= 0) return [];
-  const step = differenceCount / (missionCount + 1);
-  return Array.from({ length: missionCount }, (_unused, index) =>
-    Math.min(Math.max(Math.round(step * (index + 1)), index + 1), differenceCount));
+export type DemoWordHuntSchedule = ReadonlyArray<Readonly<{
+  /** A pair, but typed as a list: it arrives from a JSON import, which never narrows to a tuple. */
+  spawnWindowMs?: readonly number[];
+  spawnAtMs?: number;
+}>>;
+
+/**
+ * A small stable hash. Not for security — only to pick a repeatable moment inside a window.
+ */
+function keyHash(key: string, salt: number): number {
+  let hash = 0x811c9dc5 ^ salt;
+  for (let index = 0; index < key.length; index += 1) {
+    hash ^= key.charCodeAt(index);
+    hash = Math.imul(hash, 0x01000193) >>> 0;
+  }
+  return hash >>> 0;
 }
 
-/** The next word hunt whose milestone is met and which has not run yet, or null. */
-export function pendingWordHunt(content: DemoContent, state: DemoState): DemoWordHunt | null {
+/**
+ * When each word hunt opens, in elapsed milliseconds.
+ *
+ * The trigger used to be a difference count, which meant a player who found nothing was
+ * never interrupted and a fast one was interrupted three times in a row. The ruleset schedules
+ * hunts on the clock — 16-22s, 34-42s, and the SPECIAL exactly at `finalRushStartsAtMs` — so
+ * practice now runs on the timing a real match runs on, and the hunt arrives whether or not
+ * the board is going well. That is the point of it: five seconds that take the board away.
+ *
+ * The moment inside each window is derived from the content key rather than randomised. A
+ * match gets its schedule from the server and may differ every time; a practice board is
+ * raced against your own recorded ghost, so the same board has to behave the same way twice
+ * or the comparison is noise.
+ */
+export function wordHuntSpawnMs(
+  contentKey: string,
+  missionCount: number,
+  schedule: DemoWordHuntSchedule,
+): readonly number[] {
+  if (missionCount <= 0) return [];
+  return Array.from({ length: missionCount }, (_unused, index) => {
+    const entry = schedule[index];
+    if (entry === undefined) return Number.MAX_SAFE_INTEGER;
+    if (entry.spawnAtMs !== undefined) return entry.spawnAtMs;
+    const start = entry.spawnWindowMs?.[0];
+    const end = entry.spawnWindowMs?.[1];
+    if (start === undefined || end === undefined) return Number.MAX_SAFE_INTEGER;
+    const span = Math.max(0, end - start);
+    return span === 0 ? start : start + (keyHash(contentKey, index) % (span + 1));
+  });
+}
+
+/** The next word hunt whose moment has come and which has not run yet, or null. */
+export function pendingWordHunt(
+  content: DemoContent,
+  state: DemoState,
+  elapsedMs: number,
+  schedule: DemoWordHuntSchedule,
+): DemoWordHunt | null {
   if (state.phase !== 'FIND' || state.activeMission !== null) return null;
   const missions = content.wordHunts ?? [];
-  const milestones = wordHuntMilestones(content.differences.length, missions.length);
+  const spawns = wordHuntSpawnMs(content.key, missions.length, schedule);
   for (const [index, mission] of missions.entries()) {
     if (state.endedMissionIds.includes(mission.missionId)) continue;
-    if (state.claimedIds.length >= (milestones[index] ?? Number.MAX_SAFE_INTEGER)) return mission;
+    if (elapsedMs >= (spawns[index] ?? Number.MAX_SAFE_INTEGER)) return mission;
     return null;
   }
   return null;

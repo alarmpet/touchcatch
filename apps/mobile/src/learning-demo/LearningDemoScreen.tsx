@@ -206,8 +206,10 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
     return next;
   });
 
-  // Word hunts run on the same clock the match engine uses, so practice teaches real timing.
-  const pending = pendingWordHunt(selected, state);
+  // Word hunts run on the same clock the match engine uses, so practice teaches real timing —
+  // including the SPECIAL landing exactly as the final rush starts, which is the ruleset's
+  // doing and not a coincidence worth softening.
+  const pending = pendingWordHunt(selected, state, elapsedMs, ruleset.wordHuntSchedule);
   const activeMission = state.activeMission === null
     ? null
     : selected.wordHunts?.find((mission) => mission.missionId === state.activeMission!.missionId) ?? null;
