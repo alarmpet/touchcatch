@@ -18,14 +18,56 @@
   ],
   "packs": {
     "en-paradox-labyrinth": [
-      { "missionId": "labyrinth-traveler", "kind": "NORMAL", "publicPrompt": "여행자", "cx": 0.315, "cy": 0.615, "r": 0.062 },
-      { "missionId": "labyrinth-cube", "kind": "NORMAL", "publicPrompt": "불가능한 정육면체", "cx": 0.5, "cy": 0.505, "r": 0.085 },
-      { "missionId": "labyrinth-compass", "kind": "SPECIAL", "publicPrompt": "나침반", "cx": 0.495, "cy": 0.352, "r": 0.06 }
+      {
+        "missionId": "labyrinth-traveler",
+        "kind": "NORMAL",
+        "publicPrompt": "여행자",
+        "cx": 0.315,
+        "cy": 0.615,
+        "r": 0.062
+      },
+      {
+        "missionId": "labyrinth-cube",
+        "kind": "NORMAL",
+        "publicPrompt": "불가능한 정육면체",
+        "cx": 0.5,
+        "cy": 0.505,
+        "r": 0.085
+      },
+      {
+        "missionId": "labyrinth-compass",
+        "kind": "SPECIAL",
+        "publicPrompt": "나침반",
+        "cx": 0.495,
+        "cy": 0.352,
+        "r": 0.062
+      }
     ],
     "en-tranquility-garden": [
-      { "missionId": "garden-lantern", "kind": "NORMAL", "publicPrompt": "석등", "cx": 0.115, "cy": 0.715, "r": 0.07 },
-      { "missionId": "garden-tea-table", "kind": "NORMAL", "publicPrompt": "찻상", "cx": 0.71, "cy": 0.735, "r": 0.085 },
-      { "missionId": "garden-bridge", "kind": "SPECIAL", "publicPrompt": "다리", "cx": 0.28, "cy": 0.315, "r": 0.1 }
+      {
+        "missionId": "garden-lantern",
+        "kind": "NORMAL",
+        "publicPrompt": "석등",
+        "cx": 0.115,
+        "cy": 0.715,
+        "r": 0.07
+      },
+      {
+        "missionId": "garden-tea-table",
+        "kind": "NORMAL",
+        "publicPrompt": "찻상",
+        "cx": 0.71,
+        "cy": 0.735,
+        "r": 0.085
+      },
+      {
+        "missionId": "garden-bridge",
+        "kind": "SPECIAL",
+        "publicPrompt": "다리",
+        "cx": 0.28,
+        "cy": 0.315,
+        "r": 0.1
+      }
     ]
   }
 }

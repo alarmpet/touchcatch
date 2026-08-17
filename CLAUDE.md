@@ -26,17 +26,22 @@
 ```bash
 pnpm content:art:grid:check      # 구도 격자가 구워진 이미지 탐지
 pnpm content:hitboxes:derive     # 실제 차이점 계산 + 팩별 사용 가능 판정
-pnpm content:preview:registry    # 데일리 풀 재생성
+pnpm content:preview:registry    # 데일리 풀 재생성 (aspectRatio도 여기서 다시 읽는다)
+pnpm content:wordhunts:check     # 워드헌트 좌표 규칙 검사
 ```
 
 의도한 차이점 개수와 계산된 개수가 다르면 편집이 주변으로 번진 것이다. 다시 만든다.
+
+**아트를 교체했으면 그 팩의 워드헌트 좌표도 다시 본다.** 헌트는 아트 위에 손으로 놓은
+것이라 이미지가 바뀌면 조용히 어긋난다. 검증기는 규칙만 보지 *좌표가 그 물건 위에 있는지는
+못 본다*. 절차는 [`docs/design/word-hunt-curation-guide.md`](docs/design/word-hunt-curation-guide.md).
 
 ---
 
 ## 검증
 
 ```bash
-pnpm check      # 21단계 전체 게이트. 약 10분
+pnpm check      # 23단계 전체 게이트. 약 10분
 pnpm check:db   # supabase db reset + lint + pgTAP. Docker 필요
 ```
 

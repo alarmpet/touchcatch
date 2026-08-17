@@ -27,6 +27,7 @@
     "content:generate-registry": "node tools/content/generate-registry.js",
     "content:drift:check": "node tools/content/check-content-drift.js",
     "content:tapsize": "node tools/content/check-hitbox-tap-size.mjs",
+    "content:wordhunts:check": "node tools/content/check-word-hunts.mjs",
     "content:registry:utf8:check": "node tools/content/check-utf8-registry.js",
     "content:hitboxes:derive": "node tools/content/derive-hitboxes.js",
     "content:preview:registry": "node tools/content/generate-preview-registry.js",
@@ -62,7 +63,7 @@
     "db:start": "supabase start",
     "test:db:concurrency": "vitest run --config vitest.db.config.ts --sequence.concurrent=false",
     "check:db": "corepack pnpm ruleset:projections:check && supabase db reset --local && supabase db lint --local --fail-on error && supabase test db --local && corepack pnpm test:db:concurrency",
-    "check": "corepack pnpm check:runtime && corepack pnpm admin:check && corepack pnpm mobile:check && corepack pnpm ruleset:projections:check && corepack pnpm content:schemas:check && corepack pnpm content:catalog:check && corepack pnpm content:drift:check && corepack pnpm content:registry:utf8:check && corepack pnpm ui:schemas:check && corepack pnpm ui:docs:check && corepack pnpm ui:reference:check && corepack pnpm ui:assets:check && corepack pnpm ui:acceptance:check && corepack pnpm lint && corepack pnpm typecheck && corepack pnpm test && corepack pnpm openapi:lint && corepack pnpm docs:check && corepack pnpm release:reports:check && corepack pnpm content:validate && corepack pnpm audio:feedback:check && corepack pnpm secret:scan",
+    "check": "corepack pnpm check:runtime && corepack pnpm admin:check && corepack pnpm mobile:check && corepack pnpm ruleset:projections:check && corepack pnpm content:schemas:check && corepack pnpm content:catalog:check && corepack pnpm content:wordhunts:check && corepack pnpm content:drift:check && corepack pnpm content:registry:utf8:check && corepack pnpm ui:schemas:check && corepack pnpm ui:docs:check && corepack pnpm ui:reference:check && corepack pnpm ui:assets:check && corepack pnpm ui:acceptance:check && corepack pnpm lint && corepack pnpm typecheck && corepack pnpm test && corepack pnpm openapi:lint && corepack pnpm docs:check && corepack pnpm release:reports:check && corepack pnpm content:validate && corepack pnpm audio:feedback:check && corepack pnpm secret:scan",
     "verify": "pnpm check && pnpm check:db"
   },
   "devDependencies": {
