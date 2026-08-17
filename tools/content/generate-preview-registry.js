@@ -3,6 +3,31 @@ import fs from 'node:fs/promises';
 import process from 'node:process';
 
 /**
+ * Source width over height, read from the PNG header.
+ *
+ * The board renders at this ratio so `contain` never letterboxes. It matters more than it
+ * looks: hitboxes are normalised to the *source*, but taps are normalised to the *container*.
+ * Let a 3:2 image letterbox inside a square board and the two stop agreeing by up to a sixth
+ * of the height — larger than any hitbox radius we ship, so the targets nearest the top and
+ * bottom simply cannot be hit. Four admitted packs were in that state.
+ */
+async function sourceAspectRatio(path) {
+  const header = Buffer.alloc(24);
+  const file = await fs.open(path, 'r');
+  try {
+    await file.read(header, 0, 24, 0);
+  } finally {
+    await file.close();
+  }
+  const width = header.readUInt32BE(16);
+  const height = header.readUInt32BE(20);
+  if (!Number.isSafeInteger(width) || !Number.isSafeInteger(height) || width < 1 || height < 1) {
+    throw new Error(`PREVIEW_REGISTRY_BAD_PNG:${path}`);
+  }
+  return width / height;
+}
+
+/**
  * Emits every admitted pack as preview-safe demo entries.
  *
  * The full registry (`generate-registry.js`) carries `canonicalAnswer`,
@@ -71,6 +96,7 @@ export async function generatePreviewRegistry({
     if (hitboxes === undefined || !hitboxes.usable) continue;
     const bundle = JSON.parse(await fs.readFile(`${draftsRoot}/${entry.key}.json`, 'utf8'));
     const challenge = bundle.privateSolution.finalChallenge;
+    const aspectRatio = await sourceAspectRatio(`content/learning/source/${entry.key}-a.png`);
     const projected = {
       key: `daily-${entry.key}`,
       category: entry.category,
@@ -86,6 +112,9 @@ export async function generatePreviewRegistry({
       options: challenge.meaning.options,
       correctOptionId: challenge.meaning.correctOptionId,
       hintUnits: challenge.hintUnits,
+      // Emitted for every pack, not just the non-square ones: a pack whose art is replaced at a
+      // different ratio then stays correct without anyone remembering this line exists.
+      aspectRatio: Number(aspectRatio.toFixed(6)),
       ...(curatedHunts[entry.key]
         ? {
           wordHunts: curatedHunts[entry.key].map((hunt) => ({
