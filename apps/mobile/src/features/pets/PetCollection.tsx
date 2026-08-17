@@ -3,17 +3,7 @@ import { Image, View, Text, Pressable, ScrollView } from 'react-native';
 import { colors, glow, radius, rarityGradients, rarityLabels, rarityLadder, rarityPalette, spacing, type RarityKey } from '../../ui/design-tokens';
 import { VerticalGradient } from '../../ui/Gradient';
 import { buttonStyle, buttonTextStyle, progress, rarityBadgeStyle, rarityBadgeTextStyle, surface, text } from '../../ui/ui-kit';
-import { copiesUntilPromotion, orderedRarityProgress } from './reveal-model';
-
-/** Remaining copies before this pet can be promoted, or null once it is ready or maxed. */
-function promotionCountdown(pet: Readonly<{ rarity: RarityKey; ownedCopies: number; eligibleCopies: number }>): number | null {
-  const remaining = copiesUntilPromotion({
-    rarity: pet.rarity,
-    ownedCopies: pet.ownedCopies,
-    eligibleCopies: pet.eligibleCopies,
-  });
-  return remaining === null || remaining === 0 ? null : remaining;
-}
+import { orderedRarityProgress, promotionCeiling } from './reveal-model';
 
 export type PetItem = {
   id: string;
@@ -95,17 +85,44 @@ export function PetCollection({ pets, totalCatalogCount, status = pets.length ? 
         <Text numberOfLines={1} style={text.bodyStrong}>{pet.name}</Text>
         <View accessibilityLabel={`${pet.name} 등급`} style={rarityBadgeStyle(pet.rarity)}><Text style={rarityBadgeTextStyle(pet.rarity)}>{rarityLabels[pet.rarity]}</Text></View>
         <Text accessibilityLabel={`${pet.name} 보유 수량`} style={text.caption}>{`보유: ${pet.ownedCopies}개`}</Text>
-        {pet.ownedCopies >= 11 && pet.eligibleCopies >= 10 && pet.rarity !== 'LEGENDARY' ? <Pressable
-          accessibilityRole="button"
-          accessibilityLabel={`${pet.name} 승급`}
-          onPress={() => onPromotePet?.(pet.id)}
-          style={{ ...buttonStyle('secondary', { block: true }), minHeight: 36, paddingVertical: 8, paddingHorizontal: spacing.sm }}
-        >
-          <Text style={buttonTextStyle('secondary')}>승급 (10개)</Text>
-        </Pressable> : promotionCountdown(pet) !== null ? <Text
-          accessibilityLabel={`${pet.name} 승급까지 ${promotionCountdown(pet)}개`}
-          style={{ ...text.caption, color: colors.faint }}
-        >{`승급까지 ${promotionCountdown(pet)}개`}</Text> : null}
+        {(() => {
+          const ceiling = promotionCeiling(pet);
+          if (ceiling !== null && ceiling.remaining === 0) return <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={`${pet.name} 승급`}
+            onPress={() => onPromotePet?.(pet.id)}
+            style={{ ...buttonStyle('secondary', { block: true }), minHeight: 36, paddingVertical: 8, paddingHorizontal: spacing.sm }}
+          >
+            <Text style={buttonTextStyle('secondary')}>승급 (10개)</Text>
+          </Pressable>;
+          if (ceiling === null) return null;
+          /**
+           * The ceiling, as a meter rather than a footnote.
+           *
+           * It used to be grey caption text — the smallest, quietest thing on the card — for
+           * the one number that says "keep going". The count now leads at card scale, and the
+           * bar underneath makes the distance readable without reading. The tier being climbed
+           * to is named, because "3 more" means nothing without "to what".
+           *
+           * The glow is the whole point of a jackpot meter and also the place one could start
+           * lying, so it is tied to a fact: `nearing` is a real distance to a guaranteed
+           * threshold, not a tease. It brightens and stops — no pulsing, which would be both a
+           * flicker risk and a nudge.
+           */
+          const tone = ceiling.nearing ? colors.reward : rarityPalette[pet.rarity].fg;
+          return <View
+            accessibilityLabel={`${pet.name} ${rarityLabels[ceiling.nextRarity as RarityKey]} 승급까지 ${ceiling.remaining}개, ${ceiling.held}/${ceiling.required}`}
+            style={{ gap: 3, ...(ceiling.nearing ? glow(colors.reward, 'soft') : {}) }}
+          >
+            <View style={{ flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between' }}>
+              <Text style={{ ...text.caption, color: colors.faint }}>{`→ ${rarityLabels[ceiling.nextRarity as RarityKey]}`}</Text>
+              <Text style={{ fontSize: 15, lineHeight: 19, fontWeight: '800', color: tone }}>{`${ceiling.remaining}개`}</Text>
+            </View>
+            <View style={{ ...progress.track, height: 5 }}>
+              <View style={{ ...progress.fill(ceiling.ratio), backgroundColor: tone }} />
+            </View>
+          </View>;
+        })()}
       </View>;
       })}
     </ScrollView>

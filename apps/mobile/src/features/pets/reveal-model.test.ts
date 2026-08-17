@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   copiesUntilPromotion,
+  promotionCeiling,
   nextRevealPhase,
   orderedRarityProgress,
   revealDurationMs,
@@ -80,6 +81,26 @@ describe('pet reveal model', () => {
     // Eleven copies held but one is locked or selected, so a spare is still missing.
     expect(copiesUntilPromotion({ rarity: 'COMMON', ownedCopies: 11, eligibleCopies: 9 })).toBe(1);
     expect(copiesUntilPromotion({ rarity: 'LEGENDARY', ownedCopies: 0, eligibleCopies: 0 })).toBeNull();
+  });
+
+  it('reports the promotion ceiling as a meter that cannot disagree with its own number', () => {
+    expect(promotionCeiling({ rarity: 'COMMON', ownedCopies: 0, eligibleCopies: 0 })).toEqual({
+      held: 0, required: 11, remaining: 11, ratio: 0, nextRarity: 'UNCOMMON', nearing: false,
+    });
+    expect(promotionCeiling({ rarity: 'RARE', ownedCopies: 9, eligibleCopies: 9 })).toMatchObject({
+      held: 9, remaining: 2, nextRarity: 'EPIC', nearing: true,
+    });
+    // The bar follows the binding constraint. Eleven held but one locked still reads 10/11,
+    // because a spare is what is actually missing — the number and the fill agree either way.
+    expect(promotionCeiling({ rarity: 'COMMON', ownedCopies: 11, eligibleCopies: 9 })).toMatchObject({
+      held: 10, remaining: 1, nearing: true,
+    });
+    // Ready to promote is not "nearing" — there is nothing left to wait for.
+    expect(promotionCeiling({ rarity: 'COMMON', ownedCopies: 11, eligibleCopies: 10 })).toMatchObject({
+      held: 11, remaining: 0, ratio: 1, nearing: false,
+    });
+    // The top of the ladder has no ceiling to show, so it gets no meter rather than a full one.
+    expect(promotionCeiling({ rarity: 'LEGENDARY', ownedCopies: 20, eligibleCopies: 20 })).toBeNull();
   });
 
   it('orders tier progress by the ladder and hides tiers with no admitted pets', () => {

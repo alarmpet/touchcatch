@@ -44,5 +44,21 @@ describe('PetCollection', () => {
     expect(tree.root.findAllByProps({ accessibilityLabel: '보리 승급' })).toHaveLength(0);
     expect(tree.root.findByProps({ accessibilityLabel: '펫 수집률' }).children.join('')).toBe('수집률 4% (2/50)');
     expect(tree.root.findByProps({ accessibilityLabel: '코코 보유 수량' }).children.join('')).toBe('보유: 14개');
+    // 보리 holds eleven but two are locked, so a spare is what is missing. The meter reads the
+    // binding constraint and names the tier being climbed to — "one more" means nothing on its own.
+    expect(tree.root.findAllByProps({ accessibilityLabel: '보리 고급 승급까지 1개, 10/11' })).toHaveLength(1);
+  });
+
+  it('shows the ceiling as a meter, and shows none at the top of the ladder', () => {
+    let tree!: ReturnType<typeof create>;
+    act(() => { tree = create(<PetCollection pets={[
+      { id: 'far', name: '나비', rarity: 'COMMON', ownedCopies: 2 },
+      { id: 'top', name: '루나', rarity: 'LEGENDARY', ownedCopies: 4 },
+    ]} totalCatalogCount={2} />); });
+
+    expect(tree.root.findAllByProps({ accessibilityLabel: '나비 고급 승급까지 9개, 2/11' })).toHaveLength(1);
+    // LEGENDARY has nothing above it, so it gets no meter rather than one that can never fill.
+    expect(tree.root.findAllByProps({ accessibilityLabel: '루나 전설 승급까지 7개, 4/11' })).toHaveLength(0);
+    expect(tree.root.findByProps({ accessibilityLabel: '루나 펫 카드' })).toBeTruthy();
   });
 });

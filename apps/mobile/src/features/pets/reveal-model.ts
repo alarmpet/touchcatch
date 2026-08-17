@@ -117,6 +117,60 @@ export function copiesUntilPromotion(input: Readonly<{
   return Math.max(missingTotal, missingSpare);
 }
 
+/**
+ * The promotion ceiling, as a meter.
+ *
+ * This is the honest version of a jackpot meter, and it is the reason it can be shown at all.
+ * The gacha pity counter cannot: `private.gacha_pity_state` is only ever advanced by
+ * `draw_pet_v1`, no route calls it, and the one draw the app makes is pinned
+ * `usesDirectDrawPity: false` — a pity meter would read 0/50 forever, which is exactly the
+ * "you're due" implication the top of this file rules out.
+ *
+ * Promotion is different in the way that matters: the threshold is a guarantee the policy
+ * already makes, the counter moves on draws the player actually makes, and reaching it pays
+ * out with certainty. Nothing here predicts a future roll; it reports a distance to a
+ * promise already given.
+ *
+ * `held` is derived from the remaining count rather than counted separately, so the bar and
+ * the number can never disagree — including when the binding constraint is spare copies
+ * (some are locked or on display) rather than the total.
+ */
+export type PromotionCeilingV1 = Readonly<{
+  held: number;
+  required: number;
+  remaining: number;
+  ratio: number;
+  nextRarity: PetRarity;
+  /** The last stretch, where the meter earns its glow. */
+  nearing: boolean;
+}>;
+
+/** How close to the ceiling still counts as close. */
+export const PROMOTION_NEARING_WITHIN = 2;
+
+export function promotionCeiling(input: Readonly<{
+  rarity: PetRarity;
+  ownedCopies: number;
+  eligibleCopies: number;
+  ownedCopiesRequired?: number;
+  spareCopiesConsumed?: number;
+}>): PromotionCeilingV1 | null {
+  const remaining = copiesUntilPromotion(input);
+  if (remaining === null) return null;
+  const nextRarity = PET_RARITY_LADDER[petRarityRank(input.rarity) + 1];
+  if (nextRarity === undefined) return null;
+  const required = input.ownedCopiesRequired ?? 11;
+  const held = Math.max(0, required - remaining);
+  return {
+    held,
+    required,
+    remaining,
+    ratio: required > 0 ? held / required : 0,
+    nextRarity,
+    nearing: remaining > 0 && remaining <= PROMOTION_NEARING_WITHIN,
+  };
+}
+
 export type RarityProgressV1 = Readonly<{ ownedCount: number; totalCount: number }>;
 
 /**

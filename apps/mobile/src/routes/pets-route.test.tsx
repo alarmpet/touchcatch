@@ -60,7 +60,9 @@ describe('pets live route view', () => {
     expect(tree.root.findAllByProps({ accessibilityLabel: '일반 진행도 1/30' })).toHaveLength(1);
     // UNCOMMON and EPIC hold no admitted art, so they must not render as 0% rows.
     expect(tree.root.findAllByProps({ accessibilityLabel: '고급 진행도 0/0' })).toHaveLength(0);
-    expect(tree.root.findAllByProps({ accessibilityLabel: 'pet.common.lion 승급까지 8개' })).toHaveLength(1);
+    // The countdown is a meter now, so it names the tier being climbed to and carries the
+    // fill alongside the number. "8 more" on its own never said 8 more toward what.
+    expect(tree.root.findAllByProps({ accessibilityLabel: 'pet.common.lion 고급 승급까지 8개, 3/11' })).toHaveLength(1);
   });
 
   it('holds the reveal closed until the sequence finishes and then dismisses it', async () => {
