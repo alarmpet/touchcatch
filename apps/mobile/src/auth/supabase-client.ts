@@ -1,5 +1,8 @@
 import 'react-native-url-polyfill/auto';
 import 'expo-sqlite/localStorage/install';
+// Must precede the supabase-js import: it reads `crypto.subtle` to decide between an S256 and
+// a `plain` PKCE challenge. See webcrypto-install.ts for why `plain` is not acceptable here.
+import './webcrypto-install';
 
 import { createClient, processLock, type SupabaseClient } from '@supabase/supabase-js';
 import { AppState, Platform } from 'react-native';

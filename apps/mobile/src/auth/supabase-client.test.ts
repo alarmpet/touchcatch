@@ -3,9 +3,22 @@ import { createMobileSupabaseRuntime } from './supabase-client.js';
 
 vi.mock('react-native-url-polyfill/auto', () => ({}));
 vi.mock('expo-sqlite/localStorage/install', () => ({}));
+// The native module, not `./webcrypto-install.js`: mocking the install module itself would let
+// the import be deleted without a test noticing, and the import order is the whole point.
+vi.mock('expo-crypto', () => ({
+  CryptoDigestAlgorithm: { SHA1: 'SHA-1', SHA256: 'SHA-256', SHA384: 'SHA-384', SHA512: 'SHA-512' },
+  digest: vi.fn(),
+}));
 vi.mock('react-native', () => ({ AppState: { addEventListener: vi.fn() }, Platform: { OS: 'android' } }));
 
 describe('mobile Supabase runtime', () => {
+  it('has installed crypto.subtle by the time supabase-js is reachable, so PKCE is S256', () => {
+    // supabase-js reads `crypto.subtle` when it derives the code challenge and silently drops to
+    // `plain` if it is missing. Importing this module must be enough to prevent that; if the
+    // install import is removed or ordered after supabase-js, this fails.
+    expect(typeof (globalThis as { crypto?: { subtle?: unknown } }).crypto?.subtle).toBe('object');
+  });
+
   it('uses the PKCE flow, persistent storage, process lock, and native foreground refresh without exposing the client', () => {
     const storage = { getItem: vi.fn(), setItem: vi.fn(), removeItem: vi.fn() };
     const remove = vi.fn();
