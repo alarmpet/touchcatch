@@ -77,9 +77,48 @@ fs.promises.readlink = async (...args) => {
   }
 };
 
+/**
+ * Removes build directories left by earlier runs.
+ *
+ * Every build gets its own `distDir` on purpose, so a directory a previous run still holds open
+ * can never block the next one. Nothing ever removed them, though, and they are gitignored, so
+ * they accumulate silently -- 95 of them and 7.1 GB by the time anyone looked.
+ *
+ * Pruning happens on the way in, not on the way out, because `admin:client-secret-check` runs
+ * after the build and reads the directory this run is about to create. The directory named by
+ * the existing marker is spared so a concurrent build keeps its output, and any directory that
+ * cannot be removed -- held open by that build, or by an editor -- is simply skipped and pruned
+ * on a later run. Failing to tidy is never a reason to fail a build.
+ */
+function prunePreviousBuilds(projectRoot) {
+  let active = null;
+  try {
+    const marker = fs.readFileSync(path.resolve(projectRoot, '.next-build-active.json'), 'utf8');
+    active = JSON.parse(marker).distDir;
+  } catch {
+    active = null;
+  }
+  let entries = [];
+  try {
+    entries = fs.readdirSync(projectRoot, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    if (!entry.name.startsWith('.next-build-') || entry.name === active) continue;
+    try {
+      fs.rmSync(path.resolve(projectRoot, entry.name), { recursive: true, force: true });
+    } catch {
+      // Held open. Next run gets it.
+    }
+  }
+}
+
 if (require.main === module) {
   const preload = `--require=${__filename}`;
   const projectRoot = fs.realpathSync(process.cwd());
+  prunePreviousBuilds(projectRoot);
   const distDir = `.next-build-${process.pid}-${Date.now()}`;
   const distPath = path.resolve(projectRoot, distDir);
   if (path.dirname(distPath) !== projectRoot) {
