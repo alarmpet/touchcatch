@@ -1,0 +1,515 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "totalCount": 81,
+  "tiers": {
+    "COMMON": {
+      "count": 30,
+      "style": "Cozy Pure Baby Animal with Soft Velvet Fur and Simple Wooden/Pastel Stand"
+    },
+    "UNCOMMON": {
+      "count": 20,
+      "style": "Chibi Themed Explorer/Job Costume with Props and Compass/Map Stand"
+    },
+    "RARE": {
+      "count": 15,
+      "style": "Crystalline Elemental Spirit with Translucent Crystal Horns and Neon Runes"
+    },
+    "EPIC": {
+      "count": 10,
+      "style": "Astral Celestial Guardian with Swirling Nebula Wings and Floating Orbiting Constellations"
+    },
+    "LEGENDARY": {
+      "count": 6,
+      "style": "Divine Mythical Beast with 360-Degree Golden God Rays and Ancient Imperial Throne"
+    }
+  },
+  "roster": [
+    {
+      "slug": "corgi",
+      "tier": "COMMON",
+      "nameKo": "보송보송 웰시코기",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "maltese",
+      "tier": "COMMON",
+      "nameKo": "실크 말티즈",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "pomeranian",
+      "tier": "COMMON",
+      "nameKo": "솜사탕 포메라니안",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "bichon",
+      "tier": "COMMON",
+      "nameKo": "핑크 리본 비숑",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "hamster",
+      "tier": "COMMON",
+      "nameKo": "찻잔 속 햄스터",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "scottish-fold",
+      "tier": "COMMON",
+      "nameKo": "니트 방석 폴드",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "retriever",
+      "tier": "COMMON",
+      "nameKo": "골든 리트리버",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "rabbit",
+      "tier": "COMMON",
+      "nameKo": "딸기 아기 토끼",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "tiger",
+      "tier": "COMMON",
+      "nameKo": "아기 백호",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "cat-korean",
+      "tier": "COMMON",
+      "nameKo": "삼색 코리안 숏헤어",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "panda",
+      "tier": "COMMON",
+      "nameKo": "대나무 아기 팬더",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "otter",
+      "tier": "COMMON",
+      "nameKo": "조개 아기 수달",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "penguin",
+      "tier": "COMMON",
+      "nameKo": "털목도리 아기 펭귄",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "lion-cub",
+      "tier": "COMMON",
+      "nameKo": "아기 사자",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "baby-elephant",
+      "tier": "COMMON",
+      "nameKo": "아기 코끼리",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "baby-hippo",
+      "tier": "COMMON",
+      "nameKo": "아기 하마",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "shiba",
+      "tier": "COMMON",
+      "nameKo": "볼살 빵빵 시바견",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "baby-deer",
+      "tier": "COMMON",
+      "nameKo": "꽃목걸이 꽃사슴",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "baby-giraffe",
+      "tier": "COMMON",
+      "nameKo": "체크 스카프 기린",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "toy-poodle",
+      "tier": "COMMON",
+      "nameKo": "테디베어 푸들",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "chihuahua",
+      "tier": "COMMON",
+      "nameKo": "도토리 모자 치와와",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "shih-tzu",
+      "tier": "COMMON",
+      "nameKo": "사과머리 시츄",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "siamese",
+      "tier": "COMMON",
+      "nameKo": "블루아이 샴 고양이",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "ragdoll",
+      "tier": "COMMON",
+      "nameKo": "블루 사파이어 렉돌",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "persian",
+      "tier": "COMMON",
+      "nameKo": "스노우 페르시안",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "russian-blue",
+      "tier": "COMMON",
+      "nameKo": "실버 러시안 블루",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "teacup-piglet",
+      "tier": "COMMON",
+      "nameKo": "딸기 모자 미니 돼지",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "hedgehog",
+      "tier": "COMMON",
+      "nameKo": "민들레 아기 고슴도치",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "seal",
+      "tier": "COMMON",
+      "nameKo": "아기 하프물범",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "koala",
+      "tier": "COMMON",
+      "nameKo": "유칼립투스 아기 코알라",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "fennec-fox",
+      "tier": "UNCOMMON",
+      "nameKo": "탐험가 사막여우",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "squirrel",
+      "tier": "UNCOMMON",
+      "nameKo": "탐험가 다람쥐",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "frog",
+      "tier": "UNCOMMON",
+      "nameKo": "탐험 청개구리",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "detective-duck",
+      "tier": "UNCOMMON",
+      "nameKo": "명탐정 오리",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "painter-chameleon",
+      "tier": "UNCOMMON",
+      "nameKo": "화가 카멜레온",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "baker-bear",
+      "tier": "UNCOMMON",
+      "nameKo": "파티시에 아기 곰",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "postman-owl",
+      "tier": "UNCOMMON",
+      "nameKo": "우편 배달 부엉이",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "gardener-mole",
+      "tier": "UNCOMMON",
+      "nameKo": "정원사 두더지",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "astronomer-cat",
+      "tier": "UNCOMMON",
+      "nameKo": "천문학자 고양이",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "pilot-hamster",
+      "tier": "UNCOMMON",
+      "nameKo": "비행사 햄스터",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "diver-penguin",
+      "tier": "UNCOMMON",
+      "nameKo": "스노클링 펭귄",
+      "status": "READY"
+    },
+    {
+      "slug": "alchemist-racoon",
+      "tier": "UNCOMMON",
+      "nameKo": "연금술사 라쿤",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "musician-cricket",
+      "tier": "UNCOMMON",
+      "nameKo": "음악가 귀뚜라미",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "scout-beaver",
+      "tier": "UNCOMMON",
+      "nameKo": "보이스카우트 비버",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "barista-corgi",
+      "tier": "UNCOMMON",
+      "nameKo": "바리스타 코기",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "miner-badger",
+      "tier": "UNCOMMON",
+      "nameKo": "광부 오소리",
+      "status": "READY"
+    },
+    {
+      "slug": "sailor-seagull",
+      "tier": "UNCOMMON",
+      "nameKo": "항해사 갈매기",
+      "status": "READY"
+    },
+    {
+      "slug": "firefighter-dalmatian",
+      "tier": "UNCOMMON",
+      "nameKo": "소방관 달마시안",
+      "status": "READY"
+    },
+    {
+      "slug": "doctor-rabbit",
+      "tier": "UNCOMMON",
+      "nameKo": "닥터 토끼",
+      "status": "READY"
+    },
+    {
+      "slug": "mechanic-monkey",
+      "tier": "UNCOMMON",
+      "nameKo": "정비사 원숭이",
+      "status": "READY"
+    },
+    {
+      "slug": "crystal-fox",
+      "tier": "RARE",
+      "nameKo": "크리스털 아이스 폭스",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "sea-dragon",
+      "tier": "RARE",
+      "nameKo": "야광 산호 바다 해룡",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "thunder-cheetah",
+      "tier": "RARE",
+      "nameKo": "네온 번개 치타",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "flame-fennec",
+      "tier": "RARE",
+      "nameKo": "루비 화염 사막여우",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "wind-griffin-cub",
+      "tier": "RARE",
+      "nameKo": "비취 바람 아기 그리핀",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "frost-wolf",
+      "tier": "RARE",
+      "nameKo": "다이아몬드 얼음 늑대",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "abyssal-jellyfish",
+      "tier": "RARE",
+      "nameKo": "네온 심해 해파리",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "shadow-panther",
+      "tier": "RARE",
+      "nameKo": "자수정 암흑 흑표범",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "solar-lion-spirit",
+      "tier": "RARE",
+      "nameKo": "태양 플레어 아기 사자",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "frost-owl-spirit",
+      "tier": "RARE",
+      "nameKo": "서리 백금 올빼미",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "earth-golem-bear",
+      "tier": "RARE",
+      "nameKo": "청옥 대지 아기 곰",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "toxic-spore-shrew",
+      "tier": "RARE",
+      "nameKo": "발광 균사체 땃쥐",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "plasma-stingray",
+      "tier": "RARE",
+      "nameKo": "플라즈마 가오리",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "magma-salamander",
+      "tier": "RARE",
+      "nameKo": "용암 흑요석 도롱뇽",
+      "status": "READY"
+    },
+    {
+      "slug": "lunar-hare",
+      "tier": "RARE",
+      "nameKo": "백옥 달빛 수정 토끼",
+      "status": "READY"
+    },
+    {
+      "slug": "astral-owl",
+      "tier": "EPIC",
+      "nameKo": "아스트랄 은하수 부엉이",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "starlight-kirin",
+      "tier": "EPIC",
+      "nameKo": "별자리 룬 우주 기린",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "starlight-fairy",
+      "tier": "EPIC",
+      "nameKo": "별빛 프리즘 요정",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "chrono-mecha-cat",
+      "tier": "EPIC",
+      "nameKo": "크로노 태엽 은하 묘신",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "nebula-nine-tails",
+      "tier": "EPIC",
+      "nameKo": "오로라 성운 구미호",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "astral-whale",
+      "tier": "EPIC",
+      "nameKo": "별빛 은하수 우주 고래",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "cosmic-white-tiger",
+      "tier": "EPIC",
+      "nameKo": "성흔 은하 백호 수호신",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "astral-stag",
+      "tier": "EPIC",
+      "nameKo": "은하수 숲 우주 사슴",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "void-star-drake",
+      "tier": "EPIC",
+      "nameKo": "공허 별빛 비룡",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "celestial-peacock",
+      "tier": "EPIC",
+      "nameKo": "우주 성운 공작새",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "solar-dragon",
+      "tier": "LEGENDARY",
+      "nameKo": "황금 태양신룡",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "phoenix",
+      "tier": "LEGENDARY",
+      "nameKo": "천상 불사조 피닉스",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "griffin",
+      "tier": "LEGENDARY",
+      "nameKo": "제국의 황금 그리핀",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "pegasus",
+      "tier": "LEGENDARY",
+      "nameKo": "천상 페가수스",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "unicorn",
+      "tier": "LEGENDARY",
+      "nameKo": "홀로그램 성운 유니콘",
+      "status": "COMPLETED"
+    },
+    {
+      "slug": "cerberus",
+      "tier": "LEGENDARY",
+      "nameKo": "용암 3머리 켈베로스",
+      "status": "COMPLETED"
+    }
+  ]
+}
