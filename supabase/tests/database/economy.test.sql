@@ -116,7 +116,19 @@ select is((select count(*)::int from pg_proc where prosecdef and pronamespace='p
   'private.claim_daily_free_draw_v1(uuid,text,text,text)'::regprocedure,
   'private.promote_duplicate_cards_v1(uuid,uuid,text,jsonb,text,text,text)'::regprocedure,
   'private.ensure_mobile_account_v1(uuid)'::regprocedure,
-  'private.read_pet_inventory_v1(uuid,text,text)'::regprocedure
+  'private.read_pet_inventory_v1(uuid,text,text)'::regprocedure,
+  -- 202608260002. These accept a deletion request, resolve a receipt and answer whether a
+  -- subject is closed. None of them disposes of anything; that belongs to the worker role.
+  'private.request_account_deletion_v1(uuid,text,text,interval)'::regprocedure,
+  'private.read_account_deletion_status_v1(text)'::regprocedure,
+  'private.is_account_access_blocked_v1(uuid)'::regprocedure,
+  -- 202608260003. The worker's stage machine. Granted to privacy_worker and revoked from
+  -- economy_server: accepting a deletion request and carrying one out are separate authorities,
+  -- and adding any of these to an API allowlist collapses that.
+  'private.claim_account_deletion_v1(uuid,integer,integer)'::regprocedure,
+  'private.dispose_account_app_data_v1(uuid,uuid,bigint)'::regprocedure,
+  'private.complete_deletion_stage_v1(uuid,uuid,bigint,text,text,text,text)'::regprocedure,
+  'private.extend_account_deletion_lease_v1(uuid,uuid,bigint,integer)'::regprocedure
 )),0,'private security-definer function allowlist is exact');
 select ok(not exists(select 1 from pg_proc where prosecdef and pronamespace='private'::regnamespace and proowner=(select oid from pg_roles where rolname='economy_security_owner') and proconfig is distinct from array['search_path=pg_catalog']),'every economy security definer has the dedicated owner and pinned search_path');
 select is((select count(*)::int from pg_default_acl d cross join lateral aclexplode(d.defaclacl) a where d.defaclnamespace in ('public'::regnamespace,'private'::regnamespace) and d.defaclrole in ((select oid from pg_roles where rolname='postgres'),(select oid from pg_roles where rolname='economy_security_owner')) and a.grantee in (0,(select oid from pg_roles where rolname='anon'),(select oid from pg_roles where rolname='authenticated'),(select oid from pg_roles where rolname='service_role'))),0,'future default ACLs do not expose client or service roles');

@@ -47,12 +47,18 @@ select is(
     'draw_pet_v1',
     'ensure_mobile_account_v1',
     'fuse_pets_v1',
+    -- 202608260002. The API may accept a deletion request, report its status, and ask whether a
+    -- subject is closed. It may not advance one: the stage functions belong to the worker role
+    -- and appearing here would mean the API had been handed the credentials to dispose of data.
+    'is_account_access_blocked_v1',
     'promote_duplicate_cards_v1',
+    'read_account_deletion_status_v1',
     'read_learning_attempt_board_v1',
     'read_pet_inventory_v1',
     'read_weekly_category_board_v1',
     'read_weekly_challenges_v1',
     'record_learning_tap_v1',
+    'request_account_deletion_v1',
     'select_pet_v1',
     'set_pet_lock_v1',
     'start_learning_attempt_v1'

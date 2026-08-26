@@ -1,0 +1,404 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "tools/privacy/derive-data-disposition.mjs",
+  "note": "Table list is derived from docs/legal/data-subject-inventory.v1.json. The disposition per table is a human decision and regenerating never overwrites one that is already recorded, except for rows whose decidedBy says \"schema shape\" -- those follow from the foreign keys rather than from judgement and are reasserted every run. The deletion worker refuses to run unless approval.status is APPROVED.",
+  "approval": {
+    "status": "PROPOSED",
+    "approvedBy": null,
+    "approvedAt": null,
+    "scope": null,
+    "note": "No human has reviewed these dispositions. Until this says APPROVED, a deletion request blocks access and disposes of nothing."
+  },
+  "dispositions": {
+    "DELETE": "Rows keyed on the subject are removed.",
+    "REDACT": "Rows stay; identifying columns are overwritten. Use when an aggregate must survive.",
+    "RETAIN": "Rows stay as they are. Requires a rationale that survives a regulator reading it."
+  },
+  "tableCount": 35,
+  "tables": [
+    {
+      "table": "private.accepted_objective_claims",
+      "definedIn": "202607150003_rls_and_integrity.sql",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through public.matches. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.account_access_tombstones",
+      "definedIn": "202608260002_account_deletion_requests.sql",
+      "linkedVia": "NONE",
+      "hopsFromSubject": null,
+      "freeFormColumns": [],
+      "disposition": "RETAIN",
+      "rationale": "The deletion audit itself. Deleting it destroys the evidence the request was honoured and breaks receipt lookup exactly when the person wants to check it finished, or reopens access at the moment deletion completes. Carries no email, nickname or provider identifier.",
+      "decidedBy": "schema shape (tools/privacy/derive-data-disposition.mjs)"
+    },
+    {
+      "table": "private.account_deletion_requests",
+      "definedIn": "202608260002_account_deletion_requests.sql",
+      "linkedVia": "NONE",
+      "hopsFromSubject": null,
+      "freeFormColumns": [],
+      "disposition": "RETAIN",
+      "rationale": "The deletion audit itself. Deleting it destroys the evidence the request was honoured and breaks receipt lookup exactly when the person wants to check it finished, or reopens access at the moment deletion completes. Carries no email, nickname or provider identifier.",
+      "decidedBy": "schema shape (tools/privacy/derive-data-disposition.mjs)"
+    },
+    {
+      "table": "private.daily_pet_claims",
+      "definedIn": "202607300000_daily_pet_loop.sql",
+      "linkedVia": "private.economy_subjects",
+      "hopsFromSubject": 1,
+      "freeFormColumns": [
+        "response_body"
+      ],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through private.economy_subjects. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.daily_pet_draw_history",
+      "definedIn": "202607300000_daily_pet_loop.sql",
+      "linkedVia": "private.daily_pet_claims",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through private.daily_pet_claims. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.duplicate_promotion_entitlements",
+      "definedIn": "202607300000_daily_pet_loop.sql",
+      "linkedVia": "private.duplicate_promotion_receipts",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through private.duplicate_promotion_receipts. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.duplicate_promotion_history",
+      "definedIn": "202607300000_daily_pet_loop.sql",
+      "linkedVia": "private.duplicate_promotion_receipts",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [
+        "consumed_rows"
+      ],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through private.duplicate_promotion_receipts. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.duplicate_promotion_receipts",
+      "definedIn": "202607300000_daily_pet_loop.sql",
+      "linkedVia": "private.economy_subjects",
+      "hopsFromSubject": 1,
+      "freeFormColumns": [
+        "response_body"
+      ],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through private.economy_subjects. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.economy_subjects",
+      "definedIn": "202607150004_economy_ledgers.sql",
+      "linkedVia": "ROOT",
+      "hopsFromSubject": 0,
+      "freeFormColumns": [],
+      "disposition": "DELETE",
+      "rationale": "Subject root. Nothing downstream survives it.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.fusion_history",
+      "definedIn": "202607150004_economy_ledgers.sql",
+      "linkedVia": "private.idempotency_requests",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [
+        "materials"
+      ],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through private.idempotency_requests. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.g3_command_receipts",
+      "definedIn": "202607190003_g3_transaction_adapter.sql",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [
+        "response"
+      ],
+      "disposition": "REDACT",
+      "rationale": "Joint match record keyed on the match, not on one person. The subject link is severed by public.match_players.user_id going NULL when the profile goes, which the schema already declares. Deleting the row would delete the other participant's record too. Unreachable today: nothing in the product creates a match, because apps/server has no realtime transport and nothing outside pgTAP calls join_match_participant_v1 or the G3 adapter. Competition in the shipped app is by record -- the weekly category board and the ghost run. If head-to-head ever ships, a human re-reads this line.",
+      "decidedBy": "schema shape (tools/privacy/derive-data-disposition.mjs)"
+    },
+    {
+      "table": "private.g3_effect_outbox",
+      "definedIn": "202607190003_g3_transaction_adapter.sql",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [
+        "payload"
+      ],
+      "disposition": "REDACT",
+      "rationale": "Joint match record keyed on the match, not on one person. The subject link is severed by public.match_players.user_id going NULL when the profile goes, which the schema already declares. Deleting the row would delete the other participant's record too. Unreachable today: nothing in the product creates a match, because apps/server has no realtime transport and nothing outside pgTAP calls join_match_participant_v1 or the G3 adapter. Competition in the shipped app is by record -- the weekly category board and the ghost run. If head-to-head ever ships, a human re-reads this line.",
+      "decidedBy": "schema shape (tools/privacy/derive-data-disposition.mjs)"
+    },
+    {
+      "table": "private.g3_journal",
+      "definedIn": "202607190003_g3_transaction_adapter.sql",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [
+        "event"
+      ],
+      "disposition": "REDACT",
+      "rationale": "Joint match record keyed on the match, not on one person. The subject link is severed by public.match_players.user_id going NULL when the profile goes, which the schema already declares. Deleting the row would delete the other participant's record too. Unreachable today: nothing in the product creates a match, because apps/server has no realtime transport and nothing outside pgTAP calls join_match_participant_v1 or the G3 adapter. Competition in the shipped app is by record -- the weekly category board and the ghost run. If head-to-head ever ships, a human re-reads this line.",
+      "decidedBy": "schema shape (tools/privacy/derive-data-disposition.mjs)"
+    },
+    {
+      "table": "private.g3_match_leases",
+      "definedIn": "202607190004_g3_authoritative_fencing.sql",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [],
+      "disposition": "REDACT",
+      "rationale": "Joint match record keyed on the match, not on one person. The subject link is severed by public.match_players.user_id going NULL when the profile goes, which the schema already declares. Deleting the row would delete the other participant's record too. Unreachable today: nothing in the product creates a match, because apps/server has no realtime transport and nothing outside pgTAP calls join_match_participant_v1 or the G3 adapter. Competition in the shipped app is by record -- the weekly category board and the ghost run. If head-to-head ever ships, a human re-reads this line.",
+      "decidedBy": "schema shape (tools/privacy/derive-data-disposition.mjs)"
+    },
+    {
+      "table": "private.g3_snapshots",
+      "definedIn": "202607190003_g3_transaction_adapter.sql",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [
+        "state"
+      ],
+      "disposition": "REDACT",
+      "rationale": "Joint match record keyed on the match, not on one person. The subject link is severed by public.match_players.user_id going NULL when the profile goes, which the schema already declares. Deleting the row would delete the other participant's record too. Unreachable today: nothing in the product creates a match, because apps/server has no realtime transport and nothing outside pgTAP calls join_match_participant_v1 or the G3 adapter. Competition in the shipped app is by record -- the weekly category board and the ghost run. If head-to-head ever ships, a human re-reads this line.",
+      "decidedBy": "schema shape (tools/privacy/derive-data-disposition.mjs)"
+    },
+    {
+      "table": "private.g3_timer_intents",
+      "definedIn": "202607190003_g3_transaction_adapter.sql",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [
+        "payload"
+      ],
+      "disposition": "REDACT",
+      "rationale": "Joint match record keyed on the match, not on one person. The subject link is severed by public.match_players.user_id going NULL when the profile goes, which the schema already declares. Deleting the row would delete the other participant's record too. Unreachable today: nothing in the product creates a match, because apps/server has no realtime transport and nothing outside pgTAP calls join_match_participant_v1 or the G3 adapter. Competition in the shipped app is by record -- the weekly category board and the ghost run. If head-to-head ever ships, a human re-reads this line.",
+      "decidedBy": "schema shape (tools/privacy/derive-data-disposition.mjs)"
+    },
+    {
+      "table": "private.gacha_history",
+      "definedIn": "202607150004_economy_ledgers.sql",
+      "linkedVia": "private.idempotency_requests",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through private.idempotency_requests. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.gacha_pity_state",
+      "definedIn": "202607150004_economy_ledgers.sql",
+      "linkedVia": "private.economy_subjects",
+      "hopsFromSubject": 1,
+      "freeFormColumns": [],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through private.economy_subjects. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.idempotency_requests",
+      "definedIn": "202607150004_economy_ledgers.sql",
+      "linkedVia": "private.economy_subjects",
+      "hopsFromSubject": 1,
+      "freeFormColumns": [
+        "response_body"
+      ],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through private.economy_subjects. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.learning_attempt_taps",
+      "definedIn": "202608140002_learning_attempt_taps.sql",
+      "linkedVia": "private.learning_attempts",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through private.learning_attempts. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.learning_attempts",
+      "definedIn": "202607300002_learning_competition.sql",
+      "linkedVia": "private.economy_subjects",
+      "hopsFromSubject": 1,
+      "freeFormColumns": [
+        "terminal_response"
+      ],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through private.economy_subjects. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.learning_best_records",
+      "definedIn": "202607300002_learning_competition.sql",
+      "linkedVia": "private.learning_attempts",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through private.learning_attempts. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.learning_progression_ledgers",
+      "definedIn": "202607300003_learning_progression.sql",
+      "linkedVia": "private.learning_attempts",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through private.learning_attempts. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.match_command_receipts",
+      "definedIn": "202607150003_rls_and_integrity.sql",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through public.matches. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.match_events",
+      "definedIn": "202607150003_rls_and_integrity.sql",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [
+        "payload"
+      ],
+      "disposition": "REDACT",
+      "rationale": "Joint match record keyed on the match, not on one person. The subject link is severed by public.match_players.user_id going NULL when the profile goes, which the schema already declares. Deleting the row would delete the other participant's record too. Unreachable today: nothing in the product creates a match, because apps/server has no realtime transport and nothing outside pgTAP calls join_match_participant_v1 or the G3 adapter. Competition in the shipped app is by record -- the weekly category board and the ghost run. If head-to-head ever ships, a human re-reads this line.",
+      "decidedBy": "schema shape (tools/privacy/derive-data-disposition.mjs)"
+    },
+    {
+      "table": "private.match_request_receipts",
+      "definedIn": "202607150003_rls_and_integrity.sql",
+      "linkedVia": "public.match_players",
+      "hopsFromSubject": 3,
+      "freeFormColumns": [
+        "response_body"
+      ],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through public.match_players. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.outbox_events",
+      "definedIn": "202607150004_economy_ledgers.sql",
+      "linkedVia": "private.reward_ledger",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [
+        "payload"
+      ],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through private.reward_ledger. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.pet_inventory",
+      "definedIn": "202607150004_economy_ledgers.sql",
+      "linkedVia": "private.economy_subjects",
+      "hopsFromSubject": 1,
+      "freeFormColumns": [],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through private.economy_subjects. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.pet_loop_outbox_events",
+      "definedIn": "202607300000_daily_pet_loop.sql",
+      "linkedVia": "private.economy_subjects",
+      "hopsFromSubject": 1,
+      "freeFormColumns": [
+        "payload"
+      ],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through private.economy_subjects. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.reward_ledger",
+      "definedIn": "202607150004_economy_ledgers.sql",
+      "linkedVia": "private.economy_subjects",
+      "hopsFromSubject": 1,
+      "freeFormColumns": [
+        "response_body"
+      ],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through private.economy_subjects. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "private.weekly_reward_settlements",
+      "definedIn": "202607300002_learning_competition.sql",
+      "linkedVia": "private.economy_subjects",
+      "hopsFromSubject": 1,
+      "freeFormColumns": [
+        "response_body"
+      ],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through private.economy_subjects. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "public.match_players",
+      "definedIn": "202607150001_initial_schema.sql",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "freeFormColumns": [],
+      "disposition": "REDACT",
+      "rationale": "Joint match record keyed on the match, not on one person. The subject link is severed by public.match_players.user_id going NULL when the profile goes, which the schema already declares. Deleting the row would delete the other participant's record too. Unreachable today: nothing in the product creates a match, because apps/server has no realtime transport and nothing outside pgTAP calls join_match_participant_v1 or the G3 adapter. Competition in the shipped app is by record -- the weekly category board and the ghost run. If head-to-head ever ships, a human re-reads this line.",
+      "decidedBy": "schema shape (tools/privacy/derive-data-disposition.mjs)"
+    },
+    {
+      "table": "public.matches",
+      "definedIn": "202607150001_initial_schema.sql",
+      "linkedVia": "public.profiles",
+      "hopsFromSubject": 1,
+      "freeFormColumns": [],
+      "disposition": "REDACT",
+      "rationale": "Joint match record keyed on the match, not on one person. The subject link is severed by public.match_players.user_id going NULL when the profile goes, which the schema already declares. Deleting the row would delete the other participant's record too. Unreachable today: nothing in the product creates a match, because apps/server has no realtime transport and nothing outside pgTAP calls join_match_participant_v1 or the G3 adapter. Competition in the shipped app is by record -- the weekly category board and the ghost run. If head-to-head ever ships, a human re-reads this line.",
+      "decidedBy": "schema shape (tools/privacy/derive-data-disposition.mjs)"
+    },
+    {
+      "table": "public.profiles",
+      "definedIn": "202607150001_initial_schema.sql",
+      "linkedVia": "ROOT",
+      "hopsFromSubject": 0,
+      "freeFormColumns": [],
+      "disposition": "DELETE",
+      "rationale": "Subject root. Nothing downstream survives it.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    },
+    {
+      "table": "public.user_pets",
+      "definedIn": "202607150001_initial_schema.sql",
+      "linkedVia": "public.profiles",
+      "hopsFromSubject": 1,
+      "freeFormColumns": [],
+      "disposition": "DELETE",
+      "rationale": "Reached from the subject through public.profiles. Holds no record the service needs after the account is gone.",
+      "decidedBy": "tools/privacy/derive-data-disposition.mjs"
+    }
+  ]
+}

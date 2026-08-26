@@ -1,0 +1,355 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "tools/privacy/derive-data-subject-inventory.mjs",
+  "note": "Derived from supabase/migrations by foreign-key reachability. Not a legal approval: retention, lawful basis and disposition per table are decided by a human and recorded separately.",
+  "subjectRoots": [
+    "auth.users",
+    "private.economy_subjects",
+    "public.profiles"
+  ],
+  "subjectTables": [
+    {
+      "table": "private.economy_subjects",
+      "linkedVia": "ROOT",
+      "hopsFromSubject": 0,
+      "definedIn": "202607150004_economy_ledgers.sql",
+      "freeFormColumns": []
+    },
+    {
+      "table": "public.profiles",
+      "linkedVia": "ROOT",
+      "hopsFromSubject": 0,
+      "definedIn": "202607150001_initial_schema.sql",
+      "freeFormColumns": []
+    },
+    {
+      "table": "private.daily_pet_claims",
+      "linkedVia": "private.economy_subjects",
+      "hopsFromSubject": 1,
+      "definedIn": "202607300000_daily_pet_loop.sql",
+      "freeFormColumns": [
+        "response_body"
+      ]
+    },
+    {
+      "table": "private.duplicate_promotion_receipts",
+      "linkedVia": "private.economy_subjects",
+      "hopsFromSubject": 1,
+      "definedIn": "202607300000_daily_pet_loop.sql",
+      "freeFormColumns": [
+        "response_body"
+      ]
+    },
+    {
+      "table": "private.gacha_pity_state",
+      "linkedVia": "private.economy_subjects",
+      "hopsFromSubject": 1,
+      "definedIn": "202607150004_economy_ledgers.sql",
+      "freeFormColumns": []
+    },
+    {
+      "table": "private.idempotency_requests",
+      "linkedVia": "private.economy_subjects",
+      "hopsFromSubject": 1,
+      "definedIn": "202607150004_economy_ledgers.sql",
+      "freeFormColumns": [
+        "response_body"
+      ]
+    },
+    {
+      "table": "private.learning_attempts",
+      "linkedVia": "private.economy_subjects",
+      "hopsFromSubject": 1,
+      "definedIn": "202607300002_learning_competition.sql",
+      "freeFormColumns": [
+        "terminal_response"
+      ]
+    },
+    {
+      "table": "private.pet_inventory",
+      "linkedVia": "private.economy_subjects",
+      "hopsFromSubject": 1,
+      "definedIn": "202607150004_economy_ledgers.sql",
+      "freeFormColumns": []
+    },
+    {
+      "table": "private.pet_loop_outbox_events",
+      "linkedVia": "private.economy_subjects",
+      "hopsFromSubject": 1,
+      "definedIn": "202607300000_daily_pet_loop.sql",
+      "freeFormColumns": [
+        "payload"
+      ]
+    },
+    {
+      "table": "private.reward_ledger",
+      "linkedVia": "private.economy_subjects",
+      "hopsFromSubject": 1,
+      "definedIn": "202607150004_economy_ledgers.sql",
+      "freeFormColumns": [
+        "response_body"
+      ]
+    },
+    {
+      "table": "private.weekly_reward_settlements",
+      "linkedVia": "private.economy_subjects",
+      "hopsFromSubject": 1,
+      "definedIn": "202607300002_learning_competition.sql",
+      "freeFormColumns": [
+        "response_body"
+      ]
+    },
+    {
+      "table": "public.matches",
+      "linkedVia": "public.profiles",
+      "hopsFromSubject": 1,
+      "definedIn": "202607150001_initial_schema.sql",
+      "freeFormColumns": []
+    },
+    {
+      "table": "public.user_pets",
+      "linkedVia": "public.profiles",
+      "hopsFromSubject": 1,
+      "definedIn": "202607150001_initial_schema.sql",
+      "freeFormColumns": []
+    },
+    {
+      "table": "private.accepted_objective_claims",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "definedIn": "202607150003_rls_and_integrity.sql",
+      "freeFormColumns": []
+    },
+    {
+      "table": "private.daily_pet_draw_history",
+      "linkedVia": "private.daily_pet_claims",
+      "hopsFromSubject": 2,
+      "definedIn": "202607300000_daily_pet_loop.sql",
+      "freeFormColumns": []
+    },
+    {
+      "table": "private.duplicate_promotion_entitlements",
+      "linkedVia": "private.duplicate_promotion_receipts",
+      "hopsFromSubject": 2,
+      "definedIn": "202607300000_daily_pet_loop.sql",
+      "freeFormColumns": []
+    },
+    {
+      "table": "private.duplicate_promotion_history",
+      "linkedVia": "private.duplicate_promotion_receipts",
+      "hopsFromSubject": 2,
+      "definedIn": "202607300000_daily_pet_loop.sql",
+      "freeFormColumns": [
+        "consumed_rows"
+      ]
+    },
+    {
+      "table": "private.fusion_history",
+      "linkedVia": "private.idempotency_requests",
+      "hopsFromSubject": 2,
+      "definedIn": "202607150004_economy_ledgers.sql",
+      "freeFormColumns": [
+        "materials"
+      ]
+    },
+    {
+      "table": "private.g3_command_receipts",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "definedIn": "202607190003_g3_transaction_adapter.sql",
+      "freeFormColumns": [
+        "response"
+      ]
+    },
+    {
+      "table": "private.g3_effect_outbox",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "definedIn": "202607190003_g3_transaction_adapter.sql",
+      "freeFormColumns": [
+        "payload"
+      ]
+    },
+    {
+      "table": "private.g3_journal",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "definedIn": "202607190003_g3_transaction_adapter.sql",
+      "freeFormColumns": [
+        "event"
+      ]
+    },
+    {
+      "table": "private.g3_match_leases",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "definedIn": "202607190004_g3_authoritative_fencing.sql",
+      "freeFormColumns": []
+    },
+    {
+      "table": "private.g3_snapshots",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "definedIn": "202607190003_g3_transaction_adapter.sql",
+      "freeFormColumns": [
+        "state"
+      ]
+    },
+    {
+      "table": "private.g3_timer_intents",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "definedIn": "202607190003_g3_transaction_adapter.sql",
+      "freeFormColumns": [
+        "payload"
+      ]
+    },
+    {
+      "table": "private.gacha_history",
+      "linkedVia": "private.idempotency_requests",
+      "hopsFromSubject": 2,
+      "definedIn": "202607150004_economy_ledgers.sql",
+      "freeFormColumns": []
+    },
+    {
+      "table": "private.learning_attempt_taps",
+      "linkedVia": "private.learning_attempts",
+      "hopsFromSubject": 2,
+      "definedIn": "202608140002_learning_attempt_taps.sql",
+      "freeFormColumns": []
+    },
+    {
+      "table": "private.learning_best_records",
+      "linkedVia": "private.learning_attempts",
+      "hopsFromSubject": 2,
+      "definedIn": "202607300002_learning_competition.sql",
+      "freeFormColumns": []
+    },
+    {
+      "table": "private.learning_progression_ledgers",
+      "linkedVia": "private.learning_attempts",
+      "hopsFromSubject": 2,
+      "definedIn": "202607300003_learning_progression.sql",
+      "freeFormColumns": []
+    },
+    {
+      "table": "private.match_command_receipts",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "definedIn": "202607150003_rls_and_integrity.sql",
+      "freeFormColumns": []
+    },
+    {
+      "table": "private.match_events",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "definedIn": "202607150003_rls_and_integrity.sql",
+      "freeFormColumns": [
+        "payload"
+      ]
+    },
+    {
+      "table": "private.outbox_events",
+      "linkedVia": "private.reward_ledger",
+      "hopsFromSubject": 2,
+      "definedIn": "202607150004_economy_ledgers.sql",
+      "freeFormColumns": [
+        "payload"
+      ]
+    },
+    {
+      "table": "public.match_players",
+      "linkedVia": "public.matches",
+      "hopsFromSubject": 2,
+      "definedIn": "202607150001_initial_schema.sql",
+      "freeFormColumns": []
+    },
+    {
+      "table": "private.match_request_receipts",
+      "linkedVia": "public.match_players",
+      "hopsFromSubject": 3,
+      "definedIn": "202607150003_rls_and_integrity.sql",
+      "freeFormColumns": [
+        "response_body"
+      ]
+    }
+  ],
+  "unlinkedSubjectCandidates": [
+    {
+      "table": "private.admin_publish_receipts",
+      "definedIn": "202607190001_admin_publish_receipts.sql",
+      "subjectIdentifierColumns": [
+        "owner_id"
+      ],
+      "opaqueRowColumns": [],
+      "reason": "keys on a subject identifier with no foreign key"
+    },
+    {
+      "table": "private.admin_sessions",
+      "definedIn": "202607190001_admin_publish_receipts.sql",
+      "subjectIdentifierColumns": [
+        "actor_id"
+      ],
+      "opaqueRowColumns": [],
+      "reason": "keys on a subject identifier with no foreign key"
+    },
+    {
+      "table": "private.legacy_game_contents_quarantine",
+      "definedIn": "202607150002_content_security.sql",
+      "subjectIdentifierColumns": [],
+      "opaqueRowColumns": [
+        "legacy_row"
+      ],
+      "reason": "holds whole user rows inside jsonb with no foreign key"
+    },
+    {
+      "table": "private.legacy_match_events_quarantine",
+      "definedIn": "202607150002_content_security.sql",
+      "subjectIdentifierColumns": [],
+      "opaqueRowColumns": [
+        "legacy_row"
+      ],
+      "reason": "holds whole user rows inside jsonb with no foreign key"
+    },
+    {
+      "table": "private.legacy_matches_quarantine",
+      "definedIn": "202607150003_rls_and_integrity.sql",
+      "subjectIdentifierColumns": [],
+      "opaqueRowColumns": [
+        "match_row",
+        "player_rows"
+      ],
+      "reason": "holds whole user rows inside jsonb with no foreign key"
+    }
+  ],
+  "intentionallyUnlinked": [
+    {
+      "table": "private.account_deletion_requests",
+      "definedIn": "202608260002_account_deletion_requests.sql",
+      "rationale": "Audit record of the deletion itself. A foreign key would cascade it away with the account it documents, leaving no evidence the request was ever honoured and no way to resolve the receipt afterwards."
+    },
+    {
+      "table": "private.account_access_tombstones",
+      "definedIn": "202608260002_account_deletion_requests.sql",
+      "rationale": "Records that a subject_key is closed. Cascading from the subject it closes would reopen access at the moment deletion completed."
+    }
+  ],
+  "tablesOutsideSubjectGraph": [
+    "private.account_deletion_effects",
+    "private.admin_publish_audit",
+    "private.content_asset_origins",
+    "private.content_publish_attestations",
+    "private.content_rights_manifests",
+    "private.economy_policy_revisions",
+    "private.economy_series_guard",
+    "private.game_content_solutions",
+    "private.learning_competition_policies",
+    "private.pet_catalog_revision_entries",
+    "private.pet_catalog_revisions",
+    "private.pet_definitions",
+    "private.weekly_challenge_pins",
+    "private.weekly_seasons",
+    "public.game_content_revisions",
+    "public.pet_catalog"
+  ]
+}

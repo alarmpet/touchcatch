@@ -5,9 +5,14 @@ node_modules/
 .env
 .env.*
 !.env.example
+!.env.*.example
 apps/*/.env
 apps/*/.env.*
 !apps/*/.env.example
+# Every `*.example` is a template with empty values, not a secret. The negation above only
+# rescued the exact name `.env.example`, so `.env.privacy-worker.example` was ignored -- and
+# the worker runbook told operators to copy a file a fresh clone would not have.
+!apps/*/.env.*.example
 apps/*/.expo/
 apps/admin/.next*/
 supabase/.temp/

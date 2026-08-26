@@ -6,6 +6,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "node --env-file-if-exists=.env --import tsx src/runtime.ts",
+    "privacy-worker": "node --env-file-if-exists=.env.privacy-worker --import tsx src/privacy/worker-runtime.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run src/**/*.test.ts"
   },
