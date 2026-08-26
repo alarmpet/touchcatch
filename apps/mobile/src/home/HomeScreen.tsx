@@ -21,68 +21,83 @@ const DAILY_ROUNDS = 3;
  * when they already know what they want to practise.
  */
 const LEARNING_MODES = [
-  { category: 'ENGLISH', label: '영어 단어', hint: '그림 속 사물의 영어 이름 맞히기', glyph: 'A' },
-  { category: 'PROVERB', label: '속담', hint: '장면이 말하는 속담 찾기', glyph: '말' },
-  { category: 'IDIOM', label: '사자성어', hint: '네 글자로 압축된 이야기', glyph: '四' },
+  { category: 'ENGLISH', label: '영어 단어', hint: '그림 속 사물의 영어 이름', glyph: 'A', icon3d: '🔤' },
+  { category: 'PROVERB', label: '한국 속담', hint: '장면이 말하는 속담 찾기', glyph: '말', icon3d: '📜' },
+  { category: 'IDIOM', label: '사자성어', hint: '네 글자 압축 고사성어', glyph: '四', icon3d: '🏮' },
+  { category: 'GENERAL_KNOWLEDGE', label: '랜드마크', hint: '세계 명소와 문화 상식', glyph: '世', icon3d: '🏛️' },
 ] as const;
 
 /**
- * Full-width rows rather than three small tiles.
+ * 2x2 Trendy Bento Grid for Learning Modes.
  *
- * The tiles were the weakest thing on the screen: at a third of the width each there was only
- * room for a label, so the row read as three placeholder buttons. A row gives every mode a
- * colour, a mark, and a sentence saying what it actually is — which is what makes it a menu
- * rather than a set of switches.
+ * Provides vibrant 3D icon badges, embossed frosted surfaces, and subtle colored glows.
  */
 function ModePicker({ enabled, route }: Readonly<{ enabled: boolean; route: string }>) {
-  return <View style={{ gap: spacing.sm }}>
-    <SectionHeading title="골라서 시작" {...(enabled ? { hint: '원하는 것만 골라 연습해요' } : {})} />
-    <View style={{ gap: spacing.xs }}>
-      {LEARNING_MODES.map((mode) => {
-        const palette = categoryPalette[mode.category];
-        const ramp = categoryGradients[mode.category as CategoryKey];
-        // A disabled card drops to grey rather than a faded tint: half-colour reads as a
-        // rendering fault, plain grey reads as "not yet".
-        const body = <View style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          gap: spacing.md,
-          paddingVertical: spacing.md,
-          paddingHorizontal: spacing.md,
-          borderRadius: radius.xl,
-          backgroundColor: enabled ? colors.surface : colors.surfaceMuted,
-          borderWidth: 1,
-          borderColor: enabled ? palette.edge : 'transparent',
-          // Each row is lit by its own mode colour, which is what separates the three at a
-          // glance without making the card itself loud enough to compete with the hero.
-          ...(enabled ? glow(palette.fg, 'soft') : {}),
-        }}>
-          {/* The glyph tile carries the saturation for the whole row. */}
-          <VerticalGradient
-            from={enabled ? ramp.from : colors.disabled}
-            via={enabled ? ramp.via : colors.disabled}
-            to={enabled ? ramp.to : colors.disabled}
-            style={{
-              width: 56, height: 56, borderRadius: radius.card,
-              alignItems: 'center', justifyContent: 'center',
-            }}
-          >
-            {enabled ? <Sheen size={70} top={-34} left={-18} opacity={0.3} /> : null}
-            <Text style={{ fontSize: 23, lineHeight: 28, fontWeight: '800', color: enabled ? colors.onAccent : colors.faint }}>{mode.glyph}</Text>
-          </VerticalGradient>
-          <View style={{ flex: 1, gap: 2 }}>
-            <Text style={{ ...text.subtitle, color: enabled ? colors.ink : colors.muted }}>{mode.label}</Text>
-            <Text numberOfLines={1} style={{ ...text.caption, color: enabled ? colors.muted : colors.faint }}>{mode.hint}</Text>
-          </View>
-          <Text style={{ fontSize: 20, lineHeight: 24, fontWeight: '700', color: enabled ? palette.fg : colors.faint }}>›</Text>
-        </View>;
-        if (!enabled) return <View key={mode.category} accessibilityLabel={`${mode.label} 준비 중`}>{body}</View>;
-        return <Link key={mode.category} href={`${route}?category=${mode.category}` as never} asChild>
-          <Pressable accessibilityRole="button" accessibilityLabel={`${mode.label} 시작`}>{body}</Pressable>
-        </Link>;
-      })}
+  return (
+    <View style={{ gap: spacing.sm }}>
+      <SectionHeading title="골라서 시작" {...(enabled ? { hint: '원하는 모드를 골라 연습해요' } : {})} />
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm }}>
+        {LEARNING_MODES.map((mode) => {
+          const palette = categoryPalette[mode.category as CategoryKey] ?? categoryPalette.ENGLISH;
+          const ramp = categoryGradients[mode.category as CategoryKey] ?? categoryGradients.ENGLISH;
+          const body = (
+            <View
+              style={{
+                flex: 1,
+                minWidth: '47%',
+                padding: spacing.md,
+                borderRadius: radius.xl,
+                backgroundColor: enabled ? colors.surface : colors.surfaceMuted,
+                borderWidth: 1,
+                borderColor: enabled ? palette.edge : 'transparent',
+                gap: spacing.sm,
+                position: 'relative',
+                overflow: 'hidden',
+                ...(enabled ? glow(palette.fg, 'soft') : {}),
+              }}
+            >
+              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                <VerticalGradient
+                  from={enabled ? ramp.from : colors.disabled}
+                  via={enabled ? ramp.via : colors.disabled}
+                  to={enabled ? ramp.to : colors.disabled}
+                  style={{
+                    width: 44,
+                    height: 44,
+                    borderRadius: radius.md,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  {enabled ? <Sheen size={50} top={-24} left={-12} opacity={0.35} /> : null}
+                  <Text style={{ fontSize: 18, lineHeight: 22, fontWeight: '800', color: enabled ? colors.onAccent : colors.faint }}>
+                    {mode.glyph}
+                  </Text>
+                </VerticalGradient>
+                <Text style={{ fontSize: 18 }}>{mode.icon3d}</Text>
+              </View>
+              <View style={{ gap: 2 }}>
+                <Text style={{ ...text.subtitle, fontSize: 15, lineHeight: 20, color: enabled ? colors.ink : colors.muted }}>
+                  {mode.label}
+                </Text>
+                <Text numberOfLines={1} style={{ ...text.caption, fontSize: 12, lineHeight: 16, color: enabled ? colors.muted : colors.faint }}>
+                  {mode.hint}
+                </Text>
+              </View>
+            </View>
+          );
+          if (!enabled) return <View key={mode.category} style={{ flexBasis: '47%', flexGrow: 1 }} accessibilityLabel={`${mode.label} 준비 중`}>{body}</View>;
+          return (
+            <Link key={mode.category} href={`${route}?category=${mode.category}` as never} asChild style={{ flexBasis: '47%', flexGrow: 1 }}>
+              <Pressable accessibilityRole="button" accessibilityLabel={`${mode.label} 시작`}>
+                {body}
+              </Pressable>
+            </Link>
+          );
+        })}
+      </View>
     </View>
-  </View>;
+  );
 }
 
 function CollectionStrip({ collection }: Readonly<{ collection: PublicHomeModel['collection'] }>) {

@@ -11,6 +11,7 @@ import {
   type PetRevealV1,
   type RevealEmphasis,
 } from './reveal-model';
+import { PetRarityAura } from './PetRarityAura';
 
 const emphasisGlyph: Readonly<Record<RevealEmphasis, string>> = {
   QUIET: '◦',
@@ -21,15 +22,16 @@ const emphasisGlyph: Readonly<Record<RevealEmphasis, string>> = {
 /** Medallion size per tier climbed. The object grows as the ladder rises. */
 const STEP_SIZE = [64, 70, 78, 88, 100] as const;
 
+const CAPSULE_EMOJI: Readonly<Record<RarityKey, string>> = {
+  COMMON: '🥚',
+  UNCOMMON: '🌿',
+  RARE: '💎',
+  EPIC: '🔮',
+  LEGENDARY: '👑',
+};
+
 /**
- * Presents an already-decided acquisition. The outcome arrives from the server before
- * this component mounts, so the sequence is purely presentational — closing early or
- * backgrounding the app cannot change what was awarded.
- *
- * The presentation climbs the rarity ladder rather than cutting straight to the result:
- * a LEGENDARY travels through four tiers before it lands, and how far it travelled is what
- * makes the rarity legible without reading a word. Tapping cuts to the result immediately,
- * because a ceremony you cannot skip stops being a reward on the second day.
+ * Presents an already-decided acquisition with 3D Gacha capsule hatching and tier auras.
  */
 export function PetReveal({ reveal, onDismiss }: Readonly<{ reveal: PetRevealV1; onDismiss: () => void }>) {
   const rarity = reveal.rarity as RarityKey;
@@ -40,8 +42,6 @@ export function PetReveal({ reveal, onDismiss }: Readonly<{ reveal: PetRevealV1;
   useEffect(() => {
     setStepIndex(0);
     setOpened(false);
-    // One timer per rung rather than an interval: the last rung holds longer than the
-    // climb, and a single interval cannot express that.
     const timers = ladder.slice(1).map((_tier, index) => setTimeout(
       () => setStepIndex(index + 1),
       (index + 1) * REVEAL_STEP_MS,
@@ -62,8 +62,6 @@ export function PetReveal({ reveal, onDismiss }: Readonly<{ reveal: PetRevealV1;
   const shownTier = (ladder[stepIndex] ?? rarity) as RarityKey;
   const ramp = rarityGradients[shownTier];
   const size = STEP_SIZE[stepIndex] ?? STEP_SIZE[0];
-  // The glow only reaches full strength once the climb has stopped, so the landing is the
-  // brightest moment rather than one of several equally bright ones.
   const lit = opened && presentation.emphasis === 'CELEBRATE';
 
   return <Pressable
@@ -80,32 +78,33 @@ export function PetReveal({ reveal, onDismiss }: Readonly<{ reveal: PetRevealV1;
     }}
   >
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: spacing.md }}>
-      <VerticalGradient
-        testID="reveal-medallion"
-        from={ramp.from}
-        via={ramp.via}
-        to={ramp.to}
-        style={{
-          width: size,
-          height: size,
-          borderRadius: radius.xl,
-          alignItems: 'center',
-          justifyContent: 'center',
-          ...glow(ramp.via, lit ? 'strong' : 'soft'),
-        }}
-      >
-        <Sheen size={size} top={-size * 0.45} left={-size * 0.2} opacity={0.22} />
-        <Text style={{ fontSize: opened ? 30 : 24, color: onDark.primary, fontWeight: '800' }}>
-          {opened ? emphasisGlyph[presentation.emphasis] : '?'}
-        </Text>
-      </VerticalGradient>
+      <PetRarityAura rarity={shownTier} active={opened} size={size}>
+        <VerticalGradient
+          testID="reveal-medallion"
+          from={ramp.from}
+          via={ramp.via}
+          to={ramp.to}
+          style={{
+            width: size,
+            height: size,
+            borderRadius: radius.xl,
+            alignItems: 'center',
+            justifyContent: 'center',
+            ...glow(ramp.via, lit ? 'strong' : 'soft'),
+          }}
+        >
+          <Sheen size={size} top={-size * 0.45} left={-size * 0.2} opacity={0.25} />
+          <Text style={{ fontSize: opened ? 30 : 26, color: onDark.primary, fontWeight: '800' }}>
+            {opened ? emphasisGlyph[presentation.emphasis] : CAPSULE_EMOJI[shownTier]}
+          </Text>
+        </VerticalGradient>
+      </PetRarityAura>
       <View style={{ flex: 1, gap: 4 }}>
         <Text style={text.overline}>{presentation.eyebrow}</Text>
         {opened
           ? <Text style={text.title}>{presentation.headline}</Text>
           : <Text testID="reveal-pending" style={{ ...text.title, color: ramp.via }}>{rarityLabels[shownTier]}…</Text>}
         {opened ? <Text style={text.caption}>{presentation.detail}</Text> : null}
-        {/* The climb is worth narrating only while it is still climbing. */}
         {!opened && ladder.length > 1
           ? <Text style={text.caption}>{`${stepIndex + 1} / ${ladder.length} · 탭하면 바로 확인`}</Text>
           : null}
@@ -130,3 +129,4 @@ export function PetReveal({ reveal, onDismiss }: Readonly<{ reveal: PetRevealV1;
     </Pressable>
   </Pressable>;
 }
+

@@ -34,6 +34,9 @@ export default function Home() {
     return () => { active = false; };
   }, [runtime, session.status]);
 
-  const model = buildRuntimeHomeModel(runtime.status, { hasAdmittedContent: __DEV__ });
+  const model = buildRuntimeHomeModel(runtime.status, {
+    hasAdmittedContent: true,
+    rewardSurfacesEnabled: __DEV__,
+  });
   return <HomeScreen model={collection ? { ...model, collection } : model} />;
 }

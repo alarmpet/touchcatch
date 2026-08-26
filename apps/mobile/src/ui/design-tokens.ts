@@ -308,3 +308,92 @@ export const layout = {
   minTouch: 44,
   maxContentWidth: 520,
 } as const;
+
+/** 3D Glassmorphism, Bento Grid & Neon FX tokens (additive layer) */
+export const bento = {
+  gap: spacing.sm,
+  radius: radius.xl,
+} as const;
+
+export const neon = {
+  cyan: '#00F0FF',
+  purple: '#A855F7',
+  gold: '#FBBF24',
+  emerald: '#10B981',
+  rose: '#F43F5E',
+} as const;
+
+export function neonPulseGlow(color: string, intensity: 'soft' | 'frenzy' = 'soft') {
+  return intensity === 'frenzy'
+    ? {
+        shadowColor: color,
+        shadowOpacity: 0.85,
+        shadowOffset: { width: 0, height: 0 },
+        shadowRadius: 28,
+        elevation: 12,
+      }
+    : {
+        shadowColor: color,
+        shadowOpacity: 0.45,
+        shadowOffset: { width: 0, height: 0 },
+        shadowRadius: 14,
+        elevation: 6,
+      };
+}
+
+export const rarityAuraTokens: Readonly<
+  Record<
+    RarityKey,
+    {
+      primaryColor: string;
+      haloColor: string;
+      glowIntensity: 'soft' | 'frenzy';
+      hasRays: boolean;
+      hasParticles: boolean;
+      badgeEmoji: string;
+    }
+  >
+> = {
+  COMMON: {
+    primaryColor: '#94A3B8',
+    haloColor: 'rgba(148, 163, 184, 0.25)',
+    glowIntensity: 'soft',
+    hasRays: false,
+    hasParticles: false,
+    badgeEmoji: '⚪',
+  },
+  UNCOMMON: {
+    primaryColor: '#10B981',
+    haloColor: 'rgba(16, 185, 129, 0.4)',
+    glowIntensity: 'soft',
+    hasRays: false,
+    hasParticles: true,
+    badgeEmoji: '🟢',
+  },
+  RARE: {
+    primaryColor: '#00F0FF',
+    haloColor: 'rgba(0, 240, 255, 0.55)',
+    glowIntensity: 'soft',
+    hasRays: false,
+    hasParticles: true,
+    badgeEmoji: '💎',
+  },
+  EPIC: {
+    primaryColor: '#A855F7',
+    haloColor: 'rgba(168, 85, 247, 0.7)',
+    glowIntensity: 'frenzy',
+    hasRays: true,
+    hasParticles: true,
+    badgeEmoji: '🔮',
+  },
+  LEGENDARY: {
+    primaryColor: '#FBBF24',
+    haloColor: 'rgba(251, 191, 36, 0.85)',
+    glowIntensity: 'frenzy',
+    hasRays: true,
+    hasParticles: true,
+    badgeEmoji: '👑',
+  },
+};
+
+

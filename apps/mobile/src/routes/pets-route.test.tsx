@@ -4,7 +4,25 @@ import { describe, expect, it, vi } from 'vitest';
 import { PetsRouteView } from '../../app/pets.js';
 import { revealDurationMs } from '../features/pets/reveal-model.js';
 
-vi.mock('react-native', () => ({ ScrollView: 'ScrollView', Text: 'Text', View: 'View', Pressable: 'Pressable', Image: 'Image' }));
+vi.mock('react-native', () => ({
+  Animated: {
+    View: 'Animated.View',
+    Value: class {
+      setValue() {}
+      interpolate() {
+        return 0;
+      }
+    },
+    timing: () => ({ start: vi.fn() }),
+    loop: () => ({ start: vi.fn(), stop: vi.fn() }),
+    sequence: () => ({ start: vi.fn(), stop: vi.fn() }),
+  },
+  ScrollView: 'ScrollView',
+  Text: 'Text',
+  View: 'View',
+  Pressable: 'Pressable',
+  Image: 'Image',
+}));
 vi.mock('expo-router', () => ({ Link: 'Link' }));
 vi.mock('../runtime/mobile-runtime', () => ({ useMobileRuntime: vi.fn(), useMobileSession: vi.fn() }));
 (globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT: boolean }).IS_REACT_ACT_ENVIRONMENT = true;

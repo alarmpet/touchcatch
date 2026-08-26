@@ -3,7 +3,25 @@ import { act, create } from 'react-test-renderer';
 import { describe, expect, it, vi } from 'vitest';
 import { PetCollection } from './PetCollection.js';
 
-vi.mock('react-native', () => ({ Image: 'Image', Pressable: 'Pressable', ScrollView: 'ScrollView', Text: 'Text', View: 'View' }));
+vi.mock('react-native', () => ({
+  Animated: {
+    View: 'Animated.View',
+    Value: class {
+      setValue() {}
+      interpolate() {
+        return 0;
+      }
+    },
+    timing: () => ({ start: vi.fn() }),
+    loop: () => ({ start: vi.fn(), stop: vi.fn() }),
+    sequence: () => ({ start: vi.fn(), stop: vi.fn() }),
+  },
+  Image: 'Image',
+  Pressable: 'Pressable',
+  ScrollView: 'ScrollView',
+  Text: 'Text',
+  View: 'View',
+}));
 (globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
 
 describe('PetCollection', () => {

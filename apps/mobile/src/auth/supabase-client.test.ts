@@ -54,7 +54,7 @@ describe('mobile Supabase runtime', () => {
       platform: 'web',
     });
 
-    await expect(runtime.auth.signInWithOAuth?.({ provider: 'google', options: { redirectTo: 'spotlearn://auth/callback', skipBrowserRedirect: true } })).resolves.toEqual({ data: { url: 'https://project.supabase.co/auth/v1/authorize' }, error: null });
+    await expect(runtime.auth.signInWithOAuth?.({ provider: 'google', options: { redirectTo: 'touchcatch://auth/callback', skipBrowserRedirect: true } })).resolves.toEqual({ data: { url: 'https://project.supabase.co/auth/v1/authorize' }, error: null });
     await expect(runtime.auth.exchangeCodeForSession?.('one-time-code')).resolves.toEqual({ error: null });
     await expect(runtime.auth.getSessionIdentity?.()).resolves.toBe('user-1');
     expect(runtime).not.toHaveProperty('client');

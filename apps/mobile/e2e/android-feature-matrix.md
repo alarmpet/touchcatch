@@ -27,5 +27,5 @@ The run's `provenance.json` records the observed commit and dirty-worktree limit
 - The learning route is still guarded by `__DEV__`; production answer submission and result projection are not connected.
 - Production economy, daily-pet, weekly competition, ranked content, and pet-art approvals remain DRAFT/PENDING. The local runtime deliberately rejects production mode and uses `TEST-DECISION` fixtures.
 - Claim and promotion transaction behavior was exercised through the authenticated HTTP harness, not by tapping an enabled mutation on a newly seeded second Android account.
-- The native Android package currently resolves to `com.spotlearnbattle`, while `app.json` declares `com.touchcatch.mobile`; this identity drift must be resolved before signing/release work.
+- The 2026-08-12 run recorded native package `com.spotlearnbattle`. Current Gradle `applicationId` and `app.json` are `com.touchcatch.mobile`; signing/release evidence must use that id. Do not copy the old matrix id forward.
 - Physical-device accessibility, signed release builds, production-like backup/PITR restore, provider telemetry, legal/rights approval, and production soak remain external blockers.

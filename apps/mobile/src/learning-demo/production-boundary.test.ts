@@ -7,11 +7,15 @@ it('boots the public home without placing the private learning registry in the g
   expect(homeSource).not.toContain('learning-demo');
 
   const source = await readFile('apps/mobile/app/game/spot-difference.tsx', 'utf8');
-  expect(source).toContain("from '../../src/learning-demo/preview-home'");
-  expect(source).toContain("from '../../src/learning-demo/preview-registry'");
-  expect(source).not.toMatch(/learning-demo\/registry|privateSolutionHash|canonicalAnswer/);
-  const guard = source.indexOf('if (!__DEV__)');
-  expect(guard).toBeGreaterThan(-1);
+  expect(source).toContain('AuthoritativeLearningSessionScreen');
+  expect(source).not.toMatch(/learning-demo/);
+  expect(source).not.toMatch(/preview-home|preview-registry|LearningDemoScreen/);
+  expect(source).not.toMatch(/privateSolutionHash|canonicalAnswer/);
+  const answer = await readFile('apps/mobile/app/game/answer.tsx', 'utf8');
+  expect(answer).not.toContain('evaluatePreviewAnswer');
+  expect(answer).not.toMatch(/learning-demo/);
+  const { scanProductionAppRoutes } = await import('../../../../tools/check-mobile-production-boundary.mjs');
+  expect(scanProductionAppRoutes()).toEqual([]);
   const preview = await readFile('apps/mobile/src/learning-demo/preview-registry.ts', 'utf8');
   expect(preview).not.toMatch(/privateSolutionHash|canonicalAnswer|contentRevisionId|hintAdmissionHash/);
 
@@ -29,12 +33,10 @@ it('keeps the generated preview registry in step with the drafts', async () => {
   const scratch = 'apps/mobile/src/learning-demo/.preview-registry.check.ts';
   const { code, count } = await generatePreviewRegistry({ outputPath: scratch });
   await rm(scratch, { force: true });
-  // 79 admitted packs, less those whose artwork cannot support a playable board. The two
-  // held out are en-resonance-stage (IMAGES_DIFFER_GLOBALLY — regenerated rather than edited)
-  // and en-3d-creativity (TOO_FEW_DIFFERENCES); `pnpm content:hitboxes:derive` prints both.
-  expect(count).toBe(77);
+  // All 79 catalog packs have verified, playable artwork derived by pnpm content:hitboxes:derive.
+  expect(count).toBe(79);
   expect(committed).toBe(code);
-});
+}, 30_000);
 
 it('takes every difference hitbox from the artwork, never from the draft', async () => {
   const derived = JSON.parse(await readFile('content/learning/derived-hitboxes.v1.json', 'utf8'));

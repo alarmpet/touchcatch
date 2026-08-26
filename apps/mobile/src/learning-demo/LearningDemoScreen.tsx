@@ -16,6 +16,7 @@ import { readGhostRun, saveGhostRunIfBetter } from './ghost-store';
 import { readSeenCoachSteps, writeSeenCoachSteps } from './coach-store';
 import { categoryPalette, colors, gradients, radius, shadow, spacing } from '../ui/design-tokens';
 import { VerticalGradient } from '../ui/Gradient';
+import { InGameFXOverlay } from '../ui/InGameFXOverlay';
 import { badgeStyle, badgeTextStyle, buttonStyle, buttonTextStyle, field, surface as surfaceStyle, text as textStyle } from '../ui/ui-kit';
 
 /** Side gutter around the boards. Kept tiny so the artwork stays as large as possible. */
@@ -861,5 +862,13 @@ export function LearningDemoScreen({ entries, onExit, initialCategory, daily = f
     >
       <Text style={{ fontSize: 16, fontWeight: '800', color: colors.onAccent }}>{flight.char}</Text>
     </Animated.View> : null}
+
+    {/* In-Game FX: Neon Border Glow on combo, Hit ripples, Victory Confetti */}
+    <InGameFXOverlay
+      comboLevel={combo.count}
+      showVictoryConfetti={state.phase === 'COMPLETE' || state.phase === 'QUIZ'}
+    />
   </SafeAreaView>;
 }
+
+

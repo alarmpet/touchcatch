@@ -1,9 +1,10 @@
 import React from 'react';
 import { Image, View, Text, Pressable, ScrollView } from 'react-native';
 import { colors, glow, radius, rarityGradients, rarityLabels, rarityLadder, rarityPalette, spacing, type RarityKey } from '../../ui/design-tokens';
-import { VerticalGradient } from '../../ui/Gradient';
+import { Sheen, VerticalGradient } from '../../ui/Gradient';
 import { buttonStyle, buttonTextStyle, progress, rarityBadgeStyle, rarityBadgeTextStyle, surface, text } from '../../ui/ui-kit';
 import { orderedRarityProgress, promotionCeiling } from './reveal-model';
+import { PetRarityAura } from './PetRarityAura';
 
 export type PetItem = {
   id: string;
@@ -75,13 +76,16 @@ export function PetCollection({ pets, totalCatalogCount, status = pets.length ? 
         ...glow(ramp.via, pet.rarity === 'LEGENDARY' || pet.rarity === 'EPIC' ? 'strong' : 'soft'),
       }}>
         {/* The art sits in a tier-coloured frame rather than a grey well. */}
-        <VerticalGradient from={ramp.from} via={ramp.via} to={ramp.to} style={{ height: 92, borderRadius: radius.card, padding: 2 }}>
-          <View style={{ flex: 1, borderRadius: radius.card - 2, backgroundColor: colors.surfaceMuted, alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-            {pet.artUrl
-              ? <Image accessibilityLabel={`${pet.name} 펫 이미지`} source={{ uri: pet.artUrl }} resizeMode="cover" style={{ width: '100%', height: '100%' }} />
-              : <Text style={{ fontSize: 20, color: colors.faint }}>❍</Text>}
-          </View>
-        </VerticalGradient>
+        <PetRarityAura rarity={pet.rarity} active={pet.rarity === 'LEGENDARY' || pet.rarity === 'EPIC'}>
+          <VerticalGradient from={ramp.from} via={ramp.via} to={ramp.to} style={{ width: 120, height: 92, borderRadius: radius.card, padding: 2 }}>
+            <Sheen size={92} top={-30} left={-15} opacity={0.22} />
+            <View style={{ flex: 1, borderRadius: radius.card - 2, backgroundColor: colors.surfaceMuted, alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+              {pet.artUrl
+                ? <Image accessibilityLabel={`${pet.name} 펫 이미지`} source={{ uri: pet.artUrl }} resizeMode="cover" style={{ width: '100%', height: '100%' }} />
+                : <Text style={{ fontSize: 20, color: colors.faint }}>❍</Text>}
+            </View>
+          </VerticalGradient>
+        </PetRarityAura>
         <Text numberOfLines={1} style={text.bodyStrong}>{pet.name}</Text>
         <View accessibilityLabel={`${pet.name} 등급`} style={rarityBadgeStyle(pet.rarity)}><Text style={rarityBadgeTextStyle(pet.rarity)}>{rarityLabels[pet.rarity]}</Text></View>
         <Text accessibilityLabel={`${pet.name} 보유 수량`} style={text.caption}>{`보유: ${pet.ownedCopies}개`}</Text>
