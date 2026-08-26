@@ -18,8 +18,8 @@
 ## 지금 상태
 
 ```
-브랜치  codex/production-pet-ranking-runtime   HEAD e24fa85   main 대비 +50
-파킹    pets/art-candidates-2026-08-26         HEAD f39ced6   (e24fa85 위 1커밋)
+브랜치  codex/production-pet-ranking-runtime   HEAD 1acf8d1   main 대비 +85
+파킹    pets/art-candidates-2026-08-26         HEAD f39ced6   (e24fa85 위 1커밋 — 릴리스 브랜치가 그 뒤로 더 나갔다)
 원격    푸시 안 됨 — 두 브랜치 모두 로컬에만 있다
 게이트  pnpm check 26단계 EXIT=0 · 1728 + 365 테스트 · 커밋된 트리 기준
 ```
@@ -71,7 +71,18 @@ sha256 이름의 파생물 147개가 있다. **이름이 겹치는 것이 0건�
 읽는 세 파일(`tests/pet-runtime-approval.test.ts`, `apps/server/src/runtime.test.ts`,
 `apps/server/src/policy/mobile-runtime-policy.test.ts`)을 돌려 36개 전부 통과했다.
 
-### `apps/admin/next-env.d.ts`는 게이트를 돌릴 때마다 더러워진다
+### admin 빌드 디렉터리가 7.1 GB 쌓여 있었다 (고침)
+
+`tools/run-next-build.cjs`는 빌드마다 `.next-build-<pid>-<시각>`을 새로 만든다. 의도된
+설계다 — 이전 빌드가 붙잡고 있는 디렉터리를 다음 빌드가 재사용하려다 죽는 것(Metro가
+gradle에 하는 것과 같은 실패)을 막는다. 그런데 **지우는 코드가 없었고**
+`apps/admin/.next*/`가 gitignore돼 있어 아무도 못 봤다. 이 기계에 95개, 7.1 GB였다.
+
+들어갈 때 지운다(나올 때가 아니라). `admin:client-secret-check`가 빌드 뒤에 그 산출물을
+읽기 때문이다. 마커에 적힌 디렉터리는 남겨서 동시 빌드를 보호하고, 못 지우는 것은 건너뛴다.
+정상 상태는 2개 + `next dev`가 쓰는 `.next-build` 하나다.
+
+### `apps/admin/next-env.d.ts`는 게이트를 돌릴 때마다 더러워진다 (안 고침)
 
 바뀌는 줄은 빌드 디렉터리 import 하나뿐인데 그 이름에 PID와 타임스탬프가 박혀 있다.
 
