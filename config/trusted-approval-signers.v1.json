@@ -1,5 +1,19 @@
 {
   "schemaVersion": 1,
-  "status": "DRAFT",
-  "keys": []
+  "status": "APPROVED",
+  "approvalDecisionId": "android-casual-beta-2026-08-24",
+  "approvedBy": "product-owner",
+  "approvedAt": "2026-08-24T12:00:00.000Z",
+  "keys": [
+    {
+      "keyId": "android-casual-beta-2026-08-24",
+      "status": "ACTIVE",
+      "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAnSFonKbB2mB+8EuKAgYUSR7/1O7/ixs9rPt/F24RJEA=\n-----END PUBLIC KEY-----\n"
+    },
+    {
+      "keyId": "android-casual-content-2026-08-24",
+      "status": "ACTIVE",
+      "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA5WUpj/9RrMYPqcAhNSebC5vdvwx5D/QBQNPfVvIZnFY=\n-----END PUBLIC KEY-----\n"
+    }
+  ]
 }

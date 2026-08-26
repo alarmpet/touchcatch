@@ -1,0 +1,26 @@
+{
+  "decisionId": "android-casual-content-2026-08-24",
+  "approvedBy": "product-owner",
+  "approvedAt": "2026-08-24T15:00:00.000Z",
+  "scope": "Android closed-beta casual learning content: 5 ENGLISH ADMIT packs with derived hitboxes",
+  "keys": [
+    "en-3d-creativity",
+    "en-3d-harmony",
+    "en-3d-serenity",
+    "en-architecture-studio",
+    "en-resilience"
+  ],
+  "excludes": [
+    "pet-economy",
+    "daily-pet-loop",
+    "pet-runtime-art",
+    "pet-rights",
+    "public-store",
+    "ios",
+    "realtime-pvp",
+    "legal-license-opinion"
+  ],
+  "signerKeyId": "android-casual-content-2026-08-24",
+  "trustedApprovalSignerRegistrySha256": "68be9fefe601be21556a3bf443961abe6884685a3ce47b8d98dcf8ada6bf5984",
+  "note": "Product-owner closed-beta admission. Public signer only. The issuing private key is not stored in this repository. This is not a public store listing or a third-party license opinion."
+}

@@ -1,0 +1,30 @@
+{
+  "approvalGroup": "LEARNING_CONTENT_V1",
+  "decisionId": "android-casual-content-2026-08-24",
+  "approvedBy": "product-owner",
+  "approvedAt": "2026-08-24T15:00:00.000Z",
+  "artifacts": [
+    {
+      "path": "content/learning/approvals/en-3d-creativity.v1.json",
+      "sha256": "f6ed650e4afd0279eaa9f0a2c1ee0251cbe80f643b3294904e5df7d1d94d0f3c"
+    },
+    {
+      "path": "content/learning/approvals/en-3d-harmony.v1.json",
+      "sha256": "674799a69c11364792bd1d99bb71de90adec601aa7c5dc9d92d2ce16bf43aa04"
+    },
+    {
+      "path": "content/learning/approvals/en-3d-serenity.v1.json",
+      "sha256": "be893c71c730ff6fdab9c602b0f554ee3f7aee0dbbfebb6e7c198f6db88ebb30"
+    },
+    {
+      "path": "content/learning/approvals/en-architecture-studio.v1.json",
+      "sha256": "4d54c0a56e7dc78fd261b963264f3b8e2250a8de11cbe369c8b4defc934e315a"
+    },
+    {
+      "path": "content/learning/approvals/en-resilience.v1.json",
+      "sha256": "aa53873f6f83351a8dd3610edce461ee6ccccc6e95167e1c4ed3a6866738c2ca"
+    }
+  ],
+  "signerKeyId": "android-casual-content-2026-08-24",
+  "signature": "lqEilCI/6y/nVOU2rvORMoeIGeAsGJT+K5bFxu13bEVvJjj2HT8WFUZ2VS5BpvNmIyx0w1Mxv50Bau3Qy0BUBw=="
+}

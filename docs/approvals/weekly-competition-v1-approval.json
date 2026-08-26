@@ -1,0 +1,14 @@
+{
+  "approvalGroup": "WEEKLY_COMPETITION_V1",
+  "decisionId": "android-casual-beta-2026-08-24",
+  "approvedBy": "product-owner",
+  "approvedAt": "2026-08-24T12:00:00.000Z",
+  "artifacts": [
+    {
+      "path": "config/weekly-competition.v1.json",
+      "sha256": "76ec01217ac00e853ee84f0a15acd8965069181d893fb7830df342bf40e24af0"
+    }
+  ],
+  "signerKeyId": "android-casual-beta-2026-08-24",
+  "signature": "SwxZXtVQiJ6OsBzZgN+r8Ix6crInER5Ve4W4pB5A4r3mCdrAKpjQgPA1zMNAmhEUxFRKKg6dBBiw60XvFJVkBA=="
+}

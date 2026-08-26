@@ -1,0 +1,18 @@
+{
+  "decisionId": "android-casual-beta-2026-08-24",
+  "approvedBy": "product-owner",
+  "approvedAt": "2026-08-24T12:00:00.000Z",
+  "scope": "Android closed-beta casual learning attempts",
+  "excludes": [
+    "pet-economy",
+    "daily-pet-loop",
+    "pet-runtime-art",
+    "pet-rights",
+    "public-store",
+    "ios",
+    "realtime-pvp"
+  ],
+  "signerKeyId": "android-casual-beta-2026-08-24",
+  "trustedApprovalSignerRegistrySha256": "04f5a669ea3e1dd6bde36316886234adb8fe3cc891dd864f58c92f5a38b14110",
+  "note": "Public signer only. The issuing private key is not stored in this repository."
+}

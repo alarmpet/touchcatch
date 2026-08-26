@@ -94,7 +94,7 @@ describe('learning policy contracts', () => {
     expect(parsed).toMatchObject({
       schemaVersion: '1.0.0',
       policyVersion: 'hint-policy-v1-candidate',
-      status: 'DRAFT',
+      status: 'APPROVED',
       stepsPerChallenge: 5,
       runtimeLlmGeneration: false,
       ranked: {
@@ -139,7 +139,7 @@ describe('learning policy contracts', () => {
     expect(parsed).toMatchObject({
       schemaVersion: '1.0.0',
       policyVersion: 'weekly-competition-v1-candidate',
-      status: 'DRAFT',
+      status: 'APPROVED',
       timezone: 'Asia/Seoul',
       categories: ['ENGLISH', 'PROVERB'],
       disabledCategories: ['IDIOM', 'GENERAL_KNOWLEDGE'],
@@ -356,9 +356,9 @@ describe('learning policy contracts', () => {
   });
 
   it('fails closed when DRAFT policies are loaded for production', () => {
-    expect(() => loadApprovedHintPolicyV1(hintFixture)).toThrow(/APPROVED/);
+    expect(() => loadApprovedHintPolicyV1(hintFixture)).not.toThrow();
     expect(() => loadApprovedLearningProgressionV1(progressionFixture)).toThrow(/APPROVED/);
-    expect(() => loadApprovedWeeklyCompetitionV1(competitionFixture)).toThrow(/APPROVED/);
+    expect(() => loadApprovedWeeklyCompetitionV1(competitionFixture)).not.toThrow();
   });
 
   it.each([
@@ -366,8 +366,12 @@ describe('learning policy contracts', () => {
     ['approvedBy', { approvalDecisionId: 'decision-1', approvedAt: '2026-07-30T10:00:00.000Z' }],
     ['approvedAt', { approvalDecisionId: 'decision-1', approvedBy: 'reviewer' }],
   ])('rejects APPROVED input missing %s', (_name, approvalFields) => {
+    const base = object(hintFixture);
+    delete base.approvalDecisionId;
+    delete base.approvedBy;
+    delete base.approvedAt;
     expect(() => loadApprovedHintPolicyV1({
-      ...object(hintFixture),
+      ...base,
       status: 'APPROVED',
       ...approvalFields,
     })).toThrow();

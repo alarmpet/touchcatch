@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "policyVersion": "weekly-competition-v1-candidate",
-  "status": "DRAFT",
+  "status": "APPROVED",
   "timezone": "Asia/Seoul",
   "categories": [
     "ENGLISH",
@@ -26,5 +26,8 @@
     ],
     "selection": "UNIFORM_WITHIN_PINNED_RARE",
     "affectsDirectDrawPity": false
-  }
+  },
+  "approvalDecisionId": "android-casual-beta-2026-08-24",
+  "approvedBy": "product-owner",
+  "approvedAt": "2026-08-24T12:00:00.000Z"
 }

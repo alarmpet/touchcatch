@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "policyVersion": "hint-policy-v1-candidate",
-  "status": "DRAFT",
+  "status": "APPROVED",
   "stepsPerChallenge": 5,
   "runtimeLlmGeneration": false,
   "ranked": {
@@ -15,13 +15,21 @@
     "rankedPenaltyPerUnit": 0,
     "tracks": {
       "SPELLING": {
-        "stages": ["GRAPHEME"],
+        "stages": [
+          "GRAPHEME"
+        ],
         "unresolvedTailUnits": 1
       },
       "INITIAL_PATTERN": {
-        "stages": ["INITIAL", "SYLLABLE"],
+        "stages": [
+          "INITIAL",
+          "SYLLABLE"
+        ],
         "unresolvedTailUnits": 1
       }
     }
-  }
+  },
+  "approvalDecisionId": "android-casual-beta-2026-08-24",
+  "approvedBy": "product-owner",
+  "approvedAt": "2026-08-24T12:00:00.000Z"
 }
