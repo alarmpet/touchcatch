@@ -13,27 +13,6 @@ import {
 } from '../../tools/check-docs-lib.js';
 import { validateNonCurrentEvidence } from '../../tools/requirement-oracle.js';
 
-/**
- * Puts a deliberately corrupted repository file back.
- *
- * Windows intermittently answers `UNKNOWN: unknown error, open` here when the just-exited child
- * process still holds the handle. A plain write in a `finally` turns that into a tracked file
- * left carrying the test's sentinel — observed once, and the next commit would have shipped it.
- * Retrying costs nothing on the path that already works.
- */
-function restore(file: string, contents: string): void {
-  const idle = new Int32Array(new SharedArrayBuffer(4));
-  for (let attempt = 0; ; attempt += 1) {
-    try {
-      fs.writeFileSync(file, contents);
-      return;
-    } catch (error) {
-      if (attempt >= 40) throw error;
-      Atomics.wait(idle, 0, 0, 50);
-    }
-  }
-}
-
 describe('normative traceability', () => {
   it('discovers bullets, ordered requirements and normative prose with stable semantics', () => {
     const text = '# API\n## Mutations\n- Must retry. <!-- REQ: API-002 -->\n1. Tie break. <!-- REQ: API-003 -->\nServer authority is final. <!-- REQ: API-004 -->';
@@ -69,7 +48,7 @@ describe('normative traceability', () => {
   it('parses exact package gate composition rather than accepting substrings', () => {
     const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
     expect(validateGateScripts(pkg.scripts)).toEqual([]);
-    expect(validateGateScripts({ ...pkg.scripts, check: pkg.scripts.check.replace('corepack pnpm docs:check', 'echo corepack pnpm docs:check') })).not.toEqual([]);
+    expect(validateGateScripts({ ...pkg.scripts, check: pkg.scripts.check.replace('node tools/run-pnpm.mjs docs:check', 'echo node tools/run-pnpm.mjs docs:check') })).not.toEqual([]);
   });
 
   it('fails semantic mapping mutations and ordered/prose omissions in real artifacts', () => {
@@ -93,8 +72,8 @@ describe('normative traceability', () => {
     fs.writeFileSync(path.join(tmp, 'docs/requirements-registry.v1.json'), JSON.stringify(registry));
     expect(checkRepositoryTraceability(tmp).semantic).toContain(registry.requirements[0].id);
     const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-    expect(validateGateScripts({ ...pkg.scripts, check: `${pkg.scripts.check} && corepack pnpm lint` })).not.toEqual([]);
-    expect(validateGateScripts({ ...pkg.scripts, check: pkg.scripts.check.replace('corepack pnpm lint && corepack pnpm typecheck', 'corepack pnpm typecheck && corepack pnpm lint') })).not.toEqual([]);
+    expect(validateGateScripts({ ...pkg.scripts, check: `${pkg.scripts.check} && node tools/run-pnpm.mjs lint` })).not.toEqual([]);
+    expect(validateGateScripts({ ...pkg.scripts, check: pkg.scripts.check.replace('node tools/run-pnpm.mjs lint && node tools/run-pnpm.mjs typecheck', 'node tools/run-pnpm.mjs typecheck && node tools/run-pnpm.mjs lint') })).not.toEqual([]);
   });
 
   it('has no fabricated review attestation and labels every oracle result explicitly', () => {
@@ -150,19 +129,13 @@ describe('normative traceability', () => {
   }, 15_000);
 
   it('makes recurring docs check fail for a stale blocker report', () => {
-    // Neither check-docs.mjs nor write-release-blockers.mjs takes a root override — both read
-    // the report from a hard-coded relative path — so unlike the case above this one has to
-    // stage the staleness in the working tree and put it back afterwards.
-    const file = 'docs/testing/reports/release-blockers.v1.json';
-    const original = fs.readFileSync(file, 'utf8');
-    try {
-      fs.writeFileSync(file, original.replace('"schemaVersion": 1', '"schemaVersion": 99'));
-      const result = spawnSync(process.execPath, ['tools/check-docs.mjs'], { cwd: process.cwd(), encoding: 'utf8' });
-      expect(result.status).not.toBe(0);
-      expect(`${result.stdout}${result.stderr}`).toContain('release-blockers.v1.json');
-    } finally {
-      restore(file, original);
-    }
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'trace-blockers-'));
+    const file = path.join(tmp, 'release-blockers.v1.json');
+    const original = fs.readFileSync('docs/testing/reports/release-blockers.v1.json', 'utf8');
+    fs.writeFileSync(file, original.replace('"schemaVersion": 1', '"schemaVersion": 99'));
+    const result = spawnSync(process.execPath, ['tools/check-docs.mjs', `--release-blockers=${file}`], { cwd: process.cwd(), encoding: 'utf8' });
+    expect(result.status).not.toBe(0);
+    expect(`${result.stdout}${result.stderr}`).toContain('release-blockers.v1.json');
   }, 10_000);
 
   it('recurring docs checker includes numeric, inventory, and relative-link drift in the executable failure set', () => {

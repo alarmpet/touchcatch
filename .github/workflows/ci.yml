@@ -36,6 +36,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm db:start
       - run: pnpm check:db
+        env:
+          TOUCHCATCH_ALLOW_LOCAL_DB_RESET: '1'
       - if: always()
         run: pnpm exec supabase stop --no-backup
 
