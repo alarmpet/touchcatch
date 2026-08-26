@@ -6,6 +6,6 @@ snapshots are evidence artifacts, not a second source of truth, and must carry
 an explicit snapshot ID/date when retained.
 
 The drift gate compares the working registry only with the working manifest.
-It does not compare a historical snapshot with the current 91-entry manifest.
+It does not compare a historical snapshot with the current working manifest.
 Regenerating the working registry is explicit via `pnpm content:generate-registry`;
 CI never mutates generated files.

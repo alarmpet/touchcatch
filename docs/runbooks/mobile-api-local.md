@@ -17,6 +17,7 @@ Copy apps/server/.env.example to apps/server/.env, then set:
     MOBILE_API_HOST=127.0.0.1
     MOBILE_API_PORT=8787
     MOBILE_API_ALLOWED_ORIGINS=
+    PET_APPROVAL_SIGNER_REGISTRY_SHA256=68be9fefe601be21556a3bf443961abe6884685a3ce47b8d98dcf8ada6bf5984
 
 The test-fixture writer and loopback runtime also require `LOCAL_ACCEPTANCE_CONFIRMATION=TOUCHCATCH_LOCAL_ACCEPTANCE_V1`, a loopback `LOCAL_SUPABASE_URL`, and a loopback PostgreSQL `LOCAL_DATABASE_URL`. They reject remote hosts before opening a database connection. Never set this marker in staging or production configuration.
 
@@ -33,10 +34,13 @@ Do not commit the generated password. The production JWT verifier requires HTTPS
     $env:PATH = 'D:\devtools\node-v24.18.0-win-x64;' + $env:PATH
     corepack pnpm server:start
     Invoke-RestMethod http://127.0.0.1:8787/healthz
+    Invoke-RestMethod http://127.0.0.1:8787/ready
 
 Expected health response:
 
     {"status":"ok"}
+
+`/healthz` is liveness only. `/ready` is 200 `{"status":"ready"}` when the database answers `select 1` and casual attempts are enabled, otherwise 503 with a non-secret code (`DATABASE_UNAVAILABLE`, `ATTEMPTS_POLICY_DISABLED`, or `DEPENDENCY_UNAVAILABLE`).
 
 Run the authenticated fail-closed smoke without writing the bearer token to evidence:
 

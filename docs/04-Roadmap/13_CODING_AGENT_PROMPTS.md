@@ -1,10 +1,12 @@
 ---
 title: "13_CODING_AGENT_PROMPTS"
 tags: [agent-guide, prompts]
-updated: 2026-07-30
-status: "VERIFIED"
+updated: 2026-08-24
+status: "HISTORICAL"
 related: [[[00_TOUCHCATCH_MOC]]]
 ---
+
+> **Historical.** `DOC-*` requirement inventory only. Not an implementation or release order. `docs/04-Roadmap/12_IMPLEMENTATION_ROADMAP.md` retired Step 0–8. Current launch scope is Android closed casual beta: `docs/decisions/2026-08-20-launch-scope.md`. Operator rules: repo-root `CLAUDE.md`.
 
 # 13. 코딩 에이전트용 단계별 프롬프트
 

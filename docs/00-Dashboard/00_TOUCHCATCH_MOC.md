@@ -11,14 +11,13 @@ TouchCatch 'Spot & Learn Battle' 프로젝트의 전체 기획, 기술 아키텍
 
 ---
 
-## 📊 프로젝트 실시간 통계 (System Health)
+## 📊 프로젝트 통계 (비규범)
 
-| 구분 | 현황 | 비고 |
-|:---|:---:|:---|
-| **📦 구축 완료 학습 팩** | **81개** | 한국 속담, 사자성어, 영단어 파닉스, 과학상식 |
-| **🎯 10/10개 완벽 탐지** | **78개 (96.3%)** | 픽셀 델타 노이즈 0.15 미만 통과 |
-| **🎨 아트 스타일 스펙트럼** | **6대 스타일** | Low-poly, Claymation, Papercut, Pixar 3D, Cyberpunk, Watercolor |
-| **🧪 파이프라인 및 테스트** | **100% PASS** | `pnpm test content/learning/all-content.test.ts` |
+이 표는 네비게이션용이다. 팩 수·플레이 가능 여부·출시 가능 여부의 SSOT가 아니다.
+
+- 출시 범위: [`docs/decisions/2026-08-20-launch-scope.md`](../decisions/2026-08-20-launch-scope.md) (Android 비공개 캐주얼 베타).
+- 작업 카탈로그/매니페스트 수는 `pnpm content:drift:check` JSON과 `content/learning/catalog.v1.json`을 다시 센다.
+- 개발 미리보기 hitbox는 `content/learning/derived-hitboxes.v1.json`이다. DRAFT/`publishBlocked`이면 출시 입력이 아니다.
 
 ---
 

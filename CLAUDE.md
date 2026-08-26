@@ -2,6 +2,21 @@
 
 이 저장소에서 작업할 때 반드시 지킬 것. 대부분 실제로 한 번씩 깨져서 알게 된 항목이다.
 
+## 문서를 고르는 법
+
+| 목적 | 문서 |
+| --- | --- |
+| 지금 이 파일 | 로컬에서 한 번씩 깨진 지뢰 |
+| 안드로이드 1차 출시 범위 | [`docs/decisions/2026-08-20-launch-scope.md`](docs/decisions/2026-08-20-launch-scope.md) |
+| 출시 작업 순서 | [`docs/superpowers/plans/2026-08-20-production-service-readiness-master-plan.md`](docs/superpowers/plans/2026-08-20-production-service-readiness-master-plan.md) |
+| 그 계획의 정오표·에이전트 정합 | [`docs/superpowers/plans/2026-08-24-production-readiness-gap-and-agent-workflow-improvement-plan.md`](docs/superpowers/plans/2026-08-24-production-readiness-gap-and-agent-workflow-improvement-plan.md) |
+| Play 출시까지 남은 것 | [`docs/superpowers/plans/2026-08-26-google-play-production-readiness-remediation-plan.md`](docs/superpowers/plans/2026-08-26-google-play-production-readiness-remediation-plan.md) |
+| 저장소 구조 실측 | [`research.md`](research.md) — 비규범 조사 스냅샷 |
+
+루트 `13_CODING_AGENT_PROMPTS.md`와 Step 0–8은 역사 `DOC-*` 목록이다. 구현 순서로 쓰지 않는다. Grok `/execute-plan` 병렬 PR DAG도 쓰지 않는다.
+
+반복 절차(틀린그림 아트, 워드헌트, Metro, 에뮬레이터, 정책 픽스처, 번들 경계, RN 테스트 모킹)는 `.grok/skills/touchcatch-*`를 따른다.
+
 ---
 
 ## 이미지 생성 — 항상 가이드를 먼저 읽는다
@@ -10,7 +25,7 @@
 
 > **[`docs/design/spot-difference-art-generation-guide.md`](docs/design/spot-difference-art-generation-guide.md)**
 
-기존 79개 팩 중 **25개(32%)가 플레이 불가**였고, 원인은 전부 그 문서에 정리된 네 가지였다.
+2026-08 재작업 이전에는 79개 팩 중 **25개(32%)가 플레이 불가**였고, 원인은 전부 그 문서에 정리된 네 가지였다. 현재 `content/learning/derived-hitboxes.v1.json`은 개발 미리보기 기준으로 usable 판정을 다시 계산한다. 그 파일이 출시 승인은 아니다 — catalog/manifest는 여전히 DRAFT/`publishBlocked`다.
 
 가장 중요한 한 줄만 옮기면:
 
@@ -41,8 +56,8 @@ pnpm content:wordhunts:check     # 워드헌트 좌표 규칙 검사
 ## 검증
 
 ```bash
-pnpm check      # 23단계 전체 게이트. 약 10분
-pnpm check:db   # supabase db reset + lint + pgTAP. Docker 필요
+pnpm check      # 26단계 전체 게이트. 약 10분
+pnpm check:db   # supabase db reset + lint + pgTAP. Docker 필요. TOUCHCATCH_ALLOW_LOCAL_DB_RESET=1 없으면 거부한다
 ```
 
 - **Node 24.18.0 고정.** `.nvmrc` 참조. 다른 버전이면 `check:runtime`이 첫 줄에서 막는다.
@@ -116,8 +131,8 @@ adb에는 끝내 안 잡히고, 로그는 `Failed to load opengl32sw`에서 멈�
 렌더되지 않는다.** 정책을 승인 상태로 뒤집는 건 `normative-numeric-approvals.v1.json`과
 서명자를 건드리는 승인 변경이지, 확인용 토글이 아니다.
 
-그 화면들의 레이아웃을 봐야 하면 라우트에 **임시로 READY 픽스처를 넣고 되돌린다.**
-승인 산출물은 그대로 두는 쪽이 항상 맞다.
+그 화면들의 레이아웃을 봐야 하면 **`__DEV__` 또는 테스트 모듈**에만 임시 READY 픽스처를 넣고 되돌린다.
+`config/*.v1.json`과 `normative-numeric-approvals.v1.json`은 확인용으로 건드리지 않는다. 승인 산출물은 그대로 두는 쪽이 항상 맞다. 1차 안드로이드 베타는 펫·랭킹 보상을 숨긴다.
 
 ### 로컬 백엔드
 
@@ -131,21 +146,84 @@ adb reverse tcp:55321 tcp:55321; adb reverse tcp:18787 tcp:18787; adb reverse tc
 
 ---
 
+## 법무 문서 — 값을 추정해서 채우지 않는다
+
+Play 심사에 필요한 공개 페이지(개인정보처리방침·계정 삭제·약관·문의)는
+[`apps/account-portal`](apps/account-portal/README.md)이 서빙하고, `public/` 아래는 전부
+생성물이다. **원본은 `docs/legal/`이고 거기만 고친다.**
+
+```bash
+pnpm portal:build          # 다시 생성
+pnpm portal:check          # 게이트 26단계 중 하나. 원본과 어긋나면 실패
+pnpm portal:publishable    # 배포 직전에만. 미결 값이 남아 있으면 실패
+```
+
+사업자·연락처·보존 기간·아동 대상 여부는 [`docs/legal/operator-identity.v1.json`](docs/legal/operator-identity.v1.json)에
+`"UNRESOLVED"`로 있다. **에이전트가 추정해 채우지 않는다** — 법무 문서의 지어낸 값은 그 자체로
+허위 기재다. 미결 상태에서는 페이지에 `[미정: …]`이 노란 배경으로 그대로 렌더되고, 게이트는
+초록으로 유지되며, `portal:publishable`만 실패한다. 저장소를 막지 않으면서 배포는 막는 분리다.
+
+이전 판의 개인정보처리방침은 `support@touchcatch.com`(존재하지 않는 주소)과 "즉시 파기"(비동기
+worker 설계와 모순)를 적고 있었고, Data Safety 명세서는 **앱에 없는 크래시 로그 수집**을
+신고하고 있었다. 문서의 모든 사실 주장은 이 저장소의 코드로 확인할 수 있어야 한다.
+
+---
+
+## 계정 삭제 — 접수와 처분은 다른 권한이다
+
+세 개의 프로세스 경계가 있고, 셋 다 일부러 만든 것이다.
+
+| | 할 수 있는 것 | 롤 |
+| --- | --- | --- |
+| API (`apps/server`) | 요청 접수, 상태 조회, 접근 차단 | `economy_server` |
+| worker (`pnpm --dir apps/server privacy-worker`) | 단계 진행, 실제 파기, 인증 계정 삭제 | `privacy_worker` |
+| 처분 함수 내부 | 세 소유권 도메인의 24개 테이블 DELETE | `privacy_disposal_owner` |
+
+**API가 파기할 수 있게 되는 순간 202가 의미를 잃는다.** 그래서 `dispose_account_app_data_v1`은
+`economy_server`에서 revoke돼 있고, `apps/server/src/database/pg-rpc.ts`에 이름조차 없으며,
+`secret-boundary.test.ts`가 API 런타임에서 worker 모듈로 가는 import 경로가 생기면 실패한다.
+
+worker는 **`docs/legal/data-disposition.v1.json`의 `approval.status`가 `APPROVED`가 아니면
+아무것도 지우지 않는다.** 지금은 `PROPOSED`다. 즉 요청은 접수되고 계정은 즉시 닫히지만 데이터는
+남는다. 이건 버그가 아니라, 어떤 테이블이 삭제 요청에서 살아남는지가 사람이 정할 일이기 때문이다.
+승인은 이름과 시각이 있어야 하고(`approvedBy`/`approvedAt`), 없으면 verifier가 거부한다.
+
+append-only 원장 5개(`learning_attempt_taps`, `learning_attempts`, `learning_best_records`,
+`match_command_receipts`, `match_request_receipts`)는 DELETE를 거부한다. 처분만 통과하는 좁은
+예외가 `private.is_privacy_disposal_v1()`이고, **두 조건을 동시에** 요구한다 —
+`current_user = 'privacy_disposal_owner'`(SECURITY DEFINER 함수 안에서만 참)와 트랜잭션 로컬
+설정. 하나만으로는 열리지 않는다.
+
+새 테이블이 사용자에 연결되면 `pnpm privacy:check`가 처분표에 답이 없다고 실패하고,
+`tests/contracts/deletion-disposition-coverage.test.ts`가 처분표와 SQL이 어긋나면 실패한다.
+**둘 다 통과해야 새 기능이 삭제 요청을 조용히 빠져나가지 않는다.**
+
+승인·배포·장애 대응은 [`docs/runbooks/account-deletion-worker.md`](docs/runbooks/account-deletion-worker.md).
+
+---
+
 ## 콘텐츠 경계 (깨뜨리면 정답 키가 배포된다)
 
-- `apps/mobile/src/learning-demo/registry.ts`는 79개 팩의 `canonicalAnswer`와
-  `privateSolutionHash`를 담고 있다. **라우트 그래프에 넣지 않는다.**
-- 게임 라우트는 `preview-registry`만 임포트한다. `production-boundary.test.ts`가 이걸
-  강제하고, 생성 파일까지 함께 검사한다.
-- 학습 화면은 `__DEV__` 뒤에 있다. 프로덕션 출시에는 서버가 정답을 쥐고 검증하는 경로
-  (`RULE-013`)가 필요하다.
+두 계약을 섞지 않는다.
+
+| 모드 | 허용 | 금지 | 강제 |
+| --- | --- | --- | --- |
+| **현재 (안드로이드 베타 게임 경로)** | `apps/mobile/app/game/spot-difference.tsx`는 `AuthoritativeLearningSessionScreen`만 import. | `learning-demo`, `preview-home`, `preview-registry`, `canonicalAnswer`, `privateSolutionHash`가 `apps/mobile/app`에 등장 | `production-boundary.test.ts` + `tools/check-mobile-production-boundary.mjs` |
+| **남은 이관** | 로컬 데모는 `apps/mobile/src/learning-demo`에 남아 테스트·생성기만 쓴다. 별도 `apps/learning-preview` 워크스페이스 이관은 08-20 WP-2 잔여. | 제품 라우트가 preview를 다시 import | 같은 스캐너 |
+
+- `apps/mobile/src/learning-demo/registry.ts`는 팩의 `canonicalAnswer`와
+  `privateSolutionHash`를 담고 있다. **어느 모드에서도 라우트 그래프에 넣지 않는다.**
+- generated preview에서 필드명만 없는 것은 안전이 아니다. `title` / `correctOptionId` /
+  `hintUnits`도 출시 번들 스캐너 대상이다.
+- 학습 화면은 지금 `__DEV__` 뒤에 있다. 안드로이드 베타에 플레이가 포함되면 서버가
+  정답을 쥐고 검증하는 경로(`RULE-013`)가 필요하고, 단순 준비 중 화면은 허용되지 않는다.
 - `content/learning/drafts/*.json`은 승인 산출물이다. `publicContent.imageA.sha256`이
   실제 파일에 고정돼 있어, 이미지를 고치면 해시·매니페스트·승인을 함께 갱신해야 한다.
   **드래프트를 조용히 수정하지 않는다.**
 - **드래프트의 손으로 적은 좌표는 아트 위에 있지 않다.** 게임에 쓸 좌표는 이미지 비교로
   계산한 `content/learning/derived-hitboxes.v1.json`에서만 가져온다. 측정값:
 
-  | 드래프트가 손으로 적은 좌표 | 실제 차이점에 얹힌 비율 |
+  | 드래프트가 손으로 적은 좌표 (재작업 이전 측정) | 실제 차이점에 얹힌 비율 |
   |---|---|
   | `privateSolution.differences` (770개) | **49%** |
   | `privateSolution.suddenDeath` (77개) | **25 / 77** |

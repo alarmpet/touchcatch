@@ -70,7 +70,7 @@ adb reverse tcp:8081  tcp:8081
 1. `_getUrlForProvider`는 `flowType === 'pkce'`일 때만 `code_challenge`를 붙인다
    (`GoTrueClient.js:4771`). 우리 authorize URL에는 그게 없었다.
 2. `code_challenge`가 없으니 GoTrue는 암묵적 흐름으로 처리하고, 마지막 리디렉션을
-   `spotlearn://auth/callback#access_token=...` 형태의 **프래그먼트**로 돌려준다.
+   `touchcatch://auth/callback#access_token=...` 형태의 **프래그먼트**로 돌려준다.
    `?code=`가 아니다.
 3. 코디네이터의 `callbackCode()`는 `url.hash !== ''`에서 `OAUTH_CALLBACK_FRAGMENT_FORBIDDEN`을
    던진다 (`oauth-coordinator.ts:36`).
