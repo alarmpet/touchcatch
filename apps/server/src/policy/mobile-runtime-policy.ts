@@ -157,15 +157,26 @@ export function loadMobileRuntimePolicy(input: Readonly<{
     ? sharedEnabledState
     : { enabled: false, code: 'RANKING_POLICY_NOT_APPROVED' };
 
-  return { rewards, ranking, attempts: attemptPolicy(input, ranking, weeklyCompetition.canonicalHash) };
+  return {
+    rewards,
+    ranking,
+    attempts: attemptPolicy(input, catalog, weeklyCompetition),
+  };
 }
 
+/**
+ * Android closed-beta casual play needs the season/hint/ruleset pins, not pet
+ * economy. Ranking rewards stay on the economy+competition gate above.
+ */
 function attemptPolicy(
-  input: Readonly<{ hintPolicy?: unknown; ruleset?: unknown }>,
-  ranking: MobileRuntimePolicyState,
-  competitionPolicyHash: string,
+  input: Readonly<{ hintPolicy?: unknown; ruleset?: unknown; weeklyCompetition?: unknown }>,
+  catalog: ReturnType<typeof parsePetCatalog>,
+  weeklyCompetition: ReturnType<typeof parseWeeklyCompetitionV1WithHash>,
 ): MobileAttemptPolicyState {
-  if (!ranking.enabled) return { enabled: false, code: 'RANKING_POLICY_NOT_APPROVED' };
+  if (!competitionPolicyIsApproved(weeklyCompetition.policy)
+    || !approvalGroupIsVerified(input, 'WEEKLY_COMPETITION_V1')) {
+    return { enabled: false, code: 'RANKING_POLICY_NOT_APPROVED' };
+  }
 
   let hintPolicyHash: string | null = null;
   try {
@@ -188,8 +199,8 @@ function attemptPolicy(
     enabled: true,
     rulesetHash: ruleset,
     hintPolicyHash,
-    competitionPolicyHash,
-    catalogRevision: ranking.catalogRevision,
-    catalogHash: ranking.catalogHash,
+    competitionPolicyHash: weeklyCompetition.canonicalHash,
+    catalogRevision: catalog.catalogRevision,
+    catalogHash: catalog.catalogHash,
   };
 }

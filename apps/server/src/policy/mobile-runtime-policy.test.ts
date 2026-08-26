@@ -210,6 +210,33 @@ describe('mobile runtime policy gates', () => {
     } finally { rmSync(root, { recursive: true, force: true }); }
   });
 
+  it('enables casual attempts without pet economy or ranking rewards', () => {
+    const approved = approvedBundle();
+    const hintPolicy = {
+      ...JSON.parse(readFileSync(resolve('config/hint-policy.v1.json'), 'utf8')) as Record<string, unknown>,
+      ...approval,
+    };
+    const ruleset = JSON.parse(readFileSync(resolve('config/ruleset.v1.json'), 'utf8')) as unknown;
+    const state = loadMobileRuntimePolicy({
+      economy: draftEconomy,
+      catalog: draftCatalog,
+      dailyPetLoop: draftDailyPetLoop,
+      weeklyCompetition: approved.weeklyCompetition,
+      hintPolicy,
+      ruleset,
+      approvalRecords: approved.approvalRecords,
+      trustedApprovalSigners,
+      trustedApprovalSignerRegistrySha256,
+    });
+    expect(state.rewards.enabled).toBe(false);
+    expect(state.ranking.enabled).toBe(false);
+    expect(state.attempts.enabled).toBe(true);
+    if (state.attempts.enabled) {
+      expect(state.attempts.catalogRevision).toBe(draftCatalog['catalogRevision']);
+      expect(state.attempts.competitionPolicyHash).toHaveLength(64);
+    }
+  });
+
   it('fails closed when an approved dependency uses a test-only approval identity', () => {
     const approved = approvedBundle();
     const testApprovedEconomy = {
@@ -223,7 +250,7 @@ describe('mobile runtime policy gates', () => {
     })).toEqual({
       rewards: { enabled: false, code: 'REWARD_POLICY_NOT_APPROVED' },
       ranking: { enabled: false, code: 'RANKING_POLICY_NOT_APPROVED' },
-      attempts: { enabled: false, code: 'RANKING_POLICY_NOT_APPROVED' },
+      attempts: { enabled: false, code: 'HINT_POLICY_NOT_APPROVED' },
     });
   });
 });

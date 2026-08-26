@@ -31,8 +31,11 @@ type Schema = {
 type Document = { openapi: string; security: unknown; paths: Record<string, Record<string, Operation>>; components: { schemas: Record<string, Schema> } };
 const document = parse(readFileSync(new URL("../openapi.yaml", import.meta.url), "utf8")) as Document;
 const expected = {
-  "GET /v1/me": { request: null, statuses: ["200", "401"], response: "MeResponse", errors: ["UNAUTHORIZED"] },
-  "GET /v1/pets": { request: null, statuses: ["200", "401"], response: "PetsResponse", errors: ["UNAUTHORIZED"] },
+  // 410 is how a closed account reads while the worker is still disposing of it: the session is
+  // valid, the account is not coming back.
+  "GET /v1/me": { request: null, statuses: ["200", "401", "410"], response: "MeResponse", errors: ["UNAUTHORIZED", "ACCOUNT_CLOSED"] },
+  "DELETE /v1/me": { request: "AccountDeletionRequest", statuses: ["202", "400", "401", "409", "410", "503"], response: "AccountDeletionAccepted", errors: ["INVALID_REQUEST", "UNAUTHORIZED", "AUTH_SUBJECT_REQUIRED", "ACCOUNT_CLOSED", "DELETION_ALREADY_IN_PROGRESS", "IDEMPOTENCY_CONFLICT", "DELETION_REQUEST_NOT_FOUND", "RECEIPT_EXPIRED", "DELETION_UNAVAILABLE"] },
+  "POST /v1/me/deletion-status": { request: "AccountDeletionRequest", statuses: ["200", "400", "404", "410", "503"], response: "AccountDeletionStatus", errors: ["INVALID_REQUEST", "UNAUTHORIZED", "AUTH_SUBJECT_REQUIRED", "ACCOUNT_CLOSED", "DELETION_ALREADY_IN_PROGRESS", "IDEMPOTENCY_CONFLICT", "DELETION_REQUEST_NOT_FOUND", "RECEIPT_EXPIRED", "DELETION_UNAVAILABLE"] },
   "GET /v1/pets/collection": { request: null, statuses: ["200", "400", "401", "409", "503"], response: "PetCollectionResponse", errors: ["INVALID_REQUEST", "UNAUTHORIZED", "AUTH_SUBJECT_REQUIRED", "REWARD_POLICY_NOT_APPROVED", "POLICY_MISMATCH", "DATABASE_UNAVAILABLE"] },
   "GET /v1/learning/leaderboard": { request: null, statuses: ["200", "400", "401", "409", "503"], response: "WeeklyCategoryBoardResponse", errors: ["INVALID_QUERY", "UNAUTHORIZED", "RANKING_POLICY_NOT_APPROVED", "LEADERBOARD_UNAVAILABLE"] },
   "POST /v1/pets/daily-draw": { request: null, statuses: ["200", "400", "401", "409", "503"], response: "DailyFreeDrawResponse", errors: ["INVALID_REQUEST", "UNAUTHORIZED", "AUTH_SUBJECT_REQUIRED", "REWARD_POLICY_NOT_APPROVED", "POLICY_MISMATCH", "DATABASE_UNAVAILABLE"] },
@@ -42,24 +45,9 @@ const expected = {
   "POST /v1/learning/attempts/{id}/assets-ready": { request: "AttemptAssetsReadyRequest", statuses: ["200", "400", "401", "404", "409", "503"], response: "AttemptAssetsReadyResponse", errors: ["INVALID_REQUEST", "INVALID_ATTEMPT_START", "INVALID_VERIFIED_METRICS", "UNAUTHORIZED", "AUTH_SUBJECT_REQUIRED", "ATTEMPT_NOT_FOUND", "OBJECTIVE_NOT_FOUND", "SEASON_NOT_FOUND", "CHALLENGE_PIN_MISMATCH", "IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH", "ATTEMPT_TERMINAL", "SEASON_NOT_OPEN", "SELECTED_PET_REQUIRED", "ASSETS_NOT_READY", "RANKING_POLICY_NOT_APPROVED", "HINT_POLICY_NOT_APPROVED", "RULESET_NOT_APPROVED", "DATABASE_UNAVAILABLE"] },
   "POST /v1/learning/attempts/{id}/tap": { request: "AttemptTapRequest", statuses: ["200", "400", "401", "404", "409", "503"], response: "AttemptTapResponse", errors: ["INVALID_REQUEST", "INVALID_ATTEMPT_START", "INVALID_VERIFIED_METRICS", "UNAUTHORIZED", "AUTH_SUBJECT_REQUIRED", "ATTEMPT_NOT_FOUND", "OBJECTIVE_NOT_FOUND", "SEASON_NOT_FOUND", "CHALLENGE_PIN_MISMATCH", "IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH", "ATTEMPT_TERMINAL", "SEASON_NOT_OPEN", "SELECTED_PET_REQUIRED", "ASSETS_NOT_READY", "RANKING_POLICY_NOT_APPROVED", "HINT_POLICY_NOT_APPROVED", "RULESET_NOT_APPROVED", "DATABASE_UNAVAILABLE"] },
   "POST /v1/learning/attempts/{id}/complete": { request: "AttemptCompleteRequest", statuses: ["200", "400", "401", "404", "409", "503"], response: "AttemptCompleteResponse", errors: ["INVALID_REQUEST", "INVALID_ATTEMPT_START", "INVALID_VERIFIED_METRICS", "UNAUTHORIZED", "AUTH_SUBJECT_REQUIRED", "ATTEMPT_NOT_FOUND", "OBJECTIVE_NOT_FOUND", "SEASON_NOT_FOUND", "CHALLENGE_PIN_MISMATCH", "IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH", "ATTEMPT_TERMINAL", "SEASON_NOT_OPEN", "SELECTED_PET_REQUIRED", "ASSETS_NOT_READY", "RANKING_POLICY_NOT_APPROVED", "HINT_POLICY_NOT_APPROVED", "RULESET_NOT_APPROVED", "DATABASE_UNAVAILABLE"] },
-  "POST /v1/pets/{id}/select": { request: null, statuses: ["200", "404", "409"], response: "SelectPetResponse", errors: ["NOT_OWNED", "IDEMPOTENCY_CONFLICT"] },
-  "POST /v1/pets/{id}/lock": { request: "LockPetRequest", statuses: ["200", "404", "409"], response: "LockPetResponse", errors: ["NOT_OWNED", "IDEMPOTENCY_CONFLICT"] },
-  "POST /v1/gacha/draw": { request: null, statuses: ["200", "409"], response: "GachaDrawResponse", errors: ["IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH", "INSUFFICIENT_FUNDS"] },
-  "POST /v1/fusion": { request: "FusionRequest", statuses: ["200", "400", "404", "409"], response: "FusionResponse", errors: ["INVALID_MATERIALS", "NOT_OWNED", "IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH"] },
-  "POST /v1/matches/queue": { request: "QueueCreateRequest", statuses: ["202", "400", "409"], response: "QueueTicketResponse", errors: ["INVALID_REQUEST", "CONFLICT", "IDEMPOTENCY_CONFLICT"] },
-  "GET /v1/matches/queue/{ticketId}": { request: null, statuses: ["200", "401", "404"], response: "QueueTicketResponse", errors: ["UNAUTHORIZED", "NOT_FOUND"] },
-  "DELETE /v1/matches/queue/{ticketId}": { request: null, statuses: ["200", "404", "409"], response: "QueueCancelResponse", errors: ["NOT_FOUND", "CONFLICT", "IDEMPOTENCY_CONFLICT"] },
-  "POST /v1/matches/friend-room": { request: "FriendRoomCreateRequest", statuses: ["201", "400", "409"], response: "FriendRoomResponse", errors: ["INVALID_REQUEST", "CONFLICT", "IDEMPOTENCY_CONFLICT"] },
-  "POST /v1/matches/friend-room/{roomCode}/join": { request: "FriendRoomJoinRequest", statuses: ["200", "400", "404", "409"], response: "FriendRoomResponse", errors: ["INVALID_REQUEST", "NOT_FOUND", "CONFLICT", "IDEMPOTENCY_CONFLICT"] },
-  "DELETE /v1/matches/friend-room/{roomCode}/members/me": { request: null, statuses: ["200", "404", "409"], response: "FriendRoomLeaveResponse", errors: ["NOT_FOUND", "CONFLICT", "IDEMPOTENCY_CONFLICT"] },
-  "GET /v1/pet-showcases/{nickname}": { request: null, statuses: ["200", "404"], response: "PetShowcaseResponse", errors: ["NOT_FOUND"] },
 } as const;
 
 const economyStatusErrors = {
-  "POST /v1/pets/{id}/select": { "404": ["NOT_OWNED"], "409": ["IDEMPOTENCY_CONFLICT"] },
-  "POST /v1/pets/{id}/lock": { "404": ["NOT_OWNED"], "409": ["IDEMPOTENCY_CONFLICT"] },
-  "POST /v1/gacha/draw": { "409": ["IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH", "INSUFFICIENT_FUNDS"] },
-  "POST /v1/fusion": { "400": ["INVALID_MATERIALS"], "404": ["NOT_OWNED"], "409": ["IDEMPOTENCY_CONFLICT", "POLICY_MISMATCH"] },
   "POST /v1/pets/daily-draw": { "400": ["INVALID_REQUEST"], "401": ["UNAUTHORIZED", "AUTH_SUBJECT_REQUIRED"], "409": ["REWARD_POLICY_NOT_APPROVED", "POLICY_MISMATCH"], "503": ["DATABASE_UNAVAILABLE"] },
   "POST /v1/pets/duplicate-promotion": { "400": ["INVALID_REQUEST", "INVALID_MATERIALS"], "401": ["UNAUTHORIZED", "AUTH_SUBJECT_REQUIRED"], "404": ["NOT_OWNED"], "409": ["IDEMPOTENCY_CONFLICT", "REWARD_POLICY_NOT_APPROVED", "POLICY_MISMATCH", "INSUFFICIENT_DUPLICATES", "COSMETIC_REWARD_POLICY_REQUIRED"], "503": ["DATABASE_UNAVAILABLE"] },
 } as const;
@@ -143,13 +131,20 @@ describe("OpenAPI semantic contract", () => {
     expect(accepts([{ userPetId: "a", count: 2 }, { userPetId: "a", count: 3 }])).toBe(false);
   });
 
+  it("keeps unimplemented PvP and gacha routes out of the public contract", () => {
+    expect(document.paths["/v1/gacha/draw"]).toBeUndefined();
+    expect(document.paths["/v1/matches/queue"]).toBeUndefined();
+    expect(document.paths["/v1/pet-showcases/{nickname}"]).toBeUndefined();
+  });
+
   it("makes only the allowlisted showcase route public and forbids private showcase properties", () => {
-    expect(document.paths["/v1/pet-showcases/{nickname}"]!.get!.security).toEqual([]);
-    for (const [path, item] of Object.entries(document.paths)) {
+    const planned = parse(readFileSync(new URL("../openapi.planned.yaml", import.meta.url), "utf8")) as Document;
+    expect(planned.paths["/v1/pet-showcases/{nickname}"]!.get!.security).toEqual([]);
+    for (const [path, item] of Object.entries(planned.paths)) {
       if (path === "/v1/pet-showcases/{nickname}") continue;
       for (const operation of Object.values(item)) expect(operation.security).toBeUndefined();
     }
-    const showcase = document.components.schemas.PetShowcaseResponse as Schema & { properties?: Record<string, unknown> };
+    const showcase = planned.components.schemas.PetShowcaseResponse as Schema & { properties?: Record<string, unknown> };
     expect(showcase.additionalProperties).toBe(false);
     expect(Object.keys(showcase.properties ?? {}).sort()).toEqual([
       "approvedCosmetics",

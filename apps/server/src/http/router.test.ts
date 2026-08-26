@@ -6,6 +6,8 @@ function handlers() {
   const ok = (route: string) => Promise.resolve(Response.json({ route }));
   return {
     getMe: vi.fn(() => ok('me')),
+    deleteMe: vi.fn(() => ok('delete-me')),
+    readDeletionStatus: vi.fn(() => ok('deletion-status')),
     getPetCollection: vi.fn(() => ok('collection')),
     claimDailyDraw: vi.fn(() => ok('daily-draw')),
     promoteDuplicates: vi.fn(() => ok('duplicate-promotion')),
@@ -29,6 +31,10 @@ describe('mobile API router', () => {
     expect(health.status).toBe(200);
     expect(health.headers.get('content-type')).toMatch(/^application\/json/u);
     expect(await health.json()).toEqual({ status: 'ok' });
+
+    const unprobedReady = await route(new Request('http://127.0.0.1:8787/ready'));
+    expect(unprobedReady.status).toBe(503);
+    expect(await unprobedReady.json()).toEqual({ status: 'not_ready', code: 'DEPENDENCY_UNAVAILABLE' });
 
     expect((await route(new Request('http://127.0.0.1:8787/v1/me'))).status).toBe(200);
     expect((await route(new Request('http://127.0.0.1:8787/v1/pets/collection'))).status).toBe(200);
@@ -55,6 +61,21 @@ describe('mobile API router', () => {
     expect(wrongMethod.status).toBe(405);
     expect(wrongMethod.headers.get('allow')).toBe('GET');
     expect(await wrongMethod.json()).toEqual({ code: 'METHOD_NOT_ALLOWED' });
+
+    // Deletion is a real route now, and it carries its receipt secret in a JSON body. The point
+    // being pinned is that /v1/me answers both verbs and refuses everything else -- an earlier
+    // version of this endpoint returned 200 {"deleted":true} while deleting nothing.
+    const deleteMe = await route(new Request('http://127.0.0.1:8787/v1/me', {
+      method: 'DELETE',
+      headers: { 'content-type': 'application/json' },
+      body: '{}',
+    }));
+    expect(deleteMe.status).toBe(200);
+    expect(api.deleteMe).toHaveBeenCalledOnce();
+
+    const putMe = await route(new Request('http://127.0.0.1:8787/v1/me', { method: 'PUT' }));
+    expect(putMe.status).toBe(405);
+    expect(putMe.headers.get('allow')).toBe('GET, DELETE');
     expect((await route(new Request('http://127.0.0.1:8787/v1/pets/collection/'))).status).toBe(404);
   });
 
@@ -112,5 +133,19 @@ describe('mobile API router', () => {
     expect(response.headers.get('access-control-allow-methods')).toBe('POST');
     expect(response.headers.get('access-control-allow-headers')).toBe('authorization, content-type, idempotency-key');
     expect(api.promoteDuplicates).not.toHaveBeenCalled();
+  });
+
+  it('keeps healthz alive when readiness reports a safe not-ready code', async () => {
+    const probeReadiness = vi.fn(async () => ({ status: 'not_ready' as const, code: 'DATABASE_UNAVAILABLE' as const }));
+    const route = createMobileApiRouter({ handlers: handlers(), probeReadiness });
+    expect(await (await route(new Request('http://127.0.0.1:8787/healthz'))).json()).toEqual({ status: 'ok' });
+    const ready = await route(new Request('http://127.0.0.1:8787/ready'));
+    expect(ready.status).toBe(503);
+    expect(await ready.json()).toEqual({ status: 'not_ready', code: 'DATABASE_UNAVAILABLE' });
+    expect(await (await createMobileApiRouter({
+      handlers: handlers(),
+      probeReadiness: async () => ({ status: 'ready' }),
+    })(new Request('http://127.0.0.1:8787/ready'))).json()).toEqual({ status: 'ready' });
+    expect(probeReadiness).toHaveBeenCalledOnce();
   });
 });

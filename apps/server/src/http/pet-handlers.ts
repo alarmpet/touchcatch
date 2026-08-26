@@ -20,6 +20,8 @@ export type PetHandlers = Readonly<{
 }>;
 export type MobileApiHandlers = PetHandlers & AttemptHandlers & Readonly<{
   getMe(request: Request): Promise<Response>;
+  deleteMe(request: Request): Promise<Response>;
+  readDeletionStatus(request: Request): Promise<Response>;
   getWeeklyLeaderboard(request: Request): Promise<Response>;
 }>;
 
@@ -28,8 +30,12 @@ export function createMobileApiHandlers(
   getMe: (request: Request) => Promise<Response>,
   getWeeklyLeaderboard: (request: Request) => Promise<Response>,
   attempts: AttemptHandlers,
+  deletion: Readonly<{
+    deleteMe(request: Request): Promise<Response>;
+    readDeletionStatus(request: Request): Promise<Response>;
+  }>,
 ): MobileApiHandlers {
-  return { ...pets, ...attempts, getMe, getWeeklyLeaderboard };
+  return { ...pets, ...attempts, getMe, getWeeklyLeaderboard, ...deletion };
 }
 
 export function createPetHandlers(input: Readonly<{

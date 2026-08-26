@@ -6,6 +6,10 @@ import { Pool, type PoolClient } from 'pg';
 import type { ApprovedPetArtV1 } from '../../../packages/contracts/src/daily-pet-loop.js';
 import { parsePetCatalog } from '../../../packages/contracts/src/economy.schema.js';
 import { parsePetRuntimeArtV1 } from '../../../packages/contracts/src/pet-runtime-art.js';
+import {
+  parseMobileApiEnv,
+  type Environment,
+} from '../../../packages/config/src/env.js';
 import { createSupabaseJwtVerifier } from './auth/supabase-jwt-verifier.js';
 import type { BearerVerifier } from './auth/bearer.js';
 import { createSubjectResolver } from './auth/subject-resolver.js';
@@ -13,7 +17,8 @@ import { createPgRpcClient, createSubjectResolutionRpc, type PgPoolLike } from '
 import { createMobileApiRouter } from './http/router.js';
 import { createMobileApiHandlers, createPetHandlers } from './http/pet-handlers.js';
 import { createAttemptHandlers } from './http/attempt-handlers.js';
-import { createMeHandler } from './http/me-handler.js';
+import { createMeHandler, createDeleteMeHandler, createDeletionStatusHandler } from './http/me-handler.js';
+import { createAccountDeletionStore } from './privacy/account-deletion-store.js';
 import { createRankingHandler } from './http/ranking-handler.js';
 import { startNodeServer, type NodeServerHandle } from './http/node-server.js';
 import { AttemptVerifierAdapter } from './learning/attempt-verifier.js';
@@ -21,6 +26,7 @@ import { PostgresAttemptRepository } from './learning/postgres-attempt-repositor
 import { PostgresWeeklyCategoryBoard } from './learning/weekly-category-board.js';
 import { PostgresPetRepository } from './pets/postgres-pet-repository.js';
 import { loadMobileRuntimePolicy, type MobileRuntimePolicy } from './policy/mobile-runtime-policy.js';
+import { artifactSha256 } from '../../../tools/check-pet-runtime-approval.mjs';
 
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 
@@ -38,54 +44,6 @@ export type RuntimePool = PgPoolLike & Readonly<{
   end(): Promise<void>;
   destroy(error: Error): void;
 }>;
-
-function required(env: NodeJS.ProcessEnv, name: 'SUPABASE_URL' | 'DATABASE_URL'): string {
-  const value = env[name]?.trim();
-  if (!value) throw new TypeError(`${name} is required`);
-  return value;
-}
-
-function parsePort(value: string | undefined): number {
-  if (value === undefined || value === '') return 8787;
-  if (!/^\d+$/u.test(value)) throw new TypeError('MOBILE_API_PORT must be an integer from 1 to 65535');
-  const port = Number(value);
-  if (!Number.isSafeInteger(port) || port < 1 || port > 65_535) {
-    throw new TypeError('MOBILE_API_PORT must be an integer from 1 to 65535');
-  }
-  return port;
-}
-
-function parseDatabaseUrl(value: string): string {
-  let url: URL;
-  try {
-    url = new URL(value);
-  } catch {
-    throw new TypeError('DATABASE_URL must be an absolute PostgreSQL URL');
-  }
-  if (!['postgres:', 'postgresql:'].includes(url.protocol)) {
-    throw new TypeError('DATABASE_URL must use postgres:// or postgresql://');
-  }
-  return value;
-}
-
-function parseAllowedOrigins(value: string | undefined): readonly string[] {
-  if (value === undefined || value.trim() === '') return [];
-  const origins = value.split(',').map((entry) => entry.trim());
-  if (origins.some((entry) => entry === '')) throw new TypeError('MOBILE_API_ALLOWED_ORIGINS contains an empty origin');
-  return origins.map((entry) => {
-    let url: URL;
-    try {
-      url = new URL(entry);
-    } catch {
-      throw new TypeError('MOBILE_API_ALLOWED_ORIGINS must contain absolute HTTP origins');
-    }
-    if (!['http:', 'https:'].includes(url.protocol) || url.username || url.password
-      || url.pathname !== '/' || url.search || url.hash || url.origin !== entry) {
-      throw new TypeError('MOBILE_API_ALLOWED_ORIGINS must contain exact credential-free HTTP origins');
-    }
-    return url.origin;
-  });
-}
 
 function readJson(root: string, path: string): unknown {
   return JSON.parse(readFileSync(resolve(root, path), 'utf8')) as unknown;
@@ -109,11 +67,13 @@ export function verifiedRuntimeAssetHashes(root: string, manifest: unknown): Rea
 export function loadRuntimeConfiguration(input: Readonly<{
   root?: string;
   env?: NodeJS.ProcessEnv;
+  environment?: Environment;
 }> = {}): RuntimeConfiguration {
   const root = resolve(input.root ?? repositoryRoot);
   const env = input.env ?? process.env;
-  const supabaseUrl = required(env, 'SUPABASE_URL');
-  const databaseUrl = parseDatabaseUrl(required(env, 'DATABASE_URL'));
+  const parsedEnv = parseMobileApiEnv(env, input.environment);
+  const supabaseUrl = parsedEnv.supabaseUrl;
+  const databaseUrl = parsedEnv.databaseUrl;
   const economy = readJson(root, 'config/economy.v1.json');
   const catalog = readJson(root, 'config/pet-catalog.v1.json');
   const dailyPetLoop = readJson(root, 'config/daily-pet-loop.v1.json');
@@ -130,7 +90,15 @@ export function loadRuntimeConfiguration(input: Readonly<{
     'docs/approvals/pet-runtime-art-v1-approval.json',
   ].map((path) => readOptionalJson(root, path)).filter((value) => value !== undefined);
   const trustedApprovalSigners = readOptionalJson(root, 'config/trusted-approval-signers.v1.json');
-  const trustedApprovalSignerRegistrySha256 = env['PET_APPROVAL_SIGNER_REGISTRY_SHA256']?.trim();
+  const computedSignerRegistrySha256 = trustedApprovalSigners === undefined
+    ? undefined
+    : artifactSha256(trustedApprovalSigners);
+  const pinnedSignerRegistrySha256 = env['PET_APPROVAL_SIGNER_REGISTRY_SHA256']?.trim();
+  if (pinnedSignerRegistrySha256 && computedSignerRegistrySha256
+    && pinnedSignerRegistrySha256 !== computedSignerRegistrySha256) {
+    throw new TypeError('PET_APPROVAL_SIGNER_REGISTRY_SHA256 does not match config/trusted-approval-signers.v1.json');
+  }
+  const trustedApprovalSignerRegistrySha256 = pinnedSignerRegistrySha256 ?? computedSignerRegistrySha256;
   const assetFileHashes = verifiedRuntimeAssetHashes(root, petRuntimeArt);
   const policy = loadMobileRuntimePolicy({
     economy, catalog, dailyPetLoop, weeklyCompetition, hintPolicy, ruleset, petRuntimeArt, sourceManifest, rightsEvidence, approvalRecords, trustedApprovalSigners, assetFileHashes,
@@ -142,9 +110,9 @@ export function loadRuntimeConfiguration(input: Readonly<{
     for (const entry of art.entries) artByPetId.set(entry.petId, { thumbnailUrl: entry.thumbnailUrl, thumbnailSha256: entry.thumbnailSha256, fullUrl: entry.fullUrl, fullSha256: entry.fullSha256 });
   }
   return {
-    host: env['MOBILE_API_HOST']?.trim() || '127.0.0.1',
-    port: parsePort(env['MOBILE_API_PORT']?.trim()),
-    allowedOrigins: parseAllowedOrigins(env['MOBILE_API_ALLOWED_ORIGINS']),
+    host: parsedEnv.host,
+    port: parsedEnv.port,
+    allowedOrigins: parsedEnv.allowedOrigins,
     supabaseUrl,
     databaseUrl,
     policy,
@@ -224,6 +192,9 @@ export async function startMobileApiRuntime(input: Readonly<{
     board: new PostgresWeeklyCategoryBoard(rpc),
   });
   const me = createMeHandler({ verifier, subjectResolver });
+  const deletionStore = createAccountDeletionStore(rpc);
+  const deleteMe = createDeleteMeHandler({ verifier, deletionStore });
+  const readDeletionStatus = createDeletionStatusHandler({ deletionStore });
   const attempts = createAttemptHandlers({
     verifier,
     subjectResolver,
@@ -232,8 +203,24 @@ export async function startMobileApiRuntime(input: Readonly<{
     attemptVerifier: new AttemptVerifierAdapter(),
   });
   const router = createMobileApiRouter({
-    handlers: createMobileApiHandlers(pets, me, ranking, attempts),
+    handlers: createMobileApiHandlers(pets, me, ranking, attempts, { deleteMe, readDeletionStatus }),
     allowedOrigins: configuration.allowedOrigins,
+    probeReadiness: async () => {
+      if (!configuration.policy.attempts.enabled) {
+        return { status: 'not_ready', code: 'ATTEMPTS_POLICY_DISABLED' };
+      }
+      try {
+        const client = await pool.connect();
+        try {
+          await client.query('select 1', []);
+        } finally {
+          client.release();
+        }
+      } catch {
+        return { status: 'not_ready', code: 'DATABASE_UNAVAILABLE' };
+      }
+      return { status: 'ready' };
+    },
   });
   try {
     return await startNodeServer({

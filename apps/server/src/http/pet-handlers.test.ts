@@ -68,11 +68,14 @@ describe('pet HTTP handlers', () => {
     expect(f.repository.claimEffectOnce).not.toHaveBeenCalled();
     const me = vi.fn();
     const ranking = vi.fn();
-    const combined = createMobileApiHandlers(f.handlers, me, ranking, attemptHandlers);
+    const combined = createMobileApiHandlers(f.handlers, me, ranking, attemptHandlers, {
+      deleteMe: vi.fn(async () => new Response(null, { status: 202 })),
+      readDeletionStatus: vi.fn(async () => new Response(null, { status: 200 })),
+    });
     await combined.getMe(new Request('https://api.test/v1/me'));
     await combined.getWeeklyLeaderboard(new Request('https://api.test/v1/learning/leaderboard'));
     expect(me).toHaveBeenCalledOnce();
     expect(ranking).toHaveBeenCalledOnce();
-    expect(Object.keys(combined).sort()).toEqual(['attestAttemptAssets', 'claimDailyDraw', 'completeAttempt', 'getMe', 'getPetCollection', 'getWeeklyChallenges', 'getWeeklyLeaderboard', 'promoteDuplicates', 'startAttempt', 'tapAttempt']);
+    expect(Object.keys(combined).sort()).toEqual(['attestAttemptAssets', 'claimDailyDraw', 'completeAttempt', 'deleteMe', 'getMe', 'getPetCollection', 'getWeeklyChallenges', 'getWeeklyLeaderboard', 'promoteDuplicates', 'readDeletionStatus', 'startAttempt', 'tapAttempt']);
   });
 });

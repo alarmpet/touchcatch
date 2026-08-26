@@ -17,6 +17,22 @@ export class SubjectResolutionError extends Error {
   }
 }
 
+/**
+ * The subject exists but a deletion request has closed it.
+ *
+ * This has to stay distinct from `SubjectResolutionError`, which deliberately flattens every
+ * failure into one opaque code. A closed account is not an outage: the caller needs to be told
+ * the account is gone rather than invited to retry against a database that is working fine.
+ */
+export class AccountClosedError extends Error {
+  readonly code = 'ACCOUNT_CLOSED' as const;
+
+  constructor() {
+    super('ACCOUNT_CLOSED');
+    this.name = 'AccountClosedError';
+  }
+}
+
 export function createSubjectResolver(rpc: SubjectResolutionRpc): SubjectResolver {
   return {
     async ensureAndResolve(authenticatedUserId: string): Promise<string> {
@@ -32,6 +48,13 @@ export function createSubjectResolver(rpc: SubjectResolutionRpc): SubjectResolve
         return subjectKey;
       } catch (error) {
         if (error instanceof SubjectResolutionError) throw error;
+        if (error instanceof AccountClosedError) throw error;
+        // The database raises ACCOUNT_CLOSED from the account gate. Losing it here would turn a
+        // deleted account into a 503 and invite the client to retry forever.
+        const code = error instanceof Error
+          ? ((error as Error & { code?: string }).code ?? error.message)
+          : '';
+        if (code === 'ACCOUNT_CLOSED') throw new AccountClosedError();
         throw new SubjectResolutionError({ cause: error });
       }
     },

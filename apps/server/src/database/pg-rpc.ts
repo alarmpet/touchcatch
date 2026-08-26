@@ -9,7 +9,9 @@ export type MobileRpcName =
   | 'commit_learning_attempt_owned_v1'
   | 'read_weekly_challenges_v1'
   | 'read_learning_attempt_board_v1'
-  | 'record_learning_tap_v1';
+  | 'record_learning_tap_v1'
+  | 'request_account_deletion_v1'
+  | 'read_account_deletion_status_v1';
 
 const statements: Record<MobileRpcName, string> = {
   ensure_mobile_account_v1: 'select private.ensure_mobile_account_v1($1::uuid) response',
@@ -25,6 +27,10 @@ const statements: Record<MobileRpcName, string> = {
   read_weekly_challenges_v1: 'select private.read_weekly_challenges_v1($1::uuid,$2::uuid) response',
   read_learning_attempt_board_v1: 'select private.read_learning_attempt_board_v1($1::uuid,$2::uuid,$3::text,$4::text,$5::text,$6::text) response',
   record_learning_tap_v1: 'select private.record_learning_tap_v1($1::uuid,$2::uuid,$3::text,$4::text,$5::text,$6::text,$7::text,$8::uuid) response',
+  // Deletion takes the receipt *hash*, never the secret: the secret stays on the device, so
+  // neither this statement nor the query log can carry it.
+  request_account_deletion_v1: 'select private.request_account_deletion_v1($1::uuid,$2::text,$3::text,$4::interval) response',
+  read_account_deletion_status_v1: 'select private.read_account_deletion_status_v1($1::text) response',
 };
 
 type QueryResult = Readonly<{ rows: readonly Record<string, unknown>[] }>;
@@ -67,6 +73,10 @@ const publicCodes = new Set([
   'CHALLENGE_PIN_MISMATCH', 'SELECTED_PET_REQUIRED',
   'ATTEMPT_NOT_FOUND', 'ATTEMPT_TERMINAL', 'INVALID_VERIFIED_METRICS',
   'ASSETS_NOT_READY', 'OBJECTIVE_NOT_FOUND',
+  // Deletion outcomes the caller has to be able to act on. Flattening these into
+  // DATABASE_UNAVAILABLE would tell a person whose account is already closed to try again.
+  'ACCOUNT_CLOSED', 'DELETION_ALREADY_IN_PROGRESS', 'DELETION_REQUEST_NOT_FOUND',
+  'RECEIPT_EXPIRED', 'INVALID_REQUEST',
 ]);
 
 export function createPgRpcClient(pool: PgPoolLike): MobileRpcClient {

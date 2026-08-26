@@ -1,5 +1,7 @@
+# Non-public planning artifact. These operations are NOT in the Android closed-beta
+# HTTP runtime. Public contract: packages/contracts/openapi.yaml.
 openapi: 3.1.0
-info: { title: TouchCatch API, version: 1.0.0, license: { name: Proprietary, identifier: LicenseRef-Proprietary } }
+info: { title: TouchCatch API (planned, not implemented), version: 1.0.0-planned, license: { name: Proprietary, identifier: LicenseRef-Proprietary } }
 servers: [{ url: https://api.example.invalid }]
 security: [{ bearerAuth: [] }]
 paths:
@@ -7,20 +9,15 @@ paths:
     get:
       operationId: getMe
       summary: Get the authenticated profile
-      responses: { "200": { $ref: "#/components/responses/MeResponse" }, "401": { $ref: "#/components/responses/MeError" }, "410": { $ref: "#/components/responses/MeError" } }
-    delete:
-      operationId: requestAccountDeletion
-      summary: Request account deletion; blocks access immediately and disposes asynchronously
-      parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
-      requestBody: { $ref: "#/components/requestBodies/AccountDeletionRequest" }
-      responses: { "202": { $ref: "#/components/responses/AccountDeletionAccepted" }, "400": { $ref: "#/components/responses/AccountDeletionError" }, "401": { $ref: "#/components/responses/AccountDeletionError" }, "409": { $ref: "#/components/responses/AccountDeletionError" }, "410": { $ref: "#/components/responses/AccountDeletionError" }, "503": { $ref: "#/components/responses/AccountDeletionError" } }
-  /v1/me/deletion-status:
-    post:
-      operationId: readAccountDeletionStatus
-      summary: Resolve a deletion receipt to its request state
-      parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
-      requestBody: { $ref: "#/components/requestBodies/AccountDeletionRequest" }
-      responses: { "200": { $ref: "#/components/responses/AccountDeletionStatus" }, "400": { $ref: "#/components/responses/AccountDeletionError" }, "404": { $ref: "#/components/responses/AccountDeletionError" }, "410": { $ref: "#/components/responses/AccountDeletionError" }, "503": { $ref: "#/components/responses/AccountDeletionError" } }
+      responses: { "200": { $ref: "#/components/responses/MeResponse" }, "401": { $ref: "#/components/responses/MeError" } }
+  /v1/pets:
+    get:
+      operationId: listPets
+      summary: List owned pets
+      parameters:
+        - { name: cursor, in: query, schema: { type: string, maxLength: 512 } }
+        - { name: limit, in: query, schema: { type: integer, minimum: 1, maximum: 100, default: 20 } }
+      responses: { "200": { $ref: "#/components/responses/PetsResponse" }, "401": { $ref: "#/components/responses/PetsError" } }
   /v1/pets/collection:
     get:
       operationId: getPetCollectionV1
@@ -83,6 +80,77 @@ paths:
       parameters: [{ $ref: "#/components/parameters/Id" }, { $ref: "#/components/parameters/IdempotencyKey" }]
       requestBody: { $ref: "#/components/requestBodies/AttemptCompleteRequest" }
       responses: { "200": { $ref: "#/components/responses/AttemptCompleteResponse" }, "400": { $ref: "#/components/responses/AttemptInvalidError" }, "401": { $ref: "#/components/responses/AttemptUnauthorizedError" }, "404": { $ref: "#/components/responses/AttemptNotFoundError" }, "409": { $ref: "#/components/responses/AttemptConflictError" }, "503": { $ref: "#/components/responses/AttemptUnavailableError" } }
+  /v1/pets/{id}/select:
+    post:
+      operationId: selectPet
+      summary: Select an owned pet
+      parameters: [{ $ref: "#/components/parameters/Id" }, { $ref: "#/components/parameters/IdempotencyKey" }]
+      responses: { "200": { $ref: "#/components/responses/SelectPetResponse" }, "404": { $ref: "#/components/responses/SelectPetNotOwnedError" }, "409": { $ref: "#/components/responses/SelectPetConflictError" } }
+  /v1/pets/{id}/lock:
+    post:
+      operationId: lockPet
+      summary: Change an owned pet lock
+      parameters: [{ $ref: "#/components/parameters/Id" }, { $ref: "#/components/parameters/IdempotencyKey" }]
+      requestBody: { $ref: "#/components/requestBodies/LockPetRequest" }
+      responses: { "200": { $ref: "#/components/responses/LockPetResponse" }, "404": { $ref: "#/components/responses/LockPetNotOwnedError" }, "409": { $ref: "#/components/responses/LockPetConflictError" } }
+  /v1/gacha/draw:
+    post:
+      operationId: drawGacha
+      summary: Draw a pet
+      parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
+      responses: { "200": { $ref: "#/components/responses/GachaDrawResponse" }, "409": { $ref: "#/components/responses/GachaDrawConflictError" } }
+  /v1/fusion:
+    post:
+      operationId: fusePets
+      summary: Fuse exactly five eligible same-rarity copies
+      parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
+      requestBody: { $ref: "#/components/requestBodies/FusionRequest" }
+      responses: { "200": { $ref: "#/components/responses/FusionResponse" }, "400": { $ref: "#/components/responses/FusionInvalidMaterialsError" }, "404": { $ref: "#/components/responses/FusionNotOwnedError" }, "409": { $ref: "#/components/responses/FusionConflictError" } }
+  /v1/matches/queue:
+    post:
+      operationId: createQueueTicket
+      summary: Create a matchmaking ticket
+      parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
+      requestBody: { $ref: "#/components/requestBodies/QueueCreateRequest" }
+      responses: { "202": { $ref: "#/components/responses/QueueTicketResponse" }, "400": { $ref: "#/components/responses/QueueCreateError" }, "409": { $ref: "#/components/responses/QueueCreateError" } }
+  /v1/matches/queue/{ticketId}:
+    get:
+      operationId: getQueueTicket
+      summary: Read a matchmaking ticket
+      parameters: [{ $ref: "#/components/parameters/TicketId" }]
+      responses: { "200": { $ref: "#/components/responses/QueueTicketResponse" }, "401": { $ref: "#/components/responses/QueueGetError" }, "404": { $ref: "#/components/responses/QueueGetError" } }
+    delete:
+      operationId: cancelQueueTicket
+      summary: Cancel a matchmaking ticket
+      parameters: [{ $ref: "#/components/parameters/TicketId" }, { $ref: "#/components/parameters/IdempotencyKey" }]
+      responses: { "200": { $ref: "#/components/responses/QueueCancelResponse" }, "404": { $ref: "#/components/responses/QueueCancelError" }, "409": { $ref: "#/components/responses/QueueCancelError" } }
+  /v1/matches/friend-room:
+    post:
+      operationId: createFriendRoom
+      summary: Create a friend room
+      parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }]
+      requestBody: { $ref: "#/components/requestBodies/FriendRoomCreateRequest" }
+      responses: { "201": { $ref: "#/components/responses/FriendRoomResponse" }, "400": { $ref: "#/components/responses/FriendRoomCreateError" }, "409": { $ref: "#/components/responses/FriendRoomCreateError" } }
+  /v1/matches/friend-room/{roomCode}/join:
+    post:
+      operationId: joinFriendRoom
+      summary: Join a friend room
+      parameters: [{ $ref: "#/components/parameters/RoomCode" }, { $ref: "#/components/parameters/IdempotencyKey" }]
+      requestBody: { $ref: "#/components/requestBodies/FriendRoomJoinRequest" }
+      responses: { "200": { $ref: "#/components/responses/FriendRoomResponse" }, "400": { $ref: "#/components/responses/FriendRoomJoinError" }, "404": { $ref: "#/components/responses/FriendRoomJoinError" }, "409": { $ref: "#/components/responses/FriendRoomJoinError" } }
+  /v1/matches/friend-room/{roomCode}/members/me:
+    delete:
+      operationId: leaveFriendRoom
+      summary: Leave a friend room
+      parameters: [{ $ref: "#/components/parameters/RoomCode" }, { $ref: "#/components/parameters/IdempotencyKey" }]
+      responses: { "200": { $ref: "#/components/responses/FriendRoomLeaveResponse" }, "404": { $ref: "#/components/responses/FriendRoomLeaveError" }, "409": { $ref: "#/components/responses/FriendRoomLeaveError" } }
+  /v1/pet-showcases/{nickname}:
+    get:
+      operationId: getPetShowcaseV1
+      summary: Get a public-safe pet showcase
+      security: []
+      parameters: [{ $ref: "#/components/parameters/Nickname" }]
+      responses: { "200": { $ref: "#/components/responses/PetShowcaseResponse" }, "404": { $ref: "#/components/responses/PetShowcaseNotFoundError" } }
 components:
   securitySchemes: { bearerAuth: { type: http, scheme: bearer, bearerFormat: JWT } }
   parameters:
@@ -95,7 +163,6 @@ components:
     LockPetRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/LockPetRequest" } } } }
     FusionRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/FusionRequest" } } } }
     DuplicatePromotionRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/DuplicatePromotionRequest" } } } }
-    AccountDeletionRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/AccountDeletionRequest" } } } }
     AttemptStartRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/AttemptStartRequest" } } } }
     AttemptAssetsReadyRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/AttemptAssetsReadyRequest" } } } }
     AttemptCompleteRequest: { required: true, content: { application/json: { schema: { $ref: "#/components/schemas/AttemptCompleteRequest" } } } }
@@ -111,10 +178,6 @@ components:
     FriendRoomCreateRequest: { type: object, additionalProperties: false, maxProperties: 0 }
     FriendRoomJoinRequest: { type: object, additionalProperties: false, maxProperties: 0 }
     MeResponse: { type: object, additionalProperties: false, required: [profile, points], properties: { profile: { type: object, additionalProperties: false, required: [displayName], properties: { displayName: { type: string } } }, points: { type: integer, minimum: 0 } } }
-    AccountDeletionRequest: { type: object, additionalProperties: false, required: [receiptSecret], properties: { receiptSecret: { type: string, pattern: "^[0-9a-f]{64}$", description: "256-bit secret generated and stored on the device before the request. Never returned by the server." } } }
-    AccountDeletionAccepted: { type: object, additionalProperties: false, required: [requestId, state], properties: { requestId: { type: string, format: uuid }, state: { const: ACCESS_BLOCKED } } }
-    AccountDeletionStatus: { type: object, additionalProperties: false, required: [requestId, state, retryable, stages, updatedAt, receiptExpiresAt], properties: { requestId: { type: string, format: uuid }, state: { enum: [ACCESS_BLOCKED, APP_DATA_DISPOSED, PROVIDERS_REVOKED, AUTH_DELETED, COMPLETED, FAILED_RETRYABLE, FAILED_PERMANENT, MANUAL_REVIEW, BLOCKED_LEGAL_HOLD] }, retryable: { type: boolean }, stages: { type: array, items: { type: object, additionalProperties: false, required: [name, outcome], properties: { name: { enum: [APP_DATA, PROVIDERS, AUTH, NOTIFICATION] }, outcome: { enum: [PENDING, COMPLETED, NOT_APPLICABLE, FAILED_RETRYABLE, FAILED_PERMANENT] } } } }, updatedAt: { type: string }, receiptExpiresAt: { type: string } } }
-    AccountDeletionError: { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [INVALID_REQUEST, UNAUTHORIZED, AUTH_SUBJECT_REQUIRED, ACCOUNT_CLOSED, DELETION_ALREADY_IN_PROGRESS, IDEMPOTENCY_CONFLICT, DELETION_REQUEST_NOT_FOUND, RECEIPT_EXPIRED, DELETION_UNAVAILABLE] } } }
     PetsResponse: { type: object, additionalProperties: false, required: [items, nextCursor], properties: { items: { type: array, items: { $ref: "#/components/schemas/Pet" } }, nextCursor: { type: [string, "null"], maxLength: 512 } } }
     Pet: { type: object, additionalProperties: false, required: [id, catalogId, level, exp, copies, selected, locked], properties: { id: { type: string }, catalogId: { type: string }, level: { type: integer, minimum: 1 }, exp: { type: integer, minimum: 0 }, copies: { type: integer, minimum: 1 }, selected: { type: boolean }, locked: { type: boolean } } }
     SelectPetResponse: { type: object, additionalProperties: false, required: [petId, selected], properties: { petId: { type: string, format: uuid }, selected: { const: true } } }
@@ -134,7 +197,7 @@ components:
     QueueCancelResponse: { type: object, additionalProperties: false, required: [cancelled], properties: { cancelled: { const: true } } }
     FriendRoomResponse: { type: object, additionalProperties: false, required: [roomCode, memberCount], properties: { roomCode: { type: string }, memberCount: { type: integer, minimum: 1, maximum: 2 } } }
     FriendRoomLeaveResponse: { type: object, additionalProperties: false, required: [left], properties: { left: { const: true } } }
-    MeError: &unauthorized { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [UNAUTHORIZED, ACCOUNT_CLOSED] } } }
+    MeError: &unauthorized { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [UNAUTHORIZED] } } }
     PetsError: *unauthorized
     SelectPetNotOwnedError: &notOwnedError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [NOT_OWNED] } } }
     SelectPetConflictError: &idempotencyError { type: object, additionalProperties: false, required: [code], properties: { code: { type: string, enum: [IDEMPOTENCY_CONFLICT] } } }
@@ -199,9 +262,6 @@ components:
     FriendRoomResponse: { description: Friend room, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomResponse" } } } }
     FriendRoomLeaveResponse: { description: Friend-room departure, content: { application/json: { schema: { $ref: "#/components/schemas/FriendRoomLeaveResponse" } } } }
     MeError: &meError { description: Unauthorized, content: { application/json: { schema: { $ref: "#/components/schemas/MeError" } } } }
-    AccountDeletionAccepted: { description: Deletion request accepted and access blocked, content: { application/json: { schema: { $ref: "#/components/schemas/AccountDeletionAccepted" } } } }
-    AccountDeletionStatus: { description: Deletion request state, content: { application/json: { schema: { $ref: "#/components/schemas/AccountDeletionStatus" } } } }
-    AccountDeletionError: { description: Deletion request rejected, content: { application/json: { schema: { $ref: "#/components/schemas/AccountDeletionError" } } } }
     PetsError: { description: Unauthorized, content: { application/json: { schema: { $ref: "#/components/schemas/PetsError" } } } }
     SelectPetNotOwnedError: { description: Pet is not owned, content: { application/json: { schema: { $ref: "#/components/schemas/SelectPetNotOwnedError" } } } }
     SelectPetConflictError: { description: Idempotency conflict, content: { application/json: { schema: { $ref: "#/components/schemas/SelectPetConflictError" } } } }

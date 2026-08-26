@@ -2,7 +2,7 @@ import type { MobileApiHandlers } from './pet-handlers.js';
 import { jsonResponse } from './errors.js';
 
 type Route = Readonly<{
-  method: 'GET' | 'POST';
+  method: 'GET' | 'POST' | 'DELETE';
   handle(request: Request, attemptId: string): Promise<Response>;
   requiresJson?: boolean;
   maxBodyBytes?: number;
@@ -17,11 +17,33 @@ const attemptSubPath = /^\/v1\/learning\/attempts\/([0-9a-fA-F-]{36})\/(assets-r
 /** A completed attempt ships its whole command log, so it needs more room than a claim. */
 const ATTEMPT_COMPLETE_MAX_BODY_BYTES = 64 * 1024;
 
+export type ReadinessReport = Readonly<{
+  status: 'ready' | 'not_ready';
+  code?: 'DATABASE_UNAVAILABLE' | 'ATTEMPTS_POLICY_DISABLED' | 'DEPENDENCY_UNAVAILABLE';
+}>;
+
 export type MobileApiRouterOptions = Readonly<{
   handlers: MobileApiHandlers;
   allowedOrigins?: readonly string[];
   maxRequestBodyBytes?: number;
+  probeReadiness?: () => Promise<ReadinessReport>;
 }>;
+
+/** Public HTTP operations implemented by the Fetch router. `/healthz` and `/ready` are intentionally unlisted probes. */
+export const PUBLIC_MOBILE_API_OPERATIONS = [
+  { method: 'GET', path: '/v1/me' },
+  { method: 'DELETE', path: '/v1/me' },
+  { method: 'POST', path: '/v1/me/deletion-status' },
+  { method: 'GET', path: '/v1/pets/collection' },
+  { method: 'GET', path: '/v1/learning/leaderboard' },
+  { method: 'POST', path: '/v1/pets/daily-draw' },
+  { method: 'POST', path: '/v1/pets/duplicate-promotion' },
+  { method: 'GET', path: '/v1/learning/challenges' },
+  { method: 'POST', path: '/v1/learning/attempts' },
+  { method: 'POST', path: '/v1/learning/attempts/{id}/assets-ready' },
+  { method: 'POST', path: '/v1/learning/attempts/{id}/tap' },
+  { method: 'POST', path: '/v1/learning/attempts/{id}/complete' },
+] as const;
 
 function isLoopbackOrigin(origin: string): boolean {
   try {
@@ -100,19 +122,24 @@ export function createMobileApiRouter(options: MobileApiRouterOptions): (request
     throw new TypeError('maxRequestBodyBytes must be a non-negative safe integer');
   }
   const allowedOrigins = new Set(options.allowedOrigins ?? []);
-  const routes = new Map<string, Route>([
-    ['/v1/me', { method: 'GET', handle: options.handlers.getMe }],
-    ['/v1/pets/collection', { method: 'GET', handle: options.handlers.getPetCollection }],
-    ['/v1/learning/leaderboard', { method: 'GET', handle: options.handlers.getWeeklyLeaderboard }],
-    ['/v1/pets/daily-draw', { method: 'POST', handle: options.handlers.claimDailyDraw }],
-    ['/v1/pets/duplicate-promotion', { method: 'POST', handle: options.handlers.promoteDuplicates, requiresJson: true }],
-    ['/v1/learning/challenges', { method: 'GET', handle: options.handlers.getWeeklyChallenges }],
-    ['/v1/learning/attempts', { method: 'POST', handle: options.handlers.startAttempt, requiresJson: true }],
+  const routes = new Map<string, Route[]>([
+    ['/v1/me', [
+      { method: 'GET', handle: options.handlers.getMe },
+      { method: 'DELETE', handle: options.handlers.deleteMe, requiresJson: true },
+    ]],
+    ['/v1/me/deletion-status', [{ method: 'POST', handle: options.handlers.readDeletionStatus, requiresJson: true }]],
+    ['/v1/pets/collection', [{ method: 'GET', handle: options.handlers.getPetCollection }]],
+    ['/v1/learning/leaderboard', [{ method: 'GET', handle: options.handlers.getWeeklyLeaderboard }]],
+    ['/v1/pets/daily-draw', [{ method: 'POST', handle: options.handlers.claimDailyDraw }]],
+    ['/v1/pets/duplicate-promotion', [{ method: 'POST', handle: options.handlers.promoteDuplicates, requiresJson: true }]],
+    ['/v1/learning/challenges', [{ method: 'GET', handle: options.handlers.getWeeklyChallenges }]],
+    ['/v1/learning/attempts', [{ method: 'POST', handle: options.handlers.startAttempt, requiresJson: true }]],
   ]);
   const attemptSubRoutes: Readonly<Record<string, Route>> = {
     'assets-ready': { method: 'POST', handle: options.handlers.attestAttemptAssets, requiresJson: true },
-    // A tap carries four numbers and no idempotency key: it is an append to a log, and two
-    // taps at the same point are two real events, not a retry of one.
+    // Tap requires Idempotency-Key. Two physical taps at the same point are two events
+    // and must use two keys; a retried transport uses the same key so the server does
+    // not charge a second miss.
     tap: { method: 'POST', handle: options.handlers.tapAttempt, requiresJson: true },
     complete: {
       method: 'POST',
@@ -122,30 +149,47 @@ export function createMobileApiRouter(options: MobileApiRouterOptions): (request
     },
   };
 
-  function resolve(pathname: string): Readonly<{ route: Route; attemptId: string }> | undefined {
+  function resolve(pathname: string, method: string): Readonly<{ route?: Route; allowedMethods: string[]; attemptId: string }> | undefined {
     const exact = routes.get(pathname);
-    if (exact !== undefined) return { route: exact, attemptId: '' };
+    if (exact !== undefined) {
+      const allowedMethods = exact.map((r) => r.method);
+      const route = exact.find((r) => r.method === method);
+      return { ...(route === undefined ? {} : { route }), allowedMethods, attemptId: '' };
+    }
     const match = attemptSubPath.exec(pathname);
     if (match === null) return undefined;
-    const route = attemptSubRoutes[match[2]!];
-    if (route === undefined) return undefined;
-    return { route, attemptId: match[1]! };
+    const subRoute = attemptSubRoutes[match[2]!];
+    if (subRoute === undefined) return undefined;
+    return {
+      ...(subRoute.method === method ? { route: subRoute } : {}),
+      allowedMethods: [subRoute.method],
+      attemptId: match[1]!,
+    };
   }
 
   return async (request) => {
     const url = new URL(request.url);
-    if (url.pathname === '/healthz') {
+    if (url.pathname === '/healthz' || url.pathname === '/ready') {
       if (request.method !== 'GET') {
         const response = jsonResponse(405, { code: 'METHOD_NOT_ALLOWED' });
         response.headers.set('allow', 'GET');
         return response;
       }
-      return jsonResponse(200, { status: 'ok' });
+      if (url.pathname === '/healthz') return jsonResponse(200, { status: 'ok' });
+      try {
+        const report = options.probeReadiness === undefined
+          ? { status: 'not_ready' as const, code: 'DEPENDENCY_UNAVAILABLE' as const }
+          : await options.probeReadiness();
+        if (report.status === 'ready') return jsonResponse(200, { status: 'ready' });
+        return jsonResponse(503, { status: 'not_ready', code: report.code ?? 'DEPENDENCY_UNAVAILABLE' });
+      } catch {
+        return jsonResponse(503, { status: 'not_ready', code: 'DEPENDENCY_UNAVAILABLE' });
+      }
     }
 
-    const matched = resolve(url.pathname);
+    const matched = resolve(url.pathname, request.method);
     if (matched === undefined) return jsonResponse(404, { code: 'NOT_FOUND' });
-    const { route, attemptId } = matched;
+    const { route, allowedMethods, attemptId } = matched;
     const origin = request.headers.get('origin');
     if (origin !== null && !isLoopbackOrigin(origin) && !allowedOrigins.has(origin)) {
       return jsonResponse(403, { code: 'ORIGIN_NOT_ALLOWED' });
@@ -155,18 +199,18 @@ export function createMobileApiRouter(options: MobileApiRouterOptions): (request
       const requestedHeaders = (request.headers.get('access-control-request-headers') ?? '')
         .split(',').map((header) => header.trim().toLowerCase()).filter(Boolean);
       const supportedHeaders = new Set(['authorization', 'content-type', 'idempotency-key']);
-      if (requestedMethod !== route.method || requestedHeaders.some((header) => !supportedHeaders.has(header))) {
+      if (!allowedMethods.includes(requestedMethod ?? '') || requestedHeaders.some((header) => !supportedHeaders.has(header))) {
         return corsResponse(jsonResponse(403, { code: 'CORS_PREFLIGHT_REJECTED' }), origin);
       }
       const response = new Response(null, { status: 204 });
-      response.headers.set('access-control-allow-methods', route.method);
+      response.headers.set('access-control-allow-methods', allowedMethods.join(', '));
       response.headers.set('access-control-allow-headers', requestedHeaders.join(', '));
       response.headers.set('access-control-max-age', '600');
       return corsResponse(response, origin);
     }
-    if (request.method !== route.method) {
+    if (route === undefined) {
       const response = jsonResponse(405, { code: 'METHOD_NOT_ALLOWED' });
-      response.headers.set('allow', route.method);
+      response.headers.set('allow', allowedMethods.join(', '));
       return corsResponse(response, origin);
     }
     if (route.requiresJson === true && !hasJsonMediaType(request)) {

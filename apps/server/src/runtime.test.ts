@@ -17,12 +17,9 @@ describe('mobile API runtime configuration', () => {
     expect(config.host).toBe('127.0.0.1');
     expect(config.port).toBe(8787);
     expect(config.allowedOrigins).toEqual([]);
-    expect(config.policy).toEqual({
-      rewards: { enabled: false, code: 'PET_ART_NOT_APPROVED' },
-      ranking: { enabled: false, code: 'RANKING_POLICY_NOT_APPROVED' },
-      // Ranked attempts inherit the ranking gate, so a closed season closes them too.
-      attempts: { enabled: false, code: 'RANKING_POLICY_NOT_APPROVED' },
-    });
+    expect(config.policy.rewards).toEqual({ enabled: false, code: 'PET_ART_NOT_APPROVED' });
+    expect(config.policy.ranking).toEqual({ enabled: false, code: 'RANKING_POLICY_NOT_APPROVED' });
+    expect(config.policy.attempts.enabled).toBe(true);
   });
 
   it('starts fail-closed when the optional art manifest is missing or malformed', () => {
@@ -61,6 +58,36 @@ describe('mobile API runtime configuration', () => {
       env: { ...base.env, MOBILE_API_HOST: '0.0.0.0', MOBILE_API_PORT: '9000', MOBILE_API_ALLOWED_ORIGINS: 'https://app.example,http://localhost:8081' },
     });
     expect(allowed).toMatchObject({ host: '0.0.0.0', port: 9000, allowedOrigins: ['https://app.example', 'http://localhost:8081'] });
+  });
+
+  it('fails closed in production for loopback bind, empty origins, and disagreeing ports', () => {
+    const production = {
+      root: resolve('.'),
+      environment: 'production' as const,
+      env: {
+        NODE_ENV: 'production',
+        SUPABASE_URL: 'https://project.supabase.co',
+        DATABASE_URL: 'postgresql://runtime:secret@db.example.test:5432/postgres',
+      },
+    };
+    expect(() => loadRuntimeConfiguration(production)).toThrow('MOBILE_API_HOST is required in production');
+    expect(() => loadRuntimeConfiguration({
+      ...production,
+      env: { ...production.env, MOBILE_API_HOST: '127.0.0.1', MOBILE_API_ALLOWED_ORIGINS: 'https://app.example' },
+    })).toThrow(/loopback/i);
+    expect(() => loadRuntimeConfiguration({
+      ...production,
+      env: { ...production.env, MOBILE_API_HOST: '0.0.0.0' },
+    })).toThrow('MOBILE_API_ALLOWED_ORIGINS is required in production');
+    expect(() => loadRuntimeConfiguration({
+      root: resolve('.'),
+      env: {
+        SUPABASE_URL: 'https://project.supabase.co',
+        DATABASE_URL: 'postgresql://runtime:secret@127.0.0.1:54322/postgres',
+        PORT: '80',
+        MOBILE_API_PORT: '8787',
+      },
+    })).toThrow(/disagree/i);
   });
 
   it('serves current policy-disabled routes without opening a database connection', async () => {
@@ -141,5 +168,32 @@ describe('mobile API runtime configuration', () => {
     await expect(server.close()).resolves.toBeUndefined();
     expect(end).toHaveBeenCalledOnce();
     expect(destroy).toHaveBeenCalledOnce();
+  });
+
+  it('answers healthz without the database while /ready reports a safe code', async () => {
+    const loaded = loadRuntimeConfiguration({
+      root: resolve('.'),
+      env: {
+        SUPABASE_URL: 'https://project.supabase.co',
+        DATABASE_URL: 'postgresql://runtime:secret@127.0.0.1:54322/postgres',
+      },
+    });
+    const connect = vi.fn(async () => { throw new Error('connection refused'); });
+    const server = await startMobileApiRuntime({
+      configuration: { ...loaded, port: 0 },
+      verifier: { verify: async () => ({ authenticatedUserId: '10000000-0000-4000-8000-000000000001' }) },
+      pool: { connect, end: vi.fn(async () => undefined), destroy: vi.fn() },
+    });
+    try {
+      const health = await fetch(`${server.origin}/healthz`);
+      expect(health.status).toBe(200);
+      expect(await health.json()).toEqual({ status: 'ok' });
+      const ready = await fetch(`${server.origin}/ready`);
+      expect(ready.status).toBe(503);
+      expect(await ready.json()).toEqual({ status: 'not_ready', code: 'DATABASE_UNAVAILABLE' });
+      expect(connect).toHaveBeenCalledOnce();
+    } finally {
+      await server.close();
+    }
   });
 });
