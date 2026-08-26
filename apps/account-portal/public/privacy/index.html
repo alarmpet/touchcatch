@@ -58,8 +58,8 @@
     <h2>5. 보유 기간과 파기</h2>
     <ul>
     <li>계정 정보와 학습 기록은 <strong>계정이 유지되는 동안</strong> 보관합니다.</li>
-    <li>계정 삭제를 요청하면 <mark class="unresolved">[미정: retention.accountDataAfterDeletionRequest]</mark> 안에 파기합니다.</li>
-    <li>삭제 요청 자체의 기록(요청 시각, 처리 단계, 완료 여부)은 <mark class="unresolved">[미정: retention.deletionReceiptMetadata]</mark> 동안 남습니다. 삭제가 실제로 처리됐다는 증거이며, 여기에는 이메일·닉네임·로그인 제공자 정보가 들어가지 않습니다.</li>
+    <li>계정 삭제를 요청하면 30일 안에 파기합니다.</li>
+    <li>삭제 요청 자체의 기록(요청 시각, 처리 단계, 완료 여부)은 30일 동안 남습니다. 삭제가 실제로 처리됐다는 증거이며, 여기에는 이메일·닉네임·로그인 제공자 정보가 들어가지 않습니다.</li>
     <li>백업본은 <mark class="unresolved">[미정: retention.backupPurgeWindow]</mark> 안에 함께 파기됩니다.</li>
     </ul>
     <h2>6. 계정 삭제</h2>
@@ -75,7 +75,7 @@
     <p>계정을 삭제해도 같은 이메일로 다시 가입할 수 있습니다. 새 계정이며 이전 기록은 복구되지 않습니다.</p>
     <h2>7. 이용자의 권리</h2>
     <p>열람, 정정, 삭제, 처리정지를 요청할 수 있습니다. 방법은 <a href="<mark class="unresolved">[미정: urls.origin]</mark>"><mark class="unresolved">[미정: urls.origin]</mark></a> 에 있습니다. 요청은 3영업일 안에 답변합니다.</p>
-    <p>만 14세 미만 아동 관련: <mark class="unresolved">[미정: audience.childDirected]</mark></p>
+    <p>만 14세 미만 아동 관련: false</p>
     <h2>8. 안전조치</h2>
     <ul>
     <li>모든 통신은 HTTPS/TLS로 암호화합니다. 릴리스 빌드는 평문 HTTP 통신을 금지합니다 (<code>usesCleartextTraffic=false</code>).</li>

@@ -18,15 +18,15 @@
     "responseTargetBusinessDays": 3
   },
   "audience": {
-    "childDirected": "UNRESOLVED",
-    "childDirectedRationale": "Play's Families policy and Korea's 만 14세 미만 rules both hinge on this answer and it changes the sign-up flow, the Data safety form and the target-audience declaration. It is a human decision.",
-    "minimumAge": "UNRESOLVED"
+    "childDirected": false,
+    "childDirectedRationale": "Not child-directed; minimum age 14. Derived from repository evidence and cited law, not from preference. (1) Content is general-knowledge study material -- English vocabulary, Korean proverbs, four-character idioms, world landmarks -- not preschool material. (2) The app ships no ad SDK and no telemetry SDK (tests/contracts/data-safety-claims.test.ts fails if one is added without updating the Data safety declaration), so the Families ad restrictions are not what drives the answer. (3) 개인정보 보호법 제22조의2 requires 법정대리인 동의 before processing a under-14 personal data, and this codebase has no guardian-consent flow anywhere -- sign-up is Google/Kakao OAuth or email+password with no age gate. Declaring under-14 would make the app non-compliant on the day it ships. 14 is the statutory threshold, and it also satisfies Play target-audience declaration. RISK TO REVIEW: the pet-collection art is deliberately cute, and Play assesses declared audience against imagery and terminology, so the store assessment may still push toward a mixed-audience classification. If that happens the answer changes and a neutral age screen becomes required.",
+    "minimumAge": 14
   },
   "retention": {
-    "accountDataAfterDeletionRequest": "UNRESOLVED",
-    "deletionReceiptMetadata": "UNRESOLVED",
+    "accountDataAfterDeletionRequest": "30일",
+    "deletionReceiptMetadata": "30일",
     "backupPurgeWindow": "UNRESOLVED",
-    "rationale": "Retention windows are a legal decision bound to the backup and PITR configuration that does not exist yet. See docs/release-evidence-blockers.md."
+    "rationale": "deletionReceiptMetadata is not a choice: RECEIPT_TTL_DAYS = 30 in apps/server/src/privacy/account-deletion-store.ts is passed to request_account_deletion_v1 as the receipt TTL, so 30일 is what the system already does. accountDataAfterDeletionRequest is a published ceiling rather than a measured constant -- the migrations encode no grace period and no scheduled delay, access blocks on receipt and the worker advances one stage per tick, so disposal is far faster than 30 days and the promise is one the code can keep. backupPurgeWindow stays UNRESOLVED because it is bound to the production Supabase backup and PITR configuration, and no cloud project exists yet. See docs/release-evidence-blockers.md."
   },
   "urls": {
     "origin": "UNRESOLVED",
@@ -40,14 +40,21 @@
     {
       "name": "Supabase",
       "role": "Authentication and application database",
-      "dataCategories": ["email", "provider account identifier", "learning records"],
+      "dataCategories": [
+        "email",
+        "provider account identifier",
+        "learning records"
+      ],
       "regionStatus": "UNRESOLVED",
       "regionRationale": "The production project does not exist yet, so its region is undecided. Cross-border transfer disclosure depends on it."
     },
     {
       "name": "Google LLC",
       "role": "Google 계정 로그인 (OAuth)",
-      "dataCategories": ["email", "Google account identifier"],
+      "dataCategories": [
+        "email",
+        "Google account identifier"
+      ],
       "regionStatus": "US",
       "regionRationale": "Only when the user chooses Google sign-in."
     }
