@@ -35,3 +35,13 @@ apps/admin/.next-build-active.json
 # the repo root. No log file is tracked here, so the blanket pattern is safe.
 *.log
 
+# Android signing material. The upload key is the one secret that cannot be rotated after the
+# app ships — Play App Signing accepts uploads signed by it and nothing else — so it never
+# enters this repository, not even in a branch that is "not going to be pushed".
+# `apps/mobile/android/app/debug.keystore` is tracked on purpose and stays exempt: it signs
+# debug builds only, and the release build refuses to fall back to it.
+*.jks
+*.keystore
+*.p12
+*.pem
+!apps/mobile/android/app/debug.keystore

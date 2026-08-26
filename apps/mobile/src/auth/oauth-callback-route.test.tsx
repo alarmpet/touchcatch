@@ -29,17 +29,17 @@ describe('OAuth callback route', () => {
   beforeEach(() => { vi.clearAllMocks(); searchParams.mockReturnValue({}); });
 
   it('completes the initial deep link through the runtime coordinator', async () => {
-    getInitialURL.mockResolvedValue('spotlearn://auth/callback?code=one-time');
+    getInitialURL.mockResolvedValue('touchcatch://auth/callback?code=one-time');
     completeOAuth.mockResolvedValue({ state: 'READY' });
     const CallbackRoute = (await import('../../app/auth/callback')).default;
     let tree!: ReturnType<typeof create>;
     await act(async () => { tree = create(<CallbackRoute />); });
-    expect(completeOAuth).toHaveBeenCalledWith('spotlearn://auth/callback?code=one-time');
+    expect(completeOAuth).toHaveBeenCalledWith('touchcatch://auth/callback?code=one-time');
     expect(tree.root.findByProps({ accessibilityLabel: 'OAuth 로그인 상태' }).props.children).toBe('로그인이 완료됐어요.');
   });
 
   it('shows a generic failure without rendering callback details', async () => {
-    getInitialURL.mockResolvedValue('spotlearn://auth/callback?error=sensitive-provider-detail');
+    getInitialURL.mockResolvedValue('touchcatch://auth/callback?error=sensitive-provider-detail');
     completeOAuth.mockRejectedValue(new Error('private callback detail'));
     const CallbackRoute = (await import('../../app/auth/callback')).default;
     let tree!: ReturnType<typeof create>;
@@ -59,7 +59,7 @@ describe('OAuth callback route', () => {
     const CallbackRoute = (await import('../../app/auth/callback')).default;
     let tree!: ReturnType<typeof create>;
     await act(async () => { tree = create(<CallbackRoute />); });
-    expect(completeOAuth).toHaveBeenCalledWith('spotlearn://auth/callback?code=warm-start-code');
+    expect(completeOAuth).toHaveBeenCalledWith('touchcatch://auth/callback?code=warm-start-code');
     expect(tree.root.findByProps({ accessibilityLabel: 'OAuth 로그인 상태' }).props.children).toBe('로그인이 완료됐어요.');
   });
 
@@ -75,18 +75,18 @@ describe('OAuth callback route', () => {
   });
 
   it('prefers a real launch URL over the reconstructed one', async () => {
-    getInitialURL.mockResolvedValue('spotlearn://auth/callback?code=cold');
+    getInitialURL.mockResolvedValue('touchcatch://auth/callback?code=cold');
     searchParams.mockReturnValue({ code: 'warm' });
     completeOAuth.mockResolvedValue({ state: 'READY' });
     const CallbackRoute = (await import('../../app/auth/callback')).default;
     await act(async () => { create(<CallbackRoute />); });
-    expect(completeOAuth).toHaveBeenCalledWith('spotlearn://auth/callback?code=cold');
+    expect(completeOAuth).toHaveBeenCalledWith('touchcatch://auth/callback?code=cold');
   });
 
   it('hands a completed sign-in back to the profile instead of parking on the callback', async () => {
     // The screen renders without the tab bar, so staying here strands the user on a success
     // card they can only leave with the hardware back button.
-    getInitialURL.mockResolvedValue('spotlearn://auth/callback?code=one-time');
+    getInitialURL.mockResolvedValue('touchcatch://auth/callback?code=one-time');
     completeOAuth.mockResolvedValue({ state: 'READY' });
     const CallbackRoute = (await import('../../app/auth/callback')).default;
     await act(async () => { create(<CallbackRoute />); });
@@ -98,7 +98,7 @@ describe('OAuth callback route', () => {
     ['account setup failed', { state: 'ACCOUNT_SETUP_FAILED' as const }, undefined],
     ['completion threw', undefined, new Error('private callback detail')],
   ])('stays put so the user can read the message when %s', async (_case, resolved, thrown) => {
-    getInitialURL.mockResolvedValue('spotlearn://auth/callback?code=one-time');
+    getInitialURL.mockResolvedValue('touchcatch://auth/callback?code=one-time');
     if (thrown) completeOAuth.mockRejectedValue(thrown); else completeOAuth.mockResolvedValue(resolved);
     const CallbackRoute = (await import('../../app/auth/callback')).default;
     await act(async () => { create(<CallbackRoute />); });

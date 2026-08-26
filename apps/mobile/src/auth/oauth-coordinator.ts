@@ -23,13 +23,14 @@ type PendingTransaction = Readonly<{
   previousSessionId?: string | null;
 }>;
 
-const callbackUrl = 'spotlearn://auth/callback';
-const pendingKey = 'touchcatch.auth.pkce.pending';
+const callbackUrl = 'touchcatch://auth/callback';
+/** Also swept by the deletion purge — a half-finished PKCE exchange would outlive the account. */
+export const pendingKey = 'touchcatch.auth.pkce.pending';
 
 function callbackCode(raw: string): string {
   let url: URL;
   try { url = new URL(raw); } catch { throw new Error('OAUTH_CALLBACK_INVALID'); }
-  if (url.protocol !== 'spotlearn:' || url.hostname !== 'auth' || url.pathname !== '/callback') {
+  if (url.protocol !== 'touchcatch:' || url.hostname !== 'auth' || url.pathname !== '/callback') {
     throw new Error('OAUTH_CALLBACK_INVALID');
   }
   if (url.username !== '' || url.password !== '' || url.port !== '') throw new Error('OAUTH_CALLBACK_INVALID');

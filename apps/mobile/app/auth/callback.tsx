@@ -10,7 +10,7 @@ const setupFailed = '로그인은 완료됐지만 계정을 준비하지 못했�
 const failed = '로그인을 완료하지 못했어요. 다시 시도해 주세요.';
 
 /** Must match the coordinator's constant; it rejects anything that is not exactly this shape. */
-const callbackUrl = 'spotlearn://auth/callback';
+const callbackUrl = 'touchcatch://auth/callback';
 
 /**
  * Rebuilds the callback URL from the router's own parsed parameters.

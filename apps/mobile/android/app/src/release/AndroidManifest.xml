@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- expo.modules.filesystem declares both storage permissions, and react-android declares
+         the overlay permission for the dev redbox. The shipped app stores everything in its
+         own scoped directory and has no dev overlay, so a release build that still asked for
+         these would be requesting access it never uses - which is what the Play Data safety
+         declaration has to answer for. Debug keeps the overlay via src/debug. -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" tools:node="remove"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="remove"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" tools:node="remove"/>
+</manifest>

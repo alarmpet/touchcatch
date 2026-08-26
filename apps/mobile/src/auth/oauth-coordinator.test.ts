@@ -19,25 +19,25 @@ describe('Google and Kakao PKCE coordinator', () => {
         signInWithOAuth: async (input) => ({ data: { url: `https://local.supabase.test/authorize?provider=${input.provider}` }, error: null }),
         exchangeCodeForSession: async (code) => { exchanged.push(code); return { error: null }; },
       },
-      browser: { openAuthSessionAsync: async () => ({ type: 'success', url: 'spotlearn://auth/callback?code=one-time-code' }) },
+      browser: { openAuthSessionAsync: async () => ({ type: 'success', url: 'touchcatch://auth/callback?code=one-time-code' }) },
       storage: memoryStorage(),
       ensureAccount: async () => undefined,
     });
 
     await expect(coordinator.startOAuth(provider)).resolves.toEqual({ state: 'READY' });
-    await expect(coordinator.completeOAuth('spotlearn://auth/callback?code=one-time-code')).resolves.toEqual({ state: 'READY' });
+    await expect(coordinator.completeOAuth('touchcatch://auth/callback?code=one-time-code')).resolves.toEqual({ state: 'READY' });
     expect(exchanged).toEqual(['one-time-code']);
   });
 
   it.each([
-    'spotlearn://auth/callback#access_token=forbidden',
+    'touchcatch://auth/callback#access_token=forbidden',
     'https://attacker.example/auth/callback?code=x',
-    'spotlearn://auth/wrong?code=x',
-    'spotlearn://user:password@auth/callback?code=x',
-    'spotlearn://auth:123/callback?code=x',
+    'touchcatch://auth/wrong?code=x',
+    'touchcatch://user:password@auth/callback?code=x',
+    'touchcatch://auth:123/callback?code=x',
     'SPOTLEARN://auth/callback?code=x',
-    'spotlearn://auth/callback?error=access_denied',
-    'spotlearn://auth/callback?code=x&state=unexpected',
+    'touchcatch://auth/callback?error=access_denied',
+    'touchcatch://auth/callback?code=x&state=unexpected',
   ])('rejects malformed callback %s without exchanging it', async (url) => {
     const exchangeCodeForSession = vi.fn();
     const storage = memoryStorage();
@@ -61,7 +61,7 @@ describe('Google and Kakao PKCE coordinator', () => {
       auth: { exchangeCodeForSession, getSessionIdentity: async () => null },
       browser: {}, storage, ensureAccount: async () => undefined,
     });
-    const callback = 'spotlearn://auth/callback?code=once';
+    const callback = 'touchcatch://auth/callback?code=once';
     const completions = [coordinator.completeOAuth(callback), coordinator.completeOAuth(callback)];
     release();
     await expect(Promise.all(completions)).resolves.toEqual([{ state: 'READY' }, { state: 'READY' }]);
@@ -81,8 +81,8 @@ describe('Google and Kakao PKCE coordinator', () => {
       browser: {}, storage, ensureAccount: async () => undefined,
     });
 
-    const legitimate = coordinator.completeOAuth('spotlearn://auth/callback?code=legitimate');
-    await expect(coordinator.completeOAuth('spotlearn://auth/callback?code=competing')).rejects.toThrow('OAUTH_COMPLETION_IN_PROGRESS');
+    const legitimate = coordinator.completeOAuth('touchcatch://auth/callback?code=legitimate');
+    await expect(coordinator.completeOAuth('touchcatch://auth/callback?code=competing')).rejects.toThrow('OAUTH_COMPLETION_IN_PROGRESS');
     release();
     await expect(legitimate).resolves.toEqual({ state: 'READY' });
     expect(exchangeCodeForSession).toHaveBeenCalledTimes(1);
@@ -108,7 +108,7 @@ describe('Google and Kakao PKCE coordinator', () => {
       },
       browser: { openAuthSessionAsync: async () => {
         identity = 'session-appeared';
-        return { type: 'success', url: 'spotlearn://auth/callback?code=x' };
+        return { type: 'success', url: 'touchcatch://auth/callback?code=x' };
       } },
       storage, ensureAccount: async () => undefined,
     });
@@ -137,7 +137,7 @@ describe('Google and Kakao PKCE coordinator', () => {
     expect(signInWithOAuth).toHaveBeenCalledTimes(1);
     expect(await storage.getItem('touchcatch.auth.pkce.pending')).toBe(ownedPending);
 
-    release({ type: 'success', url: 'spotlearn://auth/callback?code=owned' });
+    release({ type: 'success', url: 'touchcatch://auth/callback?code=owned' });
     await expect(first).resolves.toEqual({ state: 'READY' });
   });
 
@@ -163,7 +163,7 @@ describe('Google and Kakao PKCE coordinator', () => {
         signInWithOAuth: async () => ({ data: { url: 'https://local.supabase.test/authorize' }, error: null }),
         exchangeCodeForSession: async () => ({ error: null }),
       },
-      browser: { openAuthSessionAsync: async () => ({ type: 'success', url: 'spotlearn://auth/callback?code=x' }) },
+      browser: { openAuthSessionAsync: async () => ({ type: 'success', url: 'touchcatch://auth/callback?code=x' }) },
       storage, ensureAccount: async () => { throw new Error('private server detail'); },
     });
     await expect(coordinator.startOAuth('kakao')).resolves.toEqual({ state: 'ACCOUNT_SETUP_FAILED' });

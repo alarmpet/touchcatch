@@ -35,7 +35,7 @@ file_size_limit = "50MiB"
 [auth]
 enabled = true
 site_url = "http://127.0.0.1:3000"
-additional_redirect_urls = ["spotlearn://auth/callback"]
+additional_redirect_urls = ["touchcatch://auth/callback"]
 jwt_expiry = 3600
 enable_signup = true
 enable_manual_linking = true
@@ -50,7 +50,7 @@ enable_manual_linking = true
 # To turn one on:
 #   1. Create an OAuth client in the provider console. Authorised redirect URI is the
 #      Supabase callback, not the app scheme:  http://127.0.0.1:55321/auth/v1/callback
-#      (the app's own spotlearn://auth/callback is already in additional_redirect_urls above).
+#      (the app's own touchcatch://auth/callback is already in additional_redirect_urls above).
 #   2. Export the credentials in your shell (never commit them):
 #      SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID / _SECRET
 #   3. Flip enabled to true and restart:  supabase stop && supabase start

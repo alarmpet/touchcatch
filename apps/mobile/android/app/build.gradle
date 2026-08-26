@@ -81,6 +81,24 @@ def enableMinifyInReleaseBuilds = (findProperty('android.enableMinifyInReleaseBu
  */
 def jscFlavor = 'io.github.react-native-community:jsc-android:2026004.+'
 
+def releaseSigningNames = ["KEYSTORE_PATH", "KEYSTORE_PASSWORD", "KEY_ALIAS", "KEY_PASSWORD"]
+def releaseSigningValues = releaseSigningNames.collectEntries { [(it): System.getenv(it)] }
+
+// Reading the environment is not enough on its own: with no signing config at all, a release
+// task would still run and emit an unsigned artifact. The check has to happen once the task
+// graph is known, so that debug builds stay usable without any release secret.
+gradle.taskGraph.whenReady { graph ->
+    if (graph.allTasks.any { it.name.toLowerCase().contains("release") }) {
+        def missing = releaseSigningNames.findAll { !releaseSigningValues[it]?.trim() }
+        if (!missing.isEmpty()) {
+            throw new GradleException("Missing release signing inputs: ${missing.join(', ')}")
+        }
+        if (!file(releaseSigningValues.KEYSTORE_PATH).isFile()) {
+            throw new GradleException("Release keystore file not found: ${releaseSigningValues.KEYSTORE_PATH}")
+        }
+    }
+}
+
 android {
     ndkVersion rootProject.ext.ndkVersion
 
@@ -93,7 +111,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "0.0.0"
+        versionName "1.0.0"
 
         buildConfigField "String", "REACT_NATIVE_RELEASE_LEVEL", "\"${findProperty('reactNativeReleaseLevel') ?: 'stable'}\""
     }
@@ -104,15 +122,25 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        // No debug fallback. A release build that quietly signs itself with the keystore
+        // committed to this repository produces an artifact indistinguishable from a real
+        // one by filename alone, and the mistake is only visible once Play rejects it - or
+        // worse, does not. Missing secrets must stop the build, not downgrade it.
+        release {
+            if (releaseSigningValues.KEYSTORE_PATH) {
+                storeFile file(releaseSigningValues.KEYSTORE_PATH)
+                storePassword releaseSigningValues.KEYSTORE_PASSWORD
+                keyAlias releaseSigningValues.KEY_ALIAS
+                keyPassword releaseSigningValues.KEY_PASSWORD
+            }
+        }
     }
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
         }
         release {
-            // Caution! In production, you need to generate your own keystore file.
-            // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
             def enableShrinkResources = findProperty('android.enableShrinkResourcesInReleaseBuilds') ?: 'false'
             shrinkResources enableShrinkResources.toBoolean()
             minifyEnabled enableMinifyInReleaseBuilds
