@@ -3,6 +3,14 @@ export type MobileEnvironment = Readonly<{
   supabasePublishableKey: string;
   apiOrigin: string;
   weeklySeasonId: string;
+  /**
+   * Where the published privacy policy and deletion pages live.
+   *
+   * Optional in development and required in production: Play will not accept a build whose
+   * privacy policy is unreachable, and the footer that links to it has to have somewhere to
+   * point. Null renders the footer as plain text rather than as a link that goes nowhere.
+   */
+  portalOrigin: string | null;
 }>;
 
 function exactOrigin(value: string | undefined, code: string): string {
@@ -37,5 +45,24 @@ export function parseMobileEnvironment(
   if (!weeklySeasonId || !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/iu.test(weeklySeasonId)) {
     throw new Error('MOBILE_SEASON_ID_INVALID');
   }
-  return { supabaseUrl, supabasePublishableKey: key, apiOrigin, weeklySeasonId: weeklySeasonId.toLowerCase() };
+  const rawPortal = env['EXPO_PUBLIC_PORTAL_ORIGIN']?.trim();
+  let portalOrigin: string | null = null;
+  if (rawPortal) {
+    portalOrigin = exactOrigin(rawPortal, 'MOBILE_PORTAL_ORIGIN_INVALID');
+    if (options.production && new URL(portalOrigin).protocol !== 'https:') {
+      throw new Error('MOBILE_PORTAL_HTTPS_REQUIRED');
+    }
+  } else if (options.production) {
+    // A release build with no portal origin is one whose privacy policy and deletion page cannot
+    // be opened from inside the app. That is a Play requirement, not a nicety.
+    throw new Error('MOBILE_PORTAL_ORIGIN_REQUIRED');
+  }
+
+  return {
+    supabaseUrl,
+    supabasePublishableKey: key,
+    apiOrigin,
+    weeklySeasonId: weeklySeasonId.toLowerCase(),
+    portalOrigin,
+  };
 }

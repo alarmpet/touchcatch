@@ -5,6 +5,9 @@ import { ProfileRouteView } from '../../app/profile';
 
 vi.mock('react-native', () => ({
   Pressable: 'Pressable', ScrollView: 'ScrollView', Text: 'Text', TextInput: 'TextInput', View: 'View',
+  // The profile footer opens the published privacy policy. Without Linking here the mock is
+  // missing a module the screen imports, and the failure names react-native rather than this line.
+  Linking: { openURL: async () => true },
 }));
 vi.mock('expo-router', () => ({ Link: 'Link' }));
 vi.mock('../runtime/mobile-runtime', () => ({ useMobileRuntime: vi.fn(), useMobileSession: vi.fn() }));
@@ -17,7 +20,7 @@ describe('ProfileRouteView social login', () => {
     act(() => {
       tree = create(<ProfileRouteView
         session={{ status: 'signed-out' }} email="" password="" busy={false}
-        onEmail={vi.fn()} onPassword={vi.fn()} mode="SIGN_IN" onMode={vi.fn()} onSignIn={vi.fn()} onSignUp={vi.fn()} onSignOut={vi.fn()} onOAuth={onOAuth}
+        onEmail={vi.fn()} onPassword={vi.fn()} mode="SIGN_IN" onMode={vi.fn()} onSignIn={vi.fn()} onSignUp={vi.fn()} onSignOut={vi.fn()} onOAuth={onOAuth} appVersion="1.0.0"
       />);
     });
 
@@ -32,7 +35,7 @@ describe('ProfileRouteView social login', () => {
     act(() => {
       tree = create(<ProfileRouteView
         session={{ status: 'signed-in', email: null }} email="" password="" busy={false}
-        onEmail={vi.fn()} onPassword={vi.fn()} mode="SIGN_IN" onMode={vi.fn()} onSignIn={vi.fn()} onSignUp={vi.fn()} onSignOut={vi.fn()} onOAuth={vi.fn()}
+        onEmail={vi.fn()} onPassword={vi.fn()} mode="SIGN_IN" onMode={vi.fn()} onSignIn={vi.fn()} onSignUp={vi.fn()} onSignOut={vi.fn()} onOAuth={vi.fn()} appVersion="1.0.0"
       />);
     });
     expect(tree.root.findAllByProps({ accessibilityLabel: 'Google로 계속' })).toHaveLength(0);
@@ -46,7 +49,7 @@ describe('ProfileRouteView social login', () => {
       act(() => {
         tree = create(<ProfileRouteView
           session={session} email="" password="" busy={false}
-          onEmail={vi.fn()} onPassword={vi.fn()} mode="SIGN_IN" onMode={vi.fn()} onSignIn={vi.fn()} onSignUp={vi.fn()} onSignOut={vi.fn()} onOAuth={vi.fn()}
+          onEmail={vi.fn()} onPassword={vi.fn()} mode="SIGN_IN" onMode={vi.fn()} onSignIn={vi.fn()} onSignUp={vi.fn()} onSignOut={vi.fn()} onOAuth={vi.fn()} appVersion="1.0.0"
         />);
       });
       expect(tree.root.findAllByProps({ accessibilityLabel: 'Google로 계속' })).toHaveLength(0);

@@ -5,6 +5,9 @@ import { parseMobileEnvironment, type MobileEnvironment } from '../auth/env';
 import { createMobileSupabaseRuntime } from '../auth/supabase-client';
 import { createSessionController, type PublicSessionState, type SessionController } from '../auth/session-controller';
 import { createOAuthCoordinator } from '../auth/oauth-coordinator';
+import { createAccountDeletionClient } from '../privacy/account-deletion-client';
+import { createDeletionTransport } from '../privacy/deletion-transport';
+import { createLocalAuthPurge } from '../privacy/local-auth-purge';
 import { createMobileApiTransport, createIdempotencyKey } from '../api/mobile-api-transport';
 import { createPetApi } from '../features/pets/pet-api';
 import { createRankingClient } from '../features/ranking/ranking-client';
@@ -18,6 +21,8 @@ type Runtime = Readonly<{ status: 'LOADING' }> | Readonly<{
   pets: ReturnType<typeof createPetApi>;
   ranking: ReturnType<typeof createRankingClient>;
   attempts: ReturnType<typeof createAttemptClient>;
+  deletion: ReturnType<typeof createAccountDeletionClient>;
+  purge: ReturnType<typeof createLocalAuthPurge>;
   createMutationKey(): string;
 }> | Readonly<{ status: 'CONFIG_ERROR'; code: string }>;
 
@@ -29,6 +34,8 @@ function environmentInput(): Record<string, string | undefined> {
     EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY: process.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
     EXPO_PUBLIC_API_ORIGIN: process.env.EXPO_PUBLIC_API_ORIGIN,
     EXPO_PUBLIC_WEEKLY_SEASON_ID: process.env.EXPO_PUBLIC_WEEKLY_SEASON_ID,
+    // Expo inlines these at build time by literal name, so the key cannot be computed.
+    EXPO_PUBLIC_PORTAL_ORIGIN: process.env.EXPO_PUBLIC_PORTAL_ORIGIN,
   };
 }
 
@@ -56,6 +63,18 @@ export function MobileRuntimeProvider({ children }: Readonly<{ children: React.R
         status: 'READY', environment, session, oauth,
         pets: createPetApi(transport), ranking: createRankingClient(transport),
         attempts: createAttemptClient(transport),
+        // Deletion gets its own transport: status lookup must work with no session, which the
+        // token-sourcing transport above cannot do.
+        deletion: createAccountDeletionClient({
+          transport: createDeletionTransport({ baseUrl: environment.apiOrigin }),
+          storage: globalThis.localStorage,
+          randomBytes: (byteCount) => Crypto.getRandomBytes(byteCount),
+          newIdempotencyKey: () => createIdempotencyKey(Crypto.randomUUID),
+        }),
+        purge: createLocalAuthPurge({
+          signOutLocal: () => session.signOut(),
+          storage: globalThis.localStorage,
+        }),
         createMutationKey: () => createIdempotencyKey(Crypto.randomUUID),
       };
       dispose = () => { session.dispose(); supabase.dispose(); };

@@ -66,4 +66,77 @@ describe('mobile session controller', () => {
     await expect(controller.initialize()).resolves.toBeUndefined();
     expect(controller.getState()).toEqual({ status: 'error', code: 'AUTH_UNAVAILABLE' });
   });
+
+  // A local sign-out dressed up as account deletion tells the player their data is gone when
+  // nothing left the server. Until the durable deletion request exists, the controller must
+  // offer no deletion affordance at all rather than a convincing one that does nothing.
+  it('exposes no account-deletion affordance while server-side deletion is unimplemented', async () => {
+    const controller = createSessionController({
+      getSession: vi.fn().mockResolvedValue({ data: { session: null }, error: null }),
+      refreshSession: vi.fn(), onAuthStateChange: vi.fn(() => ({ data: { subscription: { unsubscribe: vi.fn() } } })),
+      signInWithPassword: vi.fn(), signOut: vi.fn(),
+    });
+    await controller.initialize();
+    expect(Object.keys(controller)).not.toContain('deleteAccount');
+  });
+});
+
+describe('session close after a deletion request', () => {
+  const signedIn = { access_token: 'tok-1', user: { email: 'gone@test.com' } };
+
+  function controllerWithLateCallback() {
+    let emit: ((event: string, session: unknown) => void) | undefined;
+    const auth = {
+      getSession: vi.fn().mockResolvedValue({ data: { session: signedIn }, error: null }),
+      refreshSession: vi.fn(),
+      onAuthStateChange: vi.fn((handler: (event: string, session: unknown) => void) => {
+        emit = handler;
+        return { data: { subscription: { unsubscribe: vi.fn() } } };
+      }),
+      signInWithPassword: vi.fn(),
+      signOut: vi.fn().mockResolvedValue({ error: null }),
+    };
+    return { auth, fire: (session: unknown) => emit?.('TOKEN_REFRESHED', session) };
+  }
+
+  // The bug this pins: Supabase's auth listener fires asynchronously, so a refresh already in
+  // flight when deletion was requested lands afterwards and republishes a signed-in state. The
+  // person would be looking at a working session for an account the server has already blocked.
+  it('refuses to be reopened by an auth callback that was already in flight', async () => {
+    const { auth, fire } = controllerWithLateCallback();
+    const controller = createSessionController(auth);
+    await controller.initialize();
+    expect(controller.getState()).toEqual({ status: 'signed-in', email: 'gone@test.com' });
+
+    controller.closeForDeletion();
+    expect(controller.getState()).toEqual({ status: 'signed-out' });
+
+    fire(signedIn);
+
+    expect(controller.getState()).toEqual({ status: 'signed-out' });
+    expect(controller.isClosed()).toBe(true);
+  });
+
+  it('still lets a sign-out callback through, so nothing latches a stale session', async () => {
+    const { auth, fire } = controllerWithLateCallback();
+    const controller = createSessionController(auth);
+    await controller.initialize();
+    controller.closeForDeletion();
+
+    fire(null);
+
+    expect(controller.getState()).toEqual({ status: 'signed-out' });
+  });
+
+  it('notifies subscribers when the account closes', async () => {
+    const { auth } = controllerWithLateCallback();
+    const controller = createSessionController(auth);
+    await controller.initialize();
+    const seen: unknown[] = [];
+    controller.subscribe((state) => seen.push(state));
+
+    controller.closeForDeletion();
+
+    expect(seen).toEqual([{ status: 'signed-out' }]);
+  });
 });

@@ -40,6 +40,9 @@ export interface SessionController {
    */
   signUp(email: string, password: string): Promise<'SIGNED_IN' | 'CONFIRM_EMAIL'>;
   signOut(): Promise<void>;
+  /** Latches signed-out after a deletion request so a late auth callback cannot reopen it. */
+  closeForDeletion(): void;
+  isClosed(): boolean;
   dispose(): void;
 }
 
@@ -51,10 +54,17 @@ export function createSessionController(auth: SupabaseAuthPort): SessionControll
   let session: Session | null = null;
   let state: PublicSessionState = { status: 'loading' };
   let disposed = false;
+  // Once the account is closed, no late arrival may reopen it. Supabase's auth listener fires
+  // asynchronously, so a TOKEN_REFRESHED or SIGNED_IN callback already in flight when deletion
+  // was requested would otherwise land afterwards and publish a signed-in state for an account
+  // the server has already blocked. The person would be looking at a working session for an
+  // account that no longer exists.
+  let closed = false;
   let unsubscribeAuth: (() => void) | undefined;
   const listeners = new Set<(value: PublicSessionState) => void>();
   const publish = (nextSession: Session | null) => {
     if (disposed) return;
+    if (closed && nextSession !== null) return;
     session = nextSession;
     state = publicState(session);
     listeners.forEach((listener) => listener(state));
@@ -135,6 +145,20 @@ export function createSessionController(auth: SupabaseAuthPort): SessionControll
         throw new Error('AUTH_SIGN_OUT_FAILED');
       }
     },
+    /**
+     * Latches this device signed-out for good.
+     *
+     * Called after a deletion request is accepted. Sign-out alone is not enough: it clears the
+     * session but leaves the listener free to publish the next one that arrives.
+     */
+    closeForDeletion() {
+      if (disposed) return;
+      closed = true;
+      session = null;
+      state = { status: 'signed-out' };
+      listeners.forEach((listener) => listener(state));
+    },
+    isClosed: () => closed,
     dispose() {
       if (disposed) return;
       disposed = true;

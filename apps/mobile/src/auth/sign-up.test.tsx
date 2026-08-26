@@ -6,6 +6,9 @@ import { createSessionController, type SupabaseAuthPort } from './session-contro
 
 vi.mock('react-native', () => ({
   Pressable: 'Pressable', ScrollView: 'ScrollView', Text: 'Text', TextInput: 'TextInput', View: 'View',
+  // The profile footer opens the published privacy policy. Without Linking here the mock is
+  // missing a module the screen imports, and the failure names react-native rather than this line.
+  Linking: { openURL: async () => true },
 }));
 vi.mock('expo-router', () => ({ Link: 'Link' }));
 vi.mock('../runtime/mobile-runtime', () => ({ useMobileRuntime: vi.fn(), useMobileSession: vi.fn() }));
@@ -31,6 +34,7 @@ function view(props: Partial<React.ComponentProps<typeof ProfileRouteView>> = {}
       session={{ status: 'signed-out' }} email="a@b.com" password="secret1" busy={false}
       mode="SIGN_IN" onMode={vi.fn()} onEmail={vi.fn()} onPassword={vi.fn()}
       onSignIn={vi.fn()} onSignUp={vi.fn()} onSignOut={vi.fn()} onOAuth={vi.fn()}
+      appVersion="1.0.0"
       {...props}
     />);
   });
