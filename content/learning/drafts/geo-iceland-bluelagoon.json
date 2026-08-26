@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "bedbeddf-9a5c-4122-814d-778105c98a0f",
+    "version": 1,
+    "contentRevisionId": "0d99eb9c-b0d2-4a6f-a2d8-57002543df8d",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-iceland-bluelagoon",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/f4770e4c4f524504cde4b12f6eadcc4698acf67c93bc9d3d9389a9dfef541c9a.png",
+      "sha256": "f4770e4c4f524504cde4b12f6eadcc4698acf67c93bc9d3d9389a9dfef541c9a",
+      "encodedBytes": 2652738,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/d2184c8ed85fc95b21597f22c8f6b9e607300f6685bed922f23219714c8e65e2.png",
+      "sha256": "d2184c8ed85fc95b21597f22c8f6b9e607300f6685bed922f23219714c8e65e2",
+      "encodedBytes": 2725973,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "5804f124-f76e-465f-8b61-a4ec48e512d7",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "f4770e4c4f524504cde4b12f6eadcc4698acf67c93bc9d3d9389a9dfef541c9a.png",
+    "imageB.png": "d2184c8ed85fc95b21597f22c8f6b9e607300f6685bed922f23219714c8e65e2.png"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "6ac65464-2690-4371-943f-dbbdbe0f410e",
+    "version": 1,
+    "contentRevisionId": "116ec6c2-7549-4c44-9528-45737a031e73",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-bali-temple",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/feed9209261d956bf91eb6e710febb19ba0e4521e51500e44bc1390b7ddc1cca.png",
+      "sha256": "feed9209261d956bf91eb6e710febb19ba0e4521e51500e44bc1390b7ddc1cca",
+      "encodedBytes": 2470459,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/5f8aea212dd5f60269885b82c8795f2806ab453a9afcf3d2918fcb0255b3425c.png",
+      "sha256": "5f8aea212dd5f60269885b82c8795f2806ab453a9afcf3d2918fcb0255b3425c",
+      "encodedBytes": 2530803,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "fb490a41-c6c7-4d17-b6bd-5c2a24491eae",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "feed9209261d956bf91eb6e710febb19ba0e4521e51500e44bc1390b7ddc1cca.png",
+    "imageB.png": "5f8aea212dd5f60269885b82c8795f2806ab453a9afcf3d2918fcb0255b3425c.png"
+  }
+}

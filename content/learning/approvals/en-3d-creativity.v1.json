@@ -1,0 +1,417 @@
+{
+  "key": "en-3d-creativity",
+  "contentId": "3454d50c-4cdb-43d4-8139-e0bce4e16a88",
+  "contentRevisionId": "d9397ef8-fc32-46ec-81c0-c4fafc2a5cb3",
+  "category": "ENGLISH",
+  "publicContent": {
+    "contentId": "3454d50c-4cdb-43d4-8139-e0bce4e16a88",
+    "version": 1,
+    "contentRevisionId": "d9397ef8-fc32-46ec-81c0-c4fafc2a5cb3",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-3d-creativity",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/fb45d1041654683b779ff2eb1cc305e79d22f246b5abd697199ab44be1fceabd.png",
+      "sha256": "fb45d1041654683b779ff2eb1cc305e79d22f246b5abd697199ab44be1fceabd",
+      "encodedBytes": 2446005,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/84299a0fa568404364e5f624864c32c2b90c9e67df4736f35d452fa59628a7c4.png",
+      "sha256": "84299a0fa568404364e5f624864c32c2b90c9e67df4736f35d452fa59628a7c4",
+      "encodedBytes": 2534941,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "category": "ENGLISH"
+  },
+  "privateSolution": {
+    "contentRevisionId": "d9397ef8-fc32-46ec-81c0-c4fafc2a5cb3",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "derived-1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9141,
+            "cy": 0.9102,
+            "r": 0.0898
+          },
+          "imageB": {
+            "cx": 0.9141,
+            "cy": 0.9102,
+            "r": 0.0898
+          }
+        }
+      },
+      {
+        "objectiveId": "derived-2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.1445,
+            "cy": 0.1875,
+            "r": 0.0854
+          },
+          "imageB": {
+            "cx": 0.1445,
+            "cy": 0.1875,
+            "r": 0.0854
+          }
+        }
+      },
+      {
+        "objectiveId": "derived-3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.6914,
+            "cy": 0.3242,
+            "r": 0.0876
+          },
+          "imageB": {
+            "cx": 0.6914,
+            "cy": 0.3242,
+            "r": 0.0876
+          }
+        }
+      },
+      {
+        "objectiveId": "derived-4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.832,
+            "cy": 0.1172,
+            "r": 0.1011
+          },
+          "imageB": {
+            "cx": 0.832,
+            "cy": 0.1172,
+            "r": 0.1011
+          }
+        }
+      },
+      {
+        "objectiveId": "derived-5",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.918,
+            "cy": 0.6953,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.918,
+            "cy": 0.6953,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "objectiveId": "derived-6",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.9531,
+            "cy": 0.0508,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.9531,
+            "cy": 0.0508,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "objectiveId": "derived-7",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.3086,
+            "cy": 0.8789,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.3086,
+            "cy": 0.8789,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "objectiveId": "derived-8",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.4453,
+            "cy": 0.9063,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.4453,
+            "cy": 0.9063,
+            "r": 0.06
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "creativity-braided-hair",
+        "kind": "NORMAL",
+        "publicPrompt": "소녀의 땋은 머리",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5,
+            "cy": 0.35,
+            "r": 0.07
+          },
+          "imageB": {
+            "cx": 0.5,
+            "cy": 0.35,
+            "r": 0.07
+          }
+        }
+      },
+      {
+        "missionId": "creativity-color-swatches",
+        "kind": "NORMAL",
+        "publicPrompt": "책상 위 색상표",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.42,
+            "cy": 0.74,
+            "r": 0.068
+          },
+          "imageB": {
+            "cx": 0.42,
+            "cy": 0.74,
+            "r": 0.068
+          }
+        }
+      },
+      {
+        "missionId": "creativity-window-plant",
+        "kind": "SPECIAL",
+        "publicPrompt": "좌측 창가 화분",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.065,
+            "cy": 0.49,
+            "r": 0.062
+          },
+          "imageB": {
+            "cx": 0.065,
+            "cy": 0.49,
+            "r": 0.062
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "derived-1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.9141,
+          "cy": 0.9102,
+          "r": 0.0898
+        },
+        "imageB": {
+          "cx": 0.9141,
+          "cy": 0.9102,
+          "r": 0.0898
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "creativity",
+      "aliases": [
+        "creative",
+        "invent",
+        "design"
+      ],
+      "hintUnits": [
+        "c",
+        "r",
+        "e",
+        "a",
+        "t",
+        "i",
+        "v",
+        "i",
+        "t",
+        "y"
+      ],
+      "meaning": {
+        "prompt": "What is the English word for '창의성' or '창작력'?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "Creativity"
+          },
+          {
+            "id": "option_2",
+            "label": "Calculus"
+          },
+          {
+            "id": "option_3",
+            "label": "Constraint"
+          }
+        ],
+        "correctOptionId": "option_1"
+      },
+      "hintLadder": [
+        {
+          "ordinal": 1,
+          "kind": "SEMANTIC_CATEGORY",
+          "localizedText": {
+            "ko": "새로운 아이디어를 만들어 내는 능력",
+            "en": "Ability to produce original ideas"
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 2,
+          "kind": "CONTEXT_SENTENCE",
+          "localizedText": {
+            "ko": "그의 독창적인 아이디어는 남다른 ____에서 비롯되었어요.",
+            "en": "His original ideas stemmed from remarkable ____."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 3,
+          "kind": "ANSWER_LENGTH",
+          "localizedText": {
+            "ko": "정답은 10글자예요.",
+            "en": "The answer has 10 graphemes."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 4,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "첫 글자를 공개해요.",
+            "en": "Reveal the first grapheme."
+          },
+          "revealIndexes": [
+            0
+          ],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 5,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "남은 글자를 번갈아 공개해요.",
+            "en": "Reveal alternating unrevealed graphemes."
+          },
+          "revealIndexes": [
+            1,
+            3,
+            5,
+            7,
+            9
+          ],
+          "rankedPenaltyUnits": 1
+        }
+      ]
+    }
+  },
+  "rightsManifest": {
+    "schemaVersion": "1.0.0",
+    "manifestSetId": "casual-en-3d-creativity",
+    "entries": [
+      {
+        "rightsRecordId": "rights-en-3d-creativity-b",
+        "assetSha256": "84299a0fa568404364e5f624864c32c2b90c9e67df4736f35d452fa59628a7c4",
+        "source": {
+          "kind": "OWNED",
+          "sourceRecordId": "source-en-3d-creativity-b",
+          "sourceUri": "content/learning/source/en-3d-creativity-b.png"
+        },
+        "generator": {
+          "provider": "xAI",
+          "model": "Imagine",
+          "modelVersion": "closed-beta-2026-08-24",
+          "termsVersion": "PRODUCT_OWNER_CLOSED_BETA_ADMISSION_V1",
+          "generatedAt": "2026-08-24T15:00:00.000Z"
+        },
+        "prompt": {
+          "available": false,
+          "sha256": null,
+          "unavailabilityReason": "BOUND_IN_REPO_PROMPT_EVIDENCE"
+        },
+        "rights": {
+          "status": "APPROVED",
+          "licenseOrPermission": "PRODUCT_OWNER_CLOSED_BETA_ADMISSION_V1",
+          "approverId": "product-owner",
+          "approvedAt": "2026-08-24T15:00:00.000Z"
+        },
+        "education": {
+          "status": "APPROVED",
+          "reviewerId": "product-owner",
+          "reviewedAt": "2026-08-24T15:00:00.000Z"
+        },
+        "takedown": {
+          "ownerId": "product-owner",
+          "contact": "product-owner",
+          "runbookVersion": "1.0.0"
+        }
+      },
+      {
+        "rightsRecordId": "rights-en-3d-creativity-a",
+        "assetSha256": "fb45d1041654683b779ff2eb1cc305e79d22f246b5abd697199ab44be1fceabd",
+        "source": {
+          "kind": "OWNED",
+          "sourceRecordId": "source-en-3d-creativity-a",
+          "sourceUri": "content/learning/source/en-3d-creativity-a.png"
+        },
+        "generator": {
+          "provider": "xAI",
+          "model": "Imagine",
+          "modelVersion": "closed-beta-2026-08-24",
+          "termsVersion": "PRODUCT_OWNER_CLOSED_BETA_ADMISSION_V1",
+          "generatedAt": "2026-08-24T15:00:00.000Z"
+        },
+        "prompt": {
+          "available": false,
+          "sha256": null,
+          "unavailabilityReason": "BOUND_IN_REPO_PROMPT_EVIDENCE"
+        },
+        "rights": {
+          "status": "APPROVED",
+          "licenseOrPermission": "PRODUCT_OWNER_CLOSED_BETA_ADMISSION_V1",
+          "approverId": "product-owner",
+          "approvedAt": "2026-08-24T15:00:00.000Z"
+        },
+        "education": {
+          "status": "APPROVED",
+          "reviewerId": "product-owner",
+          "reviewedAt": "2026-08-24T15:00:00.000Z"
+        },
+        "takedown": {
+          "ownerId": "product-owner",
+          "contact": "product-owner",
+          "runbookVersion": "1.0.0"
+        }
+      }
+    ]
+  },
+  "sourceFiles": [
+    "content/learning/source/en-3d-creativity-a.png",
+    "content/learning/source/en-3d-creativity-b.png"
+  ]
+}

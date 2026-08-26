@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "b8b7829a-1f9f-470a-9173-895a3218250e",
+    "version": 1,
+    "contentRevisionId": "e3500e9e-1e12-4dac-b234-2a014b05bcb1",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-newyork-liberty",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/ee914137f01df848e7ba0c12200382dcb685835dfa8fa9a2a3e7a3059062ebc2.png",
+      "sha256": "ee914137f01df848e7ba0c12200382dcb685835dfa8fa9a2a3e7a3059062ebc2",
+      "encodedBytes": 2512048,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/a91b9d1374bf4a7fbf10e7ab4249817de58ea4bd70e24aeed267f8567c79a45c.png",
+      "sha256": "a91b9d1374bf4a7fbf10e7ab4249817de58ea4bd70e24aeed267f8567c79a45c",
+      "encodedBytes": 2579006,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "491fc9cb-10ce-4976-a6e7-501c7eced2c2",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "ee914137f01df848e7ba0c12200382dcb685835dfa8fa9a2a3e7a3059062ebc2.png",
+    "imageB.png": "a91b9d1374bf4a7fbf10e7ab4249817de58ea4bd70e24aeed267f8567c79a45c.png"
+  }
+}

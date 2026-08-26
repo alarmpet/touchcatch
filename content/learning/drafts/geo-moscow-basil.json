@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "83740d79-38aa-4157-8c1e-2b6c99b4a458",
+    "version": 1,
+    "contentRevisionId": "889a4384-df68-4980-ad12-bd8c2ead7dca",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-moscow-basil",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/936b2422bcd85bce8393ca4261757f2b375ffa6bed3d38cbbb200f633acf0563.png",
+      "sha256": "936b2422bcd85bce8393ca4261757f2b375ffa6bed3d38cbbb200f633acf0563",
+      "encodedBytes": 2470970,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/3f6c24f52647c17bf82950f26006a9b19f52d8c70a05cc4b39cbbcc3e3819b41.png",
+      "sha256": "3f6c24f52647c17bf82950f26006a9b19f52d8c70a05cc4b39cbbcc3e3819b41",
+      "encodedBytes": 2528075,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "c93e98ef-fb40-450c-9ab5-c30224b1cfbb",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "936b2422bcd85bce8393ca4261757f2b375ffa6bed3d38cbbb200f633acf0563.png",
+    "imageB.png": "3f6c24f52647c17bf82950f26006a9b19f52d8c70a05cc4b39cbbcc3e3819b41.png"
+  }
+}

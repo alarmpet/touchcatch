@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "ea3cc1f0-341c-40b7-adb2-4be105f01e4a",
+    "version": 1,
+    "contentRevisionId": "b49c952a-f50d-43e3-85e6-6d322455a4a3",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-singapore-merlion",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/594a3a651b8785dc4ab86dba2f03a2667f45a3328063ceb6d8c85f33dad0284b.png",
+      "sha256": "594a3a651b8785dc4ab86dba2f03a2667f45a3328063ceb6d8c85f33dad0284b",
+      "encodedBytes": 2722803,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/0dd7447bb2d2b17ff77a8c7795af0430e73fa957da7b03ad13546ae11f579f3e.png",
+      "sha256": "0dd7447bb2d2b17ff77a8c7795af0430e73fa957da7b03ad13546ae11f579f3e",
+      "encodedBytes": 2798043,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "666bd548-709d-4918-9b54-a1966de7af91",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "594a3a651b8785dc4ab86dba2f03a2667f45a3328063ceb6d8c85f33dad0284b.png",
+    "imageB.png": "0dd7447bb2d2b17ff77a8c7795af0430e73fa957da7b03ad13546ae11f579f3e.png"
+  }
+}

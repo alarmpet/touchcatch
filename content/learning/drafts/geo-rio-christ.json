@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "2f0d8202-1bf3-4edc-91ed-107e8487838e",
+    "version": 1,
+    "contentRevisionId": "a0daacb7-e600-4ffb-826a-a182bb947508",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-rio-christ",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/61757396dc4603f922f153670a5ef635d879217cc514a3119005c4f49ee3ba0a.png",
+      "sha256": "61757396dc4603f922f153670a5ef635d879217cc514a3119005c4f49ee3ba0a",
+      "encodedBytes": 2545160,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/3eb0317f81d8c534adf3fabbcb304838f640cb973e2e9db047638c618307461e.png",
+      "sha256": "3eb0317f81d8c534adf3fabbcb304838f640cb973e2e9db047638c618307461e",
+      "encodedBytes": 2631256,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "1604b6ca-7c37-4f99-a881-eee57a70e802",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "61757396dc4603f922f153670a5ef635d879217cc514a3119005c4f49ee3ba0a.png",
+    "imageB.png": "3eb0317f81d8c534adf3fabbcb304838f640cb973e2e9db047638c618307461e.png"
+  }
+}

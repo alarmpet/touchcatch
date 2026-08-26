@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "7c6e9f4b-28bc-4787-90e0-050acdc276ba",
+    "version": 1,
+    "contentRevisionId": "3b1c69e5-ee1a-4927-9b60-d8904adf6f10",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-germany-neuschwanstein",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/34b1c18c95909e48c01542d23c992614f14bdb3a4b2709a38ba8a556317e7a6a.png",
+      "sha256": "34b1c18c95909e48c01542d23c992614f14bdb3a4b2709a38ba8a556317e7a6a",
+      "encodedBytes": 2743270,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/5d6cd26645020f7f68d3e22ff05573b3e1aeb657efb3cecdb260d2b3f14eee1f.png",
+      "sha256": "5d6cd26645020f7f68d3e22ff05573b3e1aeb657efb3cecdb260d2b3f14eee1f",
+      "encodedBytes": 2768268,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "43ec6a03-06f9-4dd5-b4ce-ad86a417f76b",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "34b1c18c95909e48c01542d23c992614f14bdb3a4b2709a38ba8a556317e7a6a.png",
+    "imageB.png": "5d6cd26645020f7f68d3e22ff05573b3e1aeb657efb3cecdb260d2b3f14eee1f.png"
+  }
+}

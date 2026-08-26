@@ -21,9 +21,9 @@
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/0c3a89150f0578be1efa5b7bf243ba42b9f1ab16ec68a0aa3d57bb3bd3464a67.png",
-      "sha256": "0c3a89150f0578be1efa5b7bf243ba42b9f1ab16ec68a0aa3d57bb3bd3464a67",
-      "encodedBytes": 2119353,
+      "url": "https://cdn.spot-learn.test/assets/d1d34d7b4090ffc4bdfd87d853e7feaff4b810c2a078dfc49fba2c57df2b1117.png",
+      "sha256": "d1d34d7b4090ffc4bdfd87d853e7feaff4b810c2a078dfc49fba2c57df2b1117",
+      "encodedBytes": 2190272,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
@@ -303,6 +303,6 @@
   },
   "assetFiles": {
     "cbd0d589fb055654041b50d486daa68bcdf715b1d7706c9ae3e00eafcf1e1bf5": "D:\\touchcatch\\content\\learning\\source\\en-resonance-stage-a.png",
-    "0c3a89150f0578be1efa5b7bf243ba42b9f1ab16ec68a0aa3d57bb3bd3464a67": "D:\\touchcatch\\content\\learning\\source\\en-resonance-stage-b.png"
+    "d1d34d7b4090ffc4bdfd87d853e7feaff4b810c2a078dfc49fba2c57df2b1117": "D:\\touchcatch\\content\\learning\\source\\en-resonance-stage-b.png"
   }
 }

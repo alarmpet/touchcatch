@@ -1,0 +1,367 @@
+{
+  "key": "en-resilience",
+  "contentId": "a913582e-ad85-4687-8d07-0891a60cc415",
+  "contentRevisionId": "a0daa245-1ed6-4816-8b59-3ed4d5a23daf",
+  "category": "ENGLISH",
+  "publicContent": {
+    "contentId": "a913582e-ad85-4687-8d07-0891a60cc415",
+    "version": 1,
+    "contentRevisionId": "a0daa245-1ed6-4816-8b59-3ed4d5a23daf",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-resilience",
+    "category": "ENGLISH",
+    "language": "en",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/cb222bdb5a5eb73aae2d5ebb107f92c2f9a0c852500203f5c78e83250502f449.png",
+      "sha256": "cb222bdb5a5eb73aae2d5ebb107f92c2f9a0c852500203f5c78e83250502f449",
+      "encodedBytes": 2841480,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/170778218b0073b964039261103e463353e0ef4c700d67eb007788bbb4bbae37.png",
+      "sha256": "170778218b0073b964039261103e463353e0ef4c700d67eb007788bbb4bbae37",
+      "encodedBytes": 2852446,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "a0daa245-1ed6-4816-8b59-3ed4d5a23daf",
+    "schemaVersion": "1.0.0",
+    "differences": [
+      {
+        "objectiveId": "derived-1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.1172,
+            "cy": 0.8203,
+            "r": 0.11
+          },
+          "imageB": {
+            "cx": 0.1172,
+            "cy": 0.8203,
+            "r": 0.11
+          }
+        }
+      },
+      {
+        "objectiveId": "derived-2",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.4414,
+            "cy": 0.5938,
+            "r": 0.11
+          },
+          "imageB": {
+            "cx": 0.4414,
+            "cy": 0.5938,
+            "r": 0.11
+          }
+        }
+      },
+      {
+        "objectiveId": "derived-3",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.8477,
+            "cy": 0.543,
+            "r": 0.11
+          },
+          "imageB": {
+            "cx": 0.8477,
+            "cy": 0.543,
+            "r": 0.11
+          }
+        }
+      },
+      {
+        "objectiveId": "derived-4",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.625,
+            "cy": 0.4297,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.625,
+            "cy": 0.4297,
+            "r": 0.06
+          }
+        }
+      },
+      {
+        "objectiveId": "derived-5",
+        "tier": "HARD",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.2539,
+            "cy": 0.7656,
+            "r": 0.06
+          },
+          "imageB": {
+            "cx": 0.2539,
+            "cy": 0.7656,
+            "r": 0.06
+          }
+        }
+      }
+    ],
+    "wordHunts": [
+      {
+        "missionId": "resilience-fence",
+        "kind": "NORMAL",
+        "publicPrompt": "격자 울타리",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.18,
+            "cy": 0.3,
+            "r": 0.085
+          },
+          "imageB": {
+            "cx": 0.18,
+            "cy": 0.3,
+            "r": 0.085
+          }
+        }
+      },
+      {
+        "missionId": "resilience-shovel",
+        "kind": "NORMAL",
+        "publicPrompt": "모종삽",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.64,
+            "cy": 0.79,
+            "r": 0.065
+          },
+          "imageB": {
+            "cx": 0.64,
+            "cy": 0.79,
+            "r": 0.065
+          }
+        }
+      },
+      {
+        "missionId": "resilience-sunflower",
+        "kind": "SPECIAL",
+        "publicPrompt": "해바라기",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.93,
+            "cy": 0.9,
+            "r": 0.065
+          },
+          "imageB": {
+            "cx": 0.93,
+            "cy": 0.9,
+            "r": 0.065
+          }
+        }
+      }
+    ],
+    "suddenDeath": {
+      "objectiveId": "derived-1",
+      "hitboxes": {
+        "imageA": {
+          "cx": 0.1172,
+          "cy": 0.8203,
+          "r": 0.11
+        },
+        "imageB": {
+          "cx": 0.1172,
+          "cy": 0.8203,
+          "r": 0.11
+        }
+      }
+    },
+    "finalChallenge": {
+      "canonicalAnswer": "resilience",
+      "aliases": [
+        "resiliency"
+      ],
+      "hintUnits": [
+        "r",
+        "e",
+        "s",
+        "i",
+        "l",
+        "i",
+        "e",
+        "n",
+        "c",
+        "e"
+      ],
+      "hintLadder": [
+        {
+          "ordinal": 1,
+          "kind": "SEMANTIC_CATEGORY",
+          "localizedText": {
+            "ko": "역경을 이겨 내고 다시 회복하는 힘을 나타내는 말이에요.",
+            "en": "A quality for recovering and adapting after difficulty."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 2,
+          "kind": "CONTEXT_SENTENCE",
+          "localizedText": {
+            "ko": "공동체는 폭풍 뒤 놀라운 ____을 보여 주었어요.",
+            "en": "The community showed remarkable ____ after the storm."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 3,
+          "kind": "ANSWER_LENGTH",
+          "localizedText": {
+            "ko": "정답은 10글자예요.",
+            "en": "The answer has 10 graphemes."
+          },
+          "revealIndexes": [],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 4,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "첫 글자를 공개해요.",
+            "en": "Reveal the first grapheme."
+          },
+          "revealIndexes": [
+            0
+          ],
+          "rankedPenaltyUnits": 1
+        },
+        {
+          "ordinal": 5,
+          "kind": "REVEAL_GRAPHEME",
+          "localizedText": {
+            "ko": "남은 글자를 번갈아 공개해요.",
+            "en": "Reveal alternating unrevealed graphemes."
+          },
+          "revealIndexes": [
+            1,
+            3,
+            5,
+            7,
+            9
+          ],
+          "rankedPenaltyUnits": 1
+        }
+      ],
+      "meaning": {
+        "prompt": "What does resilience mean?",
+        "options": [
+          {
+            "id": "option_1",
+            "label": "회복탄력성"
+          },
+          {
+            "id": "option_2",
+            "label": "무관심"
+          },
+          {
+            "id": "option_3",
+            "label": "고립"
+          }
+        ],
+        "correctOptionId": "option_1"
+      }
+    }
+  },
+  "rightsManifest": {
+    "schemaVersion": "1.0.0",
+    "manifestSetId": "casual-en-resilience",
+    "entries": [
+      {
+        "rightsRecordId": "rights-en-resilience-b",
+        "assetSha256": "170778218b0073b964039261103e463353e0ef4c700d67eb007788bbb4bbae37",
+        "source": {
+          "kind": "OWNED",
+          "sourceRecordId": "source-en-resilience-b",
+          "sourceUri": "content/learning/source/en-resilience-b.png"
+        },
+        "generator": {
+          "provider": "xAI",
+          "model": "Imagine",
+          "modelVersion": "closed-beta-2026-08-24",
+          "termsVersion": "PRODUCT_OWNER_CLOSED_BETA_ADMISSION_V1",
+          "generatedAt": "2026-08-24T15:00:00.000Z"
+        },
+        "prompt": {
+          "available": false,
+          "sha256": null,
+          "unavailabilityReason": "BOUND_IN_REPO_PROMPT_EVIDENCE"
+        },
+        "rights": {
+          "status": "APPROVED",
+          "licenseOrPermission": "PRODUCT_OWNER_CLOSED_BETA_ADMISSION_V1",
+          "approverId": "product-owner",
+          "approvedAt": "2026-08-24T15:00:00.000Z"
+        },
+        "education": {
+          "status": "APPROVED",
+          "reviewerId": "product-owner",
+          "reviewedAt": "2026-08-24T15:00:00.000Z"
+        },
+        "takedown": {
+          "ownerId": "product-owner",
+          "contact": "product-owner",
+          "runbookVersion": "1.0.0"
+        }
+      },
+      {
+        "rightsRecordId": "rights-en-resilience-a",
+        "assetSha256": "cb222bdb5a5eb73aae2d5ebb107f92c2f9a0c852500203f5c78e83250502f449",
+        "source": {
+          "kind": "OWNED",
+          "sourceRecordId": "source-en-resilience-a",
+          "sourceUri": "content/learning/source/en-resilience-a.png"
+        },
+        "generator": {
+          "provider": "xAI",
+          "model": "Imagine",
+          "modelVersion": "closed-beta-2026-08-24",
+          "termsVersion": "PRODUCT_OWNER_CLOSED_BETA_ADMISSION_V1",
+          "generatedAt": "2026-08-24T15:00:00.000Z"
+        },
+        "prompt": {
+          "available": false,
+          "sha256": null,
+          "unavailabilityReason": "BOUND_IN_REPO_PROMPT_EVIDENCE"
+        },
+        "rights": {
+          "status": "APPROVED",
+          "licenseOrPermission": "PRODUCT_OWNER_CLOSED_BETA_ADMISSION_V1",
+          "approverId": "product-owner",
+          "approvedAt": "2026-08-24T15:00:00.000Z"
+        },
+        "education": {
+          "status": "APPROVED",
+          "reviewerId": "product-owner",
+          "reviewedAt": "2026-08-24T15:00:00.000Z"
+        },
+        "takedown": {
+          "ownerId": "product-owner",
+          "contact": "product-owner",
+          "runbookVersion": "1.0.0"
+        }
+      }
+    ]
+  },
+  "sourceFiles": [
+    "content/learning/source/en-resilience-a.png",
+    "content/learning/source/en-resilience-b.png"
+  ]
+}

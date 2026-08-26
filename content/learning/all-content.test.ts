@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 
 const root = resolve(import.meta.dirname);
 
-describe('nine-pack learning manifest', () => {
+describe('learning manifest identities', () => {
   it('contains exactly three verified drafts per category with unique immutable identities', async () => {
     const manifest = JSON.parse(await readFile(resolve(root, 'manifest.v1.json'), 'utf8'));
     expect(manifest.entries.length).toBeGreaterThanOrEqual(9);
@@ -24,5 +24,5 @@ describe('nine-pack learning manifest', () => {
       expect(bundle.educationReviewStatus).toBe('REVIEW_REQUIRED');
       expect(evidence.outsidePolicy).toBe('PASS');
     }
-  });
+  }, 30_000);
 });

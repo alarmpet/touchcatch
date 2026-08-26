@@ -1,6 +1,6 @@
 # Local Learning Demo
 
-The mobile root route now exposes a development-only, locally playable spot-the-difference demo for all nine draft packs. It loads the checked-in A/B PNG pairs and their private hitboxes directly; it does not publish content or cross a production API boundary.
+The mobile game route exposes a development-only, locally playable spot-the-difference demo. Pack count is whatever `apps/mobile/src/learning-demo/preview-registry.generated.ts` currently contains (regenerate with `pnpm content:preview:registry`; `production-boundary.test.ts` pins the committed count). It loads checked-in A/B PNG pairs and **derived** hitboxes. It does not publish content or cross a production API boundary.
 
 ## Run
 

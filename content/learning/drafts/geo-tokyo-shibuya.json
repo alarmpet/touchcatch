@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "9138244f-6a9f-4017-9705-8a8dbd384f30",
+    "version": 1,
+    "contentRevisionId": "6f2a3308-28da-4468-b1fe-3c2af788cf62",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-tokyo-shibuya",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/bdacfdebb6f1d9259cf4bca5a8ae16a297a8240f1fa5bb96d858d1cca815672f.png",
+      "sha256": "bdacfdebb6f1d9259cf4bca5a8ae16a297a8240f1fa5bb96d858d1cca815672f",
+      "encodedBytes": 2705192,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/4177dbb48a0417c180f731026c4b0434cb5eaa034aac91f9810b77059641fdab.png",
+      "sha256": "4177dbb48a0417c180f731026c4b0434cb5eaa034aac91f9810b77059641fdab",
+      "encodedBytes": 2723782,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "e177e1be-f515-408c-99b1-5181114bff10",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "bdacfdebb6f1d9259cf4bca5a8ae16a297a8240f1fa5bb96d858d1cca815672f.png",
+    "imageB.png": "4177dbb48a0417c180f731026c4b0434cb5eaa034aac91f9810b77059641fdab.png"
+  }
+}

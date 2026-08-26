@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "6f9e2629-8209-4b00-a480-2802f7e80c64",
+    "version": 1,
+    "contentRevisionId": "4dd39386-0714-4da1-b54b-1f0e3b5b50cb",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-beijing-greatwall",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/62e600b75dc5d50d42636d49d92c336a5d117b22a25297c59a717e7b2450e1c0.png",
+      "sha256": "62e600b75dc5d50d42636d49d92c336a5d117b22a25297c59a717e7b2450e1c0",
+      "encodedBytes": 2742748,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/12b0cec9219be8ff0e107d58af294166906ac9b4b41c515ec4ee0ba913718af3.png",
+      "sha256": "12b0cec9219be8ff0e107d58af294166906ac9b4b41c515ec4ee0ba913718af3",
+      "encodedBytes": 2788496,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "8d0377dc-5f5b-4c40-9f0d-1e4080be3fa1",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "62e600b75dc5d50d42636d49d92c336a5d117b22a25297c59a717e7b2450e1c0.png",
+    "imageB.png": "12b0cec9219be8ff0e107d58af294166906ac9b4b41c515ec4ee0ba913718af3.png"
+  }
+}

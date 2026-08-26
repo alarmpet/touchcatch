@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "f7b3c73d-1649-4adf-ba89-db36e4d15d6d",
+    "version": 1,
+    "contentRevisionId": "e974e0e5-8d79-4595-b787-2c367f063be9",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-lowpoly-village",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "en",
+    "difficulty": "BEGINNER",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/e17341396515103be60c409d9d8a212a5c6ba524c351db853c0db0de140082a5.png",
+      "sha256": "e17341396515103be60c409d9d8a212a5c6ba524c351db853c0db0de140082a5",
+      "encodedBytes": 2227650,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/d1edfc62c7244a36a014b0d2521793040f53a78d693368fc4c5854a69e212e93.png",
+      "sha256": "d1edfc62c7244a36a014b0d2521793040f53a78d693368fc4c5854a69e212e93",
+      "encodedBytes": 2427249,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "e974e0e5-8d79-4595-b787-2c367f063be9",
+    "schemaVersion": "1.0.0",
+    "canonicalAnswer": "Alpine Village",
+    "aliases": [
+      "Mountain Village",
+      "Low Poly Village"
+    ],
+    "meaning": {
+      "prompt": "A picturesque high mountain settlement with wooden chalets, windmills, and grazing sheep is an?",
+      "options": [
+        {
+          "id": "opt_1",
+          "label": "Alpine Village"
+        },
+        {
+          "id": "opt_2",
+          "label": "Desert Oasis"
+        },
+        {
+          "id": "opt_3",
+          "label": "Deep Sea Trench"
+        }
+      ],
+      "correctOptionId": "opt_1"
+    },
+    "sceneBrief": "Modern low-poly 3D isometric alpine mountain village with pastel chalets, windmill, fountain, sheep, and hot air balloon",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5,
+            "cy": 0.5,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.5,
+            "cy": 0.5,
+            "r": 0.08
+          }
+        }
+      }
+    ]
+  }
+}

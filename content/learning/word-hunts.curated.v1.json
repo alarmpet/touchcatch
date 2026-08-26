@@ -68,6 +68,2008 @@
         "cy": 0.315,
         "r": 0.1
       }
+    ],
+    "ko-proverb-dark-under-lamp": [
+      {
+        "missionId": "lamp-boy",
+        "kind": "NORMAL",
+        "publicPrompt": "소년",
+        "cx": 0.505,
+        "cy": 0.61,
+        "r": 0.085
+      },
+      {
+        "missionId": "lamp-shoes",
+        "kind": "NORMAL",
+        "publicPrompt": "구두",
+        "cx": 0.84,
+        "cy": 0.78,
+        "r": 0.075
+      },
+      {
+        "missionId": "lamp-drawer-knob",
+        "kind": "SPECIAL",
+        "publicPrompt": "서랍 손잡이",
+        "cx": 0.735,
+        "cy": 0.55,
+        "r": 0.065
+      }
+    ],
+    "ko-proverb-seeing-is-believing": [
+      {
+        "missionId": "believing-poster",
+        "kind": "NORMAL",
+        "publicPrompt": "광학 포스터",
+        "cx": 0.125,
+        "cy": 0.23,
+        "r": 0.09
+      },
+      {
+        "missionId": "believing-eraser",
+        "kind": "NORMAL",
+        "publicPrompt": "칠판지우개",
+        "cx": 0.325,
+        "cy": 0.43,
+        "r": 0.065
+      },
+      {
+        "missionId": "believing-boy",
+        "kind": "SPECIAL",
+        "publicPrompt": "실험하는 소년",
+        "cx": 0.46,
+        "cy": 0.51,
+        "r": 0.075
+      }
+    ],
+    "ko-proverb-kind-words-return": [
+      {
+        "missionId": "words-laptop",
+        "kind": "NORMAL",
+        "publicPrompt": "노트북",
+        "cx": 0.44,
+        "cy": 0.67,
+        "r": 0.08
+      },
+      {
+        "missionId": "words-purple-hoodie",
+        "kind": "NORMAL",
+        "publicPrompt": "보라 후드 소녀",
+        "cx": 0.16,
+        "cy": 0.45,
+        "r": 0.08
+      },
+      {
+        "missionId": "words-green-hoodie",
+        "kind": "SPECIAL",
+        "publicPrompt": "초록 후드 소년",
+        "cx": 0.35,
+        "cy": 0.35,
+        "r": 0.08
+      }
+    ],
+    "ko-idiom-turn-misfortune": [
+      {
+        "missionId": "misfortune-palette",
+        "kind": "NORMAL",
+        "publicPrompt": "대형 팔레트",
+        "cx": 0.535,
+        "cy": 0.11,
+        "r": 0.08
+      },
+      {
+        "missionId": "misfortune-glasses-boy",
+        "kind": "NORMAL",
+        "publicPrompt": "안경 쓴 소년",
+        "cx": 0.275,
+        "cy": 0.5,
+        "r": 0.075
+      },
+      {
+        "missionId": "misfortune-box-boy",
+        "kind": "SPECIAL",
+        "publicPrompt": "상자 든 소년",
+        "cx": 0.93,
+        "cy": 0.56,
+        "r": 0.065
+      }
+    ],
+    "ko-idiom-prepare-ahead": [
+      {
+        "missionId": "prepare-checklist",
+        "kind": "NORMAL",
+        "publicPrompt": "체크리스트",
+        "cx": 0.57,
+        "cy": 0.78,
+        "r": 0.08
+      },
+      {
+        "missionId": "prepare-window-girl",
+        "kind": "NORMAL",
+        "publicPrompt": "창문 잠그는 소녀",
+        "cx": 0.575,
+        "cy": 0.25,
+        "r": 0.08
+      },
+      {
+        "missionId": "prepare-drain-boy",
+        "kind": "SPECIAL",
+        "publicPrompt": "배수구 확인 소년",
+        "cx": 0.46,
+        "cy": 0.48,
+        "r": 0.08
+      }
+    ],
+    "ko-idiom-perspective": [
+      {
+        "missionId": "perspective-lighting-boy",
+        "kind": "NORMAL",
+        "publicPrompt": "조명 조작 소년",
+        "cx": 0.16,
+        "cy": 0.5,
+        "r": 0.075
+      },
+      {
+        "missionId": "perspective-purple-girl",
+        "kind": "NORMAL",
+        "publicPrompt": "보라 후드 소녀",
+        "cx": 0.33,
+        "cy": 0.44,
+        "r": 0.075
+      },
+      {
+        "missionId": "perspective-green-boy",
+        "kind": "SPECIAL",
+        "publicPrompt": "초록 후드 소년",
+        "cx": 0.66,
+        "cy": 0.46,
+        "r": 0.08
+      }
+    ],
+    "ko-proverb-cow-barn": [
+      {
+        "missionId": "cow-barn-door",
+        "kind": "NORMAL",
+        "publicPrompt": "외양간 문",
+        "cx": 0.15,
+        "cy": 0.77,
+        "r": 0.08
+      },
+      {
+        "missionId": "cow-thatched-roof",
+        "kind": "NORMAL",
+        "publicPrompt": "초가지붕",
+        "cx": 0.53,
+        "cy": 0.345,
+        "r": 0.085
+      },
+      {
+        "missionId": "cow-mountain-peak",
+        "kind": "SPECIAL",
+        "publicPrompt": "산봉우리",
+        "cx": 0.2,
+        "cy": 0.24,
+        "r": 0.08
+      }
+    ],
+    "ko-idiom-birds-one-stone": [
+      {
+        "missionId": "birds-pavilion",
+        "kind": "NORMAL",
+        "publicPrompt": "정자",
+        "cx": 0.275,
+        "cy": 0.35,
+        "r": 0.085
+      },
+      {
+        "missionId": "birds-boy",
+        "kind": "NORMAL",
+        "publicPrompt": "동자",
+        "cx": 0.605,
+        "cy": 0.65,
+        "r": 0.075
+      },
+      {
+        "missionId": "birds-pine-tree",
+        "kind": "SPECIAL",
+        "publicPrompt": "왼쪽 소나무",
+        "cx": 0.08,
+        "cy": 0.28,
+        "r": 0.065
+      }
+    ],
+    "en-summer-beach": [
+      {
+        "missionId": "beach-sandcastle",
+        "kind": "NORMAL",
+        "publicPrompt": "모래성",
+        "cx": 0.205,
+        "cy": 0.855,
+        "r": 0.075
+      },
+      {
+        "missionId": "beach-seagull",
+        "kind": "NORMAL",
+        "publicPrompt": "갈매기",
+        "cx": 0.66,
+        "cy": 0.445,
+        "r": 0.065
+      },
+      {
+        "missionId": "beach-sailboat",
+        "kind": "SPECIAL",
+        "publicPrompt": "돛단배",
+        "cx": 0.485,
+        "cy": 0.365,
+        "r": 0.065
+      }
+    ],
+    "en-resilience": [
+      {
+        "missionId": "resilience-fence",
+        "kind": "NORMAL",
+        "publicPrompt": "격자 울타리",
+        "cx": 0.18,
+        "cy": 0.3,
+        "r": 0.085
+      },
+      {
+        "missionId": "resilience-shovel",
+        "kind": "NORMAL",
+        "publicPrompt": "모종삽",
+        "cx": 0.64,
+        "cy": 0.79,
+        "r": 0.065
+      },
+      {
+        "missionId": "resilience-sunflower",
+        "kind": "SPECIAL",
+        "publicPrompt": "해바라기",
+        "cx": 0.93,
+        "cy": 0.9,
+        "r": 0.065
+      }
+    ],
+    "en-dilemma": [
+      {
+        "missionId": "dilemma-volcano-model",
+        "kind": "NORMAL",
+        "publicPrompt": "화산 모형",
+        "cx": 0.155,
+        "cy": 0.635,
+        "r": 0.075
+      },
+      {
+        "missionId": "dilemma-pigtail-girl",
+        "kind": "NORMAL",
+        "publicPrompt": "양갈래 머리 소녀",
+        "cx": 0.695,
+        "cy": 0.645,
+        "r": 0.075
+      },
+      {
+        "missionId": "dilemma-pink-yarn",
+        "kind": "SPECIAL",
+        "publicPrompt": "분홍 털실",
+        "cx": 0.85,
+        "cy": 0.915,
+        "r": 0.065
+      }
+    ],
+    "en-sustainability": [
+      {
+        "missionId": "sustain-wind-turbine",
+        "kind": "NORMAL",
+        "publicPrompt": "풍력 터빈",
+        "cx": 0.71,
+        "cy": 0.74,
+        "r": 0.08
+      },
+      {
+        "missionId": "sustain-bio-tank",
+        "kind": "NORMAL",
+        "publicPrompt": "원통형 탱크",
+        "cx": 0.42,
+        "cy": 0.85,
+        "r": 0.075
+      },
+      {
+        "missionId": "sustain-smart-table",
+        "kind": "SPECIAL",
+        "publicPrompt": "스마트 테이블",
+        "cx": 0.875,
+        "cy": 0.74,
+        "r": 0.075
+      }
+    ],
+    "gk-space-rover": [
+      {
+        "missionId": "rover-dome-base",
+        "kind": "NORMAL",
+        "publicPrompt": "돔 기지",
+        "cx": 0.81,
+        "cy": 0.355,
+        "r": 0.08
+      },
+      {
+        "missionId": "rover-wheel",
+        "kind": "NORMAL",
+        "publicPrompt": "로버 바퀴",
+        "cx": 0.16,
+        "cy": 0.75,
+        "r": 0.07
+      },
+      {
+        "missionId": "rover-robotic-claw",
+        "kind": "SPECIAL",
+        "publicPrompt": "로봇 집게",
+        "cx": 0.655,
+        "cy": 0.795,
+        "r": 0.065
+      }
+    ],
+    "en-school-classroom": [
+      {
+        "missionId": "classroom-alphabet-chart",
+        "kind": "NORMAL",
+        "publicPrompt": "알파벳 포스터",
+        "cx": 0.39,
+        "cy": 0.31,
+        "r": 0.075
+      },
+      {
+        "missionId": "classroom-chalk-drawing",
+        "kind": "NORMAL",
+        "publicPrompt": "칠판 속 학교",
+        "cx": 0.64,
+        "cy": 0.3,
+        "r": 0.07
+      },
+      {
+        "missionId": "classroom-blue-backpack",
+        "kind": "SPECIAL",
+        "publicPrompt": "파란 책가방",
+        "cx": 0.265,
+        "cy": 0.8,
+        "r": 0.065
+      }
+    ],
+    "en-happy-family": [
+      {
+        "missionId": "family-portrait",
+        "kind": "NORMAL",
+        "publicPrompt": "가족사진 액자",
+        "cx": 0.33,
+        "cy": 0.27,
+        "r": 0.085
+      },
+      {
+        "missionId": "family-floor-lamp",
+        "kind": "NORMAL",
+        "publicPrompt": "스탠드 조명",
+        "cx": 0.93,
+        "cy": 0.355,
+        "r": 0.065
+      },
+      {
+        "missionId": "family-television",
+        "kind": "SPECIAL",
+        "publicPrompt": "텔레비전",
+        "cx": 0.93,
+        "cy": 0.65,
+        "r": 0.065
+      }
+    ],
+    "en-curiosity-lab": [
+      {
+        "missionId": "curiosity-blackboard",
+        "kind": "NORMAL",
+        "publicPrompt": "칠판",
+        "cx": 0.14,
+        "cy": 0.3,
+        "r": 0.085
+      },
+      {
+        "missionId": "curiosity-test-tubes",
+        "kind": "NORMAL",
+        "publicPrompt": "시험관 스탠드",
+        "cx": 0.14,
+        "cy": 0.765,
+        "r": 0.07
+      },
+      {
+        "missionId": "curiosity-skeleton",
+        "kind": "SPECIAL",
+        "publicPrompt": "인체 골격",
+        "cx": 0.835,
+        "cy": 0.38,
+        "r": 0.075
+      }
+    ],
+    "en-ambiguity-gallery": [
+      {
+        "missionId": "gallery-abstract-art",
+        "kind": "NORMAL",
+        "publicPrompt": "추상화 액자",
+        "cx": 0.575,
+        "cy": 0.43,
+        "r": 0.085
+      },
+      {
+        "missionId": "gallery-catalog-stand",
+        "kind": "NORMAL",
+        "publicPrompt": "도록 거치대",
+        "cx": 0.125,
+        "cy": 0.7,
+        "r": 0.08
+      },
+      {
+        "missionId": "gallery-sculpture",
+        "kind": "SPECIAL",
+        "publicPrompt": "조각상",
+        "cx": 0.78,
+        "cy": 0.45,
+        "r": 0.075
+      }
+    ],
+    "en-toy-hospital": [
+      {
+        "missionId": "hospital-green-cabinet",
+        "kind": "NORMAL",
+        "publicPrompt": "녹색 서랍장",
+        "cx": 0.14,
+        "cy": 0.72,
+        "r": 0.075
+      },
+      {
+        "missionId": "hospital-medicine-cabinet",
+        "kind": "NORMAL",
+        "publicPrompt": "약품 수납장",
+        "cx": 0.58,
+        "cy": 0.22,
+        "r": 0.07
+      },
+      {
+        "missionId": "hospital-table-frame",
+        "kind": "SPECIAL",
+        "publicPrompt": "진찰대 받침",
+        "cx": 0.49,
+        "cy": 0.85,
+        "r": 0.075
+      }
+    ],
+    "en-city-park": [
+      {
+        "missionId": "park-fountain",
+        "kind": "NORMAL",
+        "publicPrompt": "분수대",
+        "cx": 0.68,
+        "cy": 0.53,
+        "r": 0.075
+      },
+      {
+        "missionId": "park-swings",
+        "kind": "NORMAL",
+        "publicPrompt": "그네",
+        "cx": 0.2,
+        "cy": 0.52,
+        "r": 0.08
+      },
+      {
+        "missionId": "park-big-tree",
+        "kind": "SPECIAL",
+        "publicPrompt": "큰 나무",
+        "cx": 0.38,
+        "cy": 0.28,
+        "r": 0.085
+      }
+    ],
+    "en-yellow-bus": [
+      {
+        "missionId": "bus-sign-school",
+        "kind": "NORMAL",
+        "publicPrompt": "버스 표지판",
+        "cx": 0.92,
+        "cy": 0.29,
+        "r": 0.065
+      },
+      {
+        "missionId": "bus-lamp-post",
+        "kind": "NORMAL",
+        "publicPrompt": "가로등",
+        "cx": 0.09,
+        "cy": 0.68,
+        "r": 0.065
+      },
+      {
+        "missionId": "bus-pink-girl",
+        "kind": "SPECIAL",
+        "publicPrompt": "분홍 옷 소녀",
+        "cx": 0.635,
+        "cy": 0.635,
+        "r": 0.065
+      }
+    ],
+    "en-funny-zoo": [
+      {
+        "missionId": "zoo-giraffe",
+        "kind": "NORMAL",
+        "publicPrompt": "기린",
+        "cx": 0.28,
+        "cy": 0.28,
+        "r": 0.08
+      },
+      {
+        "missionId": "zoo-elephant",
+        "kind": "NORMAL",
+        "publicPrompt": "코끼리",
+        "cx": 0.45,
+        "cy": 0.66,
+        "r": 0.075
+      },
+      {
+        "missionId": "zoo-bamboo-hut",
+        "kind": "SPECIAL",
+        "publicPrompt": "원두막 지붕",
+        "cx": 0.485,
+        "cy": 0.33,
+        "r": 0.08
+      }
+    ],
+    "en-sweet-bakery": [
+      {
+        "missionId": "bakery-wall-clock",
+        "kind": "NORMAL",
+        "publicPrompt": "벽시계",
+        "cx": 0.665,
+        "cy": 0.16,
+        "r": 0.08
+      },
+      {
+        "missionId": "bakery-coffee-machine",
+        "kind": "NORMAL",
+        "publicPrompt": "커피 머신",
+        "cx": 0.8,
+        "cy": 0.37,
+        "r": 0.08
+      },
+      {
+        "missionId": "bakery-cafe-chair",
+        "kind": "SPECIAL",
+        "publicPrompt": "카페 의자",
+        "cx": 0.67,
+        "cy": 0.88,
+        "r": 0.08
+      }
+    ],
+    "en-space-rocket": [
+      {
+        "missionId": "rocket-countdown-board",
+        "kind": "NORMAL",
+        "publicPrompt": "카운트다운 전광판",
+        "cx": 0.695,
+        "cy": 0.48,
+        "r": 0.075
+      },
+      {
+        "missionId": "rocket-launch-smoke",
+        "kind": "NORMAL",
+        "publicPrompt": "발사 연기",
+        "cx": 0.15,
+        "cy": 0.82,
+        "r": 0.085
+      },
+      {
+        "missionId": "rocket-fuel-tank",
+        "kind": "SPECIAL",
+        "publicPrompt": "연료 탱크",
+        "cx": 0.9,
+        "cy": 0.78,
+        "r": 0.075
+      }
+    ],
+    "en-sustainability-greenhouse": [
+      {
+        "missionId": "greenhouse-hydroponics",
+        "kind": "NORMAL",
+        "publicPrompt": "수경재배 탑",
+        "cx": 0.33,
+        "cy": 0.53,
+        "r": 0.08
+      },
+      {
+        "missionId": "greenhouse-lily-pot",
+        "kind": "NORMAL",
+        "publicPrompt": "백합 화분",
+        "cx": 0.72,
+        "cy": 0.9,
+        "r": 0.075
+      },
+      {
+        "missionId": "greenhouse-fern-pot",
+        "kind": "SPECIAL",
+        "publicPrompt": "고사리 화분",
+        "cx": 0.3,
+        "cy": 0.92,
+        "r": 0.07
+      }
+    ],
+    "en-architecture-studio": [
+      {
+        "missionId": "arch-board",
+        "kind": "NORMAL",
+        "publicPrompt": "도면 게시판",
+        "cx": 0.88,
+        "cy": 0.29,
+        "r": 0.08
+      },
+      {
+        "missionId": "arch-desk-lamp",
+        "kind": "NORMAL",
+        "publicPrompt": "제도 스탠드",
+        "cx": 0.14,
+        "cy": 0.55,
+        "r": 0.07
+      },
+      {
+        "missionId": "arch-monstera-pot",
+        "kind": "SPECIAL",
+        "publicPrompt": "몬스테라 화분",
+        "cx": 0.075,
+        "cy": 0.9,
+        "r": 0.07
+      }
+    ],
+    "en-ecosystem-coral": [
+      {
+        "missionId": "coral-branch",
+        "kind": "NORMAL",
+        "publicPrompt": "나뭇가지 산호",
+        "cx": 0.085,
+        "cy": 0.27,
+        "r": 0.075
+      },
+      {
+        "missionId": "coral-tube-sponge",
+        "kind": "NORMAL",
+        "publicPrompt": "원통형 산호",
+        "cx": 0.915,
+        "cy": 0.35,
+        "r": 0.07
+      },
+      {
+        "missionId": "coral-underwater-camera",
+        "kind": "SPECIAL",
+        "publicPrompt": "수중 카메라",
+        "cx": 0.59,
+        "cy": 0.615,
+        "r": 0.065
+      }
+    ],
+    "en-astronomy-observatory": [
+      {
+        "missionId": "astro-globe",
+        "kind": "NORMAL",
+        "publicPrompt": "지구의",
+        "cx": 0.875,
+        "cy": 0.83,
+        "r": 0.08
+      },
+      {
+        "missionId": "astro-star-chart",
+        "kind": "NORMAL",
+        "publicPrompt": "성도 게시판",
+        "cx": 0.775,
+        "cy": 0.605,
+        "r": 0.065
+      },
+      {
+        "missionId": "astro-terminal",
+        "kind": "SPECIAL",
+        "publicPrompt": "보조 단말기",
+        "cx": 0.65,
+        "cy": 0.68,
+        "r": 0.065
+      }
+    ],
+    "en-archaeology-dig": [
+      {
+        "missionId": "arch-fossil",
+        "kind": "NORMAL",
+        "publicPrompt": "공룡 화석",
+        "cx": 0.2,
+        "cy": 0.33,
+        "r": 0.085
+      },
+      {
+        "missionId": "arch-camp-tent",
+        "kind": "NORMAL",
+        "publicPrompt": "캠프 텐트",
+        "cx": 0.865,
+        "cy": 0.435,
+        "r": 0.075
+      },
+      {
+        "missionId": "arch-gold-mask",
+        "kind": "SPECIAL",
+        "publicPrompt": "황금 가면",
+        "cx": 0.395,
+        "cy": 0.85,
+        "r": 0.07
+      }
+    ],
+    "en-symphony-orchestra": [
+      {
+        "missionId": "symphony-stage-curtain",
+        "kind": "NORMAL",
+        "publicPrompt": "무대 커튼",
+        "cx": 0.22,
+        "cy": 0.25,
+        "r": 0.085
+      },
+      {
+        "missionId": "symphony-horn-player",
+        "kind": "NORMAL",
+        "publicPrompt": "호른 연주자",
+        "cx": 0.075,
+        "cy": 0.47,
+        "r": 0.07
+      },
+      {
+        "missionId": "symphony-violinist",
+        "kind": "SPECIAL",
+        "publicPrompt": "바이올리니스트",
+        "cx": 0.77,
+        "cy": 0.81,
+        "r": 0.075
+      }
+    ],
+    "en-hypothesis-lab": [
+      {
+        "missionId": "hypo-poster",
+        "kind": "NORMAL",
+        "publicPrompt": "도표 포스터",
+        "cx": 0.51,
+        "cy": 0.24,
+        "r": 0.08
+      },
+      {
+        "missionId": "hypo-whiteboard",
+        "kind": "NORMAL",
+        "publicPrompt": "화이트보드",
+        "cx": 0.24,
+        "cy": 0.45,
+        "r": 0.085
+      },
+      {
+        "missionId": "hypo-wooden-stool",
+        "kind": "SPECIAL",
+        "publicPrompt": "원형 스툴",
+        "cx": 0.49,
+        "cy": 0.9,
+        "r": 0.075
+      }
+    ],
+    "en-journalism-press": [
+      {
+        "missionId": "press-tokyo-clock",
+        "kind": "NORMAL",
+        "publicPrompt": "도쿄 시계",
+        "cx": 0.765,
+        "cy": 0.285,
+        "r": 0.065
+      },
+      {
+        "missionId": "press-camera-pedestal",
+        "kind": "NORMAL",
+        "publicPrompt": "카메라 이동 받침",
+        "cx": 0.81,
+        "cy": 0.86,
+        "r": 0.075
+      },
+      {
+        "missionId": "press-teleprompter",
+        "kind": "SPECIAL",
+        "publicPrompt": "프롬프터",
+        "cx": 0.465,
+        "cy": 0.545,
+        "r": 0.065
+      }
+    ],
+    "en-metaphor-library": [
+      {
+        "missionId": "library-winged-book",
+        "kind": "NORMAL",
+        "publicPrompt": "날개 달린 책",
+        "cx": 0.19,
+        "cy": 0.17,
+        "r": 0.085
+      },
+      {
+        "missionId": "library-sun-clock",
+        "kind": "NORMAL",
+        "publicPrompt": "태양 벽시계",
+        "cx": 0.81,
+        "cy": 0.185,
+        "r": 0.08
+      },
+      {
+        "missionId": "library-stained-glass",
+        "kind": "SPECIAL",
+        "publicPrompt": "스테인드글라스 창문",
+        "cx": 0.5,
+        "cy": 0.26,
+        "r": 0.08
+      }
+    ],
+    "en-nostalgia-attic": [
+      {
+        "missionId": "attic-camera",
+        "kind": "NORMAL",
+        "publicPrompt": "필름 카메라",
+        "cx": 0.765,
+        "cy": 0.27,
+        "r": 0.065
+      },
+      {
+        "missionId": "attic-dolls",
+        "kind": "NORMAL",
+        "publicPrompt": "선반 위 인형",
+        "cx": 0.935,
+        "cy": 0.27,
+        "r": 0.065
+      },
+      {
+        "missionId": "attic-quilt-bed",
+        "kind": "SPECIAL",
+        "publicPrompt": "패치워크 이불",
+        "cx": 0.91,
+        "cy": 0.48,
+        "r": 0.075
+      }
+    ],
+    "en-camaraderie-campfire": [
+      {
+        "missionId": "camp-backpack",
+        "kind": "NORMAL",
+        "publicPrompt": "가죽 배낭",
+        "cx": 0.165,
+        "cy": 0.865,
+        "r": 0.065
+      },
+      {
+        "missionId": "camp-orange-tent",
+        "kind": "NORMAL",
+        "publicPrompt": "주황색 텐트",
+        "cx": 0.575,
+        "cy": 0.535,
+        "r": 0.075
+      },
+      {
+        "missionId": "camp-tree-lantern",
+        "kind": "SPECIAL",
+        "publicPrompt": "나무 랜턴",
+        "cx": 0.86,
+        "cy": 0.395,
+        "r": 0.065
+      }
+    ],
+    "en-chrysanthemum-greenhouse": [
+      {
+        "missionId": "greenhouse-fountain",
+        "kind": "NORMAL",
+        "publicPrompt": "석조 분수대",
+        "cx": 0.5,
+        "cy": 0.89,
+        "r": 0.08
+      },
+      {
+        "missionId": "greenhouse-glass-cloche",
+        "kind": "NORMAL",
+        "publicPrompt": "유리 덮개 화분",
+        "cx": 0.875,
+        "cy": 0.55,
+        "r": 0.065
+      },
+      {
+        "missionId": "greenhouse-glass-dome",
+        "kind": "SPECIAL",
+        "publicPrompt": "온실 천장 돔",
+        "cx": 0.5,
+        "cy": 0.17,
+        "r": 0.08
+      }
+    ],
+    "en-tranquility-tea": [
+      {
+        "missionId": "tea-sliding-door",
+        "kind": "NORMAL",
+        "publicPrompt": "격자 미닫이문",
+        "cx": 0.42,
+        "cy": 0.31,
+        "r": 0.08
+      },
+      {
+        "missionId": "tea-incense-burner",
+        "kind": "NORMAL",
+        "publicPrompt": "향로",
+        "cx": 0.13,
+        "cy": 0.645,
+        "r": 0.065
+      },
+      {
+        "missionId": "tea-zen-stone",
+        "kind": "SPECIAL",
+        "publicPrompt": "정원 바위",
+        "cx": 0.265,
+        "cy": 0.585,
+        "r": 0.065
+      }
+    ],
+    "en-creativity-workshop": [
+      {
+        "missionId": "workshop-wall-clock",
+        "kind": "NORMAL",
+        "publicPrompt": "벽시계",
+        "cx": 0.34,
+        "cy": 0.085,
+        "r": 0.065
+      },
+      {
+        "missionId": "workshop-window",
+        "kind": "NORMAL",
+        "publicPrompt": "격자 창문",
+        "cx": 0.76,
+        "cy": 0.24,
+        "r": 0.075
+      },
+      {
+        "missionId": "workshop-rolling-pin",
+        "kind": "SPECIAL",
+        "publicPrompt": "밀대",
+        "cx": 0.89,
+        "cy": 0.85,
+        "r": 0.07
+      }
+    ],
+    "en-illumination-library": [
+      {
+        "missionId": "library-shelf-globe",
+        "kind": "NORMAL",
+        "publicPrompt": "선반 위 지구의",
+        "cx": 0.665,
+        "cy": 0.315,
+        "r": 0.065
+      },
+      {
+        "missionId": "library-monk",
+        "kind": "NORMAL",
+        "publicPrompt": "수도사",
+        "cx": 0.605,
+        "cy": 0.46,
+        "r": 0.065
+      },
+      {
+        "missionId": "library-floor-books",
+        "kind": "SPECIAL",
+        "publicPrompt": "바닥 책더미",
+        "cx": 0.92,
+        "cy": 0.92,
+        "r": 0.07
+      }
+    ],
+    "en-harmony-orchestra": [
+      {
+        "missionId": "harmony-double-bass",
+        "kind": "NORMAL",
+        "publicPrompt": "더블베이스",
+        "cx": 0.88,
+        "cy": 0.74,
+        "r": 0.08
+      },
+      {
+        "missionId": "harmony-flutist",
+        "kind": "NORMAL",
+        "publicPrompt": "플루트 연주자",
+        "cx": 0.59,
+        "cy": 0.71,
+        "r": 0.065
+      },
+      {
+        "missionId": "harmony-stage-steps",
+        "kind": "SPECIAL",
+        "publicPrompt": "무대 계단",
+        "cx": 0.5,
+        "cy": 0.93,
+        "r": 0.065
+      }
+    ],
+    "en-creativity-studio": [
+      {
+        "missionId": "studio-hologram",
+        "kind": "NORMAL",
+        "publicPrompt": "홀로그램 도면",
+        "cx": 0.5,
+        "cy": 0.22,
+        "r": 0.085
+      },
+      {
+        "missionId": "studio-3d-printer",
+        "kind": "NORMAL",
+        "publicPrompt": "3D 프린터",
+        "cx": 0.115,
+        "cy": 0.54,
+        "r": 0.075
+      },
+      {
+        "missionId": "studio-resin-printer",
+        "kind": "SPECIAL",
+        "publicPrompt": "레진 3D 프린터",
+        "cx": 0.915,
+        "cy": 0.56,
+        "r": 0.07
+      }
+    ],
+    "en-panoramic-observatory": [
+      {
+        "missionId": "pano-telescope",
+        "kind": "NORMAL",
+        "publicPrompt": "천체 망원경",
+        "cx": 0.5,
+        "cy": 0.48,
+        "r": 0.08
+      },
+      {
+        "missionId": "pano-floor-rug",
+        "kind": "NORMAL",
+        "publicPrompt": "바닥 양탄자",
+        "cx": 0.2,
+        "cy": 0.875,
+        "r": 0.08
+      },
+      {
+        "missionId": "pano-glass-dome",
+        "kind": "SPECIAL",
+        "publicPrompt": "유리 돔 천장",
+        "cx": 0.5,
+        "cy": 0.11,
+        "r": 0.08
+      }
+    ],
+    "en-clay-bakery": [
+      {
+        "missionId": "clay-bakery-menu",
+        "kind": "NORMAL",
+        "publicPrompt": "칠판 메뉴판",
+        "cx": 0.81,
+        "cy": 0.28,
+        "r": 0.075
+      },
+      {
+        "missionId": "clay-bakery-bread-shelf",
+        "kind": "NORMAL",
+        "publicPrompt": "식빵 바구니",
+        "cx": 0.14,
+        "cy": 0.55,
+        "r": 0.07
+      },
+      {
+        "missionId": "clay-bakery-pie-case",
+        "kind": "SPECIAL",
+        "publicPrompt": "파이 진열대",
+        "cx": 0.5,
+        "cy": 0.79,
+        "r": 0.07
+      }
+    ],
+    "en-clay-zoo": [
+      {
+        "missionId": "clay-zoo-monkey",
+        "kind": "NORMAL",
+        "publicPrompt": "원숭이",
+        "cx": 0.655,
+        "cy": 0.16,
+        "r": 0.075
+      },
+      {
+        "missionId": "clay-zoo-sign",
+        "kind": "NORMAL",
+        "publicPrompt": "판다 푯말",
+        "cx": 0.835,
+        "cy": 0.765,
+        "r": 0.065
+      },
+      {
+        "missionId": "clay-zoo-stepping-stones",
+        "kind": "SPECIAL",
+        "publicPrompt": "디딤돌",
+        "cx": 0.49,
+        "cy": 0.93,
+        "r": 0.065
+      }
+    ],
+    "en-clay-family": [
+      {
+        "missionId": "clay-family-train",
+        "kind": "NORMAL",
+        "publicPrompt": "장난감 기차",
+        "cx": 0.775,
+        "cy": 0.875,
+        "r": 0.08
+      },
+      {
+        "missionId": "clay-family-bookshelf",
+        "kind": "NORMAL",
+        "publicPrompt": "책장 속 책",
+        "cx": 0.68,
+        "cy": 0.315,
+        "r": 0.065
+      },
+      {
+        "missionId": "clay-family-mother",
+        "kind": "SPECIAL",
+        "publicPrompt": "꽃무늬 옷 엄마",
+        "cx": 0.56,
+        "cy": 0.44,
+        "r": 0.07
+      }
+    ],
+    "en-cyberpunk-city": [
+      {
+        "missionId": "cyber-flying-car",
+        "kind": "NORMAL",
+        "publicPrompt": "비행 자동차",
+        "cx": 0.78,
+        "cy": 0.31,
+        "r": 0.08
+      },
+      {
+        "missionId": "cyber-neon-sign",
+        "kind": "NORMAL",
+        "publicPrompt": "사이버네틱스 간판",
+        "cx": 0.915,
+        "cy": 0.115,
+        "r": 0.075
+      },
+      {
+        "missionId": "cyber-skybridge",
+        "kind": "SPECIAL",
+        "publicPrompt": "공중 보도교",
+        "cx": 0.535,
+        "cy": 0.265,
+        "r": 0.07
+      }
+    ],
+    "en-solitude-sanctuary": [
+      {
+        "missionId": "sanctuary-scroll",
+        "kind": "NORMAL",
+        "publicPrompt": "서예 족자",
+        "cx": 0.85,
+        "cy": 0.235,
+        "r": 0.065
+      },
+      {
+        "missionId": "sanctuary-mountain",
+        "kind": "NORMAL",
+        "publicPrompt": "설산 풍경",
+        "cx": 0.68,
+        "cy": 0.28,
+        "r": 0.08
+      },
+      {
+        "missionId": "sanctuary-timber-roof",
+        "kind": "SPECIAL",
+        "publicPrompt": "목조 지붕",
+        "cx": 0.49,
+        "cy": 0.11,
+        "r": 0.08
+      }
+    ],
+    "en-serendipity-garden": [
+      {
+        "missionId": "garden-rainbow-waterfall",
+        "kind": "NORMAL",
+        "publicPrompt": "무지개 폭포",
+        "cx": 0.09,
+        "cy": 0.48,
+        "r": 0.075
+      },
+      {
+        "missionId": "garden-peacock-tail",
+        "kind": "NORMAL",
+        "publicPrompt": "공작 깃털",
+        "cx": 0.93,
+        "cy": 0.49,
+        "r": 0.065
+      },
+      {
+        "missionId": "garden-glass-dome",
+        "kind": "SPECIAL",
+        "publicPrompt": "온실 유리 천장",
+        "cx": 0.4,
+        "cy": 0.11,
+        "r": 0.075
+      }
+    ],
+    "en-resilience-garden": [
+      {
+        "missionId": "garden-rainbow",
+        "kind": "NORMAL",
+        "publicPrompt": "무지개",
+        "cx": 0.46,
+        "cy": 0.17,
+        "r": 0.08
+      },
+      {
+        "missionId": "garden-red-roses",
+        "kind": "NORMAL",
+        "publicPrompt": "붉은 장미",
+        "cx": 0.435,
+        "cy": 0.5,
+        "r": 0.075
+      },
+      {
+        "missionId": "garden-fluffy-cloud",
+        "kind": "SPECIAL",
+        "publicPrompt": "뭉게구름",
+        "cx": 0.16,
+        "cy": 0.13,
+        "r": 0.08
+      }
+    ],
+    "en-equilibrium-cliff": [
+      {
+        "missionId": "cliff-lookout-deck",
+        "kind": "NORMAL",
+        "publicPrompt": "전망 데크",
+        "cx": 0.74,
+        "cy": 0.575,
+        "r": 0.075
+      },
+      {
+        "missionId": "cliff-rock-face",
+        "kind": "NORMAL",
+        "publicPrompt": "바위 절벽",
+        "cx": 0.53,
+        "cy": 0.85,
+        "r": 0.08
+      },
+      {
+        "missionId": "cliff-flying-seagulls",
+        "kind": "SPECIAL",
+        "publicPrompt": "갈매기 무리",
+        "cx": 0.81,
+        "cy": 0.15,
+        "r": 0.075
+      }
+    ],
+    "en-transcendence-galaxy": [
+      {
+        "missionId": "galaxy-armillary-sphere",
+        "kind": "NORMAL",
+        "publicPrompt": "황동 혼천의",
+        "cx": 0.145,
+        "cy": 0.84,
+        "r": 0.08
+      },
+      {
+        "missionId": "galaxy-astronaut-boots",
+        "kind": "NORMAL",
+        "publicPrompt": "우주복 부츠",
+        "cx": 0.66,
+        "cy": 0.585,
+        "r": 0.07
+      },
+      {
+        "missionId": "galaxy-starlight-tree",
+        "kind": "SPECIAL",
+        "publicPrompt": "별빛 나무",
+        "cx": 0.24,
+        "cy": 0.37,
+        "r": 0.07
+      }
+    ],
+    "en-phenomenon-lab": [
+      {
+        "missionId": "lab-antenna-tower",
+        "kind": "NORMAL",
+        "publicPrompt": "안테나 타워",
+        "cx": 0.105,
+        "cy": 0.44,
+        "r": 0.075
+      },
+      {
+        "missionId": "lab-parabolic-dishes",
+        "kind": "NORMAL",
+        "publicPrompt": "파라볼라 안테나",
+        "cx": 0.78,
+        "cy": 0.17,
+        "r": 0.08
+      },
+      {
+        "missionId": "lab-amber-crystal",
+        "kind": "SPECIAL",
+        "publicPrompt": "황수정 결정",
+        "cx": 0.68,
+        "cy": 0.865,
+        "r": 0.065
+      }
+    ],
+    "en-juxtaposition-market": [
+      {
+        "missionId": "market-robot-vendor",
+        "kind": "NORMAL",
+        "publicPrompt": "로봇 상인",
+        "cx": 0.835,
+        "cy": 0.55,
+        "r": 0.075
+      },
+      {
+        "missionId": "market-stone-fountain",
+        "kind": "NORMAL",
+        "publicPrompt": "광장 분수대",
+        "cx": 0.525,
+        "cy": 0.5,
+        "r": 0.075
+      },
+      {
+        "missionId": "market-hanging-lantern",
+        "kind": "SPECIAL",
+        "publicPrompt": "공중 가로등",
+        "cx": 0.565,
+        "cy": 0.115,
+        "r": 0.065
+      }
+    ],
+    "en-kaleidoscope-chamber": [
+      {
+        "missionId": "kaleido-glass-dome",
+        "kind": "NORMAL",
+        "publicPrompt": "스테인드글라스 돔",
+        "cx": 0.5,
+        "cy": 0.1,
+        "r": 0.08
+      },
+      {
+        "missionId": "kaleido-glass-pathway",
+        "kind": "NORMAL",
+        "publicPrompt": "유리 바닥길",
+        "cx": 0.49,
+        "cy": 0.91,
+        "r": 0.075
+      },
+      {
+        "missionId": "kaleido-marble-pillar",
+        "kind": "SPECIAL",
+        "publicPrompt": "대리석 기둥",
+        "cx": 0.9,
+        "cy": 0.55,
+        "r": 0.065
+      }
+    ],
+    "en-metamorphosis-cocoon": [
+      {
+        "missionId": "cocoon-swallowtail-butterfly",
+        "kind": "NORMAL",
+        "publicPrompt": "호랑나비",
+        "cx": 0.59,
+        "cy": 0.28,
+        "r": 0.08
+      },
+      {
+        "missionId": "cocoon-branch-caterpillar",
+        "kind": "NORMAL",
+        "publicPrompt": "나뭇가지 애벌레",
+        "cx": 0.165,
+        "cy": 0.43,
+        "r": 0.07
+      },
+      {
+        "missionId": "cocoon-glass-dome",
+        "kind": "SPECIAL",
+        "publicPrompt": "온실 유리 돔",
+        "cx": 0.5,
+        "cy": 0.09,
+        "r": 0.075
+      }
+    ],
+    "en-quintessence-alchemy": [
+      {
+        "missionId": "alchemy-constellation",
+        "kind": "NORMAL",
+        "publicPrompt": "천장 별자리",
+        "cx": 0.15,
+        "cy": 0.17,
+        "r": 0.075
+      },
+      {
+        "missionId": "alchemy-telescope",
+        "kind": "NORMAL",
+        "publicPrompt": "황동 망원경",
+        "cx": 0.785,
+        "cy": 0.73,
+        "r": 0.07
+      },
+      {
+        "missionId": "alchemy-bookshelf",
+        "kind": "SPECIAL",
+        "publicPrompt": "우측 책장",
+        "cx": 0.92,
+        "cy": 0.53,
+        "r": 0.065
+      }
+    ],
+    "en-archipelago-island": [
+      {
+        "missionId": "island-wooden-dock",
+        "kind": "NORMAL",
+        "publicPrompt": "나무 선착장",
+        "cx": 0.56,
+        "cy": 0.625,
+        "r": 0.07
+      },
+      {
+        "missionId": "island-thatched-hut",
+        "kind": "NORMAL",
+        "publicPrompt": "초가 오두막",
+        "cx": 0.855,
+        "cy": 0.55,
+        "r": 0.065
+      },
+      {
+        "missionId": "island-cumulus-cloud",
+        "kind": "SPECIAL",
+        "publicPrompt": "뭉게구름",
+        "cx": 0.16,
+        "cy": 0.16,
+        "r": 0.08
+      }
+    ],
+    "en-constellation-astronomy": [
+      {
+        "missionId": "astronomy-orion",
+        "kind": "NORMAL",
+        "publicPrompt": "오리온자리",
+        "cx": 0.69,
+        "cy": 0.35,
+        "r": 0.08
+      },
+      {
+        "missionId": "astronomy-ursa-major",
+        "kind": "NORMAL",
+        "publicPrompt": "북두칠성",
+        "cx": 0.45,
+        "cy": 0.28,
+        "r": 0.075
+      },
+      {
+        "missionId": "astronomy-wooden-dome",
+        "kind": "SPECIAL",
+        "publicPrompt": "목조 돔 지붕",
+        "cx": 0.22,
+        "cy": 0.22,
+        "r": 0.08
+      }
+    ],
+    "en-eternity-monument": [
+      {
+        "missionId": "monument-milky-way",
+        "kind": "NORMAL",
+        "publicPrompt": "은하수 밤하늘",
+        "cx": 0.83,
+        "cy": 0.2,
+        "r": 0.085
+      },
+      {
+        "missionId": "monument-stone-tablet",
+        "kind": "NORMAL",
+        "publicPrompt": "상형문자 석판",
+        "cx": 0.29,
+        "cy": 0.76,
+        "r": 0.065
+      },
+      {
+        "missionId": "monument-cobblestones",
+        "kind": "SPECIAL",
+        "publicPrompt": "바닥 돌길",
+        "cx": 0.76,
+        "cy": 0.93,
+        "r": 0.065
+      }
+    ],
+    "en-serenity-haven": [
+      {
+        "missionId": "haven-waterfall",
+        "kind": "NORMAL",
+        "publicPrompt": "좌측 폭포",
+        "cx": 0.155,
+        "cy": 0.45,
+        "r": 0.08
+      },
+      {
+        "missionId": "haven-pagoda-roof",
+        "kind": "NORMAL",
+        "publicPrompt": "정자 지붕",
+        "cx": 0.5,
+        "cy": 0.26,
+        "r": 0.08
+      },
+      {
+        "missionId": "haven-cliff-shrine",
+        "kind": "SPECIAL",
+        "publicPrompt": "원경 사원 탑",
+        "cx": 0.815,
+        "cy": 0.28,
+        "r": 0.065
+      }
+    ],
+    "en-solitude-cliff": [
+      {
+        "missionId": "cliff-lighthouse-lamp",
+        "kind": "NORMAL",
+        "publicPrompt": "등대 조명",
+        "cx": 0.55,
+        "cy": 0.26,
+        "r": 0.08
+      },
+      {
+        "missionId": "cliff-cottage-chimney",
+        "kind": "NORMAL",
+        "publicPrompt": "오두막 굴뚝",
+        "cx": 0.675,
+        "cy": 0.41,
+        "r": 0.07
+      },
+      {
+        "missionId": "cliff-paper-clouds",
+        "kind": "SPECIAL",
+        "publicPrompt": "입체 구름",
+        "cx": 0.22,
+        "cy": 0.15,
+        "r": 0.08
+      }
+    ],
+    "en-3d-serenity": [
+      {
+        "missionId": "serenity-arch-bridge",
+        "kind": "NORMAL",
+        "publicPrompt": "목조 아치 다리",
+        "cx": 0.46,
+        "cy": 0.76,
+        "r": 0.075
+      },
+      {
+        "missionId": "serenity-shore-rock",
+        "kind": "NORMAL",
+        "publicPrompt": "호숫가 바위",
+        "cx": 0.3,
+        "cy": 0.47,
+        "r": 0.07
+      },
+      {
+        "missionId": "serenity-pine-forest",
+        "kind": "SPECIAL",
+        "publicPrompt": "전나무 숲",
+        "cx": 0.18,
+        "cy": 0.2,
+        "r": 0.08
+      }
+    ],
+    "en-3d-harmony": [
+      {
+        "missionId": "harmony-violinist",
+        "kind": "NORMAL",
+        "publicPrompt": "바이올리니스트",
+        "cx": 0.5,
+        "cy": 0.65,
+        "r": 0.085
+      },
+      {
+        "missionId": "harmony-glass-dome",
+        "kind": "NORMAL",
+        "publicPrompt": "온실 유리 돔",
+        "cx": 0.5,
+        "cy": 0.1,
+        "r": 0.08
+      },
+      {
+        "missionId": "harmony-floor-lantern",
+        "kind": "SPECIAL",
+        "publicPrompt": "황동 랜턴",
+        "cx": 0.885,
+        "cy": 0.77,
+        "r": 0.065
+      }
+    ],
+    "en-papercut-forest": [
+      {
+        "missionId": "forest-paper-tree",
+        "kind": "NORMAL",
+        "publicPrompt": "종이공예 큰 나무",
+        "cx": 0.115,
+        "cy": 0.47,
+        "r": 0.08
+      },
+      {
+        "missionId": "forest-toadstool",
+        "kind": "NORMAL",
+        "publicPrompt": "점박이 버섯",
+        "cx": 0.25,
+        "cy": 0.91,
+        "r": 0.065
+      },
+      {
+        "missionId": "forest-pebble-path",
+        "kind": "SPECIAL",
+        "publicPrompt": "숲속 오솔길",
+        "cx": 0.76,
+        "cy": 0.9,
+        "r": 0.065
+      }
+    ],
+    "en-papercut-sakura": [
+      {
+        "missionId": "sakura-arch-bridge",
+        "kind": "NORMAL",
+        "publicPrompt": "목조 아치 다리",
+        "cx": 0.59,
+        "cy": 0.76,
+        "r": 0.08
+      },
+      {
+        "missionId": "sakura-stone-lantern",
+        "kind": "NORMAL",
+        "publicPrompt": "사원 석등",
+        "cx": 0.15,
+        "cy": 0.76,
+        "r": 0.065
+      },
+      {
+        "missionId": "sakura-stepping-stones",
+        "kind": "SPECIAL",
+        "publicPrompt": "정원 디딤돌",
+        "cx": 0.3,
+        "cy": 0.9,
+        "r": 0.075
+      }
+    ],
+    "en-cataclysm-volcano": [
+      {
+        "missionId": "volcano-magma-crater",
+        "kind": "NORMAL",
+        "publicPrompt": "용암 분화구",
+        "cx": 0.5,
+        "cy": 0.29,
+        "r": 0.08
+      },
+      {
+        "missionId": "volcano-catwalk",
+        "kind": "NORMAL",
+        "publicPrompt": "바닥 철망 발판",
+        "cx": 0.36,
+        "cy": 0.92,
+        "r": 0.07
+      },
+      {
+        "missionId": "volcano-pipes",
+        "kind": "SPECIAL",
+        "publicPrompt": "하단 배관",
+        "cx": 0.875,
+        "cy": 0.92,
+        "r": 0.07
+      }
+    ],
+    "en-resonance-concert": [
+      {
+        "missionId": "concert-soundwave",
+        "kind": "NORMAL",
+        "publicPrompt": "원형 음파",
+        "cx": 0.5,
+        "cy": 0.49,
+        "r": 0.08
+      },
+      {
+        "missionId": "concert-piano-lid",
+        "kind": "NORMAL",
+        "publicPrompt": "피아노 덮개",
+        "cx": 0.615,
+        "cy": 0.585,
+        "r": 0.065
+      },
+      {
+        "missionId": "concert-stage-floor",
+        "kind": "SPECIAL",
+        "publicPrompt": "원형 무대 바닥",
+        "cx": 0.5,
+        "cy": 0.93,
+        "r": 0.065
+      }
+    ],
+    "en-cyberpunk-space": [
+      {
+        "missionId": "space-radar-screen",
+        "kind": "NORMAL",
+        "publicPrompt": "원형 레이더 모니터",
+        "cx": 0.14,
+        "cy": 0.28,
+        "r": 0.08
+      },
+      {
+        "missionId": "space-window-frame",
+        "kind": "NORMAL",
+        "publicPrompt": "전망창 프레임",
+        "cx": 0.4,
+        "cy": 0.1,
+        "r": 0.075
+      },
+      {
+        "missionId": "space-cyber-city",
+        "kind": "SPECIAL",
+        "publicPrompt": "사이버 도시",
+        "cx": 0.93,
+        "cy": 0.65,
+        "r": 0.065
+      }
+    ],
+    "en-transmutation-alchemist": [
+      {
+        "missionId": "alchemist-wooden-stool",
+        "kind": "NORMAL",
+        "publicPrompt": "원형 스툴",
+        "cx": 0.33,
+        "cy": 0.77,
+        "r": 0.075
+      },
+      {
+        "missionId": "alchemist-leather-backpack",
+        "kind": "NORMAL",
+        "publicPrompt": "가죽 배낭",
+        "cx": 0.74,
+        "cy": 0.84,
+        "r": 0.07
+      },
+      {
+        "missionId": "alchemist-scroll-shelf",
+        "kind": "SPECIAL",
+        "publicPrompt": "양피지 두루마리",
+        "cx": 0.8,
+        "cy": 0.19,
+        "r": 0.075
+      }
+    ],
+    "en-synchronicity-clock": [
+      {
+        "missionId": "clock-ceiling-gears",
+        "kind": "NORMAL",
+        "publicPrompt": "천장 톱니바퀴",
+        "cx": 0.47,
+        "cy": 0.14,
+        "r": 0.075
+      },
+      {
+        "missionId": "clock-wooden-stairs",
+        "kind": "NORMAL",
+        "publicPrompt": "목조 계단",
+        "cx": 0.92,
+        "cy": 0.93,
+        "r": 0.065
+      },
+      {
+        "missionId": "clock-upper-catwalk",
+        "kind": "SPECIAL",
+        "publicPrompt": "2층 복도 난간",
+        "cx": 0.1,
+        "cy": 0.24,
+        "r": 0.07
+      }
+    ],
+    "en-epiphany-lighthouse": [
+      {
+        "missionId": "epiphany-storm-clouds",
+        "kind": "NORMAL",
+        "publicPrompt": "먹구름",
+        "cx": 0.2,
+        "cy": 0.1,
+        "r": 0.08
+      },
+      {
+        "missionId": "epiphany-sun-rays",
+        "kind": "NORMAL",
+        "publicPrompt": "태양 광선",
+        "cx": 0.88,
+        "cy": 0.1,
+        "r": 0.08
+      },
+      {
+        "missionId": "epiphany-flying-seagull",
+        "kind": "SPECIAL",
+        "publicPrompt": "비행 갈매기",
+        "cx": 0.445,
+        "cy": 0.21,
+        "r": 0.065
+      }
+    ],
+    "en-phonics-apple": [
+      {
+        "missionId": "apple-wicker-basket",
+        "kind": "NORMAL",
+        "publicPrompt": "사과 바구니",
+        "cx": 0.24,
+        "cy": 0.53,
+        "r": 0.08
+      },
+      {
+        "missionId": "apple-wooden-bowl",
+        "kind": "NORMAL",
+        "publicPrompt": "사과 그릇",
+        "cx": 0.76,
+        "cy": 0.56,
+        "r": 0.08
+      },
+      {
+        "missionId": "apple-orchard-sign",
+        "kind": "SPECIAL",
+        "publicPrompt": "과수원 간판",
+        "cx": 0.53,
+        "cy": 0.27,
+        "r": 0.08
+      }
+    ],
+    "en-synergy-cradle": [
+      {
+        "missionId": "cradle-welding-arm",
+        "kind": "NORMAL",
+        "publicPrompt": "용접 로봇 팔",
+        "cx": 0.24,
+        "cy": 0.15,
+        "r": 0.08
+      },
+      {
+        "missionId": "cradle-blueprint-screen",
+        "kind": "NORMAL",
+        "publicPrompt": "청사진 홀로그램",
+        "cx": 0.76,
+        "cy": 0.18,
+        "r": 0.08
+      },
+      {
+        "missionId": "cradle-power-console",
+        "kind": "SPECIAL",
+        "publicPrompt": "제어 콘솔",
+        "cx": 0.9,
+        "cy": 0.9,
+        "r": 0.075
+      }
+    ],
+    "en-serenity-lake": [
+      {
+        "missionId": "lake-snow-peak",
+        "kind": "NORMAL",
+        "publicPrompt": "설산 봉우리",
+        "cx": 0.65,
+        "cy": 0.28,
+        "r": 0.08
+      },
+      {
+        "missionId": "lake-pine-trees",
+        "kind": "NORMAL",
+        "publicPrompt": "소나무 숲",
+        "cx": 0.15,
+        "cy": 0.26,
+        "r": 0.08
+      },
+      {
+        "missionId": "lake-wooden-bench",
+        "kind": "SPECIAL",
+        "publicPrompt": "나무 벤치",
+        "cx": 0.38,
+        "cy": 0.92,
+        "r": 0.07
+      }
+    ],
+    "en-papercut-lighthouse": [
+      {
+        "missionId": "lighthouse-sailboat",
+        "kind": "NORMAL",
+        "publicPrompt": "돛단배",
+        "cx": 0.21,
+        "cy": 0.62,
+        "r": 0.08
+      },
+      {
+        "missionId": "lighthouse-light-beam",
+        "kind": "NORMAL",
+        "publicPrompt": "등대 광선",
+        "cx": 0.44,
+        "cy": 0.23,
+        "r": 0.075
+      },
+      {
+        "missionId": "lighthouse-flying-seagulls",
+        "kind": "SPECIAL",
+        "publicPrompt": "비행 갈매기",
+        "cx": 0.78,
+        "cy": 0.19,
+        "r": 0.07
+      }
+    ],
+    "en-cyberpunk-neon": [
+      {
+        "missionId": "neon-left-synth",
+        "kind": "NORMAL",
+        "publicPrompt": "좌측 신디사이저",
+        "cx": 0.24,
+        "cy": 0.24,
+        "r": 0.08
+      },
+      {
+        "missionId": "neon-right-synth",
+        "kind": "NORMAL",
+        "publicPrompt": "우측 신디사이저",
+        "cx": 0.8,
+        "cy": 0.24,
+        "r": 0.08
+      },
+      {
+        "missionId": "neon-dj-turntable",
+        "kind": "SPECIAL",
+        "publicPrompt": "중앙 턴테이블",
+        "cx": 0.43,
+        "cy": 0.41,
+        "r": 0.075
+      }
+    ],
+    "en-resonance-stage": [
+      {
+        "missionId": "resonance-cellist-hair",
+        "kind": "NORMAL",
+        "publicPrompt": "첼리스트 머리",
+        "cx": 0.47,
+        "cy": 0.34,
+        "r": 0.068
+      },
+      {
+        "missionId": "resonance-golden-dress",
+        "kind": "NORMAL",
+        "publicPrompt": "황금빛 드레스",
+        "cx": 0.44,
+        "cy": 0.72,
+        "r": 0.07
+      },
+      {
+        "missionId": "resonance-pipe-organ",
+        "kind": "SPECIAL",
+        "publicPrompt": "상단 파이프오르간",
+        "cx": 0.5,
+        "cy": 0.1,
+        "r": 0.07
+      }
+    ],
+    "en-3d-creativity": [
+      {
+        "missionId": "creativity-braided-hair",
+        "kind": "NORMAL",
+        "publicPrompt": "소녀의 땋은 머리",
+        "cx": 0.5,
+        "cy": 0.35,
+        "r": 0.07
+      },
+      {
+        "missionId": "creativity-color-swatches",
+        "kind": "NORMAL",
+        "publicPrompt": "책상 위 색상표",
+        "cx": 0.42,
+        "cy": 0.74,
+        "r": 0.068
+      },
+      {
+        "missionId": "creativity-window-plant",
+        "kind": "SPECIAL",
+        "publicPrompt": "좌측 창가 화분",
+        "cx": 0.065,
+        "cy": 0.49,
+        "r": 0.062
+      }
     ]
   }
 }

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "f1cc65b6-57ae-49fd-b795-9a7a1c065c36",
+    "version": 1,
+    "contentRevisionId": "85b643be-2468-4f7a-a95f-74712fa03a16",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-venice-grandcanal",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/e81ee85f905d74a70b8e3946a8986f132d13571cb9ab4fd6cb52dd3e136ed7c4.png",
+      "sha256": "e81ee85f905d74a70b8e3946a8986f132d13571cb9ab4fd6cb52dd3e136ed7c4",
+      "encodedBytes": 2808147,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/f5432edc02a0b47236cf4231f15da3d14c2c4303e3c6ccf33f93f69db1899ae0.png",
+      "sha256": "f5432edc02a0b47236cf4231f15da3d14c2c4303e3c6ccf33f93f69db1899ae0",
+      "encodedBytes": 2851890,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "9f53c12c-f382-4785-8be5-9ad3e05801a9",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "e81ee85f905d74a70b8e3946a8986f132d13571cb9ab4fd6cb52dd3e136ed7c4.png",
+    "imageB.png": "f5432edc02a0b47236cf4231f15da3d14c2c4303e3c6ccf33f93f69db1899ae0.png"
+  }
+}

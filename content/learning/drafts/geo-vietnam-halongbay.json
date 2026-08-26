@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "8258de96-b795-4f11-b182-38cc29a26747",
+    "version": 1,
+    "contentRevisionId": "82e4c9d0-57c3-46cc-a475-b40bf745fba3",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-vietnam-halongbay",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/ab2ae7d798452b0bd50ca1af38d604cb4142281b1d631f0dea9ca30a43911eef.png",
+      "sha256": "ab2ae7d798452b0bd50ca1af38d604cb4142281b1d631f0dea9ca30a43911eef",
+      "encodedBytes": 2672141,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/7038e11073ab9bc4acdd3e5292df64b35639c3c8f29ea477303602dd4d13c8eb.png",
+      "sha256": "7038e11073ab9bc4acdd3e5292df64b35639c3c8f29ea477303602dd4d13c8eb",
+      "encodedBytes": 2754055,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "d3f56a60-ab8a-4784-bdd6-433e177aa011",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "ab2ae7d798452b0bd50ca1af38d604cb4142281b1d631f0dea9ca30a43911eef.png",
+    "imageB.png": "7038e11073ab9bc4acdd3e5292df64b35639c3c8f29ea477303602dd4d13c8eb.png"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "6dd72243-ebef-4946-ab32-b5510603f937",
+    "version": 1,
+    "contentRevisionId": "83f0919e-508b-4e8c-b097-66bb1b8806a9",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-pisa-tower",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/3e5954a61131d4798727d034b486b44428f7ab2d6367e6e0486190e7f6c2237d.png",
+      "sha256": "3e5954a61131d4798727d034b486b44428f7ab2d6367e6e0486190e7f6c2237d",
+      "encodedBytes": 2349925,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/a09094ee8bb8c017f26343cc6d6954fde0f17a57f4735919042a4f570153c772.png",
+      "sha256": "a09094ee8bb8c017f26343cc6d6954fde0f17a57f4735919042a4f570153c772",
+      "encodedBytes": 2452313,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "acfc240c-13fe-4c1f-be20-772abc7e218d",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "3e5954a61131d4798727d034b486b44428f7ab2d6367e6e0486190e7f6c2237d.png",
+    "imageB.png": "a09094ee8bb8c017f26343cc6d6954fde0f17a57f4735919042a4f570153c772.png"
+  }
+}

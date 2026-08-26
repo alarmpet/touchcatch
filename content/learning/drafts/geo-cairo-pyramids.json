@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "06815c08-8f6c-4ca4-b941-a3c38f9920c3",
+    "version": 1,
+    "contentRevisionId": "9bb4da00-7bfb-4f12-a0be-38aa9f9261b7",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-cairo-pyramids",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/d165ec5a3fd18df92d4254397b2ea4f9e353d277798592970efed89fbd59e41f.png",
+      "sha256": "d165ec5a3fd18df92d4254397b2ea4f9e353d277798592970efed89fbd59e41f",
+      "encodedBytes": 2633527,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/c6b38eab3826d0457a1fe9403a27d8728732151194984ec0a5ec688647724ed3.png",
+      "sha256": "c6b38eab3826d0457a1fe9403a27d8728732151194984ec0a5ec688647724ed3",
+      "encodedBytes": 2699156,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "12dfef83-5ae6-4422-b31e-cc574a69e947",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "d165ec5a3fd18df92d4254397b2ea4f9e353d277798592970efed89fbd59e41f.png",
+    "imageB.png": "c6b38eab3826d0457a1fe9403a27d8728732151194984ec0a5ec688647724ed3.png"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "2430adce-da09-49a0-b677-47a9d487f160",
+    "version": 1,
+    "contentRevisionId": "a0e7fd45-ec03-4ef5-b7f7-fbe429fceb40",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-canada-banfflake",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/efc63a94b534a7449bee8f52fd75f1c78b3ffa83773edefbf428e87300da7ac0.png",
+      "sha256": "efc63a94b534a7449bee8f52fd75f1c78b3ffa83773edefbf428e87300da7ac0",
+      "encodedBytes": 2656292,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/db4c8778dc358c45c225fe7811bf598826778c228898f3503111687ffa0435de.png",
+      "sha256": "db4c8778dc358c45c225fe7811bf598826778c228898f3503111687ffa0435de",
+      "encodedBytes": 2724580,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "70e7cfdb-154b-4167-986b-c998303527c0",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "efc63a94b534a7449bee8f52fd75f1c78b3ffa83773edefbf428e87300da7ac0.png",
+    "imageB.png": "db4c8778dc358c45c225fe7811bf598826778c228898f3503111687ffa0435de.png"
+  }
+}

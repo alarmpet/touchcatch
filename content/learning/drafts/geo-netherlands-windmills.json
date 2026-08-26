@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "b393018b-a375-4f54-8b45-f3d969015807",
+    "version": 1,
+    "contentRevisionId": "c3622fc3-f79f-4996-a06b-0707fabc4e7d",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-netherlands-windmills",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/42c6952b378a04994488c07f81808392491da30901da8e2168777b901bf27e22.png",
+      "sha256": "42c6952b378a04994488c07f81808392491da30901da8e2168777b901bf27e22",
+      "encodedBytes": 2587277,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/ea890386658d74134177e59787c1c64872c4fa0359d7df269fed1ee0165eb89d.png",
+      "sha256": "ea890386658d74134177e59787c1c64872c4fa0359d7df269fed1ee0165eb89d",
+      "encodedBytes": 2646203,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "81efadd0-6cbb-43f7-be5f-bdd643b8a6b6",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "42c6952b378a04994488c07f81808392491da30901da8e2168777b901bf27e22.png",
+    "imageB.png": "ea890386658d74134177e59787c1c64872c4fa0359d7df269fed1ee0165eb89d.png"
+  }
+}

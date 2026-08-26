@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "ef30f588-ff48-4d66-8068-f609e6cf6bec",
+    "version": 1,
+    "contentRevisionId": "4d25ef96-621d-43c9-99fe-7ed6c18171ec",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-sanfrancisco-goldengate",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/97fb6800afc72b4f83bd8740419a22d657d692a65df769f18b43b73112714b04.png",
+      "sha256": "97fb6800afc72b4f83bd8740419a22d657d692a65df769f18b43b73112714b04",
+      "encodedBytes": 2476054,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/74bd3a8d9d3b2f114a149b95c2c918c5f78aff72d205c4a9a8236d4682f4c906.png",
+      "sha256": "74bd3a8d9d3b2f114a149b95c2c918c5f78aff72d205c4a9a8236d4682f4c906",
+      "encodedBytes": 2560205,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "339d16f8-c31c-48b5-87bf-b5a9e3c83c5a",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "97fb6800afc72b4f83bd8740419a22d657d692a65df769f18b43b73112714b04.png",
+    "imageB.png": "74bd3a8d9d3b2f114a149b95c2c918c5f78aff72d205c4a9a8236d4682f4c906.png"
+  }
+}

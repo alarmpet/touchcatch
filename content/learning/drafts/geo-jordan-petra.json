@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "4b0f5e6e-682b-4f00-9fb9-81849fc8d527",
+    "version": 1,
+    "contentRevisionId": "8b99c3e8-46df-40a1-82c3-4d042aee0546",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-jordan-petra",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/c558de5cf55dd251b931e5989c22e34c5ae8a302f1a924a5ec50afdd3286c6fc.png",
+      "sha256": "c558de5cf55dd251b931e5989c22e34c5ae8a302f1a924a5ec50afdd3286c6fc",
+      "encodedBytes": 2929406,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/bd58e91fb8d54814b535ccf5aaf04871767dad7fd0e8c678addc1bdacd6635e6.png",
+      "sha256": "bd58e91fb8d54814b535ccf5aaf04871767dad7fd0e8c678addc1bdacd6635e6",
+      "encodedBytes": 2953628,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "c0aa1d4c-2ac2-449d-b446-55f5c565d887",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "c558de5cf55dd251b931e5989c22e34c5ae8a302f1a924a5ec50afdd3286c6fc.png",
+    "imageB.png": "bd58e91fb8d54814b535ccf5aaf04871767dad7fd0e8c678addc1bdacd6635e6.png"
+  }
+}

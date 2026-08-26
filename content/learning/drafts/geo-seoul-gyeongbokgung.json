@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "8af2ab27-0d30-4af8-acee-5783efc5fc0c",
+    "version": 1,
+    "contentRevisionId": "415354ef-c43b-48d1-885e-6e00a15d488a",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-seoul-gyeongbokgung",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/b1a09265d8f0c1ebfa27d79f4a0f4be484b98861ea547c46edc921d71fa395d0.png",
+      "sha256": "b1a09265d8f0c1ebfa27d79f4a0f4be484b98861ea547c46edc921d71fa395d0",
+      "encodedBytes": 2796713,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/f6045fdd7d59bc97ec4c4301ee086ce185610864bbb265ff2b204fb19468c858.png",
+      "sha256": "f6045fdd7d59bc97ec4c4301ee086ce185610864bbb265ff2b204fb19468c858",
+      "encodedBytes": 2838025,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "d21e822e-2cb0-428b-8c69-94e8ca36b9e2",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "b1a09265d8f0c1ebfa27d79f4a0f4be484b98861ea547c46edc921d71fa395d0.png",
+    "imageB.png": "f6045fdd7d59bc97ec4c4301ee086ce185610864bbb265ff2b204fb19468c858.png"
+  }
+}

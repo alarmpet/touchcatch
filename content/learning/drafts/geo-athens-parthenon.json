@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "858b4eaa-fb44-4e61-96d0-68fc16c1f214",
+    "version": 1,
+    "contentRevisionId": "83d274eb-fde8-4d41-8cb0-7e57bf306e87",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-athens-parthenon",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/5996654f33acab8392a6168b5a03fa3a3141d7e47a52ddd84be2bd8f9d65369f.png",
+      "sha256": "5996654f33acab8392a6168b5a03fa3a3141d7e47a52ddd84be2bd8f9d65369f",
+      "encodedBytes": 2709035,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/c99bb97c4c7ce73d3473226a44f27a90957bc8c228b137fe99ecd5810e1bf434.png",
+      "sha256": "c99bb97c4c7ce73d3473226a44f27a90957bc8c228b137fe99ecd5810e1bf434",
+      "encodedBytes": 2772059,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "130ccedb-a7bb-44b7-b3fd-2acacb556a9f",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "5996654f33acab8392a6168b5a03fa3a3141d7e47a52ddd84be2bd8f9d65369f.png",
+    "imageB.png": "c99bb97c4c7ce73d3473226a44f27a90957bc8c228b137fe99ecd5810e1bf434.png"
+  }
+}

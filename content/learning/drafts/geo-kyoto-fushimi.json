@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "e1a3623b-9077-4be5-9e1f-3f12bed732ee",
+    "version": 1,
+    "contentRevisionId": "2801a494-0e71-4c5a-88df-8d49c19695cd",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-kyoto-fushimi",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/7986873449bcd80f879c4c44fab41ba2b5a555823cb6014dd9a53e742e9a03ae.png",
+      "sha256": "7986873449bcd80f879c4c44fab41ba2b5a555823cb6014dd9a53e742e9a03ae",
+      "encodedBytes": 2842296,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/3ea193c6e9eb4f247044dcbc6d221411155ef90dc587ee4a17aa8e7bc3fd232e.png",
+      "sha256": "3ea193c6e9eb4f247044dcbc6d221411155ef90dc587ee4a17aa8e7bc3fd232e",
+      "encodedBytes": 2881498,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "9e30d140-c889-4ab8-bfca-7ff8090a2431",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "7986873449bcd80f879c4c44fab41ba2b5a555823cb6014dd9a53e742e9a03ae.png",
+    "imageB.png": "3ea193c6e9eb4f247044dcbc6d221411155ef90dc587ee4a17aa8e7bc3fd232e.png"
+  }
+}

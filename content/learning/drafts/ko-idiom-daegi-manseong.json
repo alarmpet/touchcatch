@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "ee9f10ad-2ea7-417d-8390-89f666187e32",
+    "version": 1,
+    "contentRevisionId": "03963aa8-14db-4cde-a507-d9d86593ba71",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "ko-idiom-daegi-manseong",
+    "category": "IDIOM",
+    "language": "ko",
+    "difficulty": "ADVANCED",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/f3f394594a0fcc6f90f2107899b5f4960aa9bced0590dc8f4c861c0d4d2e0434.png",
+      "sha256": "f3f394594a0fcc6f90f2107899b5f4960aa9bced0590dc8f4c861c0d4d2e0434",
+      "encodedBytes": 2242325,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/2daf7aeab61252e8bb14ca8b0301bff4280c1d1e00020d1179f93ed5c42b2524.png",
+      "sha256": "2daf7aeab61252e8bb14ca8b0301bff4280c1d1e00020d1179f93ed5c42b2524",
+      "encodedBytes": 2266680,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "03963aa8-14db-4cde-a507-d9d86593ba71",
+    "schemaVersion": "1.0.0",
+    "canonicalAnswer": "대기만성",
+    "aliases": [
+      "大器晩成",
+      "대기 만성"
+    ],
+    "meaning": {
+      "prompt": "큰 그릇은 늦게 만들어진다는 뜻으로, 크게 될 사람은 오랜 노력 끝에 늦게 이루어짐을 이르는 사자성어는?",
+      "options": [
+        {
+          "id": "opt_1",
+          "label": "대기만성"
+        },
+        {
+          "id": "opt_2",
+          "label": "고진감래"
+        },
+        {
+          "id": "opt_3",
+          "label": "일석이조"
+        }
+      ],
+      "correctOptionId": "opt_1"
+    },
+    "sceneBrief": "전통 도예 공방에서 백발의 장인이 물레를 돌려 대형 청자를 빚고 있는 수묵 담채화 풍경",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5,
+            "cy": 0.5,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.5,
+            "cy": 0.5,
+            "r": 0.08
+          }
+        }
+      }
+    ]
+  }
+}

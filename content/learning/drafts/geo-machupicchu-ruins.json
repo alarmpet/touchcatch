@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "5d13ae32-c2e9-4fc7-9fb0-88cd920efc27",
+    "version": 1,
+    "contentRevisionId": "dfe023a4-f096-4342-baba-d6c1a73916e8",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-machupicchu-ruins",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/1435dcf6274f01a62ecee98a1b990074063d2a0a60e80d8acab77e6399524098.png",
+      "sha256": "1435dcf6274f01a62ecee98a1b990074063d2a0a60e80d8acab77e6399524098",
+      "encodedBytes": 2835452,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/dae00a05db62acf70ae6ce3edcc5d873338e30441e5cf60c18518dd1e9174c5d.png",
+      "sha256": "dae00a05db62acf70ae6ce3edcc5d873338e30441e5cf60c18518dd1e9174c5d",
+      "encodedBytes": 2888478,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "ec103967-c6ee-47b8-a018-96b30df3c8c6",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "1435dcf6274f01a62ecee98a1b990074063d2a0a60e80d8acab77e6399524098.png",
+    "imageB.png": "dae00a05db62acf70ae6ce3edcc5d873338e30441e5cf60c18518dd1e9174c5d.png"
+  }
+}

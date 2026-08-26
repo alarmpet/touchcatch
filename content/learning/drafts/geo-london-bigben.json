@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "d39a8b51-60b3-4c55-92a8-94de0832ff86",
+    "version": 1,
+    "contentRevisionId": "586d0093-53d1-4740-9c48-a086a7bf0de2",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-london-bigben",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/ca4f6f24f810d114234991de47b4c1979e327a064ce9c4eade82c338ab73212b.png",
+      "sha256": "ca4f6f24f810d114234991de47b4c1979e327a064ce9c4eade82c338ab73212b",
+      "encodedBytes": 2643654,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/48a1988dcb8bc8cd60a3fa9df3052a0df1bdeae76e001b50fea4cee44ee037b8.png",
+      "sha256": "48a1988dcb8bc8cd60a3fa9df3052a0df1bdeae76e001b50fea4cee44ee037b8",
+      "encodedBytes": 2689380,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "f0e3c59d-f71a-4578-b4a5-8a4e708575c0",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "ca4f6f24f810d114234991de47b4c1979e327a064ce9c4eade82c338ab73212b.png",
+    "imageB.png": "48a1988dcb8bc8cd60a3fa9df3052a0df1bdeae76e001b50fea4cee44ee037b8.png"
+  }
+}

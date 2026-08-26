@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "8a343995-6f0c-4131-a263-2ab556511815",
+    "version": 1,
+    "contentRevisionId": "036d61cb-b2b5-4b17-b350-216f818693fb",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-cappadocia-valleys",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/fb20ac2d5bb58262f55c8ebb26c28b53e1e57e6d82f4dbd8e9e92f61951e195d.png",
+      "sha256": "fb20ac2d5bb58262f55c8ebb26c28b53e1e57e6d82f4dbd8e9e92f61951e195d",
+      "encodedBytes": 2720939,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/f9b7670f7999ed5d63a59cd8d104b4a3f2446f75e5fe145f2e0e17be4837c462.png",
+      "sha256": "f9b7670f7999ed5d63a59cd8d104b4a3f2446f75e5fe145f2e0e17be4837c462",
+      "encodedBytes": 2758252,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "321c1382-f3fc-4051-bcf0-67d3069c12de",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "fb20ac2d5bb58262f55c8ebb26c28b53e1e57e6d82f4dbd8e9e92f61951e195d.png",
+    "imageB.png": "f9b7670f7999ed5d63a59cd8d104b4a3f2446f75e5fe145f2e0e17be4837c462.png"
+  }
+}

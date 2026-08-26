@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "5e5b99de-57a4-4c55-a372-a7f56522d28e",
+    "version": 1,
+    "contentRevisionId": "541b561f-b04e-4a4b-8b30-d681a02ef76d",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-barcelona-sagrada",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/c35acb4633816c39fbee40defa477eb3f24eb0953e39ba87c4b029d09789b5c0.png",
+      "sha256": "c35acb4633816c39fbee40defa477eb3f24eb0953e39ba87c4b029d09789b5c0",
+      "encodedBytes": 2587949,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/73d0ee0948a9cf23b24821d0d054c8197680a9e15e9ab691cb04bf50b87b6174.png",
+      "sha256": "73d0ee0948a9cf23b24821d0d054c8197680a9e15e9ab691cb04bf50b87b6174",
+      "encodedBytes": 2651949,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "8adb8638-c328-4aa6-9df6-d74dfe1dc603",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "c35acb4633816c39fbee40defa477eb3f24eb0953e39ba87c4b029d09789b5c0.png",
+    "imageB.png": "73d0ee0948a9cf23b24821d0d054c8197680a9e15e9ab691cb04bf50b87b6174.png"
+  }
+}

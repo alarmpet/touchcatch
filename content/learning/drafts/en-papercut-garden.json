@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "ded59ac9-653c-45a8-bf10-231e2de4e20e",
+    "version": 1,
+    "contentRevisionId": "2fecb53a-3631-4264-9c0c-63ed3e918a80",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "en-papercut-garden",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "en",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/cc6ee3ad987a2da21afa81358241cc03ea3064b418e65e244dfd5a81a481aa15.png",
+      "sha256": "cc6ee3ad987a2da21afa81358241cc03ea3064b418e65e244dfd5a81a481aa15",
+      "encodedBytes": 2765209,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/18c8ce4d36004cb89642c797095d8270af99e467806dc28cdbb5b41966bf3eb0.png",
+      "sha256": "18c8ce4d36004cb89642c797095d8270af99e467806dc28cdbb5b41966bf3eb0",
+      "encodedBytes": 2793639,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "2fecb53a-3631-4264-9c0c-63ed3e918a80",
+    "schemaVersion": "1.0.0",
+    "canonicalAnswer": "Zen Garden",
+    "aliases": [
+      "Japanese Garden",
+      "Sakura Zen Garden"
+    ],
+    "meaning": {
+      "prompt": "A tranquil Japanese garden with a layered pagoda, arched bridge, and blooming cherry blossoms is called a?",
+      "options": [
+        {
+          "id": "opt_1",
+          "label": "Zen Garden"
+        },
+        {
+          "id": "opt_2",
+          "label": "Coral Reef"
+        },
+        {
+          "id": "opt_3",
+          "label": "Alpine Meadow"
+        }
+      ],
+      "correctOptionId": "opt_1"
+    },
+    "sceneBrief": "Layered papercut art of an elegant Japanese zen garden with a pagoda, arched bridge, koi pond, and blooming cherry blossoms",
+    "differences": [
+      {
+        "objectiveId": "diff_1",
+        "tier": "NORMAL",
+        "hitboxes": {
+          "imageA": {
+            "cx": 0.5,
+            "cy": 0.5,
+            "r": 0.08
+          },
+          "imageB": {
+            "cx": 0.5,
+            "cy": 0.5,
+            "r": 0.08
+          }
+        }
+      }
+    ]
+  }
+}

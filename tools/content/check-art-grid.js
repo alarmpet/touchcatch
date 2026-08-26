@@ -70,4 +70,5 @@ if (process.argv[1]?.endsWith('check-art-grid.js')) {
     console.log(`[GUIDE GRID] ${key}-${side}.png coverage=${(coverage * 100).toFixed(1)}%`);
   }
   console.log(`[ART GRID CHECK] ${offenders.length} affected image(s)`);
+  if (offenders.length > 0) process.exitCode = 1;
 }

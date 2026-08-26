@@ -14,17 +14,17 @@
     "language": "en",
     "difficulty": "BEGINNER",
     "imageA": {
-      "url": "https://cdn.spot-learn.test/assets/19e3b9fd92ff37cfdaa299fe2a92fc8ed0b1678e06da825e31ea68a4bfed6ffb.png",
-      "sha256": "19e3b9fd92ff37cfdaa299fe2a92fc8ed0b1678e06da825e31ea68a4bfed6ffb",
-      "encodedBytes": 2775668,
+      "url": "https://cdn.spot-learn.test/assets/4f1393a7a6a97bc236df6bc27f4e3a84225f43f27960c208a8357c14177a2612.png",
+      "sha256": "4f1393a7a6a97bc236df6bc27f4e3a84225f43f27960c208a8357c14177a2612",
+      "encodedBytes": 2578684,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
     },
     "imageB": {
-      "url": "https://cdn.spot-learn.test/assets/a19e95e30f0a0e78834bedfb294e0da715f84ef6a550286997dddf66a599d41a.png",
-      "sha256": "a19e95e30f0a0e78834bedfb294e0da715f84ef6a550286997dddf66a599d41a",
-      "encodedBytes": 2817047,
+      "url": "https://cdn.spot-learn.test/assets/fd52ae490232bb5c01a07c0398cc3f226bd42e5b4fa09afedf85db8f6cfec67d.png",
+      "sha256": "fd52ae490232bb5c01a07c0398cc3f226bd42e5b4fa09afedf85db8f6cfec67d",
+      "encodedBytes": 2646895,
       "width": 1024,
       "height": 1024,
       "mimeType": "image/png"
@@ -296,7 +296,7 @@
     "privateSolutionHash": "9c9fcee908e74e7a093f1dfb2260b2b31bbd3e68fbc17e95377815e6ecc7a36e"
   },
   "assetFiles": {
-    "19e3b9fd92ff37cfdaa299fe2a92fc8ed0b1678e06da825e31ea68a4bfed6ffb": "D:\\touchcatch\\content\\learning\\source\\en-phonics-bear-a.png",
-    "a19e95e30f0a0e78834bedfb294e0da715f84ef6a550286997dddf66a599d41a": "D:\\touchcatch\\content\\learning\\source\\en-phonics-bear-b.png"
+    "4f1393a7a6a97bc236df6bc27f4e3a84225f43f27960c208a8357c14177a2612": "D:\\touchcatch\\content\\learning\\source\\en-phonics-bear-a.png",
+    "fd52ae490232bb5c01a07c0398cc3f226bd42e5b4fa09afedf85db8f6cfec67d": "D:\\touchcatch\\content\\learning\\source\\en-phonics-bear-b.png"
   }
 }

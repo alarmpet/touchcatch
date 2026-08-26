@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "d0a2fe11-59d2-4102-b913-b39b48c0a9d3",
+    "version": 1,
+    "contentRevisionId": "891f7504-bee9-43da-8953-9878fcd73e72",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-rome-colosseum",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/886d87da9ea4307f1e31d4b9800814082f1aa1996bf19158e8b15b0a89fb67c3.png",
+      "sha256": "886d87da9ea4307f1e31d4b9800814082f1aa1996bf19158e8b15b0a89fb67c3",
+      "encodedBytes": 2594488,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/2224226d8b8d0c8054f46794e780649d814e37f060b443abbd35a75457eed725.png",
+      "sha256": "2224226d8b8d0c8054f46794e780649d814e37f060b443abbd35a75457eed725",
+      "encodedBytes": 2690939,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "68ffb8ba-1f92-406b-ac61-f7f255eacf65",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "886d87da9ea4307f1e31d4b9800814082f1aa1996bf19158e8b15b0a89fb67c3.png",
+    "imageB.png": "2224226d8b8d0c8054f46794e780649d814e37f060b443abbd35a75457eed725.png"
+  }
+}

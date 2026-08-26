@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "3f9d06fd-9135-4b19-9578-4bc129933c4e",
+    "version": 1,
+    "contentRevisionId": "ab0b31df-1e6b-4a74-93b0-e7dd3e47bb7a",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-agra-tajmahal",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/fd1059b6fc71657efeb3c9f04994d9dedea0c2ba4aa72a0120cf672430e36d15.png",
+      "sha256": "fd1059b6fc71657efeb3c9f04994d9dedea0c2ba4aa72a0120cf672430e36d15",
+      "encodedBytes": 2687631,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/51f9f29d2338fc3ba37b078e727d3c2efa22cdfae18098695b844271ea8aceaf.png",
+      "sha256": "51f9f29d2338fc3ba37b078e727d3c2efa22cdfae18098695b844271ea8aceaf",
+      "encodedBytes": 2729808,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "3695c603-d2f4-4262-9462-14dffca29480",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "fd1059b6fc71657efeb3c9f04994d9dedea0c2ba4aa72a0120cf672430e36d15.png",
+    "imageB.png": "51f9f29d2338fc3ba37b078e727d3c2efa22cdfae18098695b844271ea8aceaf.png"
+  }
+}

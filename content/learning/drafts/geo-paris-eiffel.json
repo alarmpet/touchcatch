@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "948f709d-2d32-4375-8e42-a6fabf7497c9",
+    "version": 1,
+    "contentRevisionId": "6995f9d4-f622-4e71-8179-2b5d6c929dc6",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-paris-eiffel",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/30b2d13dd5b871e717565d0643c688e65f77cfb5b0f7de4491209a3d0897b7c9.png",
+      "sha256": "30b2d13dd5b871e717565d0643c688e65f77cfb5b0f7de4491209a3d0897b7c9",
+      "encodedBytes": 2766064,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/788e3a44bcabf9bc8300c640ffb9842b07e732e38695591cf721baa075a18c6b.png",
+      "sha256": "788e3a44bcabf9bc8300c640ffb9842b07e732e38695591cf721baa075a18c6b",
+      "encodedBytes": 2816194,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "d86cc0d8-06a8-4a88-8e4b-c794062ea96a",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "30b2d13dd5b871e717565d0643c688e65f77cfb5b0f7de4491209a3d0897b7c9.png",
+    "imageB.png": "788e3a44bcabf9bc8300c640ffb9842b07e732e38695591cf721baa075a18c6b.png"
+  }
+}

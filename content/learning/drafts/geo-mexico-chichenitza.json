@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "47f01121-2cca-4cb1-abc5-6cb81fce3844",
+    "version": 1,
+    "contentRevisionId": "d79950db-d838-4dbe-aaea-96abd203edc3",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-mexico-chichenitza",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/71328f5cfc3a19e79b7c712ae60d134924fdac2c6ead5407b59489ac54badf2e.png",
+      "sha256": "71328f5cfc3a19e79b7c712ae60d134924fdac2c6ead5407b59489ac54badf2e",
+      "encodedBytes": 2698747,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/135662d76eb004b21ecd57b487205704583d776f7265e45f4c6bf89f63a23449.png",
+      "sha256": "135662d76eb004b21ecd57b487205704583d776f7265e45f4c6bf89f63a23449",
+      "encodedBytes": 2776450,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "05be3af0-dd97-4064-b85e-6c6f2cc9015b",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "71328f5cfc3a19e79b7c712ae60d134924fdac2c6ead5407b59489ac54badf2e.png",
+    "imageB.png": "135662d76eb004b21ecd57b487205704583d776f7265e45f4c6bf89f63a23449.png"
+  }
+}

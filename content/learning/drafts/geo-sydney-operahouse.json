@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "c848effd-5320-421a-bbd4-70204c93d8f7",
+    "version": 1,
+    "contentRevisionId": "cf7ce455-6f09-4fc0-b381-65c7c10121cd",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-sydney-operahouse",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/35219224948786d0b9e66b35b337e7ec1f6f54546d4f42a04d93e4ef8e63db2f.png",
+      "sha256": "35219224948786d0b9e66b35b337e7ec1f6f54546d4f42a04d93e4ef8e63db2f",
+      "encodedBytes": 2543817,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/792e4444b1f70398f7b81d79e8c11350f1fd7dbb64da2622a5a2d28807ce7e93.png",
+      "sha256": "792e4444b1f70398f7b81d79e8c11350f1fd7dbb64da2622a5a2d28807ce7e93",
+      "encodedBytes": 2616448,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "56f0d4d3-1f94-4949-842e-cb930992fd61",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "35219224948786d0b9e66b35b337e7ec1f6f54546d4f42a04d93e4ef8e63db2f.png",
+    "imageB.png": "792e4444b1f70398f7b81d79e8c11350f1fd7dbb64da2622a5a2d28807ce7e93.png"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DRAFT",
+  "rightsReviewStatus": "REVIEW_REQUIRED",
+  "educationReviewStatus": "REVIEW_REQUIRED",
+  "publicContent": {
+    "contentId": "c31670c1-90ba-49ba-8f64-38296de6276c",
+    "version": 1,
+    "contentRevisionId": "14669451-c6b5-47a0-a4f4-2e3630533343",
+    "schemaVersion": "1.0.0",
+    "assetPolicyVersion": "1.0.0",
+    "theme": "geo-dubai-burjkhalifa",
+    "category": "GENERAL_KNOWLEDGE",
+    "language": "ko",
+    "difficulty": "INTERMEDIATE",
+    "imageA": {
+      "url": "https://cdn.spot-learn.test/assets/2334609b8c22a86268d9b532945063942c1b104e78bc515007f9c0d8a02f0373.png",
+      "sha256": "2334609b8c22a86268d9b532945063942c1b104e78bc515007f9c0d8a02f0373",
+      "encodedBytes": 2656235,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    },
+    "imageB": {
+      "url": "https://cdn.spot-learn.test/assets/b3a94646f4ed31656465fbe7dd8b71077ac9d0f9680ccedec1700540e991fe07.png",
+      "sha256": "b3a94646f4ed31656465fbe7dd8b71077ac9d0f9680ccedec1700540e991fe07",
+      "encodedBytes": 2734885,
+      "width": 1024,
+      "height": 1024,
+      "mimeType": "image/png"
+    }
+  },
+  "privateSolution": {
+    "contentRevisionId": "1400857d-0d26-40a5-b8bf-f16465d1ecdc",
+    "schemaVersion": "1.0.0",
+    "differences": []
+  },
+  "assetFiles": {
+    "imageA.png": "2334609b8c22a86268d9b532945063942c1b104e78bc515007f9c0d8a02f0373.png",
+    "imageB.png": "b3a94646f4ed31656465fbe7dd8b71077ac9d0f9680ccedec1700540e991fe07.png"
+  }
+}
