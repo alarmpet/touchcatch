@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "note": "Facts only a human may decide. An agent must never guess a value here. UNRESOLVED renders as a visible placeholder in the published pages and makes `pnpm portal:publishable` fail, which is what the deploy step runs. The repository gate only checks that the published pages match these sources, so the tree stays green while these are pending.",
+  "operator": {
+    "kind": "INDIVIDUAL_DEVELOPER",
+    "displayName": "UNRESOLVED",
+    "legalName": "UNRESOLVED",
+    "businessRegistrationNumber": null,
+    "businessRegistrationNumberRationale": "Individual developer publishing without a Korean business registration. Null is a decision, not a missing value.",
+    "address": "UNRESOLVED",
+    "jurisdiction": "KR"
+  },
+  "contact": {
+    "supportEmail": "petblo12@gmail.com",
+    "supportEmailVerified": false,
+    "supportEmailVerifiedNote": "Flip to true only after a message sent to this address from outside the account has been confirmed received. It is published on the privacy policy, the deletion page and the Play listing, and it is the only channel a user who cannot open the app has.",
+    "privacyOfficerName": "UNRESOLVED",
+    "responseTargetBusinessDays": 3
+  },
+  "audience": {
+    "childDirected": "UNRESOLVED",
+    "childDirectedRationale": "Play's Families policy and Korea's 만 14세 미만 rules both hinge on this answer and it changes the sign-up flow, the Data safety form and the target-audience declaration. It is a human decision.",
+    "minimumAge": "UNRESOLVED"
+  },
+  "retention": {
+    "accountDataAfterDeletionRequest": "UNRESOLVED",
+    "deletionReceiptMetadata": "UNRESOLVED",
+    "backupPurgeWindow": "UNRESOLVED",
+    "rationale": "Retention windows are a legal decision bound to the backup and PITR configuration that does not exist yet. See docs/release-evidence-blockers.md."
+  },
+  "urls": {
+    "origin": "UNRESOLVED",
+    "originRationale": "The Vercel deployment origin. Play needs a public privacy-policy URL and a public account-deletion URL on this host, and the Android App Link in the release manifest is pinned to it.",
+    "privacy": "/privacy/",
+    "terms": "/terms/",
+    "accountDeletion": "/account-deletion/",
+    "support": "/support/"
+  },
+  "processors": [
+    {
+      "name": "Supabase",
+      "role": "Authentication and application database",
+      "dataCategories": ["email", "provider account identifier", "learning records"],
+      "regionStatus": "UNRESOLVED",
+      "regionRationale": "The production project does not exist yet, so its region is undecided. Cross-border transfer disclosure depends on it."
+    },
+    {
+      "name": "Google LLC",
+      "role": "Google 계정 로그인 (OAuth)",
+      "dataCategories": ["email", "Google account identifier"],
+      "regionStatus": "US",
+      "regionRationale": "Only when the user chooses Google sign-in."
+    }
+  ],
+  "appLinks": {
+    "packageName": "com.touchcatch.mobile",
+    "sha256CertFingerprints": [],
+    "fingerprintsRationale": "Play App Signing owns the release certificate, so these cannot be known until the app exists in Play Console and a bundle has been uploaded. While the list is empty the generator emits no .well-known/assetlinks.json — an assetlinks file with no fingerprints does not fail open, it fails verification and is worse than no file. The OAuth callback stays on the touchcatch:// custom scheme until then."
+  },
+  "effectiveDate": "UNRESOLVED",
+  "documentVersion": "1.0.0"
+}
