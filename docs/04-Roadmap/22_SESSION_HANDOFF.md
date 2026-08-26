@@ -10,7 +10,7 @@
 
 ## 한 줄 요약
 
-**이전 세션의 작업 487개 파일이 커밋되지 않은 채 워킹트리에만 있었다. 지금은 10개 커밋으로
+**이전 세션의 작업 487개 파일이 커밋되지 않은 채 워킹트리에만 있었다. 지금은 주제별 커밋으로
 들어가 있고, 게이트는 그 커밋된 트리에서 초록이다. 아직 푸시하지 않았다.**
 
 ---
@@ -18,8 +18,8 @@
 ## 지금 상태
 
 ```
-브랜치  codex/production-pet-ranking-runtime   HEAD 1acf8d1   main 대비 +85
-파킹    pets/art-candidates-2026-08-26         HEAD f39ced6   (e24fa85 위 1커밋 — 릴리스 브랜치가 그 뒤로 더 나갔다)
+브랜치  codex/production-pet-ranking-runtime   이 세션의 커밋은 452576d..HEAD
+파킹    pets/art-candidates-2026-08-26         HEAD f39ced6   (e24fa85 위 1커밋 — 릴리스 브랜치는 그 뒤로 더 나갔다)
 원격    푸시 안 됨 — 두 브랜치 모두 로컬에만 있다
 게이트  pnpm check 26단계 EXIT=0 · 1728 + 365 테스트 · 커밋된 트리 기준
 ```
