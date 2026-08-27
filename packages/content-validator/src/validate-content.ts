@@ -22,6 +22,7 @@ import {
   canonicalJson,
   canonicalJsonSha256,
 } from '../../contracts/src/canonical-json.js';
+import { hardDifferenceCount } from '../../contracts/src/rules.schema.js';
 import {
   containsDisallowedControl,
   normalizeFinalAnswer,
@@ -389,7 +390,14 @@ export async function validateFixtureObject(value: unknown, options: ValidationO
   const differences = Array.isArray(privateSolution.differences) ? privateSolution.differences : [];
   const normalCount = differences.filter((entry) => isRecord(entry) && entry.tier === 'NORMAL').length;
   const hardCount = differences.filter((entry) => isRecord(entry) && entry.tier === 'HARD').length;
-  if (normalCount !== CONTENT_CARDINALITY_V1.normalDifferences || hardCount !== CONTENT_CARDINALITY_V1.hardDifferences) addError(errors, '/privateSolution/differences', 'DIFFERENCE_CARDINALITY', `differences must contain ${CONTENT_CARDINALITY_V1.normalDifferences} NORMAL and ${CONTENT_CARDINALITY_V1.hardDifferences} HARD objectives`);
+  const expectedHard = hardDifferenceCount(CONTENT_CARDINALITY_V1, differences.length);
+  const withinRange = differences.length >= CONTENT_CARDINALITY_V1.minDifferences
+    && differences.length <= CONTENT_CARDINALITY_V1.maxDifferences;
+  if (!withinRange) {
+    addError(errors, '/privateSolution/differences', 'DIFFERENCE_CARDINALITY', `differences must number between ${CONTENT_CARDINALITY_V1.minDifferences} and ${CONTENT_CARDINALITY_V1.maxDifferences}`);
+  } else if (hardCount !== expectedHard || normalCount !== differences.length - expectedHard) {
+    addError(errors, '/privateSolution/differences', 'DIFFERENCE_CARDINALITY', `a board of ${differences.length} differences must contain ${differences.length - expectedHard} NORMAL and ${expectedHard} HARD objectives`);
+  }
   const wordHunts = Array.isArray(privateSolution.wordHunts) ? privateSolution.wordHunts : [];
   const normalWords = wordHunts.filter((entry) => isRecord(entry) && entry.kind === 'NORMAL').length;
   const specialWords = wordHunts.filter((entry) => isRecord(entry) && entry.kind === 'SPECIAL').length;

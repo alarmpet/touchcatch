@@ -4,7 +4,7 @@
   "projections": [
     {
       "file": "config/ruleset.v1.json",
-      "sha256": "598e59e81b592d5f3074a692f51861583fe082e8dd9bffb5c1ad0aad93937e2a",
+      "sha256": "cef872dd8e6d7893d5b08c98e60514128cfced28468c5ce2e076708944943a61",
       "value": {
         "rulesetVersion": "1.0.0",
         "targetScore": 100,
@@ -66,8 +66,10 @@
           "revealOrder": "MATCH_RANDOM_SCHEDULE"
         },
         "content": {
-          "normalDifferences": 7,
-          "hardDifferences": 3,
+          "minDifferences": 5,
+          "maxDifferences": 20,
+          "hardDifferenceNumerator": 3,
+          "hardDifferenceDenominator": 10,
           "wordHunts": 3
         },
         "finalChallenge": {

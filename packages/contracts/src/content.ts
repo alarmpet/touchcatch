@@ -240,8 +240,8 @@ export const privateGameSolutionSchema = {
     privateSolutionHash: { type: 'string', pattern: sha256Pattern },
     differences: {
       type: 'array',
-      minItems: CONTENT_CARDINALITY_V1.normalDifferences + CONTENT_CARDINALITY_V1.hardDifferences,
-      maxItems: CONTENT_CARDINALITY_V1.normalDifferences + CONTENT_CARDINALITY_V1.hardDifferences,
+      minItems: CONTENT_CARDINALITY_V1.minDifferences,
+      maxItems: CONTENT_CARDINALITY_V1.maxDifferences,
       items: {
         type: 'object',
         additionalProperties: false,

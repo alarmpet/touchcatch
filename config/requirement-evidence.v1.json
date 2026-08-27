@@ -335,12 +335,12 @@
         "input": "config/ruleset.v1.json",
         "assertions": [
           {
-            "pointer": "/content/normalDifferences",
-            "expected": 7
+            "pointer": "/content/minDifferences",
+            "expected": 5
           },
           {
-            "pointer": "/content/hardDifferences",
-            "expected": 3
+            "pointer": "/content/maxDifferences",
+            "expected": 20
           }
         ]
       },
@@ -359,10 +359,6 @@
         "expected": "PASS",
         "input": "config/ruleset.v1.json",
         "assertions": [
-          {
-            "pointer": "/content/normalDifferences",
-            "expected": 7
-          },
           {
             "pointer": "/score/normalDifference",
             "expected": 6
@@ -385,10 +381,6 @@
         "input": "config/ruleset.v1.json",
         "assertions": [
           {
-            "pointer": "/content/hardDifferences",
-            "expected": 3
-          },
-          {
             "pointer": "/score/hardDifference",
             "expected": 9
           }
@@ -410,12 +402,12 @@
         "input": "config/ruleset.v1.json",
         "assertions": [
           {
-            "pointer": "/content/normalDifferences",
-            "expected": 7
+            "pointer": "/content/hardDifferenceNumerator",
+            "expected": 3
           },
           {
-            "pointer": "/content/hardDifferences",
-            "expected": 3
+            "pointer": "/content/hardDifferenceDenominator",
+            "expected": 10
           },
           {
             "pointer": "/score/normalDifference",

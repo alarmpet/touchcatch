@@ -49,8 +49,9 @@ Proven for the first time, on `en-clay-bakery`:
 | tap on a fabricated objective id | `OBJECTIVE_NOT_FOUND` |
 | `commit_learning_attempt_owned_v1` | `COMPLETED_VERIFIED`, score 69 |
 
-Score 69 is `7×6 + 3×9`, the value RULE-030 approves. The board clears, which is exactly
-what the pre-rework packs could not do.
+Score 69 is `7×6 + 3×9`, the value RULE-030 approves for a board of ten. The board clears,
+which is exactly what the pre-rework packs could not do. Re-verified after the board-size
+change on boards of 5 and 16 differences.
 
 ### 1. No production path to a pinned season
 
@@ -68,38 +69,41 @@ because the schema's only route to a row it requires refuses non-fixture input. 
 catalog publisher has to exist, or casual seasons have to stop depending on a pet catalog
 revision. Closing this is a schema change, and it blocks play on any deployed environment.
 
-### 2. The five approved packs cannot be published
+### 2. Board size — resolved 2026-08-27
 
-`publish_content_revision_v1` enforces the generated ruleset predicate — exactly
-`content.normalDifferences` NORMAL and `content.hardDifferences` HARD, today 7 and 3. The
-bundles in `content/learning/approvals/` carry fewer, and one HARD each:
+Boards used to be fixed at ten differences (7 NORMAL + 3 HARD), which no artwork in the
+repository actually supplies: only 41 of 136 packs derive ten or more, and loosening the
+derivation thresholds finds texture noise rather than more differences. A board now carries
+as many differences as its picture holds, between `content.minDifferences` and
+`content.maxDifferences`, with HARD taken as `round(count × 3 ÷ 10)`.
 
-| pack | differences | NORMAL | HARD |
-| --- | --- | --- | --- |
-| en-3d-harmony | 9 | 8 | 1 |
-| en-3d-creativity | 8 | 7 | 1 |
-| en-architecture-studio | 8 | 7 | 1 |
-| en-3d-serenity | 6 | 5 | 1 |
-| en-resilience | 5 | 4 | 1 |
+Measured across every pack with artwork, not just the 79 in the manifest:
 
-Their `privateSolution` also omits `privateSolutionHash`, which the database requires as a
-key. Both faults are structural: the artwork has as many differences as it has, and loosening
-the derivation thresholds trades real differences for texture noise rather than finding more.
+| differences | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| packs | 8 | 18 | 19 | 19 | 24 | 11 | 11 | 8 | 2 | 6 | 2 | 1 |
 
-Twenty of the 79 packs do derive ≥10 differences, and five derive exactly 10 —
-`en-serendipity-garden`, `en-synchronicity-clock`, `en-clay-bakery`, `en-papercut-forest`,
-`en-clay-family`. They are runtime-complete: `hintLadder` is absent, but nothing in the server
-reads it (hints are revealed from `canonicalAnswer` inside Postgres) and the database does not
-accept the field. Swapping the shipped five to those needs a product-owner rights and
-education approval, not a ruleset change and not new artwork.
+**79 packs are publishable today** — every pack that has curated word hunts and a complete
+final challenge. Fifteen more need only word-hunt coordinates; 35 need a final challenge too.
+Hint reveal already scales: `unitsPerFind` is `ceil(openableUnits ÷ differenceCount)` under
+the approved `SCALE_TO_COVER` rule, so a ten-letter answer on a five-difference board opens
+two letters per find and still finishes.
+
+Verified on a migration-only database with boards of 5, 6, 9, 14 and 16 differences: the
+tier split Postgres computed matched TypeScript at every size (2, 2, 3, 4, 5), and both
+extremes played to `COMPLETED_VERIFIED`.
+
+The bundles in `content/learning/approvals/` are still not publishable as written — their
+`privateSolution` omits `privateSolutionHash`, which the database requires as a key — but
+their difference counts are no longer the reason.
 
 ### 3. Config pairs that cannot validate together
 
 - `config/economy.v1.json` names `catalogRevision: "catalog-v1"`; `config/pet-catalog.v1.json`
   is on `catalog-v2-pet-admission-draft`. `publish_economy_bundle_v1` requires the pair to
   agree, so the two DRAFT files can never be published as a bundle as written.
-- The migrated database already holds `catalog-v2-pet-admission-draft` with hash
-  `e3bb27e8…`, while the repository config hashes to `0b97e563…`. That revision name can
-  therefore never be republished from the repository's own catalog.
-- Four of the five ten-difference drafts omit `category` from `publicContent` and carry it
-  only on the manifest entry, which the database rejects as `PUBLIC_CONTENT_SHAPE_INVALID`.
+- Most drafts omit `category` from `publicContent` and carry it only on the manifest entry,
+  which the database rejects as `PUBLIC_CONTENT_SHAPE_INVALID`.
+- 59 of the 138 drafts are absent from `content/learning/manifest.v1.json`, 55 of them with
+  artwork on disk. They are invisible to hitbox derivation, the preview registry and every
+  content gate.

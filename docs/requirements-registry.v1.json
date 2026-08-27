@@ -295,8 +295,8 @@
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 15,
       "section": "차이점 구성",
-      "text": "총 10개",
-      "fingerprint": "becdbce8ff2266cc6f8a848c969a7ef1db7045043c6c6d947847972637b404af",
+      "text": "판마다 다르다. 그림이 가진 만큼, 총 5~20개",
+      "fingerprint": "8f1c1e513f1481b0a87214bd2a0dae5e0de986400fcc5a61c8323171928399e9",
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
@@ -306,15 +306,15 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
       "closureCondition": "Keep exact executable oracle green",
-      "linkageProof": "470452bddbce4047894d92662e6d598ef0763082f15aaea3d13ed1b3960869d4"
+      "linkageProof": "d2d0453d6e55021ca4b5a17f5bb9d51a6b52cd840408dbeafba0e980d61dff11"
     },
     {
       "id": "RULE-028",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 16,
       "section": "차이점 구성",
-      "text": "일반 7개 × 6점 = 42점",
-      "fingerprint": "71a430eadefb28c1ada8d5318917b1bc2b4aeebce0131b9584fa590d5a13dff8",
+      "text": "일반 1개 6점",
+      "fingerprint": "7d1e3e79fd9d3b108efd6890fae25ddaa8cc414f4a1641ef3606c6502235fefd",
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
@@ -324,15 +324,15 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
       "closureCondition": "Keep exact executable oracle green",
-      "linkageProof": "11acf9fa39d55676bf06ea5ddf9853fe8d42c0d87cf8ee8c4d8cdd2c029bdc81"
+      "linkageProof": "f2599cc6407c7eb1ba7deab6a82836d7e6a2969f19b0ffabacb3eae3bf04c2d8"
     },
     {
       "id": "RULE-029",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 17,
       "section": "차이점 구성",
-      "text": "어려움 3개 × 9점 = 27점",
-      "fingerprint": "c8204ca788db5aedcef95635bf220ad714f99686ab630cdcf8d2fe4d6d28355e",
+      "text": "어려움 1개 9점",
+      "fingerprint": "bcc6326bd84b1cf2e8c59accdce2a021830466fb2f71143f55bab8c8f682ab94",
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
@@ -342,15 +342,15 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
       "closureCondition": "Keep exact executable oracle green",
-      "linkageProof": "79a8a8f30ac8ce51585196a5bf1972aa0d31fe8926b6be79b05b35a69682916b"
+      "linkageProof": "1336720a6f8e23f6413e7adb167edf12b3e0498de39a71dd065b3feedac3dd58"
     },
     {
       "id": "RULE-030",
       "source": "02_CORE_RULES_AND_BALANCE.md",
       "sourceLine": 18,
       "section": "차이점 구성",
-      "text": "차이점 총점 69점",
-      "fingerprint": "54ff99dba3de8a1da3ad8b27945046bbea5671c8181724d41967e3e2b8293eda",
+      "text": "어려움 비율 3 ÷ 10 반올림, 10개 판이면 69점",
+      "fingerprint": "80fd24a6cacf557a572a270d8434d65d94ac5ea0c36d821ea9f1af2f1f9e7ee5",
       "schema": "packages/contracts/src/rules.schema.ts",
       "phase": "IMPLEMENTED",
       "test": "tests/specs/generated-requirement-coverage.test.ts",
@@ -360,7 +360,7 @@
       "lifecycle": "CURRENT",
       "evidenceOwner": "rules",
       "closureCondition": "Keep exact executable oracle green",
-      "linkageProof": "7dda3d926a07c037acc2c27b3083e72cbfc2b84ecd3fc20f13d42839df464cdc"
+      "linkageProof": "49f269b8122395696231019a241acdbcfdb800f26c506549879b3762527da54a"
     },
     {
       "id": "RULE-031",

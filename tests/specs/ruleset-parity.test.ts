@@ -6,7 +6,7 @@ import { checkRulesetProjection } from '../../tools/write-ruleset-projections.js
 describe('ruleset content projection parity', () => {
   it('derives contract cardinalities from RulesetV1', () => {
     expect(CONTENT_CARDINALITY_V1).toEqual(ruleset.content);
-    expect(privateGameSolutionSchema.properties.differences).toMatchObject({ minItems: 10, maxItems: 10 });
+    expect(privateGameSolutionSchema.properties.differences).toMatchObject({ minItems: 5, maxItems: 20 });
     expect(privateGameSolutionSchema.properties.wordHunts).toMatchObject({ minItems: 3, maxItems: 3 });
   });
 

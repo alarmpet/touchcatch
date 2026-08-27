@@ -27,8 +27,8 @@
     },
     "differences": {
       "type": "array",
-      "minItems": 10,
-      "maxItems": 10,
+      "minItems": 5,
+      "maxItems": 20,
       "items": {
         "type": "object",
         "additionalProperties": false,

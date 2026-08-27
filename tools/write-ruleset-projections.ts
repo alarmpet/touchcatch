@@ -9,19 +9,32 @@ const migrationPath = resolve(root, 'supabase/migrations/202607150002_content_se
 const begin = '  -- BEGIN GENERATED RULESET CONTENT PREDICATES';
 const end = '  -- END GENERATED RULESET CONTENT PREDICATES';
 
+/**
+ * A board carries as many differences as its artwork holds, so the predicate checks a range
+ * and a proportion rather than two fixed counts.
+ *
+ * The HARD count is `round(n × numerator / denominator)` expressed as integer division —
+ * `(2·num·n + den) / (2·den)` — because this has to produce the identical integer as
+ * `hardDifferenceCount` in TypeScript for every admissible board. Writing it as
+ * `round(n * 0.3)` would not: `0.3` is 0.2999… in IEEE754, so a five-difference board
+ * rounds to 1 in JavaScript and to 2 in Postgres `numeric`, and content that validated in
+ * the tool would be rejected by the database.
+ */
 export function renderRulesetProjection(): string {
   const { content } = parseRuleset(frozenRuleset);
-  const differences = content.normalDifferences + content.hardDifferences;
   const normalWords = content.wordHunts - 1;
+  const total = "jsonb_array_length(requested_private_solution->'differences')";
+  const hard = `((2 * ${content.hardDifferenceNumerator} * ${total} + ${content.hardDifferenceDenominator}) / ${2 * content.hardDifferenceDenominator})`;
   return [
     begin,
-    `  if jsonb_array_length(requested_private_solution->'differences') <> ${differences}`,
+    `  if ${total} < ${content.minDifferences}`,
+    `     or ${total} > ${content.maxDifferences}`,
     `     or jsonb_array_length(requested_private_solution->'wordHunts') <> ${content.wordHunts}`,
-    `     or (select count(*) from jsonb_array_elements(requested_private_solution->'differences') item where item->>'tier'='NORMAL') <> ${content.normalDifferences}`,
-    `     or (select count(*) from jsonb_array_elements(requested_private_solution->'differences') item where item->>'tier'='HARD') <> ${content.hardDifferences}`,
+    `     or (select count(*) from jsonb_array_elements(requested_private_solution->'differences') item where item->>'tier'='HARD') <> ${hard}`,
+    `     or (select count(*) from jsonb_array_elements(requested_private_solution->'differences') item where item->>'tier'='NORMAL') <> ${total} - ${hard}`,
     `     or (select count(*) from jsonb_array_elements(requested_private_solution->'wordHunts') item where item->>'kind'='NORMAL') <> ${normalWords}`,
     "     or (select count(*) from jsonb_array_elements(requested_private_solution->'wordHunts') item where item->>'kind'='SPECIAL') <> 1",
-    `     or (select count(distinct item->>'objectiveId') from jsonb_array_elements(requested_private_solution->'differences') item) <> ${differences}`,
+    `     or (select count(distinct item->>'objectiveId') from jsonb_array_elements(requested_private_solution->'differences') item) <> ${total}`,
     `     or (select count(distinct item->>'missionId') from jsonb_array_elements(requested_private_solution->'wordHunts') item) <> ${content.wordHunts}`,
     '  then',
     "    raise exception using errcode = '22023', message = 'PRIVATE_CONTENT_VALUE_INVALID';",

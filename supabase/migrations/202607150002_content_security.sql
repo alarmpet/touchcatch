@@ -246,13 +246,14 @@ begin
     raise exception using errcode = '22023', message = 'PRIVATE_CONTENT_SHAPE_INVALID';
   end if;
   -- BEGIN GENERATED RULESET CONTENT PREDICATES
-  if jsonb_array_length(requested_private_solution->'differences') <> 10
+  if jsonb_array_length(requested_private_solution->'differences') < 5
+     or jsonb_array_length(requested_private_solution->'differences') > 20
      or jsonb_array_length(requested_private_solution->'wordHunts') <> 3
-     or (select count(*) from jsonb_array_elements(requested_private_solution->'differences') item where item->>'tier'='NORMAL') <> 7
-     or (select count(*) from jsonb_array_elements(requested_private_solution->'differences') item where item->>'tier'='HARD') <> 3
+     or (select count(*) from jsonb_array_elements(requested_private_solution->'differences') item where item->>'tier'='HARD') <> ((2 * 3 * jsonb_array_length(requested_private_solution->'differences') + 10) / 20)
+     or (select count(*) from jsonb_array_elements(requested_private_solution->'differences') item where item->>'tier'='NORMAL') <> jsonb_array_length(requested_private_solution->'differences') - ((2 * 3 * jsonb_array_length(requested_private_solution->'differences') + 10) / 20)
      or (select count(*) from jsonb_array_elements(requested_private_solution->'wordHunts') item where item->>'kind'='NORMAL') <> 2
      or (select count(*) from jsonb_array_elements(requested_private_solution->'wordHunts') item where item->>'kind'='SPECIAL') <> 1
-     or (select count(distinct item->>'objectiveId') from jsonb_array_elements(requested_private_solution->'differences') item) <> 10
+     or (select count(distinct item->>'objectiveId') from jsonb_array_elements(requested_private_solution->'differences') item) <> jsonb_array_length(requested_private_solution->'differences')
      or (select count(distinct item->>'missionId') from jsonb_array_elements(requested_private_solution->'wordHunts') item) <> 3
   then
     raise exception using errcode = '22023', message = 'PRIVATE_CONTENT_VALUE_INVALID';

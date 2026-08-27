@@ -1,6 +1,6 @@
 import fs from'node:fs';import path from'node:path';import{createHash}from'node:crypto';
 import{parse as parseYaml}from'yaml';
-import{parseRuleset}from'../packages/contracts/src/rules.schema.js';
+import{hardDifferenceCount,parseRuleset}from'../packages/contracts/src/rules.schema.js';
 import{parseEconomy}from'../packages/contracts/src/economy.schema.js';
 import{AnalyticsCollector,emitRequirementGateStatus,parseAnalyticsEventV1,validateLifecycleTrace,type RequirementGateResult}from'../packages/contracts/src/analytics.js';
 import{evaluateLoadSamples}from'./release-evidence.js';
@@ -131,7 +131,7 @@ export function evaluateReleaseRequirement(id:string){if(!/^QA-0(?:0[1-9]|1[0-5]
  if(id==='QA-005'){if(match.wrongFinalAttemptsPerEligible<releasePolicy.wrongAttemptsPerEligible.min||match.wrongFinalAttemptsPerEligible>releasePolicy.wrongAttemptsPerEligible.max)throw Error('wrong attempt target drift');return true;}
  if(id==='QA-006'){const storedMatch=JSON.parse(fs.readFileSync(path.resolve('docs/testing/reports/match-bot-v1-seed-20260719.json'),'utf8')),storedEconomy=JSON.parse(fs.readFileSync(path.resolve('docs/testing/reports/economy-draw-v1-seed-20260719.json'),'utf8'));if(JSON.stringify(storedMatch)!==JSON.stringify(match)||JSON.stringify(storedEconomy)!==JSON.stringify(economyReport)||match.evidenceClass!=='DRAFT_TEST_ONLY')throw Error('release report freshness drift');return true;}
  if(id==='QA-007'){if(rules.score.normalDifference!==6||rules.score.hardDifference!==9||rules.score.finalWord+rules.score.meaning!==40)throw Error('variant A mechanics drift');return true;}
- if(id==='QA-008'){if(rules.content.normalDifferences!==7||rules.content.normalDifferences+rules.content.hardDifferences!==10||rules.targetScore!==100)throw Error('variant B mechanics drift');return true;}
+ if(id==='QA-008'){if(rules.content.minDifferences!==5||rules.content.maxDifferences!==20||hardDifferenceCount(rules.content,10)!==3||rules.targetScore!==100)throw Error('variant B mechanics drift');return true;}
  if(id==='QA-009'){if(!Number.isFinite(match.finalAttemptRate)||!Number.isFinite(match.wrongFinalAttemptsPerEligible)||match.evidenceClass!=='DRAFT_TEST_ONLY')throw Error('comparison metric drift');return true;}
  if(id==='QA-010'){if(!releaseTest.includes('exactly-once outbox effects')||!releaseTest.includes('duplicateEffects:0'))throw Error('concurrent claim fault matrix drift');return true;}
  if(id==='QA-011'){if(!releaseTest.includes('reconstructedTerminalHash')||!releaseTest.includes('authoritativeTerminalHash'))throw Error('mid-state recovery drift');return true;}

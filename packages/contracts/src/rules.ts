@@ -6,7 +6,7 @@ export type RulesetV1 = {
   lockMs: { wrongAnswer: number; finalRushWrongAnswer: number };
   wordHuntSchedule: readonly [{ kind: 'NORMAL'; spawnWindowMs: readonly [number, number] }, { kind: 'NORMAL'; spawnWindowMs: readonly [number, number] }, { kind: 'SPECIAL'; spawnAtMs: number }];
   limits: { maxBoardTapsPerSecond: number }; hint: { creditsPerWordHuntWin: 1; charactersPerUse: 1; revealOrder: 'MATCH_RANDOM_SCHEDULE' };
-  content: { normalDifferences: 7; hardDifferences: 3; wordHunts: 3 };
+  content: { minDifferences: number; maxDifferences: number; hardDifferenceNumerator: number; hardDifferenceDenominator: number; wordHunts: 3 };
   finalChallenge: { unlock: { atMs: number; onDifferenceClaim: true; onWordHuntClaim: true }; maxWrongAttempts: 3; atomicScoring: true };
   tieBreak: readonly TieBreakRule[];
 };

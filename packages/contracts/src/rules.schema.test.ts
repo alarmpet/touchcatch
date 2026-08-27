@@ -15,7 +15,7 @@ describe('RulesetV1 parser', () => {
   it('matches the complete frozen object and a fixed canonical hash', async () => {
     const rules = parseRuleset(await load());
     expect(rules).toEqual(frozen);
-    expect(rulesetHash(rules)).toBe('21cdabce2cf78cc7f9bdc8a66f75857c88d41a02a4b554a1d7278e66a82d0681');
+    expect(rulesetHash(rules)).toBe('c2a4e3de9f3df4d34c5e84c47386afa68af1867623559c91bf26163cb02bcbd3');
   });
 
   const mutations: Array<[string, (value: any) => void]> = [

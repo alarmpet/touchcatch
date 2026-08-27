@@ -36,13 +36,25 @@ describe('learning season publish preflight', () => {
 
   it('names the pack and the shortfall when the artwork yields too few differences', () => {
     const bundle = buildCandidateBundle(root, key);
-    const differences = (bundle.privateSolution['differences'] as unknown[]).slice(0, 9);
+    // Four is below the smallest admissible board; nine is now perfectly legal.
+    const differences = (bundle.privateSolution['differences'] as unknown[]).slice(0, 4);
     const findings = preflight(root, [mutate(bundle, { ...bundle.privateSolution, differences })]);
 
     expect(findings.map((finding) => finding.check)).toContain('DIFFERENCE_COUNT');
     expect(findings.every((finding) => finding.pack === key)).toBe(true);
     expect(findings.find((finding) => finding.check === 'DIFFERENCE_COUNT')?.detail)
-      .toBe('9 differences, ruleset requires 10');
+      .toBe('4 differences, ruleset admits 5–20');
+  });
+
+  it('re-tiers a board to the ruleset proportion at whatever size the artwork gives', () => {
+    const bundle = buildCandidateBundle(root, key);
+    const all = bundle.privateSolution['differences'] as { tier: string }[];
+    // Ten differences split 7/3, which is the balance the scoring numbers were set against.
+    expect(all.filter((d) => d.tier === 'HARD')).toHaveLength(3);
+
+    // A nine-difference board is admissible and takes three HARD as well (round(2.7)).
+    const nine = all.slice(0, 9).map((d, i) => ({ ...d, tier: i >= 6 ? 'HARD' : 'NORMAL' }));
+    expect(preflight(root, [mutate(bundle, { ...bundle.privateSolution, differences: nine })])).toEqual([]);
   });
 
   it('rejects a solution whose attestation does not cover it', () => {

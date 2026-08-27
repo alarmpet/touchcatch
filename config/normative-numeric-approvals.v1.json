@@ -12,7 +12,7 @@
       "evidenceOwner": "rules",
       "closureCondition": "Keep exact executable behavioral predicate green for RULE-011",
       "ssotPath": "config/ruleset.v1.json",
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e",
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651",
       "ssotAssertions": [
         {
           "pointer": "/time/finalRushStartsAtMs",
@@ -69,7 +69,7 @@
           "expected": 100
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-021",
@@ -87,7 +87,7 @@
           "expected": 75000
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-026",
@@ -105,12 +105,12 @@
           "expected": 10000
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-027",
       "approvedTokens": [
-        "10"
+        "5~20"
       ],
       "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
@@ -119,22 +119,21 @@
       "ssotPath": "config/ruleset.v1.json",
       "ssotAssertions": [
         {
-          "pointer": "/content/normalDifferences",
-          "expected": 7
+          "pointer": "/content/minDifferences",
+          "expected": 5
         },
         {
-          "pointer": "/content/hardDifferences",
-          "expected": 3
+          "pointer": "/content/maxDifferences",
+          "expected": 20
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-028",
       "approvedTokens": [
-        "7",
-        "6",
-        "42"
+        "1",
+        "6"
       ],
       "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
@@ -142,23 +141,18 @@
       "closureCondition": "Keep exact executable oracle green",
       "ssotPath": "config/ruleset.v1.json",
       "ssotAssertions": [
-        {
-          "pointer": "/content/normalDifferences",
-          "expected": 7
-        },
         {
           "pointer": "/score/normalDifference",
           "expected": 6
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-029",
       "approvedTokens": [
-        "3",
-        "9",
-        "27"
+        "1",
+        "9"
       ],
       "status": "VERIFIED_LOCAL_SSOT",
       "lifecycle": "CURRENT",
@@ -167,19 +161,18 @@
       "ssotPath": "config/ruleset.v1.json",
       "ssotAssertions": [
         {
-          "pointer": "/content/hardDifferences",
-          "expected": 3
-        },
-        {
           "pointer": "/score/hardDifference",
           "expected": 9
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-030",
       "approvedTokens": [
+        "3",
+        "10",
+        "10",
         "69"
       ],
       "status": "VERIFIED_LOCAL_SSOT",
@@ -189,12 +182,12 @@
       "ssotPath": "config/ruleset.v1.json",
       "ssotAssertions": [
         {
-          "pointer": "/content/normalDifferences",
-          "expected": 7
+          "pointer": "/content/hardDifferenceNumerator",
+          "expected": 3
         },
         {
-          "pointer": "/content/hardDifferences",
-          "expected": 3
+          "pointer": "/content/hardDifferenceDenominator",
+          "expected": 10
         },
         {
           "pointer": "/score/normalDifference",
@@ -205,7 +198,7 @@
           "expected": 9
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-031",
@@ -227,7 +220,7 @@
           ]
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-032",
@@ -249,7 +242,7 @@
           ]
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-033",
@@ -272,7 +265,7 @@
           "expected": "SPECIAL"
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-034",
@@ -295,7 +288,7 @@
           "expected": 15
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-035",
@@ -308,14 +301,14 @@
       "evidenceOwner": "rules",
       "closureCondition": "Keep exact executable behavioral predicate green for RULE-035",
       "ssotPath": "config/ruleset.v1.json",
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e",
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651",
       "ssotAssertions": [
         {
           "pointer": "/hint/creditsPerWordHuntWin",
           "expected": 1
         }
       ],
-      "sourceHash": "f4a57a9fc3b4782b6cb850eb7d9efb5bd6fa612258e6e170f52f5941ca00875a"
+      "sourceHash": "8e0060f517caff8b95b86b18f711f98c608175d2ebf3d1cf52a437b4091ec8a2"
     },
     {
       "id": "RULE-037",
@@ -333,7 +326,7 @@
           "expected": true
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-038",
@@ -351,7 +344,7 @@
           "expected": true
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-039",
@@ -369,7 +362,7 @@
           "expected": 12000
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-040",
@@ -387,7 +380,7 @@
           "expected": 25
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-041",
@@ -406,7 +399,7 @@
           "expected": 5000
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-042",
@@ -424,7 +417,7 @@
           "expected": 15
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-043",
@@ -442,7 +435,7 @@
           "expected": 10
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-044",
@@ -465,7 +458,7 @@
           "expected": 2000
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-045",
@@ -488,7 +481,7 @@
           "expected": 1500
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-046",
@@ -510,7 +503,7 @@
           "expected": 75000
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-047",
@@ -528,7 +521,7 @@
           "expected": 2
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "RULE-019",
@@ -556,7 +549,7 @@
           "expected": 80000
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "STATE-001",
@@ -580,7 +573,7 @@
           "expected": 80000
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e",
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651",
       "sourceHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f"
     },
     {
@@ -604,7 +597,7 @@
           "expected": 1
         }
       ],
-      "ssotHash": "fa957534c6be8185501fba82789218dea6b644d8008d53c215700af019c85418",
+      "ssotHash": "32166a2bb378b25b6f053196cd40cd291d98d826dc2e629ad31cf95a8ad0eb72",
       "sourceHash": "f28ddfdb4e7015740de168a83a41ae194158a0956d07b6b20042d78272df055f"
     },
     {
@@ -676,7 +669,7 @@
           "expected": 100
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "UX-012",
@@ -1018,7 +1011,7 @@
           "expected": 15000
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e",
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651",
       "sourcePath": "07_REALTIME_SERVER_SPEC.md",
       "sourceHash": "2f21d8b4a0513c71282ab6e9c44c2ed1bf588a519db9a8a4261ac062d9a54fdd",
       "lifecycle": "CURRENT",
@@ -1043,7 +1036,7 @@
           "expected": 8
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "OBS-009",
@@ -1083,7 +1076,7 @@
           "expected": 15000
         }
       ],
-      "ssotHash": "746e5c7b9812626caca81851e71ea4bb6fe2208274f460b2db67ab1683d5ed5e"
+      "ssotHash": "a9801c74ca07041ee20b6f90741cea303b7ef08672d6f8e7cb330fcf3a261651"
     },
     {
       "id": "OBS-015",
@@ -1111,7 +1104,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact repository-local 1:1 revision projection oracle green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "f9d811d6e256f6d7ae5cafca00086ec1be16db1e56408823069c01af78fd3fcc",
+      "ssotHash": "35ec41bbef654b45062ec6bdd3dd1f0bec047c375d6b7d027599c42b2ad6a6dd",
       "ssotAssertions": [
         {
           "pointer": "/entries/111/oracle/expected",
@@ -1131,7 +1124,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact seat and 20-session concurrency predicate green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "f9d811d6e256f6d7ae5cafca00086ec1be16db1e56408823069c01af78fd3fcc",
+      "ssotHash": "35ec41bbef654b45062ec6bdd3dd1f0bec047c375d6b7d027599c42b2ad6a6dd",
       "ssotAssertions": [
         {
           "pointer": "/entries/124/oracle/expected",
@@ -1149,7 +1142,7 @@
       "evidenceOwner": "database",
       "closureCondition": "Keep exact 20-session concurrency evidence green",
       "ssotPath": "config/requirement-evidence.v1.json",
-      "ssotHash": "f9d811d6e256f6d7ae5cafca00086ec1be16db1e56408823069c01af78fd3fcc",
+      "ssotHash": "35ec41bbef654b45062ec6bdd3dd1f0bec047c375d6b7d027599c42b2ad6a6dd",
       "ssotAssertions": [
         {
           "pointer": "/entries/134/oracle/expected",

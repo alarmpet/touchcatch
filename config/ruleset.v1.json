@@ -6,7 +6,7 @@
   "wordHuntSchedule": [{ "kind": "NORMAL", "spawnWindowMs": [16000, 22000] }, { "kind": "NORMAL", "spawnWindowMs": [34000, 42000] }, { "kind": "SPECIAL", "spawnAtMs": 60000 }],
   "limits": { "maxBoardTapsPerSecond": 8 },
   "hint": { "creditsPerWordHuntWin": 1, "charactersPerUse": 1, "revealOrder": "MATCH_RANDOM_SCHEDULE" },
-  "content": { "normalDifferences": 7, "hardDifferences": 3, "wordHunts": 3 },
+  "content": { "minDifferences": 5, "maxDifferences": 20, "hardDifferenceNumerator": 3, "hardDifferenceDenominator": 10, "wordHunts": 3 },
   "finalChallenge": { "unlock": { "atMs": 12000, "onDifferenceClaim": true, "onWordHuntClaim": true }, "maxWrongAttempts": 3, "atomicScoring": true },
   "tieBreak": ["SCORE", "FINAL_PACKAGE_CORRECT", "HARD_DIFFERENCES", "FEWER_FINAL_ANSWER_ERRORS", "SUDDEN_DEATH"]
 }
