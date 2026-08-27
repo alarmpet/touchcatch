@@ -3,18 +3,18 @@
   "note": "Facts only a human may decide. An agent must never guess a value here. UNRESOLVED renders as a visible placeholder in the published pages and makes `pnpm portal:publishable` fail, which is what the deploy step runs. The repository gate only checks that the published pages match these sources, so the tree stays green while these are pending.",
   "operator": {
     "kind": "INDIVIDUAL_DEVELOPER",
-    "displayName": "UNRESOLVED",
-    "legalName": "UNRESOLVED",
+    "displayName": "신향섭",
+    "legalName": "신향섭",
     "businessRegistrationNumber": null,
     "businessRegistrationNumberRationale": "Individual developer publishing without a Korean business registration. Null is a decision, not a missing value.",
-    "address": "UNRESOLVED",
+    "address": "서울특별시 서대문구 거북골로 79, 5층",
     "jurisdiction": "KR"
   },
   "contact": {
     "supportEmail": "petblo12@gmail.com",
     "supportEmailVerified": false,
     "supportEmailVerifiedNote": "Flip to true only after a message sent to this address from outside the account has been confirmed received. It is published on the privacy policy, the deletion page and the Play listing, and it is the only channel a user who cannot open the app has.",
-    "privacyOfficerName": "UNRESOLVED",
+    "privacyOfficerName": "신향섭",
     "responseTargetBusinessDays": 3
   },
   "audience": {

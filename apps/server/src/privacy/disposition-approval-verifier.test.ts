@@ -64,13 +64,27 @@ describe('disposition approval', () => {
     expect(hashDisposition(raw)).not.toBe(hashDisposition(`${raw}\n`));
   });
 
-  it('refuses the disposition this repository actually ships today', async () => {
-    // Deliberate. Nobody has reviewed it, so the worker must not dispose of anything. When a
-    // human approves the file this test changes with them, and that is the moment worth noticing.
+  it('accepts the disposition this repository actually ships today', async () => {
+    // This assertion used to read `allowed: false, DISPOSITION_NOT_APPROVED:PROPOSED`, and it
+    // changed on 2026-08-27 when 신향섭 approved the file. That flip is the whole point of the
+    // test: it is the line in the suite that says a person has decided, so it must never be
+    // edited to follow the file -- only alongside a real approval, with the count below read
+    // off the table rather than pasted from a failure message.
     const raw = await readFile('docs/legal/data-disposition.v1.json', 'utf8');
-    expect(verifyDisposition(raw)).toEqual({
-      allowed: false,
-      reason: 'DISPOSITION_NOT_APPROVED:PROPOSED',
-    });
+    const verdict = verifyDisposition(raw);
+    expect(verdict).toMatchObject({ allowed: true, deleteTableCount: 24 });
+    expect(verdict).toHaveProperty('hash');
+  });
+
+  it('names who approved the shipped disposition and when', async () => {
+    // An approval with nobody on it is what the verifier already refuses; this pins that the
+    // shipped file carries a real attribution rather than a placeholder that happens to parse.
+    const raw = await readFile('docs/legal/data-disposition.v1.json', 'utf8');
+    const { approval } = JSON.parse(raw) as {
+      approval: { status: string; approvedBy: string | null; approvedAt: string | null };
+    };
+    expect(approval.status).toBe('APPROVED');
+    expect(approval.approvedBy).toBeTruthy();
+    expect(Number.isNaN(Date.parse(approval.approvedAt ?? ''))).toBe(false);
   });
 });

@@ -3,11 +3,11 @@
   "generatedBy": "tools/privacy/derive-data-disposition.mjs",
   "note": "Table list is derived from docs/legal/data-subject-inventory.v1.json. The disposition per table is a human decision and regenerating never overwrites one that is already recorded, except for rows whose decidedBy says \"schema shape\" -- those follow from the foreign keys rather than from judgement and are reasserted every run. The deletion worker refuses to run unless approval.status is APPROVED.",
   "approval": {
-    "status": "PROPOSED",
-    "approvedBy": null,
-    "approvedAt": null,
-    "scope": null,
-    "note": "No human has reviewed these dispositions. Until this says APPROVED, a deletion request blocks access and disposes of nothing."
+    "status": "APPROVED",
+    "approvedBy": "신향섭",
+    "approvedAt": "2026-08-27T09:15:02.120Z",
+    "scope": "closed-beta",
+    "note": "Reviewed and approved by the individual developer, who is also the 개인정보 보호책임자 under 개인정보 보호법 제31조 (소상공인 exception: with no separate officer appointed, the 사업주 is the officer). Approval covers the closed-beta scope: 24 DELETE, 9 REDACT, 2 RETAIN across the tables listed below. The two RETAIN rows are the deletion audit itself -- removing them would destroy the evidence that a request was honoured."
   },
   "dispositions": {
     "DELETE": "Rows keyed on the subject are removed.",
