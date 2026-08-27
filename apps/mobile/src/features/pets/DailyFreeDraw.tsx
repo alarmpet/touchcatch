@@ -3,6 +3,7 @@ import { View, Text, Pressable } from 'react-native';
 import { colors, neon, neonPulseGlow, radius, spacing } from '../../ui/design-tokens';
 import { GlassCard } from '../../ui/GlassCard';
 import { buttonStyle, buttonTextStyle, text } from '../../ui/ui-kit';
+import { drawOddsLine } from './draw-odds';
 
 export type DailyFreeDrawProps = {
   hasClaimedToday: boolean;
@@ -60,7 +61,7 @@ export function DailyFreeDraw({ hasClaimedToday, policy, onClaimDraw }: DailyFre
               </View>
             ) : null}
           </View>
-          <Text style={text.caption}>등장 확률: 일반 60% · 고급 25% · 희귀 10% · 영웅 4% · 전설 1%</Text>
+          <Text style={text.caption}>{drawOddsLine()}</Text>
           {policyBlocked && <Text testID="draw-policy-reason" style={text.caption}>보상 정책 승인 후 사용 가능</Text>}
         </View>
       </View>
