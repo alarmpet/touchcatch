@@ -1,17 +1,22 @@
 import * as Crypto from 'expo-crypto';
 
 /**
- * Gives the runtime a `crypto.subtle.digest` so PKCE can use S256.
+ * Fills in the parts of `crypto` that React Native leaves out, so PKCE can use S256.
  *
- * supabase-js derives the PKCE code challenge with `crypto.subtle.digest`, and when that is
- * missing it does not fail — it warns and sends the verifier itself as the challenge
- * (`plain`). React Native ships no WebCrypto, so every OAuth sign-in was taking that path.
- * Under `plain` the challenge is the secret: anyone who observes the authorization request
- * can complete the token exchange. This app receives its callback on a custom scheme
- * (`touchcatch://`), which any other installed app may also claim, so interception is the
- * threat PKCE is here to answer and S256 is the half that answers it.
+ * supabase-js needs two things from `crypto` to start an OAuth sign-in: `getRandomValues`
+ * to make the code verifier, and `subtle.digest` to hash it into an S256 challenge. When
+ * `subtle` is missing it does not fail — it warns and sends the verifier itself as the
+ * challenge (`plain`), and under `plain` the challenge *is* the secret, so anyone who
+ * observes the authorization request can complete the token exchange. This app takes its
+ * callback on `touchcatch://`, a custom scheme any other installed app may also claim, so
+ * interception is the threat PKCE answers here and S256 is the half that answers it.
  *
- * Only what is absent gets filled. A runtime that grows real WebCrypto keeps its own.
+ * Each piece is filled independently and only when absent. That matters more than it looks:
+ * an earlier version created a whole `crypto` object holding nothing but `subtle`, which ran
+ * before Expo installed its own and left `getRandomValues` undefined forever after, because
+ * Expo's installer saw a `crypto` already there and skipped. The result passed every test and
+ * the release bundle built, then broke OAuth outright on a device — no verifier, no sign-in.
+ * A partial object is worse than no object, so this never constructs one.
  */
 
 const DIGEST_ALGORITHMS: ReadonlyMap<string, Crypto.CryptoDigestAlgorithm> = new Map([
@@ -22,6 +27,7 @@ const DIGEST_ALGORITHMS: ReadonlyMap<string, Crypto.CryptoDigestAlgorithm> = new
 ]);
 
 type DigestBackend = (algorithm: Crypto.CryptoDigestAlgorithm, data: BufferSource) => Promise<ArrayBuffer>;
+type RandomBackend = <T extends ArrayBufferView | null>(array: T) => T;
 
 /** WebCrypto accepts both `'SHA-256'` and `{ name: 'SHA-256' }`. */
 function algorithmName(algorithm: unknown): string {
@@ -44,39 +50,62 @@ export function createDigest(backend: DigestBackend = Crypto.digest) {
   };
 }
 
-export type WebCryptoScope = { crypto?: { subtle?: unknown } };
+export type WebCryptoScope = { crypto?: { subtle?: unknown; getRandomValues?: unknown } };
 
-export type InstallOutcome = 'ALREADY_PRESENT' | 'SUBTLE_ADDED' | 'CRYPTO_ADDED' | 'UNAVAILABLE';
+export type InstallReport = Readonly<{
+  /** Whether a `crypto` object had to be created, and whether each member was added. */
+  cryptoCreated: boolean;
+  getRandomValues: 'PRESENT' | 'INSTALLED';
+  subtle: 'PRESENT' | 'INSTALLED';
+  /** Set when the scope refused a write, so the caller is knowingly degraded, not silently. */
+  failed?: string;
+}>;
 
-/**
- * Returns what it did, so a test can assert the branch instead of inferring it from a global.
- * `UNAVAILABLE` means the scope refused the write — the caller is then knowingly on `plain`
- * rather than silently on it.
- */
-export function installWebCryptoDigest(
-  scope: WebCryptoScope,
-  backend?: DigestBackend,
-): InstallOutcome {
-  const existing = scope.crypto;
-  if (existing && typeof existing === 'object' && typeof existing.subtle === 'object' && existing.subtle !== null) {
-    return 'ALREADY_PRESENT';
-  }
-  const subtle = { digest: createDigest(backend) };
-  if (existing && typeof existing === 'object') {
-    try {
-      Object.defineProperty(existing, 'subtle', { value: subtle, configurable: true, writable: true });
-      return 'SUBTLE_ADDED';
-    } catch {
-      return 'UNAVAILABLE';
-    }
-  }
+function define(target: object, key: string, value: unknown): boolean {
   try {
-    Object.defineProperty(scope, 'crypto', { value: { subtle }, configurable: true, writable: true });
-    return 'CRYPTO_ADDED';
+    Object.defineProperty(target, key, { value, configurable: true, writable: true });
+    return true;
   } catch {
-    return 'UNAVAILABLE';
+    return false;
   }
 }
 
-export const webCryptoInstallOutcome = installWebCryptoDigest(globalThis as WebCryptoScope);
+/**
+ * Returns what it did, so a test can assert the branch instead of inferring it from a global.
+ */
+export function installWebCrypto(
+  scope: WebCryptoScope,
+  backends: Readonly<{ digest?: DigestBackend; getRandomValues?: RandomBackend }> = {},
+): InstallReport {
+  const randomBackend = backends.getRandomValues ?? (Crypto.getRandomValues as unknown as RandomBackend);
 
+  let holder = scope.crypto;
+  let cryptoCreated = false;
+  if (!holder || typeof holder !== 'object') {
+    holder = {};
+    cryptoCreated = true;
+    if (!define(scope as object, 'crypto', holder)) {
+      return { cryptoCreated: false, getRandomValues: 'PRESENT', subtle: 'PRESENT', failed: 'CRYPTO' };
+    }
+  }
+
+  let getRandomValues: InstallReport['getRandomValues'] = 'PRESENT';
+  if (typeof holder.getRandomValues !== 'function') {
+    if (!define(holder, 'getRandomValues', (array: ArrayBufferView | null) => randomBackend(array))) {
+      return { cryptoCreated, getRandomValues: 'PRESENT', subtle: 'PRESENT', failed: 'GET_RANDOM_VALUES' };
+    }
+    getRandomValues = 'INSTALLED';
+  }
+
+  let subtle: InstallReport['subtle'] = 'PRESENT';
+  if (!holder.subtle || typeof holder.subtle !== 'object') {
+    if (!define(holder, 'subtle', { digest: createDigest(backends.digest) })) {
+      return { cryptoCreated, getRandomValues, subtle: 'PRESENT', failed: 'SUBTLE' };
+    }
+    subtle = 'INSTALLED';
+  }
+
+  return { cryptoCreated, getRandomValues, subtle };
+}
+
+export const webCryptoInstallReport = installWebCrypto(globalThis as WebCryptoScope);

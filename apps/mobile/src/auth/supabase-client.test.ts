@@ -8,15 +8,20 @@ vi.mock('expo-sqlite/localStorage/install', () => ({}));
 vi.mock('expo-crypto', () => ({
   CryptoDigestAlgorithm: { SHA1: 'SHA-1', SHA256: 'SHA-256', SHA384: 'SHA-384', SHA512: 'SHA-512' },
   digest: vi.fn(),
+  getRandomValues: vi.fn(),
 }));
 vi.mock('react-native', () => ({ AppState: { addEventListener: vi.fn() }, Platform: { OS: 'android' } }));
 
 describe('mobile Supabase runtime', () => {
-  it('has installed crypto.subtle by the time supabase-js is reachable, so PKCE is S256', () => {
-    // supabase-js reads `crypto.subtle` when it derives the code challenge and silently drops to
-    // `plain` if it is missing. Importing this module must be enough to prevent that; if the
-    // install import is removed or ordered after supabase-js, this fails.
-    expect(typeof (globalThis as { crypto?: { subtle?: unknown } }).crypto?.subtle).toBe('object');
+  it('has a usable crypto by the time supabase-js is reachable, so PKCE is S256', () => {
+    // supabase-js calls `getRandomValues` to build the verifier and reads `subtle` to decide
+    // between an S256 and a `plain` challenge. Importing this module must be enough for both;
+    // if the install import is removed or ordered after supabase-js, this fails.
+    const crypto = (globalThis as { crypto?: { subtle?: unknown; getRandomValues?: unknown } }).crypto;
+    expect(typeof crypto?.subtle).toBe('object');
+    // Asserted separately because shipping subtle without this broke sign-in outright once:
+    // no verifier, no authorization URL, and every test still green.
+    expect(typeof crypto?.getRandomValues).toBe('function');
   });
 
   it('uses the PKCE flow, persistent storage, process lock, and native foreground refresh without exposing the client', () => {

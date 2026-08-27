@@ -1,41 +1,57 @@
 import { describe, expect, it, vi } from 'vitest';
-import { createDigest, installWebCryptoDigest, type WebCryptoScope } from './webcrypto-install.js';
+import { createDigest, installWebCrypto, type WebCryptoScope } from './webcrypto-install.js';
 
 vi.mock('expo-crypto', () => ({
   CryptoDigestAlgorithm: { SHA1: 'SHA-1', SHA256: 'SHA-256', SHA384: 'SHA-384', SHA512: 'SHA-512' },
   digest: vi.fn(),
+  getRandomValues: vi.fn(),
 }));
 
 /**
- * The behaviour under test is the one supabase-js probes for. `generatePKCEChallenge` checks
- * `typeof crypto.subtle !== 'undefined'` and, when that fails, returns the verifier itself as
- * the challenge (`plain`) after a console warning. These assert the probe now succeeds, that
- * the digest it then calls is a real SHA-256, and that nothing here overwrites a runtime that
- * brings its own WebCrypto.
+ * supabase-js needs `getRandomValues` to build the PKCE verifier and `subtle.digest` to hash
+ * it into an S256 challenge. Missing `subtle` downgrades the flow to `plain`; missing
+ * `getRandomValues` breaks sign-in entirely. These cover both, and in particular the case
+ * that shipped broken once: a `crypto` created with only `subtle`, which made Expo's own
+ * installer skip and left `getRandomValues` undefined on the device.
  */
-describe('WebCrypto digest install', () => {
-  it('adds subtle to an existing crypto object so the PKCE capability check passes', () => {
-    const scope: WebCryptoScope = { crypto: { } };
-    expect(installWebCryptoDigest(scope, vi.fn())).toBe('SUBTLE_ADDED');
-    expect(typeof scope.crypto?.subtle).toBe('object');
-  });
+describe('WebCrypto install', () => {
+  const backends = () => ({ digest: vi.fn(), getRandomValues: vi.fn() });
 
-  it('creates crypto entirely when the runtime has none', () => {
+  it('creates a crypto that carries BOTH members, never subtle alone', () => {
     const scope: WebCryptoScope = {};
-    expect(installWebCryptoDigest(scope, vi.fn())).toBe('CRYPTO_ADDED');
+    const report = installWebCrypto(scope, backends());
+    expect(report).toMatchObject({ cryptoCreated: true, getRandomValues: 'INSTALLED', subtle: 'INSTALLED' });
+    // The regression this asserts against: a crypto object with subtle and nothing else.
+    expect(typeof scope.crypto?.getRandomValues).toBe('function');
     expect(typeof scope.crypto?.subtle).toBe('object');
   });
 
-  it('leaves a real WebCrypto alone', () => {
+  it('adds only subtle when the runtime already has getRandomValues', () => {
+    const native = vi.fn();
+    const scope: WebCryptoScope = { crypto: { getRandomValues: native } };
+    const report = installWebCrypto(scope, backends());
+    expect(report).toMatchObject({ cryptoCreated: false, getRandomValues: 'PRESENT', subtle: 'INSTALLED' });
+    expect(scope.crypto?.getRandomValues).toBe(native);
+  });
+
+  it('adds only getRandomValues when the runtime already has subtle', () => {
     const native = { digest: vi.fn() };
     const scope: WebCryptoScope = { crypto: { subtle: native } };
-    expect(installWebCryptoDigest(scope, vi.fn())).toBe('ALREADY_PRESENT');
+    const report = installWebCrypto(scope, backends());
+    expect(report).toMatchObject({ cryptoCreated: false, getRandomValues: 'INSTALLED', subtle: 'PRESENT' });
     expect(scope.crypto?.subtle).toBe(native);
   });
 
-  it('reports UNAVAILABLE rather than throwing when the scope refuses the write', () => {
+  it('leaves a complete WebCrypto entirely alone', () => {
+    const crypto = { getRandomValues: vi.fn(), subtle: { digest: vi.fn() } };
+    const scope: WebCryptoScope = { crypto };
+    expect(installWebCrypto(scope, backends())).toMatchObject({ getRandomValues: 'PRESENT', subtle: 'PRESENT' });
+    expect(scope.crypto).toBe(crypto);
+  });
+
+  it('reports a refused write instead of throwing', () => {
     const scope = Object.freeze({}) as WebCryptoScope;
-    expect(installWebCryptoDigest(scope, vi.fn())).toBe('UNAVAILABLE');
+    expect(installWebCrypto(scope, backends()).failed).toBe('CRYPTO');
   });
 
   it('passes SHA-256 through for both the string and the object algorithm form', async () => {
@@ -60,7 +76,10 @@ describe('WebCrypto digest install', () => {
   it('produces the SHA-256 that supabase-js turns into an S256 challenge', async () => {
     const { subtle } = await import('node:crypto');
     const scope: WebCryptoScope = {};
-    installWebCryptoDigest(scope, (algorithm, data) => subtle.digest(algorithm, data as BufferSource));
+    installWebCrypto(scope, {
+      digest: (algorithm, data) => subtle.digest(algorithm, data as BufferSource),
+      getRandomValues: vi.fn(),
+    });
     const installed = scope.crypto?.subtle as { digest(algorithm: string, data: BufferSource): Promise<ArrayBuffer> };
 
     // The verifier below is arbitrary; the expectation is its real SHA-256, so a backend that
