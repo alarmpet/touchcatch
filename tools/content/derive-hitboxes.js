@@ -2,6 +2,7 @@ import console from 'node:console';
 import fs from 'node:fs/promises';
 import process from 'node:process';
 import { decodeGreyPng } from './png-grey.js';
+import { hasGuideGrid } from './check-art-grid.js';
 
 /**
  * Derives difference hitboxes from the artwork instead of trusting the recorded ones.
@@ -200,6 +201,10 @@ export async function deriveHitboxes({
     let reason = null;
     if (totalChange > MAX_TOTAL_CHANGE) reason = 'IMAGES_DIFFER_GLOBALLY';
     else if (differences.length < MIN_DIFFERENCES) reason = 'TOO_FEW_DIFFERENCES';
+    // A composition guide baked into the frame is invisible to the difference map: the pair
+    // can diff perfectly well and still be unplayable, because the grid usually lands in only
+    // one of the two images and every line then reads as a difference nobody can claim.
+    else if (hasGuideGrid(a) || hasGuideGrid(b)) reason = 'BAKED_GUIDE_GRID';
 
     packs[entry.key] = {
       usable: reason === null,

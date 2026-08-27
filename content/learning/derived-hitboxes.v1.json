@@ -442,7 +442,8 @@
       ]
     },
     "en-phonics-apple": {
-      "usable": true,
+      "usable": false,
+      "reason": "BAKED_GUIDE_GRID",
       "totalChange": 0.0658,
       "differences": [
         {
@@ -4390,7 +4391,8 @@
       ]
     },
     "en-papercut-lighthouse": {
-      "usable": true,
+      "usable": false,
+      "reason": "BAKED_GUIDE_GRID",
       "totalChange": 0.0971,
       "differences": [
         {

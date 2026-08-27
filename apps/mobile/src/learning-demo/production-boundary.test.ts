@@ -33,8 +33,10 @@ it('keeps the generated preview registry in step with the drafts', async () => {
   const scratch = 'apps/mobile/src/learning-demo/.preview-registry.check.ts';
   const { code, count } = await generatePreviewRegistry({ outputPath: scratch });
   await rm(scratch, { force: true });
-  // All 79 catalog packs have verified, playable artwork derived by pnpm content:hitboxes:derive.
-  expect(count).toBe(79);
+  // 79 catalog packs derive playable hitboxes; two are held out by
+  // content/learning/defective-art.v1.json for a baked composition guide grid, which no
+  // measurement of the difference map can see.
+  expect(count).toBe(77);
   expect(committed).toBe(code);
 }, 30_000);
 
@@ -54,12 +56,24 @@ it('takes every difference hitbox from the artwork, never from the draft', async
 
 it('keeps artwork with a baked-in guide grid out of the daily rotation', async () => {
   const { checkArtGrid } = await import('../../../../tools/content/check-art-grid.js');
+  const derived = JSON.parse(await readFile('content/learning/derived-hitboxes.v1.json', 'utf8'));
+  const generated = await readFile('apps/mobile/src/learning-demo/preview-registry.generated.ts', 'utf8');
   const offenders = await checkArtGrid();
-  // The held-out list is only honest if it still matches what the artwork actually shows.
-  // Empty is the goal, not an empty assertion: a composition grid baked into a source image
-  // is invisible to every other gate, so this is the only thing standing between one and the
-  // daily rotation. If it ever reports a key, replace that artwork — do not extend this list.
-  expect(offenders.map((offender: { key: string }) => offender.key).sort()).toEqual([]);
+
+  // This used to assert the offender list was empty, which held only while the detector was
+  // blind: it probed the rule-of-thirds lines alone, so `en-phonics-apple`'s 5x5 grid at
+  // columns 205/410/614/819 read as 14% and 3% coverage and the gate called the file clean.
+  //
+  // The assertion is now the property the title names, and it is the stronger one. A grid is
+  // invisible to every other gate, so what matters is that no pack carrying one can reach the
+  // daily rotation — not that none exists on disk. `derive-hitboxes.js` rejects them on the
+  // same evidence this check reads, so there is no hold-out list to extend and none to go
+  // stale. Replacing the artwork is still the fix; until it lands the board is not served.
+  for (const { key } of offenders as { key: string }[]) {
+    expect(derived.packs[key]?.usable, `${key} carries a guide grid and must not be usable`).toBe(false);
+    expect(derived.packs[key]?.reason, key).toBe('BAKED_GUIDE_GRID');
+    expect(generated, key).not.toContain(`"key":"daily-${key}"`);
+  }
 }, 60_000);
 
 it('uses Metro-resolvable extensionless imports in runtime modules', async () => {

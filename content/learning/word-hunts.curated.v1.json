@@ -1889,32 +1889,6 @@
         "r": 0.065
       }
     ],
-    "en-phonics-apple": [
-      {
-        "missionId": "apple-wicker-basket",
-        "kind": "NORMAL",
-        "publicPrompt": "사과 바구니",
-        "cx": 0.24,
-        "cy": 0.53,
-        "r": 0.08
-      },
-      {
-        "missionId": "apple-wooden-bowl",
-        "kind": "NORMAL",
-        "publicPrompt": "사과 그릇",
-        "cx": 0.76,
-        "cy": 0.56,
-        "r": 0.08
-      },
-      {
-        "missionId": "apple-orchard-sign",
-        "kind": "SPECIAL",
-        "publicPrompt": "과수원 간판",
-        "cx": 0.53,
-        "cy": 0.27,
-        "r": 0.08
-      }
-    ],
     "en-synergy-cradle": [
       {
         "missionId": "cradle-welding-arm",
@@ -1964,32 +1938,6 @@
         "publicPrompt": "나무 벤치",
         "cx": 0.38,
         "cy": 0.92,
-        "r": 0.07
-      }
-    ],
-    "en-papercut-lighthouse": [
-      {
-        "missionId": "lighthouse-sailboat",
-        "kind": "NORMAL",
-        "publicPrompt": "돛단배",
-        "cx": 0.21,
-        "cy": 0.62,
-        "r": 0.08
-      },
-      {
-        "missionId": "lighthouse-light-beam",
-        "kind": "NORMAL",
-        "publicPrompt": "등대 광선",
-        "cx": 0.44,
-        "cy": 0.23,
-        "r": 0.075
-      },
-      {
-        "missionId": "lighthouse-flying-seagulls",
-        "kind": "SPECIAL",
-        "publicPrompt": "비행 갈매기",
-        "cx": 0.78,
-        "cy": 0.19,
         "r": 0.07
       }
     ],

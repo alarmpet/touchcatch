@@ -3,8 +3,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import process from 'node:process';
 import { Client } from 'pg';
-import { canonicalJson, canonicalJsonSha256 } from '../../packages/contracts/src/canonical-json.js';
-import { parsePetCatalog } from '../../packages/contracts/src/economy.schema.js';
+import { canonicalJson } from '../../packages/contracts/src/canonical-json.js';
 import {
   parseHintPolicyV1WithHash,
   parseWeeklyCompetitionV1WithHash,
@@ -280,8 +279,19 @@ export function preflight(root: string, bundles: readonly ApprovalBundle[]): rea
 
   const publicKeys = ['assetPolicyVersion', 'category', 'contentId', 'contentRevisionId', 'difficulty', 'imageA', 'imageB', 'language', 'schemaVersion', 'theme', 'version'];
   const imageKeys = ['encodedBytes', 'height', 'mimeType', 'sha256', 'url', 'width'];
+  // Art defects are invisible to every other check here: a baked composition guide grid
+  // produces a perfectly well-formed bundle whose picture a player cannot play. The
+  // derivation already rejects those on evidence, so read its verdict rather than keep a
+  // second list that can disagree with it.
+  const derived = readJson(root, 'content/learning/derived-hitboxes.v1.json')['packs'] as Json;
 
   for (const bundle of bundles) {
+    const verdict = derived[bundle.key] as Json | undefined;
+    if (verdict === undefined) {
+      add(bundle.key, 'ARTWORK_NOT_DERIVED', 'no entry in derived-hitboxes.v1.json; run pnpm content:hitboxes:derive');
+    } else if (verdict['usable'] !== true) {
+      add(bundle.key, 'ARTWORK_REJECTED', `derive-hitboxes rejected this artwork: ${String(verdict['reason'])}`);
+    }
     // `PUBLIC_CONTENT_SHAPE_INVALID` names neither the pack nor the key it objected to.
     const actualPublicKeys = Object.keys(bundle.publicContent).sort();
     if (canonicalJson(actualPublicKeys) !== canonicalJson(publicKeys)) {
@@ -407,34 +417,34 @@ async function publishBundles(client: Client, bundles: readonly ApprovalBundle[]
 }
 
 /**
- * `weekly_seasons.pet_catalog_revision` is a foreign key into `private.pet_catalog_revisions`,
- * and the only writer of that table is `private.publish_economy_bundle_v1` — which refuses
- * anything not stamped `TEST-DECISION` / `test-approver`, by its own comment "deliberately
- * test-only until a product approval workflow exists".
+ * The season is created through `private.create_casual_season_v1` rather than by inserting
+ * rows, because that function is the thing that actually knows what a season must satisfy:
+ * the policy row must already exist with matching hashes, the window must land on an
+ * Asia/Seoul week boundary, all five pins must be distinct and pass
+ * `learning_content_eligible_v1`, and the reward-settlement row has to exist alongside.
+ * Writing the tables directly reproduces none of that.
  *
- * So a casual season cannot be pinned anywhere without that fixture publisher, production
- * included. This seeds it locally so the game can be proven end to end; production needs a
- * real publisher first. The revision and entries are the repository's own, and the catalog
- * hash covers only `{schemaVersion, catalogRevision, entries}` — so the row this writes
- * carries exactly the hash the API sends, despite the fixture approval envelope.
+ * A casual season pins no pet catalog. `202608270001` made that legal; before it, the season's
+ * foreign key into `private.pet_catalog_revisions` could only be satisfied by the test-only
+ * economy publisher, so no casual season could exist on a deployed environment at all.
  */
-async function seedPetCatalogRevision(client: Client, root: string): Promise<void> {
-  const fixture = { status: 'APPROVED', approvalDecisionId: 'TEST-DECISION', approvedBy: 'test-approver', approvedAt: '2026-08-11T00:00:00.000Z' } as const;
-  const rawCatalog = readJson(root, 'config/pet-catalog.v1.json');
-  const catalog: Json = { ...rawCatalog, ...fixture };
-  catalog['catalogArtifactHash'] = canonicalJsonSha256(catalog);
-  // `config/economy.v1.json` still names `catalog-v1` while the catalog is on
-  // `catalog-v2-pet-admission-draft`; the publisher requires the pair to agree, so bind the
-  // economy to the catalog being published rather than to the stale reference.
-  const rawEconomy = readJson(root, 'config/economy.v1.json');
-  const economy: Json = {
-    ...rawEconomy,
-    ...fixture,
-    catalogRevision: catalog['catalogRevision'],
-    catalogHash: catalog['catalogHash'],
-  };
-  economy['economyHash'] = canonicalJsonSha256(economy);
-  await client.query('select private.publish_economy_bundle_v1($1::jsonb,$2::jsonb)', [JSON.stringify(economy), JSON.stringify(catalog)]);
+async function createCasualSeason(client: Client, input: Readonly<{
+  seasonId: string;
+  rulesetHash: string;
+  hintPolicyHash: string;
+  competitionPolicyHash: string;
+  revisionIds: readonly string[];
+}>): Promise<{ startsAt: string; endsAt: string }> {
+  const week = await client.query<{ starts_at: string; ends_at: string }>(
+    `select (pg_catalog.date_trunc('week', pg_catalog.timezone('Asia/Seoul', pg_catalog.now())) at time zone 'Asia/Seoul') as starts_at,
+            ((pg_catalog.date_trunc('week', pg_catalog.timezone('Asia/Seoul', pg_catalog.now())) + interval '7 days') at time zone 'Asia/Seoul') as ends_at`,
+  );
+  const { starts_at: startsAt, ends_at: endsAt } = week.rows[0]!;
+  await client.query(
+    'select private.create_casual_season_v1($1::uuid,$2::timestamptz,$3::timestamptz,$4,$5,$6,$7,null,null,$8::jsonb)',
+    [input.seasonId, startsAt, endsAt, input.rulesetHash, input.hintPolicyHash, input.competitionPolicyHash, ATTEMPT_TTL_SECONDS, JSON.stringify(input.revisionIds)],
+  );
+  return { startsAt, endsAt };
 }
 
 async function main(): Promise<void> {
@@ -472,8 +482,10 @@ async function main(): Promise<void> {
     for (const finding of findings) {
       process.stdout.write(`  ${finding.pack.padEnd(24)} ${finding.check.padEnd(24)} ${finding.detail}\n`);
     }
-    process.stdout.write('\nNo database write was attempted. These are the database\'s own predicates,\n');
-    process.stdout.write('so publishing would fail inside the transaction with the same result.\n');
+    process.stdout.write('\nNo database write was attempted. Most of these mirror the database\'s own\n');
+    process.stdout.write('predicates, so publishing would fail inside the transaction with the same\n');
+    process.stdout.write('result. DEFECTIVE_ART does not: the database would accept that bundle, and\n');
+    process.stdout.write('the picture is what a player cannot play.\n');
     process.exitCode = 1;
     return;
   }
@@ -486,25 +498,19 @@ async function main(): Promise<void> {
   const ruleset = parseRuleset(readJson(root, 'config/ruleset.v1.json'));
   const hint = parseHintPolicyV1WithHash(readJson(root, 'config/hint-policy.v1.json'));
   const weekly = parseWeeklyCompetitionV1WithHash(readJson(root, 'config/weekly-competition.v1.json'));
-  const catalog = parsePetCatalog(readJson(root, 'config/pet-catalog.v1.json'));
   const seasonId = process.env['LEARNING_PUBLISH_SEASON_ID']?.trim() || randomUUID();
-  const startsAt = process.env['LEARNING_PUBLISH_SEASON_STARTS_AT']?.trim() || new Date(Date.now() - 3_600_000).toISOString();
-  // `weekly_seasons_check` requires exactly seven days; the window is not a free parameter.
-  const endsAt = new Date(Date.parse(startsAt) + 7 * 86_400_000).toISOString();
 
   const client = new Client({ connectionString: databaseUrl });
   await client.connect();
   try {
     await client.query('begin');
-    if (process.argv.includes('--seed-catalog')) {
-      assertLoopback(databaseUrl);
-      await seedPetCatalogRevision(client, root);
-    }
     const published = await publishBundles(client, bundles);
     const categories = [...new Set(published.map((entry) => entry.category))].sort();
-    const perCategory = published.length / categories.length;
-    if (perCategory !== CHALLENGES_PER_CATEGORY) {
-      throw new TypeError(`weekly_seasons requires exactly ${CHALLENGES_PER_CATEGORY} challenges per category; got ${perCategory}`);
+    if (categories.length !== 1 || categories[0] !== 'ENGLISH') {
+      throw new TypeError(`a casual season opens ENGLISH only; got ${categories.join(', ')}`);
+    }
+    if (published.length !== CHALLENGES_PER_CATEGORY) {
+      throw new TypeError(`a season pins exactly ${CHALLENGES_PER_CATEGORY} challenges; got ${published.length}`);
     }
 
     // The policy row must list every category the schema knows, even when a season opens only
@@ -515,21 +521,13 @@ async function main(): Promise<void> {
        on conflict do nothing`,
       [weekly.canonicalHash, rulesetHash(ruleset), hint.canonicalHash, ATTEMPT_TTL_SECONDS, POLICY_CATEGORIES, CHALLENGES_PER_CATEGORY],
     );
-    await client.query(
-      `insert into private.weekly_seasons(season_id,starts_at,ends_at,timezone_name,ruleset_hash,hint_policy_hash,competition_policy_hash,attempt_ttl_seconds,enabled_categories,challenges_per_category,pet_catalog_revision,pet_catalog_hash,response_body)
-       values($1::uuid,$2::timestamptz,$3::timestamptz,'Asia/Seoul',$4,$5,$6,$7,$8::text[],$9,$10,$11,'{}'::jsonb)`,
-      [seasonId, startsAt, endsAt, rulesetHash(ruleset), hint.canonicalHash, weekly.canonicalHash, ATTEMPT_TTL_SECONDS, categories, CHALLENGES_PER_CATEGORY, catalog.catalogRevision, catalog.catalogHash],
-    );
-    for (const category of categories) {
-      const inCategory = published.filter((entry) => entry.category === category);
-      for (const [index, entry] of inCategory.entries()) {
-        await client.query(
-          `insert into private.weekly_challenge_pins(season_id,category,challenge_ordinal,content_revision_id,content_hash)
-           values($1::uuid,$2,$3,$4::uuid,$5)`,
-          [seasonId, category, index + 1, entry.contentRevisionId, entry.contentHash],
-        );
-      }
-    }
+    const { startsAt, endsAt } = await createCasualSeason(client, {
+      seasonId,
+      rulesetHash: rulesetHash(ruleset),
+      hintPolicyHash: hint.canonicalHash,
+      competitionPolicyHash: weekly.canonicalHash,
+      revisionIds: published.map((entry) => entry.contentRevisionId),
+    });
     await client.query('commit');
     process.stdout.write(`\npublished ${published.length} revisions and pinned season ${seasonId}\n`);
     process.stdout.write(`${JSON.stringify({
@@ -537,12 +535,11 @@ async function main(): Promise<void> {
       startsAt,
       endsAt,
       categories,
-      challengesPerCategory: perCategory,
+      challengesPerCategory: CHALLENGES_PER_CATEGORY,
       rulesetHash: rulesetHash(ruleset),
       hintPolicyHash: hint.canonicalHash,
       competitionPolicyHash: weekly.canonicalHash,
-      petCatalogRevision: catalog.catalogRevision,
-      petCatalogHash: catalog.catalogHash,
+      petCatalog: null,
       revisions: published,
     }, null, 2)}\n`);
   } catch (error) {
