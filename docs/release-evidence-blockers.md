@@ -14,7 +14,7 @@ The Play-specific ordering, including which of these have a calendar cost, is in
 | operator identity, contact, retention and child-directed decision | BLOCKED_EXTERNAL | human decisions recorded in `docs/legal/operator-identity.v1.json`; `pnpm portal:publishable` lists what is still `UNRESOLVED`. An agent must not guess these |
 | public privacy-policy and data-deletion URLs | BLOCKED_EXTERNAL | pages exist in `apps/account-portal`; the deployment origin does not. Play requires both to be reachable without installing or signing in |
 | production Supabase project and API host | BLOCKED_EXTERNAL | no cloud project is linked (`supabase/.temp/project-ref` absent) and `apps/mobile/.env` points at the emulator loopback. An installed build reaches no server |
-| approved five-pack published to production DB and pinned to a casual season | BLOCKED_EXTERNAL | without it the app installs but learning fails closed |
+| approved five-pack published to production DB and pinned to a casual season | **BLOCKED_REPOSITORY** | not waiting on infrastructure. `tools/content/publish-learning-season.ts` now performs this step and is proven end to end locally, but three repository defects block the production run — see [Casual season publication](#casual-season-publication) below |
 | exact Node 24.18.0 / pnpm 11.13.0 clean-checkout verify | BLOCKED_EXTERNAL | run in matching provisioned environment; do not weaken runtime gate |
 | Next production build and mobile client bundle | BLOCKED_EXTERNAL | signed reproducible build artifacts |
 | production DB, backup, PITR and restore | BLOCKED_EXTERNAL | operator drill and approval |
@@ -23,8 +23,83 @@ The Play-specific ordering, including which of these have a calendar cost, is in
 | catalog learning content rights and education approval (working catalog is 79 DRAFT / publishBlocked entries; not a nine-pack) | BLOCKED_EXTERNAL | authorized human review using `content/learning/review-checklist.md`; local visual-delta PASS is not publication approval |
 | development gameplay | LOCAL_CONTRACT_ONLY | development-only instructions are in `content/learning/PLAY.md`; production mode remains fail-closed because local bundles contain private solutions |
 | Sentry/PostHog delivery, redaction and deletion | BLOCKED_EXTERNAL | production-like provider evidence. Note the app currently ships no telemetry SDK at all, and `tests/contracts/data-safety-claims.test.ts` fails if one is added without updating the Data safety declaration |
-| account-deletion disposition approval | BLOCKED_EXTERNAL | `docs/legal/data-disposition.v1.json` is `PROPOSED`. The worker exists and refuses to dispose of anything until a named person approves it, so today a request still blocks access and removes nothing. Approving it is a human decision about 24 DELETE, 9 REDACT and 2 RETAIN tables |
+| account-deletion disposition approval | CLOSED 2026-08-27 | `docs/legal/data-disposition.v1.json` is `APPROVED` (commit `f41efc8`). The worker will now dispose once deployed |
 | privacy worker deployment | BLOCKED_EXTERNAL | needs its own database login in `privacy_worker` and its own service-role key (`apps/server/.env.privacy-worker.example`). It must not share the API's credentials, and no environment to deploy it to exists yet |
 | target-region 200-match/400-socket 30-minute soak | BLOCKED_EXTERNAL | server vertical slice and load environment |
 
 Deterministic repository evidence is `LOCAL_CONTRACT_ONLY`, never production capacity or telemetry evidence.
+
+## Casual season publication
+
+Measured 2026-08-27 against a local Supabase stack with the full migration set, by running
+`tools/content/publish-learning-season.ts` and then driving an attempt through the database
+functions directly. Everything below is a repository defect, not an infrastructure wait.
+
+### The game itself works
+
+Proven for the first time, on `en-clay-bakery`:
+
+| step | result |
+| --- | --- |
+| `publish_content_revision_v1` × 5 | 5 revisions `PUBLISHED` |
+| season pinned with the API's own ruleset/hint/competition/catalog hashes | accepted |
+| `start_learning_attempt_v1` | `OPEN` |
+| `attest_learning_assets_ready_owned_v1` | clock started |
+| `record_learning_tap_v1` × 10 | `HIT` ×10, `wrongTaps: 0`, `differenceCount: 10` |
+| tap on a fabricated objective id | `OBJECTIVE_NOT_FOUND` |
+| `commit_learning_attempt_owned_v1` | `COMPLETED_VERIFIED`, score 69 |
+
+Score 69 is `7×6 + 3×9`, the value RULE-030 approves. The board clears, which is exactly
+what the pre-rework packs could not do.
+
+### 1. No production path to a pinned season
+
+`private.weekly_seasons.pet_catalog_revision` is a foreign key into
+`private.pet_catalog_revisions`. The only function that writes that table is
+`private.publish_economy_bundle_v1`, which opens with
+
+```sql
+-- This publisher is deliberately test-only until a product approval workflow exists.
+if economy->>'approvalDecisionId'<>'TEST-DECISION' ... raise 'APPROVED_TEST_FIXTURE_REQUIRED'
+```
+
+So **no casual season can be created in production at all** — not for want of a tool, but
+because the schema's only route to a row it requires refuses non-fixture input. A production
+catalog publisher has to exist, or casual seasons have to stop depending on a pet catalog
+revision. Closing this is a schema change, and it blocks play on any deployed environment.
+
+### 2. The five approved packs cannot be published
+
+`publish_content_revision_v1` enforces the generated ruleset predicate — exactly
+`content.normalDifferences` NORMAL and `content.hardDifferences` HARD, today 7 and 3. The
+bundles in `content/learning/approvals/` carry fewer, and one HARD each:
+
+| pack | differences | NORMAL | HARD |
+| --- | --- | --- | --- |
+| en-3d-harmony | 9 | 8 | 1 |
+| en-3d-creativity | 8 | 7 | 1 |
+| en-architecture-studio | 8 | 7 | 1 |
+| en-3d-serenity | 6 | 5 | 1 |
+| en-resilience | 5 | 4 | 1 |
+
+Their `privateSolution` also omits `privateSolutionHash`, which the database requires as a
+key. Both faults are structural: the artwork has as many differences as it has, and loosening
+the derivation thresholds trades real differences for texture noise rather than finding more.
+
+Twenty of the 79 packs do derive ≥10 differences, and five derive exactly 10 —
+`en-serendipity-garden`, `en-synchronicity-clock`, `en-clay-bakery`, `en-papercut-forest`,
+`en-clay-family`. They are runtime-complete: `hintLadder` is absent, but nothing in the server
+reads it (hints are revealed from `canonicalAnswer` inside Postgres) and the database does not
+accept the field. Swapping the shipped five to those needs a product-owner rights and
+education approval, not a ruleset change and not new artwork.
+
+### 3. Config pairs that cannot validate together
+
+- `config/economy.v1.json` names `catalogRevision: "catalog-v1"`; `config/pet-catalog.v1.json`
+  is on `catalog-v2-pet-admission-draft`. `publish_economy_bundle_v1` requires the pair to
+  agree, so the two DRAFT files can never be published as a bundle as written.
+- The migrated database already holds `catalog-v2-pet-admission-draft` with hash
+  `e3bb27e8…`, while the repository config hashes to `0b97e563…`. That revision name can
+  therefore never be republished from the repository's own catalog.
+- Four of the five ten-difference drafts omit `category` from `publicContent` and carry it
+  only on the manifest entry, which the database rejects as `PUBLIC_CONTENT_SHAPE_INVALID`.

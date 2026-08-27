@@ -106,6 +106,22 @@ Play Console에는 이 두 주소를 넣는다.
 
 6번이 빠지면 설치는 되지만 **학습이 시작되지 않는다** (fail-closed).
 
+6번을 수행하는 도구는 `tools/content/publish-learning-season.ts`다. 승인 번들을 게시하고
+시즌을 pin하며, DB에 손대기 전에 데이터베이스와 같은 술어로 preflight를 돌려 어느 팩이
+무엇 때문에 걸리는지 이름으로 알려준다.
+
+```bash
+LEARNING_PUBLISH_DATABASE_URL=... npx tsx tools/content/publish-learning-season.ts
+```
+
+**다만 지금은 프로덕션에서 6번을 끝낼 수 없다.** 2026-08-27 실측으로 세 가지가 막고 있고,
+전부 저장소 결함이지 인프라 대기가 아니다 — 시즌이 참조하는 펫 카탈로그 리비전을 쓸 수 있는
+함수가 테스트 픽스처 전용이고, 승인된 5개 팩이 룰셋의 차이점 개수를 만족하지 못하며,
+economy와 pet-catalog 설정이 서로 다른 카탈로그를 가리킨다. 자세한 것은
+[`release-evidence-blockers.md`](../release-evidence-blockers.md#casual-season-publication).
+
+로컬에서는 게임 전체 루프가 통과하는 것을 확인했다(게시 → 시작 → 차이점 10개 → 완료).
+
 ### 5. App Signing 지문 받기
 
 첫 AAB를 업로드한 뒤 Play Console → Release → Setup → App signing에서 SHA-256을 복사해
@@ -137,8 +153,8 @@ Play Console에는 이 두 주소를 넣는다.
 | 릴리스 CI와 증거 자동화 | R8 |
 | SBOM, bundletool 검증, 의존성 lock | R6 잔여 |
 
-계정 삭제 worker는 구현됐다. 다만 **`docs/legal/data-disposition.v1.json`이 `PROPOSED`인 동안
-아무것도 지우지 않는다** — 승인이 유일하게 남은 스위치이고 사람이 눌러야 한다. 절차는
+계정 삭제 worker는 구현됐고, `docs/legal/data-disposition.v1.json`은 2026-08-27에
+`APPROVED`가 됐다(`f41efc8`). 이제 남은 것은 worker를 배포할 환경뿐이다. 절차는
 [`account-deletion-worker.md`](account-deletion-worker.md).
 
 `pnpm portal:publishable`과 이 표가 비면 제출 가능한 상태다. 그전까지는 아니다.
