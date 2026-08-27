@@ -12,6 +12,7 @@
 | 그 계획의 정오표·에이전트 정합 | [`docs/superpowers/plans/2026-08-24-production-readiness-gap-and-agent-workflow-improvement-plan.md`](docs/superpowers/plans/2026-08-24-production-readiness-gap-and-agent-workflow-improvement-plan.md) |
 | Play 출시까지 남은 것 | [`docs/superpowers/plans/2026-08-26-google-play-production-readiness-remediation-plan.md`](docs/superpowers/plans/2026-08-26-google-play-production-readiness-remediation-plan.md) |
 | 저장소 구조 실측 | [`research.md`](research.md) — 비규범 조사 스냅샷 |
+| 다음 앱에도 그대로 쓰는 출시 교훈 | [`open-manual.md`](open-manual.md) — 프로젝트 무관. 사건은 겪는 중에 적는다 |
 
 루트 `13_CODING_AGENT_PROMPTS.md`와 Step 0–8은 역사 `DOC-*` 목록이다. 구현 순서로 쓰지 않는다. Grok `/execute-plan` 병렬 PR DAG도 쓰지 않는다.
 
